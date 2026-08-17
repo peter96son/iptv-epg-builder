@@ -1,1 +1,75 @@
-# iptv-epg-builder
+# IPTV EPG Builder
+
+Personal XMLTV/EPG builder for a large IPTV playlist, optimized first for Russian, Ukrainian, Belarusian, English, German and Dutch channels.
+
+## What it does
+
+- downloads the current M3U playlist at every run;
+- downloads multiple XMLTV sources;
+- keeps a programme only when the channel has **fresh `<programme>` data**;
+- prefers the provider's own `tvg-id`, then researched aliases, then safe exact-name matching;
+- treats dummy IDs such as `no_epg_*` as missing;
+- supports manually researched channel families such as Magic, KLI, Velilla, BCU, CPS and NEXT through `data/aliases.csv`;
+- converts XMLTV timestamps to `America/Los_Angeles`, automatically handling PDT/PST;
+- writes a compact `output/epg.xml.gz` for UHF;
+- writes `status.json`, `mapping.csv` and `unmatched.csv`;
+- refuses to overwrite a healthy guide if the programme count collapses by more than the configured safety threshold.
+
+## Repository structure
+
+```text
+.github/workflows/update.yml  GitHub Actions scheduler
+src/builder.py                production orchestration
+src/matcher.py                safe channel matching
+src/xmltv.py                  XMLTV indexing/streaming
+src/playlist.py               M3U parser
+src/config.py                 config loaders
+src/utils.py                  download/time/name helpers
+src/research.py               future research assistant
+data/sources.json             XMLTV sources
+data/aliases.csv              manually verified mappings
+data/tvg_id_fixes.csv         fixes for conflicting/broken provider IDs
+data/language_scope.json      language research scope
+data/priorities.json          priorities and safety thresholds
+output/                       generated guide and reports
+run.py                        entry point
+```
+
+## Required GitHub secret
+
+Create repository secret:
+
+`PLAYLIST_URL`
+
+Its value is your private IPTV playlist URL. Do **not** put the URL into a public file.
+
+Path in GitHub:
+
+`Settings → Secrets and variables → Actions → New repository secret`
+
+## First run
+
+Open:
+
+`Actions → Update EPG → Run workflow`
+
+After the run, inspect:
+
+- `output/status.json`
+- `output/mapping.csv`
+- `output/unmatched.csv`
+- `output/epg.xml.gz`
+
+The useful number is `added_by_fallback_channels`, not the number of channels that merely have an ID.
+
+## UHF
+
+After a successful run, use the raw GitHub URL of:
+
+`output/epg.xml.gz`
+
+as the external EPG source in UHF.
+
+## Safety rule
+
+A channel is never considered covered just because an XMLTV `<channel>` entry exists. It must have fresh programme entries in the configured date window.
