@@ -90,6 +90,7 @@ def build():
     emitted_channel_ids = set()
     mappings = []
     source_stats = []
+    loaded_sources = []
     confidence_counts = defaultdict(int)
     baseline_matched = 0
     baseline_groups = defaultdict(int)
@@ -123,6 +124,7 @@ def build():
                 stale_if_error_seconds=int(source_cfg.get("stale_if_error_seconds", 0)),
             )
             source = XMLTVSource(name, data).index()
+            loaded_sources.append((source_index, source_cfg, name, source))
         except Exception as exc:
             print(f"[{name}] FAILED: {exc}", flush=True)
             source_stats.append({"source": name, "status": "failed", "matched": 0, "error": str(exc)})
@@ -131,7 +133,7 @@ def build():
         matches = {}
         by_source_id = defaultdict(list)
         for i in candidates:
-            sid, method, confidence = matcher.match(channels[i], source, source_cfg)
+            sid, method, confidence = matcher.match(channels[i], source, source_cfg, allow_family=False)
             if sid:
                 matches[i] = (sid, method, confidence)
                 by_source_id[sid].append(i)
@@ -197,6 +199,97 @@ def build():
             "avg_confidence": round(sum(source_confidences) / len(source_confidences), 1) if source_confidences else 0.0,
         })
         print(f"[{name}] matched={len(matches)} remaining={len(unresolved)}", flush=True)
+
+    # v3.1 recovery: run regional family matching only AFTER every legacy
+    # v2.1-compatible source has had its chance. This makes family matching
+    # additive: it can recover an otherwise-unmatched channel but can never
+    # steal it from a later exact ID/name/alias match.
+    family_recovered_total = 0
+    family_recovered_by_source = defaultdict(int)
+    for source_index, source_cfg, name, source in loaded_sources:
+        candidates = [i for i in unresolved if _group_allowed(channels[i].group, source_cfg)]
+        if not candidates:
+            continue
+
+        matches = {}
+        by_source_id = defaultdict(list)
+        for i in candidates:
+            sid, method, confidence = matcher.match_family(channels[i], source, source_cfg)
+            if sid:
+                matches[i] = (sid, method, confidence)
+                by_source_id[sid].append(i)
+        if not matches:
+            continue
+
+        # Determine output IDs and emit channel metadata for any genuinely new
+        # XMLTV ID. Shared HD/SD variants may intentionally use an existing ID.
+        output_ids_for_source_id = defaultdict(list)
+        for sid, indices in by_source_id.items():
+            for i in indices:
+                ch = channels[i]
+                out_id = id_fixes.get(ch.name) or (ch.tvg_id if is_real_tvg_id(ch.tvg_id) else sid)
+                if out_id not in output_ids_for_source_id[sid]:
+                    output_ids_for_source_id[sid].append(out_id)
+                if out_id not in emitted_channel_ids:
+                    tv.append(_clone_channel(source.channels[sid], out_id, ch.name))
+                    emitted_channel_ids.add(out_id)
+
+        # Only append schedule data for output IDs that do not already have a
+        # usable schedule from a stronger legacy match.
+        ids_needing_programmes = {
+            sid: [out_id for out_id in out_ids if usable_programme_counts_by_output.get(out_id, 0) == 0]
+            for sid, out_ids in output_ids_for_source_id.items()
+        }
+        wanted_source_ids = {sid for sid, out_ids in ids_needing_programmes.items() if out_ids}
+        if wanted_source_ids:
+            for programme in source.fresh_programmes(wanted_source_ids):
+                sid = programme.get("channel", "")
+                for out_id in ids_needing_programmes.get(sid, []):
+                    p = deepcopy(programme)
+                    p.set("channel", out_id)
+                    for attr in ("start", "stop"):
+                        if p.get(attr):
+                            p.set(attr, convert_xmltv_timestamp(p.get(attr), timezone_name))
+                    programme_counts_by_output[out_id] += 1
+                    if xmltv_programme_is_usable(programme.get("start", ""), programme.get("stop", "")):
+                        usable_programme_counts_by_output[out_id] += 1
+                    tv.append(p)
+                    programme_count += 1
+
+        accepted = 0
+        for i, (sid, method, confidence) in matches.items():
+            ch = channels[i]
+            output_tvg_id = id_fixes.get(ch.name) or (ch.tvg_id if is_real_tvg_id(ch.tvg_id) else sid)
+            if usable_programme_counts_by_output.get(output_tvg_id, 0) <= 0:
+                continue
+            final_groups[ch.group] += 1
+            mappings.append({
+                "playlist_name": ch.name,
+                "playlist_tvg_id": ch.tvg_id,
+                "output_tvg_id": output_tvg_id,
+                "group": ch.group,
+                "region": region_for_group(ch.group),
+                "source": name,
+                "source_id": sid,
+                "method": method,
+                "confidence": confidence,
+                "_channel_index": i,
+            })
+            confidence_counts[str(confidence)] += 1
+            unresolved.discard(i)
+            accepted += 1
+
+        if accepted:
+            family_recovered_total += accepted
+            family_recovered_by_source[name] += accepted
+            print(f"[{name}] family-recovered={accepted} remaining={len(unresolved)}", flush=True)
+
+    if family_recovered_by_source:
+        for stat in source_stats:
+            recovered = family_recovered_by_source.get(stat.get("source", ""), 0)
+            if recovered:
+                stat["family_recovered"] = recovered
+                stat["matched"] = int(stat.get("matched", 0)) + recovered
 
     # v1.9 post-build validation. A mapping is publishable only when the
     # final output ID actually received a current/upcoming programme. This is
@@ -301,7 +394,7 @@ def build():
         }
 
     status = {
-        "builder_version": "3.0",
+        "builder_version": "3.1",
         "generated_at": datetime.now(timezone).isoformat(),
         "timezone": timezone_name,
         "playlist_channels": len(channels),
@@ -313,6 +406,8 @@ def build():
         "postbuild_gap_channels": len(postbuild_gaps),
         "region_aware_matching": True,
         "regional_family_matching": True,
+        "regional_family_matching_mode": "second-pass-only",
+        "family_recovered_channels": family_recovered_total,
         "confidence_counts": dict(sorted(confidence_counts.items(), key=lambda kv: -int(kv[0]))),
         "unmatched_family_count": unmatched_family_count,
         "russian_cis_unmatched_candidates": russian_cis_report.get("candidate_channels", 0),

@@ -30,7 +30,7 @@ class Matcher:
     def _result(self, sid: str, method: str):
         return sid, method, CONFIDENCE[method]
 
-    def match(self, channel, source, source_cfg: dict | None = None):
+    def match(self, channel, source, source_cfg: dict | None = None, *, allow_family: bool = True):
         source_cfg = source_cfg or {}
         channel_region = region_for_group(channel.group)
         source_regions = source_cfg.get("regions") or source_cfg.get("region_scope") or []
@@ -64,7 +64,10 @@ class Matcher:
                 return self._result(next(iter(ids)), "name-region")
             return self._result(next(iter(ids)), "name")
 
-        # 4) v3.0 regional family matching. This is intentionally available
+        if not allow_family:
+            return None, None, 0
+
+        # 4) regional family matching. This is intentionally available
         # ONLY for brands known to have country-specific schedules and ONLY
         # inside a source whose declared region matches the provider group.
         # It handles names such as "Discovery Science HD RO" vs
@@ -80,4 +83,26 @@ class Matcher:
                 if len(ids) == 1:
                     return self._result(next(iter(ids)), "family-region")
 
+        return None, None, 0
+
+    def match_family(self, channel, source, source_cfg: dict | None = None):
+        """Run only the conservative region-aware family fallback.
+
+        v3.1 uses this in a second pass after all v2.1-compatible matching has
+        finished, so a family guess can never steal a channel from a legacy
+        exact/ID/alias match in a later source.
+        """
+        source_cfg = source_cfg or {}
+        channel_region = region_for_group(channel.group)
+        source_regions = source_cfg.get("regions") or source_cfg.get("region_scope") or []
+        for candidate in (channel.name, channel.tvg_name):
+            if not candidate or not is_regional_sensitive(candidate):
+                continue
+            if not regions_compatible(channel_region, source_regions):
+                continue
+            families = family_candidates(candidate, channel_region)
+            for family in families[1:]:
+                ids = source.names.get(family, set())
+                if len(ids) == 1:
+                    return self._result(next(iter(ids)), "family-region")
         return None, None, 0

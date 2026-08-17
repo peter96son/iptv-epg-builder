@@ -174,3 +174,7 @@ Do not treat these figures as permanent. They are a historical checkpoint; use e
 - Persist only explicitly enabled flaky-source caches. A cached XMLTV may be used only after all live retries fail and only within the configured stale-if-error window.
 - Cached data must still pass the normal fresh-programme gate; cache fallback never turns stale schedules into valid coverage.
 - Generated `output/` files are never shipped in release ZIPs; GitHub Actions owns them.
+
+## v3.1 source-order safety
+
+Never improve coverage by allowing a heuristic/family match to take precedence over an exact or manually verified match available from a later source. Heuristic recovery is a second-pass operation over unresolved channels only. Coverage regressions versus a known-good build must be treated as failures to investigate, not accepted as the cost of a new matching feature.

@@ -183,3 +183,8 @@ The normal player URL remains `/tv`. The `fresh=1` query is for automated diagno
 ## v3.0
 
 The builder now supports conservative regional-family matching for international brands, records a confidence score for every mapping, and can persist an explicitly enabled stale-if-error cache for unstable XMLTV sources. Release ZIPs do not contain generated `output/` files.
+
+## v3.1 recovery behavior
+
+v3.1 preserves the v3.x confidence/region architecture but makes regional-family matching second-pass-only. All v2.1-compatible alias/ID/exact-name matching is completed across every source first; family recovery then runs only for channels that remain unmatched.
+

@@ -97,3 +97,11 @@ def test_regional_family_suffix_rejects_wrong_country():
         group="Румыния",
     )
     assert matcher.match(ch, src, {"regions": ["GB"]}) == (None, None, 0)
+
+
+def test_regional_family_can_be_disabled_during_legacy_pass():
+    matcher = Matcher([])
+    src = fake_source("epgshare-RO", "disc.ro", "Discovery Science")
+    ch = PlaylistChannel("Discovery Science HD RO", "", "Discovery Science HD RO", "Румыния")
+    assert matcher.match(ch, src, {"regions": ["RO"]}, allow_family=False) == (None, None, 0)
+    assert matcher.match_family(ch, src, {"regions": ["RO"]}) == ("disc.ro", "family-region", 92)

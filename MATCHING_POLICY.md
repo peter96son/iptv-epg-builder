@@ -83,3 +83,9 @@ The Worker diagnostic request uses `/tv?fresh=1` to bypass only the Cloudflare p
 - Confidence is recorded for every mapping: alias 100, exact ID 99, exact regional name 96, regional family 92, ordinary exact normalized name 90.
 - Lower-confidence methods must never override a higher-confidence researched alias.
 - `Discovery Science HD RO` may resolve to `Discovery Science` in an RO feed; it must not resolve to the same display name in a GB/NL/PL feed.
+
+## v3.1 recovery rule
+
+Regional-family matching is strictly additive. The builder must first run the full legacy matching chain used by v2.1 (verified alias -> exact provider tvg-id -> exact normalized name with region checks where required) across every configured source. Only after all legacy sources have had a chance may the builder run `family-region` recovery on the still-unmatched channels.
+
+A family match must never preempt, replace, or block a later legacy exact match. If a family candidate does not produce a current/upcoming programme in the final XMLTV output, it must remain unmatched.

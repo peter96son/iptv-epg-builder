@@ -235,3 +235,7 @@ v2.0 also adds `teleguide-ru` as another Russian/CIS recovery source. It is a fa
 - Add persisted stale-if-error XMLTV cache for explicitly configured unstable sources (initially Teleguide).
 - Keep Worker delivery audit and post-build fresh-programme validation mandatory.
 - Release archives exclude `output/` to avoid conflicts with GitHub Actions generated files.
+
+### v3.1 recovery
+
+v3.0 introduced regional-family matching and confidence scores, but a family match could occur too early in the source order and prevent a later v2.1-compatible exact match. v3.1 changes the execution model to two passes: all legacy matching first, regional-family matching second on unresolved channels only. The goal is to preserve the v2.1 coverage floor while retaining v3.x diagnostics and conservative region-aware recovery.
