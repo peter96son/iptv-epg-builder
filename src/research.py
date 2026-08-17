@@ -16,7 +16,7 @@ FAMILY_RULES = [
     ("KLI", re.compile(r"^(?:KLI|KLI\s*MEDIA)(?:\s|$)", re.I)),
     ("Play-X", re.compile(r"^(?:Play[- ]?X)(?:\s|$)", re.I)),
     ("BCU", re.compile(r"^(?:BCU|BCU\s*Media)(?:\s|$)", re.I)),
-    ("Joker", re.compile(r"^Joker(?:\s|$)", re.I)),
+    ("Joker", re.compile(r"^(?:Joker(?::|\s|$)|jk[_-])", re.I)),
     ("Clarity", re.compile(r"^Clarity(?:4K)?(?:\s|$)", re.I)),
     ("CPS", re.compile(r"^CPS(?:\s|$)", re.I)),
     ("NEXT", re.compile(r"^NEXT(?:\s|$)", re.I)),
@@ -70,6 +70,7 @@ def build_unmatched_family_reports(unmatched: list[dict], output_dir: Path) -> d
             "playlist_name": row.get("playlist_name", ""),
             "playlist_tvg_id": row.get("playlist_tvg_id", ""),
             "group": row.get("group", ""),
+            "region": row.get("region", ""),
         }
         rows.append(item)
         by_family[family].append(item)
@@ -98,7 +99,7 @@ def build_unmatched_family_reports(unmatched: list[dict], output_dir: Path) -> d
     write_csv(
         output_dir / "unmatched-families.csv",
         rows,
-        ["family", "playlist_name", "playlist_tvg_id", "group"],
+        ["family", "playlist_name", "playlist_tvg_id", "group", "region"],
     )
 
     md = [

@@ -17,6 +17,7 @@ from .state import load_json as load_state_json, save_json
 from .playlist_diff import snapshot_channels, compare_snapshots
 from .dashboard import build_markdown, build_html
 from .research import build_unmatched_family_reports
+from .region import region_for_group
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "output"
@@ -94,6 +95,8 @@ def build():
     programme_count = 0
 
     for source_index, source_cfg in enumerate(sources):
+        if source_cfg.get("enabled", True) is False:
+            continue
         url = _source_url(source_cfg)
         if not url:
             continue
@@ -114,7 +117,7 @@ def build():
         matches = {}
         by_source_id = defaultdict(list)
         for i in candidates:
-            sid, method = matcher.match(channels[i], source)
+            sid, method = matcher.match(channels[i], source, source_cfg)
             if sid:
                 matches[i] = (sid, method)
                 by_source_id[sid].append(i)
@@ -160,6 +163,7 @@ def build():
                 "playlist_tvg_id": ch.tvg_id,
                 "output_tvg_id": output_tvg_id,
                 "group": ch.group,
+                "region": region_for_group(ch.group),
                 "source": name,
                 "source_id": sid,
                 "method": method,
@@ -197,6 +201,7 @@ def build():
         "playlist_name": channels[i].name,
         "playlist_tvg_id": channels[i].tvg_id,
         "group": channels[i].group,
+        "region": region_for_group(channels[i].group),
     } for i in sorted(unresolved)]
 
     family_report = build_unmatched_family_reports(unmatched, OUTPUT)
@@ -234,7 +239,7 @@ def build():
         }
 
     status = {
-        "builder_version": "1.5",
+        "builder_version": "1.6",
         "generated_at": datetime.now(timezone).isoformat(),
         "timezone": timezone_name,
         "playlist_channels": len(channels),
@@ -242,6 +247,7 @@ def build():
         "final_matched_channels": matched_total,
         "added_by_fallback_channels": matched_total - baseline_matched,
         "unmatched_channels": len(unresolved),
+        "region_aware_matching": True,
         "unmatched_family_count": unmatched_family_count,
         "top_unmatched_families": top_unmatched_families,
         "programmes": programme_count,
@@ -343,9 +349,9 @@ def build():
 
     write_status(status_path, status)
     write_csv(OUTPUT / "mapping.csv", mappings,
-              ["playlist_name", "playlist_tvg_id", "output_tvg_id", "group", "source", "source_id", "method"])
+              ["playlist_name", "playlist_tvg_id", "output_tvg_id", "group", "region", "source", "source_id", "method"])
     write_csv(OUTPUT / "unmatched.csv", unmatched,
-              ["playlist_name", "playlist_tvg_id", "group"])
+              ["playlist_name", "playlist_tvg_id", "group", "region"])
 
 
     print(json.dumps(status, ensure_ascii=False, indent=2), flush=True)

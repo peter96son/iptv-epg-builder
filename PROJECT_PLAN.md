@@ -154,3 +154,14 @@ Worker `PLAYLIST_URL` stays private in Cloudflare. The public GitHub repository 
 For unmatched channels in protected movie groups (`Кино`, `Кинозалы`, `Кино 4K`, `Кинозалы UA`), Worker removes `tvg-id` and `tvg-name` so players cannot attach unrelated EPG data. It also removes dummy `no_epg_*` IDs from unmatched channels globally.
 
 Core rule: **No EPG is better than a false EPG match.**
+
+## v1.6 region-aware matching
+
+Channel display names are not globally unique. Matching must use provider group/country context.
+
+- Infer region from IPTV.online provider group where possible.
+- Regional-sensitive brands (Discovery, Eurosport, Viasat, HBO, Nickelodeon, Disney, MTV, BBC/ITV/RAI/RTL, beIN, etc.) may only auto-match by name against a source with a compatible `regions` scope.
+- A global/unknown-region XMLTV source must not win a name-only match for these brands.
+- Manual aliases may carry `provider_group` and/or `region` constraints.
+- Preserve `No EPG` rather than assigning a plausible but wrong regional schedule.
+- See `MATCHING_POLICY.md`; it is persistent project instruction.

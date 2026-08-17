@@ -150,3 +150,7 @@ Cloudflare Worker v1.5.0 routes:
 - `/health` — health check.
 
 The Worker understands IPTV Online's separate `#EXTGRP:` lines and strips unsafe EPG hints from unmatched movie/FAST channels. Dummy `no_epg_*` IDs are also removed.
+
+## v1.6: region-aware EPG matching
+
+v1.6 treats the IPTV.online provider group as country/region context. International channel brands can no longer be matched by display name to an XMLTV source from the wrong country. Country-scoped EPGShare feeds were added for several previously weak regions. Persistent matching rules are in `MATCHING_POLICY.md`.
