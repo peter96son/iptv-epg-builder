@@ -1,13 +1,13 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-08-17T14:55:14.619237-07:00`
+- Generated: `2026-08-17T15:40:29.829251-07:00`
 - Playlist channels: **2700**
-- Baseline covered: **1611**
-- Final covered: **2127**
-- Added by fallbacks: **+516**
-- Unmatched: **573**
-- Programmes: **366838**
-- Movie coverage: **773/859** (+240)
+- Baseline covered: **1610**
+- Final covered: **2110**
+- Added by fallbacks: **+500**
+- Unmatched: **590**
+- Programmes: **362289**
+- Movie coverage: **771/859** (+238)
 
 ## Playlist changes
 
@@ -23,21 +23,21 @@
 |---|---:|---:|---:|---:|---:|
 | Кинозалы | 358 | 229 | 328 | +99 | 91.6% |
 | Кинозалы UA | 206 | 103 | 186 | +83 | 90.3% |
-| Спорт | 249 | 105 | 171 | +66 | 68.7% |
-| Кино | 213 | 142 | 190 | +48 | 89.2% |
+| Спорт | 249 | 105 | 160 | +55 | 64.3% |
+| Кино | 213 | 142 | 188 | +46 | 88.3% |
 | Музыкальные | 150 | 44 | 90 | +46 | 60.0% |
 | BE & NL | 90 | 32 | 51 | +19 | 56.7% |
 | Румыния | 85 | 45 | 64 | +19 | 75.3% |
-| UK | 27 | 10 | 24 | +14 | 88.9% |
+| UK | 27 | 9 | 24 | +15 | 88.9% |
 | Болгария | 49 | 13 | 27 | +14 | 55.1% |
-| Германия | 134 | 85 | 99 | +14 | 73.9% |
+| Германия | 134 | 85 | 98 | +13 | 73.1% |
 | Украинские | 119 | 70 | 83 | +13 | 69.7% |
 | Кино 4K | 82 | 59 | 69 | +10 | 84.1% |
 | Россия | 165 | 149 | 159 | +10 | 96.4% |
-| SkyLink | 20 | 8 | 17 | +9 | 85.0% |
 | Детские | 82 | 65 | 73 | +8 | 89.0% |
 | Италия | 13 | 0 | 8 | +8 | 61.5% |
 | Познавательные | 115 | 94 | 101 | +7 | 87.8% |
+| SkyLink | 20 | 8 | 14 | +6 | 70.0% |
 | Израиль | 78 | 29 | 35 | +6 | 44.9% |
 | Для взрослых | 33 | 20 | 24 | +4 | 72.7% |
 | Польша | 97 | 89 | 92 | +3 | 94.8% |
@@ -63,8 +63,8 @@
 
 | Source | Status | Added |
 |---|---|---:|
-| iptv-online-primary | ok | 1611 |
-| iptvx-noarch | ok | 189 |
+| iptv-online-primary | ok | 1610 |
+| iptvx-noarch | ok | 172 |
 | runigma-iptv | ok | 6 |
 | klimedia-dedicated | failed | 0 |
 | openbox-tsd | ok | 50 |
@@ -77,8 +77,8 @@
 | epgpw-sreda | ok | 0 |
 | epgpw-chestny-detektiv | ok | 0 |
 | epgpw-RU | ok | 8 |
-| epgpw-DE | ok | 3 |
-| epgpw-GB | ok | 2 |
+| epgpw-DE | ok | 5 |
+| epgpw-GB | ok | 3 |
 | epgpw-US | ok | 0 |
 | epgpw-CA | ok | 1 |
 | epgone-ru2 | ok | 8 |
@@ -110,7 +110,7 @@
 | epgshare-LT | ok | 0 |
 | epgshare-LV | ok | 2 |
 | teleguide-ru | failed | 0 |
-| gabbarit-current | ok | 80 |
+| gabbarit-current | ok | 78 |
 
 ## Top unmatched families
 
@@ -123,14 +123,14 @@
 | Clarity | 12 | 0 |
 | Other: VIP | 12 | 0 |
 | Other: RTL | 11 | 0 |
+| Other: DAZN | 8 | 0 |
 | Other: FIFA+ | 8 | 0 |
+| Other: SPORT | 7 | 0 |
 | Other: Pimple | 6 | 0 |
 | Other: TRT | 6 | 0 |
 | Other: НТВ | 6 | 6 |
 | BOX | 5 | 0 |
 | Joker | 5 | 0 |
-| Other: Viasat | 5 | 0 |
-| Other: Carac | 4 | 0 |
 
 ## Recent history
 
@@ -142,4 +142,5 @@
 | 2026-08-17T13:00:33.404753-07:00 | 2127 | 573 | 364461 |
 | 2026-08-17T13:29:13.220677-07:00 | 2127 | 573 | 366774 |
 | 2026-08-17T14:55:14.619237-07:00 | 2127 | 573 | 366838 |
+| 2026-08-17T15:40:29.829251-07:00 | 2110 | 590 | 362289 |
 
