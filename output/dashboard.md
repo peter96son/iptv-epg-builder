@@ -1,17 +1,17 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-08-16T21:52:52.886498-07:00`
+- Generated: `2026-08-17T07:06:06.365227-07:00`
 - Playlist channels: **2700**
-- Baseline covered: **1632**
-- Final covered: **2151**
-- Added by fallbacks: **+519**
-- Unmatched: **549**
-- Programmes: **318293**
-- Movie coverage: **761/859** (+222)
+- Baseline covered: **1637**
+- Final covered: **2155**
+- Added by fallbacks: **+518**
+- Unmatched: **545**
+- Programmes: **464083**
+- Movie coverage: **763/859** (+224)
 
 ## Playlist changes
 
-- New channels: **2700**
+- New channels: **0**
 - Removed channels: **0**
 - Renamed: **0**
 - Stream URL changed: **0**
@@ -25,13 +25,13 @@
 | Кинозалы UA | 206 | 105 | 187 | +82 | 90.8% |
 | Спорт | 249 | 110 | 172 | +62 | 69.1% |
 | Музыкальные | 150 | 45 | 92 | +47 | 61.3% |
-| Кино | 213 | 146 | 187 | +41 | 87.8% |
+| Кино | 213 | 146 | 189 | +43 | 88.7% |
 | BE & NL | 90 | 32 | 56 | +24 | 62.2% |
 | Германия | 134 | 85 | 106 | +21 | 79.1% |
-| SkyLink | 20 | 2 | 17 | +15 | 85.0% |
-| Румыния | 85 | 46 | 60 | +14 | 70.6% |
+| Румыния | 85 | 45 | 60 | +15 | 70.6% |
 | Израиль | 78 | 32 | 45 | +13 | 57.7% |
 | Украинские | 119 | 70 | 82 | +12 | 68.9% |
+| SkyLink | 20 | 8 | 19 | +11 | 95.0% |
 | Болгария | 49 | 14 | 25 | +11 | 51.0% |
 | Кино 4K | 82 | 59 | 69 | +10 | 84.1% |
 | Детские | 82 | 65 | 74 | +9 | 90.2% |
@@ -63,9 +63,9 @@
 
 | Source | Status | Added |
 |---|---|---:|
-| iptv-online-primary | ok | 1632 |
-| iptvx-noarch | ok | 203 |
-| runigma-iptv | ok | 3 |
+| iptv-online-primary | ok | 1637 |
+| iptvx-noarch | ok | 198 |
+| runigma-iptv | ok | 8 |
 | klimedia-dedicated | failed | 0 |
 | openbox-tsd | ok | 54 |
 | next-dedicated | ok | 0 |
@@ -84,7 +84,7 @@
 | epgpw-all-lite | ok | 7 |
 | skyhigh-fhd | ok | 0 |
 | skyhigh-hdr | ok | 0 |
-| gabbarit-current | ok | 144 |
+| gabbarit-current | ok | 143 |
 | anzo-top | ok | 1 |
 | epgshare-DE | ok | 0 |
 | epgshare-AT | ok | 3 |
@@ -103,4 +103,7 @@
 | Generated | Covered | Unmatched | Programmes |
 |---|---:|---:|---:|
 | 2026-08-16T21:52:52.886498-07:00 | 2151 | 549 | 318293 |
+| 2026-08-16T22:15:49.290427-07:00 | 2151 | 549 | 319677 |
+| 2026-08-17T01:28:37.781867-07:00 | 2152 | 548 | 459970 |
+| 2026-08-17T07:06:06.365227-07:00 | 2155 | 545 | 464083 |
 
