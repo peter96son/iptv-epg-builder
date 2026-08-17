@@ -1,17 +1,17 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-08-17T12:50:42.948691-07:00`
+- Generated: `2026-08-17T13:00:33.404753-07:00`
 - Playlist channels: **2700**
 - Baseline covered: **1611**
 - Final covered: **2127**
 - Added by fallbacks: **+516**
 - Unmatched: **573**
-- Programmes: **366774**
+- Programmes: **364461**
 - Movie coverage: **773/859** (+240)
 
 ## Playlist changes
 
-- New channels: **0**
+- New channels: **2700**
 - Removed channels: **0**
 - Renamed: **0**
 - Stream URL changed: **0**
@@ -109,7 +109,8 @@
 | epgshare-TR | ok | 1 |
 | epgshare-LT | ok | 0 |
 | epgshare-LV | ok | 2 |
-| gabbarit-current | ok | 81 |
+| teleguide-ru | ok | 2 |
+| gabbarit-current | ok | 79 |
 
 ## Top unmatched families
 
@@ -138,4 +139,5 @@
 | 2026-08-17T12:16:27.022931-07:00 | 2052 | 648 | 440429 |
 | 2026-08-17T12:34:02.183701-07:00 | 2127 | 573 | 366776 |
 | 2026-08-17T12:50:42.948691-07:00 | 2127 | 573 | 366774 |
+| 2026-08-17T13:00:33.404753-07:00 | 2127 | 573 | 364461 |
 
