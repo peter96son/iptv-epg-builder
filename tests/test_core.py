@@ -62,3 +62,30 @@ def test_programme_too_far_future_is_not_usable():
         _xmltv(now + timedelta(days=4, hours=1)),
         now=now,
     )
+
+
+def test_fetch_bytes_retries_incomplete_read(monkeypatch):
+    import http.client
+    from src import utils
+
+    class Headers(dict):
+        def get(self, key, default=None):
+            return super().get(key, default)
+
+    class GoodResponse:
+        headers = Headers({"Content-Length": "4"})
+        def __enter__(self): return self
+        def __exit__(self, *args): return False
+        def read(self): return b"good"
+
+    calls = {"n": 0}
+    def fake_urlopen(req, timeout=0):
+        calls["n"] += 1
+        if calls["n"] == 1:
+            raise http.client.IncompleteRead(b"bad", 10)
+        return GoodResponse()
+
+    monkeypatch.setattr(utils.urllib.request, "urlopen", fake_urlopen)
+    monkeypatch.setattr(utils.time, "sleep", lambda *_: None)
+    assert utils.fetch_bytes("https://example.test/a.gz", retries=2) == b"good"
+    assert calls["n"] == 2

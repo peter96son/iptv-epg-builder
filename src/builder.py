@@ -18,6 +18,7 @@ from .playlist_diff import snapshot_channels, compare_snapshots
 from .dashboard import build_markdown, build_html
 from .research import build_unmatched_family_reports, build_russian_cis_unmatched_reports
 from .region import region_for_group
+from .channel_diagnostics import load_watchlist, build_channel_diagnostics
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "output"
@@ -109,7 +110,12 @@ def build():
 
         print(f"[{name}] downloading; candidates={len(candidates)}", flush=True)
         try:
-            data = fetch_bytes(url, timeout=int(source_cfg.get("timeout", 180)), retries=2)
+            data = fetch_bytes(
+                url,
+                timeout=int(source_cfg.get("timeout", 180)),
+                retries=int(source_cfg.get("retries", 4)),
+                cache_bust_on_retry=bool(source_cfg.get("cache_bust_on_retry", False)),
+            )
             source = XMLTVSource(name, data).index()
         except Exception as exc:
             print(f"[{name}] FAILED: {exc}", flush=True)
@@ -281,7 +287,7 @@ def build():
         }
 
     status = {
-        "builder_version": "2.0",
+        "builder_version": "2.1",
         "generated_at": datetime.now(timezone).isoformat(),
         "timezone": timezone_name,
         "playlist_channels": len(channels),
@@ -397,6 +403,21 @@ def build():
               ["playlist_name", "output_tvg_id", "group", "region", "source", "source_id", "method", "programmes", "usable_programmes", "validated"])
     write_csv(OUTPUT / "postbuild-gaps.csv", postbuild_gaps,
               ["playlist_name", "output_tvg_id", "group", "region", "source", "source_id", "method", "programmes", "usable_programmes", "validated"])
+
+    # v2.1 targeted channel diagnostics. This makes player-visible EPG issues
+    # inspectable without manually opening the compressed XMLTV file.
+    watchlist = load_watchlist(ROOT / "data" / "channel-watchlist.json")
+    channel_diagnostics = build_channel_diagnostics(
+        tv, mappings, watchlist, OUTPUT / "channel-diagnostics.json",
+        generated_at=status.get("generated_at", ""),
+    )
+    status["channel_diagnostics"] = {
+        "watchlist_channels": channel_diagnostics.get("watchlist_channels", 0),
+        "problem_channels": sum(
+            1 for row in channel_diagnostics.get("channels", [])
+            if row.get("status") != "ok"
+        ),
+    }
 
     # Remove internal bookkeeping before public diagnostics.
     for row in mappings:

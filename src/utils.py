@@ -1,5 +1,5 @@
 from __future__ import annotations
-import gzip, io, re, urllib.request, time
+import gzip, io, re, urllib.request, urllib.parse, time, http.client
 from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
 
@@ -20,18 +20,58 @@ def is_real_tvg_id(value: str) -> bool:
     collapsed = re.sub(r"[^a-z0-9]+", "", v)
     return not collapsed.startswith("noepg")
 
-def fetch_bytes(url: str, timeout: int = 120, retries: int = 2) -> bytes:
+def _retry_url(url: str, attempt: int, cache_bust: bool) -> str:
+    if not cache_bust or attempt <= 0:
+        return url
+    parts = urllib.parse.urlsplit(url)
+    if parts.scheme not in {"http", "https"}:
+        return url
+    query = urllib.parse.parse_qsl(parts.query, keep_blank_values=True)
+    query = [(k, v) for k, v in query if k != "_epg_retry"]
+    query.append(("_epg_retry", f"{int(time.time())}-{attempt}"))
+    return urllib.parse.urlunsplit((parts.scheme, parts.netloc, parts.path, urllib.parse.urlencode(query), parts.fragment))
+
+
+def fetch_bytes(
+    url: str,
+    timeout: int = 120,
+    retries: int = 4,
+    *,
+    cache_bust_on_retry: bool = False,
+) -> bytes:
+    """Fetch bytes with retry protection for flaky XMLTV hosts.
+
+    Some large XMLTV endpoints close the connection before Content-Length is
+    satisfied, which urllib reports as IncompleteRead. Never accept that
+    partial gzip as valid data; retry the whole object instead. Optional cache
+    busting is useful for CDNs/proxies that repeatedly serve the same broken
+    response.
+    """
     last = None
-    for attempt in range(retries):
+    attempts = max(1, int(retries))
+    for attempt in range(attempts):
         try:
-            req = urllib.request.Request(url, headers={"User-Agent": UA})
+            request_url = _retry_url(url, attempt, cache_bust_on_retry)
+            req = urllib.request.Request(
+                request_url,
+                headers={
+                    "User-Agent": UA,
+                    "Accept-Encoding": "identity",
+                    "Cache-Control": "no-cache" if attempt else "max-age=0",
+                    "Connection": "close",
+                },
+            )
             with urllib.request.urlopen(req, timeout=timeout) as response:
-                return response.read()
+                data = response.read()
+                expected = response.headers.get("Content-Length")
+                if expected and expected.isdigit() and len(data) < int(expected):
+                    raise http.client.IncompleteRead(data, int(expected) - len(data))
+                return data
         except Exception as exc:
             last = exc
-            if attempt + 1 < retries:
-                time.sleep(2 * (attempt + 1))
-    raise RuntimeError(f"Failed to fetch {url}: {last}")
+            if attempt + 1 < attempts:
+                time.sleep(min(15, 2 ** attempt * 2))
+    raise RuntimeError(f"Failed to fetch {url} after {attempts} attempts: {last}")
 
 def open_xml_bytes(data: bytes):
     if data[:2] == b"\x1f\x8b":

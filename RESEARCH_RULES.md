@@ -155,3 +155,14 @@ Do not treat these figures as permanent. They are a historical checkpoint; use e
 - It remains below specialized/country-scoped sources and above the final emergency Gabbarit fallback.
 - It must pass the same fresh-programme gate as every other source.
 - Regional-sensitive global brands still require region-compatible name matching; do not use Teleguide as a reason to weaken that protection.
+
+## v2.1 download resilience and targeted diagnostics
+
+- Large XMLTV downloads must never accept an `IncompleteRead` partial body as a valid feed.
+- Retry the complete feed; source-specific retry counts are allowed for flaky large providers.
+- Cache-busting on retry is allowed only when explicitly enabled for that source.
+- Teleguide uses 5 attempts in v2.1 because live GitHub Actions observed repeated truncated multi-megabyte responses.
+- `data/channel-watchlist.json` is the persistent list of channels requiring targeted player/EPG diagnosis.
+- Every build writes `output/channel-diagnostics.json` with mapping/source/ID plus current and next programmes for watchlisted channels.
+- A channel on the watchlist is not considered diagnosed merely because it is matched; its actual current/upcoming programme records must be shown in the diagnostic output.
+- Release ZIPs must not contain generated `output/` files; GitHub Actions owns generated output to avoid merge conflicts.
