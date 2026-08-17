@@ -64,3 +64,15 @@
   - AnZo: +3
 
 Do not treat these figures as permanent. They are a historical checkpoint; use each new `status.json` as the source of truth.
+
+
+## XMLTV timestamp resilience (added after live run #2)
+
+- External XMLTV feeds are untrusted data and may contain malformed or non-standard timestamps.
+- One malformed `start`/`stop` value must NEVER abort the whole EPG build.
+- Timestamp conversion must use fixed-width field parsing rather than relying on `strptime` variable-width directive behavior.
+- Tolerate `24:00:00` by rolling to the next day.
+- Tolerate leap-second style `...60` seconds by normalization.
+- If a timestamp still cannot be safely interpreted, preserve the original timestamp verbatim and continue.
+- Freshness checks should fail closed for malformed dates, while timestamp conversion should fail open by preserving the original value.
+- Live run #2 on 2026-08-16 exposed this requirement: the build failed inside `convert_xmltv_timestamp` with `ValueError: unconverted data remains: 0`.

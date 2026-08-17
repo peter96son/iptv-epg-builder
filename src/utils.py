@@ -3,7 +3,7 @@ import gzip, io, re, urllib.request, time
 from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
 
-UA = "IPTV-EPG-Builder/1.0"
+UA = "IPTV-EPG-Builder/1.1.1"
 QUALITY = re.compile(r"\b(?:uhd|fhd|hd|sd|4k|8k|hdr|hevc|h265|h\.265)\b", re.I)
 PUNCT = re.compile(r"[^\w\d]+", re.UNICODE)
 
@@ -42,25 +42,67 @@ def xmltv_date_is_fresh(timestamp: str, past_days: int = 2, future_days: int = 2
     if not timestamp or len(timestamp) < 8 or not timestamp[:8].isdigit():
         return False
     try:
-        d = datetime.strptime(timestamp[:8], "%Y%m%d").date()
-    except ValueError:
+        year = int(timestamp[0:4])
+        month = int(timestamp[4:6])
+        day = int(timestamp[6:8])
+        d = datetime(year, month, day).date()
+    except (ValueError, TypeError):
         return False
     today = datetime.now(timezone.utc).date()
     return today - timedelta(days=past_days) <= d <= today + timedelta(days=future_days)
 
+def _parse_xmltv_digits(digits: str) -> datetime:
+    if len(digits) not in (8, 10, 12, 14) or not digits.isdigit():
+        raise ValueError("unsupported XMLTV timestamp precision")
+
+    year = int(digits[0:4])
+    month = int(digits[4:6])
+    day = int(digits[6:8])
+    hour = int(digits[8:10]) if len(digits) >= 10 else 0
+    minute = int(digits[10:12]) if len(digits) >= 12 else 0
+    second = int(digits[12:14]) if len(digits) >= 14 else 0
+
+    next_day = False
+    if hour == 24 and minute == 0 and second == 0:
+        hour = 0
+        next_day = True
+
+    leap_second = second == 60
+    if leap_second:
+        second = 59
+
+    dt = datetime(year, month, day, hour, minute, second)
+    if next_day:
+        dt += timedelta(days=1)
+    if leap_second:
+        dt += timedelta(seconds=1)
+    return dt
+
 def convert_xmltv_timestamp(timestamp: str, timezone_name: str) -> str:
-    m = re.match(r"^(\d{8,14})\s*([+-]\d{4}|Z)(.*)$", (timestamp or "").strip())
+    """
+    Convert standard XMLTV timestamps safely.
+    Malformed upstream values are preserved instead of crashing the build.
+    """
+    raw = (timestamp or "").strip()
+    m = re.match(r"^(\d{8}|\d{10}|\d{12}|\d{14})\s*([+-]\d{4}|Z)(.*)$", raw)
     if not m:
         return timestamp
+
     digits, offset, tail = m.groups()
-    fmt = {8: "%Y%m%d", 10: "%Y%m%d%H", 12: "%Y%m%d%H%M", 14: "%Y%m%d%H%M%S"}.get(len(digits))
-    if not fmt:
+    try:
+        dt = _parse_xmltv_digits(digits)
+        if offset == "Z":
+            source_tz = timezone.utc
+        else:
+            sign = 1 if offset[0] == "+" else -1
+            hours = int(offset[1:3])
+            minutes = int(offset[3:5])
+            if hours > 23 or minutes > 59:
+                return timestamp
+            source_tz = timezone(sign * timedelta(hours=hours, minutes=minutes))
+        local = dt.replace(tzinfo=source_tz).astimezone(ZoneInfo(timezone_name))
+    except (ValueError, TypeError, OverflowError):
         return timestamp
-    dt = datetime.strptime(digits, fmt)
-    if offset == "Z":
-        source_tz = timezone.utc
-    else:
-        sign = 1 if offset[0] == "+" else -1
-        source_tz = timezone(sign * timedelta(hours=int(offset[1:3]), minutes=int(offset[3:5])))
-    local = dt.replace(tzinfo=source_tz).astimezone(ZoneInfo(timezone_name))
+
+    fmt = {8: "%Y%m%d", 10: "%Y%m%d%H", 12: "%Y%m%d%H%M", 14: "%Y%m%d%H%M%S"}[len(digits)]
     return local.strftime(fmt) + " " + local.strftime("%z") + tail

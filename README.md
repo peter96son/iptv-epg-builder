@@ -86,3 +86,9 @@ Version 1.1 supports both formats and reports real provider categories in `outpu
 - `Кино 4K`
 - `Кинозалы`
 - `Кинозалы UA`
+
+
+## v1.1.1 timestamp hardening
+
+External XMLTV timestamps are treated as untrusted input. A malformed timestamp
+can no longer terminate the whole GitHub Actions run.
