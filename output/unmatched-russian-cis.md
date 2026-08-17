@@ -3,22 +3,22 @@
 Diagnostic queue for Russian-language and CIS recovery. It does not create aliases by itself.
 Regional variants, time-shifts and virtual/FAST families must be verified before production mapping.
 
-Candidate channels: **121**
+Candidate channels: **96**
 
-Unsafe virtual/dummy-ID channels: **65**
+Unsafe virtual/dummy-ID channels: **53**
 
 ## By group
 
-- Кинозалы: 27
-- Кино: 19
-- Музыкальные: 16
-- Кинозалы UA: 14
+- Кинозалы: 24
+- Кино: 18
 - Украинские: 13
-- Россия: 8
-- Детские: 7
-- Кино 4K: 7
+- Кинозалы UA: 10
+- Музыкальные: 9
+- Детские: 6
+- Россия: 6
 - Познавательные: 5
-- Спорт: 4
+- Спорт: 3
+- Кино 4K: 1
 - Беларусь: 1
 
 ## Channels
@@ -31,7 +31,6 @@ Unsafe virtual/dummy-ID channels: **65**
 | DITV Сборник мультфильмов сказок | Детские |  | DITV | no |
 | DITV Союзмултфилм | Детские |  | DITV | no |
 | DITV Фиксики  4К | Детские |  | DITV | no |
-| KLI Мультики HD | Детские |  | KLI | no |
 | Play-X Военные сериалы | Кино |  | Play-X | no |
 | Play-X Кухня | Кино |  | Play-X | no |
 | Play-X Леонид Гайдай | Кино |  | Play-X | no |
@@ -41,12 +40,6 @@ Unsafe virtual/dummy-ID channels: **65**
 | НТВ Сериал Скорая Помощь | Кино |  | Other: НТВ | no |
 | НТВ Сериал Следствие Вели | Кино |  | Other: НТВ | no |
 | НТВ Сериал Шеф | Кино |  | Other: НТВ | no |
-| Clarity4K Боевик | Кино 4K |  | Clarity | no |
-| Clarity4K КиноНовинки | Кино 4K |  | Clarity | no |
-| Clarity4K КиноФраншизы | Кино 4K |  | Clarity | no |
-| Clarity4K Комедия | Кино 4K |  | Clarity | no |
-| Clarity4k Сумеречный Эфир | Кино 4K |  | Clarity | no |
-| Clarity4K Фантастика | Кино 4K |  | Clarity | no |
 | KLI Новинки 4K Ultra HD | Кино 4K |  | KLI | no |
 | DITV Агент национальной безопасности | Кинозалы |  | DITV | no |
 | DITV Американские комедии 80-90-х | Кинозалы |  | DITV | no |
@@ -71,11 +64,7 @@ Unsafe virtual/dummy-ID channels: **65**
 | DITV ФИЛЬМЫ | Кинозалы |  | DITV | no |
 | DITV ФИЛЬМЫ УЖАСОВ 80-х | Кинозалы |  | DITV | no |
 | KLI Новинки HD | Кинозалы |  | KLI | no |
-| KLI СССР HD | Кинозалы |  | KLI | no |
 | VeleS С Новым годом! | Кинозалы |  | VeleS | no |
-| Joker:Гей Арнольд! | Кинозалы UA |  | Joker | no |
-| Joker:Русалочка | Кинозалы UA |  | Joker | no |
-| Joker:Формула | Кинозалы UA |  | Joker | no |
 | Play-X Украинский кинозал 1 HD | Кинозалы UA |  | Play-X | no |
 | Play-X Украинский кинозал 2 HD | Кинозалы UA |  | Play-X | no |
 | Play-X Фильмы про войну в Украине | Кинозалы UA |  | Play-X | no |
@@ -86,7 +75,6 @@ Unsafe virtual/dummy-ID channels: **65**
 | Play-X Русский рок | Музыкальные |  | Play-X | no |
 | Play-X Хиты 80-x HD | Музыкальные |  | Play-X | no |
 | Play-X Хиты 90-х HD | Музыкальные |  | Play-X | no |
-| VeleS Магнитофон | Музыкальные |  | VeleS | no |
 | DITV 4К | Познавательные |  | DITV | no |
 | DITV Дикая природа 4К | Познавательные |  | DITV | no |
 | DITV Кулинария | Познавательные |  | DITV | no |
@@ -99,12 +87,8 @@ Unsafe virtual/dummy-ID channels: **65**
 | Лента Кино | Кино |  | Other: Лента | review |
 | Новый Русский HD | Кино |  | Other: Новый | review |
 | Пес HD | Кино |  | Other: Пес | review |
-| РуКино HD | Кино |  | Other: РуКино | review |
 | Честный Детекти | Кино |  | Other: Честный | review |
-| TVPlay Латинские сериалы ретро | Кинозалы |  | Other: TVPlay | review |
-| Видеокассета VHS | Кинозалы |  | Other: Видеокассета | review |
 | SWEET КIНО HD | Кинозалы UA |  | Other: SWEET | review |
-| Картковий Будинок | Кинозалы UA |  | Other: Картковий | review |
 | Кохання на виживання HD | Кинозалы UA |  | Other: Кохання | review |
 | На Трьох HD | Кинозалы UA |  | Other: На | review |
 | Полювання на в бивцю HD | Кинозалы UA |  | Other: Полювання | review |
@@ -112,24 +96,15 @@ Unsafe virtual/dummy-ID channels: **65**
 | Романтичний Марафон HD | Кинозалы UA |  | Other: Романтичний | review |
 | Ховаючи колишню HD | Кинозалы UA |  | Other: Ховаючи | review |
 | PAI Музика | Музыкальные |  | Other: PAI | review |
-| Етно HD | Музыкальные |  | Other: Етно | review |
 | Легенды Ретро FM | Музыкальные |  | Other: Легенды | review |
-| ММТВ | Музыкальные |  | Other: ММТВ | review |
-| Музыка 1 International | Музыкальные |  | Other: Музыка | review |
-| Музыка 2 International | Музыкальные |  | Other: Музыка | review |
-| Наше Ретро | Музыкальные |  | Other: Наше | review |
-| Новое Радио | Музыкальные |  | Other: Новое | review |
 | Континент Е | Познавательные |  | Other: Континент | review |
 | Орел и Решка | Познавательные |  | Other: Орел | review |
-| News Front | Россия | RU | Other: News | review |
-| Sochi Live | Россия | RU | Other: Sochi | review |
 | Вестник Надыма | Россия | RU | Other: Вестник | review |
 | Витрина | Россия | RU | Other: Витрина | review |
 | ВТК 41 Аргус | Россия | RU | Other: ВТК | review |
 | Евпатория 24 | Россия | RU | Other: Евпатория | review |
+| Раменское ТВ | Россия | RU | Other: Раменское | review |
 | Телеплюс | Россия | RU | Other: Телеплюс | review |
-| ТРК 555 | Россия | RU | Other: ТРК | review |
-| Конный мир HD | Спорт |  | Other: Конный | review |
 | УПЛ ТВ 1 | Спорт |  | Other: УПЛ | review |
 | УПЛ ТВ 2 | Спорт |  | Other: УПЛ | review |
 | УПЛ ТВ 3 | Спорт |  | Other: УПЛ | review |
