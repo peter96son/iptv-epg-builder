@@ -1,12 +1,12 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-08-16T22:15:49.290427-07:00`
+- Generated: `2026-08-17T01:28:37.781867-07:00`
 - Playlist channels: **2700**
-- Baseline covered: **1632**
-- Final covered: **2151**
-- Added by fallbacks: **+519**
-- Unmatched: **549**
-- Programmes: **319677**
+- Baseline covered: **1637**
+- Final covered: **2152**
+- Added by fallbacks: **+515**
+- Unmatched: **548**
+- Programmes: **459970**
 - Movie coverage: **761/859** (+222)
 
 ## Playlist changes
@@ -28,10 +28,10 @@
 | Кино | 213 | 146 | 187 | +41 | 87.8% |
 | BE & NL | 90 | 32 | 56 | +24 | 62.2% |
 | Германия | 134 | 85 | 106 | +21 | 79.1% |
-| SkyLink | 20 | 2 | 17 | +15 | 85.0% |
-| Румыния | 85 | 46 | 60 | +14 | 70.6% |
+| Румыния | 85 | 45 | 59 | +14 | 69.4% |
 | Израиль | 78 | 32 | 45 | +13 | 57.7% |
 | Украинские | 119 | 70 | 82 | +12 | 68.9% |
+| SkyLink | 20 | 8 | 19 | +11 | 95.0% |
 | Болгария | 49 | 14 | 25 | +11 | 51.0% |
 | Кино 4K | 82 | 59 | 69 | +10 | 84.1% |
 | Детские | 82 | 65 | 74 | +9 | 90.2% |
@@ -63,11 +63,11 @@
 
 | Source | Status | Added |
 |---|---|---:|
-| iptv-online-primary | ok | 1632 |
-| iptvx-noarch | ok | 203 |
+| iptv-online-primary | ok | 1637 |
+| iptvx-noarch | ok | 196 |
 | runigma-iptv | ok | 3 |
 | klimedia-dedicated | failed | 0 |
-| openbox-tsd | ok | 54 |
+| openbox-tsd | ok | 57 |
 | next-dedicated | ok | 0 |
 | bcumedia-dedicated | ok | 5 |
 | cineman-dedicated | ok | 0 |
@@ -104,4 +104,5 @@
 |---|---:|---:|---:|
 | 2026-08-16T21:52:52.886498-07:00 | 2151 | 549 | 318293 |
 | 2026-08-16T22:15:49.290427-07:00 | 2151 | 549 | 319677 |
+| 2026-08-17T01:28:37.781867-07:00 | 2152 | 548 | 459970 |
 
