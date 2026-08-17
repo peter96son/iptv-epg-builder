@@ -3,7 +3,7 @@
 This report is diagnostic only. It does not create EPG mappings.
 A family must be researched and verified before aliases are added to the live builder.
 
-Unmatched channels: **573**
+Unmatched channels: **590**
 
 | Family | Channels | no_epg_* IDs | Main groups |
 |---|---:|---:|---|
@@ -14,7 +14,9 @@ Unmatched channels: **573**
 | Clarity | 12 | 0 | Кино 4K (11), Музыкальные (1) |
 | Other: VIP | 12 | 0 | Спорт (12) |
 | Other: RTL | 11 | 0 | Музыкальные (8), Германия (3) |
+| Other: DAZN | 8 | 0 | Спорт (8) |
 | Other: FIFA+ | 8 | 0 | Спорт (8) |
+| Other: SPORT | 7 | 0 | Спорт (7) |
 | Other: Pimple | 6 | 0 | Спорт (6) |
 | Other: TRT | 6 | 0 | Турция (6) |
 | Other: НТВ | 6 | 6 | Кино (6) |
@@ -23,7 +25,6 @@ Unmatched channels: **573**
 | Other: Viasat | 5 | 0 | Познавательные (3), UK (2) |
 | Other: Carac | 4 | 0 | BE & NL (4) |
 | Other: CBS | 4 | 0 | Польша (2), Румыния (2) |
-| Other: DAZN | 4 | 0 | Спорт (4) |
 | Other: FintGa | 4 | 0 | Спорт (4) |
 | Other: Power | 4 | 0 | Турция (3), Латвия (1) |
 | Other: PowerT | 4 | 0 | Турция (4) |
@@ -40,6 +41,7 @@ Unmatched channels: **573**
 | KLI | 2 | 0 | Кинозалы (1), Кино 4K (1) |
 | Other: Arena | 2 | 0 | Спорт (2) |
 | Other: betking | 2 | 0 | Спорт (2) |
+| Other: CANAL+ | 2 | 0 | SkyLink (2) |
 | Other: CBC | 2 | 0 | Азербайджан (2) |
 | Other: CineManExExEx | 2 | 2 | Для взрослых (2) |
 | Other: Discovery | 2 | 0 | Румыния (2) |
@@ -57,11 +59,13 @@ Unmatched channels: **573**
 | Other: Music | 2 | 0 | Музыкальные (1), Израиль (1) |
 | Other: Musicbox | 2 | 0 | Музыкальные (2) |
 | Other: National | 2 | 0 | Познавательные (1), Болгария (1) |
+| Other: Nova | 2 | 0 | SkyLink (2) |
 | Other: ORF | 2 | 0 | Германия (2) |
 | Other: Radio | 2 | 0 | Музыкальные (1), Литва (1) |
 | Other: Rai | 2 | 0 | Италия (1), Болгария (1) |
 | Other: Retro | 2 | 0 | Музыкальные (1), Чехия (1) |
 | Other: SES | 2 | 0 | Германия (2) |
+| Other: Viju | 2 | 0 | Кино (2) |
 | Other: Viva | 2 | 0 | Израиль (2) |
 | Other: Сер | 2 | 0 | Кино (2) |
 | Magic | 1 | 0 | Болгария (1) |
@@ -102,7 +106,6 @@ Unmatched channels: **573**
 | Other: Busuioc | 1 | 0 | Молдова (1) |
 | Other: BX1 | 1 | 0 | BE & NL (1) |
 | Other: Canal | 1 | 0 | Спорт (1) |
-| Other: CANAL+ | 1 | 0 | SkyLink (1) |
 | Other: Cartoon | 1 | 0 | Канада (1) |
 | Other: Channel21 | 1 | 0 | Германия (1) |
 | Other: City | 1 | 0 | Канада (1) |
@@ -249,6 +252,7 @@ Unmatched channels: **573**
 | Other: Sfero | 1 | 0 | Грузия (1) |
 | Other: Shelanu | 1 | 0 | Израиль (1) |
 | Other: ShopLC | 1 | 0 | Германия (1) |
+| Other: Sky | 1 | 0 | Германия (1) |
 | Other: Soul | 1 | 0 | Болгария (1) |
 | Other: Space | 1 | 0 | Азербайджан (1) |
 | Other: Speranta | 1 | 0 | Румыния (1) |
@@ -509,6 +513,17 @@ Unmatched channels: **573**
 - RTL Nitro
 - RTL Zwei HD
 
+### Other: DAZN — 8
+
+- DAZN 1 DE
+- DAZN Ring
+- DAZN TV
+- DAZN 2 DE
+- DAZN 1 PT
+- DAZN 2 PT
+- DAZN 1 ESPANA
+- DAZN 2 ESPAÑA
+
 ### Other: FIFA+ — 8
 
 - FIFA+ HD (Spain)
@@ -519,6 +534,16 @@ Unmatched channels: **573**
 - FIFA+ HD (Italy)
 - FIFA+ HD (Portugal)
 - FIFA+ Women HD
+
+### Other: SPORT — 7
+
+- SPORT TV + PT
+- SPORT TV 1 PT
+- SPORT TV 2 PT
+- SPORT TV 3 PT
+- SPORT TV 4 PT
+- SPORT TV 5 PT
+- SPORT TV 6 PT
 
 ### Other: Pimple — 6
 
@@ -584,13 +609,6 @@ Unmatched channels: **573**
 - CBS Reality HD
 - CBS Reality
 - CBS Reality RO
-
-### Other: DAZN — 4
-
-- DAZN Ring
-- DAZN TV
-- DAZN 1 ESPANA
-- DAZN 2 ESPAÑA
 
 ### Other: FintGa — 4
 
@@ -691,6 +709,11 @@ Unmatched channels: **573**
 - betking live 1
 - betking live 2
 
+### Other: CANAL+ — 2
+
+- CANAL+ Sport (CZ)
+- CANAL+ Sport 2 (SK)
+
 ### Other: CBC — 2
 
 - CBC Azerbaijan TV HD AZ
@@ -776,6 +799,11 @@ Unmatched channels: **573**
 - National Geographic HD
 - National Geographic
 
+### Other: Nova — 2
+
+- Nova Sport 3 HD
+- Nova Sport 4 HD
+
 ### Other: ORF — 2
 
 - ORF 2 EUROPE
@@ -800,6 +828,11 @@ Unmatched channels: **573**
 
 - SES UHD Demo Channel
 - SES UHD Demo Channel 06
+
+### Other: Viju — 2
+
+- Viju TV1000
+- Viju TV1000 HD
 
 ### Other: Viva — 2
 
@@ -962,10 +995,6 @@ Unmatched channels: **573**
 ### Other: Canal — 1
 
 - Canal 11 International
-
-### Other: CANAL+ — 1
-
-- CANAL+ Sport 2 (SK)
 
 ### Other: Cartoon — 1
 
@@ -1550,6 +1579,10 @@ Unmatched channels: **573**
 ### Other: ShopLC — 1
 
 - ShopLC HD
+
+### Other: Sky — 1
+
+- Sky Sports News HD
 
 ### Other: Soul — 1
 
