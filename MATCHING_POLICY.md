@@ -43,3 +43,12 @@ Country-specific XMLTV feeds must declare `regions` in `data/sources.json`. Sour
 ## Safety
 
 Never publish the provider M3U or stream URLs in GitHub. Cloudflare Worker remains the private playlist delivery layer.
+
+
+## Verified alias provenance (v1.7)
+
+Production aliases for regional-sensitive or renamed channels must identify the exact country-scoped source. A row without an explicit source and region should not be added for a global brand. When a country's catalog does not contain the service, do not substitute another country's same-brand schedule.
+
+## Russian/CIS cross-group rule (v1.8)
+
+Language/topic grouping is not country identity. A Russian-language channel may appear in `Кино`, `Музыкальные`, `Познавательные`, `Детские`, `Спорт`, or another topical provider group. Recovery research therefore scans all such groups, but region-sensitive channel brands still require compatible regional evidence. Time-shift variants are separate schedules by default.

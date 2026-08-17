@@ -4,7 +4,7 @@
 2. A channel counts as covered only when fresh `<programme>` entries exist.
 3. Movie channels and movie channel families are research priority #1, but the production guide covers the whole playlist.
 4. Preferred languages: Russian, Ukrainian, Belarusian, English, German, Dutch.
-5. Do not spend research time on Romanian/Polish/Hungarian/etc. channels unless the actual channel/EPG is in a preferred language.
+5. Language is a prioritization signal, not an exclusion rule. Research any provider country group when it can safely recover real EPG coverage. Country/region correctness outranks language preference.
 6. Do not guess ambiguous channels (`Ужасы HD`, `Детектив HD`, etc.) from a similar name.
 7. `no_epg_*` values are dummy IDs and must never be treated as real XMLTV IDs.
 8. Conflicting provider IDs must be fixed by exact channel name, not by the broken shared ID.
@@ -106,5 +106,27 @@ Do not treat these figures as permanent. They are a historical checkpoint; use e
 - Never publish an M3U containing actual provider stream URLs in a public repository.
 - Public GitHub output is limited to EPG, safe TVG-ID mappings and diagnostics.
 - Private M3U delivery is performed by Cloudflare Worker with encrypted secrets.
-- Treat the Worker bearer URL as a credential. Rotate `ACCESS_TOKEN` if it leaks.
+- Current Worker route is `/tv`; `ACCESS_TOKEN` is no longer used. Keep `PLAYLIST_URL` secret and never publish provider stream URLs.
 - `PLAYLIST_URL` must never appear in public output.
+
+
+## v1.7 mainstream regional recovery (2026-08-17)
+
+- Research normal broadcast channels before speculative FAST/virtual families.
+- Use country-specific XMLTV catalogs to verify aliases.
+- Every v1.7 alias is constrained by `provider_group`, `region`, and `source`.
+- HD/SD aliases are permitted only for the same underlying linear service when the source catalog exposes one schedule.
+- A missing country-specific channel is NOT permission to borrow another country's schedule.
+- Confirmed example: `Discovery Science HD RO` is present in the provider's Romania group but is absent from the checked EPGShare RO catalog as of 2026-08-17. Keep it unmatched rather than map to UK `Disc.Science.uk` or another region.
+- v1.7 verified recovery batches: Italy RAI, UK ITV/Sky Cinema, Romania ProTV/TVR and selected mainstream services, Bulgaria Diema/Nova/BNT/Planeta/SKAT.
+
+## Russian/CIS recovery policy (v1.8)
+
+- Russian-language recovery is NOT limited to the provider group `Россия`.
+- Search the entire unmatched queue, especially topical groups: `Кино`, `Кино 4K`, `Кинозалы`, `Кинозалы UA`, `Музыкальные`, `Познавательные`, `Детские`, `Новости`, `Спорт`, `Разное`.
+- Provider country/group remains part of channel identity. Same-name channels in different countries must not be merged automatically.
+- For regional-sensitive brands (Discovery, TLC, Eurosport, Viasat, HBO, Nickelodeon, Disney, MTV, etc.) require a compatible regional source or an explicitly verified alias.
+- Treat +1/+2/+3/+4/+7 and other time-shift variants as different schedules unless verified otherwise.
+- DITV, VeleS, Play-X, KLI, BCU, Joker, Clarity and similar virtual/FAST families are excluded from generic automatic recovery. They require a dedicated feed or verified per-channel mapping.
+- `output/unmatched-russian-cis.*` is the canonical Russian/CIS research queue starting with v1.8.
+- `epgone-ru2` is a fallback source only. It may add a channel only when fresh programme data exists and normal matching/region safety rules pass.

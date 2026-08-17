@@ -129,3 +129,85 @@ def build_unmatched_family_reports(unmatched: list[dict], output_dir: Path) -> d
 
     (output_dir / "unmatched-families.md").write_text("\n".join(md) + "\n", encoding="utf-8")
     return payload
+
+
+RUSSIAN_CIS_TOPIC_GROUPS = {
+    "Россия", "Беларусь", "Украинские", "Кино", "Кино 4K", "Кинозалы", "Кинозалы UA",
+    "Музыкальные", "Познавательные", "Детские", "Новости", "Спорт", "Разное",
+}
+
+# Explicit virtual/FAST families are kept visible in the report but marked unsafe
+# for automatic alias recovery. This prevents a Russian title from being mistaken
+# for a conventional linear TV channel with the same programme/film name.
+RUSSIAN_CIS_UNSAFE_FAMILIES = {"DITV", "VeleS", "Magic", "KLI", "Play-X", "BCU", "Joker", "Clarity", "CPS", "NEXT", "CineMan", "MiniMax/MM", "Fresh", "BOX", "Velilla", "KBC"}
+
+
+def russian_cis_candidate(row: dict) -> tuple[bool, str]:
+    name = (row.get("playlist_name") or "").strip()
+    group = (row.get("group") or "").strip()
+    region = (row.get("region") or "").strip()
+    if not name:
+        return False, ""
+
+    if region in {"RU", "BY"} or group in {"Россия", "Беларусь"}:
+        return True, "provider-region"
+
+    # Russian-language channels are also placed by IPTV.online into topical groups.
+    # Ukrainian-specific letters are a useful conservative signal to avoid treating
+    # clearly Ukrainian titles as Russian-language recovery candidates.
+    has_cyrillic = bool(re.search(r"[А-Яа-яЁё]", name))
+    has_ukrainian_specific = bool(re.search(r"[ІіЇїЄєҐґ]", name))
+    if group in RUSSIAN_CIS_TOPIC_GROUPS and has_cyrillic and not has_ukrainian_specific:
+        return True, "cyrillic-topical-group"
+
+    return False, ""
+
+
+def build_russian_cis_unmatched_reports(unmatched: list[dict], output_dir: Path) -> dict:
+    rows = []
+    for row in unmatched:
+        include, reason = russian_cis_candidate(row)
+        if not include:
+            continue
+        family = classify_family(row.get("playlist_name", ""))
+        unsafe = family in RUSSIAN_CIS_UNSAFE_FAMILIES or (row.get("playlist_tvg_id") or "").lower().startswith("no_epg")
+        rows.append({
+            "playlist_name": row.get("playlist_name", ""),
+            "playlist_tvg_id": row.get("playlist_tvg_id", ""),
+            "group": row.get("group", ""),
+            "region": row.get("region", ""),
+            "family": family,
+            "candidate_reason": reason,
+            "automatic_recovery_allowed": "no" if unsafe else "review",
+        })
+
+    rows.sort(key=lambda r: (r["automatic_recovery_allowed"], r["group"].lower(), r["playlist_name"].lower()))
+    group_counts = Counter((r["group"] or "(без категории)") for r in rows)
+    family_counts = Counter(r["family"] for r in rows)
+    payload = {
+        "candidate_channels": len(rows),
+        "requires_manual_or_dedicated_epg": sum(1 for r in rows if r["automatic_recovery_allowed"] == "no"),
+        "groups": dict(group_counts.most_common()),
+        "families": dict(family_counts.most_common()),
+        "channels": rows,
+    }
+    save_json(output_dir / "unmatched-russian-cis.json", payload)
+    write_csv(
+        output_dir / "unmatched-russian-cis.csv", rows,
+        ["playlist_name", "playlist_tvg_id", "group", "region", "family", "candidate_reason", "automatic_recovery_allowed"],
+    )
+    md = [
+        "# Russian/CIS unmatched recovery queue", "",
+        "Diagnostic queue for Russian-language and CIS recovery. It does not create aliases by itself.",
+        "Regional variants, time-shifts and virtual/FAST families must be verified before production mapping.", "",
+        f"Candidate channels: **{len(rows)}**", "",
+        f"Unsafe virtual/dummy-ID channels: **{payload['requires_manual_or_dedicated_epg']}**", "",
+        "## By group", "",
+    ]
+    for group, count in group_counts.most_common():
+        md.append(f"- {group}: {count}")
+    md.extend(["", "## Channels", "", "| Channel | Group | Region | Family | Recovery |", "|---|---|---|---|---|"])
+    for r in rows:
+        md.append(f"| {r['playlist_name']} | {r['group']} | {r['region']} | {r['family']} | {r['automatic_recovery_allowed']} |")
+    (output_dir / "unmatched-russian-cis.md").write_text("\n".join(md) + "\n", encoding="utf-8")
+    return payload

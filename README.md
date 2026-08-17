@@ -128,7 +128,7 @@ The repository no longer publishes a stream-bearing M3U.
 
 GitHub publishes `output/epg.xml.gz` and `output/uhf-mapping.json`.
 The private playlist is generated on demand by the Worker in `cloudflare-worker/`.
-Store `PLAYLIST_URL` and `ACCESS_TOKEN` as Cloudflare Worker secrets.
+Store `PLAYLIST_URL` as a Cloudflare Worker secret. The current Worker uses the permanent `/tv` route and does not require `ACCESS_TOKEN`.
 
 ## v1.5 — family-first unmatched analysis
 
@@ -154,3 +154,11 @@ The Worker understands IPTV Online's separate `#EXTGRP:` lines and strips unsafe
 ## v1.6: region-aware EPG matching
 
 v1.6 treats the IPTV.online provider group as country/region context. International channel brands can no longer be matched by display name to an XMLTV source from the wrong country. Country-scoped EPGShare feeds were added for several previously weak regions. Persistent matching rules are in `MATCHING_POLICY.md`.
+
+
+### v1.7
+Adds verified country-constrained aliases for mainstream channels in Italy, UK, Romania and Bulgaria. These mappings are source-specific and cannot silently cross regions.
+
+## v1.8 Russian/CIS recovery
+
+v1.8 adds a Russian-language EPG.ONE fallback and a dedicated Russian/CIS unmatched research queue. The queue scans topical categories as well as country groups, because Russian-language channels are not confined to `Россия`. It remains diagnostic and does not weaken region-aware or virtual-channel safety rules.

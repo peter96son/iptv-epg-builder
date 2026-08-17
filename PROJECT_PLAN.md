@@ -165,3 +165,26 @@ Channel display names are not globally unique. Matching must use provider group/
 - Manual aliases may carry `provider_group` and/or `region` constraints.
 - Preserve `No EPG` rather than assigning a plausible but wrong regional schedule.
 - See `MATCHING_POLICY.md`; it is persistent project instruction.
+
+
+## v1.7 verified mainstream regional aliases
+
+Version 1.7 turns region-aware policy into production mappings.
+
+Rules:
+- Add only aliases verified against a country-specific source catalog.
+- Alias rows must carry `provider_group`, normalized `region`, explicit `source`, and exact `source_id`.
+- Do not use a same-brand schedule from another country to fill a gap.
+- Country-specific absence is meaningful diagnostic evidence; preserve No EPG until another verified local source is found.
+- Current verified batches cover selected Italy, UK, Romania and Bulgaria mainstream channels.
+- `Discovery Science HD RO` is deliberately not mapped from UK or generic Discovery Science data.
+
+Next research queue after v1.7 live results: BE/NL disambiguation, Israel, Germany/Austria edge cases, then safe sports services. DITV/Play-X/Clarity remain protected from speculative fuzzy matching.
+
+## v1.8 Russian/CIS recovery
+
+- Add EPG.ONE Russian-language XMLTV (`https://epg.one/ru2.xml.gz`) as a fallback source.
+- Scan Russian/CIS unmatched channels across the whole playlist, not only the `Россия` group.
+- Publish `unmatched-russian-cis.json`, `.csv`, and `.md` on every build.
+- Keep regional-sensitive brands and time-shift variants fail-closed.
+- Keep virtual/FAST families out of generic automatic matching.

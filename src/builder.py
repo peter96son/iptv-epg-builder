@@ -16,7 +16,7 @@ from .xmltv import XMLTVSource
 from .state import load_json as load_state_json, save_json
 from .playlist_diff import snapshot_channels, compare_snapshots
 from .dashboard import build_markdown, build_html
-from .research import build_unmatched_family_reports
+from .research import build_unmatched_family_reports, build_russian_cis_unmatched_reports
 from .region import region_for_group
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -205,6 +205,7 @@ def build():
     } for i in sorted(unresolved)]
 
     family_report = build_unmatched_family_reports(unmatched, OUTPUT)
+    russian_cis_report = build_russian_cis_unmatched_reports(unmatched, OUTPUT)
     unmatched_family_count = len(family_report.get("families", []))
     top_unmatched_families = [
         {
@@ -239,7 +240,7 @@ def build():
         }
 
     status = {
-        "builder_version": "1.6",
+        "builder_version": "1.8",
         "generated_at": datetime.now(timezone).isoformat(),
         "timezone": timezone_name,
         "playlist_channels": len(channels),
@@ -249,6 +250,8 @@ def build():
         "unmatched_channels": len(unresolved),
         "region_aware_matching": True,
         "unmatched_family_count": unmatched_family_count,
+        "russian_cis_unmatched_candidates": russian_cis_report.get("candidate_channels", 0),
+        "russian_cis_unsafe_candidates": russian_cis_report.get("requires_manual_or_dedicated_epg", 0),
         "top_unmatched_families": top_unmatched_families,
         "programmes": programme_count,
         "sources": source_stats,
