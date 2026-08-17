@@ -130,3 +130,12 @@ Do not treat these figures as permanent. They are a historical checkpoint; use e
 - DITV, VeleS, Play-X, KLI, BCU, Joker, Clarity and similar virtual/FAST families are excluded from generic automatic recovery. They require a dedicated feed or verified per-channel mapping.
 - `output/unmatched-russian-cis.*` is the canonical Russian/CIS research queue starting with v1.8.
 - `epgone-ru2` is a fallback source only. It may add a channel only when fresh programme data exists and normal matching/region safety rules pass.
+
+## v1.9 player-visible coverage rule
+
+- `mapping.csv` is not proof that the user will see guide data.
+- Final validation must inspect the actual programmes emitted for each `output_tvg_id`.
+- A channel needs at least one current/upcoming programme; stale entries alone do not count.
+- If a primary source has stale-only data for a channel, do not resolve it there; allow later fallbacks to try.
+- `output/postbuild-gaps.csv` is the canonical queue for channels that matched structurally but failed final guide usability.
+- A regression in channel count must be investigated against provider playlist changes and source failures before assuming matcher quality degraded.

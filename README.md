@@ -159,6 +159,11 @@ v1.6 treats the IPTV.online provider group as country/region context. Internatio
 ### v1.7
 Adds verified country-constrained aliases for mainstream channels in Italy, UK, Romania and Bulgaria. These mappings are source-specific and cannot silently cross regions.
 
-## v1.8 Russian/CIS recovery
+## v1.9 Russian/CIS recovery
 
-v1.8 adds a Russian-language EPG.ONE fallback and a dedicated Russian/CIS unmatched research queue. The queue scans topical categories as well as country groups, because Russian-language channels are not confined to `Россия`. It remains diagnostic and does not weaken region-aware or virtual-channel safety rules.
+v1.9 adds a Russian-language EPG.ONE fallback and a dedicated Russian/CIS unmatched research queue. The queue scans topical categories as well as country groups, because Russian-language channels are not confined to `Россия`. It remains diagnostic and does not weaken region-aware or virtual-channel safety rules.
+
+
+## v1.9
+
+v1.9 adds player-visible post-build validation. The builder no longer treats a channel as covered merely because a source contains a matching ID/name and some recent-date XMLTV data. The source must have current/upcoming schedule entries, and the final generated output ID is audited after the merge. See `output/postbuild-validation.csv` and `output/postbuild-gaps.csv`. Gabbarit is enabled again as a last-resort Russian/CIS recovery fallback after safer sources.

@@ -11,7 +11,7 @@ from .config import load_sources, load_aliases, load_id_fixes, load_json
 from .matcher import Matcher
 from .playlist import parse_m3u
 from .reports import write_csv, write_status
-from .utils import fetch_bytes, convert_xmltv_timestamp, is_real_tvg_id
+from .utils import fetch_bytes, convert_xmltv_timestamp, is_real_tvg_id, xmltv_programme_is_usable
 from .xmltv import XMLTVSource
 from .state import load_json as load_state_json, save_json
 from .playlist_diff import snapshot_channels, compare_snapshots
@@ -93,6 +93,8 @@ def build():
     baseline_groups = defaultdict(int)
     final_groups = defaultdict(int)
     programme_count = 0
+    programme_counts_by_output = defaultdict(int)
+    usable_programme_counts_by_output = defaultdict(int)
 
     for source_index, source_cfg in enumerate(sources):
         if source_cfg.get("enabled", True) is False:
@@ -146,6 +148,9 @@ def build():
                 for attr in ("start", "stop"):
                     if p.get(attr):
                         p.set(attr, convert_xmltv_timestamp(p.get(attr), timezone_name))
+                programme_counts_by_output[out_id] += 1
+                if xmltv_programme_is_usable(programme.get("start", ""), programme.get("stop", "")):
+                    usable_programme_counts_by_output[out_id] += 1
                 tv.append(p)
                 programme_count += 1
 
@@ -167,12 +172,48 @@ def build():
                 "source": name,
                 "source_id": sid,
                 "method": method,
+                "_channel_index": i,
             })
             unresolved.discard(i)
 
         source_stats.append({"source": name, "status": "ok", "matched": len(matches)})
         print(f"[{name}] matched={len(matches)} remaining={len(unresolved)}", flush=True)
 
+    # v1.9 post-build validation. A mapping is publishable only when the
+    # final output ID actually received a current/upcoming programme. This is
+    # intentionally independent of the matching method and catches cases where
+    # a channel looked matched but a player would still show "No programme".
+    postbuild_validation = []
+    valid_mappings = []
+    postbuild_gaps = []
+    for row in mappings:
+        out_id = row.get("output_tvg_id", "")
+        programme_n = int(programme_counts_by_output.get(out_id, 0))
+        usable_n = int(usable_programme_counts_by_output.get(out_id, 0))
+        validated = programme_n > 0 and usable_n > 0
+        audit = {
+            "playlist_name": row.get("playlist_name", ""),
+            "output_tvg_id": out_id,
+            "group": row.get("group", ""),
+            "region": row.get("region", ""),
+            "source": row.get("source", ""),
+            "source_id": row.get("source_id", ""),
+            "method": row.get("method", ""),
+            "programmes": programme_n,
+            "usable_programmes": usable_n,
+            "validated": validated,
+        }
+        postbuild_validation.append(audit)
+        if validated:
+            valid_mappings.append(row)
+        else:
+            idx = row.get("_channel_index")
+            if isinstance(idx, int):
+                unresolved.add(idx)
+                final_groups[channels[idx].group] -= 1
+            postbuild_gaps.append(audit)
+
+    mappings = valid_mappings
     matched_total = len(channels) - len(unresolved)
     if programme_count == 0:
         raise SystemExit("SAFETY STOP: generated zero fresh programmes.")
@@ -240,7 +281,7 @@ def build():
         }
 
     status = {
-        "builder_version": "1.8",
+        "builder_version": "1.9",
         "generated_at": datetime.now(timezone).isoformat(),
         "timezone": timezone_name,
         "playlist_channels": len(channels),
@@ -248,6 +289,8 @@ def build():
         "final_matched_channels": matched_total,
         "added_by_fallback_channels": matched_total - baseline_matched,
         "unmatched_channels": len(unresolved),
+        "postbuild_validated_channels": len(mappings),
+        "postbuild_gap_channels": len(postbuild_gaps),
         "region_aware_matching": True,
         "unmatched_family_count": unmatched_family_count,
         "russian_cis_unmatched_candidates": russian_cis_report.get("candidate_channels", 0),
@@ -342,6 +385,22 @@ def build():
         {"source": name, **vals}
         for name, vals in sorted(source_totals.items(), key=lambda kv: -kv[1]["total_added"])
     ]
+
+    # Persist post-build validation before dashboards.
+    save_json(OUTPUT / "postbuild-validation.json", {
+        "generated_at": status.get("generated_at"),
+        "validated_channels": len(mappings),
+        "gap_channels": len(postbuild_gaps),
+        "channels": postbuild_validation,
+    })
+    write_csv(OUTPUT / "postbuild-validation.csv", postbuild_validation,
+              ["playlist_name", "output_tvg_id", "group", "region", "source", "source_id", "method", "programmes", "usable_programmes", "validated"])
+    write_csv(OUTPUT / "postbuild-gaps.csv", postbuild_gaps,
+              ["playlist_name", "output_tvg_id", "group", "region", "source", "source_id", "method", "programmes", "usable_programmes", "validated"])
+
+    # Remove internal bookkeeping before public diagnostics.
+    for row in mappings:
+        row.pop("_channel_index", None)
 
     # Persist diagnostics and dashboards.
     save_json(OUTPUT / "playlist-changes.json", playlist_changes)

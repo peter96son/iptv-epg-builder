@@ -78,6 +78,70 @@ def _parse_xmltv_digits(digits: str) -> datetime:
         dt += timedelta(seconds=1)
     return dt
 
+
+
+def parse_xmltv_datetime(timestamp: str):
+    """Parse a standard XMLTV timestamp to an aware datetime in UTC.
+
+    Returns None for malformed/non-standard values; callers must fail closed.
+    Supports XMLTV precisions YYYYMMDD through YYYYMMDDhhmmss plus Z/+HHMM.
+    """
+    raw = (timestamp or "").strip()
+    m = re.match(r"^(\d{8}|\d{10}|\d{12}|\d{14})\s*([+-]\d{4}|Z)", raw)
+    if not m:
+        return None
+    digits, offset = m.groups()
+    try:
+        dt = _parse_xmltv_digits(digits)
+        if offset == "Z":
+            source_tz = timezone.utc
+        else:
+            sign = 1 if offset[0] == "+" else -1
+            hours = int(offset[1:3])
+            minutes = int(offset[3:5])
+            if hours > 23 or minutes > 59:
+                return None
+            source_tz = timezone(sign * timedelta(hours=hours, minutes=minutes))
+        return dt.replace(tzinfo=source_tz).astimezone(timezone.utc)
+    except (ValueError, TypeError, OverflowError):
+        return None
+
+
+def xmltv_programme_is_usable(
+    start: str,
+    stop: str = "",
+    *,
+    now=None,
+    lookback_hours: int = 6,
+    future_hours: int = 48,
+) -> bool:
+    """Return True when a programme makes the guide useful now or soon.
+
+    We allow a small lookback because some XMLTV feeds have imperfect stop
+    times, but a channel with only old programmes is no longer treated as
+    covered.  A future programme up to 48h ahead is enough to keep the source
+    eligible and lets the player show Next/Upcoming data.
+    """
+    now = now or datetime.now(timezone.utc)
+    if now.tzinfo is None:
+        now = now.replace(tzinfo=timezone.utc)
+    else:
+        now = now.astimezone(timezone.utc)
+
+    start_dt = parse_xmltv_datetime(start)
+    if start_dt is None:
+        return False
+    stop_dt = parse_xmltv_datetime(stop) if stop else None
+
+    window_start = now - timedelta(hours=lookback_hours)
+    window_end = now + timedelta(hours=future_hours)
+
+    # If stop exists, the programme must not already be completely stale.
+    if stop_dt is not None and stop_dt < window_start:
+        return False
+    return start_dt <= window_end
+
+
 def convert_xmltv_timestamp(timestamp: str, timezone_name: str) -> str:
     """
     Convert standard XMLTV timestamps safely.

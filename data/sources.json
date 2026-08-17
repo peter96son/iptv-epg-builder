@@ -304,13 +304,6 @@
     ]
   },
   {
-    "name": "gabbarit-current",
-    "url": "http://gabbarit.drm-play.com/epg_1.xml.gz",
-    "enabled": false,
-    "timeout": 300,
-    "note": "Emergency fallback only: very large source; enable if lighter sources leave important gaps."
-  },
-  {
     "name": "anzo-top",
     "url": "https://veranzo.ru/other/epg.xml.gz",
     "enabled": true,
@@ -586,5 +579,27 @@
       "LV"
     ],
     "note": "Country-scoped EPGShare feed; v1.6 region-aware matching."
+  },
+  {
+    "name": "gabbarit-current",
+    "url": "http://gabbarit.drm-play.com/epg_1.xml.gz",
+    "enabled": true,
+    "timeout": 300,
+    "note": "v1.9 recovery fallback for Russian/CIS and thematic groups. Runs after safer dedicated sources when ordered here; exact matching only, regional-sensitive brands still require compatible region.",
+    "groups": [
+      "Россия",
+      "Украинские",
+      "Беларусь",
+      "Кино",
+      "Кино 4K",
+      "Кинозалы",
+      "Кинозалы UA",
+      "Спорт",
+      "Познавательные",
+      "Детские",
+      "Новости",
+      "Музыкальные",
+      "Разное"
+    ]
   }
 ]

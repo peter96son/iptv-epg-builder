@@ -188,3 +188,20 @@ Next research queue after v1.7 live results: BE/NL disambiguation, Israel, Germa
 - Publish `unmatched-russian-cis.json`, `.csv`, and `.md` on every build.
 - Keep regional-sensitive brands and time-shift variants fail-closed.
 - Keep virtual/FAST families out of generic automatic matching.
+
+## v1.9 final-guide validation and recovery
+
+v1.9 changes the definition of a covered channel.
+
+A mapping alone is not coverage. A channel is publishable to `uhf-mapping.json` only when its final `output_tvg_id` has at least one programme in the generated XMLTV and at least one programme that is current or starts within the near-future usability window.
+
+New diagnostics:
+- `output/postbuild-validation.json`
+- `output/postbuild-validation.csv`
+- `output/postbuild-gaps.csv`
+
+A channel in `postbuild-gaps.csv` must not be published as successfully covered. This rule exists specifically to catch cases where an IPTV player shows `No programme` even though `mapping.csv` contained a TVG ID.
+
+The source eligibility window is stricter than the old calendar-date freshness test. Old entries from yesterday/two days ago must not make a channel look covered. The builder should prefer another fallback source that has current/upcoming data.
+
+Gabbarit is re-enabled in v1.9 only as the LAST recovery fallback and only for Russian/CIS plus thematic groups. It must never outrank dedicated/country-scoped sources. Regional-sensitive brands remain protected by region rules.

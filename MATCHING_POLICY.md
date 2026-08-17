@@ -52,3 +52,15 @@ Production aliases for regional-sensitive or renamed channels must identify the 
 ## Russian/CIS cross-group rule (v1.8)
 
 Language/topic grouping is not country identity. A Russian-language channel may appear in `Кино`, `Музыкальные`, `Познавательные`, `Детские`, `Спорт`, or another topical provider group. Recovery research therefore scans all such groups, but region-sensitive channel brands still require compatible regional evidence. Time-shift variants are separate schedules by default.
+
+## v1.9 final validation
+
+Matching and coverage are separate stages.
+
+1. Matcher proposes a source channel.
+2. Source must have current/upcoming programme data.
+3. Builder emits programmes under the final output TVG ID.
+4. Post-build validation confirms that the final ID really has usable programmes.
+5. Only then may the channel enter `uhf-mapping.json`.
+
+This prevents a structurally valid TVG ID from producing `No programme` in UniPlayer/UHF.
