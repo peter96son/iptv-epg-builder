@@ -30,7 +30,7 @@ def test_discovery_ro_rejects_wrong_country_source():
     matcher = Matcher([])
     ch = PlaylistChannel("Discovery Science HD RO", "", "Discovery Science HD RO", "Румыния")
     src = fake_source("epgshare-NL", "discovery-science.nl", "Discovery Science HD RO")
-    sid, method = matcher.match(ch, src, {"regions": ["NL"]})
+    sid, method, confidence = matcher.match(ch, src, {"regions": ["NL"]})
     assert sid is None
     assert method is None
 
@@ -39,7 +39,7 @@ def test_discovery_ro_accepts_ro_country_source():
     matcher = Matcher([])
     ch = PlaylistChannel("Discovery Science HD RO", "", "Discovery Science HD RO", "Румыния")
     src = fake_source("epgshare-RO", "discovery-science.ro", "Discovery Science HD RO")
-    sid, method = matcher.match(ch, src, {"regions": ["RO"]})
+    sid, method, confidence = matcher.match(ch, src, {"regions": ["RO"]})
     assert sid == "discovery-science.ro"
     assert method == "name-region"
 
@@ -62,4 +62,38 @@ def test_manual_alias_can_be_region_constrained():
     matcher = Matcher(aliases)
     ch = PlaylistChannel("Discovery Science HD RO", "", "", "Румыния")
     src = fake_source("epgshare-RO", "disc.ro", "anything")
-    assert matcher.match(ch, src, {"regions": ["RO"]}) == ("disc.ro", "alias")
+    assert matcher.match(ch, src, {"regions": ["RO"]}) == ("disc.ro", "alias", 100)
+
+
+def test_regional_family_suffix_matches_only_compatible_country():
+    from types import SimpleNamespace
+    matcher = Matcher([])
+    src = SimpleNamespace(
+        name="epgshare-RO",
+        channels={"disc.ro": object()},
+        names={"discovery science": {"disc.ro"}},
+    )
+    ch = SimpleNamespace(
+        name="Discovery Science HD RO",
+        tvg_name="Discovery Science HD RO",
+        tvg_id="",
+        group="Румыния",
+    )
+    assert matcher.match(ch, src, {"regions": ["RO"]}) == ("disc.ro", "family-region", 92)
+
+
+def test_regional_family_suffix_rejects_wrong_country():
+    from types import SimpleNamespace
+    matcher = Matcher([])
+    src = SimpleNamespace(
+        name="epgshare-UK",
+        channels={"disc.uk": object()},
+        names={"discovery science": {"disc.uk"}},
+    )
+    ch = SimpleNamespace(
+        name="Discovery Science HD RO",
+        tvg_name="Discovery Science HD RO",
+        tvg_id="",
+        group="Румыния",
+    )
+    assert matcher.match(ch, src, {"regions": ["GB"]}) == (None, None, 0)

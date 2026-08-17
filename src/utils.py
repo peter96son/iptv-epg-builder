@@ -1,5 +1,5 @@
 from __future__ import annotations
-import gzip, io, re, urllib.request, urllib.parse, time, http.client
+import gzip, io, re, urllib.request, urllib.parse, time, http.client, os
 from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
 
@@ -38,6 +38,8 @@ def fetch_bytes(
     retries: int = 4,
     *,
     cache_bust_on_retry: bool = False,
+    cache_path=None,
+    stale_if_error_seconds: int = 0,
 ) -> bytes:
     """Fetch bytes with retry protection for flaky XMLTV hosts.
 
@@ -66,11 +68,33 @@ def fetch_bytes(
                 expected = response.headers.get("Content-Length")
                 if expected and expected.isdigit() and len(data) < int(expected):
                     raise http.client.IncompleteRead(data, int(expected) - len(data))
+                if cache_path:
+                    try:
+                        from pathlib import Path
+                        cp = Path(cache_path)
+                        cp.parent.mkdir(parents=True, exist_ok=True)
+                        tmp = cp.with_suffix(cp.suffix + ".tmp")
+                        tmp.write_bytes(data)
+                        os.replace(tmp, cp)
+                    except OSError:
+                        pass
                 return data
         except Exception as exc:
             last = exc
             if attempt + 1 < attempts:
                 time.sleep(min(15, 2 ** attempt * 2))
+    if cache_path and stale_if_error_seconds > 0:
+        try:
+            from pathlib import Path
+            cp = Path(cache_path)
+            age = time.time() - cp.stat().st_mtime
+            if cp.is_file() and age <= stale_if_error_seconds:
+                cached = cp.read_bytes()
+                if cached:
+                    print(f"[cache] using stale-if-error copy for {url}; age={int(age)}s", flush=True)
+                    return cached
+        except OSError:
+            pass
     raise RuntimeError(f"Failed to fetch {url} after {attempts} attempts: {last}")
 
 def open_xml_bytes(data: bytes):

@@ -90,6 +90,7 @@ def build():
     emitted_channel_ids = set()
     mappings = []
     source_stats = []
+    confidence_counts = defaultdict(int)
     baseline_matched = 0
     baseline_groups = defaultdict(int)
     final_groups = defaultdict(int)
@@ -110,11 +111,16 @@ def build():
 
         print(f"[{name}] downloading; candidates={len(candidates)}", flush=True)
         try:
+            cache_path = None
+            if source_cfg.get("cache_fallback"):
+                cache_path = ROOT / ".cache" / "epg" / f"{name}.bin"
             data = fetch_bytes(
                 url,
                 timeout=int(source_cfg.get("timeout", 180)),
                 retries=int(source_cfg.get("retries", 4)),
                 cache_bust_on_retry=bool(source_cfg.get("cache_bust_on_retry", False)),
+                cache_path=cache_path,
+                stale_if_error_seconds=int(source_cfg.get("stale_if_error_seconds", 0)),
             )
             source = XMLTVSource(name, data).index()
         except Exception as exc:
@@ -125,9 +131,9 @@ def build():
         matches = {}
         by_source_id = defaultdict(list)
         for i in candidates:
-            sid, method = matcher.match(channels[i], source, source_cfg)
+            sid, method, confidence = matcher.match(channels[i], source, source_cfg)
             if sid:
-                matches[i] = (sid, method)
+                matches[i] = (sid, method, confidence)
                 by_source_id[sid].append(i)
 
         if not matches:
@@ -165,7 +171,8 @@ def build():
             for i in matches:
                 baseline_groups[channels[i].group] += 1
 
-        for i, (sid, method) in matches.items():
+        source_confidences = []
+        for i, (sid, method, confidence) in matches.items():
             ch = channels[i]
             output_tvg_id = id_fixes.get(ch.name) or (ch.tvg_id if is_real_tvg_id(ch.tvg_id) else sid)
             final_groups[ch.group] += 1
@@ -178,11 +185,17 @@ def build():
                 "source": name,
                 "source_id": sid,
                 "method": method,
+                "confidence": confidence,
                 "_channel_index": i,
             })
+            confidence_counts[str(confidence)] += 1
+            source_confidences.append(confidence)
             unresolved.discard(i)
 
-        source_stats.append({"source": name, "status": "ok", "matched": len(matches)})
+        source_stats.append({
+            "source": name, "status": "ok", "matched": len(matches),
+            "avg_confidence": round(sum(source_confidences) / len(source_confidences), 1) if source_confidences else 0.0,
+        })
         print(f"[{name}] matched={len(matches)} remaining={len(unresolved)}", flush=True)
 
     # v1.9 post-build validation. A mapping is publishable only when the
@@ -205,6 +218,7 @@ def build():
             "source": row.get("source", ""),
             "source_id": row.get("source_id", ""),
             "method": row.get("method", ""),
+            "confidence": row.get("confidence", 0),
             "programmes": programme_n,
             "usable_programmes": usable_n,
             "validated": validated,
@@ -287,7 +301,7 @@ def build():
         }
 
     status = {
-        "builder_version": "2.1",
+        "builder_version": "3.0",
         "generated_at": datetime.now(timezone).isoformat(),
         "timezone": timezone_name,
         "playlist_channels": len(channels),
@@ -298,6 +312,8 @@ def build():
         "postbuild_validated_channels": len(mappings),
         "postbuild_gap_channels": len(postbuild_gaps),
         "region_aware_matching": True,
+        "regional_family_matching": True,
+        "confidence_counts": dict(sorted(confidence_counts.items(), key=lambda kv: -int(kv[0]))),
         "unmatched_family_count": unmatched_family_count,
         "russian_cis_unmatched_candidates": russian_cis_report.get("candidate_channels", 0),
         "russian_cis_unsafe_candidates": russian_cis_report.get("requires_manual_or_dedicated_epg", 0),
@@ -400,9 +416,9 @@ def build():
         "channels": postbuild_validation,
     })
     write_csv(OUTPUT / "postbuild-validation.csv", postbuild_validation,
-              ["playlist_name", "output_tvg_id", "group", "region", "source", "source_id", "method", "programmes", "usable_programmes", "validated"])
+              ["playlist_name", "output_tvg_id", "group", "region", "source", "source_id", "method", "confidence", "programmes", "usable_programmes", "validated"])
     write_csv(OUTPUT / "postbuild-gaps.csv", postbuild_gaps,
-              ["playlist_name", "output_tvg_id", "group", "region", "source", "source_id", "method", "programmes", "usable_programmes", "validated"])
+              ["playlist_name", "output_tvg_id", "group", "region", "source", "source_id", "method", "confidence", "programmes", "usable_programmes", "validated"])
 
     # v2.1 targeted channel diagnostics. This makes player-visible EPG issues
     # inspectable without manually opening the compressed XMLTV file.
@@ -432,7 +448,7 @@ def build():
 
     write_status(status_path, status)
     write_csv(OUTPUT / "mapping.csv", mappings,
-              ["playlist_name", "playlist_tvg_id", "output_tvg_id", "group", "region", "source", "source_id", "method"])
+              ["playlist_name", "playlist_tvg_id", "output_tvg_id", "group", "region", "source", "source_id", "method", "confidence"])
     write_csv(OUTPUT / "unmatched.csv", unmatched,
               ["playlist_name", "playlist_tvg_id", "group", "region"])
 

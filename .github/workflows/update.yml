@@ -25,6 +25,14 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Restore XMLTV fallback cache
+        uses: actions/cache@v4
+        with:
+          path: .cache/epg
+          key: epg-cache-${{ runner.os }}-${{ github.run_id }}
+          restore-keys: |
+            epg-cache-${{ runner.os }}-
+
       - name: Build EPG
         env:
           PLAYLIST_URL: ${{ secrets.PLAYLIST_URL }}

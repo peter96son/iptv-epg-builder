@@ -44,6 +44,7 @@ REGIONAL_SENSITIVE_BRANDS = (
     "eurosport", "viasat", "hbo", "nickelodeon", "nick jr", "disney", "mtv",
     "fox", "star", "bbc", "itv", "rai", "rtl", "bein", "cinemax", "paramount",
     "history", "travel channel", "food network", "cartoon network", "cnn",
+    "tv1000", "canal+", "sky", "digi", "nova", "sport tv", "dazn",
 )
 
 

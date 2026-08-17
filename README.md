@@ -178,3 +178,8 @@ New diagnostics:
 - `output/worker-audit-gaps.csv`
 
 The normal player URL remains `/tv`. The `fresh=1` query is for automated diagnostics only.
+
+
+## v3.0
+
+The builder now supports conservative regional-family matching for international brands, records a confidence score for every mapping, and can persist an explicitly enabled stale-if-error cache for unstable XMLTV sources. Release ZIPs do not contain generated `output/` files.

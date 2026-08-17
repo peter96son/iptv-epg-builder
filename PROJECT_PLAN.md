@@ -227,3 +227,11 @@ The workflow commits normal EPG output first, then audits the live Worker agains
 A clean post-build audit plus a clean Worker audit means the remaining "No programme" problem is likely player-side EPG cache/binding rather than builder/Worker delivery.
 
 v2.0 also adds `teleguide-ru` as another Russian/CIS recovery source. It is a fallback only; it does not change the rule that regional-sensitive brands must not be matched across countries by name.
+
+## v3.0 architecture checkpoint
+
+- Add conservative regional family matching for international channel brands.
+- Add per-mapping confidence scores and confidence distribution diagnostics.
+- Add persisted stale-if-error XMLTV cache for explicitly configured unstable sources (initially Teleguide).
+- Keep Worker delivery audit and post-build fresh-programme validation mandatory.
+- Release archives exclude `output/` to avoid conflicts with GitHub Actions generated files.

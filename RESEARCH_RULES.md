@@ -166,3 +166,11 @@ Do not treat these figures as permanent. They are a historical checkpoint; use e
 - Every build writes `output/channel-diagnostics.json` with mapping/source/ID plus current and next programmes for watchlisted channels.
 - A channel on the watchlist is not considered diagnosed merely because it is matched; its actual current/upcoming programme records must be shown in the diagnostic output.
 - Release ZIPs must not contain generated `output/` files; GitHub Actions owns generated output to avoid merge conflicts.
+
+## v3.0 source resilience and confidence
+
+- Record mapping confidence in `mapping.csv` and post-build validation output.
+- Regional family matching is allowed only for known regional-sensitive brands and a compatible region-scoped XMLTV source.
+- Persist only explicitly enabled flaky-source caches. A cached XMLTV may be used only after all live retries fail and only within the configured stale-if-error window.
+- Cached data must still pass the normal fresh-programme gate; cache fallback never turns stale schedules into valid coverage.
+- Generated `output/` files are never shipped in release ZIPs; GitHub Actions owns them.

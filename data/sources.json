@@ -600,9 +600,11 @@
       "Новости",
       "Разное"
     ],
-    "note": "v2.1 Russian/CIS fallback. Large official Teleguide XMLTV; use 5 full retries with cache-busting after IncompleteRead. Fresh-programme gate still required.",
+    "note": "v3.0 Russian/CIS fallback. Full retries plus persisted stale-if-error cache for flaky large downloads. Fresh-programme and regional safety gates still apply.",
     "retries": 5,
-    "cache_bust_on_retry": true
+    "cache_bust_on_retry": true,
+    "cache_fallback": true,
+    "stale_if_error_seconds": 86400
   },
   {
     "name": "gabbarit-current",

@@ -74,3 +74,12 @@ Matching is not complete until delivery is verified. For every published mapping
 must form one consistent chain. Any mismatch is reported in `worker-audit-gaps.csv` and must not be hidden by coverage statistics.
 
 The Worker diagnostic request uses `/tv?fresh=1` to bypass only the Cloudflare playlist cache. Normal player traffic continues to use `/tv` with the 15-minute cache.
+
+## v3.0 regional family matching
+
+- International brands with regional schedules may be matched through a canonical family name only inside a source whose declared region is compatible with the provider group.
+- Country suffixes/prefixes such as `RO`, `PL`, `UK`, `Italia`, `Polska` may be removed only at the edge of a regional-sensitive brand name.
+- This is not fuzzy matching. A unique exact family name must exist in the compatible country feed.
+- Confidence is recorded for every mapping: alias 100, exact ID 99, exact regional name 96, regional family 92, ordinary exact normalized name 90.
+- Lower-confidence methods must never override a higher-confidence researched alias.
+- `Discovery Science HD RO` may resolve to `Discovery Science` in an RO feed; it must not resolve to the same display name in a GB/NL/PL feed.
