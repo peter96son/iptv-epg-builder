@@ -16,6 +16,7 @@ from .xmltv import XMLTVSource
 from .state import load_json as load_state_json, save_json
 from .playlist_diff import snapshot_channels, compare_snapshots
 from .dashboard import build_markdown, build_html
+from .research import build_unmatched_family_reports
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "output"
@@ -198,6 +199,17 @@ def build():
         "group": channels[i].group,
     } for i in sorted(unresolved)]
 
+    family_report = build_unmatched_family_reports(unmatched, OUTPUT)
+    unmatched_family_count = len(family_report.get("families", []))
+    top_unmatched_families = [
+        {
+            "family": row.get("family"),
+            "channels": row.get("channels", 0),
+            "dummy_no_epg_ids": row.get("dummy_no_epg_ids", 0),
+        }
+        for row in family_report.get("families", [])[:20]
+    ]
+
     added_by_group = {
         group: final_groups[group] - baseline_groups[group]
         for group in set(final_groups) | set(baseline_groups)
@@ -222,6 +234,7 @@ def build():
         }
 
     status = {
+        "builder_version": "1.5",
         "generated_at": datetime.now(timezone).isoformat(),
         "timezone": timezone_name,
         "playlist_channels": len(channels),
@@ -229,6 +242,8 @@ def build():
         "final_matched_channels": matched_total,
         "added_by_fallback_channels": matched_total - baseline_matched,
         "unmatched_channels": len(unresolved),
+        "unmatched_family_count": unmatched_family_count,
+        "top_unmatched_families": top_unmatched_families,
         "programmes": programme_count,
         "sources": source_stats,
         "baseline_by_group": dict(baseline_groups),
@@ -331,6 +346,7 @@ def build():
               ["playlist_name", "playlist_tvg_id", "output_tvg_id", "group", "source", "source_id", "method"])
     write_csv(OUTPUT / "unmatched.csv", unmatched,
               ["playlist_name", "playlist_tvg_id", "group"])
+
 
     print(json.dumps(status, ensure_ascii=False, indent=2), flush=True)
     return status

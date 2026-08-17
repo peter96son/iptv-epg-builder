@@ -1,4 +1,4 @@
-const VERSION = "1.4.2";
+const VERSION = "1.5.0";
 
 const DEFAULT_EPG_URL =
   "https://raw.githubusercontent.com/peter96son/iptv-epg-builder/main/output/epg.xml.gz";
@@ -348,7 +348,10 @@ export default {
      * PLAYLIST
      */
 
-    if (url.pathname !== "/tv") {
+    const isTv = url.pathname === "/tv";
+    const isDownload = url.pathname === "/download";
+
+    if (!isTv && !isDownload) {
       return notFound();
     }
 
@@ -366,10 +369,9 @@ export default {
     }
 
     /*
-     * New cache key for v1.4.2.
+     * New cache key for v1.5.0.
      *
-     * This prevents Cloudflare from serving the v1.4.1
-     * playlist where #EXTGRP was not handled correctly.
+     * This prevents Cloudflare from serving an older rewritten playlist.
      */
 
     const cache =
@@ -378,7 +380,7 @@ export default {
     const cacheKey =
       new Request(
         url.origin +
-        "/tv-cache-v142",
+        "/tv-cache-v150",
         {
           method: "GET"
         }
@@ -390,6 +392,17 @@ export default {
       );
 
     if (cached) {
+      if (isDownload) {
+        const headers = new Headers(cached.headers);
+        headers.set(
+          "Content-Disposition",
+          'attachment; filename="playlist.m3u"'
+        );
+        return new Response(cached.body, {
+          status: cached.status,
+          headers
+        });
+      }
       return cached;
     }
 
@@ -480,7 +493,9 @@ export default {
         "application/x-mpegURL; charset=utf-8",
 
       "Content-Disposition":
-        'inline; filename="playlist.m3u"',
+        isDownload
+          ? 'attachment; filename="playlist.m3u"'
+          : 'inline; filename="playlist.m3u"',
 
       "Cache-Control":
         "private, max-age=0",
@@ -535,6 +550,9 @@ export default {
 
             headers: {
               ...responseHeaders,
+
+              "Content-Disposition":
+                'inline; filename="playlist.m3u"',
 
               "Cache-Control":
                 "s-maxage=900"

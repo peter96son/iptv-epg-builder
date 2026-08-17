@@ -129,3 +129,24 @@ The repository no longer publishes a stream-bearing M3U.
 GitHub publishes `output/epg.xml.gz` and `output/uhf-mapping.json`.
 The private playlist is generated on demand by the Worker in `cloudflare-worker/`.
 Store `PLAYLIST_URL` and `ACCESS_TOKEN` as Cloudflare Worker secrets.
+
+## v1.5 — family-first unmatched analysis
+
+Version 1.5 adds automatic diagnostics for the remaining unmatched channels. Every successful build writes:
+
+- `output/unmatched-families.json`
+- `output/unmatched-families.csv`
+- `output/unmatched-families.md`
+
+The reports group known FAST/virtual/cinema families such as DITV, VeleS, Magic, KLI, Play-X, BCU, Joker and Clarity so research can be done family-by-family instead of channel-by-channel.
+
+This is deliberately **diagnostic only**. The classifier never creates an EPG mapping and never fuzzy-matches a channel into the live guide.
+
+Cloudflare Worker v1.5.0 routes:
+
+- `/tv` — permanent IPTV-player URL;
+- `/download` — download the rewritten playlist as `playlist.m3u`;
+- `/epg` — EPG redirect;
+- `/health` — health check.
+
+The Worker understands IPTV Online's separate `#EXTGRP:` lines and strips unsafe EPG hints from unmatched movie/FAST channels. Dummy `no_epg_*` IDs are also removed.

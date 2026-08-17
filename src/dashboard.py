@@ -43,6 +43,15 @@ def build_markdown(status: dict, changes: dict, history: list[dict]) -> str:
     for row in status.get("sources", []):
         lines.append(f"| {row.get('source','')} | {row.get('status','')} | {row.get('matched',0)} |")
     lines.append("")
+    families = status.get("top_unmatched_families", [])
+    if families:
+        lines.append("## Top unmatched families")
+        lines.append("")
+        lines.append("| Family | Channels | no_epg_* |")
+        lines.append("|---|---:|---:|")
+        for row in families[:15]:
+            lines.append(f"| {row.get('family','')} | {row.get('channels',0)} | {row.get('dummy_no_epg_ids',0)} |")
+        lines.append("")
     lines.append("## Recent history")
     lines.append("")
     lines.append("| Generated | Covered | Unmatched | Programmes |")
@@ -62,6 +71,11 @@ def build_html(status: dict, changes: dict, history: list[dict]) -> str:
     src_rows = []
     for s in status.get("sources", []):
         src_rows.append(f"<tr><td>{escape(s.get('source',''))}</td><td>{escape(s.get('status',''))}</td><td>{s.get('matched',0)}</td></tr>")
+    family_rows = []
+    for row in status.get("top_unmatched_families", [])[:15]:
+        family_rows.append(
+            f"<tr><td>{escape(row.get('family',''))}</td><td>{row.get('channels',0)}</td><td>{row.get('dummy_no_epg_ids',0)}</td></tr>"
+        )
     hist_rows = []
     for h in history[-20:]:
         hist_rows.append(f"<tr><td>{escape(h.get('generated_at',''))}</td><td>{h.get('final_matched_channels',0)}</td><td>{h.get('unmatched_channels',0)}</td><td>{h.get('programmes',0)}</td></tr>")
@@ -102,6 +116,9 @@ th{{position:sticky;top:0;background:white}} code{{word-break:break-all}}
 
 <h2>Source contribution</h2>
 <table><tr><th>Source</th><th>Status</th><th>Added</th></tr>{''.join(src_rows)}</table>
+
+<h2>Top unmatched families</h2>
+<table><tr><th>Family</th><th>Channels</th><th>no_epg_*</th></tr>{''.join(family_rows)}</table>
 
 <h2>Recent history</h2>
 <table><tr><th>Generated</th><th>Covered</th><th>Unmatched</th><th>Programmes</th></tr>{''.join(hist_rows)}</table>

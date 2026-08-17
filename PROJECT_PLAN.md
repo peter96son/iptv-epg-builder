@@ -125,3 +125,32 @@ Cloudflare Worker delivers the private playlist:
 - Worker rewrites only the EPG URL and verified TVG IDs.
 - Worker never writes the generated M3U to GitHub.
 - If an old public `output/playlist-uhf.m3u` exists, the next successful GitHub build must delete it.
+
+## v1.5 unmatched-family diagnostics
+
+Version 1.5 changes the development workflow from chasing unmatched channels one by one to researching families systematically.
+
+Generated diagnostics now include:
+- `output/unmatched-families.json`
+- `output/unmatched-families.csv`
+- `output/unmatched-families.md`
+
+Known families are grouped explicitly, including DITV, VeleS, Magic, KLI, Play-X, BCU, Joker, Clarity, CPS, NEXT, CineMan, MiniMax/MM, Fresh, BOX, Velilla and KBC. Newly discovered prefixes are grouped into diagnostic `Other: ...` buckets.
+
+The family classifier is diagnostic only. It MUST NOT create live EPG mappings. New mappings still require a real XMLTV source, fresh `<programme>` data and a verified identity.
+
+### Worker delivery in v1.5
+
+The current Cloudflare Worker no longer uses `ACCESS_TOKEN` or `/playlist/<ACCESS_TOKEN>`.
+
+Production routes:
+- `/tv` — IPTV-player playlist, `inline` response;
+- `/download` — same rewritten playlist as a downloadable `playlist.m3u`;
+- `/epg` — redirect to the generated EPG;
+- `/health` — upstream health check.
+
+Worker `PLAYLIST_URL` stays private in Cloudflare. The public GitHub repository contains no provider stream URLs.
+
+For unmatched channels in protected movie groups (`Кино`, `Кинозалы`, `Кино 4K`, `Кинозалы UA`), Worker removes `tvg-id` and `tvg-name` so players cannot attach unrelated EPG data. It also removes dummy `no_epg_*` IDs from unmatched channels globally.
+
+Core rule: **No EPG is better than a false EPG match.**
