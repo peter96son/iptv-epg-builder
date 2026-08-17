@@ -105,3 +105,23 @@ Safety:
 - Track additions, removals, renames, category changes and stream URL changes.
 - New channels automatically become part of the next build; if no EPG is found they remain in `unmatched.csv`.
 - Track cumulative source contribution so weak/dead sources can be removed later.
+
+
+## v1.4 private delivery architecture
+
+The public GitHub repository MUST NOT contain an M3U with actual provider stream URLs.
+
+GitHub publishes only:
+- `output/epg.xml.gz`
+- `output/uhf-mapping.json`
+- reports and diagnostics
+
+Cloudflare Worker delivers the private playlist:
+- `PLAYLIST_URL` is an encrypted Worker secret.
+- `ACCESS_TOKEN` is an encrypted Worker secret and acts as the bearer path.
+- UHF uses `/playlist/<ACCESS_TOKEN>`.
+- Worker fetches the latest provider M3U on demand.
+- Worker preserves stream URLs, order, names, logos and categories.
+- Worker rewrites only the EPG URL and verified TVG IDs.
+- Worker never writes the generated M3U to GitHub.
+- If an old public `output/playlist-uhf.m3u` exists, the next successful GitHub build must delete it.

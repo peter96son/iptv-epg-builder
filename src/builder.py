@@ -10,7 +10,6 @@ from zoneinfo import ZoneInfo
 from .config import load_sources, load_aliases, load_id_fixes, load_json
 from .matcher import Matcher
 from .playlist import parse_m3u
-from .playlist_writer import build_uhf_playlist
 from .reports import write_csv, write_status
 from .utils import fetch_bytes, convert_xmltv_timestamp, is_real_tvg_id
 from .xmltv import XMLTVSource
@@ -248,32 +247,36 @@ def build():
     repo = os.environ.get("GITHUB_REPOSITORY", "").strip()
     if repo:
         public_epg_url = f"https://raw.githubusercontent.com/{repo}/main/output/epg.xml.gz"
-        public_playlist_url = f"https://raw.githubusercontent.com/{repo}/main/output/playlist-uhf.m3u"
+        public_mapping_url = f"https://raw.githubusercontent.com/{repo}/main/output/uhf-mapping.json"
     else:
         public_epg_url = os.environ.get(
             "PUBLIC_EPG_URL",
             "https://raw.githubusercontent.com/peter96son/iptv-epg-builder/main/output/epg.xml.gz",
         ).strip()
-        public_playlist_url = ""
+        public_mapping_url = ""
 
-    output_id_by_name = {
-        row["playlist_name"]: row["output_tvg_id"]
-        for row in mappings
-        if row.get("playlist_name") and row.get("output_tvg_id")
-    }
-    uhf_m3u, rewrite_stats = build_uhf_playlist(
-        playlist_text,
-        output_id_by_name,
-        public_epg_url,
-    )
-    (OUTPUT / "playlist-uhf.m3u").write_text(uhf_m3u, encoding="utf-8")
-
-    status["uhf_playlist"] = {
+    # Publish only safe metadata. Never publish the provider M3U or stream URLs.
+    uhf_mapping = {
+        "generated_at": status.get("generated_at"),
         "epg_url": public_epg_url,
-        "playlist_url": public_playlist_url,
-        "channels_seen": rewrite_stats.channels_seen,
-        "tvg_ids_changed": rewrite_stats.ids_changed,
-        "tvg_ids_added": rewrite_stats.ids_added,
+        "channels": {
+            row["playlist_name"]: row["output_tvg_id"]
+            for row in mappings
+            if row.get("playlist_name") and row.get("output_tvg_id")
+        },
+    }
+    save_json(OUTPUT / "uhf-mapping.json", uhf_mapping)
+
+    # Delete a legacy public playlist created by v1.2/v1.3.
+    legacy_public_playlist = OUTPUT / "playlist-uhf.m3u"
+    if legacy_public_playlist.exists():
+        legacy_public_playlist.unlink()
+
+    status["uhf_delivery"] = {
+        "mode": "cloudflare-worker",
+        "epg_url": public_epg_url,
+        "mapping_url": public_mapping_url,
+        "public_playlist_published": False,
     }
 
     status["playlist_changes"] = {

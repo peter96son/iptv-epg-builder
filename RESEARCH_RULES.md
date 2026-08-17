@@ -99,3 +99,12 @@ Do not treat these figures as permanent. They are a historical checkpoint; use e
 - Keep `playlist-changes.json` as the machine-readable diff.
 - Keep `history.json` for trend analysis.
 - Dashboard output is informational only; it must never alter matching decisions.
+
+
+## Privacy rule for UHF delivery (v1.4)
+
+- Never publish an M3U containing actual provider stream URLs in a public repository.
+- Public GitHub output is limited to EPG, safe TVG-ID mappings and diagnostics.
+- Private M3U delivery is performed by Cloudflare Worker with encrypted secrets.
+- Treat the Worker bearer URL as a credential. Rotate `ACCESS_TOKEN` if it leaks.
+- `PLAYLIST_URL` must never appear in public output.

@@ -120,3 +120,12 @@ New generated files:
 - `output/dashboard.html`
 
 The builder now rejects suspicious playlist collapses (>15% fewer channels than the last successful snapshot) and tracks new/removed/renamed/moved channels and changed stream URLs.
+
+
+## v1.4 — private UHF delivery
+
+The repository no longer publishes a stream-bearing M3U.
+
+GitHub publishes `output/epg.xml.gz` and `output/uhf-mapping.json`.
+The private playlist is generated on demand by the Worker in `cloudflare-worker/`.
+Store `PLAYLIST_URL` and `ACCESS_TOKEN` as Cloudflare Worker secrets.
