@@ -73,3 +73,16 @@ as the external EPG source in UHF.
 ## Safety rule
 
 A channel is never considered covered just because an XMLTV `<channel>` entry exists. It must have fresh programme entries in the configured date window.
+
+
+## IPTV Online category handling
+
+IPTV Online stores categories using separate `#EXTGRP:` lines rather than relying on `group-title`.
+Version 1.1 supports both formats and reports real provider categories in `output/status.json`.
+
+`movie_priority` aggregates the four movie-focused provider categories:
+
+- `Кино`
+- `Кино 4K`
+- `Кинозалы`
+- `Кинозалы UA`

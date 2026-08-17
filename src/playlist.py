@@ -14,10 +14,24 @@ class PlaylistChannel:
     stream_url: str = ""
 
 def parse_m3u(text: str) -> list[PlaylistChannel]:
-    result = []
-    pending = None
+    """
+    Parse common extended M3U variants.
+
+    Supported grouping formats:
+      1) group-title="Кино" inside #EXTINF
+      2) IPTV Online style:
+           #EXTINF:...
+           #EXTGRP:Кино
+           http://stream...
+
+    #EXTGRP takes precedence over group-title when both are present.
+    """
+    result: list[PlaylistChannel] = []
+    pending: PlaylistChannel | None = None
+
     for raw in text.splitlines():
         line = raw.strip()
+
         if line.startswith("#EXTINF"):
             attrs = dict(ATTR.findall(line))
             name = line.split(",", 1)[1].strip() if "," in line else attrs.get("tvg-name", "")
@@ -28,8 +42,15 @@ def parse_m3u(text: str) -> list[PlaylistChannel]:
                 group=attrs.get("group-title", "").strip(),
                 extinf=raw,
             )
-        elif pending and line and not line.startswith("#"):
+            continue
+
+        if pending and line.startswith("#EXTGRP:"):
+            pending.group = line.split(":", 1)[1].strip()
+            continue
+
+        if pending and line and not line.startswith("#"):
             pending.stream_url = raw
             result.append(pending)
             pending = None
+
     return result

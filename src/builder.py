@@ -171,6 +171,25 @@ def build():
         group: final_groups[group] - baseline_groups[group]
         for group in set(final_groups) | set(baseline_groups)
     }
+    movie_groups = ["Кино", "Кино 4K", "Кинозалы", "Кинозалы UA"]
+    movie_baseline = sum(baseline_groups[g] for g in movie_groups)
+    movie_final = sum(final_groups[g] for g in movie_groups)
+
+    group_coverage = {}
+    playlist_group_totals = defaultdict(int)
+    for ch in channels:
+        playlist_group_totals[ch.group or "(без категории)"] += 1
+    for group, total in sorted(playlist_group_totals.items()):
+        base_n = baseline_groups[group]
+        final_n = final_groups[group]
+        group_coverage[group] = {
+            "total": total,
+            "baseline": base_n,
+            "final": final_n,
+            "added": final_n - base_n,
+            "final_pct": round((final_n / total * 100), 1) if total else 0.0,
+        }
+
     status = {
         "generated_at": datetime.now(timezone).isoformat(),
         "timezone": timezone_name,
@@ -184,10 +203,13 @@ def build():
         "baseline_by_group": dict(baseline_groups),
         "final_by_group": dict(final_groups),
         "added_by_group": added_by_group,
+        "group_totals": dict(playlist_group_totals),
+        "group_coverage": group_coverage,
         "movie_priority": {
-            "baseline": baseline_groups["Кино"],
-            "final": final_groups["Кино"],
-            "added": final_groups["Кино"] - baseline_groups["Кино"],
+            "groups": movie_groups,
+            "baseline": movie_baseline,
+            "final": movie_final,
+            "added": movie_final - movie_baseline,
         },
     }
 
