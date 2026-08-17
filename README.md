@@ -92,3 +92,31 @@ Version 1.1 supports both formats and reports real provider categories in `outpu
 
 External XMLTV timestamps are treated as untrusted input. A malformed timestamp
 can no longer terminate the whole GitHub Actions run.
+
+
+## v1.2 — UHF companion playlist
+
+Each successful build also creates `output/playlist-uhf.m3u`.
+
+It preserves provider stream URLs, ordering, logos, names and `#EXTGRP`
+categories while pointing UHF to the merged EPG and aligning verified TVG IDs.
+
+Public URLs after a successful run:
+
+- Playlist: `https://raw.githubusercontent.com/peter96son/iptv-epg-builder/main/output/playlist-uhf.m3u`
+- EPG: `https://raw.githubusercontent.com/peter96son/iptv-epg-builder/main/output/epg.xml.gz`
+
+The private IPTV Online playlist URL stays only in the GitHub Secret.
+
+
+## v1.3 — reliability, changes and history
+
+New generated files:
+
+- `output/playlist-snapshot.json`
+- `output/playlist-changes.json`
+- `output/history.json`
+- `output/dashboard.md`
+- `output/dashboard.html`
+
+The builder now rejects suspicious playlist collapses (>15% fewer channels than the last successful snapshot) and tracks new/removed/renamed/moved channels and changed stream URLs.

@@ -76,3 +76,26 @@ Do not treat these figures as permanent. They are a historical checkpoint; use e
 - If a timestamp still cannot be safely interpreted, preserve the original timestamp verbatim and continue.
 - Freshness checks should fail closed for malformed dates, while timestamp conversion should fail open by preserving the original value.
 - Live run #2 on 2026-08-16 exposed this requirement: the build failed inside `convert_xmltv_timestamp` with `ValueError: unconverted data remains: 0`.
+
+
+## UHF companion playlist (v1.2)
+
+- The daily user-facing playlist should be `output/playlist-uhf.m3u`, not the private provider M3U directly.
+- `playlist-uhf.m3u` points its EPG header to `output/epg.xml.gz`.
+- Generated M3U and XMLTV must use the same final TVG IDs.
+- Preserve provider stream URLs, channel order, names, logos and `#EXTGRP` categories exactly.
+- Do not publish or embed private `PLAYLIST_URL`; it remains a GitHub Secret.
+- Rewrite a `tvg-id` only when a final EPG mapping is known.
+- Unmatched channels remain otherwise unchanged.
+- IPTV Online primary EPG is not automatically ground truth; correctness auditing is a separate quality phase.
+
+
+## Playlist evolution and safety (v1.3)
+
+- Provider channel changes are expected; always rebuild from the latest private M3U.
+- New channels must be accepted automatically unless a global safety rule is triggered.
+- A drop of more than 15% of channel count versus the last successful snapshot is treated as a likely provider/error outage and must stop publication.
+- Keep `playlist-snapshot.json` as the last successful structural baseline.
+- Keep `playlist-changes.json` as the machine-readable diff.
+- Keep `history.json` for trend analysis.
+- Dashboard output is informational only; it must never alter matching decisions.

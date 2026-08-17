@@ -10,9 +10,13 @@ from zoneinfo import ZoneInfo
 from .config import load_sources, load_aliases, load_id_fixes, load_json
 from .matcher import Matcher
 from .playlist import parse_m3u
+from .playlist_writer import build_uhf_playlist
 from .reports import write_csv, write_status
 from .utils import fetch_bytes, convert_xmltv_timestamp, is_real_tvg_id
 from .xmltv import XMLTVSource
+from .state import load_json as load_state_json, save_json
+from .playlist_diff import snapshot_channels, compare_snapshots
+from .dashboard import build_markdown, build_html
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "output"
@@ -52,6 +56,32 @@ def build():
     channels = parse_m3u(playlist_text)
     if not channels:
         raise SystemExit("Playlist is empty or could not be parsed.")
+
+    previous_snapshot_path = OUTPUT / "playlist-snapshot.json"
+    previous_snapshot = load_state_json(previous_snapshot_path, [])
+    current_snapshot = snapshot_channels(channels)
+    playlist_changes = compare_snapshots(previous_snapshot, current_snapshot) if previous_snapshot else {
+        "added_count": len(channels),
+        "removed_count": 0,
+        "renamed_count": 0,
+        "stream_url_changed_count": 0,
+        "group_changed_count": 0,
+        "added": current_snapshot,
+        "removed": [],
+        "renamed": [],
+        "stream_url_changed": [],
+        "group_changed": [],
+    }
+
+    # Playlist collapse protection.
+    if previous_snapshot:
+        previous_count = len(previous_snapshot)
+        current_count = len(current_snapshot)
+        collapse_threshold = 0.15
+        if previous_count >= 100 and current_count < previous_count * (1 - collapse_threshold):
+            raise SystemExit(
+                f"SAFETY STOP: playlist collapsed from {previous_count} to {current_count} channels."
+            )
 
     unresolved = set(range(len(channels)))
     tv = ET.Element("tv", {"generator-info-name": "iptv-epg-builder"})
@@ -123,10 +153,12 @@ def build():
 
         for i, (sid, method) in matches.items():
             ch = channels[i]
+            output_tvg_id = id_fixes.get(ch.name) or (ch.tvg_id if is_real_tvg_id(ch.tvg_id) else sid)
             final_groups[ch.group] += 1
             mappings.append({
                 "playlist_name": ch.name,
                 "playlist_tvg_id": ch.tvg_id,
+                "output_tvg_id": output_tvg_id,
                 "group": ch.group,
                 "source": name,
                 "source_id": sid,
@@ -213,9 +245,87 @@ def build():
         },
     }
 
+    repo = os.environ.get("GITHUB_REPOSITORY", "").strip()
+    if repo:
+        public_epg_url = f"https://raw.githubusercontent.com/{repo}/main/output/epg.xml.gz"
+        public_playlist_url = f"https://raw.githubusercontent.com/{repo}/main/output/playlist-uhf.m3u"
+    else:
+        public_epg_url = os.environ.get(
+            "PUBLIC_EPG_URL",
+            "https://raw.githubusercontent.com/peter96son/iptv-epg-builder/main/output/epg.xml.gz",
+        ).strip()
+        public_playlist_url = ""
+
+    output_id_by_name = {
+        row["playlist_name"]: row["output_tvg_id"]
+        for row in mappings
+        if row.get("playlist_name") and row.get("output_tvg_id")
+    }
+    uhf_m3u, rewrite_stats = build_uhf_playlist(
+        playlist_text,
+        output_id_by_name,
+        public_epg_url,
+    )
+    (OUTPUT / "playlist-uhf.m3u").write_text(uhf_m3u, encoding="utf-8")
+
+    status["uhf_playlist"] = {
+        "epg_url": public_epg_url,
+        "playlist_url": public_playlist_url,
+        "channels_seen": rewrite_stats.channels_seen,
+        "tvg_ids_changed": rewrite_stats.ids_changed,
+        "tvg_ids_added": rewrite_stats.ids_added,
+    }
+
+    status["playlist_changes"] = {
+        k: v for k, v in playlist_changes.items()
+        if k.endswith("_count")
+    }
+
+    # Historical run summary.
+    history_path = OUTPUT / "history.json"
+    history = load_state_json(history_path, [])
+    history.append({
+        "generated_at": status.get("generated_at"),
+        "playlist_channels": status.get("playlist_channels"),
+        "baseline_matched_channels": status.get("baseline_matched_channels"),
+        "final_matched_channels": status.get("final_matched_channels"),
+        "added_by_fallback_channels": status.get("added_by_fallback_channels"),
+        "unmatched_channels": status.get("unmatched_channels"),
+        "programmes": status.get("programmes"),
+        "sources": [
+            {"source": s.get("source"), "status": s.get("status"), "matched": s.get("matched", 0)}
+            for s in status.get("sources", [])
+        ],
+    })
+    history = history[-180:]
+
+    # Source cumulative ranking.
+    source_totals = {}
+    for run in history:
+        for s in run.get("sources", []):
+            name = s.get("source", "")
+            if not name:
+                continue
+            row = source_totals.setdefault(name, {"runs": 0, "total_added": 0, "successful_runs": 0})
+            row["runs"] += 1
+            row["total_added"] += int(s.get("matched", 0) or 0)
+            if s.get("status") == "ok":
+                row["successful_runs"] += 1
+    status["source_history_ranking"] = [
+        {"source": name, **vals}
+        for name, vals in sorted(source_totals.items(), key=lambda kv: -kv[1]["total_added"])
+    ]
+
+    # Persist diagnostics and dashboards.
+    save_json(OUTPUT / "playlist-changes.json", playlist_changes)
+    save_json(previous_snapshot_path, current_snapshot)
+    save_json(history_path, history)
+    (OUTPUT / "dashboard.md").write_text(build_markdown(status, playlist_changes, history), encoding="utf-8")
+    (OUTPUT / "dashboard.html").write_text(build_html(status, playlist_changes, history), encoding="utf-8")
+
     write_status(status_path, status)
     write_csv(OUTPUT / "mapping.csv", mappings,
-              ["playlist_name", "playlist_tvg_id", "group", "source", "source_id", "method"])
+              ["playlist_name", "playlist_tvg_id", "output_tvg_id", "group", "source", "source_id", "method"])
     write_csv(OUTPUT / "unmatched.csv", unmatched,
               ["playlist_name", "playlist_tvg_id", "group"])
 
