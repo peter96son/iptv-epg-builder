@@ -1,17 +1,17 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-08-16T21:52:52.886498-07:00`
+- Generated: `2026-08-16T22:15:49.290427-07:00`
 - Playlist channels: **2700**
 - Baseline covered: **1632**
 - Final covered: **2151**
 - Added by fallbacks: **+519**
 - Unmatched: **549**
-- Programmes: **318293**
+- Programmes: **319677**
 - Movie coverage: **761/859** (+222)
 
 ## Playlist changes
 
-- New channels: **2700**
+- New channels: **0**
 - Removed channels: **0**
 - Renamed: **0**
 - Stream URL changed: **0**
@@ -103,4 +103,5 @@
 | Generated | Covered | Unmatched | Programmes |
 |---|---:|---:|---:|
 | 2026-08-16T21:52:52.886498-07:00 | 2151 | 549 | 318293 |
+| 2026-08-16T22:15:49.290427-07:00 | 2151 | 549 | 319677 |
 
