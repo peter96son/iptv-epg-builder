@@ -35,3 +35,9 @@ it removes both `tvg-id` and `tvg-name` while preserving the channel name, logo,
 For all unmatched channels, dummy IDs beginning with `no_epg` are removed.
 
 The playlist is cached for 15 minutes using a versioned cache key.
+
+## v2.0 diagnostic cache bypass
+
+`/tv?fresh=1` rebuilds the private playlist without reading or writing the 15-minute Cloudflare playlist cache. It exists for the GitHub end-to-end audit only.
+
+IPTV players should continue to use `/tv`.

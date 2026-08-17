@@ -139,3 +139,19 @@ Do not treat these figures as permanent. They are a historical checkpoint; use e
 - If a primary source has stale-only data for a channel, do not resolve it there; allow later fallbacks to try.
 - `output/postbuild-gaps.csv` is the canonical queue for channels that matched structurally but failed final guide usability.
 - A regression in channel count must be investigated against provider playlist changes and source failures before assuming matcher quality degraded.
+
+## v2.0 end-to-end verification
+
+- Never conclude that a player should have EPG from `mapping.csv` alone.
+- First require post-build XMLTV validation (`postbuild-gaps.csv` empty for that channel).
+- Then require live Worker validation (`worker-audit-gaps.csv` empty for that channel).
+- `?fresh=1` is allowed only for automated diagnostics; users keep `/tv` as their playlist URL.
+- If both audits pass but an IPTV player still shows no guide, investigate player refresh/cache/binding before changing the EPG mapping.
+- Worker audit is diagnostic and must not delete a known-good EPG merely because the Worker endpoint is temporarily unreachable.
+
+## v2.0 Russian/CIS recovery source
+
+- `teleguide-ru` is an additional broad Russian/CIS fallback sourced from the official teleguide.info XMLTV download.
+- It remains below specialized/country-scoped sources and above the final emergency Gabbarit fallback.
+- It must pass the same fresh-programme gate as every other source.
+- Regional-sensitive global brands still require region-compatible name matching; do not use Teleguide as a reason to weaken that protection.

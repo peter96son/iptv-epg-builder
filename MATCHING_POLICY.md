@@ -64,3 +64,13 @@ Matching and coverage are separate stages.
 5. Only then may the channel enter `uhf-mapping.json`.
 
 This prevents a structurally valid TVG ID from producing `No programme` in UniPlayer/UHF.
+
+## v2.0 delivery invariant
+
+Matching is not complete until delivery is verified. For every published mapping:
+
+`playlist channel name -> output_tvg_id -> Worker /tv actual tvg-id -> final XMLTV programme`
+
+must form one consistent chain. Any mismatch is reported in `worker-audit-gaps.csv` and must not be hidden by coverage statistics.
+
+The Worker diagnostic request uses `/tv?fresh=1` to bypass only the Cloudflare playlist cache. Normal player traffic continues to use `/tv` with the 15-minute cache.

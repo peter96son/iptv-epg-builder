@@ -167,3 +167,14 @@ v1.9 adds a Russian-language EPG.ONE fallback and a dedicated Russian/CIS unmatc
 ## v1.9
 
 v1.9 adds player-visible post-build validation. The builder no longer treats a channel as covered merely because a source contains a matching ID/name and some recent-date XMLTV data. The source must have current/upcoming schedule entries, and the final generated output ID is audited after the merge. See `output/postbuild-validation.csv` and `output/postbuild-gaps.csv`. Gabbarit is enabled again as a last-resort Russian/CIS recovery fallback after safer sources.
+
+## v2.0 live-delivery audit
+
+v2.0 adds an automatic end-to-end check after every scheduled build. After GitHub publishes the new EPG and mapping, the workflow requests the live Cloudflare playlist with `?fresh=1` and verifies that the Worker's actual TVG IDs match `uhf-mapping.json` and correspond to post-build-validated XMLTV programmes.
+
+New diagnostics:
+- `output/worker-audit.json`
+- `output/worker-audit.csv`
+- `output/worker-audit-gaps.csv`
+
+The normal player URL remains `/tv`. The `fresh=1` query is for automated diagnostics only.

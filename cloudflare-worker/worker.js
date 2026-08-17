@@ -1,4 +1,4 @@
-const VERSION = "1.5.0";
+const VERSION = "2.0.0";
 
 const DEFAULT_EPG_URL =
   "https://raw.githubusercontent.com/peter96son/iptv-epg-builder/main/output/epg.xml.gz";
@@ -350,6 +350,7 @@ export default {
 
     const isTv = url.pathname === "/tv";
     const isDownload = url.pathname === "/download";
+    const forceFresh = url.searchParams.get("fresh") === "1";
 
     if (!isTv && !isDownload) {
       return notFound();
@@ -369,7 +370,7 @@ export default {
     }
 
     /*
-     * New cache key for v1.5.0.
+     * New cache key for v2.0.0.
      *
      * This prevents Cloudflare from serving an older rewritten playlist.
      */
@@ -380,16 +381,17 @@ export default {
     const cacheKey =
       new Request(
         url.origin +
-        "/tv-cache-v150",
+        "/tv-cache-v200",
         {
           method: "GET"
         }
       );
 
-    const cached =
-      await cache.match(
-        cacheKey
-      );
+    const cached = forceFresh
+      ? null
+      : await cache.match(
+          cacheKey
+        );
 
     if (cached) {
       if (isDownload) {
@@ -522,7 +524,10 @@ export default {
         String(result.protectedUnmatched),
 
       "X-EPG-Placeholder-Cleaned":
-        String(result.placeholderCleaned)
+        String(result.placeholderCleaned),
+
+      "X-EPG-Cache":
+        forceFresh ? "bypass" : "miss"
     };
 
     const response =
@@ -539,28 +544,30 @@ export default {
      * CACHE FOR 15 MINUTES
      */
 
-    ctx.waitUntil(
-      cache.put(
-        cacheKey,
+    if (!forceFresh) {
+      ctx.waitUntil(
+        cache.put(
+          cacheKey,
 
-        new Response(
-          rewritten,
-          {
-            status: 200,
+          new Response(
+            rewritten,
+            {
+              status: 200,
 
-            headers: {
-              ...responseHeaders,
+              headers: {
+                ...responseHeaders,
 
-              "Content-Disposition":
-                'inline; filename="playlist.m3u"',
+                "Content-Disposition":
+                  'inline; filename="playlist.m3u"',
 
-              "Cache-Control":
-                "s-maxage=900"
+                "Cache-Control":
+                  "s-maxage=900"
+              }
             }
-          }
+          )
         )
-      )
-    );
+      );
+    }
 
     return response;
   }

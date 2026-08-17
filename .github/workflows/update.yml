@@ -31,14 +31,31 @@ jobs:
           EPG_TIMEZONE: America/Los_Angeles
         run: python run.py
 
-      - name: Commit updated output
+      - name: Commit updated EPG output
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A output/
           if git diff --cached --quiet; then
-            echo "No output changes"
+            echo "No EPG output changes"
           else
             git commit -m "Update EPG"
+            git push
+          fi
+
+      - name: Audit live Cloudflare Worker delivery
+        env:
+          WORKER_PLAYLIST_URL: https://iptv-epg.peter96son.workers.dev/tv
+          WORKER_AUDIT_ATTEMPTS: "6"
+          WORKER_AUDIT_DELAY: "8"
+        run: python -m src.worker_audit
+
+      - name: Commit Worker audit
+        run: |
+          git add -A output/worker-audit.json output/worker-audit.csv output/worker-audit-gaps.csv output/status.json
+          if git diff --cached --quiet; then
+            echo "No Worker audit changes"
+          else
+            git commit -m "Audit Worker delivery"
             git push
           fi

@@ -205,3 +205,25 @@ A channel in `postbuild-gaps.csv` must not be published as successfully covered.
 The source eligibility window is stricter than the old calendar-date freshness test. Old entries from yesterday/two days ago must not make a channel look covered. The builder should prefer another fallback source that has current/upcoming data.
 
 Gabbarit is re-enabled in v1.9 only as the LAST recovery fallback and only for Russian/CIS plus thematic groups. It must never outrank dedicated/country-scoped sources. Regional-sensitive brands remain protected by region rules.
+
+## v2.0 end-to-end delivery audit
+
+The production definition of success is no longer "builder produced a mapping".
+A channel is considered delivered correctly only when all three layers agree:
+
+1. `output/uhf-mapping.json` contains the expected final TVG ID;
+2. the live Cloudflare `/tv?fresh=1` response actually contains that same TVG ID for the channel;
+3. the final `output/epg.xml.gz` has a post-build-validated programme for that ID.
+
+Every GitHub Action run must publish:
+- `output/worker-audit.json`
+- `output/worker-audit.csv`
+- `output/worker-audit-gaps.csv`
+
+The workflow commits normal EPG output first, then audits the live Worker against the just-published mapping and commits the audit separately.
+
+`?fresh=1` is diagnostic only. It bypasses the Worker's 15-minute playlist cache and must not replace the normal `/tv` URL configured in IPTV players.
+
+A clean post-build audit plus a clean Worker audit means the remaining "No programme" problem is likely player-side EPG cache/binding rather than builder/Worker delivery.
+
+v2.0 also adds `teleguide-ru` as another Russian/CIS recovery source. It is a fallback only; it does not change the rule that regional-sensitive brands must not be matched across countries by name.
