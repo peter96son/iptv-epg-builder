@@ -195,22 +195,58 @@ def _language_scores(title: str, provider_lang: str = "") -> dict[str, int]:
         scores[p] += 1
     return scores
 
+
+UK_STRONG_SUBSTRINGS = (
+    "надзвичай", "згадати", "людина", "дівчин", "жінк", "житт", "кохан",
+    "війна", "полюван", "вбив", "убивц", "чорн", "черевик", "похован",
+    "голоси", "читець", "метелик", "розлютив", "рушниц", "зайц", "мислив",
+    "підозрюван", "розплющ", "королів", "крамнич", "індіан", "фільм",
+)
+
+RU_STRONG_SUBSTRINGS = (
+    "человек", "девуш", "женщин", "мужчин", "жизн", "любов", "войн",
+    "последн", "перв", "истори", "тайн", "убий", "приключ", "город",
+    "мертвец", "бриллиант", "рука",
+)
+
+EN_HINT_RE = re.compile(
+    r"(?i)\b(?:the|a|an|and|or|of|to|in|on|for|with|without|after|before|"
+    r"man|woman|girl|boy|life|death|love|war|world|new|old|last|first|"
+    r"story|mystery|murder|police|adventure|day|night|house|city|road|martian)\b"
+)
+
 def _detect_metadata_language(title: str, provider_lang: str = "") -> str:
-    scores = _language_scores(title, provider_lang)
-    best_lang, best_score = max(scores.items(), key=lambda kv: kv[1])
-    ordered = sorted(scores.values(), reverse=True)
-    second = ordered[1] if len(ordered) > 1 else 0
-    if best_score < 3:
-        return "unknown"
-    if best_lang == "uk" and best_score >= 5:
+    text = (title or "").strip()
+    low = text.lower()
+
+    # Strong language-specific characters / stems override provider metadata.
+    if any(ch in low for ch in "іїєґ"):
         return "uk"
-    if best_score - second < 2:
-        return "unknown"
-    return best_lang
+    if any(stem in low for stem in UK_STRONG_SUBSTRINGS):
+        return "uk"
+
+    latin = sum(1 for c in text if c.isascii() and c.isalpha())
+    cyr = sum(1 for c in text if "\u0400" <= c <= "\u04ff")
+    if latin >= 3 and latin > cyr * 2:
+        return "en"
+
+    if any(stem in low for stem in RU_STRONG_SUBSTRINGS):
+        return "ru"
+    if re.search(r"[ыэъё]", low):
+        return "ru"
+    if EN_HINT_RE.search(low):
+        return "en"
+
+    # Provider lang is fallback only.
+    p = (provider_lang or "").lower().split("-")[0]
+    if p in {"ru", "en"}:
+        return p
+    if p == "uk":
+        return "uk"
+    return "unknown"
 
 def _skip_metadata_language(provider_lang: str, title: str = "") -> bool:
-    detected = _detect_metadata_language(title, provider_lang)
-    return detected not in {"ru", "en"}
+    return _detect_metadata_language(title, provider_lang) not in {"ru", "en"}
 
 
 def _programme_language(programme: ET.Element, title: str) -> str:
