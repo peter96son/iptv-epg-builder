@@ -138,6 +138,81 @@ def _detect_language(title: str) -> str:
     lat = sum(1 for c in t if c.isascii() and c.isalpha())
     return "ru-RU" if cyr > lat and cyr else "en-US"
 
+
+RU_HINT_RE = re.compile(
+    r"(?i)\\b(?:"
+    r"и|или|что|как|для|при|без|над|под|между|после|перед|через|"
+    r"человек|девушка|мужчина|женщина|жизнь|смерть|любовь|война|мир|"
+    r"новый|старый|последний|первый|второй|третий|история|тайна|"
+    r"убийство|полицейский|приключения|день|ночь|дом|город|дорога|"
+    r"рука|мертвецы|бриллиантовая"
+    r")\\b"
+)
+
+UK_HINT_RE = re.compile(
+    r"(?i)\\b(?:"
+    r"та|що|як|після|лише|тільки|"
+    r"людина|дівчина|жінка|чоловік|життя|кохання|війна|світ|"
+    r"новий|старий|останній|перший|другий|третій|історія|таємниця|"
+    r"вбивство|поліцейський|пригоди|ніч|дім|місто|"
+    r"надзвичайний|згадати|вовченя|чорному|черевику|убивця|полювання|"
+    r"похований|голоси|читець|метелик|розлютився|рушниця|зайцями|"
+    r"мисливець|підозрювані|розплющ|королівський|крамничні|індіан|"
+    r"високий|дощу|смертельне|порушивши|жорстока|фільмів"
+    r")\\b"
+)
+
+EN_HINT_RE = re.compile(
+    r"(?i)\\b(?:"
+    r"the|a|an|and|or|of|to|in|on|for|with|without|after|before|"
+    r"man|woman|girl|boy|life|death|love|war|world|new|old|last|first|"
+    r"story|mystery|murder|police|adventure|day|night|house|city|road|martian"
+    r")\\b"
+)
+
+def _language_scores(title: str, provider_lang: str = "") -> dict[str, int]:
+    text = (title or "").strip()
+    low = text.lower()
+    scores = {"ru": 0, "uk": 0, "en": 0}
+    if any(ch in low for ch in "іїєґ"):
+        scores["uk"] += 10
+    if "ў" in low:
+        scores["uk"] += 8
+    if re.search(r"[ыэъё]", low):
+        scores["ru"] += 6
+    scores["ru"] += len(RU_HINT_RE.findall(low)) * 3
+    scores["uk"] += len(UK_HINT_RE.findall(low)) * 4
+    scores["en"] += len(EN_HINT_RE.findall(low)) * 3
+    cyr = sum(1 for c in text if "\\u0400" <= c <= "\\u04ff")
+    lat = sum(1 for c in text if c.isascii() and c.isalpha())
+    if lat >= 3 and lat > cyr * 2:
+        scores["en"] += 6
+    elif cyr >= 3 and cyr > lat * 2:
+        scores["ru"] += 1
+        scores["uk"] += 1
+    p = (provider_lang or "").lower().split("-")[0]
+    if p in scores:
+        scores[p] += 1
+    return scores
+
+def _detect_metadata_language(title: str, provider_lang: str = "") -> str:
+    scores = _language_scores(title, provider_lang)
+    best_lang, best_score = max(scores.items(), key=lambda kv: kv[1])
+    ordered = sorted(scores.values(), reverse=True)
+    second = ordered[1] if len(ordered) > 1 else 0
+    if best_score < 3:
+        return "unknown"
+    if best_lang == "uk" and best_score >= 5:
+        return "uk"
+    if best_score - second < 2:
+        return "unknown"
+    return best_lang
+
+def _skip_metadata_language(provider_lang: str, title: str = "") -> bool:
+    detected = _detect_metadata_language(title, provider_lang)
+    return detected not in {"ru", "en"}
+
+
 def _programme_language(programme: ET.Element, title: str) -> str:
     e=programme.find("title"); lang=(e.get("lang") or "").strip().lower() if e is not None else ""
     if lang:
