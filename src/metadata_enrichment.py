@@ -14,6 +14,7 @@ from pathlib import Path
 from .utils import normalize_name
 
 OMDB_URL = "https://www.omdbapi.com/"
+TMDB_URL = "https://api.themoviedb.org/3"
 IMDB_RATING_RE = re.compile(r"(?i)\bIMDb\b\s*(?:rating|рейтинг)?\s*[:\[\(]?\s*([0-9](?:[\.,][0-9])?|10(?:[\.,]0)?)")
 IMDB_ID_RE = re.compile(r"(?i)\b(tt\d{5,12})\b")
 YEAR_RE = re.compile(r"\b(19\d{2}|20\d{2})\b")
@@ -156,146 +157,146 @@ def _title_similarity(a: str, b: str) -> float:
     return SequenceMatcher(None, na, nb).ratio()
 
 
-def _omdb_lookup(api_key: str, title: str, year: str, media_type: str, timeout: int = 12) -> dict:
+def _http_json(url: str, timeout: int, headers: dict | None = None) -> dict:
+    req = urllib.request.Request(url, headers=headers or {"User-Agent": "IPTV-EPG-Builder/4.2"})
+    with urllib.request.urlopen(req, timeout=timeout) as response:
+        return json.loads(response.read().decode("utf-8", "replace"))
+
+
+def _omdb_lookup_title(api_key: str, title: str, year: str, media_type: str, timeout: int = 12) -> dict:
     params = {"apikey": api_key, "t": title, "plot": "short", "r": "json"}
     if year:
         params["y"] = year
     if media_type in {"movie", "series"}:
         params["type"] = media_type
-    url = OMDB_URL + "?" + urllib.parse.urlencode(params)
-    req = urllib.request.Request(url, headers={"User-Agent": "IPTV-EPG-Builder/4.1"})
-    with urllib.request.urlopen(req, timeout=timeout) as response:
-        return json.loads(response.read().decode("utf-8", "replace"))
+    return _http_json(OMDB_URL + "?" + urllib.parse.urlencode(params), timeout)
+
+
+def _omdb_lookup_id(api_key: str, imdb_id: str, timeout: int = 12) -> dict:
+    return _http_json(OMDB_URL + "?" + urllib.parse.urlencode({"apikey": api_key, "i": imdb_id, "plot": "short", "r": "json"}), timeout)
+
+
+def _tmdb_search(api_key: str, title: str, year: str, media_type: str, timeout: int = 12) -> dict:
+    endpoint = "movie" if media_type == "movie" else "tv"
+    params = {"api_key": api_key, "query": title, "include_adult": "false"}
+    if year:
+        params["year" if media_type == "movie" else "first_air_date_year"] = year
+    return _http_json(f"{TMDB_URL}/search/{endpoint}?" + urllib.parse.urlencode(params), timeout)
+
+
+def _tmdb_external_ids(api_key: str, tmdb_id: int, media_type: str, timeout: int = 12) -> dict:
+    endpoint = "movie" if media_type == "movie" else "tv"
+    return _http_json(f"{TMDB_URL}/{endpoint}/{tmdb_id}/external_ids?" + urllib.parse.urlencode({"api_key": api_key}), timeout)
+
+
+def _best_tmdb_candidate(payload: dict, title: str, year: str, media_type: str) -> dict | None:
+    best = None
+    best_score = 0.0
+    for item in (payload.get("results") or [])[:10]:
+        names = [str(item.get("title") or item.get("name") or "").strip(), str(item.get("original_title") or item.get("original_name") or "").strip()]
+        sim = max((_title_similarity(title, n) for n in names if n), default=0.0)
+        date = str(item.get("release_date") or item.get("first_air_date") or "")
+        m = YEAR_RE.search(date)
+        cyear = m.group(1) if m else ""
+        year_ok = True
+        if year and cyear:
+            year_ok = abs(int(year)-int(cyear)) <= 1
+        elif year and not cyear:
+            year_ok = False
+        score = sim + (0.08 if year and year_ok else 0.0)
+        if year_ok and sim >= 0.84 and score > best_score:
+            best = dict(item)
+            best["_similarity"] = round(sim,3)
+            best["_candidate_year"] = cyear
+            best_score = score
+    return best
+
+
+def _tmdb_lookup_imdb(api_key: str, title: str, year: str, media_type: str, timeout: int = 12) -> dict:
+    candidate = _best_tmdb_candidate(_tmdb_search(api_key, title, year, media_type, timeout), title, year, media_type)
+    if not candidate:
+        return {"status":"not_found"}
+    tmdb_id = candidate.get("id")
+    if not tmdb_id:
+        return {"status":"not_found"}
+    ext = _tmdb_external_ids(api_key, int(tmdb_id), media_type, timeout)
+    imdb_id = str(ext.get("imdb_id") or "").strip().lower()
+    if not IMDB_ID_RE.fullmatch(imdb_id or ""):
+        return {"status":"no_imdb_id","tmdb_id":tmdb_id,"title":candidate.get("title") or candidate.get("name") or "","similarity":candidate.get("_similarity",0)}
+    return {"status":"found","tmdb_id":tmdb_id,"title":candidate.get("title") or candidate.get("name") or "","original_title":candidate.get("original_title") or candidate.get("original_name") or "","year":candidate.get("_candidate_year",year),"similarity":candidate.get("_similarity",0),"imdb_id":imdb_id}
+
+
+def _validate_omdb_payload(payload: dict, title: str, year: str, media_type: str) -> dict:
+    if str(payload.get("Response","")).lower() != "true":
+        return {"status":"not_found","title":title,"year":year,"type":media_type}
+    returned_title=str(payload.get("Title","")).strip(); returned_year=str(payload.get("Year","")).strip(); returned_type=str(payload.get("Type","")).strip().lower()
+    sim=_title_similarity(title,returned_title); year_ok=True
+    if year:
+        m=YEAR_RE.search(returned_year); year_ok=bool(m and abs(int(m.group(1))-int(year))<=1)
+    type_ok=not returned_type or returned_type==media_type
+    rating=str(payload.get("imdbRating","")).strip(); rating="" if rating.upper()=="N/A" else rating
+    imdb_id=str(payload.get("imdbID","")).strip().lower()
+    if sim>=0.90 and year_ok and type_ok and IMDB_ID_RE.fullmatch(imdb_id or ""):
+        return {"status":"found","title":returned_title,"year":returned_year,"type":returned_type or media_type,"imdb_id":imdb_id,"imdb_rating":rating,"similarity":round(sim,3)}
+    return {"status":"rejected","title":returned_title,"year":returned_year,"type":returned_type,"imdb_id":imdb_id,"similarity":round(sim,3),"year_ok":year_ok,"type_ok":type_ok}
 
 
 def enrich_metadata(tv: ET.Element, mappings: list[dict], root: Path, output: Path) -> dict:
-    api_key = os.environ.get("OMDB_API_KEY", "").strip()
-    max_requests = max(0, int(os.environ.get("OMDB_MAX_REQUESTS", "150") or 150))
-    timeout = max(3, int(os.environ.get("OMDB_TIMEOUT", "12") or 12))
-    cache_path = root / ".cache" / "metadata" / "omdb.json"
-    cache = _load_cache(cache_path)
-
-    groups_by_id = {}
-    allowed_ids = set()
+    omdb_key=os.environ.get("OMDB_API_KEY","").strip(); tmdb_key=os.environ.get("TMDB_API_KEY","").strip()
+    max_requests=max(0,int(os.environ.get("METADATA_MAX_REQUESTS",os.environ.get("OMDB_MAX_REQUESTS","150")) or 150)); timeout=max(3,int(os.environ.get("METADATA_TIMEOUT",os.environ.get("OMDB_TIMEOUT","12")) or 12))
+    cache_path=root/".cache"/"metadata"/"metadata.json"; cache=_load_cache(cache_path)
+    groups_by_id={}; allowed_ids=set()
     for row in mappings:
-        out_id = (row.get("output_tvg_id") or "").strip()
-        if out_id:
-            allowed_ids.add(out_id)
-            groups_by_id.setdefault(out_id, row.get("group", ""))
-
-    stats = Counter()
-    rows = []
-    requests = 0
-    changed_cache = False
-
+        out_id=(row.get("output_tvg_id") or "").strip()
+        if out_id: allowed_ids.add(out_id); groups_by_id.setdefault(out_id,row.get("group",""))
+    stats=Counter(); rows=[]; requests=0; changed_cache=False
     for programme in tv.findall("programme"):
-        channel_id = (programme.get("channel") or "").strip()
-        if channel_id not in allowed_ids:
-            continue
-        stats["programmes_considered"] += 1
-        title = _text(programme, "title")
-        if not title:
-            continue
-
-        rating, imdb_id = _existing_imdb(programme)
+        channel_id=(programme.get("channel") or "").strip()
+        if channel_id not in allowed_ids: continue
+        stats["programmes_considered"]+=1; title=_text(programme,"title")
+        if not title: continue
+        rating,imdb_id=_existing_imdb(programme)
         if rating or imdb_id:
-            stats["programmes_with_existing_imdb"] += 1
-            if _add_metadata(programme, rating, imdb_id):
-                stats["existing_metadata_normalized"] += 1
+            stats["programmes_with_existing_imdb"]+=1
+            if _add_metadata(programme,rating,imdb_id): stats["existing_metadata_normalized"]+=1
             continue
-
-        media_type = _media_type(programme, groups_by_id.get(channel_id, ""))
-        if not media_type:
-            stats["not_movie_or_series"] += 1
-            continue
-        if len(normalize_name(title)) < 3:
-            stats["title_too_short"] += 1
-            continue
-
-        year = _year(programme)
-        key = _cache_key(title, year, media_type)
-        entry = cache.get(key)
-        source = "cache"
+        media_type=_media_type(programme,groups_by_id.get(channel_id,""))
+        if not media_type: stats["not_movie_or_series"]+=1; continue
+        if len(normalize_name(title))<3: stats["title_too_short"]+=1; continue
+        year=_year(programme); key=_cache_key(title,year,media_type); entry=cache.get(key); source="cache"
         if entry is not None:
-            stats["cache_hits"] += 1
-        elif not api_key or requests >= max_requests:
-            stats["lookup_not_attempted"] += 1
-            continue
+            stats["cache_hits"]+=1
+        elif requests>=max_requests:
+            stats["lookup_not_attempted"]+=1; continue
         else:
-            source = "omdb"
             try:
-                payload = _omdb_lookup(api_key, title, year, media_type, timeout=timeout)
-                requests += 1
-                stats["api_requests"] += 1
-                if str(payload.get("Response", "")).lower() != "true":
-                    entry = {"status": "not_found", "title": title, "year": year, "type": media_type}
-                else:
-                    returned_title = str(payload.get("Title", "")).strip()
-                    returned_year = str(payload.get("Year", "")).strip()
-                    returned_type = str(payload.get("Type", "")).strip().lower()
-                    sim = _title_similarity(title, returned_title)
-                    year_ok = True
-                    if year:
-                        m = YEAR_RE.search(returned_year)
-                        year_ok = bool(m and abs(int(m.group(1)) - int(year)) <= 1)
-                    type_ok = not returned_type or returned_type == media_type
-                    imdb_rating = str(payload.get("imdbRating", "")).strip()
-                    if imdb_rating.upper() == "N/A":
-                        imdb_rating = ""
-                    found_id = str(payload.get("imdbID", "")).strip().lower()
-                    if sim >= 0.90 and year_ok and type_ok and IMDB_ID_RE.fullmatch(found_id or ""):
-                        entry = {
-                            "status": "found", "title": returned_title, "year": returned_year,
-                            "type": returned_type or media_type, "imdb_id": found_id,
-                            "imdb_rating": imdb_rating, "similarity": round(sim, 3),
-                        }
+                if tmdb_key:
+                    tmdb=_tmdb_lookup_imdb(tmdb_key,title,year,media_type,timeout); requests+=1; stats["tmdb_requests"]+=1
+                    if tmdb.get("status")=="found":
+                        imdb_id=tmdb["imdb_id"]; imdb_rating=""
+                        if omdb_key and requests<max_requests:
+                            payload=_omdb_lookup_id(omdb_key,imdb_id,timeout); requests+=1; stats["omdb_id_requests"]+=1
+                            if str(payload.get("Response","")).lower()=="true":
+                                imdb_rating=str(payload.get("imdbRating","")).strip(); imdb_rating="" if imdb_rating.upper()=="N/A" else imdb_rating
+                        entry={"status":"found","title":tmdb.get("title",""),"original_title":tmdb.get("original_title",""),"year":tmdb.get("year",year),"type":media_type,"imdb_id":imdb_id,"imdb_rating":imdb_rating,"similarity":tmdb.get("similarity",0),"resolver":"tmdb+omdb" if omdb_key else "tmdb"}
+                        source=entry["resolver"]; stats["tmdb_matches"]+=1
                     else:
-                        entry = {
-                            "status": "rejected", "title": returned_title, "year": returned_year,
-                            "type": returned_type, "imdb_id": found_id,
-                            "similarity": round(sim, 3), "year_ok": year_ok, "type_ok": type_ok,
-                        }
-                cache[key] = entry
-                changed_cache = True
-                time.sleep(0.03)
+                        entry={"status":tmdb.get("status","not_found"),"title":title,"year":year,"type":media_type,"resolver":"tmdb"}; stats[f"tmdb_{entry['status']}"]+=1
+                elif omdb_key:
+                    entry=_validate_omdb_payload(_omdb_lookup_title(omdb_key,title,year,media_type,timeout),title,year,media_type); requests+=1; stats["omdb_title_requests"]+=1; entry["resolver"]="omdb-title"; source="omdb-title"
+                else:
+                    stats["lookup_not_attempted"]+=1; continue
+                cache[key]=entry; changed_cache=True; time.sleep(0.03)
             except Exception as exc:
-                stats["api_errors"] += 1
-                rows.append({
-                    "channel_id": channel_id, "title": title, "year": year, "type": media_type,
-                    "status": "api_error", "source": "omdb", "imdb_id": "", "imdb_rating": "",
-                    "detail": str(exc)[:180],
-                })
-                continue
-
-        if entry and entry.get("status") == "found":
-            found_rating = str(entry.get("imdb_rating", "")).strip()
-            found_id = str(entry.get("imdb_id", "")).strip()
-            if _add_metadata(programme, found_rating, found_id):
-                stats["programmes_enriched"] += 1
-            stats["metadata_matches"] += 1
-            rows.append({
-                "channel_id": channel_id, "title": title, "year": year, "type": media_type,
-                "status": "enriched", "source": source, "imdb_id": found_id,
-                "imdb_rating": found_rating, "detail": entry.get("title", ""),
-            })
-        elif entry:
-            stats[f"cache_{entry.get('status','other')}"] += 1
-
-    if changed_cache:
-        _save_cache(cache_path, cache)
-
-    unique = {}
-    for row in rows:
-        k = (row["title"], row["year"], row["type"], row["status"])
-        unique[k] = row
-    report_rows = list(unique.values())
-
-    summary = {
-        "mode": "existing-imdb-normalization+optional-omdb",
-        "api_configured": bool(api_key),
-        "max_api_requests_per_run": max_requests,
-        "cache_entries": len(cache),
-        **{k: int(v) for k, v in stats.items()},
-        "unique_report_rows": len(report_rows),
-    }
-    return {"summary": summary, "rows": report_rows}
+                stats["api_errors"]+=1; rows.append({"channel_id":channel_id,"title":title,"year":year,"type":media_type,"status":"api_error","source":"metadata-api","imdb_id":"","imdb_rating":"","detail":str(exc)[:180]}); continue
+        if entry and entry.get("status")=="found":
+            found_rating=str(entry.get("imdb_rating","")).strip(); found_id=str(entry.get("imdb_id","")).strip()
+            if _add_metadata(programme,found_rating,found_id): stats["programmes_enriched"]+=1
+            stats["metadata_matches"]+=1; rows.append({"channel_id":channel_id,"title":title,"year":year,"type":media_type,"status":"enriched","source":source if source!="cache" else entry.get("resolver","cache"),"imdb_id":found_id,"imdb_rating":found_rating,"detail":entry.get("title","")})
+        elif entry: stats[f"cache_{entry.get('status','other')}"]+=1
+    if changed_cache: _save_cache(cache_path,cache)
+    unique={}
+    for row in rows: unique[(row["title"],row["year"],row["type"],row["status"])]=row
+    report_rows=list(unique.values())
+    summary={"mode":"existing-imdb+tmdb-resolver+omdb-rating","api_configured":bool(omdb_key or tmdb_key),"tmdb_configured":bool(tmdb_key),"omdb_configured":bool(omdb_key),"max_api_requests_per_run":max_requests,"cache_entries":len(cache),**{k:int(v) for k,v in stats.items()},"unique_report_rows":len(report_rows)}
+    return {"summary":summary,"rows":report_rows}

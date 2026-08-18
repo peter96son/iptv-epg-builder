@@ -202,3 +202,7 @@ synthetic DITV schedules are disabled.
 
 ## v4.1 IMDb metadata enrichment
 The builder normalizes IMDb ratings/IDs already present in upstream XMLTV and can enrich missing movie/series metadata through OMDb. Add a repository Actions secret named `OMDB_API_KEY` to enable network enrichment. The workflow caps new requests at 150 per run and persists results in `.cache/metadata/omdb.json`; ambiguous title/year/type matches are rejected. Reports: `output/metadata-enrichment.json` and `output/metadata-enrichment.csv`.
+
+
+## v4.2 TMDb resolver
+Localized movie/series titles are resolved through TMDb first when `TMDB_API_KEY` is configured. The builder validates title similarity and year, obtains the canonical IMDb ID from TMDb external IDs, then uses `OMDB_API_KEY` by IMDb ID to fetch the IMDb rating. Results are cached in `.cache/metadata/metadata.json`.
