@@ -1,13 +1,13 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-08-17T15:40:29.829251-07:00`
+- Generated: `2026-08-17T20:18:55.196136-07:00`
 - Playlist channels: **2700**
-- Baseline covered: **1610**
-- Final covered: **2110**
-- Added by fallbacks: **+500**
-- Unmatched: **590**
-- Programmes: **362289**
-- Movie coverage: **771/859** (+238)
+- Baseline covered: **1603**
+- Final covered: **2108**
+- Added by fallbacks: **+505**
+- Unmatched: **592**
+- Programmes: **334849**
+- Movie coverage: **771/859** (+244)
 
 ## Playlist changes
 
@@ -21,10 +21,10 @@
 
 | Group | Total | Baseline | Final | Added | Coverage |
 |---|---:|---:|---:|---:|---:|
-| Кинозалы | 358 | 229 | 328 | +99 | 91.6% |
+| Кинозалы | 358 | 227 | 328 | +101 | 91.6% |
 | Кинозалы UA | 206 | 103 | 186 | +83 | 90.3% |
 | Спорт | 249 | 105 | 160 | +55 | 64.3% |
-| Кино | 213 | 142 | 188 | +46 | 88.3% |
+| Кино | 213 | 138 | 188 | +50 | 88.3% |
 | Музыкальные | 150 | 44 | 90 | +46 | 60.0% |
 | BE & NL | 90 | 32 | 51 | +19 | 56.7% |
 | Румыния | 85 | 45 | 64 | +19 | 75.3% |
@@ -33,8 +33,8 @@
 | Германия | 134 | 85 | 98 | +13 | 73.1% |
 | Украинские | 119 | 70 | 83 | +13 | 69.7% |
 | Кино 4K | 82 | 59 | 69 | +10 | 84.1% |
-| Россия | 165 | 149 | 159 | +10 | 96.4% |
-| Детские | 82 | 65 | 73 | +8 | 89.0% |
+| Детские | 82 | 64 | 73 | +9 | 89.0% |
+| Россия | 165 | 149 | 158 | +9 | 95.8% |
 | Италия | 13 | 0 | 8 | +8 | 61.5% |
 | Познавательные | 115 | 94 | 101 | +7 | 87.8% |
 | SkyLink | 20 | 8 | 14 | +6 | 70.0% |
@@ -45,11 +45,11 @@
 | Латвия | 22 | 17 | 19 | +2 | 86.4% |
 | Молдова | 29 | 4 | 6 | +2 | 20.7% |
 | Новости | 10 | 8 | 10 | +2 | 100.0% |
-| Разное | 30 | 27 | 29 | +2 | 96.7% |
 | Турция | 24 | 6 | 8 | +2 | 33.3% |
 | Чехия | 6 | 0 | 2 | +2 | 33.3% |
 | Венгрия | 59 | 53 | 54 | +1 | 91.5% |
 | Канада | 10 | 0 | 1 | +1 | 10.0% |
+| Разное | 30 | 27 | 28 | +1 | 93.3% |
 | Азербайджан | 14 | 0 | 0 | +0 | 0.0% |
 | Армения | 5 | 1 | 1 | +0 | 20.0% |
 | Греция | 10 | 3 | 3 | +0 | 30.0% |
@@ -63,25 +63,25 @@
 
 | Source | Status | Added |
 |---|---|---:|
-| iptv-online-primary | ok | 1610 |
-| iptvx-noarch | ok | 172 |
+| iptv-online-primary | ok | 1603 |
+| iptvx-noarch | ok | 173 |
 | runigma-iptv | ok | 6 |
 | klimedia-dedicated | failed | 0 |
-| openbox-tsd | ok | 50 |
+| openbox-tsd | ok | 51 |
 | next-dedicated | ok | 0 |
-| bcumedia-dedicated | ok | 5 |
+| bcumedia-dedicated | ok | 7 |
 | cineman-dedicated | ok | 0 |
 | minimax-mm-dedicated | ok | 0 |
 | sharavoz-guide | failed | 0 |
 | tvteam | ok | 84 |
 | epgpw-sreda | ok | 0 |
 | epgpw-chestny-detektiv | ok | 0 |
-| epgpw-RU | ok | 8 |
+| epgpw-RU | ok | 6 |
 | epgpw-DE | ok | 5 |
 | epgpw-GB | ok | 3 |
 | epgpw-US | ok | 0 |
 | epgpw-CA | ok | 1 |
-| epgone-ru2 | ok | 8 |
+| epgone-ru2 | ok | 10 |
 | epgpw-all-lite | ok | 5 |
 | skyhigh-fhd | ok | 0 |
 | skyhigh-hdr | ok | 0 |
@@ -109,8 +109,8 @@
 | epgshare-TR | ok | 1 |
 | epgshare-LT | ok | 0 |
 | epgshare-LV | ok | 2 |
-| teleguide-ru | failed | 0 |
-| gabbarit-current | ok | 78 |
+| teleguide-ru | ok | 3 |
+| gabbarit-current | ok | 76 |
 
 ## Top unmatched families
 
@@ -143,4 +143,6 @@
 | 2026-08-17T13:29:13.220677-07:00 | 2127 | 573 | 366774 |
 | 2026-08-17T14:55:14.619237-07:00 | 2127 | 573 | 366838 |
 | 2026-08-17T15:40:29.829251-07:00 | 2110 | 590 | 362289 |
+| 2026-08-17T15:59:38.529976-07:00 | 2110 | 590 | 362332 |
+| 2026-08-17T20:18:55.196136-07:00 | 2108 | 592 | 334849 |
 

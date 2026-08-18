@@ -3,7 +3,7 @@
 Diagnostic queue for Russian-language and CIS recovery. It does not create aliases by itself.
 Regional variants, time-shifts and virtual/FAST families must be verified before production mapping.
 
-Candidate channels: **96**
+Candidate channels: **97**
 
 Unsafe virtual/dummy-ID channels: **53**
 
@@ -14,8 +14,8 @@ Unsafe virtual/dummy-ID channels: **53**
 - Украинские: 13
 - Кинозалы UA: 10
 - Музыкальные: 9
+- Россия: 7
 - Детские: 6
-- Россия: 6
 - Познавательные: 5
 - Спорт: 3
 - Кино 4K: 1
@@ -104,6 +104,7 @@ Unsafe virtual/dummy-ID channels: **53**
 | ВТК 41 Аргус | Россия | RU | Other: ВТК | review |
 | Евпатория 24 | Россия | RU | Other: Евпатория | review |
 | Раменское ТВ | Россия | RU | Other: Раменское | review |
+| Север | Россия | RU | Other: Север | review |
 | Телеплюс | Россия | RU | Other: Телеплюс | review |
 | УПЛ ТВ 1 | Спорт |  | Other: УПЛ | review |
 | УПЛ ТВ 2 | Спорт |  | Other: УПЛ | review |
