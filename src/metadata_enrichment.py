@@ -53,7 +53,9 @@ def _categories(programme: ET.Element) -> set[str]:
     return out
 
 def _media_type(programme: ET.Element, group: str) -> str:
-    joined=" ".join(_categories(programme))
+    joined=" ".join(_categories(programme)); title=_text(programme,"title").strip().lower()
+    if re.match(r"^\s*(?:т/с|д/с|сериал)\b",title): return "series"
+    if re.match(r"^\s*(?:х/ф|фильм|кино)\b",title): return "movie"
     if programme.find("episode-num") is not None or any(w in joined for w in SERIES_WORDS): return "series"
     if any(w in joined for w in MOVIE_WORDS): return "movie"
     if group in MOVIE_GROUPS: return "movie"
@@ -111,14 +113,113 @@ def _programme_language(programme: ET.Element, title: str) -> str:
     return _detect_language(title)
 
 def _clean_search_title(title: str) -> str:
-    s=(title or "").strip()
-    s=re.sub(r"(?i)^\s*(?:х/ф|м/ф|т/с|д/ф|сериал|фильм|кино)\s*[:.\-–—]?\s*","",s)
-    s=re.sub(r"\s*[\[(]\s*\d{1,2}\+\s*[\])]\s*"," ",s)
-    s=re.sub(r"(?i)\s+(?:серия|сер\.|эпизод|episode)\s*\d+\b.*$","",s)
-    return re.sub(r"\s+"," ",s).strip(" -–—:;,.") or (title or "").strip()
+    raw=(title or "").strip()
+    is_series=bool(re.match(r"(?i)^\s*(?:т/с|д/с|сериал)\b",raw))
+    x=re.sub(r"(?i)^\s*(?:х/ф|м/ф|т/с|д/с|д/ф|сериал|фильм|кино)\s*[:.\-–—]?\s*","",raw)
+    x=re.sub(r"\s*[\[(]\s*\d{1,2}\+\s*[\])]\s*"," ",x)
+    x=re.sub(r"\s*[\[(]?\s*(?:19\d{2}|20\d{2})\s*[\])]?\s*[.]?\s*$","",x)
+    x=re.sub(r"(?i)[,.;:]?\s*\d+\s*(?:и|і|&|and|-)\s*\d+\s*[сc]\.?\s*$","",x)
+    x=re.sub(r"(?i)[,.;:]?\s*\d+\s*[сc]\.?\s*$","",x)
+    x=re.sub(r"(?i)\s+(?:серия|сер\.|эпизод|episode)\s*\d+\b.*$","",x)
+    if is_series:
+        x=re.sub(r"\s+\d+\.?\s*$","",x)
+    return re.sub(r"\s+"," ",x).strip(" -–—:;,.") or raw
 
-def _skip_metadata_language(language: str) -> bool:
-    return (language or "").lower().startswith("uk")
+def _skip_generic_metadata_title(title: str) -> bool:
+    n = normalize_name(title)
+    if any(n.startswith(prefix) for prefix in (
+        "в приближении", "крупным планом", "показ класичних фільмів",
+        "показ драматичних фільмів", "світові шедеври кіномистецтва"
+    )):
+        return True
+    if re.match(r"(?i)^\\s*spotlight\\s*[,.:;-]?\\s*\\d+\\s*[сc]\\.?\\s*$", title or ""):
+        return True
+    return False
+
+RU_HINT_RE = re.compile(
+    r"(?i)\b(?:"
+    r"и|или|что|как|для|при|без|над|под|между|после|перед|через|"
+    r"человек|девушка|мужчина|женщина|жизнь|смерть|любовь|война|мир|"
+    r"новый|старый|последний|первый|второй|третий|история|тайна|"
+    r"убийство|полицейский|приключения|день|ночь|дом|город|дорога|"
+    r"рука|мертвецы|бриллиантовая"
+    r")\b"
+)
+
+UK_HINT_RE = re.compile(
+    r"(?i)\b(?:"
+    r"і|ї|є|ґ|та|що|як|для|без|після|перед|через|лише|тільки|"
+    r"людина|дівчина|жінка|чоловік|життя|смерть|кохання|війна|світ|"
+    r"новий|старий|останній|перший|другий|третій|історія|таємниця|"
+    r"вбивство|поліцейський|пригоди|день|ніч|дім|місто|дорога|"
+    r"надзвичайний|згадати|вовченя|чорному|черевику|убивця|полювання|"
+    r"похований|голоси|читець|метелик|розлютився|рушниця|зайцями|"
+    r"мисливець|підозрювані|розплющ|королівський|крамничні|індіан|"
+    r"високий|дощу|смертельне|порушивши|жорстока|фільмів"
+    r")\b"
+)
+
+EN_HINT_RE = re.compile(
+    r"(?i)\b(?:"
+    r"the|a|an|and|or|of|to|in|on|for|with|without|after|before|"
+    r"man|woman|girl|boy|life|death|love|war|world|new|old|last|first|"
+    r"story|mystery|murder|police|adventure|day|night|house|city|road|martian"
+    r")\b"
+)
+
+def _language_scores(title: str, provider_lang: str = "") -> dict[str, int]:
+    text = (title or "").strip()
+    low = text.lower()
+    scores = {"ru": 0, "uk": 0, "en": 0}
+
+    # Strong language-specific letters.
+    if any(ch in low for ch in "іїєґ"):
+        scores["uk"] += 10
+    if "ў" in low:
+        # Belarusian is outside requested RU/EN enrichment.
+        scores["uk"] += 8
+    if re.search(r"[ыэъё]", low):
+        scores["ru"] += 6
+
+    # Lexical signals from real provider feed.
+    scores["ru"] += len(RU_HINT_RE.findall(low)) * 3
+    scores["uk"] += len(UK_HINT_RE.findall(low)) * 4
+    scores["en"] += len(EN_HINT_RE.findall(low)) * 3
+
+    # Script distribution.
+    cyr = sum(1 for c in text if "\u0400" <= c <= "\u04ff")
+    lat = sum(1 for c in text if c.isascii() and c.isalpha())
+    if lat >= 3 and lat > cyr * 2:
+        scores["en"] += 6
+    elif cyr >= 3 and cyr > lat * 2:
+        scores["ru"] += 1
+        scores["uk"] += 1
+
+    # Provider lang is only a weak hint.
+    p = (provider_lang or "").lower().split("-")[0]
+    if p in scores:
+        scores[p] += 1
+
+    return scores
+
+def _detect_metadata_language(title: str, provider_lang: str = "") -> str:
+    scores = _language_scores(title, provider_lang)
+    best_lang, best_score = max(scores.items(), key=lambda kv: kv[1])
+    ordered = sorted(scores.values(), reverse=True)
+    second = ordered[1] if len(ordered) > 1 else 0
+
+    if best_score < 3:
+        return "unknown"
+    # Strong UK-specific lexical/letter signal should override wrong provider ru-RU.
+    if best_lang == "uk" and best_score >= 5:
+        return "uk"
+    if best_score - second < 2:
+        return "unknown"
+    return best_lang
+
+def _skip_metadata_language(provider_lang: str, title: str = "") -> bool:
+    detected = _detect_metadata_language(title, provider_lang)
+    return detected not in {"ru", "en"}
 
 def _load_cache(path: Path) -> dict:
     try:
@@ -138,7 +239,7 @@ def _title_similarity(a,b):
     return SequenceMatcher(None,na,nb).ratio()
 
 def _http_json(url,timeout,headers=None):
-    req=urllib.request.Request(url,headers=headers or {"User-Agent":"IPTV-EPG-Builder/4.5"})
+    req=urllib.request.Request(url,headers=headers or {"User-Agent":"IPTV-EPG-Builder/4.7"})
     with urllib.request.urlopen(req,timeout=timeout) as r: return json.loads(r.read().decode("utf-8","replace"))
 
 def _omdb_lookup_id(api_key,imdb_id,timeout=12):
@@ -211,7 +312,7 @@ def enrich_metadata(tv:ET.Element,mappings:list[dict],root:Path,output:Path)->di
     omdb_key=os.environ.get("OMDB_API_KEY","").strip(); tmdb_key=os.environ.get("TMDB_API_KEY","").strip()
     max_requests=max(0,int(os.environ.get("METADATA_MAX_REQUESTS",os.environ.get("OMDB_MAX_REQUESTS","150")) or 150)); timeout=max(3,int(os.environ.get("METADATA_TIMEOUT",os.environ.get("OMDB_TIMEOUT","12")) or 12))
     # New cache filename deliberately ignores poisoned v4.1/v4.2 negatives.
-    cache_path=root/".cache"/"metadata"/"metadata-v45.json"; cache=_load_cache(cache_path)
+    cache_path=root/".cache"/"metadata"/"metadata-v47.json"; cache=_load_cache(cache_path)
     groups={}; allowed=set()
     for row in mappings:
         oid=(row.get("output_tvg_id") or "").strip()
@@ -227,13 +328,22 @@ def enrich_metadata(tv:ET.Element,mappings:list[dict],root:Path,output:Path)->di
             stats["programmes_with_existing_imdb"]+=1
             if _add_metadata(p,rating,iid): stats["existing_metadata_normalized"]+=1
             continue
+        if _skip_generic_metadata_title(title): stats["generic_schedule_blocks_skipped"]+=1; continue
         typ=_media_type(p,groups.get(cid,""))
         if not typ: stats["not_movie_or_series"]+=1; continue
         if len(normalize_name(title))<3: stats["title_too_short"]+=1; continue
-        year=_year(p); language=_programme_language(p,title)
-        if _skip_metadata_language(language):
-            stats["ukrainian_titles_skipped"] += 1
+        year=_year(p); provider_language=_programme_language(p,title)
+        detected_language=_detect_metadata_language(title, provider_language)
+        if _skip_metadata_language(provider_language, title):
+            stats["non_ru_en_titles_skipped"] += 1
+            if detected_language == "uk":
+                stats["ukrainian_titles_skipped"] += 1
+            elif detected_language == "unknown":
+                stats["ambiguous_language_titles_skipped"] += 1
+            else:
+                stats[f"{detected_language}_titles_skipped"] += 1
             continue
+        language = "ru-RU" if detected_language == "ru" else "en-US"
         key=_cache_key(title,year,typ,language); entry=cache.get(key); source="cache"
         if entry is not None: stats["cache_hits"]+=1
         elif requests>=max_requests: stats["lookup_not_attempted"]+=1; continue
@@ -270,4 +380,4 @@ def enrich_metadata(tv:ET.Element,mappings:list[dict],root:Path,output:Path)->di
     unique={}
     for row in rows: unique[(row["title"],row["year"],row["type"],row["status"])]=row
     report_rows=list(unique.values())
-    return {"summary":{"mode":"existing-imdb+tmdb-localized-cascade-v4.5-ru-priority+omdb-rating","tmdb_configured":bool(tmdb_key),"omdb_configured":bool(omdb_key),"max_api_requests_per_run":max_requests,"cache_entries":len(cache),**{k:int(v) for k,v in stats.items()},"unique_report_rows":len(report_rows)},"rows":report_rows}
+    return {"summary":{"mode":"existing-imdb+tmdb-localized-cascade-v4.7-ru-en-only+omdb-rating","tmdb_configured":bool(tmdb_key),"omdb_configured":bool(omdb_key),"max_api_requests_per_run":max_requests,"cache_entries":len(cache),**{k:int(v) for k,v in stats.items()},"unique_report_rows":len(report_rows)},"rows":report_rows}
