@@ -52,9 +52,41 @@ def _categories(programme: ET.Element) -> set[str]:
         if v: out.add(v)
     return out
 
+DOCUMENTARY_WORDS = {
+    "documentary", "documentaries", "doc", "docs",
+    "документальный", "документальные", "док", "документалистика",
+    "познавательный", "познавательные", "factual"
+}
+
+def _is_fiction_candidate(programme: ET.Element, group: str) -> bool:
+    title = _text(programme, "title").strip().lower()
+    cats = _categories(programme)
+    joined = " ".join(cats)
+
+    # Explicit documentary/programme prefixes: never spend TMDb/OMDb quota.
+    if re.match(r"^\s*(?:д/с|д/ф)\b", title):
+        return False
+
+    # Documentary/factual categories.
+    if any(word in joined for word in DOCUMENTARY_WORDS):
+        return False
+
+    # Explicit fiction prefixes are allowed.
+    if re.match(r"^\s*(?:х/ф|т/с|сериал|фильм|кино)\b", title):
+        return True
+
+    # Movie groups are fiction-biased; series/movie category can also allow.
+    if group in MOVIE_GROUPS:
+        return True
+    if any(word in joined for word in MOVIE_WORDS | SERIES_WORDS):
+        return True
+
+    return False
+
 def _media_type(programme: ET.Element, group: str) -> str:
     joined=" ".join(_categories(programme)); title=_text(programme,"title").strip().lower()
-    if re.match(r"^\s*(?:т/с|д/с|сериал)\b",title): return "series"
+    if re.match(r"^\s*(?:д/с|д/ф)\b",title): return ""
+    if re.match(r"^\s*(?:т/с|сериал)\b",title): return "series"
     if re.match(r"^\s*(?:х/ф|фильм|кино)\b",title): return "movie"
     if programme.find("episode-num") is not None or any(w in joined for w in SERIES_WORDS): return "series"
     if any(w in joined for w in MOVIE_WORDS): return "movie"
@@ -124,6 +156,21 @@ def _clean_search_title(title: str) -> str:
     if is_series:
         x=re.sub(r"\s+\d+\.?\s*$","",x)
     return re.sub(r"\s+"," ",x).strip(" -–—:;,.") or raw
+
+def _canonical_metadata_title(title: str, media_type: str) -> str:
+    base = _clean_search_title(title)
+    if media_type == "series":
+        base = re.sub(r"\s*\([^()]{1,180}\)\s*$", "", base).strip()
+        base = re.sub(r"\s+", " ", base).strip(" -–—:;,.")
+    return base or _clean_search_title(title)
+
+def _series_root_fallback(title: str) -> str:
+    t = (title or "").strip()
+    if ". " in t:
+        root = t.split(". ", 1)[0].strip()
+        if len(normalize_name(root)) >= 4:
+            return root
+    return t
 
 def _skip_generic_metadata_title(title: str) -> bool:
     n = normalize_name(title)
@@ -239,7 +286,7 @@ def _title_similarity(a,b):
     return SequenceMatcher(None,na,nb).ratio()
 
 def _http_json(url,timeout,headers=None):
-    req=urllib.request.Request(url,headers=headers or {"User-Agent":"IPTV-EPG-Builder/4.7"})
+    req=urllib.request.Request(url,headers=headers or {"User-Agent":"IPTV-EPG-Builder/4.9"})
     with urllib.request.urlopen(req,timeout=timeout) as r: return json.loads(r.read().decode("utf-8","replace"))
 
 def _omdb_lookup_id(api_key,imdb_id,timeout=12):
@@ -276,25 +323,54 @@ def _best_tmdb_candidate(payload,title,year,media_type):
             best=dict(item); best["_similarity"]=round(sim,3); best["_candidate_year"]=cy; best_score=score
     return best
 
-def _tmdb_lookup_imdb(api_key,title,year,media_type,language="en-US",timeout=12):
-    cleaned=_clean_search_title(title); attempts=[]
-    plans=[(cleaned,year,language,"localized+year"),(cleaned,"",language,"localized-no-year")]
-    if cleaned!=title: plans.append((title,"",language,"raw-localized"))
-    if language!="en-US": plans += [(cleaned,year,"en-US","english+year"),(cleaned,"","en-US","english-no-year")]
-    for q,y,lang,label in plans:
-        key=(q,y,lang)
-        if key in attempts or not q: continue
+def _tmdb_lookup_imdb(api_key: str, title: str, year: str, media_type: str, language: str = "en-US", timeout: int = 12) -> dict:
+    cleaned = _canonical_metadata_title(title, media_type)
+    attempts = []
+    plans = [
+        (cleaned, year, language, media_type, "localized+year"),
+        (cleaned, "", language, media_type, "localized-no-year"),
+    ]
+    if media_type == "series":
+        root = _series_root_fallback(cleaned)
+        if root and root != cleaned:
+            plans += [
+                (root, year, language, "series", "series-root+year"),
+                (root, "", language, "series", "series-root-no-year"),
+            ]
+    other_type = "series" if media_type == "movie" else "movie"
+    if re.search(r"(?i)(?:\b\d+\s*[сc]\.?\s*$|т/с|д/с)", title or ""):
+        plans += [
+            (cleaned, year, language, other_type, "cross-type+year"),
+            (cleaned, "", language, other_type, "cross-type-no-year"),
+        ]
+    if language != "en-US":
+        plans += [
+            (cleaned, year, "en-US", media_type, "english+year"),
+            (cleaned, "", "en-US", media_type, "english-no-year"),
+        ]
+    for q, y, lang, lookup_type, label in plans:
+        key = (q, y, lang, lookup_type)
+        if key in attempts or not q:
+            continue
         attempts.append(key)
-        payload=_tmdb_search(api_key,q,y,media_type,lang,timeout)
-        cand=_best_tmdb_candidate(payload,q,y,media_type)
-        if not cand: continue
-        tmdb_id=cand.get("id")
-        if not tmdb_id: continue
-        ext=_tmdb_external_ids(api_key,int(tmdb_id),media_type,timeout)
-        imdb_id=str(ext.get("imdb_id") or "").strip().lower()
+        payload = _tmdb_search(api_key, q, y, lookup_type, lang, timeout)
+        cand = _best_tmdb_candidate(payload, q, y, lookup_type)
+        if not cand:
+            continue
+        tmdb_id = cand.get("id")
+        if not tmdb_id:
+            continue
+        ext = _tmdb_external_ids(api_key, int(tmdb_id), lookup_type, timeout)
+        imdb_id = str(ext.get("imdb_id") or "").strip().lower()
         if IMDB_ID_RE.fullmatch(imdb_id or ""):
-            return {"status":"found","tmdb_id":tmdb_id,"title":cand.get("title") or cand.get("name") or "","original_title":cand.get("original_title") or cand.get("original_name") or "","year":cand.get("_candidate_year",year),"similarity":cand.get("_similarity",0),"imdb_id":imdb_id,"attempt":label,"language":lang,"query_title":q,"attempts":len(attempts)}
-        return {"status":"no_imdb_id","tmdb_id":tmdb_id,"title":cand.get("title") or cand.get("name") or "","similarity":cand.get("_similarity",0),"attempt":label,"language":lang,"query_title":q,"attempts":len(attempts)}
+            return {"status":"found","tmdb_id":tmdb_id,"title":cand.get("title") or cand.get("name") or "",
+                    "original_title":cand.get("original_title") or cand.get("original_name") or "",
+                    "year":cand.get("_candidate_year",year),"similarity":cand.get("_similarity",0),
+                    "imdb_id":imdb_id,"attempt":label,"language":lang,"query_title":q,
+                    "attempts":len(attempts),"resolved_media_type":lookup_type}
+        return {"status":"no_imdb_id","tmdb_id":tmdb_id,"title":cand.get("title") or cand.get("name") or "",
+                "similarity":cand.get("_similarity",0),"attempt":label,"language":lang,
+                "query_title":q,"attempts":len(attempts),"resolved_media_type":lookup_type}
     return {"status":"not_found","query_title":cleaned,"language":language,"attempts":len(attempts)}
 
 def _validate_omdb_payload(payload,title,year,media_type):
@@ -312,7 +388,7 @@ def enrich_metadata(tv:ET.Element,mappings:list[dict],root:Path,output:Path)->di
     omdb_key=os.environ.get("OMDB_API_KEY","").strip(); tmdb_key=os.environ.get("TMDB_API_KEY","").strip()
     max_requests=max(0,int(os.environ.get("METADATA_MAX_REQUESTS",os.environ.get("OMDB_MAX_REQUESTS","150")) or 150)); timeout=max(3,int(os.environ.get("METADATA_TIMEOUT",os.environ.get("OMDB_TIMEOUT","12")) or 12))
     # New cache filename deliberately ignores poisoned v4.1/v4.2 negatives.
-    cache_path=root/".cache"/"metadata"/"metadata-v47.json"; cache=_load_cache(cache_path)
+    cache_path=root/".cache"/"metadata"/"metadata-v49.json"; cache=_load_cache(cache_path)
     groups={}; allowed=set()
     for row in mappings:
         oid=(row.get("output_tvg_id") or "").strip()
@@ -329,6 +405,9 @@ def enrich_metadata(tv:ET.Element,mappings:list[dict],root:Path,output:Path)->di
             if _add_metadata(p,rating,iid): stats["existing_metadata_normalized"]+=1
             continue
         if _skip_generic_metadata_title(title): stats["generic_schedule_blocks_skipped"]+=1; continue
+        if not _is_fiction_candidate(p, groups.get(cid, "")):
+            stats["non_fiction_skipped"] += 1
+            continue
         typ=_media_type(p,groups.get(cid,""))
         if not typ: stats["not_movie_or_series"]+=1; continue
         if len(normalize_name(title))<3: stats["title_too_short"]+=1; continue
@@ -344,13 +423,16 @@ def enrich_metadata(tv:ET.Element,mappings:list[dict],root:Path,output:Path)->di
                 stats[f"{detected_language}_titles_skipped"] += 1
             continue
         language = "ru-RU" if detected_language == "ru" else "en-US"
-        key=_cache_key(title,year,typ,language); entry=cache.get(key); source="cache"
+        canonical_title = _canonical_metadata_title(title, typ)
+        if normalize_name(canonical_title) != normalize_name(_clean_search_title(title)):
+            stats["episode_titles_collapsed"] += 1
+        key=_cache_key(canonical_title,year,typ,language); entry=cache.get(key); source="cache"
         if entry is not None: stats["cache_hits"]+=1
         elif requests>=max_requests: stats["lookup_not_attempted"]+=1; continue
         else:
             try:
                 if tmdb_key:
-                    entry=_tmdb_lookup_imdb(tmdb_key,title,year,typ,language,timeout); requests+=1; stats["tmdb_requests"]+=1; source="tmdb"
+                    entry=_tmdb_lookup_imdb(tmdb_key,canonical_title,year,typ,language,timeout); requests+=1; stats["tmdb_requests"]+=1; source="tmdb"
                     if entry.get("status")=="found":
                         stats["tmdb_matches"]+=1; imdb_rating=""
                         if omdb_key and requests<max_requests:
@@ -380,4 +462,4 @@ def enrich_metadata(tv:ET.Element,mappings:list[dict],root:Path,output:Path)->di
     unique={}
     for row in rows: unique[(row["title"],row["year"],row["type"],row["status"])]=row
     report_rows=list(unique.values())
-    return {"summary":{"mode":"existing-imdb+tmdb-localized-cascade-v4.7-ru-en-only+omdb-rating","tmdb_configured":bool(tmdb_key),"omdb_configured":bool(omdb_key),"max_api_requests_per_run":max_requests,"cache_entries":len(cache),**{k:int(v) for k,v in stats.items()},"unique_report_rows":len(report_rows)},"rows":report_rows}
+    return {"summary":{"mode":"existing-imdb+tmdb-localized-cascade-v4.9-fiction-only+omdb-rating","tmdb_configured":bool(tmdb_key),"omdb_configured":bool(omdb_key),"max_api_requests_per_run":max_requests,"cache_entries":len(cache),**{k:int(v) for k,v in stats.items()},"unique_report_rows":len(report_rows)},"rows":report_rows}
