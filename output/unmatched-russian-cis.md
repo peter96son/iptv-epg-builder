@@ -3,27 +3,34 @@
 Diagnostic queue for Russian-language and CIS recovery. It does not create aliases by itself.
 Regional variants, time-shifts and virtual/FAST families must be verified before production mapping.
 
-Candidate channels: **71**
+Candidate channels: **99**
 
-Unsafe virtual/dummy-ID channels: **24**
+Unsafe virtual/dummy-ID channels: **55**
 
 ## By group
 
+- Кинозалы: 23
 - Кино: 18
 - Кинозалы UA: 14
-- Украинские: 14
+- Украинские: 13
 - Музыкальные: 9
-- Россия: 7
-- Познавательные: 3
+- Детские: 6
+- Россия: 6
+- Познавательные: 5
 - Спорт: 3
 - Кино 4K: 1
-- Кинозалы: 1
 - Беларусь: 1
 
 ## Channels
 
 | Channel | Group | Region | Family | Recovery |
 |---|---|---|---|---|
+| DITV Детский досуг | Детские |  | DITV | no |
+| DITV Детский канал | Детские |  | DITV | no |
+| DITV Мультфильмы для малышей | Детские |  | DITV | no |
+| DITV Сборник мультфильмов сказок | Детские |  | DITV | no |
+| DITV Союзмултфилм | Детские |  | DITV | no |
+| DITV Фиксики  4К | Детские |  | DITV | no |
 | Play-X Военные сериалы | Кино |  | Play-X | no |
 | Play-X Кухня | Кино |  | Play-X | no |
 | Play-X Леонид Гайдай | Кино |  | Play-X | no |
@@ -34,6 +41,28 @@ Unsafe virtual/dummy-ID channels: **24**
 | НТВ Сериал Следствие Вели | Кино |  | Other: НТВ | no |
 | НТВ Сериал Шеф | Кино |  | Other: НТВ | no |
 | KLI Новинки 4K Ultra HD | Кино 4K |  | KLI | no |
+| DITV Агент национальной безопасности | Кинозалы |  | DITV | no |
+| DITV Американские комедии 80-90-х | Кинозалы |  | DITV | no |
+| DITV ГАРИ ПОТЕР | Кинозалы |  | DITV | no |
+| DITV Глухарь | Кинозалы |  | DITV | no |
+| DITV Карпов | Кинозалы |  | DITV | no |
+| DITV КЛАССИКА ИНДИЙСКОГО КИНО | Кинозалы |  | DITV | no |
+| DITV КОМЕДИИ | Кинозалы |  | DITV | no |
+| DITV КОМЕДИИ 90-х | Кинозалы |  | DITV | no |
+| DITV КОМЕДИИ СССР | Кинозалы |  | DITV | no |
+| DITV комедийные сериалы | Кинозалы |  | DITV | no |
+| DITV комедийные сериалы | Кинозалы |  | DITV | no |
+| DITV Куба | Кинозалы |  | DITV | no |
+| DITV Лихач | Кинозалы |  | DITV | no |
+| DITV ПАТРИОТ | Кинозалы |  | DITV | no |
+| DITV Про акул | Кинозалы |  | DITV | no |
+| DITV Про вампиров | Кинозалы |  | DITV | no |
+| DITV Пятницкий | Кинозалы |  | DITV | no |
+| DITV Пёс | Кинозалы |  | DITV | no |
+| DITV СССР 4К | Кинозалы |  | DITV | no |
+| DITV Счастливы вместе | Кинозалы |  | DITV | no |
+| DITV ФИЛЬМЫ | Кинозалы |  | DITV | no |
+| DITV ФИЛЬМЫ УЖАСОВ 80-х | Кинозалы |  | DITV | no |
 | KLI Новинки HD | Кинозалы |  | KLI | no |
 | Joker:Гей Арнольд! | Кинозалы UA |  | Joker | no |
 | Joker:Русалочка | Кинозалы UA |  | Joker | no |
@@ -48,6 +77,9 @@ Unsafe virtual/dummy-ID channels: **24**
 | Play-X Русский рок | Музыкальные |  | Play-X | no |
 | Play-X Хиты 80-x HD | Музыкальные |  | Play-X | no |
 | Play-X Хиты 90-х HD | Музыкальные |  | Play-X | no |
+| DITV 4К | Познавательные |  | DITV | no |
+| DITV Дикая природа 4К | Познавательные |  | DITV | no |
+| DITV Кулинария | Познавательные |  | DITV | no |
 | Центр BY | Беларусь | BY | Other: Центр | review |
 | Детектив HD | Кино |  | Other: Детектив | review |
 | Кино 24/7 | Кино |  | Other | review |
@@ -69,14 +101,12 @@ Unsafe virtual/dummy-ID channels: **24**
 | PAI Музика | Музыкальные |  | Other: PAI | review |
 | Легенды Ретро FM | Музыкальные |  | Other: Легенды | review |
 | Континент Е | Познавательные |  | Other: Континент | review |
-| Машина часу | Познавательные |  | Other: Машина | review |
 | Орел и Решка | Познавательные |  | Other: Орел | review |
 | Вестник Надыма | Россия | RU | Other: Вестник | review |
 | Витрина | Россия | RU | Other: Витрина | review |
 | ВТК 41 Аргус | Россия | RU | Other: ВТК | review |
 | Евпатория 24 | Россия | RU | Other: Евпатория | review |
 | Раменское ТВ | Россия | RU | Other: Раменское | review |
-| Север | Россия | RU | Other: Север | review |
 | Телеплюс | Россия | RU | Other: Телеплюс | review |
 | УПЛ ТВ 1 | Спорт |  | Other: УПЛ | review |
 | УПЛ ТВ 2 | Спорт |  | Other: УПЛ | review |
@@ -84,7 +114,6 @@ Unsafe virtual/dummy-ID channels: **24**
 | TIC (Одеса) | Украинские | UA | Other: TIC | review |
 | Вар'яти HD | Украинские | UA | Other: Вар | review |
 | Вещдок HD | Украинские | UA | Other: Вещдок | review |
-| Гумор+ | Украинские | UA | Other: Гумор+ | review |
 | Детективи HD | Украинские | UA | Other: Детективи | review |
 | ЖВЛ+ | Украинские | UA | Other: ЖВЛ+ | review |
 | Конкурент TV | Украинские | UA | Other: Конкурент | review |
