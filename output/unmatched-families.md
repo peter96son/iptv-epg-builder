@@ -3,7 +3,7 @@
 This report is diagnostic only. It does not create EPG mappings.
 A family must be researched and verified before aliases are added to the live builder.
 
-Unmatched channels: **590**
+Unmatched channels: **592**
 
 | Family | Channels | no_epg_* IDs | Main groups |
 |---|---:|---:|---|
@@ -79,6 +79,7 @@ Unmatched channels: **590**
 | Other: Alpha | 1 | 0 | Греция (1) |
 | Other: Amazing | 1 | 0 | Канада (1) |
 | Other: Anal | 1 | 0 | Для взрослых (1) |
+| Other: Angel | 1 | 0 | Разное (1) |
 | Other: Ant | 1 | 0 | Греция (1) |
 | Other: Antwerpen | 1 | 0 | BE & NL (1) |
 | Other: Aristo | 1 | 0 | Германия (1) |
@@ -348,6 +349,7 @@ Unmatched channels: **590**
 | Other: Родина | 1 | 0 | Болгария (1) |
 | Other: Розсл | 1 | 0 | Украинские (1) |
 | Other: Романтичний | 1 | 0 | Кинозалы UA (1) |
+| Other: Север | 1 | 0 | Россия (1) |
 | Other: Сл | 1 | 0 | Украинские (1) |
 | Other: Снятин | 1 | 0 | Украинские (1) |
 | Other: Справа | 1 | 0 | Украинские (1) |
@@ -887,6 +889,10 @@ Unmatched channels: **590**
 ### Other: Anal — 1
 
 - Anal
+
+### Other: Angel — 1
+
+- Angel TV
 
 ### Other: Ant — 1
 
@@ -1963,6 +1969,10 @@ Unmatched channels: **590**
 ### Other: Романтичний — 1
 
 - Романтичний Марафон HD
+
+### Other: Север — 1
+
+- Север
 
 ### Other: Сл — 1
 
