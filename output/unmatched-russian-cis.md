@@ -3,7 +3,7 @@
 Diagnostic queue for Russian-language and CIS recovery. It does not create aliases by itself.
 Regional variants, time-shifts and virtual/FAST families must be verified before production mapping.
 
-Candidate channels: **69**
+Candidate channels: **71**
 
 Unsafe virtual/dummy-ID channels: **24**
 
@@ -11,11 +11,11 @@ Unsafe virtual/dummy-ID channels: **24**
 
 - Кино: 18
 - Кинозалы UA: 14
-- Украинские: 13
+- Украинские: 14
 - Музыкальные: 9
 - Россия: 7
+- Познавательные: 3
 - Спорт: 3
-- Познавательные: 2
 - Кино 4K: 1
 - Кинозалы: 1
 - Беларусь: 1
@@ -69,6 +69,7 @@ Unsafe virtual/dummy-ID channels: **24**
 | PAI Музика | Музыкальные |  | Other: PAI | review |
 | Легенды Ретро FM | Музыкальные |  | Other: Легенды | review |
 | Континент Е | Познавательные |  | Other: Континент | review |
+| Машина часу | Познавательные |  | Other: Машина | review |
 | Орел и Решка | Познавательные |  | Other: Орел | review |
 | Вестник Надыма | Россия | RU | Other: Вестник | review |
 | Витрина | Россия | RU | Other: Витрина | review |
@@ -83,6 +84,7 @@ Unsafe virtual/dummy-ID channels: **24**
 | TIC (Одеса) | Украинские | UA | Other: TIC | review |
 | Вар'яти HD | Украинские | UA | Other: Вар | review |
 | Вещдок HD | Украинские | UA | Other: Вещдок | review |
+| Гумор+ | Украинские | UA | Other: Гумор+ | review |
 | Детективи HD | Украинские | UA | Other: Детективи | review |
 | ЖВЛ+ | Украинские | UA | Other: ЖВЛ+ | review |
 | Конкурент TV | Украинские | UA | Other: Конкурент | review |
