@@ -1,13 +1,13 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-08-18T15:22:31.288600-07:00`
+- Generated: `2026-08-18T16:57:11.526577-07:00`
 - Playlist channels: **2700**
-- Baseline covered: **1607**
+- Baseline covered: **1606**
 - Final covered: **2099**
-- Added by fallbacks: **+492**
+- Added by fallbacks: **+493**
 - Unmatched: **601**
-- Programmes: **364330**
-- Movie coverage: **774/859** (+233)
+- Programmes: **364575**
+- Movie coverage: **774/859** (+234)
 
 ## Playlist changes
 
@@ -21,7 +21,7 @@
 
 | Group | Total | Baseline | Final | Added | Coverage |
 |---|---:|---:|---:|---:|---:|
-| Кинозалы | 358 | 232 | 329 | +97 | 91.9% |
+| Кинозалы | 358 | 231 | 329 | +98 | 91.9% |
 | Кинозалы UA | 206 | 103 | 186 | +83 | 90.3% |
 | Спорт | 249 | 93 | 161 | +68 | 64.7% |
 | Музыкальные | 150 | 44 | 90 | +46 | 60.0% |
@@ -63,8 +63,8 @@
 
 | Source | Status | Added |
 |---|---|---:|
-| iptv-online-primary | ok | 1607 |
-| iptvx-noarch | ok | 180 |
+| iptv-online-primary | ok | 1606 |
+| iptvx-noarch | ok | 179 |
 | klimedia-dedicated | failed | 0 |
 | runigma-iptv | ok | 6 |
 | openbox-tsd | ok | 51 |
@@ -73,7 +73,7 @@
 | cineman-dedicated | ok | 0 |
 | minimax-mm-dedicated | ok | 0 |
 | sharavoz-guide | failed | 0 |
-| tvteam | ok | 69 |
+| tvteam | ok | 71 |
 | epgpw-sreda | ok | 0 |
 | epgpw-chestny-detektiv | ok | 0 |
 | epgpw-RU | ok | 9 |
@@ -156,4 +156,5 @@
 | 2026-08-18T13:28:45.277468-07:00 | 2100 | 600 | 364546 |
 | 2026-08-18T14:46:41.502715-07:00 | 2099 | 601 | 364334 |
 | 2026-08-18T15:22:31.288600-07:00 | 2099 | 601 | 364330 |
+| 2026-08-18T16:57:11.526577-07:00 | 2099 | 601 | 364575 |
 
