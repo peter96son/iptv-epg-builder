@@ -19,6 +19,7 @@ from .dashboard import build_markdown, build_html
 from .research import build_unmatched_family_reports, build_russian_cis_unmatched_reports
 from .region import region_for_group
 from .channel_diagnostics import load_watchlist, build_channel_diagnostics
+from .ditv_fallback import is_ditv_channel, build_ditv_fallback
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "output"
@@ -291,6 +292,52 @@ def build():
                 stat["family_recovered"] = recovered
                 stat["matched"] = int(stat.get("matched", 0)) + recovered
 
+    # v3.2 DITV local fallback.  Only still-unmatched DITV channels reach this
+    # point, so any real XMLTV source always wins.  The fallback is deliberately
+    # generic: it prevents player-side "No programme" without inventing film
+    # or episode titles that we cannot verify.
+    ditv_fallback_count = 0
+    for i in list(sorted(unresolved)):
+        ch = channels[i]
+        if not is_ditv_channel(ch.name):
+            continue
+        out_id, ch_elem, programmes = build_ditv_fallback(ch.name, timezone_name)
+        if out_id not in emitted_channel_ids:
+            tv.append(ch_elem)
+            emitted_channel_ids.add(out_id)
+        for p in programmes:
+            tv.append(p)
+            programme_count += 1
+            programme_counts_by_output[out_id] += 1
+            if xmltv_programme_is_usable(p.get("start", ""), p.get("stop", "")):
+                usable_programme_counts_by_output[out_id] += 1
+        mappings.append({
+            "playlist_name": ch.name,
+            "playlist_tvg_id": ch.tvg_id,
+            "output_tvg_id": out_id,
+            "group": ch.group,
+            "region": region_for_group(ch.group),
+            "source": "ditv-local-fallback",
+            "source_id": out_id,
+            "method": "synthetic-ditv",
+            "confidence": 10,
+            "_channel_index": i,
+        })
+        confidence_counts["10"] += 1
+        final_groups[ch.group] += 1
+        unresolved.discard(i)
+        ditv_fallback_count += 1
+
+    if ditv_fallback_count:
+        source_stats.append({
+            "source": "ditv-local-fallback",
+            "status": "ok",
+            "matched": ditv_fallback_count,
+            "synthetic": True,
+            "avg_confidence": 10.0,
+        })
+        print(f"[ditv-local-fallback] matched={ditv_fallback_count} remaining={len(unresolved)}", flush=True)
+
     # v1.9 post-build validation. A mapping is publishable only when the
     # final output ID actually received a current/upcoming programme. This is
     # intentionally independent of the matching method and catches cases where
@@ -394,7 +441,7 @@ def build():
         }
 
     status = {
-        "builder_version": "3.1",
+        "builder_version": "3.2",
         "generated_at": datetime.now(timezone).isoformat(),
         "timezone": timezone_name,
         "playlist_channels": len(channels),
@@ -408,6 +455,8 @@ def build():
         "regional_family_matching": True,
         "regional_family_matching_mode": "second-pass-only",
         "family_recovered_channels": family_recovered_total,
+        "ditv_fallback_channels": ditv_fallback_count,
+        "ditv_fallback_mode": "generic-on-air-blocks",
         "confidence_counts": dict(sorted(confidence_counts.items(), key=lambda kv: -int(kv[0]))),
         "unmatched_family_count": unmatched_family_count,
         "russian_cis_unmatched_candidates": russian_cis_report.get("candidate_channels", 0),

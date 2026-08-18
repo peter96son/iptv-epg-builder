@@ -84,8 +84,13 @@ The Worker diagnostic request uses `/tv?fresh=1` to bypass only the Cloudflare p
 - Lower-confidence methods must never override a higher-confidence researched alias.
 - `Discovery Science HD RO` may resolve to `Discovery Science` in an RO feed; it must not resolve to the same display name in a GB/NL/PL feed.
 
-## v3.1 recovery rule
+## DITV synthetic fallback
 
-Regional-family matching is strictly additive. The builder must first run the full legacy matching chain used by v2.1 (verified alias -> exact provider tvg-id -> exact normalized name with region checks where required) across every configured source. Only after all legacy sources have had a chance may the builder run `family-region` recovery on the still-unmatched channels.
+DITV remains protected from fuzzy matching to unrelated channels. If no verified DITV schedule exists, the builder may emit a generic synthetic on-air block under a dedicated stable DITV XMLTV ID. Synthetic DITV mappings use low confidence and source `ditv-local-fallback`; they must not be described as exact programme data.
 
-A family match must never preempt, replace, or block a later legacy exact match. If a family candidate does not produce a current/upcoming programme in the final XMLTV output, it must remain unmatched.
+
+## v3.3 targeted recovery
+- KLI dedicated feed updated to the latest publicly reported endpoint `https://epg.klimedia.pro` and moved before the stale Runigma mirror.
+- Added fresh Portugal EPGShare feed with exact aliases for SPORT TV, DAZN PT and Canal 11.
+- Added verified exact Greece/Croatia recovery aliases.
+- Existing matches remain authoritative; new recovery applies only where source data is present and fresh.

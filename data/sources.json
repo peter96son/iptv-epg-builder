@@ -12,14 +12,8 @@
     "timeout": 180
   },
   {
-    "name": "runigma-iptv",
-    "url": "https://runigma.com.ua/EPG/IPTV/epg-iptv.xml.gz",
-    "enabled": true,
-    "timeout": 180
-  },
-  {
     "name": "klimedia-dedicated",
-    "url": "https://klimedia.space/epg.xml.gz",
+    "url": "https://epg.klimedia.pro",
     "enabled": true,
     "timeout": 60,
     "groups": [
@@ -29,7 +23,14 @@
       "Детские",
       "Музыкальные"
     ],
-    "note": "Experimental KLI family feed. Public KLI playlists/documentation point to this URL, but availability has also been reported inconsistent. Runtime download + current-programme gate decides; safe to skip on failure."
+    "note": "KLI dedicated EPG. Latest public KLI EPG endpoint reported as https://epg.klimedia.pro; keep before Runigma so a fresh dedicated feed wins over stale mirror data. Runtime freshness gate still applies.",
+    "retries": 3
+  },
+  {
+    "name": "runigma-iptv",
+    "url": "https://runigma.com.ua/EPG/IPTV/epg-iptv.xml.gz",
+    "enabled": true,
+    "timeout": 180
   },
   {
     "name": "openbox-tsd",
@@ -540,6 +541,19 @@
       "HR"
     ],
     "note": "Country-scoped EPGShare feed; v1.6 region-aware matching."
+  },
+  {
+    "name": "epgshare-PT",
+    "url": "https://epgshare01.online/epgshare01/epg_ripper_PT1.xml.gz",
+    "enabled": true,
+    "timeout": 180,
+    "groups": [
+      "Спорт"
+    ],
+    "regions": [
+      "PT"
+    ],
+    "note": "Fresh Portugal country EPGShare feed; exact aliases only for provider channels explicitly marked PT."
   },
   {
     "name": "epgshare-TR",

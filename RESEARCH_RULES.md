@@ -175,6 +175,9 @@ Do not treat these figures as permanent. They are a historical checkpoint; use e
 - Cached data must still pass the normal fresh-programme gate; cache fallback never turns stale schedules into valid coverage.
 - Generated `output/` files are never shipped in release ZIPs; GitHub Actions owns them.
 
-## v3.1 source-order safety
 
-Never improve coverage by allowing a heuristic/family match to take precedence over an exact or manually verified match available from a later source. Heuristic recovery is a second-pass operation over unresolved channels only. Coverage regressions versus a known-good build must be treated as failures to investigate, not accepted as the cost of a new matching feature.
+## v3.3 targeted recovery
+- KLI dedicated feed updated to the latest publicly reported endpoint `https://epg.klimedia.pro` and moved before the stale Runigma mirror.
+- Added fresh Portugal EPGShare feed with exact aliases for SPORT TV, DAZN PT and Canal 11.
+- Added verified exact Greece/Croatia recovery aliases.
+- Existing matches remain authoritative; new recovery applies only where source data is present and fresh.

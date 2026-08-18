@@ -184,7 +184,9 @@ The normal player URL remains `/tv`. The `fresh=1` query is for automated diagno
 
 The builder now supports conservative regional-family matching for international brands, records a confidence score for every mapping, and can persist an explicitly enabled stale-if-error cache for unstable XMLTV sources. Release ZIPs do not contain generated `output/` files.
 
-## v3.1 recovery behavior
 
-v3.1 preserves the v3.x confidence/region architecture but makes regional-family matching second-pass-only. All v2.1-compatible alias/ID/exact-name matching is completed across every source first; family recovery then runs only for channels that remain unmatched.
-
+## v3.3 targeted recovery
+- KLI dedicated feed updated to the latest publicly reported endpoint `https://epg.klimedia.pro` and moved before the stale Runigma mirror.
+- Added fresh Portugal EPGShare feed with exact aliases for SPORT TV, DAZN PT and Canal 11.
+- Added verified exact Greece/Croatia recovery aliases.
+- Existing matches remain authoritative; new recovery applies only where source data is present and fresh.
