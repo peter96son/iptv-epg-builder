@@ -23,7 +23,7 @@ SERIES_WORDS = {"series", "serial", "сериал", "сериалы", "tv series
 MOVIE_GROUPS = {"Кино", "Кино 4K", "Кинозалы", "Кинозалы UA"}
 
 LANG_MAP = {
-    "ru":"ru-RU","uk":"uk-UA","ua":"uk-UA","de":"de-DE","pl":"pl-PL",
+    "ru":"ru-RU","uk":"uk-UA","ua":"uk-UA","be":"be-BY","de":"de-DE","pl":"pl-PL",
     "it":"it-IT","fr":"fr-FR","es":"es-ES","pt":"pt-PT","tr":"tr-TR",
     "ro":"ro-RO","bg":"bg-BG","el":"el-GR","he":"he-IL","cs":"cs-CZ",
     "sk":"sk-SK","hu":"hu-HU","lt":"lt-LT","lv":"lv-LV","et":"et-EE",
@@ -94,8 +94,15 @@ def _add_metadata(programme: ET.Element, rating: str, imdb_id: str) -> bool:
     return changed
 
 def _detect_language(title: str) -> str:
-    t=title or ""; cyr=sum(1 for c in t if "\u0400"<=c<="\u04ff"); lat=sum(1 for c in t if c.isascii() and c.isalpha())
-    return "ru-RU" if cyr>lat and cyr else "en-US"
+    t = title or ""
+    low = t.lower()
+    if any(ch in low for ch in "іїєґ"):
+        return "uk-UA"
+    if "ў" in low:
+        return "be-BY"
+    cyr = sum(1 for c in t if "\u0400" <= c <= "\u04ff")
+    lat = sum(1 for c in t if c.isascii() and c.isalpha())
+    return "ru-RU" if cyr > lat and cyr else "en-US"
 
 def _programme_language(programme: ET.Element, title: str) -> str:
     e=programme.find("title"); lang=(e.get("lang") or "").strip().lower() if e is not None else ""
@@ -109,6 +116,9 @@ def _clean_search_title(title: str) -> str:
     s=re.sub(r"\s*[\[(]\s*\d{1,2}\+\s*[\])]\s*"," ",s)
     s=re.sub(r"(?i)\s+(?:серия|сер\.|эпизод|episode)\s*\d+\b.*$","",s)
     return re.sub(r"\s+"," ",s).strip(" -–—:;,.") or (title or "").strip()
+
+def _skip_metadata_language(language: str) -> bool:
+    return (language or "").lower().startswith("uk")
 
 def _load_cache(path: Path) -> dict:
     try:
@@ -128,7 +138,7 @@ def _title_similarity(a,b):
     return SequenceMatcher(None,na,nb).ratio()
 
 def _http_json(url,timeout,headers=None):
-    req=urllib.request.Request(url,headers=headers or {"User-Agent":"IPTV-EPG-Builder/4.3"})
+    req=urllib.request.Request(url,headers=headers or {"User-Agent":"IPTV-EPG-Builder/4.5"})
     with urllib.request.urlopen(req,timeout=timeout) as r: return json.loads(r.read().decode("utf-8","replace"))
 
 def _omdb_lookup_id(api_key,imdb_id,timeout=12):
@@ -201,7 +211,7 @@ def enrich_metadata(tv:ET.Element,mappings:list[dict],root:Path,output:Path)->di
     omdb_key=os.environ.get("OMDB_API_KEY","").strip(); tmdb_key=os.environ.get("TMDB_API_KEY","").strip()
     max_requests=max(0,int(os.environ.get("METADATA_MAX_REQUESTS",os.environ.get("OMDB_MAX_REQUESTS","150")) or 150)); timeout=max(3,int(os.environ.get("METADATA_TIMEOUT",os.environ.get("OMDB_TIMEOUT","12")) or 12))
     # New cache filename deliberately ignores poisoned v4.1/v4.2 negatives.
-    cache_path=root/".cache"/"metadata"/"metadata-v43.json"; cache=_load_cache(cache_path)
+    cache_path=root/".cache"/"metadata"/"metadata-v45.json"; cache=_load_cache(cache_path)
     groups={}; allowed=set()
     for row in mappings:
         oid=(row.get("output_tvg_id") or "").strip()
@@ -220,7 +230,11 @@ def enrich_metadata(tv:ET.Element,mappings:list[dict],root:Path,output:Path)->di
         typ=_media_type(p,groups.get(cid,""))
         if not typ: stats["not_movie_or_series"]+=1; continue
         if len(normalize_name(title))<3: stats["title_too_short"]+=1; continue
-        year=_year(p); language=_programme_language(p,title); key=_cache_key(title,year,typ,language); entry=cache.get(key); source="cache"
+        year=_year(p); language=_programme_language(p,title)
+        if _skip_metadata_language(language):
+            stats["ukrainian_titles_skipped"] += 1
+            continue
+        key=_cache_key(title,year,typ,language); entry=cache.get(key); source="cache"
         if entry is not None: stats["cache_hits"]+=1
         elif requests>=max_requests: stats["lookup_not_attempted"]+=1; continue
         else:
@@ -256,4 +270,4 @@ def enrich_metadata(tv:ET.Element,mappings:list[dict],root:Path,output:Path)->di
     unique={}
     for row in rows: unique[(row["title"],row["year"],row["type"],row["status"])]=row
     report_rows=list(unique.values())
-    return {"summary":{"mode":"existing-imdb+tmdb-localized-cascade-v4.3+omdb-rating","tmdb_configured":bool(tmdb_key),"omdb_configured":bool(omdb_key),"max_api_requests_per_run":max_requests,"cache_entries":len(cache),**{k:int(v) for k,v in stats.items()},"unique_report_rows":len(report_rows)},"rows":report_rows}
+    return {"summary":{"mode":"existing-imdb+tmdb-localized-cascade-v4.5-ru-priority+omdb-rating","tmdb_configured":bool(tmdb_key),"omdb_configured":bool(omdb_key),"max_api_requests_per_run":max_requests,"cache_entries":len(cache),**{k:int(v) for k,v in stats.items()},"unique_report_rows":len(report_rows)},"rows":report_rows}
