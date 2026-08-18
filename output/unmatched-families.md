@@ -3,7 +3,7 @@
 This report is diagnostic only. It does not create EPG mappings.
 A family must be researched and verified before aliases are added to the live builder.
 
-Unmatched channels: **600**
+Unmatched channels: **601**
 
 | Family | Channels | no_epg_* IDs | Main groups |
 |---|---:|---:|---|
@@ -255,6 +255,7 @@ Unmatched channels: **600**
 | Other: Sfero | 1 | 0 | Грузия (1) |
 | Other: Shelanu | 1 | 0 | Израиль (1) |
 | Other: ShopLC | 1 | 0 | Германия (1) |
+| Other: Silk | 1 | 0 | Грузия (1) |
 | Other: Sky | 1 | 0 | Германия (1) |
 | Other: Soul | 1 | 0 | Болгария (1) |
 | Other: Space | 1 | 0 | Азербайджан (1) |
@@ -1601,6 +1602,10 @@ Unmatched channels: **600**
 ### Other: ShopLC — 1
 
 - ShopLC HD
+
+### Other: Silk — 1
+
+- Silk Sport 3
 
 ### Other: Sky — 1
 
