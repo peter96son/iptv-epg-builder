@@ -246,3 +246,12 @@ DITV channels are handled by a last-resort local XMLTV fallback only after all r
 - Added fresh Portugal EPGShare feed with exact aliases for SPORT TV, DAZN PT and Canal 11.
 - Added verified exact Greece/Croatia recovery aliases.
 - Existing matches remain authoritative; new recovery applies only where source data is present and fresh.
+
+## v4.0 Accuracy Gate
+
+Coverage is no longer the primary KPI. A mapping must be both fresh and plausible.
+The builder quarantines explicit country/feed conflicts before publishing `uhf-mapping.json`.
+`output/accuracy-audit.csv` records every mapping as verified, probable, unverified, or wrong.
+`output/accuracy-quarantine.csv` contains mappings removed from player delivery.
+Synthetic DITV schedules are disabled: no real programme source means no EPG.
+Manual research can be recorded in `data/accuracy_overrides.csv` with an evidence URL.

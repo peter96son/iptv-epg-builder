@@ -94,3 +94,10 @@ DITV remains protected from fuzzy matching to unrelated channels. If no verified
 - Added fresh Portugal EPGShare feed with exact aliases for SPORT TV, DAZN PT and Canal 11.
 - Added verified exact Greece/Croatia recovery aliases.
 - Existing matches remain authoritative; new recovery applies only where source data is present and fresh.
+
+## v4.0 accuracy policy
+
+A fresh XMLTV schedule is not sufficient evidence that it belongs to the channel.
+Explicit country conflicts and synthetic schedules are quarantined. Provider region,
+source region, XMLTV ID country suffixes and manual evidence are checked before publication.
+Accuracy takes precedence over coverage.

@@ -190,3 +190,15 @@ The builder now supports conservative regional-family matching for international
 - Added fresh Portugal EPGShare feed with exact aliases for SPORT TV, DAZN PT and Canal 11.
 - Added verified exact Greece/Croatia recovery aliases.
 - Existing matches remain authoritative; new recovery applies only where source data is present and fresh.
+
+## v4.0 Accuracy
+
+The builder now separates **freshness** from **correctness**. `postbuild-validation`
+answers “does this ID have current programmes?”, while `accuracy-audit` answers
+“is this mapping plausible for this provider region/feed?”. Obvious country/feed
+conflicts are quarantined before `uhf-mapping.json` is published. Real EPG only:
+synthetic DITV schedules are disabled.
+
+
+## v4.1 IMDb metadata enrichment
+The builder normalizes IMDb ratings/IDs already present in upstream XMLTV and can enrich missing movie/series metadata through OMDb. Add a repository Actions secret named `OMDB_API_KEY` to enable network enrichment. The workflow caps new requests at 150 per run and persists results in `.cache/metadata/omdb.json`; ambiguous title/year/type matches are rejected. Reports: `output/metadata-enrichment.json` and `output/metadata-enrichment.csv`.

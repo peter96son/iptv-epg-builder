@@ -19,7 +19,8 @@ from .dashboard import build_markdown, build_html
 from .research import build_unmatched_family_reports, build_russian_cis_unmatched_reports
 from .region import region_for_group
 from .channel_diagnostics import load_watchlist, build_channel_diagnostics
-from .ditv_fallback import is_ditv_channel, build_ditv_fallback
+from .accuracy import load_accuracy_overrides, build_accuracy_audit
+from .metadata_enrichment import enrich_metadata
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "output"
@@ -292,51 +293,37 @@ def build():
                 stat["family_recovered"] = recovered
                 stat["matched"] = int(stat.get("matched", 0)) + recovered
 
-    # v3.2 DITV local fallback.  Only still-unmatched DITV channels reach this
-    # point, so any real XMLTV source always wins.  The fallback is deliberately
-    # generic: it prevents player-side "No programme" without inventing film
-    # or episode titles that we cannot verify.
-    ditv_fallback_count = 0
-    for i in list(sorted(unresolved)):
-        ch = channels[i]
-        if not is_ditv_channel(ch.name):
-            continue
-        out_id, ch_elem, programmes = build_ditv_fallback(ch.name, timezone_name)
-        if out_id not in emitted_channel_ids:
-            tv.append(ch_elem)
-            emitted_channel_ids.add(out_id)
-        for p in programmes:
-            tv.append(p)
-            programme_count += 1
-            programme_counts_by_output[out_id] += 1
-            if xmltv_programme_is_usable(p.get("start", ""), p.get("stop", "")):
-                usable_programme_counts_by_output[out_id] += 1
-        mappings.append({
-            "playlist_name": ch.name,
-            "playlist_tvg_id": ch.tvg_id,
-            "output_tvg_id": out_id,
-            "group": ch.group,
-            "region": region_for_group(ch.group),
-            "source": "ditv-local-fallback",
-            "source_id": out_id,
-            "method": "synthetic-ditv",
-            "confidence": 10,
-            "_channel_index": i,
-        })
-        confidence_counts["10"] += 1
-        final_groups[ch.group] += 1
-        unresolved.discard(i)
-        ditv_fallback_count += 1
+    # v4.0 accuracy policy: do not invent schedules for channels without a
+    # verified programme source. DITV and similar FAST/cinema channels remain
+    # unmatched until a real schedule is found.
 
-    if ditv_fallback_count:
-        source_stats.append({
-            "source": "ditv-local-fallback",
-            "status": "ok",
-            "matched": ditv_fallback_count,
-            "synthetic": True,
-            "avg_confidence": 10.0,
-        })
-        print(f"[ditv-local-fallback] matched={ditv_fallback_count} remaining={len(unresolved)}", flush=True)
+    # Accuracy gate runs before post-build validation.  A mapping can have
+    # perfectly fresh programmes and still be wrong (wrong country/feed).
+    source_cfg_by_name = {
+        _source_name(cfg, idx): cfg for idx, cfg in enumerate(sources)
+        if cfg.get("enabled", True) is not False
+    }
+    accuracy_overrides = load_accuracy_overrides()
+    accuracy_rows, accuracy_quarantine, accuracy_counts = build_accuracy_audit(
+        mappings, source_cfg_by_name, accuracy_overrides
+    )
+    quarantined_keys = {
+        (r.get("playlist_name", ""), r.get("source", ""), r.get("source_id", ""))
+        for r in accuracy_quarantine
+    }
+    if accuracy_quarantine:
+        kept = []
+        for row in mappings:
+            key = (row.get("playlist_name", ""), row.get("source", ""), row.get("source_id", ""))
+            if key not in quarantined_keys:
+                kept.append(row)
+                continue
+            idx = row.get("_channel_index")
+            if isinstance(idx, int):
+                unresolved.add(idx)
+                final_groups[channels[idx].group] -= 1
+        mappings = kept
+        print(f"[accuracy] quarantined={len(accuracy_quarantine)} remaining={len(unresolved)}", flush=True)
 
     # v1.9 post-build validation. A mapping is publishable only when the
     # final output ID actually received a current/upcoming programme. This is
@@ -377,6 +364,11 @@ def build():
     matched_total = len(channels) - len(unresolved)
     if programme_count == 0:
         raise SystemExit("SAFETY STOP: generated zero fresh programmes.")
+
+    # v4.1 IMDb metadata enrichment. Existing metadata is normalized locally;
+    # missing movie/series metadata may be filled through OMDb when configured.
+    metadata_report = enrich_metadata(tv, mappings, ROOT, OUTPUT)
+    metadata_summary = metadata_report.get("summary", {})
 
     status_path = OUTPUT / "status.json"
     if status_path.exists():
@@ -441,7 +433,7 @@ def build():
         }
 
     status = {
-        "builder_version": "3.2",
+        "builder_version": "4.1",
         "generated_at": datetime.now(timezone).isoformat(),
         "timezone": timezone_name,
         "playlist_channels": len(channels),
@@ -455,8 +447,15 @@ def build():
         "regional_family_matching": True,
         "regional_family_matching_mode": "second-pass-only",
         "family_recovered_channels": family_recovered_total,
-        "ditv_fallback_channels": ditv_fallback_count,
-        "ditv_fallback_mode": "generic-on-air-blocks",
+        "ditv_fallback_channels": 0,
+        "ditv_fallback_mode": "disabled-real-epg-only",
+        "accuracy_audit": {
+            "mode": "quarantine-obvious-wrong-mappings",
+            "audited_channels": len(accuracy_rows),
+            "quarantined_channels": len(accuracy_quarantine),
+            "status_counts": accuracy_counts,
+        },
+        "metadata_enrichment": metadata_summary,
         "confidence_counts": dict(sorted(confidence_counts.items(), key=lambda kv: -int(kv[0]))),
         "unmatched_family_count": unmatched_family_count,
         "russian_cis_unmatched_candidates": russian_cis_report.get("candidate_channels", 0),
@@ -551,6 +550,25 @@ def build():
         {"source": name, **vals}
         for name, vals in sorted(source_totals.items(), key=lambda kv: -kv[1]["total_added"])
     ]
+
+    # v4.1 metadata enrichment report. Never contains the OMDb API key.
+    save_json(OUTPUT / "metadata-enrichment.json", metadata_report)
+    write_csv(OUTPUT / "metadata-enrichment.csv", metadata_report.get("rows", []),
+              ["channel_id", "title", "year", "type", "status", "source", "imdb_id", "imdb_rating", "detail"])
+
+    # v4.0 accuracy reports. These are intentionally separate from post-build
+    # freshness validation: a channel may have fresh programmes from the wrong feed.
+    save_json(OUTPUT / "accuracy-audit.json", {
+        "generated_at": status.get("generated_at"),
+        "audited_channels": len(accuracy_rows),
+        "quarantined_channels": len(accuracy_quarantine),
+        "status_counts": accuracy_counts,
+        "channels": accuracy_rows,
+    })
+    write_csv(OUTPUT / "accuracy-audit.csv", accuracy_rows,
+              ["playlist_name", "playlist_tvg_id", "output_tvg_id", "group", "region", "source", "source_id", "method", "confidence", "accuracy_status", "accuracy_reason", "evidence_url", "quarantine"])
+    write_csv(OUTPUT / "accuracy-quarantine.csv", accuracy_quarantine,
+              ["playlist_name", "playlist_tvg_id", "output_tvg_id", "group", "region", "source", "source_id", "method", "confidence", "accuracy_status", "accuracy_reason", "evidence_url", "quarantine"])
 
     # Persist post-build validation before dashboards.
     save_json(OUTPUT / "postbuild-validation.json", {
