@@ -1,9 +1,17 @@
-name: Update EPG
+name: Backfill Movie Metadata
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "17 */6 * * *"
+    inputs:
+      budget:
+        description: "Maximum TMDb HTTP requests for this run"
+        required: true
+        default: "2500"
+      dry_run:
+        description: "Only measure queue; do not call TMDb"
+        required: true
+        default: false
+        type: boolean
 
 permissions:
   contents: write
@@ -13,9 +21,9 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build:
+  backfill:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 60
 
     steps:
       - name: Checkout
@@ -26,7 +34,7 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install test dependencies
+      - name: Install dependencies
         run: python -m pip install -r requirements.txt
 
       - name: Restore EPG and metadata cache
@@ -44,22 +52,24 @@ jobs:
       - name: Run tests
         run: python -m pytest -q
 
-      - name: Build EPG
+      - name: Backfill from committed EPG
         env:
-          PLAYLIST_URL: ${{ secrets.PLAYLIST_URL }}
-          EPG_TIMEZONE: America/Los_Angeles
           TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
-          METADATA_MAX_TITLES: "20000"
-          METADATA_MAX_HTTP_REQUESTS: "2500"
+          BACKFILL_HTTP_BUDGET: ${{ inputs.budget }}
           METADATA_DEADLINE_SECONDS: "2100"
           METADATA_TIMEOUT: "8"
           METADATA_CHECKPOINT_EVERY: "25"
           TMDB_EMPTY_PLAN_LIMIT: "4"
-          EPG_SOURCE_TIMEOUT_CAP: "90"
-          EPG_SOURCE_RETRIES_CAP: "2"
-          EPG_SOURCE_DEADLINE_SECONDS: "1500"
-          XMLTV_SPILL_THRESHOLD_BYTES: "4194304"
-        run: python run.py
+        run: |
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            python -m src.metadata_backfill --budget "${{ inputs.budget }}" --dry-run
+          else
+            python -m src.metadata_backfill --budget "${{ inputs.budget }}"
+          fi
+
+      - name: Save durable metadata snapshot
+        if: ${{ inputs.dry_run == false }}
+        run: python -m src.metadata_snapshot save
 
       - name: Save EPG and metadata cache
         if: always()
@@ -68,34 +78,15 @@ jobs:
           path: .cache
           key: epg-cache-${{ runner.os }}-${{ github.run_id }}
 
-      - name: Save durable metadata snapshot
-        run: python -m src.metadata_snapshot save
-
-      - name: Commit updated EPG output
+      - name: Commit backfill database and report
+        if: ${{ inputs.dry_run == false }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A output/ data/metadata.sqlite3.gz
+          git add data/metadata.sqlite3.gz output/metadata-backfill.json
           if git diff --cached --quiet; then
-            echo "No EPG output changes"
+            echo "No metadata backfill changes"
           else
-            git commit -m "Update EPG"
-            git push
-          fi
-
-      - name: Audit live Cloudflare Worker delivery
-        env:
-          WORKER_PLAYLIST_URL: https://iptv-epg.peter96son.workers.dev/tv
-          WORKER_AUDIT_ATTEMPTS: "6"
-          WORKER_AUDIT_DELAY: "8"
-        run: python -m src.worker_audit
-
-      - name: Commit Worker audit
-        run: |
-          git add -A output/worker-audit.json output/worker-audit.csv output/worker-audit-gaps.csv output/status.json
-          if git diff --cached --quiet; then
-            echo "No Worker audit changes"
-          else
-            git commit -m "Audit Worker delivery"
+            git commit -m "Backfill metadata"
             git push
           fi

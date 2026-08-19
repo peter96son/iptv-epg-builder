@@ -1,16 +1,18 @@
 {
-  "version": "10.0.1",
-  "metadata_version": "10.0",
-  "cache_schema": 11,
-  "metadata_budget_semantics": "unique canonical titles per run",
-  "default_workflow_metadata_budget": 20000,
+  "version": "11.3",
+  "metadata_version": "11.3",
+  "cache_schema": 12,
+  "metadata_budget_semantics": "separate unique-title and actual TMDb HTTP budgets",
+  "default_workflow_metadata_http_budget": 2500,
+  "durable_metadata_snapshot": "data/metadata.sqlite3.gz",
   "features": [
-    "IMDb ratings and vote counts from official IMDb dataset",
-    "TMDb Russian/English overview fallback",
-    "TMDb genre enrichment into XMLTV category and description",
-    "movie-group-first enrichment priority",
-    "no IMDb tt-id in user-facing description",
-    "v9.1 precision guards retained"
+    "SQLite metadata knowledge base",
+    "durable git snapshot of metadata DB",
+    "separate backfill workflow from committed output/epg.xml.gz",
+    "shared concurrency group across update/backfill",
+    "fiction-wide backfill with movie groups first",
+    "negative-cache TTL/backoff respected",
+    "dry-run and backfill reporting"
   ],
-  "release": "10.0.1"
+  "release": "11.3"
 }

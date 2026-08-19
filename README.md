@@ -1,6 +1,6 @@
-# IPTV EPG Builder v10.0
+# IPTV EPG Builder v11.3
 
-Current release: **v10.0**. See `RELEASE_NOTES_V10.0.md`.
+Current release: **v11.3**. See `RELEASE_NOTES_V11.3.md`.
 
 # IPTV EPG Builder
 
@@ -244,3 +244,18 @@ IMDb entity data refreshes every 30 days; missing rating/votes retry after 7 day
 ## Metadata engine v8.0
 
 The resolver uses canonical episode collapsing, strict RU/EN language filtering, transliteration, curated aliases, year-aware matching, safe multipart movie/series cross-type fallback, confidence scoring, progressive negative-cache backoff, and separate stable-identity/volatile-rating caches. Curated aliases live in `data/metadata_aliases.json`; they are search hints and never bypass confidence checks.
+
+
+## Metadata backfill
+
+`Actions → Backfill Movie Metadata` enriches fiction metadata from the already
+committed `output/epg.xml.gz`; it does not redownload XMLTV providers.
+
+Inputs:
+
+- `budget`: real TMDb HTTP request budget for the run;
+- `dry_run`: report queue size without spending requests.
+
+The durable metadata knowledge base is committed as `data/metadata.sqlite3.gz`.
+Git is the persistence layer; `.cache` remains an acceleration layer. Update EPG
+and Backfill use the same `concurrency.group`, so they never race on metadata.
