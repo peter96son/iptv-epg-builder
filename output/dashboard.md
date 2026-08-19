@@ -1,13 +1,13 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-08-18T18:59:09.114543-07:00`
+- Generated: `2026-08-18T20:44:41.658173-07:00`
 - Playlist channels: **2700**
-- Baseline covered: **1606**
+- Baseline covered: **1603**
 - Final covered: **2094**
-- Added by fallbacks: **+488**
+- Added by fallbacks: **+491**
 - Unmatched: **606**
-- Programmes: **330427**
-- Movie coverage: **774/859** (+234)
+- Programmes: **331812**
+- Movie coverage: **774/859** (+237)
 
 ## Playlist changes
 
@@ -24,8 +24,8 @@
 | Кинозалы | 358 | 231 | 329 | +98 | 91.9% |
 | Кинозалы UA | 206 | 103 | 186 | +83 | 90.3% |
 | Спорт | 249 | 93 | 156 | +63 | 62.7% |
+| Кино | 213 | 144 | 190 | +46 | 89.2% |
 | Музыкальные | 150 | 44 | 90 | +46 | 60.0% |
-| Кино | 213 | 147 | 190 | +43 | 89.2% |
 | BE & NL | 90 | 32 | 51 | +19 | 56.7% |
 | UK | 27 | 9 | 24 | +15 | 88.9% |
 | Болгария | 49 | 13 | 27 | +14 | 55.1% |
@@ -63,20 +63,20 @@
 
 | Source | Status | Added |
 |---|---|---:|
-| iptv-online-primary | ok | 1606 |
-| iptvx-noarch | ok | 179 |
+| iptv-online-primary | ok | 1603 |
+| iptvx-noarch | ok | 178 |
 | klimedia-dedicated | failed | 0 |
 | runigma-iptv | ok | 6 |
 | openbox-tsd | ok | 51 |
 | next-dedicated | ok | 0 |
-| bcumedia-dedicated | ok | 5 |
+| bcumedia-dedicated | ok | 8 |
 | cineman-dedicated | ok | 0 |
 | minimax-mm-dedicated | ok | 0 |
 | sharavoz-guide | failed | 0 |
 | tvteam | ok | 71 |
 | epgpw-sreda | ok | 0 |
 | epgpw-chestny-detektiv | ok | 0 |
-| epgpw-RU | ok | 3 |
+| epgpw-RU | ok | 4 |
 | epgpw-DE | ok | 5 |
 | epgpw-GB | ok | 3 |
 | epgpw-US | ok | 0 |
@@ -137,7 +137,6 @@
 
 | Generated | Covered | Unmatched | Programmes |
 |---|---:|---:|---:|
-| 2026-08-17T12:34:02.183701-07:00 | 2127 | 573 | 366776 |
 | 2026-08-17T12:50:42.948691-07:00 | 2127 | 573 | 366774 |
 | 2026-08-17T13:00:33.404753-07:00 | 2127 | 573 | 364461 |
 | 2026-08-17T13:29:13.220677-07:00 | 2127 | 573 | 366774 |
@@ -157,4 +156,5 @@
 | 2026-08-18T15:22:31.288600-07:00 | 2099 | 601 | 364330 |
 | 2026-08-18T16:57:11.526577-07:00 | 2099 | 601 | 364575 |
 | 2026-08-18T18:59:09.114543-07:00 | 2094 | 606 | 330427 |
+| 2026-08-18T20:44:41.658173-07:00 | 2094 | 606 | 331812 |
 
