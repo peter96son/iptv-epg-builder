@@ -201,15 +201,15 @@ synthetic DITV schedules are disabled.
 
 
 ## v4.1 IMDb metadata enrichment
-The builder normalizes IMDb ratings/IDs already present in upstream XMLTV and enriches missing fictional movie/series metadata with the v6 resolver. Add `TMDB_API_KEY` and `OMDB_API_KEY` as repository Actions secrets. The workflow caps metadata network requests per run and persists safe results in `.cache/metadata/metadata-v60.json`. Reports: `output/metadata-enrichment.json` and `output/metadata-enrichment.csv`.
+The builder normalizes IMDb metadata already present in upstream XMLTV and enriches missing fictional movie/series metadata with the v7 resolver. `TMDB_API_KEY` is the primary resolver secret. `OMDB_API_KEY` is optional and is used only as a rating/vote fallback if direct IMDb retrieval returns no data. Reports: `output/metadata-enrichment.json` and `output/metadata-enrichment.csv`.
 
 
 ## TMDb / IMDb resolver
-Localized RU/EN fictional titles are resolved through TMDb first, with normalized and transliterated fallbacks plus safe movie/series cross-checking. IMDb IDs are obtained from TMDb external IDs; OMDb supplies IMDb ratings when available, with an IMDb structured-page fallback for missing ratings. Results are cached in `.cache/metadata/metadata-v60.json`.
+Localized RU/EN fictional titles are resolved through TMDb first, with normalized/transliterated fallbacks and safe movie/series cross-checking. IMDb IDs are obtained from TMDb external IDs. Rating and vote count are then read directly from IMDb and cached separately by IMDb ID; OMDb is only an optional fallback. Identity mappings live in `.cache/metadata/metadata-v70.json`, while volatile IMDb entity data lives in `.cache/metadata/imdb-entities-v70.json`.
 
-## v6.0 metadata resolver
+## v7.0 metadata resolver
 
-Version 6.0 replaces the earlier v4.x/v5.x metadata path with a single built-in resolver in `src/metadata_enrichment.py`.
+Version 7.0 keeps a single built-in resolver in `src/metadata_enrichment.py` and separates stable title identity from volatile IMDb rating/vote metadata.
 
 Key rules:
 - metadata enrichment is limited to fictional movies and fictional series;
@@ -219,6 +219,19 @@ Key rules:
 - TMDb search can cross-check movie/series type for multipart titles and does not stop at the first TMDb result that lacks an IMDb ID;
 - OMDb is queried by IMDb ID for rating; if OMDb returns no rating, the resolver can fall back to IMDb page structured data;
 - missing ratings are retried periodically instead of being cached forever;
-- v6 uses `.cache/metadata/metadata-v60.json`; successful v5 entries may be migrated, while old negative caches are discarded. Old metadata caches are removed after a successful v6 save. `.cache/epg/` remains important and is not removed.
+- v7 uses `.cache/metadata/metadata-v70.json` plus `.cache/metadata/imdb-entities-v70.json`. Successful v6/v5 IMDb-ID mappings are migrated; old negative results are discarded. Obsolete metadata caches are removed only after successful v7 saves. `.cache/epg/` remains important and is never removed by metadata cleanup.
 
 The Actions request ceiling is `METADATA_MAX_REQUESTS` and now counts actual metadata network requests rather than only top-level title lookups.
+
+
+## Metadata architecture v7.0
+
+`TMDb -> IMDb ID -> direct IMDb rating/votes -> persistent IMDb-ID cache`.
+
+OMDb is no longer a required metadata layer. If `OMDB_API_KEY` exists it is used only as a fallback when direct IMDb retrieval returns neither rating nor vote count.
+
+Persistent caches:
+- `.cache/metadata/metadata-v70.json` — canonical title/type/language -> IMDb/TMDb identity.
+- `.cache/metadata/imdb-entities-v70.json` — IMDb ID -> rating, votes, source, checked timestamp.
+
+IMDb entity data refreshes every 30 days; missing rating/votes retry after 7 days. Series episodes share the same canonical identity and IMDb entity entry.

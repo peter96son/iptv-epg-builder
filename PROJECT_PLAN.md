@@ -255,3 +255,7 @@ The builder quarantines explicit country/feed conflicts before publishing `uhf-m
 `output/accuracy-quarantine.csv` contains mappings removed from player delivery.
 Synthetic DITV schedules are disabled: no real programme source means no EPG.
 Manual research can be recorded in `data/accuracy_overrides.csv` with an evidence URL.
+
+
+## v7.0 metadata
+TMDb resolves identity; direct IMDb supplies rating/votes; OMDb is optional fallback. Persistent IMDb-ID cache prevents repeated rating requests.
