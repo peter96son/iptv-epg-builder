@@ -365,8 +365,8 @@ def build():
     if programme_count == 0:
         raise SystemExit("SAFETY STOP: generated zero fresh programmes.")
 
-    # v4.2 TMDb/IMDb metadata enrichment. Existing metadata is normalized locally;
-    # missing movie/series metadata may be filled through OMDb when configured.
+    # v6.0 metadata enrichment: fiction-only RU/EN, canonical episode collapsing,
+    # TMDb + transliteration/cross-type resolver, OMDb and IMDb rating fallback.
     metadata_report = enrich_metadata(tv, mappings, ROOT, OUTPUT)
     metadata_summary = metadata_report.get("summary", {})
 
@@ -433,7 +433,7 @@ def build():
         }
 
     status = {
-        "builder_version": "4.2",
+        "builder_version": "6.0",
         "generated_at": datetime.now(timezone).isoformat(),
         "timezone": timezone_name,
         "playlist_channels": len(channels),

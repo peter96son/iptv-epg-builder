@@ -201,8 +201,24 @@ synthetic DITV schedules are disabled.
 
 
 ## v4.1 IMDb metadata enrichment
-The builder normalizes IMDb ratings/IDs already present in upstream XMLTV and can enrich missing movie/series metadata through OMDb. Add a repository Actions secret named `OMDB_API_KEY` to enable network enrichment. The workflow caps new requests at 150 per run and persists results in `.cache/metadata/omdb.json`; ambiguous title/year/type matches are rejected. Reports: `output/metadata-enrichment.json` and `output/metadata-enrichment.csv`.
+The builder normalizes IMDb ratings/IDs already present in upstream XMLTV and enriches missing fictional movie/series metadata with the v6 resolver. Add `TMDB_API_KEY` and `OMDB_API_KEY` as repository Actions secrets. The workflow caps metadata network requests per run and persists safe results in `.cache/metadata/metadata-v60.json`. Reports: `output/metadata-enrichment.json` and `output/metadata-enrichment.csv`.
 
 
-## v4.2 TMDb resolver
-Localized movie/series titles are resolved through TMDb first when `TMDB_API_KEY` is configured. The builder validates title similarity and year, obtains the canonical IMDb ID from TMDb external IDs, then uses `OMDB_API_KEY` by IMDb ID to fetch the IMDb rating. Results are cached in `.cache/metadata/metadata.json`.
+## TMDb / IMDb resolver
+Localized RU/EN fictional titles are resolved through TMDb first, with normalized and transliterated fallbacks plus safe movie/series cross-checking. IMDb IDs are obtained from TMDb external IDs; OMDb supplies IMDb ratings when available, with an IMDb structured-page fallback for missing ratings. Results are cached in `.cache/metadata/metadata-v60.json`.
+
+## v6.0 metadata resolver
+
+Version 6.0 replaces the earlier v4.x/v5.x metadata path with a single built-in resolver in `src/metadata_enrichment.py`.
+
+Key rules:
+- metadata enrichment is limited to fictional movies and fictional series;
+- only Russian- and English-language titles are enriched; Ukrainian/Belarusian/other titles are skipped even if an upstream XMLTV source incorrectly labels them as `ru-RU`;
+- episode suffixes and multipart mini-series are collapsed to one canonical title, so many episodes share one in-run lookup/cache entry;
+- Russian Cyrillic titles also get Latin transliteration variants (for IMDb/TMDb records indexed like `Kupel dyavola`);
+- TMDb search can cross-check movie/series type for multipart titles and does not stop at the first TMDb result that lacks an IMDb ID;
+- OMDb is queried by IMDb ID for rating; if OMDb returns no rating, the resolver can fall back to IMDb page structured data;
+- missing ratings are retried periodically instead of being cached forever;
+- v6 uses `.cache/metadata/metadata-v60.json`; successful v5 entries may be migrated, while old negative caches are discarded. Old metadata caches are removed after a successful v6 save. `.cache/epg/` remains important and is not removed.
+
+The Actions request ceiling is `METADATA_MAX_REQUESTS` and now counts actual metadata network requests rather than only top-level title lookups.
