@@ -10,3 +10,5 @@
 - v6 positive title mappings migrate safely; stale negative caches are not trusted.
 - metadata report now includes `imdb_votes`.
 - Kinopoisk is intentionally not integrated.
+
+- GitHub Actions workflow restored at `.github/workflows/update.yml`; manual and scheduled `Update EPG` runs are available.
