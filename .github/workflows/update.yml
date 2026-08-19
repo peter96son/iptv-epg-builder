@@ -29,8 +29,9 @@ jobs:
       - name: Install test dependencies
         run: python -m pip install -r requirements.txt
 
-      - name: Restore XMLTV, TMDb and IMDb dataset cache
-        uses: actions/cache@v4
+      - name: Restore EPG and metadata cache
+        id: epg-cache-restore
+        uses: actions/cache/restore@v4
         with:
           path: .cache
           key: epg-cache-${{ runner.os }}-${{ github.run_id }}
@@ -45,8 +46,24 @@ jobs:
           PLAYLIST_URL: ${{ secrets.PLAYLIST_URL }}
           EPG_TIMEZONE: America/Los_Angeles
           TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
-          METADATA_MAX_REQUESTS: "20000"
+          METADATA_MAX_TITLES: "20000"
+          METADATA_MAX_HTTP_REQUESTS: "2500"
+          METADATA_DEADLINE_SECONDS: "2100"
+          METADATA_TIMEOUT: "8"
+          METADATA_CHECKPOINT_EVERY: "25"
+          TMDB_EMPTY_PLAN_LIMIT: "4"
+          EPG_SOURCE_TIMEOUT_CAP: "45"
+          EPG_SOURCE_RETRIES_CAP: "2"
+          EPG_SOURCE_DEADLINE_SECONDS: "1200"
+          XMLTV_SPILL_THRESHOLD_BYTES: "4194304"
         run: python run.py
+
+      - name: Save EPG and metadata cache
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: .cache
+          key: epg-cache-${{ runner.os }}-${{ github.run_id }}
 
       - name: Commit updated EPG output
         run: |

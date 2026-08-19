@@ -5,6 +5,7 @@ import json
 import os
 import re
 import shutil
+import signal
 import sqlite3
 import time
 import urllib.parse
@@ -17,9 +18,10 @@ from difflib import SequenceMatcher
 from pathlib import Path
 
 from .utils import normalize_name
+from .metadata_db import MetadataDB, open_metadata_db
 
 TMDB_URL = "https://api.themoviedb.org/3"
-METADATA_VERSION = "9.0"
+METADATA_VERSION = "11.2"
 CACHE_SCHEMA = 9
 CACHE_FILE = "metadata-cache.json"
 IMDB_ENTITY_CACHE_FILE = "imdb-cache.json"
@@ -543,9 +545,18 @@ class _Budget:
         self.used += 1
         return True
 
+    @property
+    def remaining(self) -> int:
+        return max(0, self.limit - self.used)
+
 
 def _http_json(url: str, timeout: int, headers=None, attempts: int = 3):
-    req_headers = headers or {"User-Agent": "IPTV-EPG-Builder/9.0"}
+    """Fetch JSON with short, bounded retries.
+
+    v11.1 deliberately avoids long retry cascades on GitHub Actions. 429 uses
+    Retry-After when it is small; other failures use a short exponential delay.
+    """
+    req_headers = headers or {"User-Agent": "IPTV-EPG-Builder/11.1"}
     last_exc = None
     for attempt in range(max(1, attempts)):
         try:
@@ -554,8 +565,20 @@ def _http_json(url: str, timeout: int, headers=None, attempts: int = 3):
                 return json.loads(r.read().decode("utf-8", "replace"))
         except Exception as exc:
             last_exc = exc
-            if attempt + 1 < attempts:
-                time.sleep(0.35 * (2 ** attempt))
+            if attempt + 1 >= attempts:
+                break
+            delay = min(1.5, 0.25 * (2 ** attempt))
+            retry_after = None
+            try:
+                retry_after = exc.headers.get("Retry-After")
+            except Exception:
+                pass
+            if retry_after:
+                try:
+                    delay = min(3.0, max(delay, float(retry_after)))
+                except (TypeError, ValueError):
+                    pass
+            time.sleep(delay)
     raise last_exc
 
 
@@ -650,14 +673,21 @@ def _tmdb_lookup_imdb(
             add(variant, "", lang, other_type, "cross-type-no-year")
 
     no_imdb_candidate = None
+    consecutive_empty = 0
+    empty_plan_limit = max(2, int(os.environ.get("TMDB_EMPTY_PLAN_LIMIT", "4") or 4))
     for q, y, lang, lookup_type, label in plans:
+        # Here budget means actual TMDb HTTP requests, not titles.
         if budget is not None and not budget.consume():
             return {"status": "budget_exhausted", "query_title": cleaned, "language": language, "attempts": len(attempts)}
         attempts.append((q, y, lang, lookup_type))
         payload = _tmdb_search(api_key, q, y, lookup_type, lang, timeout)
         cand = _best_tmdb_candidate(payload, q, y, lookup_type)
         if not cand:
+            consecutive_empty += 1
+            if consecutive_empty >= empty_plan_limit:
+                break
             continue
+        consecutive_empty = 0
         tmdb_id = cand.get("id")
         if not tmdb_id:
             continue
@@ -669,13 +699,16 @@ def _tmdb_lookup_imdb(
         genre_ids = list(cand.get("genre_ids") or [])
         if not overview:
             try:
-                details = _tmdb_details(api_key, int(tmdb_id), lookup_type, lang, timeout)
-                overview = re.sub(r"\s+", " ", str(details.get("overview") or "").strip())
-                if not genre_ids: genre_ids = [g.get("id") for g in (details.get("genres") or []) if isinstance(g, dict) and g.get("id")]
-                if not overview and lang != "en-US":
+                if budget is None or budget.consume():
+                    details = _tmdb_details(api_key, int(tmdb_id), lookup_type, lang, timeout)
+                    overview = re.sub(r"\s+", " ", str(details.get("overview") or "").strip())
+                    if not genre_ids:
+                        genre_ids = [g.get("id") for g in (details.get("genres") or []) if isinstance(g, dict) and g.get("id")]
+                if not overview and lang != "en-US" and (budget is None or budget.consume()):
                     details_en = _tmdb_details(api_key, int(tmdb_id), lookup_type, "en-US", timeout)
                     overview = re.sub(r"\s+", " ", str(details_en.get("overview") or "").strip())
-                    if not genre_ids: genre_ids = [g.get("id") for g in (details_en.get("genres") or []) if isinstance(g, dict) and g.get("id")]
+                    if not genre_ids:
+                        genre_ids = [g.get("id") for g in (details_en.get("genres") or []) if isinstance(g, dict) and g.get("id")]
             except Exception:
                 pass
         result = {
@@ -963,33 +996,28 @@ def _rating_needs_retry(entry: dict) -> bool:
 
 
 def enrich_metadata(tv: ET.Element, mappings: list[dict], root: Path, output: Path) -> dict:
+    """Enrich fiction programmes using persistent SQLite metadata storage.
+
+    v11 behaviour:
+    * `.cache/metadata/metadata.sqlite3` is the authoritative title/entity cache.
+    * v10 JSON caches are imported once when the SQLite DB is empty.
+    * one budget unit means one previously-unknown canonical title, not one HTTP request.
+    * successful high-confidence matches teach aliases for future zero-request resolution.
+    * descriptions keep provider text when present, otherwise TMDb overview is used;
+      genres and IMDb rating are appended for UHF display.
+    """
     tmdb_key = os.environ.get("TMDB_API_KEY", "").strip()
-    max_requests = max(0, int(os.environ.get("METADATA_MAX_REQUESTS", "150") or 150))
-    timeout = max(3, int(os.environ.get("METADATA_TIMEOUT", "12") or 12))
-    budget = _Budget(max_requests)
+    # Backward-compatible title budget plus a separate hard HTTP budget.
+    max_titles = max(0, int(os.environ.get("METADATA_MAX_TITLES", os.environ.get("METADATA_MAX_REQUESTS", "20000")) or 20000))
+    max_http_requests = max(0, int(os.environ.get("METADATA_MAX_HTTP_REQUESTS", "2500") or 2500))
+    timeout = max(3, int(os.environ.get("METADATA_TIMEOUT", "8") or 8))
+    progress_every = max(10, int(os.environ.get("METADATA_PROGRESS_EVERY", "25") or 25))
+    checkpoint_every = max(5, int(os.environ.get("METADATA_CHECKPOINT_EVERY", "25") or 25))
+    deadline_seconds = max(60, int(os.environ.get("METADATA_DEADLINE_SECONDS", "2100") or 2100))
+    metadata_deadline = time.monotonic() + deadline_seconds
+    title_budget = _Budget(max_titles)
+    http_budget = _Budget(max_http_requests)
     aliases = _load_metadata_aliases(root)
-
-    cache_path = root / ".cache" / "metadata" / CACHE_FILE
-    cache = _load_cache(cache_path)
-    imdb_cache_path = root / ".cache" / "metadata" / IMDB_ENTITY_CACHE_FILE
-    imdb_entities = _load_imdb_entity_cache(imdb_cache_path)
-    imdb_cache_changed = False
-
-    # v9 cache filenames are stable. Migrate the newest available legacy cache once.
-    if not cache and not cache_path.exists():
-        for legacy_name in ("metadata-v80.json", "metadata-v70.json", "metadata-v60.json", "metadata-v50.json"):
-            legacy = root / ".cache" / "metadata" / legacy_name
-            if legacy.exists():
-                cache = _load_cache(legacy)
-                if cache:
-                    break
-    if not imdb_entities and not imdb_cache_path.exists():
-        for legacy_name in ("imdb-entities-v80.json", "imdb-entities-v70.json"):
-            legacy = root / ".cache" / "metadata" / legacy_name
-            if legacy.exists():
-                imdb_entities = _load_imdb_entity_cache(legacy)
-                if imdb_entities:
-                    break
 
     groups: dict[str, str] = {}
     allowed: set[str] = set()
@@ -1000,8 +1028,82 @@ def enrich_metadata(tv: ET.Element, mappings: list[dict], root: Path, output: Pa
             groups.setdefault(oid, row.get("group", ""))
 
     stats = Counter()
+    rows: list[dict] = []
     ratings_db_path = None
     ratings_conn = None
+
+    metadata_dir = root / ".cache" / "metadata"
+    metadata_dir.mkdir(parents=True, exist_ok=True)
+    legacy_cache_path = metadata_dir / CACHE_FILE
+    legacy_imdb_path = metadata_dir / IMDB_ENTITY_CACHE_FILE
+
+    db = open_metadata_db(root)
+
+    # Graceful stop: GitHub Actions sends SIGTERM before force-killing a job.
+    # Do not abort in the handler; ask the metadata loop to wind down, checkpoint
+    # SQLite, and return a valid EPG/report.
+    stop_requested = {"value": False, "reason": ""}
+    previous_sigterm = None
+
+    def _request_stop(signum, frame):
+        stop_requested["value"] = True
+        stop_requested["reason"] = stop_requested["reason"] or "signal"
+
+    try:
+        previous_sigterm = signal.signal(signal.SIGTERM, _request_stop)
+    except (ValueError, OSError, AttributeError):
+        previous_sigterm = None
+
+    # Import the v10 caches only into an empty v11 database. We intentionally
+    # run legacy title entries through the current sanitizer so the v9.1/v10
+    # precision guard can force questionable rows to be resolved again.
+    counts_before = db.counts()
+    if counts_before["titles"] == 0 and counts_before["imdb_entities"] == 0:
+        legacy_title_cache: dict = {}
+        legacy_entity_cache: dict = {}
+
+        candidates = [
+            legacy_cache_path,
+            metadata_dir / "metadata-v80.json",
+            metadata_dir / "metadata-v70.json",
+            metadata_dir / "metadata-v60.json",
+            metadata_dir / "metadata-v50.json",
+        ]
+        for candidate in candidates:
+            if candidate.exists():
+                legacy_title_cache = _load_cache(candidate)
+                if legacy_title_cache:
+                    break
+
+        entity_candidates = [
+            legacy_imdb_path,
+            metadata_dir / "imdb-entities-v80.json",
+            metadata_dir / "imdb-entities-v70.json",
+        ]
+        for candidate in entity_candidates:
+            if candidate.exists():
+                legacy_entity_cache = _load_imdb_entity_cache(candidate)
+                if legacy_entity_cache:
+                    break
+
+        for key, entry in legacy_title_cache.items():
+            parts = str(key).split("|")
+            if len(parts) < 4 or not isinstance(entry, dict):
+                stats["sqlite_migration_skipped"] += 1
+                continue
+            _normalized, year, media_type = parts[0], parts[1], parts[2]
+            language = "|".join(parts[3:])
+            display = str(entry.get("query_title") or entry.get("title") or _normalized)
+            db.put_title(display, year, media_type, language, entry)
+            stats["sqlite_migrated_titles"] += 1
+
+        for iid, entity in legacy_entity_cache.items():
+            if isinstance(entity, dict) and IMDB_ID_RE.fullmatch((iid or "").strip().lower()):
+                db.put_imdb_entity(iid, entity)
+                stats["sqlite_migrated_entities"] += 1
+
+        if legacy_title_cache or legacy_entity_cache:
+            db.conn.commit()
 
     def ensure_ratings_conn():
         nonlocal ratings_db_path, ratings_conn
@@ -1017,28 +1119,110 @@ def enrich_metadata(tv: ET.Element, mappings: list[dict], root: Path, output: Pa
                 pass
         return ratings_conn
 
-    def resolve_entity(iid: str):
-        cached_entity = imdb_entities.get((iid or "").strip().lower())
-        conn = ratings_conn
-        if not (cached_entity and _imdb_entity_fresh(cached_entity)):
+    def resolve_entity(iid: str, seed: dict | None = None) -> dict:
+        iid = (iid or "").strip().lower()
+        if not IMDB_ID_RE.fullmatch(iid):
+            return {"rating": "", "votes": "", "source": ""}
+
+        cached = db.get_imdb_entity(iid)
+        # Test/manual resolvers may already provide rating data. Preserve it and
+        # do not download the IMDb dataset just to re-fetch the same values.
+        if seed and (seed.get("imdb_rating") or seed.get("imdb_votes")):
+            entity = dict(cached or {})
+            entity.update({
+                "rating": str(seed.get("imdb_rating") or entity.get("rating") or ""),
+                "votes": _normalize_votes(seed.get("imdb_votes") or entity.get("votes")),
+                "source": str(seed.get("rating_source") or entity.get("source") or "resolver"),
+                "checked_at": str(seed.get("rating_checked_at") or datetime.now(timezone.utc).isoformat()),
+            })
+            db.put_imdb_entity(iid, entity)
+            return entity
+        if cached and _imdb_entity_fresh(cached):
+            stats["imdb_entity_cache_hits"] += 1
+            entity = dict(cached)
+        else:
             conn = ensure_ratings_conn()
-        return _resolve_imdb_entity(iid, imdb_entities, stats, conn)
+            stats["imdb_dataset_lookups"] += 1
+            meta = _lookup_imdb_dataset(conn, iid)
+            rating = str(meta.get("rating") or "").strip()
+            votes = _normalize_votes(meta.get("votes"))
+            source = "imdb-dataset" if rating or votes else ""
+            entity = dict(cached or {})
+            entity.update({
+                "rating": rating,
+                "votes": votes,
+                "source": source,
+                "checked_at": datetime.now(timezone.utc).isoformat(),
+            })
+            if rating:
+                stats["imdb_rating_matches"] += 1
+            if votes:
+                stats["imdb_votes_matches"] += 1
+            if not rating and not votes:
+                stats["imdb_dataset_not_found"] += 1
+            stats["imdb_entity_cache_updates"] += 1
 
-    rows = []
-    changed = False
+        # Identity-level TMDb metadata is stable and belongs with the IMDb
+        # entity, so future aliases can render descriptions without TMDb.
+        if seed:
+            seed_genres = _genres_for_entry(seed, str(seed.get("resolved_media_type") or "movie"))
+            for field, value in (
+                ("title", seed.get("title")),
+                ("original_title", seed.get("original_title")),
+                ("overview", seed.get("overview")),
+                ("year", seed.get("candidate_year")),
+            ):
+                if value and not entity.get(field):
+                    entity[field] = value
+            if seed_genres and not entity.get("genres"):
+                entity["genres"] = seed_genres
 
-    # In-run memo guarantees 120 episodes of one canonical series do not trigger 120 lookups.
+        db.put_imdb_entity(iid, entity)
+        return entity
+
+    # In-run memo guarantees repeated episodes/timeslots use one resolved row.
     memo: dict[str, dict] = {}
 
     programmes = list(tv.findall("programme"))
+
     def _metadata_priority(p: ET.Element) -> tuple[int, str]:
-        cid = (p.get("channel") or "").strip(); group = groups.get(cid, ""); title = _text(p, "title").strip().lower()
-        if group in MOVIE_GROUPS: return (0, cid)
-        if re.match(r"^\s*(?:х/ф|фильм|кино)\b", title): return (1, cid)
-        if re.match(r"^\s*(?:т/с|сериал)\b", title): return (2, cid)
+        cid = (p.get("channel") or "").strip()
+        group = groups.get(cid, "")
+        title = _text(p, "title").strip().lower()
+        if group in MOVIE_GROUPS:
+            return (0, cid)
+        if re.match(r"^\s*(?:х/ф|фильм|кино)\b", title):
+            return (1, cid)
+        if re.match(r"^\s*(?:т/с|сериал)\b", title):
+            return (2, cid)
         return (3, cid)
+
     programmes.sort(key=_metadata_priority)
+    total_programmes = len(programmes)
+    print(
+        f"[metadata] start; programmes={total_programmes}; sqlite={db.path.name}; "
+        f"title-budget={max_titles}; http-budget={max_http_requests}; deadline={deadline_seconds}s",
+        flush=True,
+    )
+
     for p in programmes:
+        if stop_requested["value"]:
+            stats["signal_stop"] = 1
+            print(
+                f"[metadata] stop requested ({stop_requested['reason'] or 'signal'}); "
+                f"titles={title_budget.used}; http={http_budget.used}; checkpointing and finishing",
+                flush=True,
+            )
+            break
+        if time.monotonic() >= metadata_deadline:
+            stats["deadline_reached"] = 1
+            stop_requested["reason"] = stop_requested["reason"] or "deadline"
+            print(
+                f"[metadata] deadline reached; titles={title_budget.used}; http={http_budget.used}; "
+                "finishing EPG with cached/collected metadata",
+                flush=True,
+            )
+            break
         cid = (p.get("channel") or "").strip()
         if cid not in allowed:
             continue
@@ -1050,9 +1234,15 @@ def enrich_metadata(tv: ET.Element, mappings: list[dict], root: Path, output: Pa
         rating, iid = _existing_imdb(p)
         if rating or iid:
             stats["programmes_with_existing_imdb"] += 1
-            if _add_metadata(p, rating, iid):
+            entity = resolve_entity(iid) if iid else {}
+            final_rating = rating or str(entity.get("rating") or "")
+            final_votes = _normalize_votes(entity.get("votes"))
+            genres = list(entity.get("genres") or [])
+            overview = str(entity.get("overview") or "")
+            if _add_metadata(p, final_rating, iid, final_votes, overview=overview, genres=genres):
                 stats["existing_metadata_normalized"] += 1
             continue
+
         if _skip_generic_metadata_title(title):
             stats["generic_schedule_blocks_skipped"] += 1
             continue
@@ -1091,34 +1281,80 @@ def enrich_metadata(tv: ET.Element, mappings: list[dict], root: Path, output: Pa
         if entry is not None:
             stats["in_run_memo_hits"] += 1
         else:
-            cached = cache.get(key)
-            if cached is not None and _negative_cache_fresh(cached):
-                entry = cached
-                source = "cache"
-                stats["cache_hits"] += 1
-            elif cached is not None:
-                stats["stale_cache_retried"] += 1
+            entry = db.get_title(canonical_title, year, effective_type, language)
+            if entry is not None and _negative_cache_fresh(entry):
+                source = "sqlite"
+                stats["sqlite_title_hits"] += 1
+            elif entry is not None:
+                stats["sqlite_stale_retried"] += 1
+                entry = None
+
+            # Learned aliases are useful when provider spellings differ. Only
+            # high-confidence successful matches are taught below.
+            if entry is None:
+                alias_row = db.get_alias(canonical_title, year, effective_type)
+                if alias_row:
+                    alias_iid = str(alias_row.get("imdb_id") or "")
+                    entity = db.get_imdb_entity(alias_iid) or {}
+                    entry = {
+                        "status": "found",
+                        "imdb_id": alias_iid,
+                        "title": str(entity.get("title") or canonical_title),
+                        "original_title": str(entity.get("original_title") or ""),
+                        "overview": str(entity.get("overview") or ""),
+                        "genre_ids": [],
+                        "resolved_media_type": effective_type,
+                        "query_title": canonical_title,
+                        "attempt": "sqlite-alias",
+                        "resolver": "sqlite-alias",
+                        "confidence": alias_row.get("confidence") or 98,
+                        "cached_at": datetime.now(timezone.utc).isoformat(),
+                        "entity_genres": list(entity.get("genres") or []),
+                    }
+                    source = "sqlite-alias"
+                    stats["sqlite_alias_hits"] += 1
+
+            # A verified identity may be complete enough for IMDb but still
+            # lack genres/overview. Keep the identity usable immediately and
+            # refresh display fields only when budget/time permits.
+            display_fallback = None
+            if entry is not None and entry.get("status") == "found" and entry.get("needs_display_refresh"):
+                if (
+                    tmdb_key
+                    and title_budget.allow()
+                    and http_budget.allow()
+                    and time.monotonic() < metadata_deadline
+                    and not stop_requested["value"]
+                ):
+                    display_fallback = dict(entry)
+                    display_fallback.pop("needs_display_refresh", None)
+                    entry = None
+                    source = "display-refresh"
+                    stats["display_refresh_attempted"] += 1
+                else:
+                    stats["display_refresh_deferred"] += 1
 
             if entry is None:
-                if not budget.allow():
+                if not title_budget.allow() or not http_budget.allow():
+                    stats["lookup_not_attempted"] += 1
+                    if not http_budget.allow():
+                        stats["http_budget_exhausted"] = 1
+                    continue
+                if not tmdb_key:
                     stats["lookup_not_attempted"] += 1
                     continue
                 try:
-                    if not tmdb_key:
-                        stats["lookup_not_attempted"] += 1
-                        continue
-                    budget.consume()  # v10: one budget unit per unique canonical title, not per HTTP request
+                    title_budget.consume()
                     entry = _tmdb_lookup_imdb(
                         tmdb_key, canonical_title, year, effective_type, language, timeout,
-                        raw_title=title, budget=None, aliases=aliases,
+                        raw_title=title, budget=http_budget, aliases=aliases,
                     )
                     stats["tmdb_resolver_calls"] += 1
                     source = "tmdb"
 
                     if entry.get("status") == "found":
                         stats["tmdb_matches"] += 1
-                        entity = resolve_entity(entry["imdb_id"])
-                        imdb_cache_changed = True
+                        entity = resolve_entity(entry.get("imdb_id", ""), seed=entry)
                         entry["imdb_rating"] = str(entity.get("rating") or "").strip()
                         entry["imdb_votes"] = _normalize_votes(entity.get("votes"))
                         entry["rating_source"] = str(entity.get("source") or "")
@@ -1130,14 +1366,45 @@ def enrich_metadata(tv: ET.Element, mappings: list[dict], root: Path, output: Pa
                     else:
                         stats[f"tmdb_{entry.get('status', 'other')}"] += 1
                         entry["resolver"] = "tmdb"
-                        previous_misses = int((cached or {}).get("miss_count") or 0)
-                        entry["miss_count"] = previous_misses + 1
+                        entry["miss_count"] = int(entry.get("miss_count") or 0) + 1
 
                     entry["cached_at"] = datetime.now(timezone.utc).isoformat()
                     if entry.get("status") != "budget_exhausted":
-                        cache[key] = entry
-                        changed = True
-                    time.sleep(0.02)
+                        db.put_title(canonical_title, year, effective_type, language, entry)
+                        stats["sqlite_title_updates"] += 1
+
+                    # Teach only strong positive identities. Translit matches
+                    # remain subject to v9.1 quality guards before reaching here.
+                    if entry.get("status") == "found" and int(entry.get("confidence") or 0) >= 97:
+                        iid_found = str(entry.get("imdb_id") or "")
+                        learned_aliases = {
+                            canonical_title,
+                            _clean_search_title(title),
+                            str(entry.get("query_title") or ""),
+                            str(entry.get("title") or ""),
+                            str(entry.get("original_title") or ""),
+                        }
+                        for learned in learned_aliases:
+                            if learned and len(normalize_name(learned)) >= 3:
+                                db.put_alias(
+                                    learned, iid_found, year, effective_type,
+                                    source="tmdb-learned", confidence=int(entry.get("confidence") or 0),
+                                )
+                                stats["sqlite_alias_updates"] += 1
+
+                    if title_budget.used % checkpoint_every == 0:
+                        db.conn.commit()
+                        db.checkpoint()
+                        stats["sqlite_periodic_checkpoints"] += 1
+                    if title_budget.used % progress_every == 0:
+                        counts = db.counts()
+                        print(
+                            f"[metadata] titles={title_budget.used}/{max_titles}; "
+                            f"http={http_budget.used}/{max_http_requests}; "
+                            f"matches={stats['tmdb_matches']}; sqlite_hits={stats['sqlite_title_hits']}; "
+                            f"aliases={stats['sqlite_alias_hits']}; db_titles={counts['titles']}",
+                            flush=True,
+                        )
                 except Exception as exc:
                     stats["api_errors"] += 1
                     rows.append({
@@ -1146,20 +1413,36 @@ def enrich_metadata(tv: ET.Element, mappings: list[dict], root: Path, output: Pa
                     })
                     continue
 
-            # Successful title mappings reuse a separate IMDb-ID entity cache.
-            # Rating/votes refresh at most every 30 days (7 days when both are missing).
+            # Failed display refresh must never destroy an already-verified IMDb identity.
+            if (
+                display_fallback is not None
+                and (entry is None or entry.get("status") != "found")
+            ):
+                stats["display_refresh_fallback_used"] += 1
+                entry = display_fallback
+                source = "sqlite-display-fallback"
+                db.put_title(canonical_title, year, effective_type, language, entry)
+
             if entry and entry.get("status") == "found":
+                # Successful refresh is now complete only if both display fields exist.
+                if entry.get("needs_display_refresh"):
+                    has_genres = bool(entry.get("genre_ids"))
+                    has_overview = bool(str(entry.get("overview") or "").strip())
+                    if has_genres and has_overview:
+                        entry.pop("needs_display_refresh", None)
+                        db.put_title(canonical_title, year, effective_type, language, entry)
+                        stats["display_refresh_completed"] += 1
                 try:
-                    entity = resolve_entity(entry.get("imdb_id", ""))
-                    if entity:
-                        entry["imdb_rating"] = str(entity.get("rating") or "").strip()
-                        entry["imdb_votes"] = _normalize_votes(entity.get("votes"))
-                        entry["rating_source"] = str(entity.get("source") or "")
-                        entry["rating_checked_at"] = str(entity.get("checked_at") or "")
-                        entry["resolver"] = "tmdb+imdb-dataset" if entry.get("imdb_rating") or entry.get("imdb_votes") else "tmdb"
-                        cache[key] = entry
-                        changed = True
-                        imdb_cache_changed = True
+                    entity = resolve_entity(entry.get("imdb_id", ""), seed=entry)
+                    entry["imdb_rating"] = str(entity.get("rating") or "").strip()
+                    entry["imdb_votes"] = _normalize_votes(entity.get("votes"))
+                    entry["rating_source"] = str(entity.get("source") or "")
+                    entry["rating_checked_at"] = str(entity.get("checked_at") or "")
+                    if source.startswith("sqlite"):
+                        entry["resolver"] = source
+                    elif entry.get("imdb_rating") or entry.get("imdb_votes"):
+                        entry["resolver"] = "tmdb+imdb-dataset"
+                    db.put_title(canonical_title, year, effective_type, language, entry)
                 except Exception:
                     stats["rating_refresh_errors"] += 1
 
@@ -1169,12 +1452,18 @@ def enrich_metadata(tv: ET.Element, mappings: list[dict], root: Path, output: Pa
             rating = str(entry.get("imdb_rating", "")).strip()
             votes = _normalize_votes(entry.get("imdb_votes"))
             iid = str(entry.get("imdb_id", "")).strip()
+            entity = db.get_imdb_entity(iid) or {}
             genres = _genres_for_entry(entry, effective_type)
-            overview = str(entry.get("overview") or "").strip()
+            if not genres:
+                genres = [str(x) for x in (entry.get("entity_genres") or entity.get("genres") or []) if str(x).strip()]
+            overview = str(entry.get("overview") or entity.get("overview") or "").strip()
+
             if _add_metadata(p, rating, iid, votes, overview=overview, genres=genres):
                 stats["programmes_enriched"] += 1
-            if genres: stats["programmes_with_genres"] += 1
-            if overview: stats["programmes_with_tmdb_overview"] += 1
+            if genres:
+                stats["programmes_with_genres"] += 1
+            if overview:
+                stats["programmes_with_tmdb_overview"] += 1
             stats["metadata_matches"] += 1
             rows.append({
                 "channel_id": cid, "title": title, "year": year, "type": typ, "status": "enriched",
@@ -1196,34 +1485,35 @@ def enrich_metadata(tv: ET.Element, mappings: list[dict], root: Path, output: Pa
                 "detail": f"query={entry.get('query_title', canonical_title)}; lang={entry.get('language', language)}; attempts={entry.get('attempts', '')}",
             })
 
+    if previous_sigterm is not None:
+        try:
+            signal.signal(signal.SIGTERM, previous_sigterm)
+        except (ValueError, OSError):
+            pass
+
     if ratings_conn is not None:
         ratings_conn.close()
 
-    if changed:
-        _save_cache(cache_path, cache)
-    if imdb_cache_changed:
-        _save_imdb_entity_cache(imdb_cache_path, imdb_entities)
-
-    if changed or imdb_cache_changed:
-        # v9 owns stable metadata-cache.json + imdb-cache.json.
-        # XMLTV fallback caches under .cache/epg are intentionally untouched.
-        for obsolete in (
-            "metadata-v80.json", "imdb-entities-v80.json", "metadata-v70.json", "imdb-entities-v70.json", "metadata-v60.json", "metadata-v50.json", "metadata-v42.json",
-            "metadata-v41.json", "metadata.json", "omdb.json"
-        ):
-            try:
-                (root / ".cache" / "metadata" / obsolete).unlink()
-            except FileNotFoundError:
-                pass
+    db.conn.commit()
+    db.checkpoint()
+    db_counts = db.counts()
+    db_path = str(db.path)
+    db.close()
 
     unique = {}
     for row in rows:
         unique[(row["title"], row["year"], row["type"], row["status"])] = row
     report_rows = list(unique.values())
 
+    print(
+        f"[metadata] done; titles={title_budget.used}; http={http_budget.used}; matches={stats['metadata_matches']}; "
+        f"sqlite_hits={stats['sqlite_title_hits']}; db_titles={db_counts['titles']}",
+        flush=True,
+    )
+
     return {
         "summary": {
-            "mode": "fiction-only-ru-en+tmdb-cascade+genres+overview+official-imdb-ratings-dataset-v10.0",
+            "mode": "fiction-only-ru-en+sqlite-learning+tmdb-cascade+genres+overview+official-imdb-ratings-dataset-v11.2",
             "metadata_version": METADATA_VERSION,
             "api_configured": bool(tmdb_key),
             "tmdb_configured": bool(tmdb_key),
@@ -1234,16 +1524,28 @@ def enrich_metadata(tv: ET.Element, mappings: list[dict], root: Path, output: Pa
             "imdb_dataset_refresh_hours": IMDB_DATASET_REFRESH_HOURS,
             "alias_file": ALIAS_FILE,
             "alias_entries": len(aliases),
-            "imdb_direct_enabled": False,
-            "imdb_entity_cache_file": IMDB_ENTITY_CACHE_FILE,
-            "imdb_entity_cache_entries": len(imdb_entities),
+            "sqlite_cache": True,
+            "sqlite_db": db_path,
+            "sqlite_title_entries": db_counts["titles"],
+            "sqlite_imdb_entities": db_counts["imdb_entities"],
+            "sqlite_learned_aliases": db_counts["aliases"],
+            "legacy_json_cache_read_only_migration": True,
             "imdb_refresh_days": IMDB_REFRESH_DAYS,
-            "max_unique_metadata_titles_per_run": max_requests,
-            "unique_metadata_title_lookups_used": budget.used,
-            "max_tmdb_requests_per_run": max_requests,
-            "tmdb_requests_used": budget.used,
-            "cache_file": CACHE_FILE,
-            "cache_entries": len(cache),
+            "max_unique_metadata_titles_per_run": max_titles,
+            "unique_metadata_title_lookups_used": title_budget.used,
+            "metadata_title_budget": max_titles,
+            "metadata_http_budget": max_http_requests,
+            "metadata_http_requests_used": http_budget.used,
+            "metadata_http_requests_remaining": http_budget.remaining,
+            "metadata_title_lookups_remaining": title_budget.remaining,
+            "metadata_deadline_seconds": deadline_seconds,
+            "metadata_stopped_reason": (
+                stop_requested["reason"]
+                or ("http_budget" if stats.get("http_budget_exhausted") else "")
+                or ("title_budget" if title_budget.remaining == 0 else "")
+                or "completed"
+            ),
+            "tmdb_new_title_resolutions": title_budget.used,
             **{k: int(v) for k, v in stats.items()},
             "unique_report_rows": len(report_rows),
         },

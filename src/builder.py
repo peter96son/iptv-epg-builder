@@ -1,5 +1,5 @@
 from __future__ import annotations
-import gzip, json, os, shutil
+import gzip, json, os, shutil, time
 import xml.etree.ElementTree as ET
 from collections import defaultdict
 from copy import deepcopy
@@ -101,7 +101,26 @@ def build():
     programme_counts_by_output = defaultdict(int)
     usable_programme_counts_by_output = defaultdict(int)
 
+    # v11.1: source failures must not consume the entire GitHub job.
+    source_timeout_cap = max(5, int(os.environ.get("EPG_SOURCE_TIMEOUT_CAP", "45") or 45))
+    source_retries_cap = max(1, int(os.environ.get("EPG_SOURCE_RETRIES_CAP", "2") or 2))
+    source_deadline_seconds = max(60, int(os.environ.get("EPG_SOURCE_DEADLINE_SECONDS", "1200") or 1200))
+    source_deadline = time.monotonic() + source_deadline_seconds
+
     for source_index, source_cfg in enumerate(sources):
+        if time.monotonic() >= source_deadline:
+            print(
+                f"[sources] phase deadline reached after {source_deadline_seconds}s; "
+                f"continuing with {len(loaded_sources)} loaded sources",
+                flush=True,
+            )
+            source_stats.append({
+                "source": "__source_phase__",
+                "status": "deadline",
+                "matched": 0,
+                "error": f"source phase deadline {source_deadline_seconds}s reached",
+            })
+            break
         if source_cfg.get("enabled", True) is False:
             continue
         url = _source_url(source_cfg)
@@ -119,8 +138,8 @@ def build():
                 cache_path = ROOT / ".cache" / "epg" / f"{name}.bin"
             data = fetch_bytes(
                 url,
-                timeout=int(source_cfg.get("timeout", 180)),
-                retries=int(source_cfg.get("retries", 4)),
+                timeout=min(int(source_cfg.get("timeout", 180)), source_timeout_cap),
+                retries=min(int(source_cfg.get("retries", 4)), source_retries_cap),
                 cache_bust_on_retry=bool(source_cfg.get("cache_bust_on_retry", False)),
                 cache_path=cache_path,
                 stale_if_error_seconds=int(source_cfg.get("stale_if_error_seconds", 0)),
@@ -365,10 +384,21 @@ def build():
     if programme_count == 0:
         raise SystemExit("SAFETY STOP: generated zero fresh programmes.")
 
-    # v9.0 metadata enrichment: fiction-only RU/EN, canonical episode collapsing,
-    # TMDb + transliteration/cross-type resolver; IMDb ratings use the local official dataset.
+    # v11.0 metadata enrichment.
+    # SQLite is the persistent title/entity knowledge base. Existing provider metadata
+    # is preserved; missing genres/overview/IMDb ratings are filled by the enrichment
+    # engine. TMDb is consulted only for titles that are not already known locally.
+    print("[builder] metadata enrichment start", flush=True)
     metadata_report = enrich_metadata(tv, mappings, ROOT, OUTPUT)
     metadata_summary = metadata_report.get("summary", {})
+    print(
+        "[builder] metadata enrichment complete; "
+        f"matches={metadata_summary.get('metadata_matches', 0)}; "
+        f"enriched={metadata_summary.get('programmes_enriched', 0)}; "
+        f"sqlite_titles={metadata_summary.get('sqlite_title_entries', 0)}; "
+        f"new_title_lookups={metadata_summary.get('new_title_lookups', metadata_summary.get('tmdb_requests', 0))}",
+        flush=True,
+    )
 
     status_path = OUTPUT / "status.json"
     if status_path.exists():
@@ -433,7 +463,7 @@ def build():
         }
 
     status = {
-        "builder_version": "9.0",
+        "builder_version": "11.2",
         "generated_at": datetime.now(timezone).isoformat(),
         "timezone": timezone_name,
         "playlist_channels": len(channels),
@@ -551,7 +581,8 @@ def build():
         for name, vals in sorted(source_totals.items(), key=lambda kv: -kv[1]["total_added"])
     ]
 
-    # Metadata enrichment report; no API secrets are written.
+    # v11 metadata enrichment report. The SQLite database itself remains in
+    # .cache and is never published in output/. No API secrets are written.
     save_json(OUTPUT / "metadata-enrichment.json", metadata_report)
     write_csv(OUTPUT / "metadata-enrichment.csv", metadata_report.get("rows", []),
               ["channel_id", "title", "year", "type", "status", "source", "imdb_id", "imdb_rating", "imdb_votes", "detail"])
