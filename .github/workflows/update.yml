@@ -45,7 +45,7 @@ jobs:
           PLAYLIST_URL: ${{ secrets.PLAYLIST_URL }}
           EPG_TIMEZONE: America/Los_Angeles
           TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
-          METADATA_MAX_REQUESTS: "150"
+          METADATA_MAX_REQUESTS: "2000"
         run: python run.py
 
       - name: Commit updated EPG output
