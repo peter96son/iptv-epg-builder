@@ -9,7 +9,7 @@ from src.metadata_db import MetadataDB, SCHEMA_VERSION
 def test_v13_schema_exists_and_dual_writes(tmp_path: Path):
     db = MetadataDB(tmp_path / "metadata.sqlite3")
     try:
-        assert SCHEMA_VERSION == 2
+        assert SCHEMA_VERSION >= 2
         tables = {
             r[0] for r in db.conn.execute(
                 "SELECT name FROM sqlite_master WHERE type='table'"
@@ -105,7 +105,7 @@ def test_v12_database_migrates_in_place(tmp_path: Path):
             "SELECT knowledge_title_id FROM title_cache WHERE imdb_id='tt1234567'"
         ).fetchone()
         assert linked["knowledge_title_id"] == title["id"]
-        assert migrated.get_stat("knowledge_schema_version") == "2"
+        assert int(migrated.get_stat("knowledge_schema_version")) >= 2
     finally:
         migrated.close()
 

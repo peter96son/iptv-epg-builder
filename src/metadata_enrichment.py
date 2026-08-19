@@ -1454,16 +1454,31 @@ def enrich_metadata(tv: ET.Element, mappings: list[dict], root: Path, output: Pa
         if entry is not None:
             stats["in_run_memo_hits"] += 1
         else:
-            entry = db.get_title(canonical_title, year, effective_type, language)
-            if entry is not None and _negative_cache_fresh(entry):
-                source = "sqlite"
+            # v13 stage 2: normalized knowledge layer is the primary resolver.
+            entry = db.resolve_knowledge(
+                canonical_title, year, effective_type, language
+            )
+            if entry is not None:
+                source = str(entry.get("resolver") or "knowledge")
+                stats["knowledge_hits"] += 1
+                # Keep the old aggregate counter for backward-compatible reports/tests.
                 stats["sqlite_title_hits"] += 1
-            elif entry is not None:
-                stats["sqlite_stale_retried"] += 1
-                entry = None
+                if source == "knowledge-alias":
+                    stats["knowledge_alias_hits"] += 1
+                else:
+                    stats["knowledge_title_hits"] += 1
 
-            # Learned aliases are useful when provider spellings differ. Only
-            # high-confidence successful matches are taught below.
+            # Legacy cache is compatibility fallback only.
+            if entry is None:
+                entry = db.get_title(canonical_title, year, effective_type, language)
+                if entry is not None and _negative_cache_fresh(entry):
+                    source = "sqlite-legacy"
+                    stats["sqlite_title_hits"] += 1
+                elif entry is not None:
+                    stats["sqlite_stale_retried"] += 1
+                    entry = None
+
+            # Legacy alias fallback for pre-v13 rows not yet linked by title_id.
             if entry is None:
                 alias_row = db.get_alias(canonical_title, year, effective_type)
                 if alias_row:
@@ -1478,13 +1493,13 @@ def enrich_metadata(tv: ET.Element, mappings: list[dict], root: Path, output: Pa
                         "genre_ids": [],
                         "resolved_media_type": effective_type,
                         "query_title": canonical_title,
-                        "attempt": "sqlite-alias",
-                        "resolver": "sqlite-alias",
+                        "attempt": "sqlite-alias-legacy",
+                        "resolver": "sqlite-alias-legacy",
                         "confidence": alias_row.get("confidence") or 98,
                         "cached_at": datetime.now(timezone.utc).isoformat(),
                         "entity_genres": list(entity.get("genres") or []),
                     }
-                    source = "sqlite-alias"
+                    source = "sqlite-alias-legacy"
                     stats["sqlite_alias_hits"] += 1
 
             # A verified identity may be complete enough for IMDb but still

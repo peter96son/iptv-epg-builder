@@ -19,6 +19,7 @@ def main() -> int:
             "schema_version": db.get_stat("knowledge_schema_version", ""),
             "counts": db.counts(),
             "last_migration_at": db.get_stat("knowledge_last_migration_at", ""),
+            "resolution_mode": db.get_stat("knowledge_resolution_mode", ""),
         }
         if args.title_id:
             payload["title"] = db.get_knowledge_title(args.title_id)

@@ -11,7 +11,7 @@ from typing import Any, Iterable, Iterator
 
 from .utils import normalize_name
 
-SCHEMA_VERSION = 2
+SCHEMA_VERSION = 3
 DEFAULT_DB_NAME = "metadata.sqlite3"
 IMDB_ID_RE = re.compile(r"(?i)^tt\d{5,12}$")
 
@@ -588,6 +588,138 @@ class MetadataDB:
             "knowledge_schema_version",
             str(SCHEMA_VERSION),
         )
+        self.set_stat("knowledge_resolution_mode", "knowledge-first")
+
+    def _knowledge_row_to_legacy_entry(
+        self,
+        row: dict,
+        *,
+        language: str = "",
+        query_title: str = "",
+        source: str = "knowledge",
+        confidence: int | None = None,
+    ) -> dict:
+        lang = (language or "").lower()
+        overview_ru = str(row.get("overview_ru") or "").strip()
+        overview_en = str(row.get("overview_en") or "").strip()
+        overview = (
+            overview_ru if lang.startswith("ru") and overview_ru
+            else overview_en if lang.startswith("en") and overview_en
+            else overview_ru or overview_en
+        )
+        genres = row.get("genres") or []
+        genre_ids = [int(g) for g in genres if isinstance(g, int) or str(g).isdigit()]
+        entity_genres = [str(g) for g in genres if not (isinstance(g, int) or str(g).isdigit())]
+
+        out = {
+            "status": "found",
+            "imdb_id": str(row.get("imdb_id") or ""),
+            "tmdb_id": row.get("tmdb_id"),
+            "title": str(row.get("canonical_title") or query_title or ""),
+            "original_title": str(row.get("original_title") or ""),
+            "overview": overview,
+            "genre_ids": genre_ids,
+            "entity_genres": entity_genres,
+            "resolved_media_type": str(row.get("media_type") or ""),
+            "year": str(row.get("year") or ""),
+            "query_title": query_title,
+            "attempt": source,
+            "resolver": source,
+            "confidence": confidence if confidence is not None else 100,
+            "cached_at": str(row.get("updated_at") or row.get("metadata_checked_at") or ""),
+            "imdb_rating": str(row.get("imdb_rating") or ""),
+            "imdb_votes": row.get("imdb_votes") or "",
+            "rating_source": "knowledge" if row.get("imdb_rating") or row.get("imdb_votes") else "",
+            "rating_checked_at": str(row.get("metadata_checked_at") or ""),
+            "runtime_minutes": row.get("runtime_minutes"),
+            "countries": row.get("countries") or [],
+            "languages": row.get("languages") or [],
+            "poster_url": str(row.get("poster_url") or ""),
+            "backdrop_url": str(row.get("backdrop_url") or ""),
+            "logo_url": str(row.get("logo_url") or ""),
+            "tagline": str(row.get("tagline") or ""),
+            "release_date": str(row.get("release_date") or ""),
+            "knowledge_title_id": row.get("id"),
+        }
+        if not overview or not (genre_ids or entity_genres):
+            out["needs_display_refresh"] = True
+        return out
+
+    def resolve_knowledge(
+        self,
+        title: str,
+        year: str = "",
+        media_type: str = "",
+        language: str = "",
+    ) -> dict | None:
+        """Resolve locally from aliases/titles before any network lookup."""
+        normalized = normalize_name(title)
+        if not normalized:
+            return None
+        yr = normalize_year(year)
+        mt = media_type or ""
+
+        alias = self.conn.execute(
+            """
+            SELECT title_id, confidence
+            FROM aliases
+            WHERE normalized_alias=? AND year=? AND media_type=?
+              AND title_id IS NOT NULL
+            """,
+            (normalized, yr, mt),
+        ).fetchone()
+        if not alias and yr:
+            alias = self.conn.execute(
+                """
+                SELECT title_id, confidence
+                FROM aliases
+                WHERE normalized_alias=? AND year='' AND media_type=?
+                  AND title_id IS NOT NULL
+                """,
+                (normalized, mt),
+            ).fetchone()
+        if alias:
+            row = self.get_knowledge_title(int(alias["title_id"]))
+            if row:
+                return self._knowledge_row_to_legacy_entry(
+                    row, language=language, query_title=title,
+                    source="knowledge-alias",
+                    confidence=alias["confidence"] or 98,
+                )
+
+        row = self.conn.execute(
+            """
+            SELECT id FROM titles
+            WHERE normalized_canonical_title=? AND year=? AND media_type=?
+            ORDER BY id LIMIT 1
+            """,
+            (normalized, yr, mt),
+        ).fetchone()
+        if row:
+            entity = self.get_knowledge_title(int(row["id"]))
+            if entity:
+                return self._knowledge_row_to_legacy_entry(
+                    entity, language=language, query_title=title,
+                    source="knowledge-title", confidence=100,
+                )
+
+        if not yr:
+            rows = self.conn.execute(
+                """
+                SELECT id FROM titles
+                WHERE normalized_canonical_title=? AND media_type=?
+                ORDER BY id LIMIT 2
+                """,
+                (normalized, mt),
+            ).fetchall()
+            if len(rows) == 1:
+                entity = self.get_knowledge_title(int(rows[0]["id"]))
+                if entity:
+                    return self._knowledge_row_to_legacy_entry(
+                        entity, language=language, query_title=title,
+                        source="knowledge-title-unique", confidence=99,
+                    )
+        return None
 
     def get_knowledge_title(self, title_id: int) -> dict | None:
         row = self.conn.execute(

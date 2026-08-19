@@ -103,7 +103,11 @@ def build_queue(tv: ET.Element, mappings: list[dict]) -> list[dict]:
 
 
 def _entry_completeness(db, row: dict) -> dict:
-    entry = db.get_title(row["title"], row["year"], row["type"], row["language"])
+    entry = db.resolve_knowledge(
+        row["title"], row["year"], row["type"], row["language"]
+    )
+    if not entry:
+        entry = db.get_title(row["title"], row["year"], row["type"], row["language"])
     if not entry:
         return {"state": "unknown", "overview": False, "genres": False, "imdb_id": ""}
 
