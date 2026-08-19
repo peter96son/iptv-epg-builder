@@ -155,9 +155,9 @@ def main() -> int:
     epg = output / "epg.xml.gz"
     mappings_path = output / "mapping.csv"
 
-    tv = _load_epg(epg)
+    source_tv = _load_epg(epg)
     mappings = _load_mappings(mappings_path)
-    queue = build_queue(tv, mappings)
+    queue = build_queue(source_tv, mappings)
     before = queue_stats(root, queue)
 
     report = {
@@ -168,14 +168,47 @@ def main() -> int:
     }
 
     if not args.dry_run:
-        os.environ["METADATA_MAX_TITLES"] = str(max(20000, len(queue) + 100))
+        with open_metadata_db(root) as db:
+            pending = []
+            for row in queue:
+                state = _entry_completeness(db, row)
+                rank = {
+                    "partial": 0,
+                    "unknown": 1,
+                    "retryable": 2,
+                    "negative_fresh": 9,
+                    "complete": 10,
+                }.get(state["state"], 5)
+                pending.append((rank, row["priority"], row, state))
+
+        pending.sort(key=lambda x: (x[0], x[1], x[2]["title"], x[2]["year"]))
+
+        # One row per unique title/year/type/language, not every broadcast.
+        tv = ET.Element("tv")
+        synthetic_mappings = []
+        for i, (_rank, _priority, row, state) in enumerate(pending):
+            if state["state"] in {"complete", "negative_fresh"}:
+                continue
+            cid = f"backfill-{i}"
+            p = ET.SubElement(tv, "programme", {"channel": cid})
+            ET.SubElement(p, "title", {"lang": "ru" if row["language"] == "ru-RU" else "en"}).text = row["title"]
+            if row["year"]:
+                ET.SubElement(p, "date").text = row["year"]
+            ET.SubElement(p, "category", {"lang": "ru"}).text = "Сериал" if row["type"] == "series" else "Фильм"
+            synthetic_mappings.append({
+                "output_tvg_id": cid,
+                "group": row["group"] or ("Кино" if row["type"] == "movie" else "Сериалы"),
+            })
+
+        os.environ["METADATA_MAX_TITLES"] = str(max(20000, len(pending) + 100))
         os.environ["METADATA_MAX_HTTP_REQUESTS"] = str(max(0, args.budget))
+        os.environ["METADATA_MULTI_FALLBACK"] = "1"
         os.environ.setdefault("METADATA_DEADLINE_SECONDS", "2100")
         os.environ.setdefault("METADATA_TIMEOUT", "8")
         os.environ.setdefault("METADATA_CHECKPOINT_EVERY", "25")
         os.environ.setdefault("TMDB_EMPTY_PLAN_LIMIT", "4")
 
-        result = enrich_metadata(tv, mappings, root, output)
+        result = enrich_metadata(tv, synthetic_mappings, root, output)
         after = queue_stats(root, queue)
         summary = result.get("summary", {})
         report.update({

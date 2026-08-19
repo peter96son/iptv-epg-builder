@@ -21,7 +21,7 @@ from .utils import normalize_name
 from .metadata_db import MetadataDB, open_metadata_db
 
 TMDB_URL = "https://api.themoviedb.org/3"
-METADATA_VERSION = "11.2.2"
+METADATA_VERSION = "11.4"
 CACHE_SCHEMA = 9
 CACHE_FILE = "metadata-cache.json"
 IMDB_ENTITY_CACHE_FILE = "imdb-cache.json"
@@ -363,21 +363,31 @@ def _transliterate_ru(text: str) -> str:
 
 
 def _title_variants(title: str) -> list[str]:
+    """Conservative variants for provider schedule noise."""
     base = (title or "").strip()
     variants: list[str] = []
-    raw_variants = (
-        base,
-        base.replace("ё", "е").replace("Ё", "Е"),
-        re.sub(r'[«»„“”"]', "", base),
-        re.sub(r"\s*[-–—]\s*", " ", base),
-    )
-    for value in raw_variants:
-        value = re.sub(r"\s+", " ", value).strip(' -–—:;,."')
+
+    def add(value: str):
+        value = re.sub(r"\s+", " ", value or "").strip(' -–—:;,."')
         if value and value not in variants:
             variants.append(value)
+
+    add(base)
+    add(base.replace("ё", "е").replace("Ё", "Е"))
+    add(re.sub(r'[«»„“”"]', "", base))
+    add(re.sub(r"\s*[-–—]\s*", " ", base))
+
+    # Remove only clear schedule decorations; keep sequel numbers such as "Лютый 2".
+    add(re.sub(r"(?i)\s*[,:.-]?\s*(?:сезон\s*\d+|\d+\s*сезон)\s*$", "", base))
+    add(re.sub(r"(?i)\s*[,:.-]?\s*(?:часть|ч\.)\s*\d+\s*$", "", base))
+    add(re.sub(
+        r"(?i)\s*[\[(](?:часть|ч\.|серия|сер\.|эпизод|episode)\s*\d+[^\])]*[\])]\s*$",
+        "", base
+    ))
+
     translit = _transliterate_ru(base)
-    if translit and normalize_name(translit) != normalize_name(base) and translit not in variants:
-        variants.append(translit)
+    if translit and normalize_name(translit) != normalize_name(base):
+        add(translit)
     return variants
 
 
@@ -582,6 +592,41 @@ def _http_json(url: str, timeout: int, headers=None, attempts: int = 3):
     raise last_exc
 
 
+def _tmdb_search_multi(api_key: str, title: str, language: str = "en-US", timeout: int = 12):
+    p = {"api_key": api_key, "query": title, "include_adult": "false", "language": language}
+    return _http_json(f"{TMDB_URL}/search/multi?" + urllib.parse.urlencode(p), timeout)
+
+
+def _best_tmdb_multi_candidate(payload: dict, title: str, year: str, preferred_type: str):
+    best = None
+    best_score = 0.0
+    for item in (payload.get("results") or [])[:12]:
+        media = str(item.get("media_type") or "")
+        if media not in {"movie", "tv"}:
+            continue
+        names = [
+            str(item.get("title") or item.get("name") or "").strip(),
+            str(item.get("original_title") or item.get("original_name") or "").strip(),
+        ]
+        sim = max((_title_similarity(title, n) for n in names if n), default=0.0)
+        date = str(item.get("release_date") or item.get("first_air_date") or "")
+        m = YEAR_RE.search(date)
+        cy = m.group(1) if m else ""
+        year_ok = not (year and cy) or abs(int(year) - int(cy)) <= 1
+        resolved_type = "movie" if media == "movie" else "series"
+        score = sim + (0.03 if resolved_type == preferred_type else 0.0)
+        if year and cy and year_ok:
+            score += 0.08
+        threshold = max(0.84, _candidate_threshold(title, year))
+        if year_ok and sim >= threshold and score > best_score:
+            best = dict(item)
+            best["_similarity"] = round(sim, 3)
+            best["_candidate_year"] = cy
+            best["_resolved_type"] = resolved_type
+            best_score = score
+    return best
+
+
 def _tmdb_search(api_key: str, title: str, year: str, media_type: str, language: str = "en-US", timeout: int = 12):
     endpoint = "movie" if media_type == "movie" else "tv"
     p = {"api_key": api_key, "query": title, "include_adult": "false", "language": language}
@@ -778,6 +823,46 @@ def _tmdb_lookup_imdb(
         result["status"] = "no_imdb_id"
         no_imdb_candidate = no_imdb_candidate or result
         # Do not stop: another type/variant may have the correct IMDb-linked record.
+
+    if os.environ.get("METADATA_MULTI_FALLBACK", "0").strip().lower() in {"1", "true", "yes"}:
+        if cleaned and (budget is None or budget.consume()):
+            try:
+                payload = _tmdb_search_multi(api_key, cleaned, language, timeout)
+                cand = _best_tmdb_multi_candidate(payload, cleaned, year, media_type)
+                if cand and cand.get("id"):
+                    lookup_type = str(cand.get("_resolved_type") or media_type)
+                    tmdb_id = int(cand["id"])
+                    if budget is not None and not budget.consume():
+                        return {"status": "budget_exhausted", "query_title": cleaned, "language": language, "attempts": len(attempts)}
+                    ext = _tmdb_external_ids(api_key, tmdb_id, lookup_type, timeout)
+                    imdb_id = str(ext.get("imdb_id") or "").strip().lower()
+                    if IMDB_ID_RE.fullmatch(imdb_id):
+                        return {
+                            "status": "found",
+                            "tmdb_id": tmdb_id,
+                            "title": cand.get("title") or cand.get("name") or "",
+                            "original_title": cand.get("original_title") or cand.get("original_name") or "",
+                            "overview": re.sub(r"\s+", " ", str(cand.get("overview") or "").strip()),
+                            "genre_ids": list(cand.get("genre_ids") or []),
+                            "year": cand.get("_candidate_year", year),
+                            "similarity": cand.get("_similarity", 0),
+                            "attempt": "multi-fallback",
+                            "language": language,
+                            "query_title": cleaned,
+                            "attempts": len(attempts) + 1,
+                            "resolved_media_type": lookup_type,
+                            "confidence": _confidence_from_candidate(
+                                float(cand.get("_similarity") or 0),
+                                cleaned,
+                                cand.get("title") or cand.get("name") or "",
+                                year,
+                                str(cand.get("_candidate_year") or ""),
+                                "multi-fallback",
+                            ),
+                            "imdb_id": imdb_id,
+                        }
+            except Exception:
+                pass
 
     return no_imdb_candidate or {"status": "not_found", "query_title": cleaned, "language": language, "attempts": len(attempts)}
 
@@ -1601,7 +1686,7 @@ def enrich_metadata(tv: ET.Element, mappings: list[dict], root: Path, output: Pa
 
     return {
         "summary": {
-            "mode": "fiction-only-ru-en+sqlite-learning+tmdb-cascade+genres+overview+official-imdb-ratings-dataset-v11.2.2",
+            "mode": "fiction-only-ru-en+sqlite-learning+tmdb-cascade+genres+overview+official-imdb-ratings-dataset-v11.4",
             "metadata_version": METADATA_VERSION,
             "api_configured": bool(tmdb_key),
             "tmdb_configured": bool(tmdb_key),

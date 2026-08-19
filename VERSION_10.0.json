@@ -1,6 +1,6 @@
 {
-  "version": "11.3",
-  "metadata_version": "11.3",
+  "version": "12.0",
+  "metadata_version": "11.4",
   "cache_schema": 12,
   "metadata_budget_semantics": "separate unique-title and actual TMDb HTTP budgets",
   "default_workflow_metadata_http_budget": 2500,
@@ -12,7 +12,22 @@
     "shared concurrency group across update/backfill",
     "fiction-wide backfill with movie groups first",
     "negative-cache TTL/backoff respected",
-    "dry-run and backfill reporting"
+    "dry-run and backfill reporting",
+    "automatic scheduled metadata backfill",
+    "unique-key backfill",
+    "partial-first backfill",
+    "optional TMDb multi fallback",
+    "improved EPG title variants",
+    "single-click update-backfill-finalize pipeline",
+    "same-run newly found metadata appears in final EPG",
+    "backfill/finalize reuse current epg.xml.gz without redownloading sources"
   ],
-  "release": "11.3"
+  "release": "12.0",
+  "default_backfill_http_budget": 5000,
+  "update_pipeline": [
+    "build current EPG from sources using existing SQLite metadata",
+    "backfill current fiction queue with 5000 TMDb HTTP requests",
+    "re-apply updated SQLite metadata to the same epg.xml.gz",
+    "save durable metadata snapshot and final EPG"
+  ]
 }

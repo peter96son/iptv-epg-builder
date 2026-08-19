@@ -1,6 +1,6 @@
-# IPTV EPG Builder v11.3
+# IPTV EPG Builder v12.0
 
-Current release: **v11.3**. See `RELEASE_NOTES_V11.3.md`.
+Current release: **v12.0**. See `RELEASE_NOTES_V12.0.md`.
 
 # IPTV EPG Builder
 
@@ -259,3 +259,28 @@ Inputs:
 The durable metadata knowledge base is committed as `data/metadata.sqlite3.gz`.
 Git is the persistence layer; `.cache` remains an acceleration layer. Update EPG
 and Backfill use the same `concurrency.group`, so they never race on metadata.
+
+
+### Automatic backfill
+
+The metadata backfill now runs automatically every 6 hours at minute 47. The
+normal EPG update runs at minute 17, so the backfill normally follows it. Both
+workflows use the same `concurrency.group: epg-metadata`; if one is still running,
+the other waits instead of racing.
+
+Scheduled backfill uses a real TMDb HTTP budget of 2500 requests per run and
+commits the updated `data/metadata.sqlite3.gz` snapshot automatically. No manual
+button presses are required for normal accumulation.
+
+
+## Single-click Update EPG
+
+`Update EPG` now does the complete cycle in one run:
+
+1. build the current programme from XMLTV sources using metadata already in SQLite;
+2. backfill missing/incomplete fiction metadata from that current `epg.xml.gz`;
+3. write newly found genres/descriptions/IMDb data back into the same current EPG;
+4. save `data/metadata.sqlite3.gz`;
+5. commit the final enriched `output/epg.xml.gz`.
+
+No second manual Update EPG run is required.

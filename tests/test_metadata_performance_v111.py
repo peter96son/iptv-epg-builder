@@ -64,11 +64,12 @@ def test_empty_plan_limit_stops_cascade(monkeypatch: pytest.MonkeyPatch):
     assert budget.used == 2
 
 
-def test_workflow_has_separate_http_budget_and_cache_save():
+def test_workflow_has_single_click_metadata_pipeline():
     workflow = Path(".github/workflows/update.yml").read_text(encoding="utf-8")
-    assert 'METADATA_MAX_TITLES: "20000"' in workflow
-    assert 'METADATA_MAX_HTTP_REQUESTS: "2500"' in workflow
-    assert 'METADATA_DEADLINE_SECONDS: "2100"' in workflow
+    assert 'METADATA_MAX_HTTP_REQUESTS: "0"' in workflow
+    assert 'python -m src.metadata_backfill --budget "5000"' in workflow
+    assert "python -m src.apply_metadata_to_epg" in workflow
     assert "actions/cache/restore@v4" in workflow
     assert "actions/cache/save@v4" in workflow
     assert "if: always()" in workflow
+
