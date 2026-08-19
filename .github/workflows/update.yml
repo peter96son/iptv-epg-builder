@@ -1,0 +1,73 @@
+name: Update EPG
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 */6 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: epg-update
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Restore XMLTV and metadata cache
+        uses: actions/cache@v4
+        with:
+          path: .cache
+          key: epg-cache-${{ runner.os }}-${{ github.run_id }}
+          restore-keys: |
+            epg-cache-${{ runner.os }}-
+
+      - name: Build EPG
+        env:
+          PLAYLIST_URL: ${{ secrets.PLAYLIST_URL }}
+          EPG_TIMEZONE: America/Los_Angeles
+          TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
+          OMDB_API_KEY: ${{ secrets.OMDB_API_KEY }}
+          METADATA_MAX_REQUESTS: "150"
+        run: python run.py
+
+      - name: Commit updated EPG output
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A output/
+          if git diff --cached --quiet; then
+            echo "No EPG output changes"
+          else
+            git commit -m "Update EPG"
+            git push
+          fi
+
+      - name: Audit live Cloudflare Worker delivery
+        env:
+          WORKER_PLAYLIST_URL: https://iptv-epg.peter96son.workers.dev/tv
+          WORKER_AUDIT_ATTEMPTS: "6"
+          WORKER_AUDIT_DELAY: "8"
+        run: python -m src.worker_audit
+
+      - name: Commit Worker audit
+        run: |
+          git add -A output/worker-audit.json output/worker-audit.csv output/worker-audit-gaps.csv output/status.json
+          if git diff --cached --quiet; then
+            echo "No Worker audit changes"
+          else
+            git commit -m "Audit Worker delivery"
+            git push
+          fi
