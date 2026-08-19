@@ -1,11 +1,11 @@
 {
-  "builder_version": "8.0",
-  "generated_at": "2026-08-18T20:44:41.658173-07:00",
+  "builder_version": "9.0",
+  "generated_at": "2026-08-18T21:23:36.830742-07:00",
   "timezone": "America/Los_Angeles",
   "playlist_channels": 2700,
-  "baseline_matched_channels": 1603,
+  "baseline_matched_channels": 1600,
   "final_matched_channels": 2094,
-  "added_by_fallback_channels": 491,
+  "added_by_fallback_channels": 494,
   "unmatched_channels": 606,
   "postbuild_validated_channels": 2094,
   "postbuild_gap_channels": 0,
@@ -20,67 +20,75 @@
     "audited_channels": 2114,
     "quarantined_channels": 16,
     "status_counts": {
-      "probable": 1436,
-      "unverified": 562,
+      "probable": 1433,
+      "unverified": 565,
       "wrong": 16,
       "verified": 100
     }
   },
   "metadata_enrichment": {
-    "mode": "fiction-only-ru-en+tmdb-cascade+aliases+confidence+direct-imdb-rating-votes-v8.0",
-    "metadata_version": "8.0",
+    "mode": "fiction-only-ru-en+tmdb-cascade+aliases+confidence+official-imdb-ratings-dataset-v9.0",
+    "metadata_version": "9.0",
     "api_configured": true,
     "tmdb_configured": true,
     "omdb_removed": true,
+    "imdb_scraping_removed": true,
+    "imdb_ratings_source": "official-contributor-dataset",
+    "imdb_ratings_url": "https://datasets.imdbws.com/title.ratings.tsv.gz",
+    "imdb_dataset_refresh_hours": 24,
     "alias_file": "metadata_aliases.json",
     "alias_entries": 1,
-    "imdb_direct_enabled": true,
-    "imdb_entity_cache_file": "imdb-entities-v80.json",
-    "imdb_entity_cache_entries": 77,
+    "imdb_direct_enabled": false,
+    "imdb_entity_cache_file": "imdb-cache.json",
+    "imdb_entity_cache_entries": 111,
     "imdb_refresh_days": 30,
-    "max_network_requests_per_run": 150,
-    "network_requests_used": 150,
-    "cache_file": "metadata-v80.json",
-    "cache_entries": 111,
-    "programmes_considered": 328240,
-    "non_fiction_skipped": 222095,
-    "cache_hits": 59,
-    "imdb_direct_requests": 57,
-    "imdb_entity_cache_updates": 57,
-    "programmes_enriched": 978,
-    "metadata_matches": 978,
+    "max_tmdb_requests_per_run": 150,
+    "tmdb_requests_used": 150,
+    "cache_file": "metadata-cache.json",
+    "cache_entries": 178,
+    "programmes_considered": 329497,
+    "non_fiction_skipped": 223489,
+    "cache_hits": 93,
+    "imdb_dataset_downloads": 1,
+    "imdb_dataset_rebuilds": 1,
+    "imdb_dataset_available": 1,
+    "imdb_dataset_db_bytes": 93659136,
+    "imdb_dataset_lookups": 111,
+    "imdb_entity_cache_updates": 111,
+    "imdb_dataset_not_found": 6,
+    "programmes_enriched": 1327,
+    "metadata_matches": 1327,
     "multipart_movies_reclassified": 1842,
-    "tmdb_resolver_calls": 35,
-    "tmdb_not_found": 14,
-    "result_not_found": 318,
-    "in_run_memo_hits": 1245,
-    "tmdb_no_imdb_id": 7,
-    "result_no_imdb_id": 41,
-    "non_ru_en_titles_skipped": 13517,
-    "uk_titles_skipped": 13112,
+    "result_not_found": 404,
+    "imdb_rating_matches": 105,
+    "imdb_votes_matches": 105,
+    "in_run_memo_hits": 1690,
+    "result_no_imdb_id": 119,
+    "non_ru_en_titles_skipped": 13418,
+    "uk_titles_skipped": 13013,
     "episode_titles_collapsed": 3533,
-    "imdb_entity_cache_hits": 17,
-    "tmdb_matches": 13,
-    "confidence_98": 12,
-    "alias_matches": 1,
-    "confidence_97": 1,
-    "tmdb_budget_exhausted": 1,
-    "result_budget_exhausted": 2,
-    "lookup_not_attempted": 83517,
+    "imdb_entity_cache_hits": 47,
+    "tmdb_resolver_calls": 67,
+    "tmdb_matches": 43,
+    "confidence_98": 39,
+    "tmdb_not_found": 22,
+    "tmdb_no_imdb_id": 2,
     "generic_schedule_blocks_skipped": 96,
-    "imdb_entity_lookup_not_attempted": 11,
+    "confidence_94": 1,
+    "confidence_95": 3,
+    "lookup_not_attempted": 82970,
     "be_titles_skipped": 12,
-    "programmes_with_existing_imdb": 7668,
-    "existing_metadata_normalized": 7668,
+    "programmes_with_existing_imdb": 7666,
+    "existing_metadata_normalized": 7666,
     "unknown_titles_skipped": 393,
     "title_too_short": 1,
-    "unique_report_rows": 401
+    "unique_report_rows": 509
   },
   "confidence_counts": {
     "100": 100,
-    "99": 1428,
+    "99": 1425,
     "96": 11,
-    "90": 575
+    "90": 578
   },
   "unmatched_family_count": 365,
   "russian_cis_unmatched_candidates": 95,
@@ -187,18 +195,18 @@
       "dummy_no_epg_ids": 0
     }
   ],
-  "programmes": 331812,
+  "programmes": 333069,
   "sources": [
     {
       "source": "iptv-online-primary",
       "status": "ok",
-      "matched": 1603,
+      "matched": 1600,
       "avg_confidence": 97.9
     },
     {
       "source": "iptvx-noarch",
       "status": "ok",
-      "matched": 178,
+      "matched": 180,
       "avg_confidence": 91.6
     },
     {
@@ -265,7 +273,7 @@
     {
       "source": "epgpw-RU",
       "status": "ok",
-      "matched": 4,
+      "matched": 5,
       "avg_confidence": 90.0
     },
     {
@@ -472,13 +480,13 @@
   "baseline_by_group": {
     "Россия": 150,
     "Украинские": 69,
-    "Кино": 144,
+    "Кино": 143,
     "Кинозалы": 231,
     "Кинозалы UA": 103,
     "Кино 4K": 59,
     "Спорт": 93,
     "Познавательные": 95,
-    "Детские": 65,
+    "Детские": 63,
     "Разное": 27,
     "Новости": 8,
     "Музыкальные": 44,
@@ -502,10 +510,10 @@
     "Турция": 6,
     "Армения": 1,
     "Для взрослых": 20,
-    "Италия": 0,
-    "Чехия": 0,
     "Канада": 0,
     "Хорватия": 0,
+    "Чехия": 0,
+    "Италия": 0,
     "Азербайджан": 0
   },
   "final_by_group": {
@@ -548,42 +556,42 @@
     "Азербайджан": 0
   },
   "added_by_group": {
-    "Разное": 2,
-    "BE & NL": 19,
-    "Италия": 8,
-    "Музыкальные": 46,
     "Новости": 2,
-    "Казахстан": 0,
-    "Чехия": 2,
-    "Эстония": 0,
-    "Германия": 12,
-    "Для взрослых": 4,
-    "Познавательные": 6,
-    "Армения": 0,
-    "Спорт": 63,
-    "Кино": 46,
-    "Кинозалы UA": 83,
-    "Кино 4K": 10,
-    "Греция": 4,
-    "Кинозалы": 98,
-    "Болгария": 14,
-    "Румыния": 12,
+    "Венгрия": 1,
     "Канада": 1,
+    "SkyLink": 2,
+    "Германия": 12,
+    "BE & NL": 19,
+    "Латвия": -1,
+    "Для взрослых": 4,
+    "UK": 15,
+    "Беларусь": 2,
+    "Турция": 2,
+    "Познавательные": 6,
+    "Кинозалы": 98,
     "Израиль": 5,
+    "Музыкальные": 46,
+    "Хорватия": 2,
+    "Кино": 47,
+    "Молдова": 1,
+    "Кино 4K": 10,
+    "Болгария": 14,
+    "Армения": 0,
+    "Детские": 10,
+    "Спорт": 63,
+    "Разное": 2,
+    "Чехия": 2,
+    "Польша": 1,
+    "Литва": 0,
     "Украинские": 12,
     "Грузия": 0,
-    "Латвия": -1,
-    "Беларусь": 2,
+    "Италия": 8,
+    "Эстония": 0,
+    "Кинозалы UA": 83,
+    "Греция": 4,
     "Россия": 9,
-    "Турция": 2,
-    "Молдова": 1,
-    "Литва": 0,
-    "Хорватия": 2,
-    "UK": 15,
-    "Польша": 1,
-    "Венгрия": 1,
-    "Детские": 8,
-    "SkyLink": 2
+    "Казахстан": 0,
+    "Румыния": 12
   },
   "group_totals": {
     "Россия": 165,
@@ -704,9 +712,9 @@
     },
     "Детские": {
       "total": 82,
-      "baseline": 65,
+      "baseline": 63,
       "final": 73,
-      "added": 8,
+      "added": 10,
       "final_pct": 89.0
     },
     "Для взрослых": {
@@ -746,9 +754,9 @@
     },
     "Кино": {
       "total": 213,
-      "baseline": 144,
+      "baseline": 143,
       "final": 190,
-      "added": 46,
+      "added": 47,
       "final_pct": 89.2
     },
     "Кино 4K": {
@@ -892,9 +900,9 @@
       "Кинозалы",
       "Кинозалы UA"
     ],
-    "baseline": 537,
+    "baseline": 536,
     "final": 774,
-    "added": 237
+    "added": 238
   },
   "uhf_delivery": {
     "mode": "cloudflare-worker",
@@ -912,123 +920,123 @@
   "source_history_ranking": [
     {
       "source": "iptv-online-primary",
-      "runs": 22,
-      "total_added": 35330,
-      "successful_runs": 22
+      "runs": 23,
+      "total_added": 36930,
+      "successful_runs": 23
     },
     {
       "source": "iptvx-noarch",
-      "runs": 22,
-      "total_added": 3994,
-      "successful_runs": 22
+      "runs": 23,
+      "total_added": 4174,
+      "successful_runs": 23
     },
     {
       "source": "tvteam",
-      "runs": 22,
-      "total_added": 1658,
-      "successful_runs": 22
+      "runs": 23,
+      "total_added": 1729,
+      "successful_runs": 23
     },
     {
       "source": "gabbarit-current",
-      "runs": 21,
-      "total_added": 1578,
-      "successful_runs": 21
+      "runs": 22,
+      "total_added": 1654,
+      "successful_runs": 22
     },
     {
       "source": "openbox-tsd",
-      "runs": 22,
-      "total_added": 1067,
-      "successful_runs": 21
+      "runs": 23,
+      "total_added": 1118,
+      "successful_runs": 22
     },
     {
       "source": "epgshare-BE",
-      "runs": 22,
-      "total_added": 286,
-      "successful_runs": 22
+      "runs": 23,
+      "total_added": 299,
+      "successful_runs": 23
     },
     {
       "source": "epgshare-RO",
-      "runs": 22,
-      "total_added": 286,
-      "successful_runs": 22
+      "runs": 23,
+      "total_added": 299,
+      "successful_runs": 23
     },
     {
       "source": "epgshare-UK",
-      "runs": 22,
-      "total_added": 264,
-      "successful_runs": 22
+      "runs": 23,
+      "total_added": 276,
+      "successful_runs": 23
     },
     {
       "source": "epgone-ru2",
-      "runs": 22,
-      "total_added": 178,
-      "successful_runs": 22
+      "runs": 23,
+      "total_added": 187,
+      "successful_runs": 23
     },
     {
       "source": "epgshare-IT",
-      "runs": 22,
-      "total_added": 176,
-      "successful_runs": 22
+      "runs": 23,
+      "total_added": 184,
+      "successful_runs": 23
     },
     {
       "source": "epgpw-RU",
-      "runs": 22,
-      "total_added": 171,
-      "successful_runs": 22
+      "runs": 23,
+      "total_added": 176,
+      "successful_runs": 23
     },
     {
       "source": "epgshare-BG",
-      "runs": 22,
-      "total_added": 154,
-      "successful_runs": 22
-    },
-    {
-      "source": "runigma-iptv",
-      "runs": 22,
-      "total_added": 133,
-      "successful_runs": 22
-    },
-    {
-      "source": "epgshare-NL",
-      "runs": 22,
-      "total_added": 132,
-      "successful_runs": 22
+      "runs": 23,
+      "total_added": 161,
+      "successful_runs": 23
     },
     {
       "source": "epgshare-PT",
-      "runs": 13,
-      "total_added": 130,
-      "successful_runs": 13
+      "runs": 14,
+      "total_added": 140,
+      "successful_runs": 14
+    },
+    {
+      "source": "runigma-iptv",
+      "runs": 23,
+      "total_added": 139,
+      "successful_runs": 23
+    },
+    {
+      "source": "epgshare-NL",
+      "runs": 23,
+      "total_added": 138,
+      "successful_runs": 23
     },
     {
       "source": "bcumedia-dedicated",
-      "runs": 22,
-      "total_added": 118,
-      "successful_runs": 22
+      "runs": 23,
+      "total_added": 126,
+      "successful_runs": 23
     },
     {
       "source": "epgpw-all-lite",
-      "runs": 22,
-      "total_added": 110,
-      "successful_runs": 22
+      "runs": 23,
+      "total_added": 115,
+      "successful_runs": 23
     },
     {
       "source": "epgpw-DE",
-      "runs": 22,
-      "total_added": 98,
-      "successful_runs": 22
+      "runs": 23,
+      "total_added": 103,
+      "successful_runs": 23
     },
     {
       "source": "anzo-top",
-      "runs": 22,
-      "total_added": 87,
-      "successful_runs": 22
+      "runs": 23,
+      "total_added": 91,
+      "successful_runs": 23
     },
     {
       "source": "epgshare-CZ",
-      "runs": 22,
-      "total_added": 78,
-      "successful_runs": 22
+      "runs": 23,
+      "total_added": 81,
+      "successful_runs": 23
     },
     {
       "source": "ditv-local-fallback",
@@ -1038,196 +1046,181 @@
     },
     {
       "source": "epgpw-GB",
-      "runs": 22,
-      "total_added": 60,
-      "successful_runs": 22
+      "runs": 23,
+      "total_added": 63,
+      "successful_runs": 23
     },
     {
       "source": "epgshare-GR",
-      "runs": 22,
-      "total_added": 52,
-      "successful_runs": 22
+      "runs": 23,
+      "total_added": 56,
+      "successful_runs": 23
     },
     {
       "source": "teleguide-ru",
-      "runs": 19,
-      "total_added": 46,
-      "successful_runs": 16
+      "runs": 20,
+      "total_added": 49,
+      "successful_runs": 17
     },
     {
       "source": "epgshare-AT",
-      "runs": 22,
-      "total_added": 44,
-      "successful_runs": 22
+      "runs": 23,
+      "total_added": 46,
+      "successful_runs": 23
     },
     {
       "source": "epgshare-LV",
-      "runs": 22,
-      "total_added": 44,
-      "successful_runs": 22
+      "runs": 23,
+      "total_added": 46,
+      "successful_runs": 23
     },
     {
       "source": "epgshare-HR",
-      "runs": 22,
-      "total_added": 26,
-      "successful_runs": 22
+      "runs": 23,
+      "total_added": 28,
+      "successful_runs": 23
     },
     {
       "source": "epgpw-CA",
-      "runs": 22,
-      "total_added": 22,
-      "successful_runs": 22
+      "runs": 23,
+      "total_added": 23,
+      "successful_runs": 23
     },
     {
       "source": "epgshare-MUSICBOX",
-      "runs": 22,
-      "total_added": 22,
-      "successful_runs": 22
+      "runs": 23,
+      "total_added": 23,
+      "successful_runs": 23
     },
     {
       "source": "epgshare-DELUXEMUSIC",
-      "runs": 22,
-      "total_added": 22,
-      "successful_runs": 22
+      "runs": 23,
+      "total_added": 23,
+      "successful_runs": 23
     },
     {
       "source": "epgshare-PL",
-      "runs": 22,
-      "total_added": 22,
-      "successful_runs": 22
+      "runs": 23,
+      "total_added": 23,
+      "successful_runs": 23
     },
     {
       "source": "epgshare-TR",
-      "runs": 22,
-      "total_added": 22,
-      "successful_runs": 22
+      "runs": 23,
+      "total_added": 23,
+      "successful_runs": 23
     },
     {
       "source": "epgshare-SK",
-      "runs": 22,
-      "total_added": 10,
-      "successful_runs": 22
+      "runs": 23,
+      "total_added": 11,
+      "successful_runs": 23
     },
     {
       "source": "klimedia-dedicated",
-      "runs": 22,
+      "runs": 23,
       "total_added": 0,
       "successful_runs": 0
     },
     {
       "source": "next-dedicated",
-      "runs": 22,
+      "runs": 23,
       "total_added": 0,
-      "successful_runs": 22
+      "successful_runs": 23
     },
     {
       "source": "cineman-dedicated",
-      "runs": 22,
+      "runs": 23,
       "total_added": 0,
-      "successful_runs": 22
+      "successful_runs": 23
     },
     {
       "source": "minimax-mm-dedicated",
-      "runs": 22,
+      "runs": 23,
       "total_added": 0,
-      "successful_runs": 22
+      "successful_runs": 23
     },
     {
       "source": "sharavoz-guide",
-      "runs": 22,
+      "runs": 23,
       "total_added": 0,
       "successful_runs": 0
     },
     {
       "source": "epgpw-sreda",
-      "runs": 22,
+      "runs": 23,
       "total_added": 0,
-      "successful_runs": 22
+      "successful_runs": 23
     },
     {
       "source": "epgpw-chestny-detektiv",
-      "runs": 22,
+      "runs": 23,
       "total_added": 0,
-      "successful_runs": 22
+      "successful_runs": 23
     },
     {
       "source": "epgpw-US",
-      "runs": 22,
+      "runs": 23,
       "total_added": 0,
-      "successful_runs": 22
+      "successful_runs": 23
     },
     {
       "source": "skyhigh-fhd",
-      "runs": 22,
+      "runs": 23,
       "total_added": 0,
-      "successful_runs": 21
+      "successful_runs": 22
     },
     {
       "source": "skyhigh-hdr",
-      "runs": 22,
+      "runs": 23,
       "total_added": 0,
-      "successful_runs": 21
+      "successful_runs": 22
     },
     {
       "source": "epgshare-DE",
-      "runs": 22,
+      "runs": 23,
       "total_added": 0,
-      "successful_runs": 22
+      "successful_runs": 23
     },
     {
       "source": "epgshare-US",
-      "runs": 22,
+      "runs": 23,
       "total_added": 0,
-      "successful_runs": 22
+      "successful_runs": 23
     },
     {
       "source": "epgshare-CA",
-      "runs": 22,
+      "runs": 23,
       "total_added": 0,
-      "successful_runs": 22
+      "successful_runs": 23
     },
     {
       "source": "epgshare-US-SPORTS",
-      "runs": 22,
+      "runs": 23,
       "total_added": 0,
-      "successful_runs": 22
+      "successful_runs": 23
     },
     {
       "source": "epgshare-BEIN",
-      "runs": 22,
+      "runs": 23,
       "total_added": 0,
-      "successful_runs": 22
+      "successful_runs": 23
     },
     {
       "source": "epgshare-HU",
-      "runs": 22,
+      "runs": 23,
       "total_added": 0,
-      "successful_runs": 22
+      "successful_runs": 23
     },
     {
       "source": "epgshare-LT",
-      "runs": 22,
+      "runs": 23,
       "total_added": 0,
-      "successful_runs": 22
+      "successful_runs": 23
     }
   ],
   "channel_diagnostics": {
     "watchlist_channels": 1,
     "problem_channels": 0
-  },
-  "worker_audit": {
-    "worker_channels": 2700,
-    "mapping_channels": 2051,
-    "validated_epg_ids": 1967,
-    "audited_rows": 2700,
-    "ok_rows": 2700,
-    "gap_rows": 0,
-    "issue_counts": {},
-    "worker_url": "https://iptv-epg.peter96son.workers.dev/tv",
-    "worker_version": "2.0.0",
-    "worker_cache": "bypass",
-    "worker_mapping_loaded": "true",
-    "attempt": 1,
-    "status": "ok"
   }
 }
