@@ -3,18 +3,18 @@
 This report is diagnostic only. It does not create EPG mappings.
 A family must be researched and verified before aliases are added to the live builder.
 
-Unmatched channels: **601**
+Unmatched channels: **606**
 
 | Family | Channels | no_epg_* IDs | Main groups |
 |---|---:|---:|---|
 | DITV | 35 | 32 | Кинозалы (25), Детские (6), Познавательные (3), Для взрослых (1) |
 | Other | 24 | 0 | Украинские (6), Кинозалы UA (3), Израиль (3), Кино (2) |
 | Play-X | 15 | 0 | Музыкальные (9), Кино (3), Кинозалы UA (3) |
+| BOX | 13 | 0 | Спорт (12), Кино 4K (1) |
 | Other: Football | 13 | 0 | Спорт (13) |
 | Clarity | 12 | 0 | Кино 4K (11), Музыкальные (1) |
 | Other: VIP | 12 | 0 | Спорт (12) |
 | Other: RTL | 11 | 0 | Музыкальные (8), Германия (3) |
-| BOX | 8 | 0 | Спорт (7), Кино 4K (1) |
 | Other: FIFA+ | 8 | 0 | Спорт (8) |
 | Other: AXN | 7 | 0 | Румыния (4), SkyLink (3) |
 | Other: DAZN | 6 | 0 | Спорт (6) |
@@ -458,6 +458,22 @@ Unmatched channels: **601**
 - Play-X Музыкальная дорожка 90-х
 - Play-X Русский рок
 
+### BOX — 13
+
+- BOX Remast Plus 4K
+- BOX Be ON Edge 2 Live HD
+- BOX SportCast Live 2 HD
+- BOX SportCast Live 3 HD
+- BOX SportCast Live 4 HD
+- BOX SportCast Live 6 HD
+- BOX SportCast Live 7 HD
+- BOX SportCast Live 8 HD
+- BOX SportCast Live 9 HD
+- Box Sport Live 12 HD
+- Box Sport Live 13 HD
+- Box Sport Live 14 HD
+- Box Sport Live 15 HD
+
 ### Other: Football — 13
 
 - Football Live 1
@@ -517,17 +533,6 @@ Unmatched channels: **601**
 - RTL UP Austria
 - RTL Nitro
 - RTL Zwei HD
-
-### BOX — 8
-
-- BOX Remast Plus 4K
-- BOX Be ON Edge 2 Live HD
-- BOX SportCast Live 2 HD
-- BOX SportCast Live 3 HD
-- Box Sport Live 12 HD
-- Box Sport Live 13 HD
-- Box Sport Live 14 HD
-- Box Sport Live 15 HD
 
 ### Other: FIFA+ — 8
 
