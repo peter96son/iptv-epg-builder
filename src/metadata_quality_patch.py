@@ -43,9 +43,18 @@ def _translit_candidate_is_safe(raw_title: str, query_title: str, result: dict) 
     original_clean = me._clean_search_title(raw_title or "")
     expected_translit = me._transliterate_ru(original_clean)
 
-    original_numbers = _significant_numbers(original_clean)
+    # Check raw provider title before confidence/similarity checks. The generic
+    # cleaner may strip trailing episode markers and, in strings like
+    # ``Лютый 2. 1 с.``, can also erase the sequel number before we inspect it.
+    raw_for_numbers = re.sub(
+        r"(?i)^\s*(?:х/ф|м/ф|т/с|д/с|д/ф|сериал|фильм|кино)\s*[:.\-–—]?\s*",
+        "",
+        raw_title or "",
+    )
+    raw_for_numbers = re.sub(r"\s*[\[(]\s*\d{1,2}\+\s*[\])]\s*", " ", raw_for_numbers)
+    original_numbers = _significant_numbers(raw_for_numbers)
     query_numbers = _significant_numbers(query_title)
-    if original_numbers and original_numbers != query_numbers:
+    if original_numbers and not set(original_numbers).issubset(set(query_numbers)):
         return False, "translit_lost_significant_number"
 
     candidate_names = [
@@ -100,6 +109,7 @@ def _sanitize_cache_entry_v91(value: dict) -> dict:
         if reason:
             return {
                 "status": "legacy_unscored",
+                "resolver": "tmdb",
                 "cached_at": "",
                 "miss_count": 0,
                 "legacy_imdb_id": str(out.get("imdb_id") or ""),
