@@ -1,5 +1,5 @@
 {
-  "version": "12.1",
+  "version": "13.0-stage1",
   "metadata_version": "11.4",
   "cache_schema": 12,
   "metadata_budget_semantics": "separate unique-title and actual TMDb HTTP budgets",
@@ -22,12 +22,29 @@
     "same-run newly found metadata appears in final EPG",
     "backfill/finalize reuse current epg.xml.gz without redownloading sources"
   ],
-  "release": "12.1",
+  "release": "13.0-stage1",
   "default_backfill_http_budget": 5000,
   "update_pipeline": [
     "build current EPG from sources using existing SQLite metadata",
     "backfill current fiction queue with 5000 TMDb HTTP requests",
     "re-apply updated SQLite metadata to the same epg.xml.gz",
     "save durable metadata snapshot and final EPG"
-  ]
+  ],
+  "metadata_schema_version": 2,
+  "knowledge_layer": {
+    "tables": [
+      "titles",
+      "metadata",
+      "people",
+      "credits",
+      "aliases",
+      "statistics"
+    ],
+    "legacy_compatibility": [
+      "title_cache",
+      "imdb_entities"
+    ],
+    "migration": "automatic-in-place",
+    "data_snapshot_policy": "preserve existing data/metadata.sqlite3.gz"
+  }
 }
