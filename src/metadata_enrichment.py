@@ -21,7 +21,7 @@ from .utils import normalize_name
 from .metadata_db import MetadataDB, open_metadata_db
 
 TMDB_URL = "https://api.themoviedb.org/3"
-METADATA_VERSION = "11.2"
+METADATA_VERSION = "11.2.2"
 CACHE_SCHEMA = 9
 CACHE_FILE = "metadata-cache.json"
 IMDB_ENTITY_CACHE_FILE = "imdb-cache.json"
@@ -593,6 +593,49 @@ def _tmdb_search(api_key: str, title: str, year: str, media_type: str, language:
 def _tmdb_external_ids(api_key: str, tmdb_id: int, media_type: str, timeout: int = 12):
     endpoint = "movie" if media_type == "movie" else "tv"
     return _http_json(f"{TMDB_URL}/{endpoint}/{tmdb_id}/external_ids?" + urllib.parse.urlencode({"api_key": api_key}), timeout)
+
+
+def _tmdb_find_by_imdb_id(api_key: str, imdb_id: str, language: str = "ru-RU", timeout: int = 12) -> dict:
+    params = {
+        "api_key": api_key,
+        "external_source": "imdb_id",
+        "language": language,
+    }
+    payload = _http_json(
+        f"{TMDB_URL}/find/{urllib.parse.quote(imdb_id)}?" + urllib.parse.urlencode(params),
+        timeout,
+    )
+    candidates = []
+    for media_type, key in (("movie", "movie_results"), ("series", "tv_results")):
+        for item in payload.get(key) or []:
+            if isinstance(item, dict):
+                candidates.append((media_type, item))
+    if not candidates:
+        return {}
+    media_type, cand = max(
+        candidates,
+        key=lambda pair: (
+            bool(str(pair[1].get("overview") or "").strip()),
+            len(pair[1].get("genre_ids") or []),
+            float(pair[1].get("popularity") or 0),
+        ),
+    )
+    return {
+        "status": "found",
+        "imdb_id": imdb_id,
+        "tmdb_id": cand.get("id"),
+        "title": cand.get("title") or cand.get("name") or "",
+        "original_title": cand.get("original_title") or cand.get("original_name") or "",
+        "overview": re.sub(r"\s+", " ", str(cand.get("overview") or "").strip()),
+        "genre_ids": list(cand.get("genre_ids") or []),
+        "resolved_media_type": media_type,
+        "query_title": imdb_id,
+        "attempt": "tmdb-find-by-imdb",
+        "resolver": "tmdb-find-by-imdb",
+        "confidence": 100,
+        "language": language,
+        "cached_at": datetime.now(timezone.utc).isoformat(),
+    }
 
 
 def _tmdb_details(api_key: str, tmdb_id: int, media_type: str, language: str = "ru-RU", timeout: int = 12):
@@ -1235,6 +1278,51 @@ def enrich_metadata(tv: ET.Element, mappings: list[dict], root: Path, output: Pa
         if rating or iid:
             stats["programmes_with_existing_imdb"] += 1
             entity = resolve_entity(iid) if iid else {}
+
+            # IMDb ratings dataset has only rating/votes. If identity is already
+            # known but display metadata is absent, resolve overview/genres from
+            # TMDb directly by IMDb ID instead of fuzzy title search.
+            if iid and (
+                not list(entity.get("genres") or [])
+                or not str(entity.get("overview") or "").strip()
+            ):
+                if (
+                    tmdb_key
+                    and http_budget.allow()
+                    and time.monotonic() < metadata_deadline
+                    and not stop_requested["value"]
+                ):
+                    try:
+                        detected_language = _detect_metadata_language(
+                            title, _programme_language(p, title)
+                        )
+                        lang = "ru-RU" if detected_language == "ru" else "en-US"
+
+                        http_budget.consume()
+                        seed = _tmdb_find_by_imdb_id(tmdb_key, iid, lang, timeout)
+
+                        if seed and (
+                            not str(seed.get("overview") or "").strip()
+                            or not list(seed.get("genre_ids") or [])
+                        ) and lang != "en-US" and http_budget.allow():
+                            http_budget.consume()
+                            seed_en = _tmdb_find_by_imdb_id(tmdb_key, iid, "en-US", timeout)
+                            if seed_en:
+                                if not str(seed.get("overview") or "").strip():
+                                    seed["overview"] = seed_en.get("overview") or ""
+                                if not list(seed.get("genre_ids") or []):
+                                    seed["genre_ids"] = seed_en.get("genre_ids") or []
+
+                        if seed:
+                            entity = resolve_entity(iid, seed=seed)
+                            stats["existing_imdb_tmdb_display_refresh"] += 1
+                        else:
+                            stats["existing_imdb_tmdb_find_not_found"] += 1
+                    except Exception:
+                        stats["existing_imdb_tmdb_display_refresh_errors"] += 1
+                else:
+                    stats["existing_imdb_display_refresh_deferred"] += 1
+
             final_rating = rating or str(entity.get("rating") or "")
             final_votes = _normalize_votes(entity.get("votes"))
             genres = list(entity.get("genres") or [])
@@ -1513,7 +1601,7 @@ def enrich_metadata(tv: ET.Element, mappings: list[dict], root: Path, output: Pa
 
     return {
         "summary": {
-            "mode": "fiction-only-ru-en+sqlite-learning+tmdb-cascade+genres+overview+official-imdb-ratings-dataset-v11.2",
+            "mode": "fiction-only-ru-en+sqlite-learning+tmdb-cascade+genres+overview+official-imdb-ratings-dataset-v11.2.2",
             "metadata_version": METADATA_VERSION,
             "api_configured": bool(tmdb_key),
             "tmdb_configured": bool(tmdb_key),

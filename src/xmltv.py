@@ -15,6 +15,23 @@ from .utils import open_xml_bytes, normalize_name, xmltv_date_is_fresh, xmltv_pr
 SPILL_THRESHOLD_BYTES = int(os.environ.get("XMLTV_SPILL_THRESHOLD_BYTES", str(4 * 1024 * 1024)))
 
 
+class _OwnedGzipFile(gzip.GzipFile):
+    """gzip stream that also owns/closes the underlying raw file handle."""
+
+    def __init__(self, raw):
+        self._owned_raw = raw
+        super().__init__(fileobj=raw, mode="rb")
+
+    def close(self):
+        try:
+            super().close()
+        finally:
+            raw = getattr(self, "_owned_raw", None)
+            self._owned_raw = None
+            if raw is not None:
+                raw.close()
+
+
 class XMLTVSource:
     """Indexed XMLTV source with bounded in-memory raw payload retention.
 
@@ -70,7 +87,7 @@ class XMLTVSource:
             magic = raw.read(2)
             raw.seek(0)
             if magic == b"\x1f\x8b":
-                return gzip.GzipFile(fileobj=raw)
+                return _OwnedGzipFile(raw)
             return raw
         except Exception:
             raw.close()

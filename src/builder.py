@@ -384,6 +384,18 @@ def build():
     if programme_count == 0:
         raise SystemExit("SAFETY STOP: generated zero fresh programmes.")
 
+    # v11.2.1: source matching/programme extraction is complete. Release raw
+    # XMLTV payloads (including small < spill-threshold sources) before metadata
+    # enrichment so they do not stay resident for the rest of the build.
+    released_sources = 0
+    for _src in loaded_sources:
+        try:
+            _src.release()
+            released_sources += 1
+        except Exception:
+            pass
+    print(f"[sources] released raw payloads for {released_sources} sources", flush=True)
+
     # v11.0 metadata enrichment.
     # SQLite is the persistent title/entity knowledge base. Existing provider metadata
     # is preserved; missing genres/overview/IMDb ratings are filled by the enrichment
@@ -463,7 +475,7 @@ def build():
         }
 
     status = {
-        "builder_version": "11.2",
+        "builder_version": "11.2.2",
         "generated_at": datetime.now(timezone).isoformat(),
         "timezone": timezone_name,
         "playlist_channels": len(channels),
