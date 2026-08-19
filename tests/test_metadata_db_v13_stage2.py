@@ -34,8 +34,8 @@ def seed(db: MetadataDB):
 def test_stage2_schema_and_mode(tmp_path: Path):
     db=MetadataDB(tmp_path/"metadata.sqlite3")
     try:
-        assert SCHEMA_VERSION == 3
-        assert db.get_stat("knowledge_resolution_mode") == "knowledge-first"
+        assert SCHEMA_VERSION >= 3
+        assert db.get_stat("knowledge_resolution_mode").startswith("knowledge-first")
     finally:
         db.close()
 

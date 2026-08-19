@@ -11,7 +11,7 @@ from typing import Any, Iterable, Iterator
 
 from .utils import normalize_name
 
-SCHEMA_VERSION = 3
+SCHEMA_VERSION = 5
 DEFAULT_DB_NAME = "metadata.sqlite3"
 IMDB_ID_RE = re.compile(r"(?i)^tt\d{5,12}$")
 
@@ -194,6 +194,25 @@ class MetadataDB:
             CREATE INDEX IF NOT EXISTS idx_alias_imdb
                 ON aliases(imdb_id);
 
+            CREATE TABLE IF NOT EXISTS alias_conflicts (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                normalized_alias TEXT NOT NULL,
+                alias TEXT NOT NULL DEFAULT '',
+                year TEXT NOT NULL DEFAULT '',
+                media_type TEXT NOT NULL DEFAULT '',
+                existing_title_id INTEGER,
+                proposed_title_id INTEGER,
+                existing_imdb_id TEXT NOT NULL DEFAULT '',
+                proposed_imdb_id TEXT NOT NULL DEFAULT '',
+                source TEXT NOT NULL DEFAULT '',
+                confidence INTEGER,
+                seen_at TEXT NOT NULL DEFAULT '',
+                detail TEXT NOT NULL DEFAULT ''
+            );
+
+            CREATE INDEX IF NOT EXISTS idx_alias_conflict_key
+                ON alias_conflicts(normalized_alias, year, media_type);
+
             CREATE TABLE IF NOT EXISTS titles (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 imdb_id TEXT UNIQUE,
@@ -309,6 +328,12 @@ class MetadataDB:
         alias_cols = self._table_columns("aliases")
         if "title_id" not in alias_cols:
             self.conn.execute("ALTER TABLE aliases ADD COLUMN title_id INTEGER")
+        if "evidence_count" not in alias_cols:
+            self.conn.execute("ALTER TABLE aliases ADD COLUMN evidence_count INTEGER NOT NULL DEFAULT 1")
+        if "verified" not in alias_cols:
+            self.conn.execute("ALTER TABLE aliases ADD COLUMN verified INTEGER NOT NULL DEFAULT 0")
+        if "generated_rule" not in alias_cols:
+            self.conn.execute("ALTER TABLE aliases ADD COLUMN generated_rule TEXT NOT NULL DEFAULT ''")
 
         self.conn.execute(
             "CREATE INDEX IF NOT EXISTS idx_title_cache_knowledge_title "
@@ -588,7 +613,9 @@ class MetadataDB:
             "knowledge_schema_version",
             str(SCHEMA_VERSION),
         )
-        self.set_stat("knowledge_resolution_mode", "knowledge-first")
+        self.set_stat("knowledge_resolution_mode", "knowledge-first-smart-aliases")
+        self.set_stat("alias_learning_version", "v13-stage3")
+        self.set_stat("imdb_local_layer", "official-basics+ratings")
 
     def _knowledge_row_to_legacy_entry(
         self,
@@ -685,6 +712,33 @@ class MetadataDB:
                     row, language=language, query_title=title,
                     source="knowledge-alias",
                     confidence=alias["confidence"] or 98,
+                )
+
+        candidates = []
+        for variant, _rule, _penalty in self.alias_variants(title):
+            nv = normalize_name(variant)
+            if not nv or nv == normalized:
+                continue
+            rows = self.conn.execute(
+                """
+                SELECT DISTINCT title_id, confidence FROM aliases
+                WHERE normalized_alias=? AND media_type=?
+                  AND title_id IS NOT NULL AND (year=? OR year='')
+                """,
+                (nv, mt, yr),
+            ).fetchall()
+            candidates.extend(rows)
+
+        ids = {int(r["title_id"]) for r in candidates if r["title_id"] is not None}
+        if len(ids) == 1:
+            title_id = next(iter(ids))
+            row = self.get_knowledge_title(title_id)
+            if row:
+                conf = max([int(r["confidence"] or 0) for r in candidates if int(r["title_id"]) == title_id] or [96])
+                return self._knowledge_row_to_legacy_entry(
+                    row, language=language, query_title=title,
+                    source="knowledge-smart-alias",
+                    confidence=max(94, min(conf, 99)),
                 )
 
         row = self.conn.execute(
@@ -1137,6 +1191,189 @@ class MetadataDB:
             return None
         return dict(row)
 
+    @staticmethod
+    def alias_variants(value: str) -> list[tuple[str, str, int]]:
+        raw = re.sub(r"\s+", " ", str(value or "")).strip()
+        if not raw:
+            return []
+
+        out: list[tuple[str, str, int]] = []
+        seen: set[str] = set()
+
+        def add(text: str, rule: str, penalty: int = 0):
+            text = re.sub(r"\s+", " ", text or "").strip(" -–—:;,.")
+            n = normalize_name(text)
+            # Do not deduplicate variants through normalize_name here: that
+            # normalizer intentionally collapses some provider-quality noise,
+            # which would hide useful learned aliases such as "Title 4K" -> "Title".
+            seen_key = re.sub(r"\s+", " ", text).casefold()
+            if len(n) < 3 or seen_key in seen:
+                return
+            seen.add(seen_key)
+            out.append((text, rule, penalty))
+
+        add(raw, "exact", 0)
+        add(raw.replace("ё", "е").replace("Ё", "Е"), "yo-e", 0)
+        add(re.sub(r'[«»„“”"]', "", raw), "quotes", 1)
+
+        no_prefix = re.sub(
+            r"(?i)^\s*(?:х/ф|м/ф|т/с|д/с|д/ф|сериал|фильм|кино)\s*[:.\-–—]?\s*",
+            "",
+            raw,
+        )
+        add(no_prefix, "provider-prefix", 0)
+
+        no_quality = re.sub(
+            r"(?i)\s*(?:[\[(]\s*)?(?:UHD|FHD|HD|4K|2160P|1080P)(?:\s*[\])])?\s*$",
+            "",
+            no_prefix,
+        )
+        add(no_quality, "quality-suffix", 1)
+
+        no_year = re.sub(
+            r"(?i)\s*[\[(]?\s*(?:19\d{2}|20\d{2})\s*(?:год)?\s*[\])]?\s*$",
+            "",
+            no_quality,
+        )
+        add(no_year, "year-suffix", 1)
+
+        punct = re.sub(r"\s*[-–—]\s*", " ", no_year)
+        add(punct, "dash-spacing", 2)
+
+        return out
+
+    def _record_alias_conflict(
+        self, *, alias: str, year: str, media_type: str, existing: Any,
+        proposed_title_id: int | None, proposed_imdb_id: str, source: str,
+        confidence: int | None, detail: str,
+    ) -> None:
+        self.conn.execute(
+            """
+            INSERT INTO alias_conflicts(
+                normalized_alias, alias, year, media_type,
+                existing_title_id, proposed_title_id,
+                existing_imdb_id, proposed_imdb_id,
+                source, confidence, seen_at, detail
+            ) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)
+            """,
+            (
+                normalize_name(alias), alias, normalize_year(year), media_type or "",
+                existing["title_id"] if existing else None, proposed_title_id,
+                str(existing["imdb_id"] or "") if existing else "",
+                proposed_imdb_id or "", source or "", confidence,
+                utcnow_iso(), detail or "",
+            ),
+        )
+
+    def learn_alias(
+        self,
+        alias: str,
+        imdb_id: str,
+        year: str = "",
+        media_type: str = "",
+        *,
+        source: str = "learned",
+        confidence: int | None = None,
+        generated_rule: str = "",
+        verified: bool = False,
+    ) -> bool:
+        normalized = normalize_name(alias)
+        iid = normalize_imdb_id(imdb_id)
+        if not normalized or not iid:
+            return False
+
+        self.conn.execute(
+            "INSERT INTO imdb_entities(imdb_id, checked_at) VALUES(?, '') "
+            "ON CONFLICT(imdb_id) DO NOTHING",
+            (iid,),
+        )
+        title_id = self._find_knowledge_title_id(
+            imdb_id=iid, year=year, media_type=media_type
+        )
+        if title_id is None:
+            title_id = self._upsert_knowledge_title(
+                imdb_id=iid, year=year, media_type=media_type,
+                canonical_title=alias,
+            )
+
+        yr = normalize_year(year)
+        mt = media_type or ""
+        existing = self.conn.execute(
+            "SELECT * FROM aliases WHERE normalized_alias=? AND year=? AND media_type=?",
+            (normalized, yr, mt),
+        ).fetchone()
+
+        if existing:
+            same = (
+                (existing["title_id"] is not None and title_id is not None and int(existing["title_id"]) == int(title_id))
+                or normalize_imdb_id(existing["imdb_id"]) == iid
+            )
+            if not same:
+                self._record_alias_conflict(
+                    alias=alias, year=yr, media_type=mt, existing=existing,
+                    proposed_title_id=title_id, proposed_imdb_id=iid,
+                    source=source, confidence=confidence,
+                    detail="conflicting-canonical-identity",
+                )
+                return False
+            self.conn.execute(
+                """
+                UPDATE aliases SET
+                    alias=?, imdb_id=?, title_id=COALESCE(?, title_id),
+                    source=CASE WHEN ?<>'' THEN ? ELSE source END,
+                    confidence=MAX(COALESCE(confidence,0), COALESCE(?,0)),
+                    evidence_count=COALESCE(evidence_count,1)+1,
+                    verified=MAX(COALESCE(verified,0), ?),
+                    generated_rule=CASE WHEN ?<>'' THEN ? ELSE generated_rule END,
+                    last_seen_at=?
+                WHERE normalized_alias=? AND year=? AND media_type=?
+                """,
+                (
+                    alias, iid, title_id, source or "", source or "", confidence,
+                    1 if verified else 0, generated_rule or "", generated_rule or "",
+                    utcnow_iso(), normalized, yr, mt,
+                ),
+            )
+            return True
+
+        now = utcnow_iso()
+        self.conn.execute(
+            """
+            INSERT INTO aliases(
+                normalized_alias, alias, imdb_id, year, media_type, source,
+                confidence, created_at, last_seen_at, title_id,
+                evidence_count, verified, generated_rule
+            ) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)
+            """,
+            (
+                normalized, alias, iid, yr, mt, source or "", confidence,
+                now, now, title_id, 1, 1 if verified else 0, generated_rule or "",
+            ),
+        )
+        return True
+
+    def teach_alias_family(
+        self,
+        values: list[str],
+        imdb_id: str,
+        year: str = "",
+        media_type: str = "",
+        *,
+        source: str = "auto-family",
+        confidence: int = 98,
+    ) -> int:
+        learned = 0
+        for value in values:
+            for variant, rule, penalty in self.alias_variants(value):
+                conf = max(90, int(confidence) - int(penalty))
+                if self.learn_alias(
+                    variant, imdb_id, year, media_type,
+                    source=source, confidence=conf,
+                    generated_rule=rule, verified=confidence >= 97,
+                ):
+                    learned += 1
+        return learned
+
     def put_alias(
         self,
         alias: str,
@@ -1146,42 +1383,10 @@ class MetadataDB:
         source: str = "learned",
         confidence: int | None = None,
     ) -> None:
-        normalized = normalize_name(alias)
-        iid = normalize_imdb_id(imdb_id)
-        if not normalized or not iid:
-            return
-        # FK requires the entity row. A skeletal row is fine and will later be enriched.
-        self.conn.execute(
-            "INSERT INTO imdb_entities(imdb_id, checked_at) VALUES(?, '') ON CONFLICT(imdb_id) DO NOTHING",
-            (iid,),
-        )
-        now = utcnow_iso()
-        title_id = self._find_knowledge_title_id(
-            imdb_id=iid, year=year, media_type=media_type
-        )
-        if title_id is None:
-            title_id = self._upsert_knowledge_title(
-                imdb_id=iid, year=year, media_type=media_type,
-                canonical_title=alias,
-            )
-        self.conn.execute(
-            """
-            INSERT INTO aliases (
-                normalized_alias, alias, imdb_id, year, media_type, source,
-                confidence, created_at, last_seen_at, title_id
-            ) VALUES (?,?,?,?,?,?,?,?,?,?)
-            ON CONFLICT(normalized_alias, year, media_type) DO UPDATE SET
-                alias=excluded.alias,
-                imdb_id=excluded.imdb_id,
-                source=excluded.source,
-                confidence=excluded.confidence,
-                last_seen_at=excluded.last_seen_at,
-                title_id=COALESCE(excluded.title_id, aliases.title_id)
-            """,
-            (
-                normalized, alias, iid, normalize_year(year), media_type or "", source,
-                confidence, now, now, title_id,
-            ),
+        self.learn_alias(
+            alias, imdb_id, year, media_type,
+            source=source, confidence=confidence,
+            verified=bool((confidence or 0) >= 97),
         )
 
     # ------------------------------------------------------------------
@@ -1243,6 +1448,7 @@ class MetadataDB:
             "knowledge_metadata": int(self.conn.execute("SELECT COUNT(*) FROM metadata").fetchone()[0]),
             "people": int(self.conn.execute("SELECT COUNT(*) FROM people").fetchone()[0]),
             "credits": int(self.conn.execute("SELECT COUNT(*) FROM credits").fetchone()[0]),
+            "alias_conflicts": int(self.conn.execute("SELECT COUNT(*) FROM alias_conflicts").fetchone()[0]),
         }
 
     def checkpoint(self) -> None:

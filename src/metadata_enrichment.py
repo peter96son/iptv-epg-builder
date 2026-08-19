@@ -21,7 +21,7 @@ from .utils import normalize_name
 from .metadata_db import MetadataDB, open_metadata_db
 
 TMDB_URL = "https://api.themoviedb.org/3"
-METADATA_VERSION = "11.4"
+METADATA_VERSION = "13.0-stage4"
 CACHE_SCHEMA = 9
 CACHE_FILE = "metadata-cache.json"
 IMDB_ENTITY_CACHE_FILE = "imdb-cache.json"
@@ -30,8 +30,11 @@ IMDB_ENTITY_CACHE_SCHEMA = 2
 IMDB_REFRESH_DAYS = 30
 IMDB_MISSING_RETRY_DAYS = 7
 IMDB_RATINGS_URL = "https://datasets.imdbws.com/title.ratings.tsv.gz"
+IMDB_BASICS_URL = "https://datasets.imdbws.com/title.basics.tsv.gz"
 IMDB_RATINGS_GZ_FILE = "title.ratings.tsv.gz"
+IMDB_BASICS_GZ_FILE = "title.basics.tsv.gz"
 IMDB_RATINGS_DB_FILE = "imdb-ratings.sqlite3"
+IMDB_LOCAL_DB_FILE = "imdb-local.sqlite3"
 IMDB_DATASET_REFRESH_HOURS = 24
 
 IMDB_RATING_RE = re.compile(r"(?i)\bIMDb\b\s*(?:rating|рейтинг)?\s*[:\[\(]?\s*([0-9](?:[\.,][0-9])?|10(?:[\.,]0)?)")
@@ -915,6 +918,209 @@ def _dataset_db_age_hours(db_path: Path) -> float | None:
         return None
 
 
+def _imdb_null(value: str) -> str:
+    value = str(value or "").strip()
+    return "" if value == r"\N" else value
+
+
+def _build_imdb_local_db(basics_gz: Path, ratings_gz: Path, db_path: Path):
+    """Build a local read-only-friendly IMDb SQLite mirror from official bulk files."""
+    db_path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = db_path.with_suffix(db_path.suffix + ".tmp")
+    try:
+        tmp.unlink()
+    except FileNotFoundError:
+        pass
+
+    conn = sqlite3.connect(tmp)
+    try:
+        conn.execute("PRAGMA journal_mode=OFF")
+        conn.execute("PRAGMA synchronous=OFF")
+        conn.execute("PRAGMA temp_store=MEMORY")
+        conn.execute("""
+            CREATE TABLE basics(
+                tconst TEXT PRIMARY KEY,
+                title_type TEXT NOT NULL DEFAULT '',
+                primary_title TEXT NOT NULL DEFAULT '',
+                original_title TEXT NOT NULL DEFAULT '',
+                is_adult INTEGER NOT NULL DEFAULT 0,
+                start_year TEXT NOT NULL DEFAULT '',
+                end_year TEXT NOT NULL DEFAULT '',
+                runtime_minutes INTEGER,
+                genres TEXT NOT NULL DEFAULT ''
+            )
+        """)
+        conn.execute("""
+            CREATE TABLE ratings(
+                tconst TEXT PRIMARY KEY,
+                rating TEXT NOT NULL,
+                votes INTEGER NOT NULL
+            )
+        """)
+
+        batch = []
+        with gzip.open(basics_gz, "rt", encoding="utf-8", errors="replace", newline="") as f:
+            header = f.readline().rstrip("\r\n").split("\t")
+            expected = [
+                "tconst","titleType","primaryTitle","originalTitle","isAdult",
+                "startYear","endYear","runtimeMinutes","genres"
+            ]
+            if header[:9] != expected:
+                raise ValueError(f"Unexpected IMDb basics header: {header[:9]}")
+            for line in f:
+                parts = line.rstrip("\r\n").split("\t")
+                if len(parts) < 9 or not IMDB_ID_RE.fullmatch(parts[0]):
+                    continue
+                runtime = _imdb_null(parts[7])
+                try:
+                    runtime_i = int(runtime) if runtime else None
+                except ValueError:
+                    runtime_i = None
+                batch.append((
+                    parts[0],
+                    _imdb_null(parts[1]),
+                    _imdb_null(parts[2]),
+                    _imdb_null(parts[3]),
+                    int(parts[4]) if parts[4].isdigit() else 0,
+                    _imdb_null(parts[5]),
+                    _imdb_null(parts[6]),
+                    runtime_i,
+                    _imdb_null(parts[8]),
+                ))
+                if len(batch) >= 50000:
+                    conn.executemany(
+                        "INSERT OR REPLACE INTO basics VALUES (?,?,?,?,?,?,?,?,?)", batch
+                    )
+                    batch.clear()
+            if batch:
+                conn.executemany(
+                    "INSERT OR REPLACE INTO basics VALUES (?,?,?,?,?,?,?,?,?)", batch
+                )
+
+        batch = []
+        with gzip.open(ratings_gz, "rt", encoding="utf-8", errors="replace", newline="") as f:
+            header = f.readline().rstrip("\r\n").split("\t")
+            if header[:3] != ["tconst","averageRating","numVotes"]:
+                raise ValueError(f"Unexpected IMDb ratings header: {header[:3]}")
+            for line in f:
+                parts = line.rstrip("\r\n").split("\t")
+                if len(parts) < 3 or not IMDB_ID_RE.fullmatch(parts[0]):
+                    continue
+                try:
+                    votes = int(parts[2])
+                except ValueError:
+                    continue
+                batch.append((parts[0], parts[1], votes))
+                if len(batch) >= 50000:
+                    conn.executemany("INSERT OR REPLACE INTO ratings VALUES (?,?,?)", batch)
+                    batch.clear()
+            if batch:
+                conn.executemany("INSERT OR REPLACE INTO ratings VALUES (?,?,?)", batch)
+
+        conn.execute("CREATE INDEX basics_title_idx ON basics(primary_title,start_year,title_type)")
+        conn.execute("CREATE INDEX basics_original_idx ON basics(original_title,start_year,title_type)")
+        conn.execute("CREATE INDEX ratings_votes_idx ON ratings(votes)")
+        conn.execute("""
+            CREATE VIEW imdb_titles AS
+            SELECT b.tconst,b.title_type,b.primary_title,b.original_title,b.is_adult,
+                   b.start_year,b.end_year,b.runtime_minutes,b.genres,
+                   COALESCE(r.rating,'') AS rating,
+                   COALESCE(r.votes,0) AS votes
+            FROM basics b
+            LEFT JOIN ratings r ON r.tconst=b.tconst
+        """)
+        conn.execute("PRAGMA user_version=1")
+        conn.commit()
+    finally:
+        conn.close()
+    os.replace(tmp, db_path)
+
+
+def _prepare_imdb_local_db(root: Path, stats: Counter, timeout: int = 90) -> Path | None:
+    cache_dir = root / ".cache" / "imdb"
+    db_path = cache_dir / IMDB_LOCAL_DB_FILE
+    basics_gz = cache_dir / IMDB_BASICS_GZ_FILE
+    ratings_gz = cache_dir / IMDB_RATINGS_GZ_FILE
+
+    age = _dataset_db_age_hours(db_path)
+    if age is not None and age < IMDB_DATASET_REFRESH_HOURS:
+        stats["imdb_local_dataset_cache_hits"] += 1
+        return db_path
+
+    try:
+        _download_atomic(IMDB_BASICS_URL, basics_gz, timeout=timeout, attempts=3)
+        stats["imdb_basics_downloads"] += 1
+        _download_atomic(IMDB_RATINGS_URL, ratings_gz, timeout=timeout, attempts=3)
+        stats["imdb_ratings_downloads"] += 1
+        _build_imdb_local_db(basics_gz, ratings_gz, db_path)
+        stats["imdb_local_dataset_rebuilds"] += 1
+        for path in (basics_gz, ratings_gz):
+            try:
+                path.unlink()
+            except OSError:
+                pass
+        return db_path
+    except Exception:
+        stats["imdb_local_dataset_errors"] += 1
+        if db_path.exists():
+            stats["imdb_local_dataset_stale_fallback"] += 1
+            return db_path
+        return None
+
+
+def _open_imdb_local_db(db_path: Path | None):
+    if not db_path or not db_path.exists():
+        return None
+    try:
+        conn = sqlite3.connect(f"file:{db_path}?mode=ro", uri=True)
+        conn.row_factory = sqlite3.Row
+        conn.execute("PRAGMA query_only=ON")
+        return conn
+    except sqlite3.Error:
+        return None
+
+
+def _lookup_imdb_local(conn, imdb_id: str) -> dict:
+    if conn is None or not IMDB_ID_RE.fullmatch(imdb_id or ""):
+        return {}
+    try:
+        row = conn.execute(
+            """
+            SELECT tconst,title_type,primary_title,original_title,is_adult,
+                   start_year,end_year,runtime_minutes,genres,rating,votes
+            FROM imdb_titles WHERE tconst=?
+            """,
+            (imdb_id,),
+        ).fetchone()
+    except sqlite3.Error:
+        return {}
+    if not row:
+        return {}
+    return {
+        "imdb_id": str(row["tconst"] or ""),
+        "title_type": str(row["title_type"] or ""),
+        "title": str(row["primary_title"] or ""),
+        "original_title": str(row["original_title"] or ""),
+        "is_adult": int(row["is_adult"] or 0),
+        "year": str(row["start_year"] or ""),
+        "end_year": str(row["end_year"] or ""),
+        "runtime_minutes": row["runtime_minutes"],
+        "genres": [g.strip() for g in str(row["genres"] or "").split(",") if g.strip()],
+        "rating": str(row["rating"] or "").strip(),
+        "votes": _normalize_votes(row["votes"]),
+        "source": "imdb-official-local",
+    }
+
+
+def _imdb_type_to_media_type(title_type: str) -> str:
+    t = str(title_type or "").lower()
+    if t in {"movie","tvmovie","short","video"}:
+        return "movie"
+    if t in {"tvseries","tvminiseries","tvshort","tvspecial"}:
+        return "series"
+    return ""
+
+
 def _build_imdb_ratings_db(gz_path: Path, db_path: Path):
     """Build a compact local lookup DB from IMDb's official title.ratings.tsv.gz dataset."""
     db_path.parent.mkdir(parents=True, exist_ok=True)
@@ -1159,6 +1365,8 @@ def enrich_metadata(tv: ET.Element, mappings: list[dict], root: Path, output: Pa
     rows: list[dict] = []
     ratings_db_path = None
     ratings_conn = None
+    local_imdb_db_path = None
+    local_imdb_conn = None
 
     metadata_dir = root / ".cache" / "metadata"
     metadata_dir.mkdir(parents=True, exist_ok=True)
@@ -1247,14 +1455,32 @@ def enrich_metadata(tv: ET.Element, mappings: list[dict], root: Path, output: Pa
                 pass
         return ratings_conn
 
+    def ensure_local_imdb_conn():
+        nonlocal local_imdb_db_path, local_imdb_conn
+        if local_imdb_conn is not None:
+            return local_imdb_conn
+        local_imdb_db_path = _prepare_imdb_local_db(
+            root, stats, timeout=max(90, timeout)
+        )
+        local_imdb_conn = _open_imdb_local_db(local_imdb_db_path)
+        if local_imdb_conn is not None:
+            stats["imdb_local_dataset_available"] = 1
+            try:
+                stats["imdb_local_dataset_db_bytes"] = int(local_imdb_db_path.stat().st_size)
+            except OSError:
+                pass
+        return local_imdb_conn
+
+
     def resolve_entity(iid: str, seed: dict | None = None) -> dict:
         iid = (iid or "").strip().lower()
         if not IMDB_ID_RE.fullmatch(iid):
             return {"rating": "", "votes": "", "source": ""}
 
         cached = db.get_imdb_entity(iid)
-        # Test/manual resolvers may already provide rating data. Preserve it and
-        # do not download the IMDb dataset just to re-fetch the same values.
+
+        # Resolver-provided values are authoritative for the current pass and do
+        # not require a dataset refresh solely to duplicate rating/votes.
         if seed and (seed.get("imdb_rating") or seed.get("imdb_votes")):
             entity = dict(cached or {})
             entity.update({
@@ -1263,42 +1489,76 @@ def enrich_metadata(tv: ET.Element, mappings: list[dict], root: Path, output: Pa
                 "source": str(seed.get("rating_source") or entity.get("source") or "resolver"),
                 "checked_at": str(seed.get("rating_checked_at") or datetime.now(timezone.utc).isoformat()),
             })
-            db.put_imdb_entity(iid, entity)
-            return entity
-        if cached and _imdb_entity_fresh(cached):
+        elif cached and _imdb_entity_fresh(cached) and (
+            cached.get("runtime_minutes") or cached.get("genres") or cached.get("title")
+        ):
             stats["imdb_entity_cache_hits"] += 1
             entity = dict(cached)
         else:
-            conn = ensure_ratings_conn()
-            stats["imdb_dataset_lookups"] += 1
-            meta = _lookup_imdb_dataset(conn, iid)
-            rating = str(meta.get("rating") or "").strip()
-            votes = _normalize_votes(meta.get("votes"))
-            source = "imdb-dataset" if rating or votes else ""
             entity = dict(cached or {})
-            entity.update({
-                "rating": rating,
-                "votes": votes,
-                "source": source,
-                "checked_at": datetime.now(timezone.utc).isoformat(),
-            })
-            if rating:
-                stats["imdb_rating_matches"] += 1
-            if votes:
-                stats["imdb_votes_matches"] += 1
-            if not rating and not votes:
-                stats["imdb_dataset_not_found"] += 1
+
+            # Stage 4: official IMDb bulk mirror first. This is a local SQLite
+            # lookup and spends zero per-title HTTP requests.
+            conn = ensure_local_imdb_conn()
+            local = _lookup_imdb_local(conn, iid)
+            if local:
+                entity.update({
+                    "rating": str(local.get("rating") or entity.get("rating") or ""),
+                    "votes": _normalize_votes(local.get("votes") or entity.get("votes")),
+                    "source": "imdb-official-local",
+                    "checked_at": datetime.now(timezone.utc).isoformat(),
+                    "title": str(local.get("title") or entity.get("title") or ""),
+                    "original_title": str(local.get("original_title") or entity.get("original_title") or ""),
+                    "year": str(local.get("year") or entity.get("year") or ""),
+                    "end_year": str(local.get("end_year") or entity.get("end_year") or ""),
+                    "runtime_minutes": local.get("runtime_minutes") or entity.get("runtime_minutes"),
+                    "genres": list(local.get("genres") or entity.get("genres") or []),
+                    "title_type": str(local.get("title_type") or entity.get("title_type") or ""),
+                    "media_type": _imdb_type_to_media_type(local.get("title_type")) or entity.get("media_type") or "",
+                    "is_adult": int(local.get("is_adult") or 0),
+                })
+                stats["imdb_local_entity_hits"] += 1
+                if local.get("rating"):
+                    stats["imdb_rating_matches"] += 1
+                if local.get("votes"):
+                    stats["imdb_votes_matches"] += 1
+                if local.get("runtime_minutes"):
+                    stats["imdb_runtime_matches"] += 1
+                if local.get("genres"):
+                    stats["imdb_genre_matches"] += 1
+            else:
+                # Compatibility fallback: old ratings-only local DB.
+                rconn = ensure_ratings_conn()
+                stats["imdb_dataset_lookups"] += 1
+                meta = _lookup_imdb_dataset(rconn, iid)
+                rating = str(meta.get("rating") or "").strip()
+                votes = _normalize_votes(meta.get("votes"))
+                entity.update({
+                    "rating": rating,
+                    "votes": votes,
+                    "source": "imdb-dataset" if rating or votes else "",
+                    "checked_at": datetime.now(timezone.utc).isoformat(),
+                })
+                if rating:
+                    stats["imdb_rating_matches"] += 1
+                if votes:
+                    stats["imdb_votes_matches"] += 1
+                if not rating and not votes:
+                    stats["imdb_dataset_not_found"] += 1
+
             stats["imdb_entity_cache_updates"] += 1
 
-        # Identity-level TMDb metadata is stable and belongs with the IMDb
-        # entity, so future aliases can render descriptions without TMDb.
+        # Merge current TMDb identity/display data when available.
         if seed:
-            seed_genres = _genres_for_entry(seed, str(seed.get("resolved_media_type") or "movie"))
+            seed_genres = _genres_for_entry(
+                seed, str(seed.get("resolved_media_type") or "movie")
+            )
             for field, value in (
                 ("title", seed.get("title")),
                 ("original_title", seed.get("original_title")),
                 ("overview", seed.get("overview")),
                 ("year", seed.get("candidate_year")),
+                ("runtime_minutes", seed.get("runtime_minutes")),
             ):
                 if value and not entity.get(field):
                     entity[field] = value
@@ -1307,6 +1567,7 @@ def enrich_metadata(tv: ET.Element, mappings: list[dict], root: Path, output: Pa
 
         db.put_imdb_entity(iid, entity)
         return entity
+
 
     # In-run memo guarantees repeated episodes/timeslots use one resolved row.
     memo: dict[str, dict] = {}
@@ -1463,8 +1724,10 @@ def enrich_metadata(tv: ET.Element, mappings: list[dict], root: Path, output: Pa
                 stats["knowledge_hits"] += 1
                 # Keep the old aggregate counter for backward-compatible reports/tests.
                 stats["sqlite_title_hits"] += 1
-                if source == "knowledge-alias":
+                if source in {"knowledge-alias", "knowledge-smart-alias"}:
                     stats["knowledge_alias_hits"] += 1
+                    if source == "knowledge-smart-alias":
+                        stats["knowledge_smart_alias_hits"] += 1
                 else:
                     stats["knowledge_title_hits"] += 1
 
@@ -1572,13 +1835,14 @@ def enrich_metadata(tv: ET.Element, mappings: list[dict], root: Path, output: Pa
                             str(entry.get("title") or ""),
                             str(entry.get("original_title") or ""),
                         }
-                        for learned in learned_aliases:
-                            if learned and len(normalize_name(learned)) >= 3:
-                                db.put_alias(
-                                    learned, iid_found, year, effective_type,
-                                    source="tmdb-learned", confidence=int(entry.get("confidence") or 0),
-                                )
-                                stats["sqlite_alias_updates"] += 1
+                        learned_count = db.teach_alias_family(
+                            [x for x in learned_aliases if x and len(normalize_name(x)) >= 3],
+                            iid_found, year, effective_type,
+                            source="tmdb-smart-alias",
+                            confidence=int(entry.get("confidence") or 0),
+                        )
+                        stats["sqlite_alias_updates"] += learned_count
+                        stats["smart_alias_updates"] += learned_count
 
                     if title_budget.used % checkpoint_every == 0:
                         db.conn.commit()
@@ -1681,6 +1945,8 @@ def enrich_metadata(tv: ET.Element, mappings: list[dict], root: Path, output: Pa
 
     if ratings_conn is not None:
         ratings_conn.close()
+    if local_imdb_conn is not None:
+        local_imdb_conn.close()
 
     db.conn.commit()
     db.checkpoint()
@@ -1701,13 +1967,13 @@ def enrich_metadata(tv: ET.Element, mappings: list[dict], root: Path, output: Pa
 
     return {
         "summary": {
-            "mode": "fiction-only-ru-en+sqlite-learning+tmdb-cascade+genres+overview+official-imdb-ratings-dataset-v11.4",
+            "mode": "fiction-only-ru-en+knowledge-first+tmdb-cascade+official-local-imdb-basics-ratings-v13-stage4",
             "metadata_version": METADATA_VERSION,
             "api_configured": bool(tmdb_key),
             "tmdb_configured": bool(tmdb_key),
             "omdb_removed": True,
             "imdb_scraping_removed": True,
-            "imdb_ratings_source": "official-contributor-dataset",
+            "imdb_ratings_source": "official-imdb-bulk-local-sqlite",
             "imdb_ratings_url": IMDB_RATINGS_URL,
             "imdb_dataset_refresh_hours": IMDB_DATASET_REFRESH_HOURS,
             "alias_file": ALIAS_FILE,

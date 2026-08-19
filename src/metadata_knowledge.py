@@ -20,6 +20,8 @@ def main() -> int:
             "counts": db.counts(),
             "last_migration_at": db.get_stat("knowledge_last_migration_at", ""),
             "resolution_mode": db.get_stat("knowledge_resolution_mode", ""),
+            "alias_learning_version": db.get_stat("alias_learning_version", ""),
+            "imdb_local_layer": db.get_stat("imdb_local_layer", ""),
         }
         if args.title_id:
             payload["title"] = db.get_knowledge_title(args.title_id)

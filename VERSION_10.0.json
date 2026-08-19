@@ -1,5 +1,5 @@
 {
-  "version": "13.0-stage2",
+  "version": "13.0-stage4",
   "metadata_version": "11.4",
   "cache_schema": 12,
   "metadata_budget_semantics": "separate unique-title and actual TMDb HTTP budgets",
@@ -22,7 +22,7 @@
     "same-run newly found metadata appears in final EPG",
     "backfill/finalize reuse current epg.xml.gz without redownloading sources"
   ],
-  "release": "13.0-stage2",
+  "release": "13.0-stage4",
   "default_backfill_http_budget": 5000,
   "update_pipeline": [
     "build current EPG from sources using existing SQLite metadata",
@@ -30,7 +30,7 @@
     "re-apply updated SQLite metadata to the same epg.xml.gz",
     "save durable metadata snapshot and final EPG"
   ],
-  "metadata_schema_version": 3,
+  "metadata_schema_version": 5,
   "knowledge_layer": {
     "tables": [
       "titles",
@@ -52,5 +52,38 @@
     "secondary": "exact canonical titles -> metadata",
     "legacy_fallback": "title_cache + legacy aliases",
     "tmdb": "only after local miss or incomplete display refresh"
+  },
+  "smart_aliases": {
+    "conflict_safe": true,
+    "evidence_count": true,
+    "rules": [
+      "yo-e",
+      "quotes",
+      "provider-prefix",
+      "quality-suffix",
+      "year-suffix",
+      "dash-spacing"
+    ]
+  },
+  "local_imdb": {
+    "datasets": [
+      "title.basics.tsv.gz",
+      "title.ratings.tsv.gz"
+    ],
+    "lookup": "local SQLite by IMDb ID",
+    "per_title_http_requests": 0,
+    "fields": [
+      "title_type",
+      "primary_title",
+      "original_title",
+      "year",
+      "end_year",
+      "runtime_minutes",
+      "genres",
+      "rating",
+      "votes",
+      "adult"
+    ],
+    "durable_mirror": "matched entities copied into metadata.sqlite3"
   }
 }
