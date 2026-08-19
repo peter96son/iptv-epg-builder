@@ -201,7 +201,7 @@ synthetic DITV schedules are disabled.
 
 
 ## v4.1 IMDb metadata enrichment
-The builder normalizes IMDb metadata already present in upstream XMLTV and enriches missing fictional movie/series metadata with the v7 resolver. `TMDB_API_KEY` is the primary resolver secret. `OMDB_API_KEY` is optional and is used only as a rating/vote fallback if direct IMDb retrieval returns no data. Reports: `output/metadata-enrichment.json` and `output/metadata-enrichment.csv`.
+The builder normalizes IMDb metadata already present in upstream XMLTV and enriches missing fictional movie/series metadata with the v8 resolver. `TMDB_API_KEY` is the only metadata API secret required. TMDb resolves the title and IMDb ID; IMDb rating/vote count are read directly from IMDb and cached by IMDb ID. Reports: `output/metadata-enrichment.json` and `output/metadata-enrichment.csv`.
 
 
 ## TMDb / IMDb resolver
@@ -228,10 +228,15 @@ The Actions request ceiling is `METADATA_MAX_REQUESTS` and now counts actual met
 
 `TMDb -> IMDb ID -> direct IMDb rating/votes -> persistent IMDb-ID cache`.
 
-OMDb is no longer a required metadata layer. If `OMDB_API_KEY` exists it is used only as a fallback when direct IMDb retrieval returns neither rating nor vote count.
+OMDb is not used by v8.0. The runtime metadata path is `canonical RU/EN title → TMDb cascade → TMDb external_ids → IMDb ID → direct IMDb rating/votes`.
 
 Persistent caches:
 - `.cache/metadata/metadata-v70.json` — canonical title/type/language -> IMDb/TMDb identity.
 - `.cache/metadata/imdb-entities-v70.json` — IMDb ID -> rating, votes, source, checked timestamp.
 
 IMDb entity data refreshes every 30 days; missing rating/votes retry after 7 days. Series episodes share the same canonical identity and IMDb entity entry.
+
+
+## Metadata engine v8.0
+
+The resolver uses canonical episode collapsing, strict RU/EN language filtering, transliteration, curated aliases, year-aware matching, safe multipart movie/series cross-type fallback, confidence scoring, progressive negative-cache backoff, and separate stable-identity/volatile-rating caches. Curated aliases live in `data/metadata_aliases.json`; they are search hints and never bypass confidence checks.

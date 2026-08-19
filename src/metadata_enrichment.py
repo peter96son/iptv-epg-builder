@@ -15,12 +15,12 @@ from pathlib import Path
 
 from .utils import normalize_name
 
-OMDB_URL = "https://www.omdbapi.com/"
 TMDB_URL = "https://api.themoviedb.org/3"
-METADATA_VERSION = "7.0"
-CACHE_SCHEMA = 7
-CACHE_FILE = "metadata-v70.json"
-IMDB_ENTITY_CACHE_FILE = "imdb-entities-v70.json"
+METADATA_VERSION = "8.0"
+CACHE_SCHEMA = 8
+CACHE_FILE = "metadata-v80.json"
+IMDB_ENTITY_CACHE_FILE = "imdb-entities-v80.json"
+ALIAS_FILE = "metadata_aliases.json"
 IMDB_ENTITY_CACHE_SCHEMA = 1
 IMDB_REFRESH_DAYS = 30
 IMDB_MISSING_RETRY_DAYS = 7
@@ -328,6 +328,76 @@ def _title_variants(title: str) -> list[str]:
     return variants
 
 
+def _load_metadata_aliases(root: Path) -> dict[str, list[str]]:
+    """Load curated title aliases without guessing translations.
+
+    Format: {"aliases": {"Canonical title": ["Alias 1", "Alias 2"]}}.
+    Aliases are search hints only; normal candidate confidence checks still apply.
+    """
+    path = root / "data" / ALIAS_FILE
+    try:
+        raw = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return {}
+    source = raw.get("aliases", raw) if isinstance(raw, dict) else {}
+    out: dict[str, list[str]] = {}
+    if not isinstance(source, dict):
+        return out
+    for key, values in source.items():
+        canonical = str(key or "").strip()
+        if not canonical:
+            continue
+        vals = values if isinstance(values, list) else [values]
+        clean = []
+        for value in vals:
+            alias = str(value or "").strip()
+            if alias and normalize_name(alias) != normalize_name(canonical) and alias not in clean:
+                clean.append(alias)
+        if clean:
+            out[normalize_name(canonical)] = clean
+    return out
+
+
+def _alias_variants(title: str, aliases: dict[str, list[str]]) -> list[str]:
+    return aliases.get(normalize_name(title), [])
+
+
+def _confidence_from_candidate(similarity: float, query_title: str, candidate_title: str, year: str, candidate_year: str, attempt: str) -> int:
+    exact = normalize_name(query_title) == normalize_name(candidate_title)
+    year_match = bool(year and candidate_year and abs(int(year) - int(candidate_year)) <= 1)
+    if exact and year_match:
+        score = 100
+    elif exact:
+        score = 98
+    elif similarity >= 0.95 and year_match:
+        score = 97
+    elif similarity >= 0.95:
+        score = 95
+    elif similarity >= 0.90:
+        score = 92
+    elif similarity >= 0.84:
+        score = 88
+    else:
+        score = 84
+    if "cross-type" in attempt:
+        score -= 3
+    if "translit" in attempt:
+        score -= 1
+    if "alias" in attempt:
+        score -= 1
+    return max(0, min(100, score))
+
+
+def _candidate_threshold(title: str, year: str) -> float:
+    """Ambiguous short/generic titles need stricter matching."""
+    words = normalize_name(title).split()
+    if len(words) <= 1 and not year:
+        return 0.92
+    if len(normalize_name(title)) <= 5 and not year:
+        return 0.90
+    return 0.82
+
+
 def _load_cache(path: Path) -> dict:
     try:
         raw = json.loads(path.read_text(encoding="utf-8"))
@@ -403,23 +473,19 @@ class _Budget:
         return True
 
 
-def _http_json(url: str, timeout: int, headers=None):
-    req = urllib.request.Request(url, headers=headers or {"User-Agent": "IPTV-EPG-Builder/7.0"})
-    with urllib.request.urlopen(req, timeout=timeout) as r:
-        return json.loads(r.read().decode("utf-8", "replace"))
-
-
-def _omdb_lookup_id(api_key: str, imdb_id: str, timeout: int = 12):
-    return _http_json(OMDB_URL + "?" + urllib.parse.urlencode({"apikey": api_key, "i": imdb_id, "plot": "short", "r": "json"}), timeout)
-
-
-def _omdb_lookup_title(api_key: str, title: str, year: str, media_type: str, timeout: int = 12):
-    p = {"apikey": api_key, "t": title, "plot": "short", "r": "json"}
-    if year:
-        p["y"] = year
-    if media_type in {"movie", "series"}:
-        p["type"] = media_type
-    return _http_json(OMDB_URL + "?" + urllib.parse.urlencode(p), timeout)
+def _http_json(url: str, timeout: int, headers=None, attempts: int = 3):
+    req_headers = headers or {"User-Agent": "IPTV-EPG-Builder/8.0"}
+    last_exc = None
+    for attempt in range(max(1, attempts)):
+        try:
+            req = urllib.request.Request(url, headers=req_headers)
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                return json.loads(r.read().decode("utf-8", "replace"))
+        except Exception as exc:
+            last_exc = exc
+            if attempt + 1 < attempts:
+                time.sleep(0.35 * (2 ** attempt))
+    raise last_exc
 
 
 def _tmdb_search(api_key: str, title: str, year: str, media_type: str, language: str = "en-US", timeout: int = 12):
@@ -451,8 +517,8 @@ def _best_tmdb_candidate(payload: dict, title: str, year: str, media_type: str):
         if year and cy:
             year_ok = abs(int(year) - int(cy)) <= 1
         score = sim + (0.08 if year and cy and year_ok else 0.0)
-        # transliterated/original title searches can differ slightly; 0.78 remains conservative.
-        if year_ok and sim >= 0.78 and score > best_score:
+        threshold = _candidate_threshold(title, year)
+        if year_ok and sim >= threshold and score > best_score:
             best = dict(item)
             best["_similarity"] = round(sim, 3)
             best["_candidate_year"] = cy
@@ -463,6 +529,7 @@ def _best_tmdb_candidate(payload: dict, title: str, year: str, media_type: str):
 def _tmdb_lookup_imdb(
     api_key: str, title: str, year: str, media_type: str, language: str = "en-US",
     timeout: int = 12, raw_title: str = "", budget: _Budget | None = None,
+    aliases: dict[str, list[str]] | None = None,
 ) -> dict:
     cleaned = _canonical_metadata_title(title, media_type)
     attempts: list[tuple] = []
@@ -473,9 +540,15 @@ def _tmdb_lookup_imdb(
         if q and item[:4] not in [x[:4] for x in plans]:
             plans.append(item)
 
-    for variant in _title_variants(cleaned):
+    search_variants = _title_variants(cleaned)
+    for alias in _alias_variants(cleaned, aliases or {}):
+        if alias not in search_variants:
+            search_variants.append(alias)
+
+    for variant in search_variants:
         is_translit = normalize_name(variant) != normalize_name(cleaned) and not any("\u0400" <= c <= "\u04ff" for c in variant)
-        label_base = "translit" if is_translit else "localized"
+        is_alias = variant in _alias_variants(cleaned, aliases or {})
+        label_base = "alias" if is_alias else ("translit" if is_translit else "localized")
         add(variant, year, language if not is_translit else "en-US", media_type, f"{label_base}+year")
         add(variant, "", language if not is_translit else "en-US", media_type, f"{label_base}-no-year")
 
@@ -527,6 +600,10 @@ def _tmdb_lookup_imdb(
             "attempts": len(attempts),
             "resolved_media_type": lookup_type,
         }
+        candidate_display = result["title"] or result["original_title"]
+        result["confidence"] = _confidence_from_candidate(
+            float(result.get("similarity") or 0), q, candidate_display, y, str(result.get("year") or ""), label
+        )
         if IMDB_ID_RE.fullmatch(imdb_id or ""):
             result.update({"status": "found", "imdb_id": imdb_id})
             return result
@@ -535,25 +612,6 @@ def _tmdb_lookup_imdb(
         # Do not stop: another type/variant may have the correct IMDb-linked record.
 
     return no_imdb_candidate or {"status": "not_found", "query_title": cleaned, "language": language, "attempts": len(attempts)}
-
-
-def _validate_omdb_payload(payload: dict, title: str, year: str, media_type: str):
-    if str(payload.get("Response", "")).lower() != "true":
-        return {"status": "not_found"}
-    rt = str(payload.get("Title", "")).strip()
-    ry = str(payload.get("Year", "")).strip()
-    typ = str(payload.get("Type", "")).strip().lower()
-    sim = _title_similarity(title, rt)
-    year_ok = True
-    if year:
-        m = YEAR_RE.search(ry)
-        year_ok = bool(m and abs(int(m.group(1)) - int(year)) <= 1)
-    iid = str(payload.get("imdbID", "")).strip().lower()
-    rating = str(payload.get("imdbRating", "")).strip()
-    rating = "" if rating.upper() == "N/A" else rating
-    if sim >= 0.88 and year_ok and (not typ or typ == media_type) and IMDB_ID_RE.fullmatch(iid or ""):
-        return {"status": "found", "title": rt, "year": ry, "type": typ or media_type, "imdb_id": iid, "imdb_rating": rating, "similarity": round(sim, 3)}
-    return {"status": "rejected", "title": rt, "year": ry, "type": typ, "imdb_id": iid, "similarity": round(sim, 3)}
 
 
 def _normalize_votes(value) -> str:
@@ -581,10 +639,16 @@ def _imdb_page_metadata(imdb_id: str, timeout: int = 12) -> dict:
             "Accept-Language": "en-US,en;q=0.9",
         },
     )
-    try:
-        with urllib.request.urlopen(req, timeout=timeout) as r:
-            text = r.read().decode("utf-8", "replace")
-    except Exception:
+    text = ""
+    for attempt in range(2):
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                text = r.read().decode("utf-8", "replace")
+            break
+        except Exception:
+            if attempt == 0:
+                time.sleep(0.35)
+    if not text:
         return {"rating": "", "votes": ""}
 
     rating = ""
@@ -681,7 +745,7 @@ def _imdb_entity_fresh(entity: dict) -> bool:
 
 def _resolve_imdb_entity(
     imdb_id: str, entity_cache: dict, budget: _Budget, stats: Counter,
-    timeout: int, omdb_key: str = "",
+    timeout: int,
 ) -> dict:
     iid = (imdb_id or "").strip().lower()
     if not IMDB_ID_RE.fullmatch(iid):
@@ -702,19 +766,6 @@ def _resolve_imdb_entity(
     votes = _normalize_votes(meta.get("votes"))
     source = "imdb-direct" if rating or votes else ""
 
-    # OMDb is optional fallback only; it is never required for title resolution.
-    if not (rating or votes) and omdb_key and budget.consume():
-        stats["omdb_rating_fallback_requests"] += 1
-        try:
-            op = _omdb_lookup_id(omdb_key, iid, timeout)
-        except Exception:
-            op = {}
-        if str(op.get("Response", "")).lower() == "true":
-            rv = str(op.get("imdbRating") or "").strip()
-            rating = "" if rv.upper() == "N/A" else rv
-            votes = _normalize_votes(op.get("imdbVotes"))
-            if rating or votes:
-                source = "omdb-fallback"
 
     entity = {
         "rating": rating,
@@ -742,8 +793,14 @@ def _negative_cache_fresh(entry: dict) -> bool:
         age = (datetime.now(timezone.utc) - datetime.fromisoformat(ts)).total_seconds()
     except (ValueError, TypeError):
         return False
-    ttl = 2 * 86400 if status == "not_found" else 7 * 86400
-    return age < ttl
+    misses = max(1, int(entry.get("miss_count") or 1))
+    if status == "not_found":
+        ttl_days = 2 if misses <= 1 else (7 if misses <= 3 else 30)
+    elif status == "no_imdb_id":
+        ttl_days = 14 if misses <= 2 else 30
+    else:
+        ttl_days = 3
+    return age < ttl_days * 86400
 
 
 def _rating_needs_retry(entry: dict) -> bool:
@@ -760,11 +817,11 @@ def _rating_needs_retry(entry: dict) -> bool:
 
 
 def enrich_metadata(tv: ET.Element, mappings: list[dict], root: Path, output: Path) -> dict:
-    omdb_key = os.environ.get("OMDB_API_KEY", "").strip()
     tmdb_key = os.environ.get("TMDB_API_KEY", "").strip()
     max_requests = max(0, int(os.environ.get("METADATA_MAX_REQUESTS", "150") or 150))
     timeout = max(3, int(os.environ.get("METADATA_TIMEOUT", "12") or 12))
     budget = _Budget(max_requests)
+    aliases = _load_metadata_aliases(root)
 
     cache_path = root / ".cache" / "metadata" / CACHE_FILE
     cache = _load_cache(cache_path)
@@ -774,7 +831,7 @@ def enrich_metadata(tv: ET.Element, mappings: list[dict], root: Path, output: Pa
 
     # Safe one-time migration: keep only positive title->IMDb mappings from v6/v5.
     if not cache and not cache_path.exists():
-        for legacy_name in ("metadata-v60.json", "metadata-v50.json"):
+        for legacy_name in ("metadata-v70.json", "metadata-v60.json", "metadata-v50.json"):
             legacy = root / ".cache" / "metadata" / legacy_name
             cache = _load_cache(legacy)
             if cache:
@@ -879,46 +936,33 @@ def enrich_metadata(tv: ET.Element, mappings: list[dict], root: Path, output: Pa
                     stats["lookup_not_attempted"] += 1
                     continue
                 try:
-                    if tmdb_key:
-                        entry = _tmdb_lookup_imdb(
-                            tmdb_key, canonical_title, year, effective_type, language, timeout,
-                            raw_title=title, budget=budget,
-                        )
-                        stats["tmdb_resolver_calls"] += 1
-                        source = "tmdb"
-                    elif omdb_key:
-                        # OMDb-only fallback also gets transliteration variants.
-                        entry = {"status": "not_found", "query_title": canonical_title, "language": language, "attempts": 0}
-                        for variant in _title_variants(canonical_title):
-                            if not budget.consume():
-                                entry = {"status": "budget_exhausted", "query_title": canonical_title, "language": language}
-                                break
-                            payload = _omdb_lookup_title(omdb_key, variant, year, effective_type, timeout)
-                            stats["omdb_title_requests"] += 1
-                            candidate = _validate_omdb_payload(payload, variant, year, effective_type)
-                            if candidate.get("status") == "found":
-                                entry = candidate
-                                entry.update({"query_title": variant, "language": language, "attempt": "omdb-title-variant"})
-                                break
-                        source = "omdb-title"
-                    else:
+                    if not tmdb_key:
                         stats["lookup_not_attempted"] += 1
                         continue
+                    entry = _tmdb_lookup_imdb(
+                        tmdb_key, canonical_title, year, effective_type, language, timeout,
+                        raw_title=title, budget=budget, aliases=aliases,
+                    )
+                    stats["tmdb_resolver_calls"] += 1
+                    source = "tmdb"
 
                     if entry.get("status") == "found":
-                        stats["tmdb_matches" if tmdb_key else "omdb_title_matches"] += 1
-                        entity = _resolve_imdb_entity(
-                            entry["imdb_id"], imdb_entities, budget, stats, timeout, omdb_key
-                        )
+                        stats["tmdb_matches"] += 1
+                        entity = _resolve_imdb_entity(entry["imdb_id"], imdb_entities, budget, stats, timeout)
                         imdb_cache_changed = True
                         entry["imdb_rating"] = str(entity.get("rating") or "").strip()
                         entry["imdb_votes"] = _normalize_votes(entity.get("votes"))
                         entry["rating_source"] = str(entity.get("source") or "")
                         entry["rating_checked_at"] = str(entity.get("checked_at") or "")
-                        entry["resolver"] = "tmdb+imdb" if tmdb_key else "omdb-title"
+                        entry["resolver"] = "tmdb+imdb"
+                        if str(entry.get("attempt", "")).startswith("alias"):
+                            stats["alias_matches"] += 1
+                        stats[f"confidence_{entry.get('confidence', 0)}"] += 1
                     else:
-                        stats[f"tmdb_{entry.get('status', 'other')}" if tmdb_key else f"omdb_{entry.get('status', 'other')}"] += 1
-                        entry["resolver"] = "tmdb" if tmdb_key else "omdb-title"
+                        stats[f"tmdb_{entry.get('status', 'other')}"] += 1
+                        entry["resolver"] = "tmdb"
+                        previous_misses = int((cached or {}).get("miss_count") or 0)
+                        entry["miss_count"] = previous_misses + 1
 
                     entry["cached_at"] = datetime.now(timezone.utc).isoformat()
                     if entry.get("status") != "budget_exhausted":
@@ -938,7 +982,7 @@ def enrich_metadata(tv: ET.Element, mappings: list[dict], root: Path, output: Pa
             if entry and entry.get("status") == "found":
                 try:
                     entity = _resolve_imdb_entity(
-                        entry.get("imdb_id", ""), imdb_entities, budget, stats, timeout, omdb_key
+                        entry.get("imdb_id", ""), imdb_entities, budget, stats, timeout
                     )
                     if entity:
                         entry["imdb_rating"] = str(entity.get("rating") or "").strip()
@@ -966,7 +1010,7 @@ def enrich_metadata(tv: ET.Element, mappings: list[dict], root: Path, output: Pa
                 "detail": (
                     f"query={entry.get('query_title', canonical_title)}; lang={entry.get('language', language)}; "
                     f"attempt={entry.get('attempt', '')}; tmdb_title={entry.get('title', '')}; "
-                    f"rating_source={entry.get('rating_source', '')}; votes={votes}"
+                    f"rating_source={entry.get('rating_source', '')}; votes={votes}; confidence={entry.get('confidence', '')}"
                 ),
             })
         elif entry:
@@ -985,10 +1029,10 @@ def enrich_metadata(tv: ET.Element, mappings: list[dict], root: Path, output: Pa
         _save_imdb_entity_cache(imdb_cache_path, imdb_entities)
 
     if changed or imdb_cache_changed:
-        # v7 owns metadata-v70.json + imdb-entities-v70.json.
+        # v8 owns metadata-v80.json + imdb-entities-v80.json.
         # XMLTV fallback caches under .cache/epg are intentionally untouched.
         for obsolete in (
-            "metadata-v60.json", "metadata-v50.json", "metadata-v42.json",
+            "metadata-v70.json", "imdb-entities-v70.json", "metadata-v60.json", "metadata-v50.json", "metadata-v42.json",
             "metadata-v41.json", "metadata.json", "omdb.json"
         ):
             try:
@@ -1003,12 +1047,13 @@ def enrich_metadata(tv: ET.Element, mappings: list[dict], root: Path, output: Pa
 
     return {
         "summary": {
-            "mode": "fiction-only-ru-en+tmdb-resolver+direct-imdb-rating-votes+optional-omdb-fallback-v7.0",
+            "mode": "fiction-only-ru-en+tmdb-cascade+aliases+confidence+direct-imdb-rating-votes-v8.0",
             "metadata_version": METADATA_VERSION,
-            "api_configured": bool(tmdb_key or omdb_key),
+            "api_configured": bool(tmdb_key),
             "tmdb_configured": bool(tmdb_key),
-            "omdb_configured": bool(omdb_key),
-            "omdb_role": "optional-rating-fallback-only",
+            "omdb_removed": True,
+            "alias_file": ALIAS_FILE,
+            "alias_entries": len(aliases),
             "imdb_direct_enabled": True,
             "imdb_entity_cache_file": IMDB_ENTITY_CACHE_FILE,
             "imdb_entity_cache_entries": len(imdb_entities),

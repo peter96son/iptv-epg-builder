@@ -23,8 +23,8 @@ def test_imdb_entity_cache_prevents_repeat_network(monkeypatch):
     stats=m.Counter()
     budget=m._Budget(10)
     cache={}
-    a=m._resolve_imdb_entity("tt0119116", cache, budget, stats, 12, "")
-    b=m._resolve_imdb_entity("tt0119116", cache, budget, stats, 12, "")
+    a=m._resolve_imdb_entity("tt0119116", cache, budget, stats, 12)
+    b=m._resolve_imdb_entity("tt0119116", cache, budget, stats, 12)
     assert a["rating"]=="7.6"
     assert a["votes"]=="250000"
     assert b==a
@@ -32,20 +32,16 @@ def test_imdb_entity_cache_prevents_repeat_network(monkeypatch):
     assert budget.used==1
 
 
-def test_omdb_is_only_fallback_when_direct_imdb_empty(monkeypatch):
+def test_direct_imdb_empty_is_cached_without_omdb(monkeypatch):
     monkeypatch.setattr(m, "_imdb_page_metadata", lambda *a, **k: {"rating":"","votes":""})
-    monkeypatch.setattr(m, "_omdb_lookup_id", lambda *a, **k: {
-        "Response":"True","imdbRating":"6.4","imdbVotes":"12,345"
-    })
     stats=m.Counter()
     budget=m._Budget(10)
     cache={}
-    got=m._resolve_imdb_entity("tt0402910", cache, budget, stats, 12, "key")
-    assert got["source"]=="omdb-fallback"
-    assert got["rating"]=="6.4"
-    assert got["votes"]=="12345"
-    assert stats["omdb_rating_fallback_requests"]==1
-
+    got=m._resolve_imdb_entity("tt0402910", cache, budget, stats, 12)
+    assert got["source"]==""
+    assert got["rating"]==""
+    assert got["votes"]==""
+    assert stats["imdb_direct_requests"]==1
 
 def test_add_metadata_includes_votes():
     p=ET.fromstring("<programme><title>Test</title></programme>")

@@ -259,3 +259,8 @@ Manual research can be recorded in `data/accuracy_overrides.csv` with an evidenc
 
 ## v7.0 metadata
 TMDb resolves identity; direct IMDb supplies rating/votes; OMDb is optional fallback. Persistent IMDb-ID cache prevents repeated rating requests.
+
+
+## v8.0 metadata architecture
+
+TMDb is the sole title resolver. IMDb IDs come from TMDb external IDs. IMDb rating/votes are retrieved directly and cached by IMDb ID. v8 adds curated aliases, match confidence, stricter ambiguous-title thresholds, progressive negative-cache backoff, and workflow tests before each build.

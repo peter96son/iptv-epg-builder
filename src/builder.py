@@ -433,7 +433,7 @@ def build():
         }
 
     status = {
-        "builder_version": "7.0",
+        "builder_version": "8.0",
         "generated_at": datetime.now(timezone).isoformat(),
         "timezone": timezone_name,
         "playlist_channels": len(channels),

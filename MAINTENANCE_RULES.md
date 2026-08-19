@@ -20,3 +20,15 @@
 14. Refresh IMDb entity metadata after 30 days. If both rating and votes are missing, retry after 7 days.
 15. OMDb is optional fallback only when direct IMDb metadata retrieval yields no rating/votes. Never require OMDb for title resolution.
 16. Do not add Kinopoisk as a rating source unless the policy is explicitly changed.
+
+
+## v8 metadata rules
+
+17. TMDb is the only network title resolver. Do not restore OMDb without an explicit architecture decision.
+18. IMDb ID is identity; rating/votes are volatile and cached separately by IMDb ID.
+19. Curated aliases live in `data/metadata_aliases.json`; never add guessed translations as aliases.
+20. A title alias/transliteration/cross-type hit must still pass candidate confidence checks.
+21. Ambiguous one-word titles without a production year use stricter similarity thresholds.
+22. Negative results back off progressively; do not permanently blacklist titles because databases change.
+23. Preserve `.github/workflows/update.yml` in every FULL release and verify it exists in the ZIP.
+24. Run `python -m pytest -q` and compile checks before packaging a FULL release.
