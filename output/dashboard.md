@@ -1,17 +1,17 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-08-19T14:53:29.319963-07:00`
+- Generated: `2026-08-19T16:09:44.678843-07:00`
 - Playlist channels: **2700**
-- Baseline covered: **1612**
+- Baseline covered: **1611**
 - Final covered: **2102**
-- Added by fallbacks: **+490**
+- Added by fallbacks: **+491**
 - Unmatched: **598**
-- Programmes: **338776**
-- Movie coverage: **775/859** (+235)
+- Programmes: **338469**
+- Movie coverage: **775/859** (+236)
 
 ## Playlist changes
 
-- New channels: **2700**
+- New channels: **0**
 - Removed channels: **0**
 - Renamed: **0**
 - Stream URL changed: **0**
@@ -21,7 +21,7 @@
 
 | Group | Total | Baseline | Final | Added | Coverage |
 |---|---:|---:|---:|---:|---:|
-| Кинозалы | 358 | 232 | 329 | +97 | 91.9% |
+| Кинозалы | 358 | 231 | 329 | +98 | 91.9% |
 | Кинозалы UA | 206 | 103 | 187 | +84 | 90.8% |
 | Спорт | 249 | 96 | 161 | +65 | 64.7% |
 | Музыкальные | 150 | 44 | 90 | +46 | 60.0% |
@@ -63,11 +63,11 @@
 
 | Source | Status | Added |
 |---|---|---:|
-| iptv-online-primary | ok | 1612 |
+| iptv-online-primary | ok | 1611 |
 | iptvx-noarch | ok | 179 |
 | klimedia-dedicated | failed | 0 |
 | runigma-iptv | ok | 6 |
-| openbox-tsd | ok | 52 |
+| openbox-tsd | ok | 53 |
 | next-dedicated | ok | 0 |
 | bcumedia-dedicated | ok | 5 |
 | cineman-dedicated | ok | 0 |
@@ -138,4 +138,5 @@
 | Generated | Covered | Unmatched | Programmes |
 |---|---:|---:|---:|
 | 2026-08-19T14:53:29.319963-07:00 | 2102 | 598 | 338776 |
+| 2026-08-19T16:09:44.678843-07:00 | 2102 | 598 | 338469 |
 
