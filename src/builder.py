@@ -365,8 +365,8 @@ def build():
     if programme_count == 0:
         raise SystemExit("SAFETY STOP: generated zero fresh programmes.")
 
-    # v7.0 metadata enrichment: fiction-only RU/EN, canonical episode collapsing,
-    # TMDb + transliteration/cross-type resolver, OMDb and IMDb rating fallback.
+    # v9.0 metadata enrichment: fiction-only RU/EN, canonical episode collapsing,
+    # TMDb + transliteration/cross-type resolver; IMDb ratings use the local official dataset.
     metadata_report = enrich_metadata(tv, mappings, ROOT, OUTPUT)
     metadata_summary = metadata_report.get("summary", {})
 
@@ -433,7 +433,7 @@ def build():
         }
 
     status = {
-        "builder_version": "8.0",
+        "builder_version": "9.0",
         "generated_at": datetime.now(timezone).isoformat(),
         "timezone": timezone_name,
         "playlist_channels": len(channels),
@@ -551,7 +551,7 @@ def build():
         for name, vals in sorted(source_totals.items(), key=lambda kv: -kv[1]["total_added"])
     ]
 
-    # v4.1 metadata enrichment report. Never contains the OMDb API key.
+    # Metadata enrichment report; no API secrets are written.
     save_json(OUTPUT / "metadata-enrichment.json", metadata_report)
     write_csv(OUTPUT / "metadata-enrichment.csv", metadata_report.get("rows", []),
               ["channel_id", "title", "year", "type", "status", "source", "imdb_id", "imdb_rating", "imdb_votes", "detail"])

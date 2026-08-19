@@ -29,7 +29,7 @@ jobs:
       - name: Install test dependencies
         run: python -m pip install -r requirements.txt
 
-      - name: Restore XMLTV and metadata cache
+      - name: Restore XMLTV, TMDb and IMDb dataset cache
         uses: actions/cache@v4
         with:
           path: .cache
