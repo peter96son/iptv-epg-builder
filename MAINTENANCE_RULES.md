@@ -1,20 +1,34 @@
 # Maintenance rules for future edits
 
-1. Update `src/metadata_enrichment.py` directly; do not create sidecar patch modules for normal releases.
-2. Before shipping, run `python -m pytest -q` and a Python compile check, then verify `.github/workflows/update.yml` exists inside the final ZIP.
-3. Preserve RU/EN-only fictional movie/series enrichment unless the scope is explicitly changed.
-4. Never spend one title lookup per episode: canonicalize series titles and keep in-run/persistent caches.
-5. Do not trust upstream language tags when title text strongly indicates another language.
-6. TMDb is the network title resolver and IMDb-ID source. A TMDb result without IMDb ID is not final until remaining safe variants are tried.
-7. Curated aliases live in `data/metadata_aliases.json`; never add guessed translations as aliases.
-8. Alias/transliteration/cross-type matches must still pass confidence checks. Ambiguous short titles require stricter thresholds.
-9. Negative results use progressive expiry; never permanently blacklist a title because external databases change.
-10. IMDb ID is stable identity; rating and vote count are separate volatile metadata.
-11. Never scrape IMDb title pages and do not restore OMDb without an explicit architecture decision.
-12. IMDb rating/votes come only from the official Contributor Ratings Dataset `title.ratings.tsv.gz`.
-13. Build/reuse `.cache/imdb/imdb-ratings.sqlite3`; dataset lookups do not consume the TMDb API budget.
-14. Stable caches are `.cache/metadata/metadata-cache.json` and `.cache/metadata/imdb-cache.json`; do not rename them per release without an incompatible schema reason.
-15. Preserve `.cache/epg`, `.cache/metadata`, and `.cache/imdb` across GitHub Actions runs.
-16. Legacy `tmdb+omdb`, `tmdb+metadata`, and direct-page source labels must never appear in newly generated v9 reports.
-17. Generated `output/` is operational state consumed by the Worker; it may be carried in a FULL release but Actions remains authoritative and rebuilds it.
-18. IMDb contributor data is for personal/non-commercial use under IMDb's applicable terms. Keep the attribution in README/release documentation.
+1. Do not create sidecar metadata patch modules for normal releases. Update `src/metadata_enrichment.py` directly.
+2. Before shipping, run `python -m pytest -q` and `python -m py_compile src/metadata_enrichment.py`.
+3. Preserve RU/EN-only fiction enrichment unless the policy is explicitly changed.
+4. Do not spend one API lookup per episode: canonicalize series titles and use in-run memo/cache keys.
+5. Do not trust provider language tags when title text strongly indicates another language.
+6. Do not cache `not_found` forever. Positive IMDb-ID matches may be long-lived; negatives must expire.
+7. Do not delete `.cache/epg`; it is stale-if-error protection for unstable XMLTV sources.
+8. Generated `output/` is operational state consumed by the Worker. Code releases may preserve it, but it is rebuilt by Actions.
+9. A TMDb result without IMDb ID is not a final failure until remaining safe resolver variants have been tried.
+10. IMDb rating is separate from IMDb ID. A valid ID with missing rating remains an enriched record and may be refreshed later.
+
+
+## v7 metadata rules
+
+11. TMDb is the primary title resolver. IMDb ID is the stable identity key.
+12. IMDb rating and vote count are volatile entity metadata and live in `imdb-entities-v70.json`, keyed by IMDb ID.
+13. Query IMDb directly only for a new/stale IMDb ID; do not request rating per episode or per channel occurrence.
+14. Refresh IMDb entity metadata after 30 days. If both rating and votes are missing, retry after 7 days.
+15. OMDb is optional fallback only when direct IMDb metadata retrieval yields no rating/votes. Never require OMDb for title resolution.
+16. Do not add Kinopoisk as a rating source unless the policy is explicitly changed.
+
+
+## v8 metadata rules
+
+17. TMDb is the only network title resolver. Do not restore OMDb without an explicit architecture decision.
+18. IMDb ID is identity; rating/votes are volatile and cached separately by IMDb ID.
+19. Curated aliases live in `data/metadata_aliases.json`; never add guessed translations as aliases.
+20. A title alias/transliteration/cross-type hit must still pass candidate confidence checks.
+21. Ambiguous one-word titles without a production year use stricter similarity thresholds.
+22. Negative results back off progressively; do not permanently blacklist titles because databases change.
+23. Preserve `.github/workflows/update.yml` in every FULL release and verify it exists in the ZIP.
+24. Run `python -m pytest -q` and compile checks before packaging a FULL release.

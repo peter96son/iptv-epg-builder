@@ -1,3 +1,7 @@
+# IPTV EPG Builder v10.0
+
+Current release: **v10.0**. See `RELEASE_NOTES_V10.0.md`.
+
 # IPTV EPG Builder
 
 Personal XMLTV/EPG builder for a large IPTV playlist, optimized first for Russian, Ukrainian, Belarusian, English, German and Dutch channels.
@@ -200,32 +204,43 @@ conflicts are quarantined before `uhf-mapping.json` is published. Real EPG only:
 synthetic DITV schedules are disabled.
 
 
-## Metadata engine v9.0
+## v4.1 IMDb metadata enrichment
+The builder normalizes IMDb metadata already present in upstream XMLTV and enriches missing fictional movie/series metadata with the v8 resolver. `TMDB_API_KEY` is the only metadata API secret required. TMDb resolves the title and IMDb ID; IMDb rating/vote count are read directly from IMDb and cached by IMDb ID. Reports: `output/metadata-enrichment.json` and `output/metadata-enrichment.csv`.
 
-The metadata pipeline is now:
 
-`RU/EN fictional title → canonicalization → aliases/transliteration/year-aware TMDb search → TMDb external_ids → IMDb ID → official IMDb Contributor Ratings Dataset → local cache`.
+## TMDb / IMDb resolver
+Localized RU/EN fictional titles are resolved through TMDb first, with normalized/transliterated fallbacks and safe movie/series cross-checking. IMDb IDs are obtained from TMDb external IDs. Rating and vote count are then read directly from IMDb and cached separately by IMDb ID; OMDb is only an optional fallback. Identity mappings live in `.cache/metadata/metadata-v70.json`, while volatile IMDb entity data lives in `.cache/metadata/imdb-entities-v70.json`.
 
-Key behavior:
-- only fictional movies and fictional series are enriched; documentary/factual blocks are skipped;
-- Russian and English are in scope; strong Ukrainian/Belarusian title signals override bad upstream language tags;
-- episode/multipart suffixes collapse to a canonical series identity, so many episodes do not spend repeated TMDb lookups;
-- transliteration and curated aliases are search hints, but candidate confidence checks still apply;
-- ambiguous short titles require stricter similarity;
-- progressive negative-cache backoff allows later retries without hammering TMDb;
-- OMDb is not used; IMDb title pages are not scraped.
+## v7.0 metadata resolver
 
-Ratings and votes come from IMDb's official contributor dataset `title.ratings.tsv.gz`. The first run builds a local SQLite index and later runs reuse it from GitHub Actions cache.
+Version 7.0 keeps a single built-in resolver in `src/metadata_enrichment.py` and separates stable title identity from volatile IMDb rating/vote metadata.
 
-## Metadata architecture v9.0
+Key rules:
+- metadata enrichment is limited to fictional movies and fictional series;
+- only Russian- and English-language titles are enriched; Ukrainian/Belarusian/other titles are skipped even if an upstream XMLTV source incorrectly labels them as `ru-RU`;
+- episode suffixes and multipart mini-series are collapsed to one canonical title, so many episodes share one in-run lookup/cache entry;
+- Russian Cyrillic titles also get Latin transliteration variants (for IMDb/TMDb records indexed like `Kupel dyavola`);
+- TMDb search can cross-check movie/series type for multipart titles and does not stop at the first TMDb result that lacks an IMDb ID;
+- OMDb is queried by IMDb ID for rating; if OMDb returns no rating, the resolver can fall back to IMDb page structured data;
+- missing ratings are retried periodically instead of being cached forever;
+- v7 uses `.cache/metadata/metadata-v70.json` plus `.cache/metadata/imdb-entities-v70.json`. Successful v6/v5 IMDb-ID mappings are migrated; old negative results are discarded. Obsolete metadata caches are removed only after successful v7 saves. `.cache/epg/` remains important and is never removed by metadata cleanup.
 
-Version 9 removes IMDb page scraping and uses the official IMDb Contributor Dataset `title.ratings.tsv.gz` for rating and vote count lookups. TMDb remains the title resolver and supplies IMDb IDs through `external_ids`.
+The Actions request ceiling is `METADATA_MAX_REQUESTS` and now counts actual metadata network requests rather than only top-level title lookups.
 
-The first run downloads the IMDb ratings dataset and builds `.cache/imdb/imdb-ratings.sqlite3`. The database is refreshed at most once every 24 hours and is restored by GitHub Actions cache. Rating lookups are local SQLite queries and do not consume the TMDb request budget.
 
-Stable caches no longer include the release version in the filename:
-- `.cache/metadata/metadata-cache.json` — title identity, positive and negative resolver results.
-- `.cache/metadata/imdb-cache.json` — IMDb ID to rating/votes cache.
-- `.cache/imdb/imdb-ratings.sqlite3` — local index of the official IMDb ratings dataset.
+## Metadata architecture v7.0
 
-IMDb contributor data is for personal/non-commercial use under IMDb's applicable terms. Information courtesy of IMDb. Used with permission.
+`TMDb -> IMDb ID -> direct IMDb rating/votes -> persistent IMDb-ID cache`.
+
+OMDb is not used by v8.0. The runtime metadata path is `canonical RU/EN title → TMDb cascade → TMDb external_ids → IMDb ID → direct IMDb rating/votes`.
+
+Persistent caches:
+- `.cache/metadata/metadata-v70.json` — canonical title/type/language -> IMDb/TMDb identity.
+- `.cache/metadata/imdb-entities-v70.json` — IMDb ID -> rating, votes, source, checked timestamp.
+
+IMDb entity data refreshes every 30 days; missing rating/votes retry after 7 days. Series episodes share the same canonical identity and IMDb entity entry.
+
+
+## Metadata engine v8.0
+
+The resolver uses canonical episode collapsing, strict RU/EN language filtering, transliteration, curated aliases, year-aware matching, safe multipart movie/series cross-type fallback, confidence scoring, progressive negative-cache backoff, and separate stable-identity/volatile-rating caches. Curated aliases live in `data/metadata_aliases.json`; they are search hints and never bypass confidence checks.
