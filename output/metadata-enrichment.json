@@ -1,51 +1,53 @@
 {
   "summary": {
-    "mode": "fiction-only-ru-en+tmdb-resolver+direct-imdb-rating-votes+optional-omdb-fallback-v7.0",
-    "metadata_version": "7.0",
+    "mode": "fiction-only-ru-en+tmdb-cascade+aliases+confidence+direct-imdb-rating-votes-v8.0",
+    "metadata_version": "8.0",
     "api_configured": true,
     "tmdb_configured": true,
-    "omdb_configured": true,
-    "omdb_role": "optional-rating-fallback-only",
+    "omdb_removed": true,
+    "alias_file": "metadata_aliases.json",
+    "alias_entries": 1,
     "imdb_direct_enabled": true,
-    "imdb_entity_cache_file": "imdb-entities-v70.json",
-    "imdb_entity_cache_entries": 63,
+    "imdb_entity_cache_file": "imdb-entities-v80.json",
+    "imdb_entity_cache_entries": 77,
     "imdb_refresh_days": 30,
     "max_network_requests_per_run": 150,
     "network_requests_used": 150,
-    "cache_file": "metadata-v70.json",
-    "cache_entries": 95,
-    "programmes_considered": 326855,
-    "non_fiction_skipped": 222442,
-    "cache_hits": 65,
-    "imdb_direct_requests": 47,
-    "omdb_rating_fallback_requests": 47,
-    "imdb_entity_cache_updates": 47,
-    "programmes_enriched": 955,
-    "metadata_matches": 955,
+    "cache_file": "metadata-v80.json",
+    "cache_entries": 111,
+    "programmes_considered": 328240,
+    "non_fiction_skipped": 222095,
+    "cache_hits": 59,
+    "imdb_direct_requests": 57,
+    "imdb_entity_cache_updates": 57,
+    "programmes_enriched": 978,
+    "metadata_matches": 978,
     "multipart_movies_reclassified": 1842,
-    "tmdb_resolver_calls": 19,
+    "tmdb_resolver_calls": 35,
     "tmdb_not_found": 14,
     "result_not_found": 318,
-    "imdb_votes_matches": 42,
-    "imdb_rating_matches": 38,
-    "in_run_memo_hits": 1231,
-    "tmdb_no_imdb_id": 4,
-    "result_no_imdb_id": 34,
-    "non_ru_en_titles_skipped": 11687,
-    "uk_titles_skipped": 11282,
-    "generic_schedule_blocks_skipped": 121,
+    "in_run_memo_hits": 1245,
+    "tmdb_no_imdb_id": 7,
+    "result_no_imdb_id": 41,
+    "non_ru_en_titles_skipped": 13517,
+    "uk_titles_skipped": 13112,
     "episode_titles_collapsed": 3533,
-    "imdb_entity_cache_hits": 4,
+    "imdb_entity_cache_hits": 17,
+    "tmdb_matches": 13,
+    "confidence_98": 12,
+    "alias_matches": 1,
+    "confidence_97": 1,
     "tmdb_budget_exhausted": 1,
-    "result_budget_exhausted": 8,
-    "imdb_entity_lookup_not_attempted": 14,
-    "lookup_not_attempted": 83353,
+    "result_budget_exhausted": 2,
+    "lookup_not_attempted": 83517,
+    "generic_schedule_blocks_skipped": 96,
+    "imdb_entity_lookup_not_attempted": 11,
     "be_titles_skipped": 12,
-    "programmes_with_existing_imdb": 7929,
-    "existing_metadata_normalized": 7929,
+    "programmes_with_existing_imdb": 7668,
+    "existing_metadata_normalized": 7668,
     "unknown_titles_skipped": 393,
     "title_too_short": 1,
-    "unique_report_rows": 389
+    "unique_report_rows": 401
   },
   "rows": [
     {
@@ -58,7 +60,7 @@
       "imdb_id": "tt6236470",
       "imdb_rating": "",
       "imdb_votes": "",
-      "detail": "query=Команда Че; lang=ru-RU; attempt=localized+year; tmdb_title=Команда ЧЕ; rating_source=; votes="
+      "detail": "query=Команда Че; lang=ru-RU; attempt=localized+year; tmdb_title=Команда ЧЕ; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X12-omsk",
@@ -81,8 +83,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt5720368",
       "imdb_rating": "",
-      "imdb_votes": "60",
-      "detail": "query=Квест; lang=ru-RU; attempt=localized+year; tmdb_title=Квест; rating_source=omdb-fallback; votes=60"
+      "imdb_votes": "",
+      "detail": "query=Квест; lang=ru-RU; attempt=localized+year; tmdb_title=Квест; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xbolt-ru",
@@ -92,9 +94,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt9025100",
-      "imdb_rating": "6.2",
-      "imdb_votes": "30",
-      "detail": "query=Штрафник; lang=ru-RU; attempt=localized+year; tmdb_title=Штрафник; rating_source=omdb-fallback; votes=30"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Штрафник; lang=ru-RU; attempt=localized+year; tmdb_title=Штрафник; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X12-omsk",
@@ -116,9 +118,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt9025100",
-      "imdb_rating": "6.2",
-      "imdb_votes": "30",
-      "detail": "query=Штрафник; lang=ru-RU; attempt=localized+year; tmdb_title=Штрафник; rating_source=omdb-fallback; votes=30"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Штрафник; lang=ru-RU; attempt=localized+year; tmdb_title=Штрафник; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X12-omsk",
@@ -129,8 +131,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt5720368",
       "imdb_rating": "",
-      "imdb_votes": "60",
-      "detail": "query=Квест; lang=ru-RU; attempt=localized+year; tmdb_title=Квест; rating_source=omdb-fallback; votes=60"
+      "imdb_votes": "",
+      "detail": "query=Квест; lang=ru-RU; attempt=localized+year; tmdb_title=Квест; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X12-omsk",
@@ -142,7 +144,7 @@
       "imdb_id": "tt6236470",
       "imdb_rating": "",
       "imdb_votes": "",
-      "detail": "query=Команда Че; lang=ru-RU; attempt=localized+year; tmdb_title=Команда ЧЕ; rating_source=; votes="
+      "detail": "query=Команда Че; lang=ru-RU; attempt=localized+year; tmdb_title=Команда ЧЕ; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xexpress",
@@ -189,8 +191,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt5720368",
       "imdb_rating": "",
-      "imdb_votes": "60",
-      "detail": "query=Квест; lang=ru-RU; attempt=localized+year; tmdb_title=Квест; rating_source=omdb-fallback; votes=60"
+      "imdb_votes": "",
+      "detail": "query=Квест; lang=ru-RU; attempt=localized+year; tmdb_title=Квест; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X12-omsk",
@@ -202,7 +204,7 @@
       "imdb_id": "tt6236470",
       "imdb_rating": "",
       "imdb_votes": "",
-      "detail": "query=Команда Че; lang=ru-RU; attempt=localized+year; tmdb_title=Команда ЧЕ; rating_source=; votes="
+      "detail": "query=Команда Че; lang=ru-RU; attempt=localized+year; tmdb_title=Команда ЧЕ; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X12-omsk",
@@ -249,8 +251,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt5720368",
       "imdb_rating": "",
-      "imdb_votes": "60",
-      "detail": "query=Квест; lang=ru-RU; attempt=localized+year; tmdb_title=Квест; rating_source=omdb-fallback; votes=60"
+      "imdb_votes": "",
+      "detail": "query=Квест; lang=ru-RU; attempt=localized+year; tmdb_title=Квест; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X12-omsk",
@@ -262,7 +264,7 @@
       "imdb_id": "tt6236470",
       "imdb_rating": "",
       "imdb_votes": "",
-      "detail": "query=Команда Че; lang=ru-RU; attempt=localized+year; tmdb_title=Команда ЧЕ; rating_source=; votes="
+      "detail": "query=Команда Че; lang=ru-RU; attempt=localized+year; tmdb_title=Команда ЧЕ; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X12-omsk",
@@ -309,8 +311,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt5720368",
       "imdb_rating": "",
-      "imdb_votes": "60",
-      "detail": "query=Квест; lang=ru-RU; attempt=localized+year; tmdb_title=Квест; rating_source=omdb-fallback; votes=60"
+      "imdb_votes": "",
+      "detail": "query=Квест; lang=ru-RU; attempt=localized+year; tmdb_title=Квест; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X12-omsk",
@@ -322,7 +324,7 @@
       "imdb_id": "tt6236470",
       "imdb_rating": "",
       "imdb_votes": "",
-      "detail": "query=Команда Че; lang=ru-RU; attempt=localized+year; tmdb_title=Команда ЧЕ; rating_source=; votes="
+      "detail": "query=Команда Че; lang=ru-RU; attempt=localized+year; tmdb_title=Команда ЧЕ; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X12-omsk",
@@ -357,8 +359,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt5720368",
       "imdb_rating": "",
-      "imdb_votes": "60",
-      "detail": "query=Квест; lang=ru-RU; attempt=localized+year; tmdb_title=Квест; rating_source=omdb-fallback; votes=60"
+      "imdb_votes": "",
+      "detail": "query=Квест; lang=ru-RU; attempt=localized+year; tmdb_title=Квест; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "muvitv",
@@ -368,9 +370,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt8060328",
-      "imdb_rating": "5.6",
-      "imdb_votes": "6859",
-      "detail": "query=Вторжение; lang=ru-RU; attempt=localized+year; tmdb_title=Вторжение; rating_source=omdb-fallback; votes=6859"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Вторжение; lang=ru-RU; attempt=localized+year; tmdb_title=Вторжение; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xtrk-ryazan",
@@ -392,9 +394,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt0372620",
-      "imdb_rating": "5.8",
-      "imdb_votes": "66",
-      "detail": "query=Жизнь одна; lang=ru-RU; attempt=localized+year; tmdb_title=Жизнь одна; rating_source=omdb-fallback; votes=66"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Жизнь одна; lang=ru-RU; attempt=localized+year; tmdb_title=Жизнь одна; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xtv-in",
@@ -404,9 +406,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt0154877",
-      "imdb_rating": "6.7",
-      "imdb_votes": "146",
-      "detail": "query=Миллион в брачной корзине; lang=ru-RU; attempt=localized+year; tmdb_title=Миллион в брачной корзине; rating_source=omdb-fallback; votes=146"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Миллион в брачной корзине; lang=ru-RU; attempt=localized+year; tmdb_title=Миллион в брачной корзине; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xexpress",
@@ -416,9 +418,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt0475252",
-      "imdb_rating": "5.5",
-      "imdb_votes": "3154",
-      "detail": "query=Как Джек встретил Джилл; lang=ru-RU; attempt=localized+year; tmdb_title=Как Джек встретил Джилл; rating_source=omdb-fallback; votes=3154"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Как Джек встретил Джилл; lang=ru-RU; attempt=localized+year; tmdb_title=Как Джек встретил Джилл; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X1plus1-int",
@@ -477,8 +479,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt36412830",
       "imdb_rating": "",
-      "imdb_votes": "26",
-      "detail": "query=Раша гудбай; lang=ru-RU; attempt=localized+year; tmdb_title=раша Гудбай; rating_source=omdb-fallback; votes=26"
+      "imdb_votes": "",
+      "detail": "query=Раша гудбай; lang=ru-RU; attempt=localized+year; tmdb_title=раша Гудбай; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X2plus2",
@@ -488,9 +490,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt0799951",
-      "imdb_rating": "4.0",
-      "imdb_votes": "1036",
-      "detail": "query=Бронежилет; lang=ru-RU; attempt=localized+year; tmdb_title=Бронежилет; rating_source=omdb-fallback; votes=1036"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Бронежилет; lang=ru-RU; attempt=localized+year; tmdb_title=Бронежилет; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xminimax-fobija",
@@ -500,9 +502,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt0116287",
-      "imdb_rating": "6.2",
-      "imdb_votes": "61600",
-      "detail": "query=Страх; lang=ru-RU; attempt=localized+year; tmdb_title=Страх; rating_source=omdb-fallback; votes=61600"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Страх; lang=ru-RU; attempt=localized+year; tmdb_title=Страх; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xkino-24",
@@ -514,7 +516,7 @@
       "imdb_id": "tt5500064",
       "imdb_rating": "",
       "imdb_votes": "",
-      "detail": "query=Афера Томаса Крауна; lang=ru-RU; attempt=localized+year; tmdb_title=Афера Томаса Крауна; rating_source=; votes="
+      "detail": "query=Афера Томаса Крауна; lang=ru-RU; attempt=localized+year; tmdb_title=Афера Томаса Крауна; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xminimax-boevik",
@@ -524,9 +526,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt0402910",
-      "imdb_rating": "6.4",
-      "imdb_votes": "60262",
-      "detail": "query=Хаос; lang=ru-RU; attempt=localized+year; tmdb_title=Хаос; rating_source=omdb-fallback; votes=60262"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Хаос; lang=ru-RU; attempt=localized+year; tmdb_title=Хаос; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xtexno-24",
@@ -536,9 +538,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1247640",
-      "imdb_rating": "6.5",
-      "imdb_votes": "47419",
-      "detail": "query=13 район: Ультиматум; lang=ru-RU; attempt=localized+year; tmdb_title=13-й район: Ультиматум; rating_source=omdb-fallback; votes=47419"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=13 район: Ультиматум; lang=ru-RU; attempt=localized+year; tmdb_title=13-й район: Ультиматум; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X365-dnej",
@@ -550,7 +552,7 @@
       "imdb_id": "tt32338669",
       "imdb_rating": "",
       "imdb_votes": "",
-      "detail": "query=Мятеж; lang=ru-RU; attempt=cross-type+year; tmdb_title=Мятеж; rating_source=; votes="
+      "detail": "query=Мятеж; lang=ru-RU; attempt=cross-type+year; tmdb_title=Мятеж; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X365-dnej",
@@ -562,151 +564,7 @@
       "imdb_id": "tt32338669",
       "imdb_rating": "",
       "imdb_votes": "",
-      "detail": "query=Мятеж; lang=ru-RU; attempt=cross-type+year; tmdb_title=Мятеж; rating_source=; votes="
-    },
-    {
-      "channel_id": "X4ever-cinema",
-      "title": "х/ф Шалако",
-      "year": "",
-      "type": "movie",
-      "status": "enriched",
-      "source": "tmdb+omdb",
-      "imdb_id": "tt0063592",
-      "imdb_rating": "5.6",
-      "imdb_votes": "3565",
-      "detail": "query=Шалако; lang=ru-RU; attempt=localized+year; tmdb_title=Шалако; rating_source=omdb-fallback; votes=3565"
-    },
-    {
-      "channel_id": "X4ever-cinema",
-      "title": "х/ф Клерки",
-      "year": "",
-      "type": "movie",
-      "status": "enriched",
-      "source": "tmdb+omdb",
-      "imdb_id": "tt0109445",
-      "imdb_rating": "7.7",
-      "imdb_votes": "238383",
-      "detail": "query=Клерки; lang=ru-RU; attempt=localized+year; tmdb_title=Клерки; rating_source=omdb-fallback; votes=238383"
-    },
-    {
-      "channel_id": "X4ever-drama",
-      "title": "х/ф Самба",
-      "year": "",
-      "type": "movie",
-      "status": "enriched",
-      "source": "tmdb+omdb",
-      "imdb_id": "tt3399024",
-      "imdb_rating": "6.7",
-      "imdb_votes": "17865",
-      "detail": "query=Самба; lang=ru-RU; attempt=localized+year; tmdb_title=Самба; rating_source=omdb-fallback; votes=17865"
-    },
-    {
-      "channel_id": "Xpervy-krymsky",
-      "title": "х/ф Дублер",
-      "year": "",
-      "type": "movie",
-      "status": "no_imdb_id",
-      "source": "tmdb",
-      "imdb_id": "",
-      "imdb_rating": "",
-      "imdb_votes": "",
-      "detail": "query=Дублер; lang=ru-RU; attempts=1"
-    },
-    {
-      "channel_id": "Xtv1000-action",
-      "title": "х/ф Катастрофа",
-      "year": "",
-      "type": "movie",
-      "status": "enriched",
-      "source": "tmdb+metadata",
-      "imdb_id": "tt0060582",
-      "imdb_rating": "6.7",
-      "imdb_votes": "13",
-      "detail": "query=Katastrofa; lang=en-US; attempt=translit+year; tmdb_title=The Catastrophe; rating_source=omdb-fallback; votes=13"
-    },
-    {
-      "channel_id": "Xvhs-ka",
-      "title": "х/ф Стукач",
-      "year": "",
-      "type": "movie",
-      "status": "enriched",
-      "source": "tmdb+omdb",
-      "imdb_id": "tt35851026",
-      "imdb_rating": "6.5",
-      "imdb_votes": "1113",
-      "detail": "query=Стукач; lang=ru-RU; attempt=localized+year; tmdb_title=Стукач; rating_source=omdb-fallback; votes=1113"
-    },
-    {
-      "channel_id": "Xtv1000-worldkino",
-      "title": "х/ф Нью-Йорк, Нью-Йорк",
-      "year": "",
-      "type": "movie",
-      "status": "enriched",
-      "source": "tmdb+omdb",
-      "imdb_id": "tt0383028",
-      "imdb_rating": "7.5",
-      "imdb_votes": "102537",
-      "detail": "query=Нью-Йорк, Нью-Йорк; lang=ru-RU; attempt=localized+year; tmdb_title=Нью-Йорк, Нью-Йорк; rating_source=omdb-fallback; votes=102537"
-    },
-    {
-      "channel_id": "X4ever-drama",
-      "title": "х/ф Тельма",
-      "year": "",
-      "type": "movie",
-      "status": "enriched",
-      "source": "tmdb+omdb",
-      "imdb_id": "tt6304046",
-      "imdb_rating": "6.9",
-      "imdb_votes": "38073",
-      "detail": "query=Тельма; lang=ru-RU; attempt=localized+year; tmdb_title=Тельма; rating_source=omdb-fallback; votes=38073"
-    },
-    {
-      "channel_id": "X4ever-theater",
-      "title": "х/ф Блейз",
-      "year": "",
-      "type": "movie",
-      "status": "enriched",
-      "source": "tmdb+omdb",
-      "imdb_id": "tt11018264",
-      "imdb_rating": "5.9",
-      "imdb_votes": "1099",
-      "detail": "query=Блейз; lang=ru-RU; attempt=localized+year; tmdb_title=Блейз; rating_source=omdb-fallback; votes=1099"
-    },
-    {
-      "channel_id": "X4ever-theater",
-      "title": "х/ф Бульвар Сансет",
-      "year": "",
-      "type": "movie",
-      "status": "not_found",
-      "source": "tmdb",
-      "imdb_id": "",
-      "imdb_rating": "",
-      "imdb_votes": "",
-      "detail": "query=Бульвар Сансет; lang=ru-RU; attempts=2"
-    },
-    {
-      "channel_id": "Xtexno-24",
-      "title": "х/ф Бандит",
-      "year": "",
-      "type": "movie",
-      "status": "enriched",
-      "source": "tmdb+omdb",
-      "imdb_id": "tt9853500",
-      "imdb_rating": "6.4",
-      "imdb_votes": "16632",
-      "detail": "query=Бандит; lang=ru-RU; attempt=localized+year; tmdb_title=Бандит; rating_source=omdb-fallback; votes=16632"
-    },
-    {
-      "channel_id": "X4ever-theater",
-      "title": "х/ф Бригадун (1954)",
-      "year": "1954",
-      "type": "movie",
-      "status": "enriched",
-      "source": "tmdb+omdb",
-      "imdb_id": "tt0046807",
-      "imdb_rating": "6.8",
-      "imdb_votes": "9753",
-      "detail": "query=Бригадун; lang=ru-RU; attempt=localized+year; tmdb_title=Бригадун; rating_source=omdb-fallback; votes=9753"
+      "detail": "query=Мятеж; lang=ru-RU; attempt=cross-type+year; tmdb_title=Мятеж; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru",
@@ -752,9 +610,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt1743280",
-      "imdb_rating": "6.2",
-      "imdb_votes": "87",
-      "detail": "query=Десантура. Никто, кроме нас; lang=ru-RU; attempt=localized+year; tmdb_title=Десантура. Никто, кроме нас; rating_source=omdb-fallback; votes=87"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Десантура. Никто, кроме нас; lang=ru-RU; attempt=localized+year; tmdb_title=Десантура. Никто, кроме нас; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -764,9 +622,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt1743280",
-      "imdb_rating": "6.2",
-      "imdb_votes": "87",
-      "detail": "query=Десантура. Никто, кроме нас; lang=ru-RU; attempt=localized+year; tmdb_title=Десантура. Никто, кроме нас; rating_source=omdb-fallback; votes=87"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Десантура. Никто, кроме нас; lang=ru-RU; attempt=localized+year; tmdb_title=Десантура. Никто, кроме нас; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -776,9 +634,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt1743280",
-      "imdb_rating": "6.2",
-      "imdb_votes": "87",
-      "detail": "query=Десантура. Никто, кроме нас; lang=ru-RU; attempt=localized+year; tmdb_title=Десантура. Никто, кроме нас; rating_source=omdb-fallback; votes=87"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Десантура. Никто, кроме нас; lang=ru-RU; attempt=localized+year; tmdb_title=Десантура. Никто, кроме нас; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -788,9 +646,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt1743280",
-      "imdb_rating": "6.2",
-      "imdb_votes": "87",
-      "detail": "query=Десантура. Никто, кроме нас; lang=ru-RU; attempt=localized+year; tmdb_title=Десантура. Никто, кроме нас; rating_source=omdb-fallback; votes=87"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Десантура. Никто, кроме нас; lang=ru-RU; attempt=localized+year; tmdb_title=Десантура. Никто, кроме нас; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -800,9 +658,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt1743280",
-      "imdb_rating": "6.2",
-      "imdb_votes": "87",
-      "detail": "query=Десантура. Никто, кроме нас; lang=ru-RU; attempt=localized+year; tmdb_title=Десантура. Никто, кроме нас; rating_source=omdb-fallback; votes=87"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Десантура. Никто, кроме нас; lang=ru-RU; attempt=localized+year; tmdb_title=Десантура. Никто, кроме нас; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -812,9 +670,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt1743280",
-      "imdb_rating": "6.2",
-      "imdb_votes": "87",
-      "detail": "query=Десантура. Никто, кроме нас; lang=ru-RU; attempt=localized+year; tmdb_title=Десантура. Никто, кроме нас; rating_source=omdb-fallback; votes=87"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Десантура. Никто, кроме нас; lang=ru-RU; attempt=localized+year; tmdb_title=Десантура. Никто, кроме нас; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -825,8 +683,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt11871384",
       "imdb_rating": "",
-      "imdb_votes": "13",
-      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=omdb-fallback; votes=13"
+      "imdb_votes": "",
+      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -837,8 +695,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt11871384",
       "imdb_rating": "",
-      "imdb_votes": "13",
-      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=omdb-fallback; votes=13"
+      "imdb_votes": "",
+      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -849,8 +707,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt11871384",
       "imdb_rating": "",
-      "imdb_votes": "13",
-      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=omdb-fallback; votes=13"
+      "imdb_votes": "",
+      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -861,8 +719,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt11871384",
       "imdb_rating": "",
-      "imdb_votes": "13",
-      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=omdb-fallback; votes=13"
+      "imdb_votes": "",
+      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -872,9 +730,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1360087",
-      "imdb_rating": "3.3",
-      "imdb_votes": "295",
-      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=omdb-fallback; votes=295"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -884,9 +742,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1360087",
-      "imdb_rating": "3.3",
-      "imdb_votes": "295",
-      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=omdb-fallback; votes=295"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -896,9 +754,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1360087",
-      "imdb_rating": "3.3",
-      "imdb_votes": "295",
-      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=omdb-fallback; votes=295"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -908,9 +766,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1360087",
-      "imdb_rating": "3.3",
-      "imdb_votes": "295",
-      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=omdb-fallback; votes=295"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -920,9 +778,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1360087",
-      "imdb_rating": "3.3",
-      "imdb_votes": "295",
-      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=omdb-fallback; votes=295"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -932,9 +790,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1360087",
-      "imdb_rating": "3.3",
-      "imdb_votes": "295",
-      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=omdb-fallback; votes=295"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -945,8 +803,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt11871384",
       "imdb_rating": "",
-      "imdb_votes": "13",
-      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=omdb-fallback; votes=13"
+      "imdb_votes": "",
+      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -957,8 +815,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt11871384",
       "imdb_rating": "",
-      "imdb_votes": "13",
-      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=omdb-fallback; votes=13"
+      "imdb_votes": "",
+      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -968,9 +826,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1360087",
-      "imdb_rating": "3.3",
-      "imdb_votes": "295",
-      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=omdb-fallback; votes=295"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -980,9 +838,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1360087",
-      "imdb_rating": "3.3",
-      "imdb_votes": "295",
-      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=omdb-fallback; votes=295"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -992,9 +850,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1360087",
-      "imdb_rating": "3.3",
-      "imdb_votes": "295",
-      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=omdb-fallback; votes=295"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1004,9 +862,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1360087",
-      "imdb_rating": "3.3",
-      "imdb_votes": "295",
-      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=omdb-fallback; votes=295"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1016,9 +874,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1360087",
-      "imdb_rating": "3.3",
-      "imdb_votes": "295",
-      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=omdb-fallback; votes=295"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1028,9 +886,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1360087",
-      "imdb_rating": "3.3",
-      "imdb_votes": "295",
-      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=omdb-fallback; votes=295"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1040,9 +898,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1360087",
-      "imdb_rating": "3.3",
-      "imdb_votes": "295",
-      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=omdb-fallback; votes=295"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1052,9 +910,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1360087",
-      "imdb_rating": "3.3",
-      "imdb_votes": "295",
-      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=omdb-fallback; votes=295"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "kino1int-tviksel",
@@ -1064,9 +922,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt0062323",
-      "imdb_rating": "7.3",
-      "imdb_votes": "1703",
-      "detail": "query=Свадьба в Малиновке; lang=ru-RU; attempt=localized+year; tmdb_title=Свадьба в Малиновке; rating_source=omdb-fallback; votes=1703"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Свадьба в Малиновке; lang=ru-RU; attempt=localized+year; tmdb_title=Свадьба в Малиновке; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1125,8 +983,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt11871384",
       "imdb_rating": "",
-      "imdb_votes": "13",
-      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=omdb-fallback; votes=13"
+      "imdb_votes": "",
+      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1137,8 +995,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt11871384",
       "imdb_rating": "",
-      "imdb_votes": "13",
-      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=omdb-fallback; votes=13"
+      "imdb_votes": "",
+      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1149,8 +1007,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt11871384",
       "imdb_rating": "",
-      "imdb_votes": "13",
-      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=omdb-fallback; votes=13"
+      "imdb_votes": "",
+      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1161,8 +1019,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt11871384",
       "imdb_rating": "",
-      "imdb_votes": "13",
-      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=omdb-fallback; votes=13"
+      "imdb_votes": "",
+      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1172,9 +1030,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1360087",
-      "imdb_rating": "3.3",
-      "imdb_votes": "295",
-      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=omdb-fallback; votes=295"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1184,9 +1042,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1360087",
-      "imdb_rating": "3.3",
-      "imdb_votes": "295",
-      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=omdb-fallback; votes=295"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1196,9 +1054,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1360087",
-      "imdb_rating": "3.3",
-      "imdb_votes": "295",
-      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=omdb-fallback; votes=295"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1208,9 +1066,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1360087",
-      "imdb_rating": "3.3",
-      "imdb_votes": "295",
-      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=omdb-fallback; votes=295"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1220,9 +1078,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1360087",
-      "imdb_rating": "3.3",
-      "imdb_votes": "295",
-      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=omdb-fallback; votes=295"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1232,9 +1090,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1360087",
-      "imdb_rating": "3.3",
-      "imdb_votes": "295",
-      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=omdb-fallback; votes=295"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1245,8 +1103,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt11871384",
       "imdb_rating": "",
-      "imdb_votes": "13",
-      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=omdb-fallback; votes=13"
+      "imdb_votes": "",
+      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1257,8 +1115,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt11871384",
       "imdb_rating": "",
-      "imdb_votes": "13",
-      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=omdb-fallback; votes=13"
+      "imdb_votes": "",
+      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1268,9 +1126,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1360087",
-      "imdb_rating": "3.3",
-      "imdb_votes": "295",
-      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=omdb-fallback; votes=295"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1280,9 +1138,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1360087",
-      "imdb_rating": "3.3",
-      "imdb_votes": "295",
-      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=omdb-fallback; votes=295"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1292,9 +1150,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1360087",
-      "imdb_rating": "3.3",
-      "imdb_votes": "295",
-      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=omdb-fallback; votes=295"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1304,9 +1162,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1360087",
-      "imdb_rating": "3.3",
-      "imdb_votes": "295",
-      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=omdb-fallback; votes=295"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1316,9 +1174,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1360087",
-      "imdb_rating": "3.3",
-      "imdb_votes": "295",
-      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=omdb-fallback; votes=295"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1328,9 +1186,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1360087",
-      "imdb_rating": "3.3",
-      "imdb_votes": "295",
-      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=omdb-fallback; votes=295"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1340,9 +1198,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt4744398",
-      "imdb_rating": "5.4",
-      "imdb_votes": "20",
-      "detail": "query=Господа офицеры; lang=ru-RU; attempt=localized+year; tmdb_title=Господа офицеры; rating_source=omdb-fallback; votes=20"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Господа офицеры; lang=ru-RU; attempt=localized+year; tmdb_title=Господа офицеры; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1352,9 +1210,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt4744398",
-      "imdb_rating": "5.4",
-      "imdb_votes": "20",
-      "detail": "query=Господа офицеры; lang=ru-RU; attempt=localized+year; tmdb_title=Господа офицеры; rating_source=omdb-fallback; votes=20"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Господа офицеры; lang=ru-RU; attempt=localized+year; tmdb_title=Господа офицеры; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1364,9 +1222,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt4744398",
-      "imdb_rating": "5.4",
-      "imdb_votes": "20",
-      "detail": "query=Господа офицеры; lang=ru-RU; attempt=localized+year; tmdb_title=Господа офицеры; rating_source=omdb-fallback; votes=20"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Господа офицеры; lang=ru-RU; attempt=localized+year; tmdb_title=Господа офицеры; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1376,9 +1234,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt4744398",
-      "imdb_rating": "5.4",
-      "imdb_votes": "20",
-      "detail": "query=Господа офицеры; lang=ru-RU; attempt=localized+year; tmdb_title=Господа офицеры; rating_source=omdb-fallback; votes=20"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Господа офицеры; lang=ru-RU; attempt=localized+year; tmdb_title=Господа офицеры; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1388,9 +1246,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt4744398",
-      "imdb_rating": "5.4",
-      "imdb_votes": "20",
-      "detail": "query=Господа офицеры; lang=ru-RU; attempt=localized+year; tmdb_title=Господа офицеры; rating_source=omdb-fallback; votes=20"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Господа офицеры; lang=ru-RU; attempt=localized+year; tmdb_title=Господа офицеры; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1400,9 +1258,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt4744398",
-      "imdb_rating": "5.4",
-      "imdb_votes": "20",
-      "detail": "query=Господа офицеры; lang=ru-RU; attempt=localized+year; tmdb_title=Господа офицеры; rating_source=omdb-fallback; votes=20"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Господа офицеры; lang=ru-RU; attempt=localized+year; tmdb_title=Господа офицеры; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1412,9 +1270,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt4744398",
-      "imdb_rating": "5.4",
-      "imdb_votes": "20",
-      "detail": "query=Господа офицеры; lang=ru-RU; attempt=localized+year; tmdb_title=Господа офицеры; rating_source=omdb-fallback; votes=20"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Господа офицеры; lang=ru-RU; attempt=localized+year; tmdb_title=Господа офицеры; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1424,9 +1282,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt4744398",
-      "imdb_rating": "5.4",
-      "imdb_votes": "20",
-      "detail": "query=Господа офицеры; lang=ru-RU; attempt=localized+year; tmdb_title=Господа офицеры; rating_source=omdb-fallback; votes=20"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Господа офицеры; lang=ru-RU; attempt=localized+year; tmdb_title=Господа офицеры; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1437,8 +1295,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt11871384",
       "imdb_rating": "",
-      "imdb_votes": "13",
-      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=omdb-fallback; votes=13"
+      "imdb_votes": "",
+      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1449,8 +1307,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt11871384",
       "imdb_rating": "",
-      "imdb_votes": "13",
-      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=omdb-fallback; votes=13"
+      "imdb_votes": "",
+      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1461,8 +1319,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt11871384",
       "imdb_rating": "",
-      "imdb_votes": "13",
-      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=omdb-fallback; votes=13"
+      "imdb_votes": "",
+      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1473,8 +1331,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt11871384",
       "imdb_rating": "",
-      "imdb_votes": "13",
-      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=omdb-fallback; votes=13"
+      "imdb_votes": "",
+      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1484,9 +1342,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1360087",
-      "imdb_rating": "3.3",
-      "imdb_votes": "295",
-      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=omdb-fallback; votes=295"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1496,9 +1354,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1360087",
-      "imdb_rating": "3.3",
-      "imdb_votes": "295",
-      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=omdb-fallback; votes=295"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1508,9 +1366,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1360087",
-      "imdb_rating": "3.3",
-      "imdb_votes": "295",
-      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=omdb-fallback; votes=295"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1520,9 +1378,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1360087",
-      "imdb_rating": "3.3",
-      "imdb_votes": "295",
-      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=omdb-fallback; votes=295"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1532,9 +1390,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1360087",
-      "imdb_rating": "3.3",
-      "imdb_votes": "295",
-      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=omdb-fallback; votes=295"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1544,9 +1402,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1360087",
-      "imdb_rating": "3.3",
-      "imdb_votes": "295",
-      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=omdb-fallback; votes=295"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1557,8 +1415,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt11871384",
       "imdb_rating": "",
-      "imdb_votes": "13",
-      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=omdb-fallback; votes=13"
+      "imdb_votes": "",
+      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1569,8 +1427,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt11871384",
       "imdb_rating": "",
-      "imdb_votes": "13",
-      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=omdb-fallback; votes=13"
+      "imdb_votes": "",
+      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1580,9 +1438,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1360087",
-      "imdb_rating": "3.3",
-      "imdb_votes": "295",
-      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=omdb-fallback; votes=295"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1592,9 +1450,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1360087",
-      "imdb_rating": "3.3",
-      "imdb_votes": "295",
-      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=omdb-fallback; votes=295"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1604,9 +1462,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1360087",
-      "imdb_rating": "3.3",
-      "imdb_votes": "295",
-      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=omdb-fallback; votes=295"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1616,9 +1474,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1360087",
-      "imdb_rating": "3.3",
-      "imdb_votes": "295",
-      "detail": "query=След; lang=ru-RU; attempt=series-root+year; tmdb_title=След; rating_source=omdb-fallback; votes=295"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=След; lang=ru-RU; attempt=series-root+year; tmdb_title=След; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1628,9 +1486,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt3419982",
-      "imdb_rating": "6.4",
-      "imdb_votes": "334",
-      "detail": "query=Кремень; lang=ru-RU; attempt=localized+year; tmdb_title=Кремень; rating_source=omdb-fallback; votes=334"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Кремень; lang=ru-RU; attempt=localized+year; tmdb_title=Кремень; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1640,9 +1498,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt3419982",
-      "imdb_rating": "6.4",
-      "imdb_votes": "334",
-      "detail": "query=Кремень; lang=ru-RU; attempt=localized+year; tmdb_title=Кремень; rating_source=omdb-fallback; votes=334"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Кремень; lang=ru-RU; attempt=localized+year; tmdb_title=Кремень; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1652,9 +1510,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt3419982",
-      "imdb_rating": "6.4",
-      "imdb_votes": "334",
-      "detail": "query=Кремень; lang=ru-RU; attempt=localized+year; tmdb_title=Кремень; rating_source=omdb-fallback; votes=334"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Кремень; lang=ru-RU; attempt=localized+year; tmdb_title=Кремень; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1664,9 +1522,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt3419982",
-      "imdb_rating": "6.4",
-      "imdb_votes": "334",
-      "detail": "query=Кремень; lang=ru-RU; attempt=localized+year; tmdb_title=Кремень; rating_source=omdb-fallback; votes=334"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Кремень; lang=ru-RU; attempt=localized+year; tmdb_title=Кремень; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1676,9 +1534,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt3419982",
-      "imdb_rating": "6.4",
-      "imdb_votes": "334",
-      "detail": "query=Кремень; lang=ru-RU; attempt=series-root+year; tmdb_title=Кремень; rating_source=omdb-fallback; votes=334"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Кремень; lang=ru-RU; attempt=series-root+year; tmdb_title=Кремень; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1688,9 +1546,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt3419982",
-      "imdb_rating": "6.4",
-      "imdb_votes": "334",
-      "detail": "query=Кремень; lang=ru-RU; attempt=series-root+year; tmdb_title=Кремень; rating_source=omdb-fallback; votes=334"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Кремень; lang=ru-RU; attempt=series-root+year; tmdb_title=Кремень; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1700,9 +1558,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt3419982",
-      "imdb_rating": "6.4",
-      "imdb_votes": "334",
-      "detail": "query=Кремень; lang=ru-RU; attempt=series-root+year; tmdb_title=Кремень; rating_source=omdb-fallback; votes=334"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Кремень; lang=ru-RU; attempt=series-root+year; tmdb_title=Кремень; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1712,9 +1570,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt3419982",
-      "imdb_rating": "6.4",
-      "imdb_votes": "334",
-      "detail": "query=Кремень; lang=ru-RU; attempt=series-root+year; tmdb_title=Кремень; rating_source=omdb-fallback; votes=334"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Кремень; lang=ru-RU; attempt=series-root+year; tmdb_title=Кремень; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1725,8 +1583,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt11871384",
       "imdb_rating": "",
-      "imdb_votes": "13",
-      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=omdb-fallback; votes=13"
+      "imdb_votes": "",
+      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1737,8 +1595,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt11871384",
       "imdb_rating": "",
-      "imdb_votes": "13",
-      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=omdb-fallback; votes=13"
+      "imdb_votes": "",
+      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1749,8 +1607,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt11871384",
       "imdb_rating": "",
-      "imdb_votes": "13",
-      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=omdb-fallback; votes=13"
+      "imdb_votes": "",
+      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1761,8 +1619,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt11871384",
       "imdb_rating": "",
-      "imdb_votes": "13",
-      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=omdb-fallback; votes=13"
+      "imdb_votes": "",
+      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1772,9 +1630,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1360087",
-      "imdb_rating": "3.3",
-      "imdb_votes": "295",
-      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=omdb-fallback; votes=295"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1784,9 +1642,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1360087",
-      "imdb_rating": "3.3",
-      "imdb_votes": "295",
-      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=omdb-fallback; votes=295"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1796,9 +1654,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1360087",
-      "imdb_rating": "3.3",
-      "imdb_votes": "295",
-      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=omdb-fallback; votes=295"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1808,9 +1666,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1360087",
-      "imdb_rating": "3.3",
-      "imdb_votes": "295",
-      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=omdb-fallback; votes=295"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1820,9 +1678,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1360087",
-      "imdb_rating": "3.3",
-      "imdb_votes": "295",
-      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=omdb-fallback; votes=295"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1832,9 +1690,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1360087",
-      "imdb_rating": "3.3",
-      "imdb_votes": "295",
-      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=omdb-fallback; votes=295"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1845,8 +1703,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt11871384",
       "imdb_rating": "",
-      "imdb_votes": "13",
-      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=omdb-fallback; votes=13"
+      "imdb_votes": "",
+      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1857,8 +1715,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt11871384",
       "imdb_rating": "",
-      "imdb_votes": "13",
-      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=omdb-fallback; votes=13"
+      "imdb_votes": "",
+      "detail": "query=Великолепная пятерка; lang=ru-RU; attempt=localized+year; tmdb_title=Вeликолепная пятёрка; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1868,9 +1726,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1360087",
-      "imdb_rating": "3.3",
-      "imdb_votes": "295",
-      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=omdb-fallback; votes=295"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1881,8 +1739,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt26597391",
       "imdb_rating": "",
-      "imdb_votes": "19",
-      "detail": "query=Наш спецназ; lang=ru-RU; attempt=series-root+year; tmdb_title=Наш спецназ; rating_source=omdb-fallback; votes=19"
+      "imdb_votes": "",
+      "detail": "query=Наш спецназ; lang=ru-RU; attempt=series-root+year; tmdb_title=Наш спецназ; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1893,8 +1751,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt26597391",
       "imdb_rating": "",
-      "imdb_votes": "19",
-      "detail": "query=Наш спецназ; lang=ru-RU; attempt=series-root+year; tmdb_title=Наш спецназ; rating_source=omdb-fallback; votes=19"
+      "imdb_votes": "",
+      "detail": "query=Наш спецназ; lang=ru-RU; attempt=series-root+year; tmdb_title=Наш спецназ; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1905,8 +1763,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt26597391",
       "imdb_rating": "",
-      "imdb_votes": "19",
-      "detail": "query=Наш спецназ; lang=ru-RU; attempt=series-root+year; tmdb_title=Наш спецназ; rating_source=omdb-fallback; votes=19"
+      "imdb_votes": "",
+      "detail": "query=Наш спецназ; lang=ru-RU; attempt=series-root+year; tmdb_title=Наш спецназ; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1917,8 +1775,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt26597391",
       "imdb_rating": "",
-      "imdb_votes": "19",
-      "detail": "query=Наш спецназ; lang=ru-RU; attempt=series-root+year; tmdb_title=Наш спецназ; rating_source=omdb-fallback; votes=19"
+      "imdb_votes": "",
+      "detail": "query=Наш спецназ; lang=ru-RU; attempt=series-root+year; tmdb_title=Наш спецназ; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1929,8 +1787,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt26597391",
       "imdb_rating": "",
-      "imdb_votes": "19",
-      "detail": "query=Наш спецназ; lang=ru-RU; attempt=series-root+year; tmdb_title=Наш спецназ; rating_source=omdb-fallback; votes=19"
+      "imdb_votes": "",
+      "detail": "query=Наш спецназ; lang=ru-RU; attempt=series-root+year; tmdb_title=Наш спецназ; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1941,8 +1799,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt26597391",
       "imdb_rating": "",
-      "imdb_votes": "19",
-      "detail": "query=Наш спецназ; lang=ru-RU; attempt=series-root+year; tmdb_title=Наш спецназ; rating_source=omdb-fallback; votes=19"
+      "imdb_votes": "",
+      "detail": "query=Наш спецназ; lang=ru-RU; attempt=series-root+year; tmdb_title=Наш спецназ; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1953,8 +1811,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt26597391",
       "imdb_rating": "",
-      "imdb_votes": "19",
-      "detail": "query=Наш спецназ; lang=ru-RU; attempt=series-root+year; tmdb_title=Наш спецназ; rating_source=omdb-fallback; votes=19"
+      "imdb_votes": "",
+      "detail": "query=Наш спецназ; lang=ru-RU; attempt=series-root+year; tmdb_title=Наш спецназ; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1965,8 +1823,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt26597391",
       "imdb_rating": "",
-      "imdb_votes": "19",
-      "detail": "query=Наш спецназ; lang=ru-RU; attempt=series-root+year; tmdb_title=Наш спецназ; rating_source=omdb-fallback; votes=19"
+      "imdb_votes": "",
+      "detail": "query=Наш спецназ; lang=ru-RU; attempt=series-root+year; tmdb_title=Наш спецназ; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1977,8 +1835,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt26597391",
       "imdb_rating": "",
-      "imdb_votes": "19",
-      "detail": "query=Наш спецназ; lang=ru-RU; attempt=series-root+year; tmdb_title=Наш спецназ; rating_source=omdb-fallback; votes=19"
+      "imdb_votes": "",
+      "detail": "query=Наш спецназ; lang=ru-RU; attempt=series-root+year; tmdb_title=Наш спецназ; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -1989,8 +1847,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt26597391",
       "imdb_rating": "",
-      "imdb_votes": "19",
-      "detail": "query=Наш спецназ; lang=ru-RU; attempt=series-root+year; tmdb_title=Наш спецназ; rating_source=omdb-fallback; votes=19"
+      "imdb_votes": "",
+      "detail": "query=Наш спецназ; lang=ru-RU; attempt=series-root+year; tmdb_title=Наш спецназ; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2001,8 +1859,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt26597391",
       "imdb_rating": "",
-      "imdb_votes": "19",
-      "detail": "query=Наш спецназ; lang=ru-RU; attempt=series-root+year; tmdb_title=Наш спецназ; rating_source=omdb-fallback; votes=19"
+      "imdb_votes": "",
+      "detail": "query=Наш спецназ; lang=ru-RU; attempt=series-root+year; tmdb_title=Наш спецназ; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2013,8 +1871,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt26597391",
       "imdb_rating": "",
-      "imdb_votes": "19",
-      "detail": "query=Наш спецназ; lang=ru-RU; attempt=series-root+year; tmdb_title=Наш спецназ; rating_source=omdb-fallback; votes=19"
+      "imdb_votes": "",
+      "detail": "query=Наш спецназ; lang=ru-RU; attempt=series-root+year; tmdb_title=Наш спецназ; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2025,8 +1883,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt26597391",
       "imdb_rating": "",
-      "imdb_votes": "19",
-      "detail": "query=Наш спецназ; lang=ru-RU; attempt=series-root+year; tmdb_title=Наш спецназ; rating_source=omdb-fallback; votes=19"
+      "imdb_votes": "",
+      "detail": "query=Наш спецназ; lang=ru-RU; attempt=series-root+year; tmdb_title=Наш спецназ; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2037,8 +1895,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt26597391",
       "imdb_rating": "",
-      "imdb_votes": "19",
-      "detail": "query=Наш спецназ; lang=ru-RU; attempt=series-root+year; tmdb_title=Наш спецназ; rating_source=omdb-fallback; votes=19"
+      "imdb_votes": "",
+      "detail": "query=Наш спецназ; lang=ru-RU; attempt=series-root+year; tmdb_title=Наш спецназ; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2049,8 +1907,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt26597391",
       "imdb_rating": "",
-      "imdb_votes": "19",
-      "detail": "query=Наш спецназ; lang=ru-RU; attempt=series-root+year; tmdb_title=Наш спецназ; rating_source=omdb-fallback; votes=19"
+      "imdb_votes": "",
+      "detail": "query=Наш спецназ; lang=ru-RU; attempt=series-root+year; tmdb_title=Наш спецназ; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2061,8 +1919,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt26597391",
       "imdb_rating": "",
-      "imdb_votes": "19",
-      "detail": "query=Наш спецназ; lang=ru-RU; attempt=series-root+year; tmdb_title=Наш спецназ; rating_source=omdb-fallback; votes=19"
+      "imdb_votes": "",
+      "detail": "query=Наш спецназ; lang=ru-RU; attempt=series-root+year; tmdb_title=Наш спецназ; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2073,8 +1931,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt26597391",
       "imdb_rating": "",
-      "imdb_votes": "19",
-      "detail": "query=Наш спецназ; lang=ru-RU; attempt=series-root+year; tmdb_title=Наш спецназ; rating_source=omdb-fallback; votes=19"
+      "imdb_votes": "",
+      "detail": "query=Наш спецназ; lang=ru-RU; attempt=series-root+year; tmdb_title=Наш спецназ; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2085,8 +1943,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt26597391",
       "imdb_rating": "",
-      "imdb_votes": "19",
-      "detail": "query=Наш спецназ; lang=ru-RU; attempt=series-root+year; tmdb_title=Наш спецназ; rating_source=omdb-fallback; votes=19"
+      "imdb_votes": "",
+      "detail": "query=Наш спецназ; lang=ru-RU; attempt=series-root+year; tmdb_title=Наш спецназ; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2097,8 +1955,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt26597391",
       "imdb_rating": "",
-      "imdb_votes": "19",
-      "detail": "query=Наш спецназ; lang=ru-RU; attempt=series-root+year; tmdb_title=Наш спецназ; rating_source=omdb-fallback; votes=19"
+      "imdb_votes": "",
+      "detail": "query=Наш спецназ; lang=ru-RU; attempt=series-root+year; tmdb_title=Наш спецназ; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2108,9 +1966,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt11248482",
-      "imdb_rating": "5.1",
-      "imdb_votes": "46",
-      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=omdb-fallback; votes=46"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2120,9 +1978,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt11248482",
-      "imdb_rating": "5.1",
-      "imdb_votes": "46",
-      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=omdb-fallback; votes=46"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2132,9 +1990,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt11248482",
-      "imdb_rating": "5.1",
-      "imdb_votes": "46",
-      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=omdb-fallback; votes=46"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2144,9 +2002,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt11248482",
-      "imdb_rating": "5.1",
-      "imdb_votes": "46",
-      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=omdb-fallback; votes=46"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2156,9 +2014,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt11248482",
-      "imdb_rating": "5.1",
-      "imdb_votes": "46",
-      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=omdb-fallback; votes=46"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2168,9 +2026,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt11248482",
-      "imdb_rating": "5.1",
-      "imdb_votes": "46",
-      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=omdb-fallback; votes=46"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2180,9 +2038,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt11248482",
-      "imdb_rating": "5.1",
-      "imdb_votes": "46",
-      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=omdb-fallback; votes=46"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2192,9 +2050,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt11248482",
-      "imdb_rating": "5.1",
-      "imdb_votes": "46",
-      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=omdb-fallback; votes=46"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2204,9 +2062,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt11248482",
-      "imdb_rating": "5.1",
-      "imdb_votes": "46",
-      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=omdb-fallback; votes=46"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2216,9 +2074,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt11248482",
-      "imdb_rating": "5.1",
-      "imdb_votes": "46",
-      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=omdb-fallback; votes=46"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2228,9 +2086,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt11248482",
-      "imdb_rating": "5.1",
-      "imdb_votes": "46",
-      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=omdb-fallback; votes=46"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2240,9 +2098,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt11248482",
-      "imdb_rating": "5.1",
-      "imdb_votes": "46",
-      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=omdb-fallback; votes=46"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2252,9 +2110,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt11248482",
-      "imdb_rating": "5.1",
-      "imdb_votes": "46",
-      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=omdb-fallback; votes=46"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2264,9 +2122,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt11248482",
-      "imdb_rating": "5.1",
-      "imdb_votes": "46",
-      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=omdb-fallback; votes=46"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2276,9 +2134,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt11248482",
-      "imdb_rating": "5.1",
-      "imdb_votes": "46",
-      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=omdb-fallback; votes=46"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2288,9 +2146,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt11248482",
-      "imdb_rating": "5.1",
-      "imdb_votes": "46",
-      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=omdb-fallback; votes=46"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2300,9 +2158,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt11248482",
-      "imdb_rating": "5.1",
-      "imdb_votes": "46",
-      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=omdb-fallback; votes=46"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2312,9 +2170,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt11248482",
-      "imdb_rating": "5.1",
-      "imdb_votes": "46",
-      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=omdb-fallback; votes=46"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2324,9 +2182,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt11248482",
-      "imdb_rating": "5.1",
-      "imdb_votes": "46",
-      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=omdb-fallback; votes=46"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2336,9 +2194,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt11248482",
-      "imdb_rating": "5.1",
-      "imdb_votes": "46",
-      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=omdb-fallback; votes=46"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2348,9 +2206,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt11248482",
-      "imdb_rating": "5.1",
-      "imdb_votes": "46",
-      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=omdb-fallback; votes=46"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2360,9 +2218,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt11248482",
-      "imdb_rating": "5.1",
-      "imdb_votes": "46",
-      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=omdb-fallback; votes=46"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2372,9 +2230,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt11248482",
-      "imdb_rating": "5.1",
-      "imdb_votes": "46",
-      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=omdb-fallback; votes=46"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2384,9 +2242,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt11248482",
-      "imdb_rating": "5.1",
-      "imdb_votes": "46",
-      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=omdb-fallback; votes=46"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2396,9 +2254,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt11248482",
-      "imdb_rating": "5.1",
-      "imdb_votes": "46",
-      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=omdb-fallback; votes=46"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Условный мент; lang=ru-RU; attempt=localized+year; tmdb_title=Условный мент; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2408,9 +2266,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt13875494",
-      "imdb_rating": "7.1",
-      "imdb_votes": "27678",
-      "detail": "query=Следопыт; lang=ru-RU; attempt=localized+year; tmdb_title=Следопыт; rating_source=omdb-fallback; votes=27678"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Следопыт; lang=ru-RU; attempt=localized+year; tmdb_title=Следопыт; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2420,9 +2278,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt13875494",
-      "imdb_rating": "7.1",
-      "imdb_votes": "27678",
-      "detail": "query=Следопыт; lang=ru-RU; attempt=localized+year; tmdb_title=Следопыт; rating_source=omdb-fallback; votes=27678"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Следопыт; lang=ru-RU; attempt=localized+year; tmdb_title=Следопыт; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2432,9 +2290,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt13875494",
-      "imdb_rating": "7.1",
-      "imdb_votes": "27678",
-      "detail": "query=Следопыт; lang=ru-RU; attempt=localized+year; tmdb_title=Следопыт; rating_source=omdb-fallback; votes=27678"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Следопыт; lang=ru-RU; attempt=localized+year; tmdb_title=Следопыт; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2444,9 +2302,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt13875494",
-      "imdb_rating": "7.1",
-      "imdb_votes": "27678",
-      "detail": "query=Следопыт; lang=ru-RU; attempt=localized+year; tmdb_title=Следопыт; rating_source=omdb-fallback; votes=27678"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Следопыт; lang=ru-RU; attempt=localized+year; tmdb_title=Следопыт; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2456,9 +2314,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt13875494",
-      "imdb_rating": "7.1",
-      "imdb_votes": "27678",
-      "detail": "query=Следопыт; lang=ru-RU; attempt=localized+year; tmdb_title=Следопыт; rating_source=omdb-fallback; votes=27678"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Следопыт; lang=ru-RU; attempt=localized+year; tmdb_title=Следопыт; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2468,9 +2326,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt13875494",
-      "imdb_rating": "7.1",
-      "imdb_votes": "27678",
-      "detail": "query=Следопыт; lang=ru-RU; attempt=localized+year; tmdb_title=Следопыт; rating_source=omdb-fallback; votes=27678"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Следопыт; lang=ru-RU; attempt=localized+year; tmdb_title=Следопыт; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2480,9 +2338,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt13875494",
-      "imdb_rating": "7.1",
-      "imdb_votes": "27678",
-      "detail": "query=Следопыт; lang=ru-RU; attempt=localized+year; tmdb_title=Следопыт; rating_source=omdb-fallback; votes=27678"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Следопыт; lang=ru-RU; attempt=localized+year; tmdb_title=Следопыт; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2492,9 +2350,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt13875494",
-      "imdb_rating": "7.1",
-      "imdb_votes": "27678",
-      "detail": "query=Следопыт; lang=ru-RU; attempt=localized+year; tmdb_title=Следопыт; rating_source=omdb-fallback; votes=27678"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Следопыт; lang=ru-RU; attempt=localized+year; tmdb_title=Следопыт; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2504,9 +2362,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt13875494",
-      "imdb_rating": "7.1",
-      "imdb_votes": "27678",
-      "detail": "query=Следопыт; lang=ru-RU; attempt=localized+year; tmdb_title=Следопыт; rating_source=omdb-fallback; votes=27678"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Следопыт; lang=ru-RU; attempt=localized+year; tmdb_title=Следопыт; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xcineman-melodrama",
@@ -2518,7 +2376,7 @@
       "imdb_id": "tt35213571",
       "imdb_rating": "",
       "imdb_votes": "",
-      "detail": "query=Морозко; lang=ru-RU; attempt=localized+year; tmdb_title=Морозко; rating_source=; votes="
+      "detail": "query=Морозко; lang=ru-RU; attempt=localized+year; tmdb_title=Морозко; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2528,9 +2386,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt5673782",
-      "imdb_rating": "8.2",
-      "imdb_votes": "20932",
-      "detail": "query=Гений; lang=ru-RU; attempt=localized+year; tmdb_title=Гений; rating_source=omdb-fallback; votes=20932"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Гений; lang=ru-RU; attempt=localized+year; tmdb_title=Гений; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2540,9 +2398,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt5673782",
-      "imdb_rating": "8.2",
-      "imdb_votes": "20932",
-      "detail": "query=Гений; lang=ru-RU; attempt=localized+year; tmdb_title=Гений; rating_source=omdb-fallback; votes=20932"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Гений; lang=ru-RU; attempt=localized+year; tmdb_title=Гений; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2648,9 +2506,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1438463",
-      "imdb_rating": "6.3",
-      "imdb_votes": "3638",
-      "detail": "query=Каникулы строгого режима; lang=ru-RU; attempt=cross-type+year; tmdb_title=Каникулы строгого режима; rating_source=omdb-fallback; votes=3638"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Каникулы строгого режима; lang=ru-RU; attempt=cross-type+year; tmdb_title=Каникулы строгого режима; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2660,9 +2518,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1438463",
-      "imdb_rating": "6.3",
-      "imdb_votes": "3638",
-      "detail": "query=Каникулы строгого режима; lang=ru-RU; attempt=cross-type+year; tmdb_title=Каникулы строгого режима; rating_source=omdb-fallback; votes=3638"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Каникулы строгого режима; lang=ru-RU; attempt=cross-type+year; tmdb_title=Каникулы строгого режима; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2672,9 +2530,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1438463",
-      "imdb_rating": "6.3",
-      "imdb_votes": "3638",
-      "detail": "query=Каникулы строгого режима; lang=ru-RU; attempt=cross-type+year; tmdb_title=Каникулы строгого режима; rating_source=omdb-fallback; votes=3638"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Каникулы строгого режима; lang=ru-RU; attempt=cross-type+year; tmdb_title=Каникулы строгого режима; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2684,9 +2542,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt3739204",
-      "imdb_rating": "7.0",
-      "imdb_votes": "36",
-      "detail": "query=Lyutyy; lang=en-US; attempt=translit+year; tmdb_title=Fury; rating_source=omdb-fallback; votes=36"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Lyutyy; lang=en-US; attempt=translit+year; tmdb_title=Fury; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2696,9 +2554,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt3739204",
-      "imdb_rating": "7.0",
-      "imdb_votes": "36",
-      "detail": "query=Lyutyy; lang=en-US; attempt=translit+year; tmdb_title=Fury; rating_source=omdb-fallback; votes=36"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Lyutyy; lang=en-US; attempt=translit+year; tmdb_title=Fury; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2708,9 +2566,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt3739204",
-      "imdb_rating": "7.0",
-      "imdb_votes": "36",
-      "detail": "query=Lyutyy; lang=en-US; attempt=translit+year; tmdb_title=Fury; rating_source=omdb-fallback; votes=36"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Lyutyy; lang=en-US; attempt=translit+year; tmdb_title=Fury; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2720,9 +2578,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt3739204",
-      "imdb_rating": "7.0",
-      "imdb_votes": "36",
-      "detail": "query=Lyutyy; lang=en-US; attempt=translit+year; tmdb_title=Fury; rating_source=omdb-fallback; votes=36"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Lyutyy; lang=en-US; attempt=translit+year; tmdb_title=Fury; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X5kanal-ru-pl2",
@@ -2768,9 +2626,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt3323030",
-      "imdb_rating": "4.8",
-      "imdb_votes": "5",
-      "detail": "query=Была любовь; lang=ru-RU; attempt=localized+year; tmdb_title=Была любовь; rating_source=omdb-fallback; votes=5"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Была любовь; lang=ru-RU; attempt=localized+year; tmdb_title=Была любовь; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xtv-in",
@@ -2780,9 +2638,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt0182512",
-      "imdb_rating": "6.9",
-      "imdb_votes": "629",
-      "detail": "query=Вертикаль; lang=ru-RU; attempt=localized+year; tmdb_title=Вертикаль; rating_source=omdb-fallback; votes=629"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Вертикаль; lang=ru-RU; attempt=localized+year; tmdb_title=Вертикаль; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xtv-in",
@@ -2792,9 +2650,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt0091124",
-      "imdb_rating": "5.3",
-      "imdb_votes": "47",
-      "detail": "query=Год теленка; lang=ru-RU; attempt=localized+year; tmdb_title=Год телёнка; rating_source=omdb-fallback; votes=47"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Год теленка; lang=ru-RU; attempt=localized+year; tmdb_title=Год телёнка; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xdzenzhinsk-tv",
@@ -2806,7 +2664,7 @@
       "imdb_id": "tt15277796",
       "imdb_rating": "",
       "imdb_votes": "",
-      "detail": "query=Синяя роза; lang=ru-RU; attempt=localized+year; tmdb_title=Синяя роза; rating_source=; votes="
+      "detail": "query=Синяя роза; lang=ru-RU; attempt=localized+year; tmdb_title=Синяя роза; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xsever",
@@ -2816,9 +2674,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt0187693",
-      "imdb_rating": "5.2",
-      "imdb_votes": "103",
-      "detail": "query=Американский дедушка; lang=ru-RU; attempt=localized+year; tmdb_title=Американский дедушка; rating_source=omdb-fallback; votes=103"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Американский дедушка; lang=ru-RU; attempt=localized+year; tmdb_title=Американский дедушка; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "kino1int-tviksel",
@@ -2828,9 +2686,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt0265567",
-      "imdb_rating": "6.7",
-      "imdb_votes": "107",
-      "detail": "query=Поезд вне расписания; lang=ru-RU; attempt=localized+year; tmdb_title=Поезд вне расписания; rating_source=omdb-fallback; votes=107"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Поезд вне расписания; lang=ru-RU; attempt=localized+year; tmdb_title=Поезд вне расписания; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X86-surgut",
@@ -2852,9 +2710,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt0064765",
-      "imdb_rating": "6.4",
-      "imdb_votes": "175",
-      "detail": "query=Опасные гастроли; lang=ru-RU; attempt=localized+year; tmdb_title=Опасные гастроли; rating_source=omdb-fallback; votes=175"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Опасные гастроли; lang=ru-RU; attempt=localized+year; tmdb_title=Опасные гастроли; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xbrianskaya-gubernia",
@@ -2876,9 +2734,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt9196684",
-      "imdb_rating": "7.4",
-      "imdb_votes": "147",
-      "detail": "query=Отчий берег; lang=ru-RU; attempt=localized+year; tmdb_title=Отчий берег; rating_source=omdb-fallback; votes=147"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Отчий берег; lang=ru-RU; attempt=localized+year; tmdb_title=Отчий берег; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X86-surgut",
@@ -2900,9 +2758,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt0133152",
-      "imdb_rating": "5.7",
-      "imdb_votes": "241183",
-      "detail": "query=Планета обезьян; lang=ru-RU; attempt=localized+year; tmdb_title=Планета обезьян; rating_source=omdb-fallback; votes=241183"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Планета обезьян; lang=ru-RU; attempt=localized+year; tmdb_title=Планета обезьян; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X8kanal-by",
@@ -2924,9 +2782,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt3146360",
-      "imdb_rating": "6.9",
-      "imdb_votes": "5692",
-      "detail": "query=Белль и Себастьян; lang=ru-RU; attempt=localized+year; tmdb_title=Белль и Себастьян; rating_source=omdb-fallback; votes=5692"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Белль и Себастьян; lang=ru-RU; attempt=localized+year; tmdb_title=Белль и Себастьян; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X8kanal-by",
@@ -2945,7 +2803,7 @@
       "title": "т/с Законы улиц",
       "year": "",
       "type": "series",
-      "status": "budget_exhausted",
+      "status": "no_imdb_id",
       "source": "tmdb",
       "imdb_id": "",
       "imdb_rating": "",
@@ -2962,7 +2820,19 @@
       "imdb_id": "tt29742507",
       "imdb_rating": "",
       "imdb_votes": "",
-      "detail": "query=В баню!; lang=ru-RU; attempt=localized+year; tmdb_title=В баню!; rating_source=; votes="
+      "detail": "query=В баню!; lang=ru-RU; attempt=localized+year; tmdb_title=В баню!; rating_source=; votes=; confidence="
+    },
+    {
+      "channel_id": "X8kanal-by",
+      "title": "х/ф Рыжая",
+      "year": "",
+      "type": "movie",
+      "status": "no_imdb_id",
+      "source": "tmdb",
+      "imdb_id": "",
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Рыжая; lang=ru-RU; attempts=1"
     },
     {
       "channel_id": "X8kanal-by",
@@ -2972,9 +2842,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt4417432",
-      "imdb_rating": "7.0",
+      "imdb_rating": "",
       "imdb_votes": "",
-      "detail": "query=Русский перевод; lang=ru-RU; attempt=localized+year; tmdb_title=Русский перевод; rating_source=omdb; votes="
+      "detail": "query=Русский перевод; lang=ru-RU; attempt=localized+year; tmdb_title=Русский перевод; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xbox-gangster",
@@ -2984,9 +2854,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt0100150",
-      "imdb_rating": "7.7",
+      "imdb_rating": "",
       "imdb_votes": "",
-      "detail": "query=Перекресток Миллера; lang=ru-RU; attempt=localized+year; tmdb_title=Перекресток Миллера; rating_source=omdb; votes="
+      "detail": "query=Перекресток Миллера; lang=ru-RU; attempt=localized+year; tmdb_title=Перекресток Миллера; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xfresh-rating",
@@ -2996,9 +2866,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt1409024",
-      "imdb_rating": "6.8",
+      "imdb_rating": "",
       "imdb_votes": "",
-      "detail": "query=Люди в черном 3; lang=ru-RU; attempt=localized+year; tmdb_title=Люди в чёрном 3; rating_source=omdb; votes="
+      "detail": "query=Люди в черном 3; lang=ru-RU; attempt=localized+year; tmdb_title=Люди в чёрном 3; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X8kanal-by",
@@ -3008,9 +2878,21 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt29533480",
-      "imdb_rating": "4.8",
+      "imdb_rating": "",
       "imdb_votes": "",
-      "detail": "query=Непослушники; lang=ru-RU; attempt=localized+year; tmdb_title=Непослушники; rating_source=omdb; votes="
+      "detail": "query=Непослушники; lang=ru-RU; attempt=localized+year; tmdb_title=Непослушники; rating_source=; votes=; confidence="
+    },
+    {
+      "channel_id": "X8kanal-by",
+      "title": "т/с Вторая семья",
+      "year": "",
+      "type": "series",
+      "status": "no_imdb_id",
+      "source": "tmdb",
+      "imdb_id": "",
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Вторая семья; lang=ru-RU; attempts=1"
     },
     {
       "channel_id": "X8kanal-by",
@@ -3020,9 +2902,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt34063491",
-      "imdb_rating": "7.1",
+      "imdb_rating": "",
       "imdb_votes": "",
-      "detail": "query=Далекий город; lang=ru-RU; attempt=localized+year; tmdb_title=Далекий город; rating_source=omdb; votes="
+      "detail": "query=Далекий город; lang=ru-RU; attempt=localized+year; tmdb_title=Далекий город; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "X8kanal-by",
@@ -3032,9 +2914,201 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt0416044",
-      "imdb_rating": "7.2",
+      "imdb_rating": "",
       "imdb_votes": "",
-      "detail": "query=Монгол; lang=ru-RU; attempt=localized+year; tmdb_title=Монгол; rating_source=omdb; votes="
+      "detail": "query=Монгол; lang=ru-RU; attempt=localized+year; tmdb_title=Монгол; rating_source=; votes=; confidence="
+    },
+    {
+      "channel_id": "X8kanal-by",
+      "title": "х/ф Безумие",
+      "year": "",
+      "type": "movie",
+      "status": "enriched",
+      "source": "tmdb+imdb",
+      "imdb_id": "tt0068611",
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Безумие; lang=ru-RU; attempt=localized+year; tmdb_title=Безумие; rating_source=; votes=; confidence=98"
+    },
+    {
+      "channel_id": "Xfresh-fantastic",
+      "title": "х/ф Люди в черном: Интернэшнл",
+      "year": "",
+      "type": "movie",
+      "status": "enriched",
+      "source": "tmdb+imdb",
+      "imdb_id": "tt2283336",
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Men in Black: International; lang=en-US; attempt=alias+year; tmdb_title=Men in Black: International; rating_source=; votes=; confidence=97"
+    },
+    {
+      "channel_id": "Xkinokomedia",
+      "title": "х/ф Попутчики",
+      "year": "",
+      "type": "movie",
+      "status": "enriched",
+      "source": "tmdb+imdb",
+      "imdb_id": "tt0080555",
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Попутчики; lang=ru-RU; attempt=localized+year; tmdb_title=Попутчики; rating_source=; votes=; confidence=98"
+    },
+    {
+      "channel_id": "okko-tv",
+      "title": "х/ф Сокровища гномов",
+      "year": "",
+      "type": "movie",
+      "status": "enriched",
+      "source": "tmdb+imdb",
+      "imdb_id": "tt29703170",
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Сокровища гномов; lang=ru-RU; attempt=localized+year; tmdb_title=Сокровища гномов; rating_source=; votes=; confidence=98"
+    },
+    {
+      "channel_id": "Xminimax-triller",
+      "title": "х/ф Присяжная",
+      "year": "",
+      "type": "movie",
+      "status": "enriched",
+      "source": "tmdb+imdb",
+      "imdb_id": "tt0116731",
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Присяжная; lang=ru-RU; attempt=localized+year; tmdb_title=Присяжная; rating_source=; votes=; confidence=98"
+    },
+    {
+      "channel_id": "X8kanal-by",
+      "title": "х/ф Короли отправляются в путь",
+      "year": "",
+      "type": "movie",
+      "status": "enriched",
+      "source": "tmdb+imdb",
+      "imdb_id": "tt0051819",
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Короли отправляются в путь; lang=ru-RU; attempt=localized+year; tmdb_title=Короли отправляются в путь; rating_source=; votes=; confidence=98"
+    },
+    {
+      "channel_id": "Xcineman-comedy",
+      "title": "х/ф Любовь и монстры",
+      "year": "",
+      "type": "movie",
+      "status": "enriched",
+      "source": "tmdb+imdb",
+      "imdb_id": "tt13830296",
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Любовь и монстры; lang=ru-RU; attempt=localized+year; tmdb_title=Любовь и монстры; rating_source=; votes=; confidence=98"
+    },
+    {
+      "channel_id": "X8kanal-by",
+      "title": "х/ф Не будь этой девчонки",
+      "year": "",
+      "type": "movie",
+      "status": "enriched",
+      "source": "tmdb+imdb",
+      "imdb_id": "tt1869584",
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Не будь этой девчонки; lang=ru-RU; attempt=localized+year; tmdb_title=Не будь этой девчонки...; rating_source=; votes=; confidence=98"
+    },
+    {
+      "channel_id": "X8kanal-by",
+      "title": "х/ф Романтическая комедия",
+      "year": "",
+      "type": "movie",
+      "status": "enriched",
+      "source": "tmdb+imdb",
+      "imdb_id": "tt1587263",
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Романтическая комедия; lang=ru-RU; attempt=localized+year; tmdb_title=Романтическая комедия; rating_source=; votes=; confidence=98"
+    },
+    {
+      "channel_id": "Xvip-premiere",
+      "title": "х/ф Ускорение",
+      "year": "",
+      "type": "movie",
+      "status": "enriched",
+      "source": "tmdb+imdb",
+      "imdb_id": "tt12616480",
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Ускорение; lang=ru-RU; attempt=localized+year; tmdb_title=Ускорение; rating_source=; votes=; confidence=98"
+    },
+    {
+      "channel_id": "X8kanal-by",
+      "title": "х/ф История Бадди Холли",
+      "year": "",
+      "type": "movie",
+      "status": "enriched",
+      "source": "tmdb+imdb",
+      "imdb_id": "tt0077280",
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=История Бадди Холли; lang=ru-RU; attempt=localized+year; tmdb_title=История Бадди Холли; rating_source=; votes=; confidence=98"
+    },
+    {
+      "channel_id": "X8kanal-by",
+      "title": "х/ф Путь домой",
+      "year": "",
+      "type": "movie",
+      "status": "no_imdb_id",
+      "source": "tmdb",
+      "imdb_id": "",
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Путь домой; lang=ru-RU; attempts=1"
+    },
+    {
+      "channel_id": "X8kanal-by",
+      "title": "т/с Оливка, Игорек и Рекс",
+      "year": "",
+      "type": "series",
+      "status": "not_found",
+      "source": "tmdb",
+      "imdb_id": "",
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Оливка, Игорек и Рекс; lang=ru-RU; attempts=2"
+    },
+    {
+      "channel_id": "X8kanal-by",
+      "title": "х/ф Ирония любви",
+      "year": "",
+      "type": "movie",
+      "status": "enriched",
+      "source": "tmdb+imdb",
+      "imdb_id": "tt1601845",
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Ирония любви; lang=ru-RU; attempt=localized+year; tmdb_title=Ирония любви; rating_source=; votes=; confidence=98"
+    },
+    {
+      "channel_id": "kinosat",
+      "title": "х/ф Встречное расследование",
+      "year": "",
+      "type": "movie",
+      "status": "enriched",
+      "source": "tmdb+imdb",
+      "imdb_id": "tt0825239",
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Встречное расследование; lang=ru-RU; attempt=localized+year; tmdb_title=Встречное расследование; rating_source=; votes=; confidence=98"
+    },
+    {
+      "channel_id": "X8kanal-by",
+      "title": "х/ф Давайте потанцуем",
+      "year": "",
+      "type": "movie",
+      "status": "budget_exhausted",
+      "source": "tmdb",
+      "imdb_id": "",
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Давайте потанцуем; lang=ru-RU; attempts=1"
     },
     {
       "channel_id": "Xarxyz24",
@@ -3046,7 +3120,7 @@
       "imdb_id": "tt6236470",
       "imdb_rating": "",
       "imdb_votes": "",
-      "detail": "query=Команда Че; lang=ru-RU; attempt=localized+year; tmdb_title=Команда ЧЕ; rating_source=; votes="
+      "detail": "query=Команда Че; lang=ru-RU; attempt=localized+year; tmdb_title=Команда ЧЕ; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xarxyz24",
@@ -3057,8 +3131,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt5720368",
       "imdb_rating": "",
-      "imdb_votes": "60",
-      "detail": "query=Квест; lang=ru-RU; attempt=localized+year; tmdb_title=Квест; rating_source=omdb-fallback; votes=60"
+      "imdb_votes": "",
+      "detail": "query=Квест; lang=ru-RU; attempt=localized+year; tmdb_title=Квест; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xexpress",
@@ -3070,7 +3144,7 @@
       "imdb_id": "tt6236470",
       "imdb_rating": "",
       "imdb_votes": "",
-      "detail": "query=Команда Че; lang=ru-RU; attempt=localized+year; tmdb_title=Команда ЧЕ; rating_source=; votes="
+      "detail": "query=Команда Че; lang=ru-RU; attempt=localized+year; tmdb_title=Команда ЧЕ; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xarxyz24",
@@ -3081,8 +3155,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt5720368",
       "imdb_rating": "",
-      "imdb_votes": "60",
-      "detail": "query=Квест; lang=ru-RU; attempt=localized+year; tmdb_title=Квест; rating_source=omdb-fallback; votes=60"
+      "imdb_votes": "",
+      "detail": "query=Квест; lang=ru-RU; attempt=localized+year; tmdb_title=Квест; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xarxyz24",
@@ -3094,7 +3168,7 @@
       "imdb_id": "tt6236470",
       "imdb_rating": "",
       "imdb_votes": "",
-      "detail": "query=Команда Че; lang=ru-RU; attempt=localized+year; tmdb_title=Команда ЧЕ; rating_source=; votes="
+      "detail": "query=Команда Че; lang=ru-RU; attempt=localized+year; tmdb_title=Команда ЧЕ; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xarxyz24",
@@ -3105,8 +3179,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt5720368",
       "imdb_rating": "",
-      "imdb_votes": "60",
-      "detail": "query=Квест; lang=ru-RU; attempt=localized+year; tmdb_title=Квест; rating_source=omdb-fallback; votes=60"
+      "imdb_votes": "",
+      "detail": "query=Квест; lang=ru-RU; attempt=localized+year; tmdb_title=Квест; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xarxyz24",
@@ -3118,7 +3192,7 @@
       "imdb_id": "tt6236470",
       "imdb_rating": "",
       "imdb_votes": "",
-      "detail": "query=Команда Че; lang=ru-RU; attempt=localized+year; tmdb_title=Команда ЧЕ; rating_source=; votes="
+      "detail": "query=Команда Че; lang=ru-RU; attempt=localized+year; tmdb_title=Команда ЧЕ; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xarxyz24",
@@ -3129,8 +3203,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt5720368",
       "imdb_rating": "",
-      "imdb_votes": "60",
-      "detail": "query=Квест; lang=ru-RU; attempt=localized+year; tmdb_title=Квест; rating_source=omdb-fallback; votes=60"
+      "imdb_votes": "",
+      "detail": "query=Квест; lang=ru-RU; attempt=localized+year; tmdb_title=Квест; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xtv-in",
@@ -3142,7 +3216,7 @@
       "imdb_id": "tt2576928",
       "imdb_rating": "5.8",
       "imdb_votes": "",
-      "detail": "query=Мужская женская игра; lang=ru-RU; attempt=localized+year; tmdb_title=Мужская женская игра; rating_source=legacy; votes="
+      "detail": "query=Мужская женская игра; lang=ru-RU; attempt=localized+year; tmdb_title=Мужская женская игра; rating_source=legacy; votes=; confidence="
     },
     {
       "channel_id": "Xarxyz24",
@@ -3153,8 +3227,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt5720368",
       "imdb_rating": "",
-      "imdb_votes": "60",
-      "detail": "query=Квест; lang=ru-RU; attempt=localized+year; tmdb_title=Квест; rating_source=omdb-fallback; votes=60"
+      "imdb_votes": "",
+      "detail": "query=Квест; lang=ru-RU; attempt=localized+year; tmdb_title=Квест; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xastraxan24",
@@ -3226,7 +3300,19 @@
       "imdb_id": "tt0241303",
       "imdb_rating": "7.2",
       "imdb_votes": "",
-      "detail": "query=Шоколад; lang=ru-RU; attempt=localized+year; tmdb_title=Шоколад; rating_source=legacy; votes="
+      "detail": "query=Шоколад; lang=ru-RU; attempt=localized+year; tmdb_title=Шоколад; rating_source=legacy; votes=; confidence="
+    },
+    {
+      "channel_id": "Xbcu-fantastic",
+      "title": "х/ф Люди в чёрном – Интернэшнл",
+      "year": "",
+      "type": "movie",
+      "status": "enriched",
+      "source": "tmdb+imdb",
+      "imdb_id": "tt2283336",
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Men in Black: International; lang=en-US; attempt=alias+year; tmdb_title=Men in Black: International; rating_source=; votes=; confidence=97"
     },
     {
       "channel_id": "Xbelarus1",
@@ -3236,9 +3322,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt1360087",
-      "imdb_rating": "3.3",
-      "imdb_votes": "295",
-      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=omdb-fallback; votes=295"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=След; lang=ru-RU; attempt=localized+year; tmdb_title=След; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xexpress",
@@ -3248,9 +3334,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt9025100",
-      "imdb_rating": "6.2",
-      "imdb_votes": "30",
-      "detail": "query=Штрафник; lang=ru-RU; attempt=localized+year; tmdb_title=Штрафник; rating_source=omdb-fallback; votes=30"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Штрафник; lang=ru-RU; attempt=localized+year; tmdb_title=Штрафник; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xbolt-ru",
@@ -3260,9 +3346,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt9025100",
-      "imdb_rating": "6.2",
-      "imdb_votes": "30",
-      "detail": "query=Штрафник; lang=ru-RU; attempt=localized+year; tmdb_title=Штрафник; rating_source=omdb-fallback; votes=30"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Штрафник; lang=ru-RU; attempt=localized+year; tmdb_title=Штрафник; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xbolt-ru",
@@ -3272,9 +3358,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt9025100",
-      "imdb_rating": "6.2",
-      "imdb_votes": "30",
-      "detail": "query=Штрафник; lang=ru-RU; attempt=localized+year; tmdb_title=Штрафник; rating_source=omdb-fallback; votes=30"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Штрафник; lang=ru-RU; attempt=localized+year; tmdb_title=Штрафник; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xbolt-ru",
@@ -3284,9 +3370,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt9025100",
-      "imdb_rating": "6.2",
-      "imdb_votes": "30",
-      "detail": "query=Штрафник; lang=ru-RU; attempt=localized+year; tmdb_title=Штрафник; rating_source=omdb-fallback; votes=30"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Штрафник; lang=ru-RU; attempt=localized+year; tmdb_title=Штрафник; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xbolt-ru",
@@ -3296,9 +3382,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt9025100",
-      "imdb_rating": "6.2",
-      "imdb_votes": "30",
-      "detail": "query=Штрафник; lang=ru-RU; attempt=localized+year; tmdb_title=Штрафник; rating_source=omdb-fallback; votes=30"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Штрафник; lang=ru-RU; attempt=localized+year; tmdb_title=Штрафник; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xbolt-ru",
@@ -3308,9 +3394,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt9025100",
-      "imdb_rating": "6.2",
-      "imdb_votes": "30",
-      "detail": "query=Штрафник; lang=ru-RU; attempt=localized+year; tmdb_title=Штрафник; rating_source=omdb-fallback; votes=30"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Штрафник; lang=ru-RU; attempt=localized+year; tmdb_title=Штрафник; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xbolt-ru",
@@ -3320,9 +3406,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt9025100",
-      "imdb_rating": "6.2",
-      "imdb_votes": "30",
-      "detail": "query=Штрафник; lang=ru-RU; attempt=localized+year; tmdb_title=Штрафник; rating_source=omdb-fallback; votes=30"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Штрафник; lang=ru-RU; attempt=localized+year; tmdb_title=Штрафник; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xbolt-ru",
@@ -3332,9 +3418,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt9025100",
-      "imdb_rating": "6.2",
-      "imdb_votes": "30",
-      "detail": "query=Штрафник; lang=ru-RU; attempt=localized+year; tmdb_title=Штрафник; rating_source=omdb-fallback; votes=30"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Штрафник; lang=ru-RU; attempt=localized+year; tmdb_title=Штрафник; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xbolt-ru",
@@ -3344,9 +3430,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt9025100",
-      "imdb_rating": "6.2",
-      "imdb_votes": "30",
-      "detail": "query=Штрафник; lang=ru-RU; attempt=localized+year; tmdb_title=Штрафник; rating_source=omdb-fallback; votes=30"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Штрафник; lang=ru-RU; attempt=localized+year; tmdb_title=Штрафник; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xbolt-ru",
@@ -3356,9 +3442,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt9025100",
-      "imdb_rating": "6.2",
-      "imdb_votes": "30",
-      "detail": "query=Штрафник; lang=ru-RU; attempt=localized+year; tmdb_title=Штрафник; rating_source=omdb-fallback; votes=30"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Штрафник; lang=ru-RU; attempt=localized+year; tmdb_title=Штрафник; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xbrianskaya-gubernia",
@@ -3560,9 +3646,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt3323030",
-      "imdb_rating": "4.8",
-      "imdb_votes": "5",
-      "detail": "query=Была любовь; lang=ru-RU; attempt=localized+year; tmdb_title=Была любовь; rating_source=omdb-fallback; votes=5"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Была любовь; lang=ru-RU; attempt=localized+year; tmdb_title=Была любовь; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xpervy-krymsky",
@@ -3572,9 +3658,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt3323030",
-      "imdb_rating": "4.8",
-      "imdb_votes": "5",
-      "detail": "query=Была любовь; lang=ru-RU; attempt=localized+year; tmdb_title=Была любовь; rating_source=omdb-fallback; votes=5"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Была любовь; lang=ru-RU; attempt=localized+year; tmdb_title=Была любовь; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xrgvk-dagestan",
@@ -3601,6 +3687,30 @@
       "detail": "query=Такая работа; lang=ru-RU; attempts=2"
     },
     {
+      "channel_id": "Xtexno-24",
+      "title": "х/ф Бандит",
+      "year": "",
+      "type": "movie",
+      "status": "enriched",
+      "source": "tmdb+omdb",
+      "imdb_id": "tt9853500",
+      "imdb_rating": "6.4",
+      "imdb_votes": "",
+      "detail": "query=Бандит; lang=ru-RU; attempt=localized+year; tmdb_title=Бандит; rating_source=omdb-fallback; votes=; confidence="
+    },
+    {
+      "channel_id": "Xtv1000-action",
+      "title": "х/ф Катастрофа",
+      "year": "",
+      "type": "movie",
+      "status": "enriched",
+      "source": "tmdb+metadata",
+      "imdb_id": "tt0060582",
+      "imdb_rating": "6.7",
+      "imdb_votes": "",
+      "detail": "query=Katastrofa; lang=en-US; attempt=translit+year; tmdb_title=The Catastrophe; rating_source=omdb-fallback; votes=; confidence="
+    },
+    {
       "channel_id": "kino1int-tviksel",
       "title": "х/ф Укротительница тигров",
       "year": "",
@@ -3610,7 +3720,7 @@
       "imdb_id": "tt0047628",
       "imdb_rating": "7.1",
       "imdb_votes": "",
-      "detail": "query=Укротительница тигров; lang=ru-RU; attempt=localized+year; tmdb_title=Укротительница тигров; rating_source=legacy; votes="
+      "detail": "query=Укротительница тигров; lang=ru-RU; attempt=localized+year; tmdb_title=Укротительница тигров; rating_source=legacy; votes=; confidence="
     },
     {
       "channel_id": "Xtrk-ryazan",
@@ -3622,7 +3732,7 @@
       "imdb_id": "tt6236470",
       "imdb_rating": "",
       "imdb_votes": "",
-      "detail": "query=Команда Че; lang=ru-RU; attempt=localized+year; tmdb_title=Команда ЧЕ; rating_source=; votes="
+      "detail": "query=Команда Че; lang=ru-RU; attempt=localized+year; tmdb_title=Команда ЧЕ; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xtrk-ryazan",
@@ -3633,8 +3743,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt5720368",
       "imdb_rating": "",
-      "imdb_votes": "60",
-      "detail": "query=Квест; lang=ru-RU; attempt=localized+year; tmdb_title=Квест; rating_source=omdb-fallback; votes=60"
+      "imdb_votes": "",
+      "detail": "query=Квест; lang=ru-RU; attempt=localized+year; tmdb_title=Квест; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xdzenzhinsk-tv",
@@ -3644,9 +3754,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt9196684",
-      "imdb_rating": "7.4",
-      "imdb_votes": "147",
-      "detail": "query=Отчий берег; lang=ru-RU; attempt=localized+year; tmdb_title=Отчий берег; rating_source=omdb-fallback; votes=147"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Отчий берег; lang=ru-RU; attempt=localized+year; tmdb_title=Отчий берег; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xenisey-region",
@@ -3656,9 +3766,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt9196684",
-      "imdb_rating": "7.4",
-      "imdb_votes": "147",
-      "detail": "query=Отчий берег; lang=ru-RU; attempt=localized+year; tmdb_title=Отчий берег; rating_source=omdb-fallback; votes=147"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Отчий берег; lang=ru-RU; attempt=localized+year; tmdb_title=Отчий берег; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xenisey-region",
@@ -3668,9 +3778,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt3323030",
-      "imdb_rating": "4.8",
-      "imdb_votes": "5",
-      "detail": "query=Была любовь; lang=ru-RU; attempt=localized+year; tmdb_title=Была любовь; rating_source=omdb-fallback; votes=5"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Была любовь; lang=ru-RU; attempt=localized+year; tmdb_title=Была любовь; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xenisey-region",
@@ -3680,9 +3790,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt9196684",
-      "imdb_rating": "7.4",
-      "imdb_votes": "147",
-      "detail": "query=Отчий берег; lang=ru-RU; attempt=localized+year; tmdb_title=Отчий берег; rating_source=omdb-fallback; votes=147"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Отчий берег; lang=ru-RU; attempt=localized+year; tmdb_title=Отчий берег; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xenisey-region",
@@ -3716,9 +3826,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt3323030",
-      "imdb_rating": "4.8",
-      "imdb_votes": "5",
-      "detail": "query=Была любовь; lang=ru-RU; attempt=localized+year; tmdb_title=Была любовь; rating_source=omdb-fallback; votes=5"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Была любовь; lang=ru-RU; attempt=localized+year; tmdb_title=Была любовь; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xenisey-region",
@@ -3728,9 +3838,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt9196684",
-      "imdb_rating": "7.4",
-      "imdb_votes": "147",
-      "detail": "query=Отчий берег; lang=ru-RU; attempt=localized+year; tmdb_title=Отчий берег; rating_source=omdb-fallback; votes=147"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Отчий берег; lang=ru-RU; attempt=localized+year; tmdb_title=Отчий берег; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xenisey-region",
@@ -3764,9 +3874,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt3323030",
-      "imdb_rating": "4.8",
-      "imdb_votes": "5",
-      "detail": "query=Была любовь; lang=ru-RU; attempt=localized+year; tmdb_title=Была любовь; rating_source=omdb-fallback; votes=5"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Была любовь; lang=ru-RU; attempt=localized+year; tmdb_title=Была любовь; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xenisey-region",
@@ -3776,9 +3886,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt9196684",
-      "imdb_rating": "7.4",
-      "imdb_votes": "147",
-      "detail": "query=Отчий берег; lang=ru-RU; attempt=localized+year; tmdb_title=Отчий берег; rating_source=omdb-fallback; votes=147"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Отчий берег; lang=ru-RU; attempt=localized+year; tmdb_title=Отчий берег; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xenisey-region",
@@ -3812,9 +3922,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt3323030",
-      "imdb_rating": "4.8",
-      "imdb_votes": "5",
-      "detail": "query=Была любовь; lang=ru-RU; attempt=localized+year; tmdb_title=Была любовь; rating_source=omdb-fallback; votes=5"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Была любовь; lang=ru-RU; attempt=localized+year; tmdb_title=Была любовь; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xenisey-region",
@@ -3824,9 +3934,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt9196684",
-      "imdb_rating": "7.4",
-      "imdb_votes": "147",
-      "detail": "query=Отчий берег; lang=ru-RU; attempt=localized+year; tmdb_title=Отчий берег; rating_source=omdb-fallback; votes=147"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Отчий берег; lang=ru-RU; attempt=localized+year; tmdb_title=Отчий берег; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xenisey-region",
@@ -3860,9 +3970,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt3323030",
-      "imdb_rating": "4.8",
-      "imdb_votes": "5",
-      "detail": "query=Была любовь; lang=ru-RU; attempt=localized+year; tmdb_title=Была любовь; rating_source=omdb-fallback; votes=5"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Была любовь; lang=ru-RU; attempt=localized+year; tmdb_title=Была любовь; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xenisey-region",
@@ -3872,9 +3982,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt9196684",
-      "imdb_rating": "7.4",
-      "imdb_votes": "147",
-      "detail": "query=Отчий берег; lang=ru-RU; attempt=localized+year; tmdb_title=Отчий берег; rating_source=omdb-fallback; votes=147"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Отчий берег; lang=ru-RU; attempt=localized+year; tmdb_title=Отчий берег; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xenisey-region",
@@ -3922,19 +4032,7 @@
       "imdb_id": "tt6236470",
       "imdb_rating": "",
       "imdb_votes": "",
-      "detail": "query=Команда Че; lang=ru-RU; attempt=localized+year; tmdb_title=Команда ЧЕ; rating_source=; votes="
-    },
-    {
-      "channel_id": "Xfresh-romatic",
-      "title": "х/ф Дублёр",
-      "year": "",
-      "type": "movie",
-      "status": "no_imdb_id",
-      "source": "tmdb",
-      "imdb_id": "",
-      "imdb_rating": "",
-      "imdb_votes": "",
-      "detail": "query=Дублер; lang=ru-RU; attempts=1"
+      "detail": "query=Команда Че; lang=ru-RU; attempt=localized+year; tmdb_title=Команда ЧЕ; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xmillet",
@@ -3944,9 +4042,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt9025100",
-      "imdb_rating": "6.2",
-      "imdb_votes": "30",
-      "detail": "query=Штрафник; lang=ru-RU; attempt=localized+year; tmdb_title=Штрафник; rating_source=omdb-fallback; votes=30"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Штрафник; lang=ru-RU; attempt=localized+year; tmdb_title=Штрафник; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xkluch",
@@ -3958,7 +4056,7 @@
       "imdb_id": "tt0080439",
       "imdb_rating": "7.6",
       "imdb_votes": "",
-      "detail": "query=Укрощение строптивого; lang=ru-RU; attempt=localized+year; tmdb_title=Укрощение строптивого; rating_source=legacy; votes="
+      "detail": "query=Укрощение строптивого; lang=ru-RU; attempt=localized+year; tmdb_title=Укрощение строптивого; rating_source=legacy; votes=; confidence="
     },
     {
       "channel_id": "Xlavstori",
@@ -3968,9 +4066,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt5673782",
-      "imdb_rating": "8.2",
-      "imdb_votes": "20932",
-      "detail": "query=Гений; lang=ru-RU; attempt=localized+year; tmdb_title=Гений; rating_source=omdb-fallback; votes=20932"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Гений; lang=ru-RU; attempt=localized+year; tmdb_title=Гений; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xlavstori",
@@ -3980,9 +4078,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt5673782",
-      "imdb_rating": "8.2",
-      "imdb_votes": "20932",
-      "detail": "query=Гений; lang=ru-RU; attempt=localized+year; tmdb_title=Гений; rating_source=omdb-fallback; votes=20932"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Гений; lang=ru-RU; attempt=localized+year; tmdb_title=Гений; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xlavstori",
@@ -3992,9 +4090,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt5673782",
-      "imdb_rating": "8.2",
-      "imdb_votes": "20932",
-      "detail": "query=Гений; lang=ru-RU; attempt=localized+year; tmdb_title=Гений; rating_source=omdb-fallback; votes=20932"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Гений; lang=ru-RU; attempt=localized+year; tmdb_title=Гений; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xlavstori",
@@ -4004,9 +4102,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt5673782",
-      "imdb_rating": "8.2",
-      "imdb_votes": "20932",
-      "detail": "query=Гений; lang=ru-RU; attempt=localized+year; tmdb_title=Гений; rating_source=omdb-fallback; votes=20932"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Гений; lang=ru-RU; attempt=localized+year; tmdb_title=Гений; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xsimfer24",
@@ -4016,9 +4114,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt9196684",
-      "imdb_rating": "7.4",
-      "imdb_votes": "147",
-      "detail": "query=Отчий берег; lang=ru-RU; attempt=localized+year; tmdb_title=Отчий берег; rating_source=omdb-fallback; votes=147"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Отчий берег; lang=ru-RU; attempt=localized+year; tmdb_title=Отчий берег; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xsimfer24",
@@ -4028,9 +4126,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt9196684",
-      "imdb_rating": "7.4",
-      "imdb_votes": "147",
-      "detail": "query=Отчий берег; lang=ru-RU; attempt=localized+year; tmdb_title=Отчий берег; rating_source=omdb-fallback; votes=147"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Отчий берег; lang=ru-RU; attempt=localized+year; tmdb_title=Отчий берег; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xsimfer24",
@@ -4064,9 +4162,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt9196684",
-      "imdb_rating": "7.4",
-      "imdb_votes": "147",
-      "detail": "query=Отчий берег; lang=ru-RU; attempt=localized+year; tmdb_title=Отчий берег; rating_source=omdb-fallback; votes=147"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Отчий берег; lang=ru-RU; attempt=localized+year; tmdb_title=Отчий берег; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xlegendarny24",
@@ -4076,9 +4174,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt9196684",
-      "imdb_rating": "7.4",
-      "imdb_votes": "147",
-      "detail": "query=Отчий берег; lang=ru-RU; attempt=localized+year; tmdb_title=Отчий берег; rating_source=omdb-fallback; votes=147"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Отчий берег; lang=ru-RU; attempt=localized+year; tmdb_title=Отчий берег; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xsimfer24",
@@ -4112,9 +4210,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt9196684",
-      "imdb_rating": "7.4",
-      "imdb_votes": "147",
-      "detail": "query=Отчий берег; lang=ru-RU; attempt=localized+year; tmdb_title=Отчий берег; rating_source=omdb-fallback; votes=147"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Отчий берег; lang=ru-RU; attempt=localized+year; tmdb_title=Отчий берег; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xsimfer24",
@@ -4124,9 +4222,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt9196684",
-      "imdb_rating": "7.4",
-      "imdb_votes": "147",
-      "detail": "query=Отчий берег; lang=ru-RU; attempt=localized+year; tmdb_title=Отчий берег; rating_source=omdb-fallback; votes=147"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Отчий берег; lang=ru-RU; attempt=localized+year; tmdb_title=Отчий берег; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xsimfer24",
@@ -4160,9 +4258,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt9196684",
-      "imdb_rating": "7.4",
-      "imdb_votes": "147",
-      "detail": "query=Отчий берег; lang=ru-RU; attempt=localized+year; tmdb_title=Отчий берег; rating_source=omdb-fallback; votes=147"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Отчий берег; lang=ru-RU; attempt=localized+year; tmdb_title=Отчий берег; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xsimfer24",
@@ -4172,9 +4270,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt9196684",
-      "imdb_rating": "7.4",
-      "imdb_votes": "147",
-      "detail": "query=Отчий берег; lang=ru-RU; attempt=localized+year; tmdb_title=Отчий берег; rating_source=omdb-fallback; votes=147"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Отчий берег; lang=ru-RU; attempt=localized+year; tmdb_title=Отчий берег; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xmillet",
@@ -4196,9 +4294,21 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt5673782",
-      "imdb_rating": "8.2",
-      "imdb_votes": "20932",
-      "detail": "query=Гений; lang=ru-RU; attempt=localized+year; tmdb_title=Гений; rating_source=omdb-fallback; votes=20932"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Гений; lang=ru-RU; attempt=localized+year; tmdb_title=Гений; rating_source=; votes=; confidence="
+    },
+    {
+      "channel_id": "Xvhs-ka",
+      "title": "х/ф Стукач",
+      "year": "",
+      "type": "movie",
+      "status": "enriched",
+      "source": "tmdb+omdb",
+      "imdb_id": "tt35851026",
+      "imdb_rating": "6.5",
+      "imdb_votes": "",
+      "detail": "query=Стукач; lang=ru-RU; attempt=localized+year; tmdb_title=Стукач; rating_source=omdb-fallback; votes=; confidence="
     },
     {
       "channel_id": "Xtrk-ryazan",
@@ -4273,6 +4383,18 @@
       "detail": "query=Такая работа; lang=ru-RU; attempts=2"
     },
     {
+      "channel_id": "Xpremium-kino-kz",
+      "title": "Давайте потанцуем",
+      "year": "",
+      "type": "movie",
+      "status": "budget_exhausted",
+      "source": "tmdb",
+      "imdb_id": "",
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Давайте потанцуем; lang=ru-RU; attempts=1"
+    },
+    {
       "channel_id": "Xrussian-extreme-uhd",
       "title": "Катастрофа",
       "year": "",
@@ -4281,8 +4403,8 @@
       "source": "tmdb+metadata",
       "imdb_id": "tt0060582",
       "imdb_rating": "6.7",
-      "imdb_votes": "13",
-      "detail": "query=Katastrofa; lang=en-US; attempt=translit+year; tmdb_title=The Catastrophe; rating_source=omdb-fallback; votes=13"
+      "imdb_votes": "",
+      "detail": "query=Katastrofa; lang=en-US; attempt=translit+year; tmdb_title=The Catastrophe; rating_source=omdb-fallback; votes=; confidence="
     },
     {
       "channel_id": "Xsalam",
@@ -4293,8 +4415,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt5720368",
       "imdb_rating": "",
-      "imdb_votes": "60",
-      "detail": "query=Квест; lang=ru-RU; attempt=localized+year; tmdb_title=Квест; rating_source=omdb-fallback; votes=60"
+      "imdb_votes": "",
+      "detail": "query=Квест; lang=ru-RU; attempt=localized+year; tmdb_title=Квест; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xsalam",
@@ -4305,8 +4427,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt5720368",
       "imdb_rating": "",
-      "imdb_votes": "60",
-      "detail": "query=Квест; lang=ru-RU; attempt=localized+year; tmdb_title=Квест; rating_source=omdb-fallback; votes=60"
+      "imdb_votes": "",
+      "detail": "query=Квест; lang=ru-RU; attempt=localized+year; tmdb_title=Квест; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xsalam",
@@ -4317,8 +4439,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt5720368",
       "imdb_rating": "",
-      "imdb_votes": "60",
-      "detail": "query=Квест; lang=ru-RU; attempt=localized+year; tmdb_title=Квест; rating_source=omdb-fallback; votes=60"
+      "imdb_votes": "",
+      "detail": "query=Квест; lang=ru-RU; attempt=localized+year; tmdb_title=Квест; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xsalam",
@@ -4329,8 +4451,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt5720368",
       "imdb_rating": "",
-      "imdb_votes": "60",
-      "detail": "query=Квест; lang=ru-RU; attempt=localized+year; tmdb_title=Квест; rating_source=omdb-fallback; votes=60"
+      "imdb_votes": "",
+      "detail": "query=Квест; lang=ru-RU; attempt=localized+year; tmdb_title=Квест; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xsalam",
@@ -4341,8 +4463,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt5720368",
       "imdb_rating": "",
-      "imdb_votes": "60",
-      "detail": "query=Квест; lang=ru-RU; attempt=localized+year; tmdb_title=Квест; rating_source=omdb-fallback; votes=60"
+      "imdb_votes": "",
+      "detail": "query=Квест; lang=ru-RU; attempt=localized+year; tmdb_title=Квест; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xsalam",
@@ -4353,8 +4475,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt5720368",
       "imdb_rating": "",
-      "imdb_votes": "60",
-      "detail": "query=Квест; lang=ru-RU; attempt=localized+year; tmdb_title=Квест; rating_source=omdb-fallback; votes=60"
+      "imdb_votes": "",
+      "detail": "query=Квест; lang=ru-RU; attempt=localized+year; tmdb_title=Квест; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xsalam",
@@ -4365,8 +4487,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt5720368",
       "imdb_rating": "",
-      "imdb_votes": "60",
-      "detail": "query=Квест; lang=ru-RU; attempt=localized+year; tmdb_title=Квест; rating_source=omdb-fallback; votes=60"
+      "imdb_votes": "",
+      "detail": "query=Квест; lang=ru-RU; attempt=localized+year; tmdb_title=Квест; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xsalam",
@@ -4377,8 +4499,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt5720368",
       "imdb_rating": "",
-      "imdb_votes": "60",
-      "detail": "query=Квест; lang=ru-RU; attempt=localized+year; tmdb_title=Квест; rating_source=omdb-fallback; votes=60"
+      "imdb_votes": "",
+      "detail": "query=Квест; lang=ru-RU; attempt=localized+year; tmdb_title=Квест; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xsimfer24",
@@ -4388,9 +4510,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt9196684",
-      "imdb_rating": "7.4",
-      "imdb_votes": "147",
-      "detail": "query=Отчий берег; lang=ru-RU; attempt=localized+year; tmdb_title=Отчий берег; rating_source=omdb-fallback; votes=147"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Отчий берег; lang=ru-RU; attempt=localized+year; tmdb_title=Отчий берег; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xsimfer24",
@@ -4400,9 +4522,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt9196684",
-      "imdb_rating": "7.4",
-      "imdb_votes": "147",
-      "detail": "query=Отчий берег; lang=ru-RU; attempt=localized+year; tmdb_title=Отчий берег; rating_source=omdb-fallback; votes=147"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Отчий берег; lang=ru-RU; attempt=localized+year; tmdb_title=Отчий берег; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xstart-world",
@@ -4412,9 +4534,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt34063491",
-      "imdb_rating": "7.1",
+      "imdb_rating": "",
       "imdb_votes": "",
-      "detail": "query=Далекий город; lang=ru-RU; attempt=localized+year; tmdb_title=Далекий город; rating_source=omdb; votes="
+      "detail": "query=Далекий город; lang=ru-RU; attempt=localized+year; tmdb_title=Далекий город; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xstart-world",
@@ -4424,9 +4546,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt34063491",
-      "imdb_rating": "7.1",
+      "imdb_rating": "",
       "imdb_votes": "",
-      "detail": "query=Далекий город; lang=ru-RU; attempt=localized+year; tmdb_title=Далекий город; rating_source=omdb; votes="
+      "detail": "query=Далекий город; lang=ru-RU; attempt=localized+year; tmdb_title=Далекий город; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xstart-world",
@@ -4436,9 +4558,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt34063491",
-      "imdb_rating": "7.1",
+      "imdb_rating": "",
       "imdb_votes": "",
-      "detail": "query=Далекий город; lang=ru-RU; attempt=localized+year; tmdb_title=Далекий город; rating_source=omdb; votes="
+      "detail": "query=Далекий город; lang=ru-RU; attempt=localized+year; tmdb_title=Далекий город; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xstart-world",
@@ -4448,9 +4570,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt34063491",
-      "imdb_rating": "7.1",
+      "imdb_rating": "",
       "imdb_votes": "",
-      "detail": "query=Далекий город; lang=ru-RU; attempt=localized+year; tmdb_title=Далекий город; rating_source=omdb; votes="
+      "detail": "query=Далекий город; lang=ru-RU; attempt=localized+year; tmdb_title=Далекий город; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xstart-world",
@@ -4460,9 +4582,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt34063491",
-      "imdb_rating": "7.1",
+      "imdb_rating": "",
       "imdb_votes": "",
-      "detail": "query=Далекий город; lang=ru-RU; attempt=localized+year; tmdb_title=Далекий город; rating_source=omdb; votes="
+      "detail": "query=Далекий город; lang=ru-RU; attempt=localized+year; tmdb_title=Далекий город; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xstart-world",
@@ -4472,9 +4594,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt34063491",
-      "imdb_rating": "7.1",
+      "imdb_rating": "",
       "imdb_votes": "",
-      "detail": "query=Далекий город; lang=ru-RU; attempt=localized+year; tmdb_title=Далекий город; rating_source=omdb; votes="
+      "detail": "query=Далекий город; lang=ru-RU; attempt=localized+year; tmdb_title=Далекий город; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xstart-world",
@@ -4484,9 +4606,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt34063491",
-      "imdb_rating": "7.1",
+      "imdb_rating": "",
       "imdb_votes": "",
-      "detail": "query=Далекий город; lang=ru-RU; attempt=localized+year; tmdb_title=Далекий город; rating_source=omdb; votes="
+      "detail": "query=Далекий город; lang=ru-RU; attempt=localized+year; tmdb_title=Далекий город; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xstart-world",
@@ -4496,9 +4618,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt34063491",
-      "imdb_rating": "7.1",
+      "imdb_rating": "",
       "imdb_votes": "",
-      "detail": "query=Далекий город; lang=ru-RU; attempt=localized+year; tmdb_title=Далекий город; rating_source=omdb; votes="
+      "detail": "query=Далекий город; lang=ru-RU; attempt=localized+year; tmdb_title=Далекий город; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xstart-world",
@@ -4508,9 +4630,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt34063491",
-      "imdb_rating": "7.1",
+      "imdb_rating": "",
       "imdb_votes": "",
-      "detail": "query=Далекий город; lang=ru-RU; attempt=localized+year; tmdb_title=Далекий город; rating_source=omdb; votes="
+      "detail": "query=Далекий город; lang=ru-RU; attempt=localized+year; tmdb_title=Далекий город; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xstart-world",
@@ -4520,9 +4642,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt34063491",
-      "imdb_rating": "7.1",
+      "imdb_rating": "",
       "imdb_votes": "",
-      "detail": "query=Далекий город; lang=ru-RU; attempt=localized+year; tmdb_title=Далекий город; rating_source=omdb; votes="
+      "detail": "query=Далекий город; lang=ru-RU; attempt=localized+year; tmdb_title=Далекий город; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xstart-world",
@@ -4532,9 +4654,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt34063491",
-      "imdb_rating": "7.1",
+      "imdb_rating": "",
       "imdb_votes": "",
-      "detail": "query=Далекий город; lang=ru-RU; attempt=localized+year; tmdb_title=Далекий город; rating_source=omdb; votes="
+      "detail": "query=Далекий город; lang=ru-RU; attempt=localized+year; tmdb_title=Далекий город; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xstart-world",
@@ -4544,9 +4666,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt34063491",
-      "imdb_rating": "7.1",
+      "imdb_rating": "",
       "imdb_votes": "",
-      "detail": "query=Далекий город; lang=ru-RU; attempt=localized+year; tmdb_title=Далекий город; rating_source=omdb; votes="
+      "detail": "query=Далекий город; lang=ru-RU; attempt=localized+year; tmdb_title=Далекий город; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xstart-world",
@@ -4556,9 +4678,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt34063491",
-      "imdb_rating": "7.1",
+      "imdb_rating": "",
       "imdb_votes": "",
-      "detail": "query=Далекий город; lang=ru-RU; attempt=localized+year; tmdb_title=Далекий город; rating_source=omdb; votes="
+      "detail": "query=Далекий город; lang=ru-RU; attempt=localized+year; tmdb_title=Далекий город; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xstart-world",
@@ -4568,9 +4690,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt34063491",
-      "imdb_rating": "7.1",
+      "imdb_rating": "",
       "imdb_votes": "",
-      "detail": "query=Далекий город; lang=ru-RU; attempt=localized+year; tmdb_title=Далекий город; rating_source=omdb; votes="
+      "detail": "query=Далекий город; lang=ru-RU; attempt=localized+year; tmdb_title=Далекий город; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xstart-world",
@@ -4580,9 +4702,9 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt34063491",
-      "imdb_rating": "7.1",
+      "imdb_rating": "",
       "imdb_votes": "",
-      "detail": "query=Далекий город; lang=ru-RU; attempt=localized+year; tmdb_title=Далекий город; rating_source=omdb; votes="
+      "detail": "query=Далекий город; lang=ru-RU; attempt=localized+year; tmdb_title=Далекий город; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xtnv",
@@ -4594,7 +4716,7 @@
       "imdb_id": "tt1133993",
       "imdb_rating": "5.3",
       "imdb_votes": "",
-      "detail": "query=Это развод!; lang=ru-RU; attempt=localized+year; tmdb_title=Это развод!; rating_source=legacy; votes="
+      "detail": "query=Это развод!; lang=ru-RU; attempt=localized+year; tmdb_title=Это развод!; rating_source=legacy; votes=; confidence="
     },
     {
       "channel_id": "Xtv-in",
@@ -4606,7 +4728,7 @@
       "imdb_id": "tt1726668",
       "imdb_rating": "",
       "imdb_votes": "",
-      "detail": "query=Хлеб детства моего; lang=ru-RU; attempt=localized+year; tmdb_title=Хлеб детства моего; rating_source=; votes="
+      "detail": "query=Хлеб детства моего; lang=ru-RU; attempt=localized+year; tmdb_title=Хлеб детства моего; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xtrk-ryazan",
@@ -4630,7 +4752,7 @@
       "imdb_id": "tt1133993",
       "imdb_rating": "5.3",
       "imdb_votes": "",
-      "detail": "query=Это развод!; lang=ru-RU; attempt=localized+year; tmdb_title=Это развод!; rating_source=legacy; votes="
+      "detail": "query=Это развод!; lang=ru-RU; attempt=localized+year; tmdb_title=Это развод!; rating_source=legacy; votes=; confidence="
     },
     {
       "channel_id": "Xtv-in",
@@ -4642,7 +4764,19 @@
       "imdb_id": "tt10990862",
       "imdb_rating": "",
       "imdb_votes": "",
-      "detail": "query=Купель дьявола; lang=ru-RU; attempt=localized+year; tmdb_title=Купель дьявола; rating_source=; votes="
+      "detail": "query=Купель дьявола; lang=ru-RU; attempt=localized+year; tmdb_title=Купель дьявола; rating_source=; votes=; confidence="
+    },
+    {
+      "channel_id": "Xtv1000-worldkino",
+      "title": "х/ф Нью-Йорк, Нью-Йорк",
+      "year": "",
+      "type": "movie",
+      "status": "enriched",
+      "source": "tmdb+omdb",
+      "imdb_id": "tt0383028",
+      "imdb_rating": "7.5",
+      "imdb_votes": "",
+      "detail": "query=Нью-Йорк, Нью-Йорк; lang=ru-RU; attempt=localized+year; tmdb_title=Нью-Йорк, Нью-Йорк; rating_source=omdb-fallback; votes=; confidence="
     },
     {
       "channel_id": "Xviju-tv1000-novella",
@@ -4654,7 +4788,7 @@
       "imdb_id": "tt10990862",
       "imdb_rating": "",
       "imdb_votes": "",
-      "detail": "query=Купель дьявола; lang=ru-RU; attempt=localized+year; tmdb_title=Купель дьявола; rating_source=; votes="
+      "detail": "query=Купель дьявола; lang=ru-RU; attempt=localized+year; tmdb_title=Купель дьявола; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "Xzal-04-tricolor",
@@ -4664,9 +4798,9 @@
       "status": "enriched",
       "source": "tmdb+omdb",
       "imdb_id": "tt0372620",
-      "imdb_rating": "5.8",
-      "imdb_votes": "66",
-      "detail": "query=Жизнь одна; lang=ru-RU; attempt=localized+year; tmdb_title=Жизнь одна; rating_source=omdb-fallback; votes=66"
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Жизнь одна; lang=ru-RU; attempt=localized+year; tmdb_title=Жизнь одна; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "detkinoint-tviksel",
@@ -4678,7 +4812,7 @@
       "imdb_id": "tt35213571",
       "imdb_rating": "",
       "imdb_votes": "",
-      "detail": "query=Морозко; lang=ru-RU; attempt=localized+year; tmdb_title=Морозко; rating_source=; votes="
+      "detail": "query=Морозко; lang=ru-RU; attempt=localized+year; tmdb_title=Морозко; rating_source=; votes=; confidence="
     },
     {
       "channel_id": "cinema-fantasy",
@@ -4688,9 +4822,21 @@
       "status": "enriched",
       "source": "tmdb+metadata",
       "imdb_id": "tt1409024",
-      "imdb_rating": "6.8",
+      "imdb_rating": "",
       "imdb_votes": "",
-      "detail": "query=Люди в черном 3; lang=ru-RU; attempt=localized+year; tmdb_title=Люди в чёрном 3; rating_source=omdb; votes="
+      "detail": "query=Люди в черном 3; lang=ru-RU; attempt=localized+year; tmdb_title=Люди в чёрном 3; rating_source=; votes=; confidence="
+    },
+    {
+      "channel_id": "cinema-fantasy",
+      "title": "Х/ф Люди в черном: Интернэшнл.",
+      "year": "",
+      "type": "movie",
+      "status": "enriched",
+      "source": "tmdb+imdb",
+      "imdb_id": "tt2283336",
+      "imdb_rating": "",
+      "imdb_votes": "",
+      "detail": "query=Men in Black: International; lang=en-US; attempt=alias+year; tmdb_title=Men in Black: International; rating_source=; votes=; confidence=97"
     },
     {
       "channel_id": "Xnash-detektiv",
@@ -4713,8 +4859,8 @@
       "source": "tmdb+omdb",
       "imdb_id": "tt35851026",
       "imdb_rating": "6.5",
-      "imdb_votes": "1113",
-      "detail": "query=Стукач; lang=ru-RU; attempt=localized+year; tmdb_title=Стукач; rating_source=omdb-fallback; votes=1113"
+      "imdb_votes": "",
+      "detail": "query=Стукач; lang=ru-RU; attempt=localized+year; tmdb_title=Стукач; rating_source=omdb-fallback; votes=; confidence="
     }
   ]
 }
