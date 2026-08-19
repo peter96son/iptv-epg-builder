@@ -1,13 +1,13 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-08-18T21:23:36.830742-07:00`
+- Generated: `2026-08-18T21:52:20.908823-07:00`
 - Playlist channels: **2700**
-- Baseline covered: **1600**
-- Final covered: **2094**
-- Added by fallbacks: **+494**
-- Unmatched: **606**
-- Programmes: **333069**
-- Movie coverage: **774/859** (+238)
+- Baseline covered: **1601**
+- Final covered: **2096**
+- Added by fallbacks: **+495**
+- Unmatched: **604**
+- Programmes: **333570**
+- Movie coverage: **775/859** (+239)
 
 ## Playlist changes
 
@@ -22,8 +22,8 @@
 | Group | Total | Baseline | Final | Added | Coverage |
 |---|---:|---:|---:|---:|---:|
 | Кинозалы | 358 | 231 | 329 | +98 | 91.9% |
-| Кинозалы UA | 206 | 103 | 186 | +83 | 90.3% |
-| Спорт | 249 | 93 | 156 | +63 | 62.7% |
+| Кинозалы UA | 206 | 103 | 187 | +84 | 90.8% |
+| Спорт | 249 | 94 | 157 | +63 | 63.1% |
 | Кино | 213 | 143 | 190 | +47 | 89.2% |
 | Музыкальные | 150 | 44 | 90 | +46 | 60.0% |
 | BE & NL | 90 | 32 | 51 | +19 | 56.7% |
@@ -63,20 +63,20 @@
 
 | Source | Status | Added |
 |---|---|---:|
-| iptv-online-primary | ok | 1600 |
+| iptv-online-primary | ok | 1601 |
 | iptvx-noarch | ok | 180 |
 | klimedia-dedicated | failed | 0 |
 | runigma-iptv | ok | 6 |
-| openbox-tsd | ok | 51 |
+| openbox-tsd | ok | 57 |
 | next-dedicated | ok | 0 |
-| bcumedia-dedicated | ok | 8 |
+| bcumedia-dedicated | ok | 6 |
 | cineman-dedicated | ok | 0 |
 | minimax-mm-dedicated | ok | 0 |
 | sharavoz-guide | failed | 0 |
-| tvteam | ok | 71 |
+| tvteam | ok | 69 |
 | epgpw-sreda | ok | 0 |
 | epgpw-chestny-detektiv | ok | 0 |
-| epgpw-RU | ok | 5 |
+| epgpw-RU | ok | 4 |
 | epgpw-DE | ok | 5 |
 | epgpw-GB | ok | 3 |
 | epgpw-US | ok | 0 |
@@ -120,8 +120,8 @@
 | DITV | 35 | 32 |
 | Other | 24 | 0 |
 | Play-X | 15 | 0 |
-| BOX | 13 | 0 |
 | Other: Football | 13 | 0 |
+| BOX | 12 | 0 |
 | Clarity | 12 | 0 |
 | Other: VIP | 12 | 0 |
 | Other: RTL | 11 | 0 |
@@ -137,7 +137,6 @@
 
 | Generated | Covered | Unmatched | Programmes |
 |---|---:|---:|---:|
-| 2026-08-17T13:00:33.404753-07:00 | 2127 | 573 | 364461 |
 | 2026-08-17T13:29:13.220677-07:00 | 2127 | 573 | 366774 |
 | 2026-08-17T14:55:14.619237-07:00 | 2127 | 573 | 366838 |
 | 2026-08-17T15:40:29.829251-07:00 | 2110 | 590 | 362289 |
@@ -157,4 +156,5 @@
 | 2026-08-18T18:59:09.114543-07:00 | 2094 | 606 | 330427 |
 | 2026-08-18T20:44:41.658173-07:00 | 2094 | 606 | 331812 |
 | 2026-08-18T21:23:36.830742-07:00 | 2094 | 606 | 333069 |
+| 2026-08-18T21:52:20.908823-07:00 | 2096 | 604 | 333570 |
 

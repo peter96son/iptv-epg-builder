@@ -3,15 +3,15 @@
 This report is diagnostic only. It does not create EPG mappings.
 A family must be researched and verified before aliases are added to the live builder.
 
-Unmatched channels: **606**
+Unmatched channels: **604**
 
 | Family | Channels | no_epg_* IDs | Main groups |
 |---|---:|---:|---|
 | DITV | 35 | 32 | Кинозалы (25), Детские (6), Познавательные (3), Для взрослых (1) |
 | Other | 24 | 0 | Украинские (6), Кинозалы UA (3), Израиль (3), Кино (2) |
 | Play-X | 15 | 0 | Музыкальные (9), Кино (3), Кинозалы UA (3) |
-| BOX | 13 | 0 | Спорт (12), Кино 4K (1) |
 | Other: Football | 13 | 0 | Спорт (13) |
+| BOX | 12 | 0 | Спорт (11), Кино 4K (1) |
 | Clarity | 12 | 0 | Кино 4K (11), Музыкальные (1) |
 | Other: VIP | 12 | 0 | Спорт (12) |
 | Other: RTL | 11 | 0 | Музыкальные (8), Германия (3) |
@@ -161,7 +161,6 @@ Unmatched channels: **606**
 | Other: Hinuhit | 1 | 0 | Израиль (1) |
 | Other: HLN | 1 | 0 | BE & NL (1) |
 | Other: Hohenrausch | 1 | 0 | Германия (1) |
-| Other: Horrors | 1 | 0 | Кинозалы UA (1) |
 | Other: Hot | 1 | 0 | Израиль (1) |
 | Other: HOT | 1 | 0 | Израиль (1) |
 | Other: House | 1 | 0 | Музыкальные (1) |
@@ -458,22 +457,6 @@ Unmatched channels: **606**
 - Play-X Музыкальная дорожка 90-х
 - Play-X Русский рок
 
-### BOX — 13
-
-- BOX Remast Plus 4K
-- BOX Be ON Edge 2 Live HD
-- BOX SportCast Live 2 HD
-- BOX SportCast Live 3 HD
-- BOX SportCast Live 4 HD
-- BOX SportCast Live 6 HD
-- BOX SportCast Live 7 HD
-- BOX SportCast Live 8 HD
-- BOX SportCast Live 9 HD
-- Box Sport Live 12 HD
-- Box Sport Live 13 HD
-- Box Sport Live 14 HD
-- Box Sport Live 15 HD
-
 ### Other: Football — 13
 
 - Football Live 1
@@ -489,6 +472,21 @@ Unmatched channels: **606**
 - Football Live 11
 - Football Live 12
 - Football Live 13
+
+### BOX — 12
+
+- BOX Remast Plus 4K
+- BOX SportCast Live 2 HD
+- BOX SportCast Live 3 HD
+- BOX SportCast Live 4 HD
+- BOX SportCast Live 6 HD
+- BOX SportCast Live 7 HD
+- BOX SportCast Live 8 HD
+- BOX SportCast Live 9 HD
+- Box Sport Live 12 HD
+- Box Sport Live 13 HD
+- Box Sport Live 14 HD
+- Box Sport Live 15 HD
 
 ### Clarity — 12
 
@@ -1231,10 +1229,6 @@ Unmatched channels: **606**
 ### Other: Hohenrausch — 1
 
 - Hohenrausch
-
-### Other: Horrors — 1
-
-- Cinema Horrors HD
 
 ### Other: Hot — 1
 
