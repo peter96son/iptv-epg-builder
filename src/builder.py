@@ -21,6 +21,7 @@ from .region import region_for_group
 from .channel_diagnostics import load_watchlist, build_channel_diagnostics
 from .accuracy import load_accuracy_overrides, build_accuracy_audit
 from .metadata_enrichment import enrich_metadata
+from .metadata_backfill import backfill_tree
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "output"
@@ -396,19 +397,39 @@ def build():
             pass
     print(f"[sources] released raw payloads for {released_sources} sources", flush=True)
 
-    # v11.0 metadata enrichment.
-    # SQLite is the persistent title/entity knowledge base. Existing provider metadata
-    # is preserved; missing genres/overview/IMDb ratings are filled by the enrichment
-    # engine. TMDb is consulted only for titles that are not already known locally.
-    print("[builder] metadata enrichment start", flush=True)
-    metadata_report = enrich_metadata(tv, mappings, ROOT, OUTPUT)
-    metadata_summary = metadata_report.get("summary", {})
+    # v12.1: backfill and apply metadata on the current in-memory tree.
+    backfill_budget=max(0,int(os.environ.get("BACKFILL_HTTP_BUDGET","5000") or 5000))
+    print(f"[builder] in-memory backfill start; http-budget={backfill_budget}",flush=True)
+    backfill_report=backfill_tree(tv,mappings,ROOT,OUTPUT,budget=backfill_budget)
     print(
-        "[builder] metadata enrichment complete; "
-        f"matches={metadata_summary.get('metadata_matches', 0)}; "
-        f"enriched={metadata_summary.get('programmes_enriched', 0)}; "
-        f"sqlite_titles={metadata_summary.get('sqlite_title_entries', 0)}; "
-        f"new_title_lookups={metadata_summary.get('new_title_lookups', metadata_summary.get('tmdb_requests', 0))}",
+        f"[builder] in-memory backfill complete; http_spent={backfill_report.get('http_spent',0)}; "
+        f"remaining={backfill_report.get('remaining',0)}",
+        flush=True,
+    )
+
+    old_http=os.environ.get("METADATA_MAX_HTTP_REQUESTS")
+    old_titles=os.environ.get("METADATA_MAX_TITLES")
+    old_multi=os.environ.get("METADATA_MULTI_FALLBACK")
+    try:
+        os.environ["METADATA_MAX_HTTP_REQUESTS"]="0"
+        os.environ["METADATA_MAX_TITLES"]="0"
+        os.environ["METADATA_MULTI_FALLBACK"]="0"
+        metadata_report=enrich_metadata(tv,mappings,ROOT,OUTPUT)
+    finally:
+        for k,v in (
+            ("METADATA_MAX_HTTP_REQUESTS",old_http),
+            ("METADATA_MAX_TITLES",old_titles),
+            ("METADATA_MULTI_FALLBACK",old_multi),
+        ):
+            if v is None:
+                os.environ.pop(k,None)
+            else:
+                os.environ[k]=v
+
+    metadata_summary=metadata_report.get("summary",{})
+    print(
+        f"[builder] local metadata apply complete; enriched={metadata_summary.get('programmes_enriched',0)}; "
+        f"sqlite_titles={metadata_summary.get('sqlite_title_entries',0)}",
         flush=True,
     )
 
@@ -475,7 +496,7 @@ def build():
         }
 
     status = {
-        "builder_version": "11.2.2",
+        "builder_version": "12.1",
         "generated_at": datetime.now(timezone).isoformat(),
         "timezone": timezone_name,
         "playlist_channels": len(channels),

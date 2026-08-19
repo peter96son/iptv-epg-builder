@@ -143,96 +143,95 @@ def queue_stats(root: Path, queue: list[dict]) -> dict:
     return dict(counts)
 
 
-def main() -> int:
-    parser = argparse.ArgumentParser(description="Backfill fiction metadata from committed EPG.")
-    parser.add_argument("--root", default=".")
-    parser.add_argument("--budget", type=int, default=int(os.environ.get("BACKFILL_HTTP_BUDGET", "2500")))
-    parser.add_argument("--dry-run", action="store_true")
-    args = parser.parse_args()
-
-    root = Path(args.root).resolve()
-    output = root / "output"
-    epg = output / "epg.xml.gz"
-    mappings_path = output / "mapping.csv"
-
-    source_tv = _load_epg(epg)
-    mappings = _load_mappings(mappings_path)
+def backfill_tree(source_tv, mappings, root, output, *, budget=5000, dry_run=False):
     queue = build_queue(source_tv, mappings)
     before = queue_stats(root, queue)
-
     report = {
-        "mode": "dry-run" if args.dry_run else "backfill",
+        "mode": "dry-run" if dry_run else "backfill",
         "total_unique": before.get("total_unique", 0),
         "before": before,
-        "budget": max(0, args.budget),
+        "budget": max(0, int(budget)),
     }
-
-    if not args.dry_run:
-        with open_metadata_db(root) as db:
-            pending = []
-            for row in queue:
-                state = _entry_completeness(db, row)
-                rank = {
-                    "partial": 0,
-                    "unknown": 1,
-                    "retryable": 2,
-                    "negative_fresh": 9,
-                    "complete": 10,
-                }.get(state["state"], 5)
-                pending.append((rank, row["priority"], row, state))
-
-        pending.sort(key=lambda x: (x[0], x[1], x[2]["title"], x[2]["year"]))
-
-        # One row per unique title/year/type/language, not every broadcast.
-        tv = ET.Element("tv")
-        synthetic_mappings = []
-        for i, (_rank, _priority, row, state) in enumerate(pending):
-            if state["state"] in {"complete", "negative_fresh"}:
-                continue
-            cid = f"backfill-{i}"
-            p = ET.SubElement(tv, "programme", {"channel": cid})
-            ET.SubElement(p, "title", {"lang": "ru" if row["language"] == "ru-RU" else "en"}).text = row["title"]
-            if row["year"]:
-                ET.SubElement(p, "date").text = row["year"]
-            ET.SubElement(p, "category", {"lang": "ru"}).text = "Сериал" if row["type"] == "series" else "Фильм"
-            synthetic_mappings.append({
-                "output_tvg_id": cid,
-                "group": row["group"] or ("Кино" if row["type"] == "movie" else "Сериалы"),
-            })
-
-        os.environ["METADATA_MAX_TITLES"] = str(max(20000, len(pending) + 100))
-        os.environ["METADATA_MAX_HTTP_REQUESTS"] = str(max(0, args.budget))
-        os.environ["METADATA_MULTI_FALLBACK"] = "1"
-        os.environ.setdefault("METADATA_DEADLINE_SECONDS", "2100")
-        os.environ.setdefault("METADATA_TIMEOUT", "8")
-        os.environ.setdefault("METADATA_CHECKPOINT_EVERY", "25")
-        os.environ.setdefault("TMDB_EMPTY_PLAN_LIMIT", "4")
-
-        result = enrich_metadata(tv, synthetic_mappings, root, output)
-        after = queue_stats(root, queue)
-        summary = result.get("summary", {})
-        report.update({
-            "after": after,
-            "remaining": after.get("remaining", 0),
-            "with_overview": after.get("with_overview", 0),
-            "with_genres": after.get("with_genres", 0),
-            "http_spent": int(summary.get("metadata_http_requests_used", 0) or 0),
-            "http_remaining": int(summary.get("metadata_http_requests_remaining", 0) or 0),
-            "stopped_reason": summary.get("metadata_stopped_reason", "completed"),
-            "metadata_summary": summary,
-        })
-    else:
+    if dry_run:
         report.update({
             "remaining": before.get("remaining", 0),
             "with_overview": before.get("with_overview", 0),
             "with_genres": before.get("with_genres", 0),
             "http_spent": 0,
         })
+    else:
+        with open_metadata_db(root) as db:
+            pending = []
+            for row in queue:
+                state = _entry_completeness(db, row)
+                rank = {"partial":0,"unknown":1,"retryable":2,"negative_fresh":9,"complete":10}.get(state["state"],5)
+                pending.append((rank,row["priority"],row,state))
+        pending.sort(key=lambda x:(x[0],x[1],x[2]["title"],x[2]["year"]))
 
-    output.mkdir(parents=True, exist_ok=True)
-    report_path = output / "metadata-backfill.json"
-    report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(json.dumps(report, ensure_ascii=False, indent=2))
+        tv = ET.Element("tv")
+        synthetic_mappings = []
+        for i,(_rank,_priority,row,state) in enumerate(pending):
+            if state["state"] in {"complete","negative_fresh"}:
+                continue
+            cid=f"backfill-{i}"
+            p=ET.SubElement(tv,"programme",{"channel":cid})
+            ET.SubElement(p,"title",{"lang":"ru" if row["language"]=="ru-RU" else "en"}).text=row["title"]
+            if row["year"]:
+                ET.SubElement(p,"date").text=row["year"]
+            ET.SubElement(p,"category",{"lang":"ru"}).text="Сериал" if row["type"]=="series" else "Фильм"
+            synthetic_mappings.append({
+                "output_tvg_id":cid,
+                "group":row["group"] or ("Кино" if row["type"]=="movie" else "Сериалы"),
+            })
+
+        env_keys=("METADATA_MAX_TITLES","METADATA_MAX_HTTP_REQUESTS","METADATA_MULTI_FALLBACK")
+        old={k:os.environ.get(k) for k in env_keys}
+        try:
+            os.environ["METADATA_MAX_TITLES"]=str(max(20000,len(pending)+100))
+            os.environ["METADATA_MAX_HTTP_REQUESTS"]=str(max(0,int(budget)))
+            os.environ["METADATA_MULTI_FALLBACK"]="1"
+            result=enrich_metadata(tv,synthetic_mappings,root,output)
+        finally:
+            for k,v in old.items():
+                if v is None:
+                    os.environ.pop(k,None)
+                else:
+                    os.environ[k]=v
+
+        after=queue_stats(root,queue)
+        summary=result.get("summary",{})
+        report.update({
+            "after":after,
+            "remaining":after.get("remaining",0),
+            "with_overview":after.get("with_overview",0),
+            "with_genres":after.get("with_genres",0),
+            "http_spent":int(summary.get("metadata_http_requests_used",0) or 0),
+            "http_remaining":int(summary.get("metadata_http_requests_remaining",0) or 0),
+            "stopped_reason":summary.get("metadata_stopped_reason","completed"),
+            "metadata_summary":summary,
+        })
+
+    output.mkdir(parents=True,exist_ok=True)
+    (output/"metadata-backfill.json").write_text(
+        json.dumps(report,ensure_ascii=False,indent=2)+"\n",encoding="utf-8"
+    )
+    return report
+
+
+def main() -> int:
+    parser=argparse.ArgumentParser(description="Backfill fiction metadata from committed EPG.")
+    parser.add_argument("--root",default=".")
+    parser.add_argument("--budget",type=int,default=int(os.environ.get("BACKFILL_HTTP_BUDGET","5000")))
+    parser.add_argument("--dry-run",action="store_true")
+    args=parser.parse_args()
+    root=Path(args.root).resolve()
+    output=root/"output"
+    report=backfill_tree(
+        _load_epg(output/"epg.xml.gz"),
+        _load_mappings(output/"mapping.csv"),
+        root,output,budget=args.budget,dry_run=args.dry_run
+    )
+    print(json.dumps(report,ensure_ascii=False,indent=2))
     return 0
 
 
