@@ -22,16 +22,13 @@ def test_rich_description_and_xmltv_fields():
     )
     assert changed
     desc=p.findtext("desc")
-    assert "1999 · 136 мин · США" in desc
-    assert "Жанр: боевик, фантастика." in desc
-    assert "Оригинальное название: The Matrix." in desc
-    assert "Хакер узнаёт правду" in desc
-    assert "IMDb 8.7/10 · 2 200 000 голосов" in desc
+    assert desc == "Хакер узнаёт правду о мире."
+    assert p.findtext("title") == "Матрица (1999) · IMDb 8.7"
+    assert p.find("date") is None
+    assert p.find("length") is None
+    assert p.find("country") is None
+    assert p.findall("category") == []
     assert "tt0133093" not in desc
-    assert p.findtext("date")=="1999"
-    length=p.find("length")
-    assert length is not None and length.text=="136" and length.get("units")=="minutes"
-    assert p.findtext("country")=="США"
 
 
 def test_rerender_is_idempotent():
@@ -45,8 +42,8 @@ def test_rerender_is_idempotent():
     first=p.findtext("desc")
     me._add_metadata(p,"7.1","tt1234567","12345",**kwargs)
     assert p.findtext("desc")==first
-    assert first.count("Жанр:")==1
-    assert first.count("IMDb 7.1/10")==1
+    assert first == "Описание фильма."
+    assert p.findtext("title") == "Локальное (2001) · IMDb 7.1"
 
 
 def test_short_provider_stub_is_replaced_by_real_overview():

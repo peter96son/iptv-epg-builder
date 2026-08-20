@@ -24,7 +24,7 @@ TMDB_URL = "https://api.themoviedb.org/3"
 TMDB_IMAGE_BASE = "https://image.tmdb.org/t/p"
 TMDB_POSTER_SIZE = "w500"
 TMDB_BACKDROP_SIZE = "w780"
-METADATA_VERSION = "13.0-stage6"
+METADATA_VERSION = "13.0-stage6.1"
 CACHE_SCHEMA = 9
 CACHE_FILE = "metadata-cache.json"
 IMDB_ENTITY_CACHE_FILE = "imdb-cache.json"
@@ -344,6 +344,48 @@ def _set_single_text_child(programme: ET.Element, tag: str, text: str, attrs: di
     return changed
 
 
+def _strip_programme_prefix(title: str) -> str:
+    value = re.sub(r"\s+", " ", str(title or "")).strip()
+    value = re.sub(
+        r"(?i)^\s*(?:х/ф|м/ф|т/с|д/с|д/ф|фильм|кино|сериал)\s*[:.\-–—]?\s*",
+        "",
+        value,
+    )
+    return value.strip()
+
+
+def _compact_uhf_title(title: str, year: str = "", rating: str = "") -> str:
+    """Build the one useful UHF title row: Title (year) · IMDb x.x."""
+    value = _strip_programme_prefix(title)
+    year_match = YEAR_RE.search(str(year or ""))
+    clean_year = year_match.group(1) if year_match else ""
+
+    if clean_year:
+        value = re.sub(
+            rf"\s*[\[(]?\s*{re.escape(clean_year)}\s*(?:г(?:од)?\.?)?\s*[\])]?\s*$",
+            "",
+            value,
+            flags=re.IGNORECASE,
+        ).strip(" -–—,.")
+
+    parts = [value or str(title or "").strip()]
+    if clean_year:
+        parts[0] = f"{parts[0]} ({clean_year})"
+    clean_rating = str(rating or "").strip()
+    if clean_rating:
+        parts.append(f"IMDb {clean_rating}")
+    return " · ".join(x for x in parts if x).strip()
+
+
+def _remove_children(programme: ET.Element, tags: set[str]) -> bool:
+    changed = False
+    for child in list(programme):
+        if child.tag in tags:
+            programme.remove(child)
+            changed = True
+    return changed
+
+
 def _add_metadata(
     programme: ET.Element, rating: str, imdb_id: str, imdb_votes: str = "",
     overview: str = "", genres: list[str] | None = None,
@@ -351,26 +393,47 @@ def _add_metadata(
     original_title: str = "", display_title: str = "",
     poster_url: str = "", backdrop_url: str = "", logo_url: str = "",
 ) -> bool:
-    """Render viewer-facing rich metadata while keeping XMLTV machine fields."""
+    """Compact UHF-facing XMLTV; rich metadata remains durable in SQLite."""
     changed = False
     rating = (rating or "").strip()
     imdb_id = (imdb_id or "").strip().lower()
-    imdb_votes = (imdb_votes or "").strip()
     overview = re.sub(r"\s+", " ", (overview or "").strip())
-    genres = [g.strip() for g in (genres or []) if g and g.strip()]
-    countries = _normalize_country_names(countries)
-    runtime = _normalize_runtime(runtime_minutes)
     year_match = YEAR_RE.search(str(year or ""))
     year = year_match.group(1) if year_match else ""
 
-    if rating and not any((r.get("system") or "").lower() == "imdb" for r in programme.findall("rating")):
-        r = ET.Element("rating", {"system": "IMDb"})
-        ET.SubElement(r, "value").text = f"{rating}/10"
-        programme.append(r)
+    title_elem = programme.find("title")
+    current_title = (title_elem.text or "").strip() if title_elem is not None else ""
+    compact_title = _compact_uhf_title(display_title or current_title, year, rating)
+    if title_elem is not None and compact_title and current_title != compact_title:
+        title_elem.text = compact_title
         changed = True
 
-    # Keep the URL as a machine-readable XMLTV field, never in the visible desc.
-    if imdb_id and not any("imdb.com/title/" in (u.text or "").lower() for u in programme.findall("url")):
+    # UHF showed these fields before desc, consuming the visible card.
+    changed |= _remove_children(programme, {"date", "category", "country", "length"})
+
+    existing_imdb_ratings = [
+        r for r in programme.findall("rating")
+        if (r.get("system") or "").strip().lower() == "imdb"
+    ]
+    if rating:
+        if not existing_imdb_ratings:
+            r = ET.Element("rating", {"system": "IMDb"})
+            ET.SubElement(r, "value").text = f"{rating}/10"
+            programme.append(r)
+            changed = True
+        else:
+            val = existing_imdb_ratings[0].find("value")
+            if val is None:
+                val = ET.SubElement(existing_imdb_ratings[0], "value")
+            desired = f"{rating}/10"
+            if (val.text or "").strip() != desired:
+                val.text = desired
+                changed = True
+
+    if imdb_id and not any(
+        "imdb.com/title/" in (u.text or "").lower()
+        for u in programme.findall("url")
+    ):
         u = ET.Element("url")
         u.text = f"https://www.imdb.com/title/{imdb_id}/"
         programme.append(u)
@@ -378,17 +441,10 @@ def _add_metadata(
 
     poster_url = str(poster_url or "").strip()
     backdrop_url = str(backdrop_url or "").strip()
-    logo_url = str(logo_url or "").strip()
-
-    # XMLTV permits programme-level <icon>; many IPTV clients understand this
-    # even when they do not implement the newer <image> element. Never replace
-    # a provider-supplied programme icon.
     if poster_url and programme.find("icon") is None:
         programme.append(ET.Element("icon", {"src": poster_url}))
         changed = True
 
-    # Rich XMLTV artwork. Writing both poster/backdrop and the compatibility
-    # icon maximizes client support without changing channel logos.
     existing_images = {
         ((x.get("type") or "").strip().lower(), (x.text or "").strip())
         for x in programme.findall("image")
@@ -408,81 +464,26 @@ def _add_metadata(
         programme.append(img)
         changed = True
 
-    existing_categories = {normalize_name((c.text or "")) for c in programme.findall("category")}
-    for genre in genres:
-        if normalize_name(genre) in existing_categories:
-            continue
-        c = ET.Element("category", {"lang": "ru"})
-        c.text = genre
-        programme.append(c)
-        existing_categories.add(normalize_name(genre))
-        changed = True
-
-    # Standard XMLTV fields help clients that support structured metadata.
-    if year and not _text(programme, "date"):
-        changed |= _set_single_text_child(programme, "date", year)
-    if runtime:
-        length = programme.find("length")
-        if length is None:
-            length = ET.Element("length", {"units": "minutes"})
-            length.text = str(runtime)
-            programme.append(length)
-            changed = True
-        elif (length.text or "").strip() != str(runtime) or length.get("units") != "minutes":
-            length.text = str(runtime)
-            length.set("units", "minutes")
-            changed = True
-    if countries:
-        existing_country = {(x.text or "").strip() for x in programme.findall("country")}
-        for country in countries:
-            if country not in existing_country:
-                c = ET.Element("country", {"lang": "ru"})
-                c.text = country
-                programme.append(c)
-                existing_country.add(country)
-                changed = True
-
     desc = programme.find("desc")
     existing = (desc.text or "").strip() if desc is not None else ""
-    body = _choose_description(existing, overview)
-
-    lines = []
-    facts = []
-    if year:
-        facts.append(year)
-    if runtime:
-        facts.append(f"{runtime} мин")
-    if countries:
-        facts.append(", ".join(countries[:3]))
-    if facts:
-        lines.append(" · ".join(facts))
-
-    if genres:
-        lines.append("Жанр: " + ", ".join(genres) + ".")
-
-    original_title = re.sub(r"\s+", " ", str(original_title or "")).strip()
-    visible_title = normalize_name(display_title or _text(programme, "title"))
-    if original_title and normalize_name(original_title) and normalize_name(original_title) != visible_title:
-        lines.append("Оригинальное название: " + original_title + ".")
+    body = _choose_description(existing, overview).strip()
+    if not body and overview:
+        body = overview
 
     if body:
-        lines.append(body)
-
-    if rating:
-        rating_line = f"IMDb {rating}/10"
-        pretty_votes = _format_votes(imdb_votes)
-        if pretty_votes:
-            rating_line += f" · {pretty_votes} голосов"
-        lines.append(rating_line)
-
-    if lines:
-        rendered = "\n".join(lines)
         if desc is None:
             desc = ET.Element("desc", {"lang": "ru"})
             programme.append(desc)
-        if (desc.text or "").strip() != rendered:
-            desc.text = rendered
             changed = True
+        if (desc.text or "").strip() != body:
+            desc.text = body
+            changed = True
+    elif desc is not None:
+        cleaned = _clean_generated_imdb_suffix(existing)
+        if cleaned and cleaned != existing:
+            desc.text = cleaned
+            changed = True
+
     return changed
 
 

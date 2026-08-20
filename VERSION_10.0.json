@@ -1,5 +1,5 @@
 {
-  "version": "13.0-stage6",
+  "version": "13.0-stage6.1",
   "metadata_version": "11.4",
   "cache_schema": 12,
   "metadata_budget_semantics": "separate unique-title and actual TMDb HTTP budgets",
@@ -22,7 +22,7 @@
     "same-run newly found metadata appears in final EPG",
     "backfill/finalize reuse current epg.xml.gz without redownloading sources"
   ],
-  "release": "13.0-stage6",
+  "release": "13.0-stage6.1",
   "default_backfill_http_budget": 5000,
   "update_pipeline": [
     "build current EPG from sources using existing SQLite metadata",
@@ -118,5 +118,17 @@
       "image type=backdrop orient=L"
     ],
     "provider_icon_policy": "never overwrite an existing programme icon"
+  },
+  "uhf_compact": {
+    "title": "Title (year) · IMDb rating",
+    "programme_fields_removed_from_xml": [
+      "date",
+      "category",
+      "country",
+      "length"
+    ],
+    "description": "plot only",
+    "rich_metadata_location": "metadata.sqlite3",
+    "channel_display_name": "unchanged"
   }
 }
