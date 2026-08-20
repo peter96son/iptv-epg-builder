@@ -3,7 +3,7 @@
 This report is diagnostic only. It does not create EPG mappings.
 A family must be researched and verified before aliases are added to the live builder.
 
-Unmatched channels: **598**
+Unmatched channels: **601**
 
 | Family | Channels | no_epg_* IDs | Main groups |
 |---|---:|---:|---|
@@ -72,6 +72,7 @@ Unmatched channels: **598**
 | Other: Viva | 2 | 0 | Израиль (2) |
 | Other: Zoom | 2 | 0 | Украинские (1), Израиль (1) |
 | Other: Сер | 2 | 0 | Кино (2) |
+| Velilla | 2 | 0 | Детские (1), Для взрослых (1) |
 | Magic | 1 | 0 | Болгария (1) |
 | Other: +BAKU | 1 | 0 | Азербайджан (1) |
 | Other: 5Sport | 1 | 0 | Израиль (1) |
@@ -81,6 +82,7 @@ Unmatched channels: **598**
 | Other: Agro | 1 | 0 | Молдова (1) |
 | Other: Amazing | 1 | 0 | Канада (1) |
 | Other: Anal | 1 | 0 | Для взрослых (1) |
+| Other: Angel | 1 | 0 | Разное (1) |
 | Other: Ant | 1 | 0 | Греция (1) |
 | Other: Antwerpen | 1 | 0 | BE & NL (1) |
 | Other: Aristo | 1 | 0 | Германия (1) |
@@ -228,6 +230,7 @@ Unmatched channels: **598**
 | Other: Play7 | 1 | 0 | BE & NL (1) |
 | Other: PLUS+ | 1 | 0 | Израиль (1) |
 | Other: Polar | 1 | 0 | Чехия (1) |
+| Other: Premiere | 1 | 0 | Кино (1) |
 | Other: PRIME | 1 | 0 | Израиль (1) |
 | Other: Privesc | 1 | 0 | Молдова (1) |
 | Other: Pro | 1 | 0 | Молдова (1) |
@@ -367,7 +370,6 @@ Unmatched channels: **598**
 | Other: Центр | 1 | 0 | Беларусь (1) |
 | Other: Черн | 1 | 0 | Украинские (1) |
 | Other: Честный | 1 | 0 | Кино (1) |
-| Velilla | 1 | 0 | Детские (1) |
 
 ## Channels by family
 
@@ -868,6 +870,11 @@ Unmatched channels: **598**
 - Серіал Україна 1
 - Серіал Україна 2
 
+### Velilla — 2
+
+- Velilla TV Cartoons Disney 4K
+- Velilla TV Hardcore Sex HD
+
 ### Magic — 1
 
 - Magic TV
@@ -903,6 +910,10 @@ Unmatched channels: **598**
 ### Other: Anal — 1
 
 - Anal
+
+### Other: Angel — 1
+
+- Angel TV
 
 ### Other: Ant — 1
 
@@ -1492,6 +1503,10 @@ Unmatched channels: **598**
 
 - Polar 2 HD
 
+### Other: Premiere — 1
+
+- Premiere HD 3
+
 ### Other: PRIME — 1
 
 - PRIME
@@ -2047,8 +2062,4 @@ Unmatched channels: **598**
 ### Other: Честный — 1
 
 - Честный Детекти
-
-### Velilla — 1
-
-- Velilla TV Cartoons Disney 4K
 
