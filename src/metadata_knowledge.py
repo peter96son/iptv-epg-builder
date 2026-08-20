@@ -23,6 +23,7 @@ def main() -> int:
             "alias_learning_version": db.get_stat("alias_learning_version", ""),
             "imdb_local_layer": db.get_stat("imdb_local_layer", ""),
             "rich_epg_renderer": db.get_stat("rich_epg_renderer", ""),
+            "programme_artwork": db.get_stat("programme_artwork", ""),
         }
         if args.title_id:
             payload["title"] = db.get_knowledge_title(args.title_id)

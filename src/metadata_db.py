@@ -11,7 +11,7 @@ from typing import Any, Iterable, Iterator
 
 from .utils import normalize_name
 
-SCHEMA_VERSION = 6
+SCHEMA_VERSION = 7
 DEFAULT_DB_NAME = "metadata.sqlite3"
 IMDB_ID_RE = re.compile(r"(?i)^tt\d{5,12}$")
 
@@ -617,6 +617,7 @@ class MetadataDB:
         self.set_stat("alias_learning_version", "v13-stage3")
         self.set_stat("imdb_local_layer", "official-basics+ratings")
         self.set_stat("rich_epg_renderer", "v13-stage5")
+        self.set_stat("programme_artwork", "tmdb-poster-backdrop-v13-stage6")
 
     def _knowledge_row_to_legacy_entry(
         self,
@@ -957,6 +958,9 @@ class MetadataDB:
                 language=language,
                 overview=str(entry.get("overview") or ""),
                 genres=entry.get("genre_ids") or [],
+                poster_url=str(entry.get("poster_url") or ""),
+                backdrop_url=str(entry.get("backdrop_url") or ""),
+                logo_url=str(entry.get("logo_url") or ""),
                 imdb_rating=str(entry.get("imdb_rating") or ""),
                 imdb_votes=entry.get("imdb_votes"),
                 source=str(entry.get("resolver") or entry.get("rating_source") or ""),

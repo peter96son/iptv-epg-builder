@@ -68,7 +68,7 @@ def test_imdb_genres_are_localized():
 def test_stage5_marker(tmp_path: Path):
     db=MetadataDB(tmp_path/"m.sqlite3")
     try:
-        assert SCHEMA_VERSION==6
+        assert SCHEMA_VERSION>=6
         assert db.get_stat("rich_epg_renderer")=="v13-stage5"
     finally:
         db.close()

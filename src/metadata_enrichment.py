@@ -21,7 +21,10 @@ from .utils import normalize_name
 from .metadata_db import MetadataDB, open_metadata_db
 
 TMDB_URL = "https://api.themoviedb.org/3"
-METADATA_VERSION = "13.0-stage5"
+TMDB_IMAGE_BASE = "https://image.tmdb.org/t/p"
+TMDB_POSTER_SIZE = "w500"
+TMDB_BACKDROP_SIZE = "w780"
+METADATA_VERSION = "13.0-stage6"
 CACHE_SCHEMA = 9
 CACHE_FILE = "metadata-cache.json"
 IMDB_ENTITY_CACHE_FILE = "imdb-cache.json"
@@ -346,6 +349,7 @@ def _add_metadata(
     overview: str = "", genres: list[str] | None = None,
     *, year: str = "", runtime_minutes=None, countries=None,
     original_title: str = "", display_title: str = "",
+    poster_url: str = "", backdrop_url: str = "", logo_url: str = "",
 ) -> bool:
     """Render viewer-facing rich metadata while keeping XMLTV machine fields."""
     changed = False
@@ -370,6 +374,38 @@ def _add_metadata(
         u = ET.Element("url")
         u.text = f"https://www.imdb.com/title/{imdb_id}/"
         programme.append(u)
+        changed = True
+
+    poster_url = str(poster_url or "").strip()
+    backdrop_url = str(backdrop_url or "").strip()
+    logo_url = str(logo_url or "").strip()
+
+    # XMLTV permits programme-level <icon>; many IPTV clients understand this
+    # even when they do not implement the newer <image> element. Never replace
+    # a provider-supplied programme icon.
+    if poster_url and programme.find("icon") is None:
+        programme.append(ET.Element("icon", {"src": poster_url}))
+        changed = True
+
+    # Rich XMLTV artwork. Writing both poster/backdrop and the compatibility
+    # icon maximizes client support without changing channel logos.
+    existing_images = {
+        ((x.get("type") or "").strip().lower(), (x.text or "").strip())
+        for x in programme.findall("image")
+    }
+    if poster_url and ("poster", poster_url) not in existing_images:
+        img = ET.Element("image", {
+            "type": "poster", "size": "3", "orient": "P", "system": "tmdb"
+        })
+        img.text = poster_url
+        programme.append(img)
+        changed = True
+    if backdrop_url and ("backdrop", backdrop_url) not in existing_images:
+        img = ET.Element("image", {
+            "type": "backdrop", "size": "3", "orient": "L", "system": "tmdb"
+        })
+        img.text = backdrop_url
+        programme.append(img)
         changed = True
 
     existing_categories = {normalize_name((c.text or "")) for c in programme.findall("category")}
@@ -876,7 +912,32 @@ def _tmdb_find_by_imdb_id(api_key: str, imdb_id: str, language: str = "ru-RU", t
         "confidence": 100,
         "language": language,
         "cached_at": datetime.now(timezone.utc).isoformat(),
+        **_tmdb_artwork_fields(cand),
     }
+
+
+def _tmdb_image_url(path: str, size: str) -> str:
+    path = str(path or "").strip()
+    if not path:
+        return ""
+    if path.startswith("http://") or path.startswith("https://"):
+        return path
+    if not path.startswith("/"):
+        path = "/" + path
+    return f"{TMDB_IMAGE_BASE}/{size}{path}"
+
+
+def _tmdb_artwork_fields(payload: dict) -> dict:
+    if not isinstance(payload, dict):
+        return {}
+    poster = _tmdb_image_url(payload.get("poster_path"), TMDB_POSTER_SIZE)
+    backdrop = _tmdb_image_url(payload.get("backdrop_path"), TMDB_BACKDROP_SIZE)
+    out = {}
+    if poster:
+        out["poster_url"] = poster
+    if backdrop:
+        out["backdrop_url"] = backdrop
+    return out
 
 
 def _tmdb_details(api_key: str, tmdb_id: int, media_type: str, language: str = "ru-RU", timeout: int = 12):
@@ -988,11 +1049,13 @@ def _tmdb_lookup_imdb(
                     overview = re.sub(r"\s+", " ", str(details.get("overview") or "").strip())
                     if not genre_ids:
                         genre_ids = [g.get("id") for g in (details.get("genres") or []) if isinstance(g, dict) and g.get("id")]
+                    cand.update({k: v for k, v in details.items() if k in {"poster_path", "backdrop_path"} and v})
                 if not overview and lang != "en-US" and (budget is None or budget.consume()):
                     details_en = _tmdb_details(api_key, int(tmdb_id), lookup_type, "en-US", timeout)
                     overview = re.sub(r"\s+", " ", str(details_en.get("overview") or "").strip())
                     if not genre_ids:
                         genre_ids = [g.get("id") for g in (details_en.get("genres") or []) if isinstance(g, dict) and g.get("id")]
+                    cand.update({k: v for k, v in details_en.items() if k in {"poster_path", "backdrop_path"} and v})
             except Exception:
                 pass
         result = {
@@ -1001,6 +1064,7 @@ def _tmdb_lookup_imdb(
             "original_title": cand.get("original_title") or cand.get("original_name") or "",
             "overview": overview,
             "genre_ids": genre_ids,
+            **_tmdb_artwork_fields(cand),
             "year": cand.get("_candidate_year", year),
             "similarity": cand.get("_similarity", 0),
             "attempt": label,
@@ -1040,6 +1104,7 @@ def _tmdb_lookup_imdb(
                             "original_title": cand.get("original_title") or cand.get("original_name") or "",
                             "overview": re.sub(r"\s+", " ", str(cand.get("overview") or "").strip()),
                             "genre_ids": list(cand.get("genre_ids") or []),
+                            **_tmdb_artwork_fields(cand),
                             "year": cand.get("_candidate_year", year),
                             "similarity": cand.get("_similarity", 0),
                             "attempt": "multi-fallback",
@@ -1750,8 +1815,11 @@ def enrich_metadata(tv: ET.Element, mappings: list[dict], root: Path, output: Pa
                 ("title", seed.get("title")),
                 ("original_title", seed.get("original_title")),
                 ("overview", seed.get("overview")),
-                ("year", seed.get("candidate_year")),
+                ("year", seed.get("candidate_year") or seed.get("year")),
                 ("runtime_minutes", seed.get("runtime_minutes")),
+                ("poster_url", seed.get("poster_url")),
+                ("backdrop_url", seed.get("backdrop_url")),
+                ("logo_url", seed.get("logo_url")),
             ):
                 if value and not entity.get(field):
                     entity[field] = value
@@ -1874,6 +1942,9 @@ def enrich_metadata(tv: ET.Element, mappings: list[dict], root: Path, output: Pa
                 countries=entity.get("countries") or [],
                 original_title=str(entity.get("original_title") or ""),
                 display_title=title,
+                poster_url=str(entity.get("poster_url") or ""),
+                backdrop_url=str(entity.get("backdrop_url") or ""),
+                logo_url=str(entity.get("logo_url") or ""),
             ):
                 stats["existing_metadata_normalized"] += 1
             continue
@@ -2091,6 +2162,9 @@ def enrich_metadata(tv: ET.Element, mappings: list[dict], root: Path, output: Pa
                     entry["imdb_votes"] = _normalize_votes(entity.get("votes"))
                     entry["rating_source"] = str(entity.get("source") or "")
                     entry["rating_checked_at"] = str(entity.get("checked_at") or "")
+                    for artwork_field in ("poster_url", "backdrop_url", "logo_url"):
+                        if entity.get(artwork_field) and not entry.get(artwork_field):
+                            entry[artwork_field] = entity.get(artwork_field)
                     if source.startswith("sqlite"):
                         entry["resolver"] = source
                     elif entry.get("imdb_rating") or entry.get("imdb_votes"):
@@ -2119,6 +2193,9 @@ def enrich_metadata(tv: ET.Element, mappings: list[dict], root: Path, output: Pa
                 countries=entry.get("countries") or entity.get("countries") or [],
                 original_title=str(entry.get("original_title") or entity.get("original_title") or ""),
                 display_title=title,
+                poster_url=str(entry.get("poster_url") or entity.get("poster_url") or ""),
+                backdrop_url=str(entry.get("backdrop_url") or entity.get("backdrop_url") or ""),
+                logo_url=str(entry.get("logo_url") or entity.get("logo_url") or ""),
             ):
                 stats["programmes_enriched"] += 1
             if genres:
@@ -2129,6 +2206,10 @@ def enrich_metadata(tv: ET.Element, mappings: list[dict], root: Path, output: Pa
                 stats["programmes_with_runtime"] += 1
             if entry.get("year") or entity.get("year") or year:
                 stats["programmes_with_year"] += 1
+            if entry.get("poster_url") or entity.get("poster_url"):
+                stats["programmes_with_poster"] += 1
+            if entry.get("backdrop_url") or entity.get("backdrop_url"):
+                stats["programmes_with_backdrop"] += 1
             stats["metadata_matches"] += 1
             rows.append({
                 "channel_id": cid, "title": title, "year": year, "type": typ, "status": "enriched",
@@ -2180,7 +2261,7 @@ def enrich_metadata(tv: ET.Element, mappings: list[dict], root: Path, output: Pa
 
     return {
         "summary": {
-            "mode": "fiction-only-ru-en+knowledge-first+rich-xmltv+official-local-imdb-v13-stage5",
+            "mode": "fiction-only-ru-en+knowledge-first+rich-xmltv+programme-artwork-v13-stage6",
             "metadata_version": METADATA_VERSION,
             "api_configured": bool(tmdb_key),
             "tmdb_configured": bool(tmdb_key),
