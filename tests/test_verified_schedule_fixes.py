@@ -11,7 +11,7 @@ def test_verified_schedule_fixes_are_present():
         ("Premium HD", "premium-hd"),
         ("VHS HD", "vhs-hd"),
         ("Thriller HD", "thriller-hd"),
-        ("РуКино HD", "rukino-hd"),
+        ("РуКино HD", "Xklirussian"),
         ("Insomnia HD", "insomnia-hd"),
         ("Hollywood HD", "hollywood-hd"),
         ("Наше любимое кино", "Xnashe-lubimoe"),
