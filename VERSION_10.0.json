@@ -1,5 +1,5 @@
 {
-  "version": "13.0-stage4",
+  "version": "13.0-stage5",
   "metadata_version": "11.4",
   "cache_schema": 12,
   "metadata_budget_semantics": "separate unique-title and actual TMDb HTTP budgets",
@@ -22,7 +22,7 @@
     "same-run newly found metadata appears in final EPG",
     "backfill/finalize reuse current epg.xml.gz without redownloading sources"
   ],
-  "release": "13.0-stage4",
+  "release": "13.0-stage5",
   "default_backfill_http_budget": 5000,
   "update_pipeline": [
     "build current EPG from sources using existing SQLite metadata",
@@ -30,7 +30,7 @@
     "re-apply updated SQLite metadata to the same epg.xml.gz",
     "save durable metadata snapshot and final EPG"
   ],
-  "metadata_schema_version": 5,
+  "metadata_schema_version": 6,
   "knowledge_layer": {
     "tables": [
       "titles",
@@ -85,5 +85,26 @@
       "adult"
     ],
     "durable_mirror": "matched entities copied into metadata.sqlite3"
+  },
+  "rich_epg": {
+    "visible_desc": [
+      "year",
+      "runtime",
+      "countries",
+      "genres",
+      "original_title",
+      "overview",
+      "IMDb rating/votes"
+    ],
+    "xmltv_fields": [
+      "date",
+      "length",
+      "country",
+      "category",
+      "rating",
+      "url"
+    ],
+    "technical_ids_in_description": false,
+    "provider_description_policy": "keep useful prose; replace short technical stubs with richer overview"
   }
 }

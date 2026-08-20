@@ -69,7 +69,7 @@ def test_local_lookup_is_zero_http_per_title(tmp_path: Path):
 def test_stage4_schema_marker(tmp_path: Path):
     db=MetadataDB(tmp_path/"metadata.sqlite3")
     try:
-        assert SCHEMA_VERSION==5
+        assert SCHEMA_VERSION>=5
         assert db.get_stat("imdb_local_layer")=="official-basics+ratings"
     finally:
         db.close()
