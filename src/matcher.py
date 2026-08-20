@@ -3,7 +3,6 @@ from .utils import normalize_name, is_real_tvg_id
 from .region import region_for_group, is_regional_sensitive, regions_compatible
 from .channel_family import family_candidates
 
-
 CONFIDENCE = {
     "alias": 100,
     "id": 99,
@@ -12,10 +11,10 @@ CONFIDENCE = {
     "name": 90,
 }
 
-
 class Matcher:
     def __init__(self, aliases: list[dict]):
         self.alias_by_name = {}
+        self.pinned_sources_by_name = {}
         for row in aliases:
             if str(row.get("enabled", "1")).strip().lower() in {"0", "false", "no", "off"}:
                 continue
@@ -24,14 +23,27 @@ class Matcher:
             source = (row.get("source") or "").strip()
             provider_group = (row.get("provider_group") or row.get("group") or "").strip()
             region = (row.get("region") or row.get("country") or "").strip().upper()
+            hard_pin = str(row.get("hard_pin", "")).strip().lower() in {"1", "true", "yes", "on"}
             if name and sid:
                 self.alias_by_name.setdefault(name, []).append((source, sid, provider_group, region))
+                if hard_pin and source:
+                    self.pinned_sources_by_name.setdefault(name, set()).add(source)
 
     def _result(self, sid: str, method: str):
         return sid, method, CONFIDENCE[method]
 
+    def _source_allowed(self, channel, source) -> bool:
+        pinned = self.pinned_sources_by_name.get(channel.name)
+        return not pinned or source.name in pinned
+
     def match(self, channel, source, source_cfg: dict | None = None, *, allow_family: bool = True):
         source_cfg = source_cfg or {}
+
+        # Hard source pin must run BEFORE exact tvg-id matching.
+        # Otherwise an earlier source with the same/generic ID steals the channel.
+        if not self._source_allowed(channel, source):
+            return None, None, 0
+
         channel_region = region_for_group(channel.group)
         source_regions = source_cfg.get("regions") or source_cfg.get("region_scope") or []
 
@@ -67,11 +79,7 @@ class Matcher:
         if not allow_family:
             return None, None, 0
 
-        # 4) regional family matching. This is intentionally available
-        # ONLY for brands known to have country-specific schedules and ONLY
-        # inside a source whose declared region matches the provider group.
-        # It handles names such as "Discovery Science HD RO" vs
-        # "Discovery Science" without opening the door to global fuzzy matches.
+        # 4) regional family matching.
         for candidate in (channel.name, channel.tvg_name):
             if not candidate or not is_regional_sensitive(candidate):
                 continue
@@ -86,13 +94,11 @@ class Matcher:
         return None, None, 0
 
     def match_family(self, channel, source, source_cfg: dict | None = None):
-        """Run only the conservative region-aware family fallback.
-
-        v3.1 uses this in a second pass after all v2.1-compatible matching has
-        finished, so a family guess can never steal a channel from a legacy
-        exact/ID/alias match in a later source.
-        """
         source_cfg = source_cfg or {}
+
+        if not self._source_allowed(channel, source):
+            return None, None, 0
+
         channel_region = region_for_group(channel.group)
         source_regions = source_cfg.get("regions") or source_cfg.get("region_scope") or []
         for candidate in (channel.name, channel.tvg_name):
