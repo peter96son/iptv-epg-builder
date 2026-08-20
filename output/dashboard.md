@@ -1,12 +1,12 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-08-19T20:46:09.635486-07:00`
+- Generated: `2026-08-19T21:20:19.898743-07:00`
 - Playlist channels: **2700**
 - Baseline covered: **1605**
 - Final covered: **2099**
 - Added by fallbacks: **+494**
 - Unmatched: **601**
-- Programmes: **303386**
+- Programmes: **303564**
 - Movie coverage: **774/859** (+241)
 
 ## Playlist changes
@@ -67,16 +67,16 @@
 | iptvx-noarch | ok | 178 |
 | klimedia-dedicated | failed | 0 |
 | runigma-iptv | ok | 6 |
-| openbox-tsd | ok | 54 |
+| openbox-tsd | ok | 58 |
 | next-dedicated | ok | 0 |
-| bcumedia-dedicated | ok | 7 |
+| bcumedia-dedicated | ok | 5 |
 | cineman-dedicated | ok | 0 |
 | minimax-mm-dedicated | ok | 0 |
 | sharavoz-guide | failed | 0 |
-| tvteam | ok | 70 |
+| tvteam | ok | 69 |
 | epgpw-sreda | ok | 0 |
 | epgpw-chestny-detektiv | ok | 0 |
-| epgpw-RU | ok | 5 |
+| epgpw-RU | ok | 4 |
 | epgpw-DE | ok | 5 |
 | epgpw-GB | ok | 3 |
 | epgpw-US | ok | 0 |
@@ -143,4 +143,5 @@
 | 2026-08-19T16:58:07.674861-07:00 | 2102 | 598 | 338469 |
 | 2026-08-19T20:18:27.954929-07:00 | 2099 | 601 | 301312 |
 | 2026-08-19T20:46:09.635486-07:00 | 2099 | 601 | 303386 |
+| 2026-08-19T21:20:19.898743-07:00 | 2099 | 601 | 303564 |
 
