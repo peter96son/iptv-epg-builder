@@ -13,10 +13,11 @@ def test_existing_imdb_is_normalized():
     assert r.findtext('value') == '7.6/10'
 
 
-def test_imdb_id_adds_url_and_description():
+def test_imdb_id_adds_url_and_compact_title():
     p = ET.fromstring('<programme channel="x"><title>The Martian</title><desc>Sci-fi film</desc></programme>')
     assert _add_metadata(p, '8.0', 'tt3659388')
-    assert 'IMDb 8.0/10' in p.findtext('desc')
+    assert p.findtext('desc') == 'Sci-fi film'
+    assert p.findtext('title') == 'The Martian · IMDb 8.0'
     assert any('tt3659388' in (u.text or '') for u in p.findall('url'))
 
 

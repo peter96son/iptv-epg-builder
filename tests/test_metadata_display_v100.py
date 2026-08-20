@@ -16,12 +16,11 @@ def test_v10_visible_description_genres_overview_and_rating_without_tt_id():
         genres=["боевик", "комедия", "триллер"],
     )
     desc = p.findtext("desc") or ""
-    assert desc.startswith("Жанр: боевик, комедия, триллер.")
-    assert "Телохранитель снова" in desc
-    assert "IMDb 6.1/10 · 123 456 голосов" in desc
+    assert desc == "Телохранитель снова оказывается втянут в опасную авантюру."
+    assert p.findtext("title") == "Телохранитель жены киллера · IMDb 6.1"
     assert "tt8385148" not in desc
     assert any("tt8385148" in (u.text or "") for u in p.findall("url"))
-    assert [c.text for c in p.findall("category")] == ["боевик", "комедия", "триллер"]
+    assert p.findall("category") == []
 
 
 def test_v10_preserves_provider_description():
@@ -34,5 +33,6 @@ def test_v10_preserves_provider_description():
         genres=["драма"],
     )
     desc = p.findtext("desc") or ""
-    assert "Хорошее описание от провайдера." in desc
+    assert desc == "Хорошее описание от провайдера."
+    assert p.findtext("title") == "Пример · IMDb 7.2"
     assert "Это описание TMDb" not in desc

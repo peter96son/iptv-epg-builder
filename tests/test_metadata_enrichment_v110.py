@@ -68,7 +68,6 @@ def _found(
         "confidence": confidence,
         "candidate_year": "2019",
         "resolved_media_type": "movie",
-        # Supplying rating data prevents unit tests from downloading IMDb datasets.
         "imdb_rating": rating,
         "imdb_votes": votes,
         "rating_source": "test-imdb-dataset",
@@ -89,9 +88,8 @@ def test_add_metadata_renders_human_description_without_tt_id():
 
     assert changed
     desc = p.findtext("desc") or ""
-    assert "Жанр: Боевик, Комедия, Фантастика." in desc
-    assert "Агенты H и M расследуют новую угрозу." in desc
-    assert "IMDb 5.6/10 · 162 195 голосов" in desc
+    assert desc == "Агенты H и M расследуют новую угрозу."
+    assert p.findtext("title") == "Люди в черном: Интернэшнл · IMDb 5.6"
     assert "tt2283336" not in desc
 
     rating = p.find("rating")
@@ -116,10 +114,9 @@ def test_existing_provider_description_is_preserved():
     )
 
     desc = p.findtext("desc") or ""
-    assert provider in desc
+    assert desc == provider
     assert "TMDb описание не должно заменить исходное." not in desc
-    assert "Жанр: Драма." in desc
-    assert "IMDb 7.1/10 · 10 000 голосов" in desc
+    assert p.findtext("title") == "Тест · IMDb 7.1"
 
 
 def test_old_generated_imdb_suffix_is_replaced_not_duplicated():
@@ -138,12 +135,12 @@ def test_old_generated_imdb_suffix_is_replaced_not_duplicated():
     )
 
     desc = p.findtext("desc") or ""
-    assert desc.count("IMDb") == 1
-    assert "IMDb 5.8/10 · 2 500 голосов" in desc
+    assert desc == "Описание."
+    assert p.findtext("title") == "Тест · IMDb 5.8"
     assert "tt1234567" not in desc
 
 
-def test_genres_are_added_as_xmltv_categories_without_duplicates():
+def test_genres_are_removed_from_uhf_programme_card():
     p = _programme("c1", "х/ф Тест", category="Комедия")
 
     me._add_metadata(
@@ -154,9 +151,7 @@ def test_genres_are_added_as_xmltv_categories_without_duplicates():
         genres=["Комедия", "Боевик"],
     )
 
-    categories = [c.text for c in p.findall("category")]
-    assert categories.count("Комедия") == 1
-    assert "Боевик" in categories
+    assert p.findall("category") == []
 
 
 def test_clean_search_title_removes_provider_noise():
@@ -179,7 +174,7 @@ def test_ukrainian_title_is_not_sent_to_ru_en_metadata_pipeline():
     assert not me._skip_metadata_language("en-US", "The Matrix")
 
 
-def test_full_enrichment_adds_genre_overview_and_imdb(
+def test_full_enrichment_adds_overview_and_compact_title(
     tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
 ):
@@ -212,13 +207,10 @@ def test_full_enrichment_adds_genre_overview_and_imdb(
 
     p = tv.find("programme")
     desc = p.findtext("desc") or ""
-    assert "IMDb 5.6/10 · 162 195 голосов" in desc
+    assert desc == "Агенты секретной организации противостоят новой инопланетной угрозе."
+    assert p.findtext("title") == "Люди в черном: Интернэшнл (2019) · IMDb 5.6"
     assert "tt2283336" not in desc
-    assert "Агенты секретной организации" in desc
-
-    # TMDb ids 28/35/878 must be rendered through the v11 genre map.
-    categories = [c.text for c in p.findall("category")]
-    assert categories
+    assert p.findall("category") == []
 
 
 def test_second_run_uses_sqlite_and_does_not_call_tmdb_again(
@@ -261,7 +253,9 @@ def test_second_run_uses_sqlite_and_does_not_call_tmdb_again(
 
     assert second_report["summary"]["sqlite_title_hits"] >= 1
     assert second_report["summary"]["unique_metadata_title_lookups_used"] == 0
-    assert "IMDb 5.6/10" in (second_tv.find("programme").findtext("desc") or "")
+    p = second_tv.find("programme")
+    assert p.findtext("desc") == "Агенты секретной организации противостоят новой инопланетной угрозе."
+    assert p.findtext("title") == "Люди в черном: Интернэшнл (2019) · IMDb 5.6"
 
 
 def test_many_episodes_use_one_new_title_lookup(
@@ -309,7 +303,8 @@ def test_many_episodes_use_one_new_title_lookup(
     assert report["summary"]["in_run_memo_hits"] == len(programmes) - 1
 
     for p in programmes:
-        assert "IMDb 3.5/10" in (p.findtext("desc") or "")
+        assert p.findtext("desc") == "Сотрудники ФЭС расследуют сложные преступления."
+        assert "IMDb 3.5" in (p.findtext("title") or "")
 
 
 def test_budget_counts_unique_titles_not_http_attempts(
