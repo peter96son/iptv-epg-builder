@@ -1,13 +1,13 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-08-19T21:20:19.898743-07:00`
+- Generated: `2026-08-20T01:21:28.500337-07:00`
 - Playlist channels: **2700**
-- Baseline covered: **1605**
-- Final covered: **2099**
-- Added by fallbacks: **+494**
-- Unmatched: **601**
-- Programmes: **303564**
-- Movie coverage: **774/859** (+241)
+- Baseline covered: **1552**
+- Final covered: **2030**
+- Added by fallbacks: **+478**
+- Unmatched: **670**
+- Programmes: **298488**
+- Movie coverage: **705/859** (+225)
 
 ## Playlist changes
 
@@ -21,8 +21,8 @@
 
 | Group | Total | Baseline | Final | Added | Coverage |
 |---|---:|---:|---:|---:|---:|
-| Кинозалы | 358 | 230 | 329 | +99 | 91.9% |
-| Кинозалы UA | 206 | 103 | 187 | +84 | 90.8% |
+| Кинозалы | 358 | 229 | 328 | +99 | 91.6% |
+| Кинозалы UA | 206 | 51 | 119 | +68 | 57.8% |
 | Спорт | 249 | 96 | 161 | +65 | 64.7% |
 | Кино | 213 | 141 | 189 | +48 | 88.7% |
 | Музыкальные | 150 | 44 | 90 | +46 | 60.0% |
@@ -63,17 +63,17 @@
 
 | Source | Status | Added |
 |---|---|---:|
-| iptv-online-primary | ok | 1605 |
-| iptvx-noarch | ok | 178 |
+| iptv-online-primary | ok | 1552 |
+| iptvx-noarch | ok | 181 |
 | klimedia-dedicated | failed | 0 |
 | runigma-iptv | ok | 6 |
-| openbox-tsd | ok | 58 |
+| openbox-tsd | ok | 56 |
 | next-dedicated | ok | 0 |
 | bcumedia-dedicated | ok | 5 |
 | cineman-dedicated | ok | 0 |
 | minimax-mm-dedicated | ok | 0 |
 | sharavoz-guide | failed | 0 |
-| tvteam | ok | 69 |
+| tvteam | ok | 72 |
 | epgpw-sreda | ok | 0 |
 | epgpw-chestny-detektiv | ok | 0 |
 | epgpw-RU | ok | 4 |
@@ -111,14 +111,15 @@
 | epgshare-LT | ok | 0 |
 | epgshare-LV | ok | 2 |
 | teleguide-ru | ok | 3 |
-| gabbarit-current | ok | 76 |
+| gabbarit-current | ok | 56 |
 
 ## Top unmatched families
 
 | Family | Channels | no_epg_* |
 |---|---:|---:|
+| Joker | 70 | 0 |
 | DITV | 35 | 32 |
-| Other | 24 | 0 |
+| Other | 25 | 0 |
 | Play-X | 15 | 0 |
 | Other: Football | 13 | 0 |
 | Clarity | 12 | 0 |
@@ -131,7 +132,6 @@
 | Other: Pimple | 6 | 0 |
 | Other: TRT | 6 | 0 |
 | Other: НТВ | 6 | 6 |
-| Joker | 5 | 0 |
 
 ## Recent history
 
@@ -144,4 +144,5 @@
 | 2026-08-19T20:18:27.954929-07:00 | 2099 | 601 | 301312 |
 | 2026-08-19T20:46:09.635486-07:00 | 2099 | 601 | 303386 |
 | 2026-08-19T21:20:19.898743-07:00 | 2099 | 601 | 303564 |
+| 2026-08-20T01:21:28.500337-07:00 | 2030 | 670 | 298488 |
 
