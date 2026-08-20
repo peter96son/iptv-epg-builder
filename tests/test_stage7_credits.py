@@ -46,3 +46,26 @@ def test_xmltv_credits_are_standard_and_description_untouched():
     actor = p.find("credits/actor")
     assert actor.text == "Matt Damon"
     assert actor.get("role") == "Mark Watney"
+
+
+def test_multiple_people_without_imdb_ids_do_not_violate_unique_constraint(tmp_path):
+    db = MetadataDB(tmp_path / "metadata.sqlite3")
+    title_id = _seed_title(db)
+    entry = {
+        "knowledge_title_id": title_id, "imdb_id": "tt3659388",
+        "tmdb_id": 286217, "resolved_media_type": "movie",
+        "title": "The Martian", "year": "2015",
+    }
+    payload = {
+        "crew": [{"id": 1, "name": "Director One", "job": "Director"}],
+        "cast": [
+            {"id": 2, "name": "Actor One", "character": "A", "order": 0},
+            {"id": 3, "name": "Actor Two", "character": "B", "order": 1},
+        ],
+    }
+    result = store_tmdb_credits(db, entry, payload)
+    assert result["stored"] == 3
+    rows = db.conn.execute("SELECT imdb_id FROM people ORDER BY id").fetchall()
+    assert len(rows) == 3
+    assert all(r["imdb_id"] is None for r in rows)
+    db.close()

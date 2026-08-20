@@ -9,7 +9,7 @@ from .metadata_db import MetadataDB
 from .utils import normalize_name
 
 TMDB_URL = "https://api.themoviedb.org/3"
-STAGE7_VERSION = "13.8-stage7"
+STAGE7_VERSION = "13.10-stage7"
 DEFAULT_CAST_LIMIT = 8
 
 
@@ -81,7 +81,7 @@ def _upsert_person(db: MetadataDB, person: dict) -> int | None:
     cur = db.conn.execute(
         """INSERT INTO people
            (tmdb_id, imdb_id, name, normalized_name, created_at, updated_at, extra_json)
-           VALUES (?, '', ?, ?, ?, ?, ?)""",
+           VALUES (?, NULL, ?, ?, ?, ?, ?)""",
         (int(tmdb_id) if tmdb_id is not None else None,
          name, normalize_name(name), now, now, extra_json),
     )
