@@ -1,12 +1,12 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-08-20T07:45:36.155964-07:00`
+- Generated: `2026-08-20T10:11:02.572778-07:00`
 - Playlist channels: **2700**
 - Baseline covered: **1615**
 - Final covered: **2105**
 - Added by fallbacks: **+490**
 - Unmatched: **595**
-- Programmes: **304834**
+- Programmes: **302859**
 - Movie coverage: **774/859** (+239)
 
 ## Playlist changes
@@ -64,10 +64,10 @@
 | Source | Status | Added |
 |---|---|---:|
 | iptv-online-primary | ok | 1615 |
-| iptvx-noarch | ok | 177 |
+| iptvx-noarch | ok | 179 |
 | klimedia-dedicated | failed | 0 |
 | runigma-iptv | ok | 6 |
-| openbox-tsd | ok | 56 |
+| openbox-tsd | ok | 54 |
 | next-dedicated | ok | 0 |
 | bcumedia-dedicated | ok | 5 |
 | cineman-dedicated | ok | 0 |
@@ -84,7 +84,7 @@
 | epgone-ru2 | ok | 10 |
 | epgpw-all-lite | ok | 5 |
 | skyhigh-fhd | ok | 0 |
-| skyhigh-hdr | failed | 0 |
+| skyhigh-hdr | ok | 0 |
 | anzo-top | ok | 4 |
 | epgshare-DE | ok | 0 |
 | epgshare-AT | ok | 2 |
@@ -146,4 +146,5 @@
 | 2026-08-19T21:20:19.898743-07:00 | 2099 | 601 | 303564 |
 | 2026-08-20T01:21:28.500337-07:00 | 2030 | 670 | 298488 |
 | 2026-08-20T07:45:36.155964-07:00 | 2105 | 595 | 304834 |
+| 2026-08-20T10:11:02.572778-07:00 | 2105 | 595 | 302859 |
 
