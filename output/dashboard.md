@@ -1,13 +1,13 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-08-19T16:58:07.674861-07:00`
+- Generated: `2026-08-19T20:18:27.954929-07:00`
 - Playlist channels: **2700**
-- Baseline covered: **1611**
-- Final covered: **2102**
-- Added by fallbacks: **+491**
-- Unmatched: **598**
-- Programmes: **338469**
-- Movie coverage: **775/859** (+236)
+- Baseline covered: **1605**
+- Final covered: **2099**
+- Added by fallbacks: **+494**
+- Unmatched: **601**
+- Programmes: **301312**
+- Movie coverage: **774/859** (+241)
 
 ## Playlist changes
 
@@ -21,11 +21,11 @@
 
 | Group | Total | Baseline | Final | Added | Coverage |
 |---|---:|---:|---:|---:|---:|
-| Кинозалы | 358 | 231 | 329 | +98 | 91.9% |
+| Кинозалы | 358 | 230 | 329 | +99 | 91.9% |
 | Кинозалы UA | 206 | 103 | 187 | +84 | 90.8% |
 | Спорт | 249 | 96 | 161 | +65 | 64.7% |
+| Кино | 213 | 141 | 189 | +48 | 88.7% |
 | Музыкальные | 150 | 44 | 90 | +46 | 60.0% |
-| Кино | 213 | 146 | 190 | +44 | 89.2% |
 | BE & NL | 90 | 32 | 51 | +19 | 56.7% |
 | UK | 27 | 9 | 24 | +15 | 88.9% |
 | Болгария | 49 | 13 | 27 | +14 | 55.1% |
@@ -39,11 +39,10 @@
 | Познавательные | 115 | 95 | 101 | +6 | 87.8% |
 | Израиль | 78 | 29 | 34 | +5 | 43.6% |
 | Греция | 10 | 3 | 7 | +4 | 70.0% |
-| Для взрослых | 33 | 20 | 24 | +4 | 72.7% |
+| Для взрослых | 33 | 20 | 23 | +3 | 69.7% |
 | SkyLink | 20 | 8 | 10 | +2 | 50.0% |
 | Беларусь | 23 | 20 | 22 | +2 | 95.7% |
 | Новости | 10 | 8 | 10 | +2 | 100.0% |
-| Разное | 30 | 27 | 29 | +2 | 96.7% |
 | Турция | 24 | 6 | 8 | +2 | 33.3% |
 | Хорватия | 3 | 0 | 2 | +2 | 66.7% |
 | Чехия | 6 | 0 | 2 | +2 | 33.3% |
@@ -51,6 +50,7 @@
 | Канада | 10 | 0 | 1 | +1 | 10.0% |
 | Молдова | 29 | 4 | 5 | +1 | 17.2% |
 | Польша | 97 | 89 | 90 | +1 | 92.8% |
+| Разное | 30 | 27 | 28 | +1 | 93.3% |
 | Азербайджан | 14 | 0 | 0 | +0 | 0.0% |
 | Армения | 5 | 1 | 1 | +0 | 20.0% |
 | Грузия | 33 | 27 | 27 | +0 | 81.8% |
@@ -63,20 +63,20 @@
 
 | Source | Status | Added |
 |---|---|---:|
-| iptv-online-primary | ok | 1611 |
-| iptvx-noarch | ok | 179 |
+| iptv-online-primary | ok | 1605 |
+| iptvx-noarch | ok | 178 |
 | klimedia-dedicated | failed | 0 |
 | runigma-iptv | ok | 6 |
-| openbox-tsd | ok | 53 |
+| openbox-tsd | ok | 54 |
 | next-dedicated | ok | 0 |
-| bcumedia-dedicated | ok | 5 |
+| bcumedia-dedicated | ok | 7 |
 | cineman-dedicated | ok | 0 |
 | minimax-mm-dedicated | ok | 0 |
 | sharavoz-guide | failed | 0 |
-| tvteam | ok | 69 |
+| tvteam | ok | 70 |
 | epgpw-sreda | ok | 0 |
 | epgpw-chestny-detektiv | ok | 0 |
-| epgpw-RU | ok | 4 |
+| epgpw-RU | ok | 5 |
 | epgpw-DE | ok | 5 |
 | epgpw-GB | ok | 3 |
 | epgpw-US | ok | 0 |
@@ -111,7 +111,7 @@
 | epgshare-LT | ok | 0 |
 | epgshare-LV | ok | 2 |
 | teleguide-ru | ok | 3 |
-| gabbarit-current | ok | 77 |
+| gabbarit-current | ok | 76 |
 
 ## Top unmatched families
 
@@ -141,4 +141,5 @@
 | 2026-08-19T16:09:44.678843-07:00 | 2102 | 598 | 338469 |
 | 2026-08-19T16:38:28.473299-07:00 | 2102 | 598 | 338469 |
 | 2026-08-19T16:58:07.674861-07:00 | 2102 | 598 | 338469 |
+| 2026-08-19T20:18:27.954929-07:00 | 2099 | 601 | 301312 |
 
