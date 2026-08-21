@@ -9,7 +9,7 @@ from .metadata_db import MetadataDB
 from .utils import normalize_name
 
 TMDB_URL = "https://api.themoviedb.org/3"
-STAGE7_VERSION = "13.10-stage7"
+STAGE7_VERSION = "13.11-stage7"
 DEFAULT_CAST_LIMIT = 8
 
 

@@ -24,7 +24,7 @@ TMDB_URL = "https://api.themoviedb.org/3"
 TMDB_IMAGE_BASE = "https://image.tmdb.org/t/p"
 TMDB_POSTER_SIZE = "w500"
 TMDB_BACKDROP_SIZE = "w780"
-METADATA_VERSION = "13.0-stage6.1"
+METADATA_VERSION = "13.11-stage7"
 CACHE_SCHEMA = 9
 CACHE_FILE = "metadata-cache.json"
 IMDB_ENTITY_CACHE_FILE = "imdb-cache.json"
@@ -2262,7 +2262,7 @@ def enrich_metadata(tv: ET.Element, mappings: list[dict], root: Path, output: Pa
 
     return {
         "summary": {
-            "mode": "fiction-only-ru-en+knowledge-first+rich-xmltv+programme-artwork-v13-stage6",
+            "mode": "fiction-only-ru-en+knowledge-first+rich-xmltv+programme-artwork+credits-v13-stage7",
             "metadata_version": METADATA_VERSION,
             "api_configured": bool(tmdb_key),
             "tmdb_configured": bool(tmdb_key),

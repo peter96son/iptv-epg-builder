@@ -21,8 +21,20 @@ def _read_alias_csv(path: Path):
     if not path.exists():
         return aliases
     with path.open(encoding="utf-8-sig", newline="") as f:
-        for row in csv.DictReader(f):
-            aliases.append({k: (v or "").strip() for k, v in row.items()})
+        reader = csv.DictReader(f)
+        expected = set(reader.fieldnames or [])
+        for line_no, row in enumerate(reader, start=2):
+            # DictReader stores surplus CSV columns under the None key.  A malformed
+            # pin file must never crash the whole EPG build.
+            extras = row.pop(None, None)
+            if extras and any(str(v).strip() for v in extras):
+                print(f"[config] WARNING: {path.name}:{line_no} has extra columns; row skipped", flush=True)
+                continue
+            clean = {str(k): str(v or "").strip() for k, v in row.items() if k is not None}
+            if expected and set(clean) != expected:
+                print(f"[config] WARNING: {path.name}:{line_no} has invalid schema; row skipped", flush=True)
+                continue
+            aliases.append(clean)
     return aliases
 
 def load_aliases():
