@@ -20,6 +20,7 @@ from .utils import (
 
 
 SPILL_THRESHOLD_BYTES = int(os.environ.get("XMLTV_SPILL_THRESHOLD_BYTES", str(4 * 1024 * 1024)))
+ARCHIVE_PAST_DAYS = max(1, int(os.environ.get("XMLTV_ARCHIVE_PAST_DAYS", "5") or 5))
 
 
 class _OwnedGzipFile(gzip.GzipFile):
@@ -50,6 +51,11 @@ class XMLTVSource:
     v13.12:
     - verified per-source/per-channel clock offsets are applied before freshness
       checks and before programmes are yielded to the builder.
+
+    v13.13:
+    - output programme retention defaults to 5 past days so UHF can expose the
+      provider's 5-day catch-up/DVR window. Source eligibility remains based on
+      current/upcoming programmes and is intentionally unchanged.
     """
 
     def __init__(self, name: str, data: bytes):
@@ -190,9 +196,12 @@ class XMLTVSource:
         self._spill()
         return self
 
-    def fresh_programmes(self, wanted_ids: set[str], past_days=2, future_days=21):
+    def fresh_programmes(self, wanted_ids: set[str], past_days=None, future_days=21):
         if not wanted_ids:
             return
+
+        if past_days is None:
+            past_days = ARCHIVE_PAST_DAYS
 
         f = self._open()
         try:
