@@ -143,7 +143,6 @@ def _parse_xmltv_digits(digits: str) -> datetime:
     return dt
 
 
-
 def parse_xmltv_datetime(timestamp: str):
     """Parse a standard XMLTV timestamp to an aware datetime in UTC.
 
@@ -200,10 +199,35 @@ def xmltv_programme_is_usable(
     window_start = now - timedelta(hours=lookback_hours)
     window_end = now + timedelta(hours=future_hours)
 
-    # If stop exists, the programme must not already be completely stale.
     if stop_dt is not None and stop_dt < window_start:
         return False
     return start_dt <= window_end
+
+
+def shift_xmltv_timestamp(timestamp: str, offset_minutes: int) -> str:
+    """Shift an XMLTV timestamp by a fixed duration without changing its zone.
+
+    This is used for verified upstream clock errors. Both programme start and
+    stop must be shifted by the same amount. Calendar rollover is handled by
+    datetime arithmetic. Malformed timestamps are preserved unchanged.
+    """
+    if not offset_minutes:
+        return timestamp
+
+    raw = (timestamp or "").strip()
+    m = re.match(r"^(\d{8}|\d{10}|\d{12}|\d{14})\s*([+-]\d{4}|Z)(.*)$", raw)
+    if not m:
+        return timestamp
+
+    digits, offset, tail = m.groups()
+    try:
+        dt = _parse_xmltv_digits(digits) + timedelta(minutes=int(offset_minutes))
+    except (ValueError, TypeError, OverflowError):
+        return timestamp
+
+    fmt = {8: "%Y%m%d", 10: "%Y%m%d%H", 12: "%Y%m%d%H%M", 14: "%Y%m%d%H%M%S"}[len(digits)]
+    zone_suffix = "+0000" if offset == "Z" else offset
+    return dt.strftime(fmt) + " " + zone_suffix + tail
 
 
 def convert_xmltv_timestamp(timestamp: str, timezone_name: str) -> str:

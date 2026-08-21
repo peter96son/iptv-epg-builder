@@ -9,7 +9,14 @@ from collections import defaultdict
 from copy import deepcopy
 from pathlib import Path
 
-from .utils import open_xml_bytes, normalize_name, xmltv_date_is_fresh, xmltv_programme_is_usable
+from .channel_time_offsets import channel_time_offset_minutes
+from .utils import (
+    open_xml_bytes,
+    normalize_name,
+    shift_xmltv_timestamp,
+    xmltv_date_is_fresh,
+    xmltv_programme_is_usable,
+)
 
 
 SPILL_THRESHOLD_BYTES = int(os.environ.get("XMLTV_SPILL_THRESHOLD_BYTES", str(4 * 1024 * 1024)))
@@ -39,6 +46,10 @@ class XMLTVSource:
     - large source payloads are spilled to a temporary file after indexing;
     - spilled sources are parsed directly from disk (not read back into one big bytes object);
     - iterparse clears the root as top-level records are consumed.
+
+    v13.12:
+    - verified per-source/per-channel clock offsets are applied before freshness
+      checks and before programmes are yielded to the builder.
     """
 
     def __init__(self, name: str, data: bytes):
@@ -108,6 +119,22 @@ class XMLTVSource:
         except Exception:
             pass
 
+    def _offset_minutes(self, source_id: str) -> int:
+        return channel_time_offset_minutes(self.name, source_id)
+
+    def _shifted_timestamp(self, source_id: str, timestamp: str) -> str:
+        return shift_xmltv_timestamp(timestamp, self._offset_minutes(source_id))
+
+    def _shift_programme_copy(self, elem, source_id: str):
+        clone = deepcopy(elem)
+        offset = self._offset_minutes(source_id)
+        if offset:
+            for attr in ("start", "stop"):
+                value = clone.get(attr, "")
+                if value:
+                    clone.set(attr, shift_xmltv_timestamp(value, offset))
+        return clone
+
     def index(self):
         all_channels = {}
         all_names = defaultdict(set)
@@ -139,11 +166,11 @@ class XMLTVSource:
 
                 elif tag == "programme":
                     cid = elem.get("channel", "")
-                    if cid and xmltv_date_is_fresh(elem.get("start", "")):
+                    start = self._shifted_timestamp(cid, elem.get("start", "")) if cid else elem.get("start", "")
+                    stop = self._shifted_timestamp(cid, elem.get("stop", "")) if cid else elem.get("stop", "")
+                    if cid and xmltv_date_is_fresh(start):
                         self.live_ids.add(cid)
-                    if cid and xmltv_programme_is_usable(
-                        elem.get("start", ""), elem.get("stop", "")
-                    ):
+                    if cid and xmltv_programme_is_usable(start, stop):
                         self.usable_ids.add(cid)
                     elem.clear()
                     root.clear()
@@ -180,13 +207,12 @@ class XMLTVSource:
                     continue
                 if elem.tag.split("}")[-1] == "programme":
                     cid = elem.get("channel", "")
+                    start = self._shifted_timestamp(cid, elem.get("start", "")) if cid else elem.get("start", "")
                     if (
                         cid in wanted_ids
-                        and xmltv_date_is_fresh(
-                            elem.get("start", ""), past_days, future_days
-                        )
+                        and xmltv_date_is_fresh(start, past_days, future_days)
                     ):
-                        yield deepcopy(elem)
+                        yield self._shift_programme_copy(elem, cid)
                     elem.clear()
                     root.clear()
         finally:
