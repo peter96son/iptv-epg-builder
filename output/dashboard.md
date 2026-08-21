@@ -1,13 +1,13 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-08-20T20:38:31.680291-07:00`
+- Generated: `2026-08-20T21:05:58.357104-07:00`
 - Playlist channels: **2700**
-- Baseline covered: **1610**
+- Baseline covered: **1609**
 - Final covered: **2091**
-- Added by fallbacks: **+481**
+- Added by fallbacks: **+482**
 - Unmatched: **609**
-- Programmes: **260590**
-- Movie coverage: **767/859** (+235)
+- Programmes: **260554**
+- Movie coverage: **767/859** (+236)
 
 ## Playlist changes
 
@@ -25,7 +25,7 @@
 | Кинозалы UA | 206 | 103 | 187 | +84 | 90.8% |
 | Спорт | 249 | 102 | 166 | +64 | 66.7% |
 | Музыкальные | 150 | 45 | 90 | +45 | 60.0% |
-| Кино | 213 | 140 | 183 | +43 | 85.9% |
+| Кино | 213 | 139 | 183 | +44 | 85.9% |
 | UK | 27 | 9 | 24 | +15 | 88.9% |
 | BE & NL | 90 | 32 | 46 | +14 | 51.1% |
 | Болгария | 49 | 13 | 27 | +14 | 55.1% |
@@ -63,7 +63,7 @@
 
 | Source | Status | Added |
 |---|---|---:|
-| iptv-online-primary | ok | 1610 |
+| iptv-online-primary | ok | 1609 |
 | iptvx-noarch | ok | 174 |
 | klimedia-dedicated | failed | 0 |
 | runigma-iptv | ok | 6 |
@@ -76,7 +76,7 @@
 | tvteam | ok | 70 |
 | epgpw-sreda | ok | 0 |
 | epgpw-chestny-detektiv | ok | 0 |
-| epgpw-RU | ok | 5 |
+| epgpw-RU | ok | 6 |
 | epgpw-DE | ok | 5 |
 | epgpw-GB | ok | 3 |
 | epgpw-US | ok | 0 |
@@ -150,4 +150,5 @@
 | 2026-08-20T13:06:15.436926-07:00 | 2105 | 595 | 302608 |
 | 2026-08-20T15:18:12.130291-07:00 | 2105 | 595 | 302298 |
 | 2026-08-20T20:38:31.680291-07:00 | 2091 | 609 | 260590 |
+| 2026-08-20T21:05:58.357104-07:00 | 2091 | 609 | 260554 |
 
