@@ -3,7 +3,7 @@
 This report is diagnostic only. It does not create EPG mappings.
 A family must be researched and verified before aliases are added to the live builder.
 
-Unmatched channels: **595**
+Unmatched channels: **609**
 
 | Family | Channels | no_epg_* IDs | Main groups |
 |---|---:|---:|---|
@@ -17,21 +17,23 @@ Unmatched channels: **595**
 | Other: FIFA+ | 8 | 0 | Спорт (8) |
 | BOX | 7 | 0 | Спорт (6), Кино 4K (1) |
 | Other: AXN | 7 | 0 | Румыния (4), SkyLink (3) |
+| Other: TRT | 7 | 0 | Турция (7) |
 | Other: DAZN | 6 | 0 | Спорт (6) |
 | Other: Pimple | 6 | 0 | Спорт (6) |
-| Other: TRT | 6 | 0 | Турция (6) |
 | Other: НТВ | 6 | 6 | Кино (6) |
 | Joker | 5 | 0 | Кинозалы UA (3), Кинозалы (2) |
 | Other: Viasat | 5 | 0 | Познавательные (3), UK (2) |
 | Other: Carac | 4 | 0 | BE & NL (4) |
 | Other: CBS | 4 | 0 | Польша (2), Румыния (2) |
 | Other: FintGa | 4 | 0 | Спорт (4) |
+| Other: France | 4 | 0 | BE & NL (4) |
 | Other: LRT | 4 | 0 | Латвия (4) |
 | Other: Power | 4 | 0 | Турция (3), Латвия (1) |
 | Other: PowerT | 4 | 0 | Турция (4) |
 | Other: RAI | 4 | 0 | Италия (4) |
 | Other: Sport | 4 | 0 | Спорт (1), Израиль (1), SkyLink (1), BE & NL (1) |
 | Other: ViP | 4 | 0 | Спорт (4) |
+| KLI | 3 | 0 | Кинозалы (2), Кино 4K (1) |
 | Other: Disney | 3 | 0 | Израиль (1), Молдова (1), Канада (1) |
 | Other: Filmbox | 3 | 0 | Румыния (1), Венгрия (1), BE & NL (1) |
 | Other: Nickelodeon | 3 | 0 | Литва (1), Израиль (1), Румыния (1) |
@@ -39,7 +41,6 @@ Unmatched channels: **595**
 | Other: Total | 3 | 0 | Музыкальные (3) |
 | Other: УПЛ | 3 | 0 | Спорт (3) |
 | BCU | 2 | 0 | Кинозалы (1), Детские (1) |
-| KLI | 2 | 0 | Кинозалы (1), Кино 4K (1) |
 | Other: Arena | 2 | 0 | Спорт (2) |
 | Other: betking | 2 | 0 | Спорт (2) |
 | Other: CANAL+ | 2 | 0 | SkyLink (2) |
@@ -64,12 +65,14 @@ Unmatched channels: **595**
 | Other: National | 2 | 0 | Познавательные (1), Болгария (1) |
 | Other: Nova | 2 | 0 | SkyLink (2) |
 | Other: ORF | 2 | 0 | Германия (2) |
+| Other: Premiere | 2 | 0 | Кино (2) |
 | Other: Radio | 2 | 0 | Музыкальные (1), Литва (1) |
 | Other: Rai | 2 | 0 | Италия (1), Болгария (1) |
 | Other: Retro | 2 | 0 | Музыкальные (1), Чехия (1) |
 | Other: SES | 2 | 0 | Германия (2) |
 | Other: TVN | 2 | 0 | Польша (1), Молдова (1) |
 | Other: Viva | 2 | 0 | Израиль (2) |
+| Other: VTM | 2 | 0 | BE & NL (2) |
 | Other: Zoom | 2 | 0 | Украинские (1), Израиль (1) |
 | Other: Сер | 2 | 0 | Кино (2) |
 | Velilla | 2 | 0 | Детские (1), Для взрослых (1) |
@@ -109,7 +112,6 @@ Unmatched channels: **595**
 | Other: BR6 | 1 | 0 | BE & NL (1) |
 | Other: Bucuresti | 1 | 0 | Румыния (1) |
 | Other: Busuioc | 1 | 0 | Молдова (1) |
-| Other: BX1 | 1 | 0 | BE & NL (1) |
 | Other: Cartoon | 1 | 0 | Канада (1) |
 | Other: Channel21 | 1 | 0 | Германия (1) |
 | Other: City | 1 | 0 | Канада (1) |
@@ -167,6 +169,7 @@ Unmatched channels: **595**
 | Other: IBIZA | 1 | 0 | Музыкальные (1) |
 | Other: Ictimai | 1 | 0 | Азербайджан (1) |
 | Other: Idman | 1 | 0 | Азербайджан (1) |
+| Other: Insomnia | 1 | 0 | Кино (1) |
 | Other: Israel | 1 | 0 | Израиль (1) |
 | Other: ITV | 1 | 0 | Украинские (1) |
 | Other: Jim | 1 | 0 | Румыния (1) |
@@ -198,6 +201,7 @@ Unmatched channels: **595**
 | Other: MNML | 1 | 0 | Музыкальные (1) |
 | Other: Moldova | 1 | 0 | Молдова (1) |
 | Other: Montreal | 1 | 0 | Греция (1) |
+| Other: Mooz | 1 | 0 | Румыния (1) |
 | Other: MTV | 1 | 0 | Музыкальные (1) |
 | Other: Muzzik | 1 | 0 | Музыкальные (1) |
 | Other: N24 | 1 | 0 | Румыния (1) |
@@ -226,7 +230,7 @@ Unmatched channels: **595**
 | Other: Play7 | 1 | 0 | BE & NL (1) |
 | Other: PLUS+ | 1 | 0 | Израиль (1) |
 | Other: Polar | 1 | 0 | Чехия (1) |
-| Other: Premiere | 1 | 0 | Кино (1) |
+| Other: Premium | 1 | 0 | Кино (1) |
 | Other: PRIME | 1 | 0 | Израиль (1) |
 | Other: Privesc | 1 | 0 | Молдова (1) |
 | Other: Pro | 1 | 0 | Молдова (1) |
@@ -265,8 +269,10 @@ Unmatched channels: **595**
 | Other: Tele | 1 | 0 | Музыкальные (1) |
 | Other: Tezaur | 1 | 0 | Молдова (1) |
 | Other: TF | 1 | 0 | BE & NL (1) |
+| Other: TF1 | 1 | 0 | BE & NL (1) |
 | Other: TFavorit | 1 | 0 | Румыния (1) |
 | Other: This | 1 | 0 | Болгария (1) |
+| Other: Thriller | 1 | 0 | Кино (1) |
 | Other: TIC | 1 | 0 | Украинские (1) |
 | Other: Top | 1 | 0 | Спорт (1) |
 | Other: Topaz | 1 | 0 | Азербайджан (1) |
@@ -284,9 +290,9 @@ Unmatched channels: **595**
 | Other: VB | 1 | 0 | Молдова (1) |
 | Other: Veronica | 1 | 0 | BE & NL (1) |
 | Other: VEVO | 1 | 0 | Музыкальные (1) |
+| Other: VHS | 1 | 0 | Кино (1) |
 | Other: VIVA | 1 | 0 | Музыкальные (1) |
 | Other: Volksmusik | 1 | 0 | Германия (1) |
-| Other: VTM | 1 | 0 | BE & NL (1) |
 | Other: W9 | 1 | 0 | BE & NL (1) |
 | Other: Warner | 1 | 0 | Румыния (1) |
 | Other: We | 1 | 0 | Молдова (1) |
@@ -349,6 +355,7 @@ Unmatched channels: **595**
 | Other: Родина | 1 | 0 | Болгария (1) |
 | Other: Розсл | 1 | 0 | Украинские (1) |
 | Other: Романтичний | 1 | 0 | Кинозалы UA (1) |
+| Other: РуКино | 1 | 0 | Кино (1) |
 | Other: Сл | 1 | 0 | Украинские (1) |
 | Other: Снятин | 1 | 0 | Украинские (1) |
 | Other: Справа | 1 | 0 | Украинские (1) |
@@ -543,6 +550,16 @@ Unmatched channels: **595**
 - AXN Black
 - AXN White
 
+### Other: TRT — 7
+
+- TRT 2
+- TRT Çocuk
+- TRT Kurdî
+- TRT Eba Ortaokul
+- TRT Arabi
+- TRT Sport Yildiz HD TR
+- TRT Müzik
+
 ### Other: DAZN — 6
 
 - DAZN 1 DE
@@ -560,15 +577,6 @@ Unmatched channels: **595**
 - Pimple 4
 - Pimple 5
 - Pimple 6
-
-### Other: TRT — 6
-
-- TRT Çocuk
-- TRT Kurdî
-- TRT Eba Ortaokul
-- TRT Arabi
-- TRT Sport Yildiz HD TR
-- TRT Müzik
 
 ### Other: НТВ — 6
 
@@ -616,6 +624,13 @@ Unmatched channels: **595**
 - FintGa 3
 - FintGa 4
 
+### Other: France — 4
+
+- France 3
+- France 2
+- France 4
+- France 5
+
 ### Other: LRT — 4
 
 - LRT Klasika
@@ -658,6 +673,12 @@ Unmatched channels: **595**
 - ViP Sport 16
 - ViP Sport 17
 
+### KLI — 3
+
+- KLI Новинки HD
+- KLI СССР HD
+- KLI Новинки 4K Ultra HD
+
 ### Other: Disney — 3
 
 - Disney Junior
@@ -698,11 +719,6 @@ Unmatched channels: **595**
 
 - BCU NEW MEDIA 2
 - BCU Kids HD
-
-### KLI — 2
-
-- KLI Новинки HD
-- KLI Новинки 4K Ultra HD
 
 ### Other: Arena — 2
 
@@ -824,6 +840,11 @@ Unmatched channels: **595**
 - ORF 2 EUROPE
 - ORF HITRADIO OE3 VISUAL
 
+### Other: Premiere — 2
+
+- Premiere HD 3
+- Premiere HD 4
+
 ### Other: Radio — 2
 
 - Radio Contact
@@ -853,6 +874,11 @@ Unmatched channels: **595**
 
 - Viva plus
 - Viva
+
+### Other: VTM — 2
+
+- VTM HD
+- VTM Non-Stop 90s
 
 ### Other: Zoom — 2
 
@@ -1012,10 +1038,6 @@ Unmatched channels: **595**
 ### Other: Busuioc — 1
 
 - Busuioc TV
-
-### Other: BX1 — 1
-
-- BX1
 
 ### Other: Cartoon — 1
 
@@ -1245,6 +1267,10 @@ Unmatched channels: **595**
 
 - Idman AZ
 
+### Other: Insomnia — 1
+
+- Insomnia HD
+
 ### Other: Israel — 1
 
 - Israel Music
@@ -1369,6 +1395,10 @@ Unmatched channels: **595**
 
 - Montreal Greek TV
 
+### Other: Mooz — 1
+
+- Mooz Dance HD
+
 ### Other: MTV — 1
 
 - MTV Live US
@@ -1481,9 +1511,9 @@ Unmatched channels: **595**
 
 - Polar 2 HD
 
-### Other: Premiere — 1
+### Other: Premium — 1
 
-- Premiere HD 3
+- Premium HD
 
 ### Other: PRIME — 1
 
@@ -1637,6 +1667,10 @@ Unmatched channels: **595**
 
 - TF 1 Series Film HD
 
+### Other: TF1 — 1
+
+- TF1
+
 ### Other: TFavorit — 1
 
 - TFavorit
@@ -1644,6 +1678,10 @@ Unmatched channels: **595**
 ### Other: This — 1
 
 - This is Bulgaria
+
+### Other: Thriller — 1
+
+- Thriller HD
 
 ### Other: TIC — 1
 
@@ -1713,6 +1751,10 @@ Unmatched channels: **595**
 
 - VEVO 90S
 
+### Other: VHS — 1
+
+- VHS HD
+
 ### Other: VIVA — 1
 
 - VIVA H
@@ -1720,10 +1762,6 @@ Unmatched channels: **595**
 ### Other: Volksmusik — 1
 
 - Volksmusik.TV NEU
-
-### Other: VTM — 1
-
-- VTM Non-Stop 90s
 
 ### Other: W9 — 1
 
@@ -1972,6 +2010,10 @@ Unmatched channels: **595**
 ### Other: Романтичний — 1
 
 - Романтичний Марафон HD
+
+### Other: РуКино — 1
+
+- РуКино HD
 
 ### Other: Сл — 1
 
