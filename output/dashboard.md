@@ -1,12 +1,12 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-08-21T10:21:22.996554-07:00`
+- Generated: `2026-08-21T12:45:10.298118-07:00`
 - Playlist channels: **2700**
 - Baseline covered: **1617**
 - Final covered: **2096**
 - Added by fallbacks: **+479**
 - Unmatched: **604**
-- Programmes: **263848**
+- Programmes: **263589**
 - Movie coverage: **769/859** (+231)
 
 ## Playlist changes
@@ -64,7 +64,7 @@
 | Source | Status | Added |
 |---|---|---:|
 | iptv-online-primary | ok | 1617 |
-| iptvx-noarch | ok | 178 |
+| iptvx-noarch | ok | 177 |
 | klimedia-dedicated | failed | 0 |
 | runigma-iptv | ok | 6 |
 | openbox-tsd | ok | 55 |
@@ -73,7 +73,7 @@
 | cineman-dedicated | ok | 0 |
 | minimax-mm-dedicated | ok | 0 |
 | sharavoz-guide | failed | 0 |
-| tvteam | ok | 69 |
+| tvteam | ok | 70 |
 | epgpw-sreda | ok | 0 |
 | epgpw-chestny-detektiv | ok | 0 |
 | epgpw-RU | ok | 4 |
@@ -83,7 +83,7 @@
 | epgpw-CA | ok | 1 |
 | epgone-ru2 | ok | 10 |
 | epgpw-all-lite | ok | 5 |
-| skyhigh-fhd | ok | 0 |
+| skyhigh-fhd | failed | 0 |
 | skyhigh-hdr | ok | 0 |
 | anzo-top | ok | 4 |
 | epgshare-DE | ok | 0 |
@@ -154,4 +154,5 @@
 | 2026-08-21T01:22:38.317225-07:00 | 2096 | 604 | 262299 |
 | 2026-08-21T07:21:16.710525-07:00 | 2095 | 605 | 261825 |
 | 2026-08-21T10:21:22.996554-07:00 | 2096 | 604 | 263848 |
+| 2026-08-21T12:45:10.298118-07:00 | 2096 | 604 | 263589 |
 
