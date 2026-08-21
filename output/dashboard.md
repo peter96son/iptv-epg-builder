@@ -1,12 +1,12 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-08-21T12:45:10.298118-07:00`
+- Generated: `2026-08-21T13:54:42.456858-07:00`
 - Playlist channels: **2700**
 - Baseline covered: **1617**
 - Final covered: **2096**
 - Added by fallbacks: **+479**
 - Unmatched: **604**
-- Programmes: **263589**
+- Programmes: **352860**
 - Movie coverage: **769/859** (+231)
 
 ## Playlist changes
@@ -83,7 +83,7 @@
 | epgpw-CA | ok | 1 |
 | epgone-ru2 | ok | 10 |
 | epgpw-all-lite | ok | 5 |
-| skyhigh-fhd | failed | 0 |
+| skyhigh-fhd | ok | 0 |
 | skyhigh-hdr | ok | 0 |
 | anzo-top | ok | 4 |
 | epgshare-DE | ok | 0 |
@@ -155,4 +155,5 @@
 | 2026-08-21T07:21:16.710525-07:00 | 2095 | 605 | 261825 |
 | 2026-08-21T10:21:22.996554-07:00 | 2096 | 604 | 263848 |
 | 2026-08-21T12:45:10.298118-07:00 | 2096 | 604 | 263589 |
+| 2026-08-21T13:54:42.456858-07:00 | 2096 | 604 | 352860 |
 
