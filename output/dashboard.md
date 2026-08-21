@@ -1,13 +1,13 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-08-20T21:05:58.357104-07:00`
+- Generated: `2026-08-21T01:22:38.317225-07:00`
 - Playlist channels: **2700**
-- Baseline covered: **1609**
-- Final covered: **2091**
-- Added by fallbacks: **+482**
-- Unmatched: **609**
-- Programmes: **260554**
-- Movie coverage: **767/859** (+236)
+- Baseline covered: **1619**
+- Final covered: **2096**
+- Added by fallbacks: **+477**
+- Unmatched: **604**
+- Programmes: **262299**
+- Movie coverage: **769/859** (+231)
 
 ## Playlist changes
 
@@ -21,16 +21,16 @@
 
 | Group | Total | Baseline | Final | Added | Coverage |
 |---|---:|---:|---:|---:|---:|
-| Кинозалы | 358 | 230 | 328 | +98 | 91.6% |
+| Кинозалы | 358 | 232 | 328 | +96 | 91.6% |
 | Кинозалы UA | 206 | 103 | 187 | +84 | 90.8% |
 | Спорт | 249 | 102 | 166 | +64 | 66.7% |
 | Музыкальные | 150 | 45 | 90 | +45 | 60.0% |
-| Кино | 213 | 139 | 183 | +44 | 85.9% |
+| Кино | 213 | 144 | 185 | +41 | 86.9% |
 | UK | 27 | 9 | 24 | +15 | 88.9% |
-| BE & NL | 90 | 32 | 46 | +14 | 51.1% |
+| BE & NL | 90 | 34 | 48 | +14 | 53.3% |
 | Болгария | 49 | 13 | 27 | +14 | 55.1% |
 | Германия | 134 | 85 | 97 | +12 | 72.4% |
-| Румыния | 85 | 45 | 57 | +12 | 67.1% |
+| Румыния | 85 | 46 | 58 | +12 | 68.2% |
 | Украинские | 119 | 70 | 82 | +12 | 68.9% |
 | Кино 4K | 82 | 59 | 69 | +10 | 84.1% |
 | Детские | 82 | 65 | 73 | +8 | 89.0% |
@@ -63,20 +63,20 @@
 
 | Source | Status | Added |
 |---|---|---:|
-| iptv-online-primary | ok | 1609 |
-| iptvx-noarch | ok | 174 |
+| iptv-online-primary | ok | 1619 |
+| iptvx-noarch | ok | 176 |
 | klimedia-dedicated | failed | 0 |
 | runigma-iptv | ok | 6 |
-| openbox-tsd | ok | 56 |
+| openbox-tsd | ok | 55 |
 | next-dedicated | ok | 0 |
-| bcumedia-dedicated | ok | 7 |
+| bcumedia-dedicated | ok | 5 |
 | cineman-dedicated | ok | 0 |
-| minimax-mm-dedicated | ok | 1 |
+| minimax-mm-dedicated | ok | 0 |
 | sharavoz-guide | failed | 0 |
-| tvteam | ok | 70 |
+| tvteam | ok | 69 |
 | epgpw-sreda | ok | 0 |
 | epgpw-chestny-detektiv | ok | 0 |
-| epgpw-RU | ok | 6 |
+| epgpw-RU | ok | 4 |
 | epgpw-DE | ok | 5 |
 | epgpw-GB | ok | 3 |
 | epgpw-US | ok | 0 |
@@ -151,4 +151,5 @@
 | 2026-08-20T15:18:12.130291-07:00 | 2105 | 595 | 302298 |
 | 2026-08-20T20:38:31.680291-07:00 | 2091 | 609 | 260590 |
 | 2026-08-20T21:05:58.357104-07:00 | 2091 | 609 | 260554 |
+| 2026-08-21T01:22:38.317225-07:00 | 2096 | 604 | 262299 |
 

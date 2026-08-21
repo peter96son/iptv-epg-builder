@@ -3,7 +3,7 @@
 This report is diagnostic only. It does not create EPG mappings.
 A family must be researched and verified before aliases are added to the live builder.
 
-Unmatched channels: **609**
+Unmatched channels: **604**
 
 | Family | Channels | no_epg_* IDs | Main groups |
 |---|---:|---:|---|
@@ -65,14 +65,12 @@ Unmatched channels: **609**
 | Other: National | 2 | 0 | Познавательные (1), Болгария (1) |
 | Other: Nova | 2 | 0 | SkyLink (2) |
 | Other: ORF | 2 | 0 | Германия (2) |
-| Other: Premiere | 2 | 0 | Кино (2) |
 | Other: Radio | 2 | 0 | Музыкальные (1), Литва (1) |
 | Other: Rai | 2 | 0 | Италия (1), Болгария (1) |
 | Other: Retro | 2 | 0 | Музыкальные (1), Чехия (1) |
 | Other: SES | 2 | 0 | Германия (2) |
 | Other: TVN | 2 | 0 | Польша (1), Молдова (1) |
 | Other: Viva | 2 | 0 | Израиль (2) |
-| Other: VTM | 2 | 0 | BE & NL (2) |
 | Other: Zoom | 2 | 0 | Украинские (1), Израиль (1) |
 | Other: Сер | 2 | 0 | Кино (2) |
 | Velilla | 2 | 0 | Детские (1), Для взрослых (1) |
@@ -201,7 +199,6 @@ Unmatched channels: **609**
 | Other: MNML | 1 | 0 | Музыкальные (1) |
 | Other: Moldova | 1 | 0 | Молдова (1) |
 | Other: Montreal | 1 | 0 | Греция (1) |
-| Other: Mooz | 1 | 0 | Румыния (1) |
 | Other: MTV | 1 | 0 | Музыкальные (1) |
 | Other: Muzzik | 1 | 0 | Музыкальные (1) |
 | Other: N24 | 1 | 0 | Румыния (1) |
@@ -840,11 +837,6 @@ Unmatched channels: **609**
 - ORF 2 EUROPE
 - ORF HITRADIO OE3 VISUAL
 
-### Other: Premiere — 2
-
-- Premiere HD 3
-- Premiere HD 4
-
 ### Other: Radio — 2
 
 - Radio Contact
@@ -874,11 +866,6 @@ Unmatched channels: **609**
 
 - Viva plus
 - Viva
-
-### Other: VTM — 2
-
-- VTM HD
-- VTM Non-Stop 90s
 
 ### Other: Zoom — 2
 
@@ -1394,10 +1381,6 @@ Unmatched channels: **609**
 ### Other: Montreal — 1
 
 - Montreal Greek TV
-
-### Other: Mooz — 1
-
-- Mooz Dance HD
 
 ### Other: MTV — 1
 
