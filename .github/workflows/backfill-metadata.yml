@@ -16,6 +16,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: epg-metadata
@@ -80,9 +81,36 @@ jobs:
           path: .cache
           key: epg-cache-${{ runner.os }}-${{ github.run_id }}
 
+      - name: Prune old EPG caches
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CACHE_PREFIX: epg-cache-${{ runner.os }}-
+          KEEP_CACHES: "2"
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "Keeping newest ${KEEP_CACHES} caches with prefix ${CACHE_PREFIX}"
+          gh api --paginate \
+            -H "Accept: application/vnd.github+json" \
+            "/repos/${GITHUB_REPOSITORY}/actions/caches?per_page=100" \
+            --jq '.actions_caches[] | [.id,.key,.created_at] | @tsv' \
+          | awk -F '\t' -v prefix="$CACHE_PREFIX" '$2 ~ "^" prefix {print}' \
+          | sort -t $'\t' -k3,3r \
+          | tail -n "+$((KEEP_CACHES + 1))" \
+          | while IFS=$'\t' read -r cache_id cache_key created_at; do
+              [ -n "${cache_id:-}" ] || continue
+              echo "Deleting old cache ${cache_key} (${created_at})"
+              gh api --method DELETE \
+                -H "Accept: application/vnd.github+json" \
+                "/repos/${GITHUB_REPOSITORY}/actions/caches/${cache_id}"
+            done
+
       - name: Commit backfill database and report
         if: ${{ github.event_name != 'workflow_dispatch' || inputs.dry_run == false }}
+        shell: bash
         run: |
+          set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/metadata.sqlite3.gz output/metadata-backfill.json
@@ -90,5 +118,17 @@ jobs:
             echo "No metadata backfill changes"
           else
             git commit -m "Backfill metadata"
-            git push
+            for attempt in 1 2 3 4; do
+              echo "Publish attempt ${attempt}"
+              git fetch origin main
+              git rebase -X theirs origin/main
+              if git push origin HEAD:main; then
+                break
+              fi
+              if [ "$attempt" -eq 4 ]; then
+                echo "Failed to publish metadata after 4 race-safe attempts"
+                exit 1
+              fi
+              sleep $((attempt * 2))
+            done
           fi
