@@ -3,7 +3,7 @@
 This report is diagnostic only. It does not create EPG mappings.
 A family must be researched and verified before aliases are added to the live builder.
 
-Unmatched channels: **603**
+Unmatched channels: **604**
 
 | Family | Channels | no_epg_* IDs | Main groups |
 |---|---:|---:|---|
@@ -40,6 +40,7 @@ Unmatched channels: **603**
 | Other: Star | 3 | 0 | Кино (2), Молдова (1) |
 | Other: Total | 3 | 0 | Музыкальные (3) |
 | Other: УПЛ | 3 | 0 | Спорт (3) |
+| Velilla | 3 | 0 | Познавательные (1), Детские (1), Для взрослых (1) |
 | BCU | 2 | 0 | Кинозалы (1), Детские (1) |
 | Other: Arena | 2 | 0 | Спорт (2) |
 | Other: betking | 2 | 0 | Спорт (2) |
@@ -73,7 +74,6 @@ Unmatched channels: **603**
 | Other: Viva | 2 | 0 | Израиль (2) |
 | Other: Zoom | 2 | 0 | Украинские (1), Израиль (1) |
 | Other: Сер | 2 | 0 | Кино (2) |
-| Velilla | 2 | 0 | Детские (1), Для взрослых (1) |
 | Magic | 1 | 0 | Болгария (1) |
 | Other: +BAKU | 1 | 0 | Азербайджан (1) |
 | Other: 5Sport | 1 | 0 | Израиль (1) |
@@ -711,6 +711,12 @@ Unmatched channels: **603**
 - УПЛ ТВ 2
 - УПЛ ТВ 3
 
+### Velilla — 3
+
+- Velilla TV CatTV 4K
+- Velilla TV Cartoons Disney 4K
+- Velilla TV Hardcore Sex HD
+
 ### BCU — 2
 
 - BCU NEW MEDIA 2
@@ -875,11 +881,6 @@ Unmatched channels: **603**
 
 - Серіал Україна 1
 - Серіал Україна 2
-
-### Velilla — 2
-
-- Velilla TV Cartoons Disney 4K
-- Velilla TV Hardcore Sex HD
 
 ### Magic — 1
 
