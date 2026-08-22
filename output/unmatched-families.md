@@ -3,7 +3,7 @@
 This report is diagnostic only. It does not create EPG mappings.
 A family must be researched and verified before aliases are added to the live builder.
 
-Unmatched channels: **604**
+Unmatched channels: **608**
 
 | Family | Channels | no_epg_* IDs | Main groups |
 |---|---:|---:|---|
@@ -23,6 +23,7 @@ Unmatched channels: **604**
 | Other: НТВ | 6 | 6 | Кино (6) |
 | Joker | 5 | 0 | Кинозалы UA (3), Кинозалы (2) |
 | Other: Viasat | 5 | 0 | Познавательные (3), UK (2) |
+| Other: BeIN | 4 | 0 | Спорт (4) |
 | Other: Carac | 4 | 0 | BE & NL (4) |
 | Other: CBS | 4 | 0 | Польша (2), Румыния (2) |
 | Other: FintGa | 4 | 0 | Спорт (4) |
@@ -93,7 +94,6 @@ Unmatched channels: **604**
 | Other: AzTV | 1 | 0 | Азербайджан (1) |
 | Other: BBC | 1 | 0 | BE & NL (1) |
 | Other: BEATTV | 1 | 0 | BE & NL (1) |
-| Other: BeIN | 1 | 0 | Спорт (1) |
 | Other: Bel | 1 | 0 | BE & NL (1) |
 | Other: Best | 1 | 0 | Музыкальные (1) |
 | Other: Betking | 1 | 0 | Спорт (1) |
@@ -227,6 +227,7 @@ Unmatched channels: **604**
 | Other: Play7 | 1 | 0 | BE & NL (1) |
 | Other: PLUS+ | 1 | 0 | Израиль (1) |
 | Other: Polar | 1 | 0 | Чехия (1) |
+| Other: Premiere | 1 | 0 | Кино (1) |
 | Other: Premium | 1 | 0 | Кино (1) |
 | Other: PRIME | 1 | 0 | Израиль (1) |
 | Other: Privesc | 1 | 0 | Молдова (1) |
@@ -600,6 +601,13 @@ Unmatched channels: **604**
 - Viasat History HD
 - Viasat Nature HD
 
+### Other: BeIN — 4
+
+- BeIN Sport 1 HD
+- BeIN Sport 2 HD
+- BeIN Sport 4 HD
+- BeIN EXTRAS
+
 ### Other: Carac — 4
 
 - Carac 1
@@ -957,10 +965,6 @@ Unmatched channels: **604**
 ### Other: BEATTV — 1
 
 - BEATTV
-
-### Other: BeIN — 1
-
-- BeIN EXTRAS
 
 ### Other: Bel — 1
 
@@ -1493,6 +1497,10 @@ Unmatched channels: **604**
 ### Other: Polar — 1
 
 - Polar 2 HD
+
+### Other: Premiere — 1
+
+- Premiere HD 1
 
 ### Other: Premium — 1
 
