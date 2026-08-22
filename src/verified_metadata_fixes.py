@@ -8,6 +8,8 @@ import xml.etree.ElementTree as ET
 from datetime import datetime
 from pathlib import Path
 
+from .title_normalization_patch import normalize_existing_compact_title
+
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_EPG = ROOT / "output" / "epg.xml.gz"
 DEFAULT_RULES = ROOT / "data" / "metadata_overrides.json"
@@ -64,7 +66,6 @@ def _channel_names(root: ET.Element) -> dict[str, list[str]]:
 def _matches(rule: dict, programme: ET.Element, names: list[str]) -> bool:
     if not rule.get("enabled", True):
         return False
-
     title = programme.findtext("title") or ""
     if _base_title(title).casefold() != str(rule.get("title_base") or "").strip().casefold():
         return False
@@ -84,7 +85,6 @@ def _matches(rule: dict, programme: ET.Element, names: list[str]) -> bool:
         haystack = " | ".join(names).casefold()
         if not any(needle in haystack for needle in needles):
             return False
-
     return True
 
 
@@ -127,7 +127,6 @@ def _apply_rule(programme: ET.Element, rule: dict) -> None:
     if rating:
         rating_node = ET.SubElement(programme, "rating", {"system": "IMDb"})
         ET.SubElement(rating_node, "value").text = f"{rating}/10"
-
     if imdb_id:
         ET.SubElement(programme, "url").text = f"https://www.imdb.com/title/{imdb_id}/"
 
@@ -152,19 +151,21 @@ def apply_verified_metadata_fixes(
 
     if not epg_path.exists():
         return {"ok": False, "reason": "epg_missing", "changed": 0}
-    if not rules_path.exists():
-        return {"ok": True, "reason": "rules_missing", "changed": 0}
 
-    payload = json.loads(rules_path.read_text(encoding="utf-8"))
-    rules = [r for r in payload.get("rules", []) if isinstance(r, dict)]
+    rules = []
+    if rules_path.exists():
+        payload = json.loads(rules_path.read_text(encoding="utf-8"))
+        rules = [r for r in payload.get("rules", []) if isinstance(r, dict)]
 
     with gzip.open(epg_path, "rb") as fh:
         root = ET.parse(fh).getroot()
 
     names_by_id = _channel_names(root)
-    changed = 0
+    rule_changes = 0
+    normalized_titles = 0
     matches: list[dict] = []
 
+    # First apply verified manual corrections.
     for programme in root.findall("programme"):
         cid = (programme.get("channel") or "").strip()
         names = names_by_id.get(cid, [])
@@ -174,7 +175,7 @@ def apply_verified_metadata_fixes(
             old_title = programme.findtext("title") or ""
             _apply_rule(programme, rule)
             new_title = programme.findtext("title") or ""
-            changed += 1
+            rule_changes += 1
             matches.append({
                 "rule": rule.get("id", ""),
                 "channel": cid,
@@ -186,6 +187,21 @@ def apply_verified_metadata_fixes(
             })
             break
 
+    # Then make all generated compact titles idempotent, including merged history.
+    title_examples = []
+    for programme in root.findall("programme"):
+        title_node = programme.find("title")
+        if title_node is None:
+            continue
+        old = (title_node.text or "").strip()
+        new = normalize_existing_compact_title(old)
+        if new and new != old:
+            title_node.text = new
+            normalized_titles += 1
+            if len(title_examples) < 25:
+                title_examples.append({"old": old, "new": new})
+
+    changed = rule_changes + normalized_titles
     if changed:
         tmp = epg_path.with_suffix(epg_path.suffix + ".tmp")
         with gzip.open(tmp, "wb", compresslevel=6) as fh:
@@ -195,8 +211,11 @@ def apply_verified_metadata_fixes(
     report = {
         "ok": True,
         "changed": changed,
+        "rule_changes": rule_changes,
+        "normalized_titles": normalized_titles,
         "rules": len(rules),
         "matches": matches,
+        "title_normalization_examples": title_examples,
     }
     report_path = ROOT / "output" / "verified-metadata-fixes.json"
     report_path.parent.mkdir(parents=True, exist_ok=True)
