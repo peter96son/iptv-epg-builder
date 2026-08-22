@@ -1,13 +1,13 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-08-22T07:03:50.482435-07:00`
+- Generated: `2026-08-22T09:32:51.682164-07:00`
 - Playlist channels: **2700**
 - Baseline covered: **1615**
-- Final covered: **2094**
-- Added by fallbacks: **+479**
-- Unmatched: **606**
-- Programmes: **322572**
-- Movie coverage: **768/859** (+234)
+- Final covered: **2095**
+- Added by fallbacks: **+480**
+- Unmatched: **605**
+- Programmes: **323630**
+- Movie coverage: **769/859** (+235)
 
 ## Playlist changes
 
@@ -24,8 +24,8 @@
 | Кинозалы | 358 | 232 | 328 | +96 | 91.6% |
 | Кинозалы UA | 206 | 103 | 187 | +84 | 90.8% |
 | Спорт | 249 | 102 | 166 | +64 | 66.7% |
+| Кино | 213 | 140 | 185 | +45 | 86.9% |
 | Музыкальные | 150 | 45 | 90 | +45 | 60.0% |
-| Кино | 213 | 140 | 184 | +44 | 86.4% |
 | UK | 27 | 9 | 24 | +15 | 88.9% |
 | BE & NL | 90 | 34 | 48 | +14 | 53.3% |
 | Болгария | 49 | 12 | 25 | +13 | 51.0% |
@@ -64,10 +64,10 @@
 | Source | Status | Added |
 |---|---|---:|
 | iptv-online-primary | ok | 1615 |
-| iptvx-noarch | ok | 176 |
+| iptvx-noarch | ok | 181 |
 | klimedia-dedicated | failed | 0 |
 | runigma-iptv | ok | 6 |
-| openbox-tsd | ok | 58 |
+| openbox-tsd | ok | 55 |
 | next-dedicated | ok | 0 |
 | bcumedia-dedicated | ok | 5 |
 | cineman-dedicated | ok | 0 |
@@ -76,7 +76,7 @@
 | tvteam | ok | 69 |
 | epgpw-sreda | ok | 0 |
 | epgpw-chestny-detektiv | ok | 0 |
-| epgpw-RU | ok | 4 |
+| epgpw-RU | ok | 3 |
 | epgpw-DE | ok | 5 |
 | epgpw-GB | ok | 3 |
 | epgpw-US | ok | 0 |
@@ -137,7 +137,6 @@
 
 | Generated | Covered | Unmatched | Programmes |
 |---|---:|---:|---:|
-| 2026-08-19T16:58:07.674861-07:00 | 2102 | 598 | 338469 |
 | 2026-08-19T20:18:27.954929-07:00 | 2099 | 601 | 301312 |
 | 2026-08-19T20:46:09.635486-07:00 | 2099 | 601 | 303386 |
 | 2026-08-19T21:20:19.898743-07:00 | 2099 | 601 | 303564 |
@@ -157,4 +156,5 @@
 | 2026-08-21T20:33:37.674547-07:00 | 2092 | 608 | 342252 |
 | 2026-08-22T01:09:11.614185-07:00 | 2013 | 687 | 319318 |
 | 2026-08-22T07:03:50.482435-07:00 | 2094 | 606 | 322572 |
+| 2026-08-22T09:32:51.682164-07:00 | 2095 | 605 | 323630 |
 

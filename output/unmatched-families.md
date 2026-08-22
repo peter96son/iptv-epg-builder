@@ -3,7 +3,7 @@
 This report is diagnostic only. It does not create EPG mappings.
 A family must be researched and verified before aliases are added to the live builder.
 
-Unmatched channels: **606**
+Unmatched channels: **605**
 
 | Family | Channels | no_epg_* IDs | Main groups |
 |---|---:|---:|---|
@@ -227,7 +227,6 @@ Unmatched channels: **606**
 | Other: Play7 | 1 | 0 | BE & NL (1) |
 | Other: PLUS+ | 1 | 0 | Израиль (1) |
 | Other: Polar | 1 | 0 | Чехия (1) |
-| Other: Premiere | 1 | 0 | Кино (1) |
 | Other: Premium | 1 | 0 | Кино (1) |
 | Other: PRIME | 1 | 0 | Израиль (1) |
 | Other: Privesc | 1 | 0 | Молдова (1) |
@@ -1495,10 +1494,6 @@ Unmatched channels: **606**
 ### Other: Polar — 1
 
 - Polar 2 HD
-
-### Other: Premiere — 1
-
-- Premiere HD 1
 
 ### Other: Premium — 1
 
