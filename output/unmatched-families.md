@@ -3,7 +3,7 @@
 This report is diagnostic only. It does not create EPG mappings.
 A family must be researched and verified before aliases are added to the live builder.
 
-Unmatched channels: **605**
+Unmatched channels: **603**
 
 | Family | Channels | no_epg_* IDs | Main groups |
 |---|---:|---:|---|
@@ -28,7 +28,6 @@ Unmatched channels: **605**
 | Other: FintGa | 4 | 0 | Спорт (4) |
 | Other: France | 4 | 0 | BE & NL (4) |
 | Other: LRT | 4 | 0 | Латвия (4) |
-| Other: Nickelodeon | 4 | 0 | Литва (1), Израиль (1), Болгария (1), Румыния (1) |
 | Other: Power | 4 | 0 | Турция (3), Латвия (1) |
 | Other: PowerT | 4 | 0 | Турция (4) |
 | Other: RAI | 4 | 0 | Италия (4) |
@@ -37,6 +36,7 @@ Unmatched channels: **605**
 | KLI | 3 | 0 | Кинозалы (2), Кино 4K (1) |
 | Other: Disney | 3 | 0 | Израиль (1), Молдова (1), Канада (1) |
 | Other: Filmbox | 3 | 0 | Румыния (1), Венгрия (1), BE & NL (1) |
+| Other: Nickelodeon | 3 | 0 | Литва (1), Израиль (1), Румыния (1) |
 | Other: Star | 3 | 0 | Кино (2), Молдова (1) |
 | Other: Total | 3 | 0 | Музыкальные (3) |
 | Other: УПЛ | 3 | 0 | Спорт (3) |
@@ -63,7 +63,6 @@ Unmatched channels: **605**
 | Other: Music | 2 | 0 | Музыкальные (1), Израиль (1) |
 | Other: Musicbox | 2 | 0 | Музыкальные (2) |
 | Other: National | 2 | 0 | Познавательные (1), Болгария (1) |
-| Other: Nick | 2 | 0 | Израиль (1), Болгария (1) |
 | Other: Nova | 2 | 0 | SkyLink (2) |
 | Other: ORF | 2 | 0 | Германия (2) |
 | Other: Radio | 2 | 0 | Музыкальные (1), Литва (1) |
@@ -205,6 +204,7 @@ Unmatched channels: **605**
 | Other: N24 | 1 | 0 | Румыния (1) |
 | Other: Nat | 1 | 0 | Израиль (1) |
 | Other: NGC | 1 | 0 | BE & NL (1) |
+| Other: Nick | 1 | 0 | Израиль (1) |
 | Other: Nicktoons | 1 | 0 | Румыния (1) |
 | Other: NIEDERBAYERN | 1 | 0 | Германия (1) |
 | Other: Noord | 1 | 0 | BE & NL (1) |
@@ -634,13 +634,6 @@ Unmatched channels: **605**
 - LRT Radijas
 - LRT TV
 
-### Other: Nickelodeon — 4
-
-- Nickelodeon Baltic
-- Nickelodeon
-- Nickelodeon
-- Nickelodeon
-
 ### Other: Power — 4
 
 - Power Hit Radio
@@ -693,6 +686,12 @@ Unmatched channels: **605**
 - Filmbox Prem
 - Filmbox Family  HU
 - Filmbox NL HD
+
+### Other: Nickelodeon — 3
+
+- Nickelodeon Baltic
+- Nickelodeon
+- Nickelodeon
 
 ### Other: Star — 3
 
@@ -826,11 +825,6 @@ Unmatched channels: **605**
 
 - National Geographic HD
 - National Geographic
-
-### Other: Nick — 2
-
-- Nick Jr
-- Nick Jr
 
 ### Other: Nova — 2
 
@@ -1406,6 +1400,10 @@ Unmatched channels: **605**
 ### Other: NGC — 1
 
 - NGC HD
+
+### Other: Nick — 1
+
+- Nick Jr
 
 ### Other: Nicktoons — 1
 
