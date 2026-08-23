@@ -3,7 +3,7 @@
 This report is diagnostic only. It does not create EPG mappings.
 A family must be researched and verified before aliases are added to the live builder.
 
-Unmatched channels: **603**
+Unmatched channels: **602**
 
 | Family | Channels | no_epg_* IDs | Main groups |
 |---|---:|---:|---|
@@ -22,16 +22,15 @@ Unmatched channels: **603**
 | Other: TRT | 6 | 0 | Турция (6) |
 | Other: НТВ | 6 | 6 | Кино (6) |
 | Joker | 5 | 0 | Кинозалы UA (3), Кинозалы (2) |
+| Other: Sport | 5 | 0 | Спорт (2), Израиль (1), SkyLink (1), BE & NL (1) |
 | Other: Viasat | 5 | 0 | Познавательные (3), UK (2) |
 | Other: Carac | 4 | 0 | BE & NL (4) |
 | Other: CBS | 4 | 0 | Польша (2), Румыния (2) |
 | Other: FintGa | 4 | 0 | Спорт (4) |
-| Other: France | 4 | 0 | BE & NL (4) |
 | Other: LRT | 4 | 0 | Латвия (4) |
 | Other: Power | 4 | 0 | Турция (3), Латвия (1) |
 | Other: PowerT | 4 | 0 | Турция (4) |
 | Other: RAI | 4 | 0 | Италия (4) |
-| Other: Sport | 4 | 0 | Спорт (1), Израиль (1), SkyLink (1), BE & NL (1) |
 | Other: ViP | 4 | 0 | Спорт (4) |
 | KLI | 3 | 0 | Кинозалы (2), Кино 4K (1) |
 | Other: Disney | 3 | 0 | Израиль (1), Молдова (1), Канада (1) |
@@ -73,7 +72,6 @@ Unmatched channels: **603**
 | Other: Viva | 2 | 0 | Израиль (2) |
 | Other: Zoom | 2 | 0 | Украинские (1), Израиль (1) |
 | Other: Сер | 2 | 0 | Кино (2) |
-| Velilla | 2 | 0 | Детские (1), Для взрослых (1) |
 | Magic | 1 | 0 | Болгария (1) |
 | Other: +BAKU | 1 | 0 | Азербайджан (1) |
 | Other: 5Sport | 1 | 0 | Израиль (1) |
@@ -103,6 +101,7 @@ Unmatched channels: **603**
 | Other: Bolywood | 1 | 0 | Румыния (1) |
 | Other: BOX_MUSIC2_4K | 1 | 0 | Музыкальные (1) |
 | Other: BOX_SPORT_LIVE_4K | 1 | 0 | Спорт (1) |
+| Other: BOX_SPORT_LIVE_5_HD | 1 | 0 | Спорт (1) |
 | Other: BOX_SPORT_LIVE_6_HD | 1 | 0 | Спорт (1) |
 | Other: BOX_SPORT_LIVE_7_HD | 1 | 0 | Спорт (1) |
 | Other: BOX_SPORT_LIVE_8_HD | 1 | 0 | Спорт (1) |
@@ -110,6 +109,7 @@ Unmatched channels: **603**
 | Other: BR6 | 1 | 0 | BE & NL (1) |
 | Other: Bucuresti | 1 | 0 | Румыния (1) |
 | Other: Busuioc | 1 | 0 | Молдова (1) |
+| Other: BX1 | 1 | 0 | BE & NL (1) |
 | Other: Cartoon | 1 | 0 | Канада (1) |
 | Other: Channel21 | 1 | 0 | Германия (1) |
 | Other: City | 1 | 0 | Канада (1) |
@@ -266,7 +266,6 @@ Unmatched channels: **603**
 | Other: Tele | 1 | 0 | Музыкальные (1) |
 | Other: Tezaur | 1 | 0 | Молдова (1) |
 | Other: TF | 1 | 0 | BE & NL (1) |
-| Other: TF1 | 1 | 0 | BE & NL (1) |
 | Other: TFavorit | 1 | 0 | Румыния (1) |
 | Other: This | 1 | 0 | Болгария (1) |
 | Other: Thriller | 1 | 0 | Кино (1) |
@@ -290,6 +289,7 @@ Unmatched channels: **603**
 | Other: VHS | 1 | 0 | Кино (1) |
 | Other: VIVA | 1 | 0 | Музыкальные (1) |
 | Other: Volksmusik | 1 | 0 | Германия (1) |
+| Other: VTM | 1 | 0 | BE & NL (1) |
 | Other: W9 | 1 | 0 | BE & NL (1) |
 | Other: Warner | 1 | 0 | Румыния (1) |
 | Other: We | 1 | 0 | Молдова (1) |
@@ -306,6 +306,7 @@ Unmatched channels: **603**
 | Other: Ziggo | 1 | 0 | BE & NL (1) |
 | Other: ZooSweet | 1 | 0 | Познавательные (1) |
 | Other: ZU | 1 | 0 | Румыния (1) |
+| Other: Арм | 1 | 0 | Украинские (1) |
 | Other: БНТ3 | 1 | 0 | Болгария (1) |
 | Other: БНТ4 | 1 | 0 | Болгария (1) |
 | Other: Вар | 1 | 0 | Украинские (1) |
@@ -370,6 +371,7 @@ Unmatched channels: **603**
 | Other: Центр | 1 | 0 | Беларусь (1) |
 | Other: Черн | 1 | 0 | Украинские (1) |
 | Other: Честный | 1 | 0 | Кино (1) |
+| Velilla | 1 | 0 | Детские (1) |
 
 ## Channels by family
 
@@ -591,6 +593,14 @@ Unmatched channels: **603**
 - Joker: Том та Джеррі
 - Joker: Twin Peaks
 
+### Other: Sport — 5
+
+- Sport 3 UA HD
+- Sport 4 UA
+- Sport 5 Gold
+- Sport 2 HD
+- Sport 10
+
 ### Other: Viasat — 5
 
 - Viasat Explore Best HD
@@ -620,13 +630,6 @@ Unmatched channels: **603**
 - FintGa 3
 - FintGa 4
 
-### Other: France — 4
-
-- France 3
-- France 2
-- France 4
-- France 5
-
 ### Other: LRT — 4
 
 - LRT Klasika
@@ -654,13 +657,6 @@ Unmatched channels: **603**
 - RAI 3 HD
 - RAI News 24 HD
 - RAI Sport+ HD
-
-### Other: Sport — 4
-
-- Sport 4 UA
-- Sport 5 Gold
-- Sport 2 HD
-- Sport 10
 
 ### Other: ViP — 4
 
@@ -876,11 +872,6 @@ Unmatched channels: **603**
 - Серіал Україна 1
 - Серіал Україна 2
 
-### Velilla — 2
-
-- Velilla TV Cartoons Disney 4K
-- Velilla TV Hardcore Sex HD
-
 ### Magic — 1
 
 - Magic TV
@@ -997,6 +988,10 @@ Unmatched channels: **603**
 
 - BOX_SPORT_LIVE_4K
 
+### Other: BOX_SPORT_LIVE_5_HD — 1
+
+- BOX_SPORT_LIVE_5_HD
+
 ### Other: BOX_SPORT_LIVE_6_HD — 1
 
 - BOX_SPORT_LIVE_6_HD
@@ -1024,6 +1019,10 @@ Unmatched channels: **603**
 ### Other: Busuioc — 1
 
 - Busuioc TV
+
+### Other: BX1 — 1
+
+- BX1
 
 ### Other: Cartoon — 1
 
@@ -1649,10 +1648,6 @@ Unmatched channels: **603**
 
 - TF 1 Series Film HD
 
-### Other: TF1 — 1
-
-- TF1
-
 ### Other: TFavorit — 1
 
 - TFavorit
@@ -1745,6 +1740,10 @@ Unmatched channels: **603**
 
 - Volksmusik.TV NEU
 
+### Other: VTM — 1
+
+- VTM Non-Stop 90s
+
 ### Other: W9 — 1
 
 - W9 HD
@@ -1808,6 +1807,10 @@ Unmatched channels: **603**
 ### Other: ZU — 1
 
 - ZU
+
+### Other: Арм — 1
+
+- Армія TV HD
 
 ### Other: БНТ3 — 1
 
@@ -2064,4 +2067,8 @@ Unmatched channels: **603**
 ### Other: Честный — 1
 
 - Честный Детекти
+
+### Velilla — 1
+
+- Velilla TV Cartoons Disney 4K
 
