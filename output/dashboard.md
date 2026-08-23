@@ -1,13 +1,13 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-08-22T20:50:05.531888-07:00`
+- Generated: `2026-08-23T01:13:36.143763-07:00`
 - Playlist channels: **2700**
-- Baseline covered: **1607**
-- Final covered: **2096**
-- Added by fallbacks: **+489**
-- Unmatched: **604**
-- Programmes: **310332**
-- Movie coverage: **769/859** (+239)
+- Baseline covered: **1616**
+- Final covered: **2079**
+- Added by fallbacks: **+463**
+- Unmatched: **621**
+- Programmes: **311786**
+- Movie coverage: **749/859** (+211)
 
 ## Playlist changes
 
@@ -21,38 +21,38 @@
 
 | Group | Total | Baseline | Final | Added | Coverage |
 |---|---:|---:|---:|---:|---:|
-| Кинозалы | 358 | 229 | 328 | +99 | 91.6% |
-| Кинозалы UA | 206 | 103 | 187 | +84 | 90.8% |
+| Кинозалы | 358 | 232 | 327 | +95 | 91.3% |
+| Кинозалы UA | 206 | 103 | 168 | +65 | 81.6% |
 | Спорт | 249 | 100 | 165 | +65 | 66.3% |
-| Кино | 213 | 139 | 185 | +46 | 86.9% |
 | Музыкальные | 150 | 45 | 90 | +45 | 60.0% |
-| BE & NL | 90 | 34 | 49 | +15 | 54.4% |
+| Кино | 213 | 144 | 185 | +41 | 86.9% |
+| BE & NL | 90 | 32 | 51 | +19 | 56.7% |
 | UK | 27 | 9 | 24 | +15 | 88.9% |
-| Болгария | 49 | 12 | 27 | +15 | 55.1% |
+| Болгария | 49 | 13 | 27 | +14 | 55.1% |
 | Германия | 134 | 85 | 97 | +12 | 72.4% |
 | Румыния | 85 | 46 | 58 | +12 | 68.2% |
 | Украинские | 119 | 70 | 82 | +12 | 68.9% |
 | Кино 4K | 82 | 59 | 69 | +10 | 84.1% |
-| Россия | 165 | 150 | 159 | +9 | 96.4% |
 | Детские | 82 | 65 | 73 | +8 | 89.0% |
 | Италия | 13 | 0 | 8 | +8 | 61.5% |
+| Россия | 165 | 151 | 159 | +8 | 96.4% |
 | Познавательные | 115 | 95 | 101 | +6 | 87.8% |
 | Израиль | 78 | 29 | 34 | +5 | 43.6% |
 | Греция | 10 | 3 | 7 | +4 | 70.0% |
-| Для взрослых | 33 | 20 | 23 | +3 | 69.7% |
+| Для взрослых | 33 | 20 | 24 | +4 | 72.7% |
 | SkyLink | 20 | 8 | 10 | +2 | 50.0% |
 | Беларусь | 23 | 20 | 22 | +2 | 95.7% |
 | Новости | 10 | 8 | 10 | +2 | 100.0% |
 | Турция | 24 | 6 | 8 | +2 | 33.3% |
 | Хорватия | 3 | 0 | 2 | +2 | 66.7% |
 | Чехия | 6 | 0 | 2 | +2 | 33.3% |
-| Венгрия | 59 | 53 | 54 | +1 | 91.5% |
 | Канада | 10 | 0 | 1 | +1 | 10.0% |
 | Молдова | 29 | 4 | 5 | +1 | 17.2% |
 | Польша | 97 | 89 | 90 | +1 | 92.8% |
 | Разное | 30 | 27 | 28 | +1 | 93.3% |
 | Азербайджан | 14 | 0 | 0 | +0 | 0.0% |
 | Армения | 5 | 1 | 1 | +0 | 20.0% |
+| Венгрия | 59 | 54 | 54 | +0 | 91.5% |
 | Грузия | 33 | 27 | 27 | +0 | 81.8% |
 | Казахстан | 13 | 13 | 13 | +0 | 100.0% |
 | Литва | 37 | 34 | 34 | +0 | 91.9% |
@@ -63,20 +63,20 @@
 
 | Source | Status | Added |
 |---|---|---:|
-| iptv-online-primary | ok | 1607 |
-| iptvx-noarch | ok | 183 |
+| iptv-online-primary | ok | 1616 |
+| iptvx-noarch | ok | 177 |
 | klimedia-dedicated | failed | 0 |
 | runigma-iptv | ok | 6 |
-| openbox-tsd | ok | 55 |
+| openbox-tsd | ok | 56 |
 | next-dedicated | ok | 0 |
 | bcumedia-dedicated | ok | 5 |
 | cineman-dedicated | ok | 0 |
 | minimax-mm-dedicated | ok | 0 |
 | sharavoz-guide | failed | 0 |
-| tvteam | ok | 72 |
-| epgpw-sreda | ok | 0 |
-| epgpw-chestny-detektiv | ok | 0 |
-| epgpw-RU | ok | 5 |
+| tvteam | ok | 69 |
+| epgpw-sreda | failed | 0 |
+| epgpw-chestny-detektiv | failed | 0 |
+| epgpw-RU | ok | 4 |
 | epgpw-DE | ok | 5 |
 | epgpw-GB | ok | 3 |
 | epgpw-US | ok | 0 |
@@ -88,7 +88,7 @@
 | anzo-top | ok | 4 |
 | epgshare-DE | ok | 0 |
 | epgshare-AT | ok | 2 |
-| epgshare-BE | ok | 9 |
+| epgshare-BE | ok | 13 |
 | epgshare-NL | ok | 6 |
 | epgshare-UK | ok | 12 |
 | epgshare-US | ok | 0 |
@@ -99,7 +99,7 @@
 | epgshare-DELUXEMUSIC | ok | 1 |
 | epgshare-IT | ok | 8 |
 | epgshare-RO | ok | 13 |
-| epgshare-BG | ok | 8 |
+| epgshare-BG | ok | 7 |
 | epgshare-PL | ok | 1 |
 | epgshare-HU | ok | 0 |
 | epgshare-CZ | ok | 3 |
@@ -111,14 +111,15 @@
 | epgshare-LT | ok | 0 |
 | epgshare-LV | ok | 2 |
 | teleguide-ru | ok | 2 |
-| gabbarit-current | ok | 69 |
+| gabbarit-current | ok | 49 |
 
 ## Top unmatched families
 
 | Family | Channels | no_epg_* |
 |---|---:|---:|
 | DITV | 35 | 32 |
-| Other | 24 | 0 |
+| Other | 25 | 0 |
+| Joker | 23 | 0 |
 | Play-X | 15 | 0 |
 | Other: Football | 13 | 0 |
 | Clarity | 12 | 0 |
@@ -131,13 +132,11 @@
 | Other: Pimple | 6 | 0 |
 | Other: TRT | 6 | 0 |
 | Other: НТВ | 6 | 6 |
-| Joker | 5 | 0 |
 
 ## Recent history
 
 | Generated | Covered | Unmatched | Programmes |
 |---|---:|---:|---:|
-| 2026-08-20T07:45:36.155964-07:00 | 2105 | 595 | 304834 |
 | 2026-08-20T10:11:02.572778-07:00 | 2105 | 595 | 302859 |
 | 2026-08-20T13:06:15.436926-07:00 | 2105 | 595 | 302608 |
 | 2026-08-20T15:18:12.130291-07:00 | 2105 | 595 | 302298 |
@@ -157,4 +156,5 @@
 | 2026-08-22T11:18:19.560211-07:00 | 2096 | 604 | 324313 |
 | 2026-08-22T12:31:37.292926-07:00 | 2096 | 604 | 324052 |
 | 2026-08-22T20:50:05.531888-07:00 | 2096 | 604 | 310332 |
+| 2026-08-23T01:13:36.143763-07:00 | 2079 | 621 | 311786 |
 
