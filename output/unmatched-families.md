@@ -3,7 +3,7 @@
 This report is diagnostic only. It does not create EPG mappings.
 A family must be researched and verified before aliases are added to the live builder.
 
-Unmatched channels: **602**
+Unmatched channels: **601**
 
 | Family | Channels | no_epg_* IDs | Main groups |
 |---|---:|---:|---|
@@ -22,7 +22,6 @@ Unmatched channels: **602**
 | Other: TRT | 6 | 0 | Турция (6) |
 | Other: НТВ | 6 | 6 | Кино (6) |
 | Joker | 5 | 0 | Кинозалы UA (3), Кинозалы (2) |
-| Other: Sport | 5 | 0 | Спорт (2), Израиль (1), SkyLink (1), BE & NL (1) |
 | Other: Viasat | 5 | 0 | Познавательные (3), UK (2) |
 | Other: Carac | 4 | 0 | BE & NL (4) |
 | Other: CBS | 4 | 0 | Польша (2), Румыния (2) |
@@ -31,6 +30,7 @@ Unmatched channels: **602**
 | Other: Power | 4 | 0 | Турция (3), Латвия (1) |
 | Other: PowerT | 4 | 0 | Турция (4) |
 | Other: RAI | 4 | 0 | Италия (4) |
+| Other: Sport | 4 | 0 | Спорт (1), Израиль (1), SkyLink (1), BE & NL (1) |
 | Other: ViP | 4 | 0 | Спорт (4) |
 | KLI | 3 | 0 | Кинозалы (2), Кино 4K (1) |
 | Other: Disney | 3 | 0 | Израиль (1), Молдова (1), Канада (1) |
@@ -593,14 +593,6 @@ Unmatched channels: **602**
 - Joker: Том та Джеррі
 - Joker: Twin Peaks
 
-### Other: Sport — 5
-
-- Sport 3 UA HD
-- Sport 4 UA
-- Sport 5 Gold
-- Sport 2 HD
-- Sport 10
-
 ### Other: Viasat — 5
 
 - Viasat Explore Best HD
@@ -657,6 +649,13 @@ Unmatched channels: **602**
 - RAI 3 HD
 - RAI News 24 HD
 - RAI Sport+ HD
+
+### Other: Sport — 4
+
+- Sport 4 UA
+- Sport 5 Gold
+- Sport 2 HD
+- Sport 10
 
 ### Other: ViP — 4
 
