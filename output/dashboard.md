@@ -1,12 +1,12 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-08-23T01:13:36.143763-07:00`
+- Generated: `2026-08-23T07:09:43.633960-07:00`
 - Playlist channels: **2700**
-- Baseline covered: **1616**
-- Final covered: **2079**
+- Baseline covered: **1615**
+- Final covered: **2078**
 - Added by fallbacks: **+463**
-- Unmatched: **621**
-- Programmes: **311786**
+- Unmatched: **622**
+- Programmes: **308527**
 - Movie coverage: **749/859** (+211)
 
 ## Playlist changes
@@ -31,7 +31,7 @@
 | Болгария | 49 | 13 | 27 | +14 | 55.1% |
 | Германия | 134 | 85 | 97 | +12 | 72.4% |
 | Румыния | 85 | 46 | 58 | +12 | 68.2% |
-| Украинские | 119 | 70 | 82 | +12 | 68.9% |
+| Украинские | 119 | 69 | 81 | +12 | 68.1% |
 | Кино 4K | 82 | 59 | 69 | +10 | 84.1% |
 | Детские | 82 | 65 | 73 | +8 | 89.0% |
 | Италия | 13 | 0 | 8 | +8 | 61.5% |
@@ -63,25 +63,25 @@
 
 | Source | Status | Added |
 |---|---|---:|
-| iptv-online-primary | ok | 1616 |
-| iptvx-noarch | ok | 177 |
+| iptv-online-primary | ok | 1615 |
+| iptvx-noarch | ok | 178 |
 | klimedia-dedicated | failed | 0 |
-| runigma-iptv | ok | 6 |
-| openbox-tsd | ok | 56 |
+| runigma-iptv | ok | 5 |
+| openbox-tsd | ok | 55 |
 | next-dedicated | ok | 0 |
 | bcumedia-dedicated | ok | 5 |
 | cineman-dedicated | ok | 0 |
 | minimax-mm-dedicated | ok | 0 |
 | sharavoz-guide | failed | 0 |
 | tvteam | ok | 69 |
-| epgpw-sreda | failed | 0 |
-| epgpw-chestny-detektiv | failed | 0 |
+| epgpw-sreda | ok | 0 |
+| epgpw-chestny-detektiv | ok | 0 |
 | epgpw-RU | ok | 4 |
 | epgpw-DE | ok | 5 |
 | epgpw-GB | ok | 3 |
 | epgpw-US | ok | 0 |
 | epgpw-CA | ok | 1 |
-| epgone-ru2 | ok | 10 |
+| epgone-ru2 | ok | 11 |
 | epgpw-all-lite | ok | 5 |
 | skyhigh-fhd | ok | 0 |
 | skyhigh-hdr | ok | 0 |
@@ -137,7 +137,6 @@
 
 | Generated | Covered | Unmatched | Programmes |
 |---|---:|---:|---:|
-| 2026-08-20T10:11:02.572778-07:00 | 2105 | 595 | 302859 |
 | 2026-08-20T13:06:15.436926-07:00 | 2105 | 595 | 302608 |
 | 2026-08-20T15:18:12.130291-07:00 | 2105 | 595 | 302298 |
 | 2026-08-20T20:38:31.680291-07:00 | 2091 | 609 | 260590 |
@@ -157,4 +156,5 @@
 | 2026-08-22T12:31:37.292926-07:00 | 2096 | 604 | 324052 |
 | 2026-08-22T20:50:05.531888-07:00 | 2096 | 604 | 310332 |
 | 2026-08-23T01:13:36.143763-07:00 | 2079 | 621 | 311786 |
+| 2026-08-23T07:09:43.633960-07:00 | 2078 | 622 | 308527 |
 

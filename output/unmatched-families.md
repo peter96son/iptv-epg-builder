@@ -3,7 +3,7 @@
 This report is diagnostic only. It does not create EPG mappings.
 A family must be researched and verified before aliases are added to the live builder.
 
-Unmatched channels: **621**
+Unmatched channels: **622**
 
 | Family | Channels | no_epg_* IDs | Main groups |
 |---|---:|---:|---|
@@ -307,6 +307,7 @@ Unmatched channels: **621**
 | Other: Ziggo | 1 | 0 | BE & NL (1) |
 | Other: ZooSweet | 1 | 0 | Познавательные (1) |
 | Other: ZU | 1 | 0 | Румыния (1) |
+| Other: Арм | 1 | 0 | Украинские (1) |
 | Other: БНТ3 | 1 | 0 | Болгария (1) |
 | Other: БНТ4 | 1 | 0 | Болгария (1) |
 | Other: Вар | 1 | 0 | Украинские (1) |
@@ -1830,6 +1831,10 @@ Unmatched channels: **621**
 ### Other: ZU — 1
 
 - ZU
+
+### Other: Арм — 1
+
+- Армія TV HD
 
 ### Other: БНТ3 — 1
 
