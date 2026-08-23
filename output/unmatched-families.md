@@ -40,7 +40,6 @@ Unmatched channels: **604**
 | Other: Star | 3 | 0 | Кино (2), Молдова (1) |
 | Other: Total | 3 | 0 | Музыкальные (3) |
 | Other: УПЛ | 3 | 0 | Спорт (3) |
-| Velilla | 3 | 0 | Познавательные (1), Детские (1), Для взрослых (1) |
 | BCU | 2 | 0 | Кинозалы (1), Детские (1) |
 | Other: Arena | 2 | 0 | Спорт (2) |
 | Other: betking | 2 | 0 | Спорт (2) |
@@ -74,6 +73,7 @@ Unmatched channels: **604**
 | Other: Viva | 2 | 0 | Израиль (2) |
 | Other: Zoom | 2 | 0 | Украинские (1), Израиль (1) |
 | Other: Сер | 2 | 0 | Кино (2) |
+| Velilla | 2 | 0 | Детские (1), Для взрослых (1) |
 | Magic | 1 | 0 | Болгария (1) |
 | Other: +BAKU | 1 | 0 | Азербайджан (1) |
 | Other: 5Sport | 1 | 0 | Израиль (1) |
@@ -83,6 +83,7 @@ Unmatched channels: **604**
 | Other: Agro | 1 | 0 | Молдова (1) |
 | Other: Amazing | 1 | 0 | Канада (1) |
 | Other: Anal | 1 | 0 | Для взрослых (1) |
+| Other: Angel | 1 | 0 | Разное (1) |
 | Other: Ant | 1 | 0 | Греция (1) |
 | Other: Antwerpen | 1 | 0 | BE & NL (1) |
 | Other: Aristo | 1 | 0 | Германия (1) |
@@ -103,6 +104,7 @@ Unmatched channels: **604**
 | Other: Bolywood | 1 | 0 | Румыния (1) |
 | Other: BOX_MUSIC2_4K | 1 | 0 | Музыкальные (1) |
 | Other: BOX_SPORT_LIVE_4K | 1 | 0 | Спорт (1) |
+| Other: BOX_SPORT_LIVE_5_HD | 1 | 0 | Спорт (1) |
 | Other: BOX_SPORT_LIVE_6_HD | 1 | 0 | Спорт (1) |
 | Other: BOX_SPORT_LIVE_7_HD | 1 | 0 | Спорт (1) |
 | Other: BOX_SPORT_LIVE_8_HD | 1 | 0 | Спорт (1) |
@@ -266,7 +268,6 @@ Unmatched channels: **604**
 | Other: Tele | 1 | 0 | Музыкальные (1) |
 | Other: Tezaur | 1 | 0 | Молдова (1) |
 | Other: TF | 1 | 0 | BE & NL (1) |
-| Other: TF1 | 1 | 0 | BE & NL (1) |
 | Other: TFavorit | 1 | 0 | Румыния (1) |
 | Other: This | 1 | 0 | Болгария (1) |
 | Other: Thriller | 1 | 0 | Кино (1) |
@@ -711,12 +712,6 @@ Unmatched channels: **604**
 - УПЛ ТВ 2
 - УПЛ ТВ 3
 
-### Velilla — 3
-
-- Velilla TV CatTV 4K
-- Velilla TV Cartoons Disney 4K
-- Velilla TV Hardcore Sex HD
-
 ### BCU — 2
 
 - BCU NEW MEDIA 2
@@ -882,6 +877,11 @@ Unmatched channels: **604**
 - Серіал Україна 1
 - Серіал Україна 2
 
+### Velilla — 2
+
+- Velilla TV Cartoons Disney 4K
+- Velilla TV Hardcore Sex HD
+
 ### Magic — 1
 
 - Magic TV
@@ -917,6 +917,10 @@ Unmatched channels: **604**
 ### Other: Anal — 1
 
 - Anal
+
+### Other: Angel — 1
+
+- Angel TV
 
 ### Other: Ant — 1
 
@@ -997,6 +1001,10 @@ Unmatched channels: **604**
 ### Other: BOX_SPORT_LIVE_4K — 1
 
 - BOX_SPORT_LIVE_4K
+
+### Other: BOX_SPORT_LIVE_5_HD — 1
+
+- BOX_SPORT_LIVE_5_HD
 
 ### Other: BOX_SPORT_LIVE_6_HD — 1
 
@@ -1649,10 +1657,6 @@ Unmatched channels: **604**
 ### Other: TF — 1
 
 - TF 1 Series Film HD
-
-### Other: TF1 — 1
-
-- TF1
 
 ### Other: TFavorit — 1
 
