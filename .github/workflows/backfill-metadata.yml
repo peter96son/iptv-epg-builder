@@ -1,11 +1,10 @@
 name: Backfill Movie Metadata
-# previous default: 2500; v11.4 uses 5000
 
 on:
   workflow_dispatch:
     inputs:
       budget:
-        description: "Maximum TMDb HTTP requests for this run"
+        description: "Maximum TMDb HTTP requests; smart mode may use less"
         required: true
         default: "5000"
       dry_run:
@@ -13,6 +12,11 @@ on:
         required: true
         default: false
         type: boolean
+
+  # Nightly smart maintenance. GitHub cron is UTC.
+  # 11:20 UTC = 04:20 PDT / 03:20 PST.
+  schedule:
+    - cron: "20 11 * * *"
 
 permissions:
   contents: write
@@ -54,7 +58,7 @@ jobs:
       - name: Run tests
         run: python -m pytest -q
 
-      - name: Backfill from committed EPG
+      - name: Smart backfill from committed EPG
         env:
           TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
           BACKFILL_HTTP_BUDGET: ${{ inputs.budget || '5000' }}
@@ -68,6 +72,31 @@ jobs:
             python -m src.metadata_backfill --budget "$BUDGET" --dry-run
           else
             python -m src.metadata_backfill --budget "$BUDGET"
+          fi
+
+      - name: Show smart backfill summary
+        if: always()
+        shell: bash
+        run: |
+          if [ -f output/metadata-backfill.json ]; then
+            python - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path("output/metadata-backfill.json")
+          r = json.loads(p.read_text())
+          before = r.get("database_before", {})
+          after = r.get("database_after", {})
+          growth = r.get("database_growth", {})
+          print("=== SMART METADATA BACKFILL ===")
+          print("Effective HTTP budget:", r.get("effective_budget"))
+          print("HTTP spent:", r.get("http_spent"))
+          print("Remaining queue:", r.get("remaining"))
+          print("Movies:", after.get("movies"), f"({growth.get('movies', 0):+d})")
+          print("Series:", after.get("series"), f"({growth.get('series', 0):+d})")
+          print("Titles:", after.get("titles"), f"({growth.get('titles', 0):+d})")
+          print("IMDb entities:", after.get("imdb_entities"), f"({growth.get('imdb_entities', 0):+d})")
+          print("Complete metadata:", after.get("complete_metadata"), f"({growth.get('complete_metadata', 0):+d})")
+          PY
           fi
 
       - name: Save durable metadata snapshot
@@ -90,7 +119,6 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          echo "Keeping newest ${KEEP_CACHES} caches with prefix ${CACHE_PREFIX}"
           gh api --paginate \
             -H "Accept: application/vnd.github+json" \
             "/repos/${GITHUB_REPOSITORY}/actions/caches?per_page=100" \
@@ -100,24 +128,27 @@ jobs:
           | tail -n "+$((KEEP_CACHES + 1))" \
           | while IFS=$'\t' read -r cache_id cache_key created_at; do
               [ -n "${cache_id:-}" ] || continue
-              echo "Deleting old cache ${cache_key} (${created_at})"
               gh api --method DELETE \
                 -H "Accept: application/vnd.github+json" \
                 "/repos/${GITHUB_REPOSITORY}/actions/caches/${cache_id}"
             done
 
-      - name: Commit backfill database and report
+      - name: Commit backfill database and reports
         if: ${{ github.event_name != 'workflow_dispatch' || inputs.dry_run == false }}
         shell: bash
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/metadata.sqlite3.gz output/metadata-backfill.json
+          git add \
+            data/metadata.sqlite3.gz \
+            output/metadata-backfill.json \
+            output/metadata-growth-history.json
+
           if git diff --cached --quiet; then
             echo "No metadata backfill changes"
           else
-            git commit -m "Backfill metadata"
+            git commit -m "Smart metadata backfill"
             for attempt in 1 2 3 4; do
               echo "Publish attempt ${attempt}"
               git fetch origin main
