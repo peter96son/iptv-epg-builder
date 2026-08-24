@@ -3,14 +3,14 @@
 This report is diagnostic only. It does not create EPG mappings.
 A family must be researched and verified before aliases are added to the live builder.
 
-Unmatched channels: **658**
+Unmatched channels: **635**
 
 | Family | Channels | no_epg_* IDs | Main groups |
 |---|---:|---:|---|
 | DITV | 35 | 32 | Кинозалы (25), Детские (6), Познавательные (3), Для взрослых (1) |
-| Other | 25 | 0 | Украинские (6), Кинозалы UA (3), Израиль (3), Кино (2) |
+| Other | 26 | 0 | Украинские (6), Кинозалы UA (4), Израиль (3), Кино (2) |
+| Joker | 23 | 0 | Кинозалы UA (20), Кинозалы (3) |
 | Play-X | 15 | 0 | Музыкальные (9), Кино (3), Кинозалы UA (3) |
-| Magic | 14 | 0 | Кинозалы (12), Детские (1), Болгария (1) |
 | Other: Football | 13 | 0 | Спорт (13) |
 | Clarity | 12 | 0 | Кино 4K (11), Музыкальные (1) |
 | Other: VIP | 12 | 0 | Спорт (12) |
@@ -18,41 +18,36 @@ Unmatched channels: **658**
 | BOX | 10 | 0 | Спорт (8), Кино 4K (1), Болгария (1) |
 | Other: FIFA+ | 8 | 0 | Спорт (8) |
 | Other: AXN | 7 | 0 | Румыния (4), SkyLink (3) |
-| BCU | 6 | 0 | Кинозалы (5), Детские (1) |
-| Joker | 6 | 0 | Кинозалы UA (4), Кинозалы (2) |
 | Other: DAZN | 6 | 0 | Спорт (6) |
 | Other: Pimple | 6 | 0 | Спорт (6) |
 | Other: TRT | 6 | 0 | Турция (6) |
 | Other: НТВ | 6 | 6 | Кино (6) |
-| Other: LRT | 5 | 0 | Латвия (4), Литва (1) |
 | Other: Viasat | 5 | 0 | Познавательные (3), UK (2) |
 | Other: Carac | 4 | 0 | BE & NL (4) |
 | Other: CBS | 4 | 0 | Польша (2), Румыния (2) |
 | Other: FintGa | 4 | 0 | Спорт (4) |
+| Other: LRT | 4 | 0 | Латвия (4) |
 | Other: Power | 4 | 0 | Турция (3), Латвия (1) |
 | Other: PowerT | 4 | 0 | Турция (4) |
 | Other: RAI | 4 | 0 | Италия (4) |
 | Other: Sport | 4 | 0 | Спорт (1), Израиль (1), SkyLink (1), BE & NL (1) |
-| Other: Star | 4 | 0 | Кино (2), Молдова (1), Турция (1) |
 | Other: ViP | 4 | 0 | Спорт (4) |
 | KLI | 3 | 0 | Кинозалы (2), Кино 4K (1) |
 | Other: Disney | 3 | 0 | Израиль (1), Молдова (1), Канада (1) |
 | Other: Filmbox | 3 | 0 | Румыния (1), Венгрия (1), BE & NL (1) |
 | Other: Nickelodeon | 3 | 0 | Литва (1), Израиль (1), Румыния (1) |
+| Other: Star | 3 | 0 | Кино (2), Молдова (1) |
 | Other: Total | 3 | 0 | Музыкальные (3) |
 | Other: УПЛ | 3 | 0 | Спорт (3) |
+| BCU | 2 | 0 | Кинозалы (1), Детские (1) |
 | Other: Arena | 2 | 0 | Спорт (2) |
 | Other: betking | 2 | 0 | Спорт (2) |
-| Other: BTV | 2 | 0 | Литва (1), Латвия (1) |
 | Other: CANAL+ | 2 | 0 | SkyLink (2) |
-| Other: Cartoon | 2 | 0 | Детские (1), Канада (1) |
 | Other: Cartoonito | 2 | 0 | Германия (1), Румыния (1) |
 | Other: CBC | 2 | 0 | Азербайджан (2) |
 | Other: CineManExExEx | 2 | 2 | Для взрослых (2) |
-| Other: CNN | 2 | 0 | Новости (1), Болгария (1) |
 | Other: Discovery | 2 | 0 | Румыния (2) |
 | Other: Dubai | 2 | 0 | Спорт (2) |
-| Other: ETV | 2 | 0 | Эстония (2) |
 | Other: FilmBox | 2 | 0 | Венгрия (2) |
 | Other: Fishing | 2 | 0 | Болгария (1), Румыния (1) |
 | Other: Food | 2 | 0 | Разное (1), Израиль (1) |
@@ -73,16 +68,15 @@ Unmatched channels: **658**
 | Other: Rai | 2 | 0 | Италия (1), Болгария (1) |
 | Other: Retro | 2 | 0 | Музыкальные (1), Чехия (1) |
 | Other: SES | 2 | 0 | Германия (2) |
-| Other: Setanta | 2 | 0 | Спорт (1), Молдова (1) |
-| Other: Trace | 2 | 0 | Музыкальные (2) |
 | Other: TVN | 2 | 0 | Польша (1), Молдова (1) |
 | Other: Viva | 2 | 0 | Израиль (2) |
 | Other: Zoom | 2 | 0 | Украинские (1), Израиль (1) |
+| Other: Планета | 2 | 0 | Болгария (2) |
 | Other: Сер | 2 | 0 | Кино (2) |
 | VeleS | 2 | 0 | Кинозалы (2) |
+| Magic | 1 | 0 | Болгария (1) |
 | Other: +BAKU | 1 | 0 | Азербайджан (1) |
 | Other: 1+1 | 1 | 0 | Кино (1) |
-| Other: 2TV | 1 | 0 | Литва (1) |
 | Other: 5Sport | 1 | 0 | Израиль (1) |
 | Other: A1 | 1 | 0 | BE & NL (1) |
 | Other: AABC | 1 | 0 | Армения (1) |
@@ -93,6 +87,7 @@ Unmatched channels: **658**
 | Other: Angel | 1 | 0 | Разное (1) |
 | Other: Ant | 1 | 0 | Греция (1) |
 | Other: Antwerpen | 1 | 0 | BE & NL (1) |
+| Other: Apsua | 1 | 0 | Грузия (1) |
 | Other: Aristo | 1 | 0 | Германия (1) |
 | Other: ARTN | 1 | 0 | Армения (1) |
 | Other: Atv | 1 | 0 | BE & NL (1) |
@@ -123,10 +118,12 @@ Unmatched channels: **658**
 | Other: Bucuresti | 1 | 0 | Румыния (1) |
 | Other: Busuioc | 1 | 0 | Молдова (1) |
 | Other: BX1 | 1 | 0 | BE & NL (1) |
+| Other: Cartoon | 1 | 0 | Канада (1) |
 | Other: Channel21 | 1 | 0 | Германия (1) |
 | Other: City | 1 | 0 | Канада (1) |
 | Other: ClipMyHorse | 1 | 0 | Германия (1) |
 | Other: Club | 1 | 0 | Германия (1) |
+| Other: CNN | 1 | 0 | Болгария (1) |
 | Other: CodeFashion | 1 | 0 | Болгария (1) |
 | Other: Company | 1 | 0 | Музыкальные (1) |
 | Other: Crime | 1 | 0 | Германия (1) |
@@ -139,18 +136,15 @@ Unmatched channels: **658**
 | Other: DSTV | 1 | 0 | Болгария (1) |
 | Other: DTX | 1 | 0 | Румыния (1) |
 | Other: Dunya | 1 | 0 | Азербайджан (1) |
-| Other: Duo | 1 | 0 | Эстония (1) |
 | Other: EDM | 1 | 0 | Музыкальные (1) |
 | Other: EGO | 1 | 0 | Израиль (1) |
 | Other: Eleven | 1 | 0 | Польша (1) |
 | Other: Energy | 1 | 0 | Музыкальные (1) |
 | Other: Enjoy | 1 | 0 | Музыкальные (1) |
 | Other: Entertaiment | 1 | 0 | Израиль (1) |
-| Other: ETV+ | 1 | 0 | Эстония (1) |
 | Other: Euronews | 1 | 0 | Болгария (1) |
 | Other: Eurosport | 1 | 0 | Спорт (1) |
 | Other: Exclusiv | 1 | 0 | Молдова (1) |
-| Other: Extreme | 1 | 0 | Польша (1) |
 | Other: FEN | 1 | 0 | Болгария (1) |
 | Other: FlixSpin | 1 | 0 | Познавательные (1) |
 | Other: FOMO | 1 | 0 | Израиль (1) |
@@ -190,7 +184,6 @@ Unmatched channels: **658**
 | Other: Kabala | 1 | 0 | Израиль (1) |
 | Other: Kabbalah | 1 | 0 | Израиль (1) |
 | Other: Kan | 1 | 0 | Израиль (1) |
-| Other: Kanal | 1 | 0 | Эстония (1) |
 | Other: Ketnet | 1 | 0 | BE & NL (1) |
 | Other: Kids | 1 | 0 | Болгария (1) |
 | Other: Kinoerotica | 1 | 1 | Для взрослых (1) |
@@ -206,8 +199,6 @@ Unmatched channels: **658**
 | Other: Magyar | 1 | 0 | Венгрия (1) |
 | Other: Makan | 1 | 0 | Израиль (1) |
 | Other: Man | 1 | 0 | Спорт (1) |
-| Other: Marao | 1 | 0 | Грузия (1) |
-| Other: Marneuli | 1 | 0 | Грузия (1) |
 | Other: Medeniyyet | 1 | 0 | Азербайджан (1) |
 | Other: Melodie | 1 | 0 | Германия (1) |
 | Other: Ment | 1 | 0 | BE & NL (1) |
@@ -220,6 +211,7 @@ Unmatched channels: **658**
 | Other: Muzzik | 1 | 0 | Музыкальные (1) |
 | Other: N24 | 1 | 0 | Румыния (1) |
 | Other: Nat | 1 | 0 | Израиль (1) |
+| Other: News | 1 | 0 | Россия (1) |
 | Other: NGC | 1 | 0 | BE & NL (1) |
 | Other: Nick | 1 | 0 | Израиль (1) |
 | Other: Nicktoons | 1 | 0 | Румыния (1) |
@@ -228,7 +220,6 @@ Unmatched channels: **658**
 | Other: Noroc | 1 | 0 | Молдова (1) |
 | Other: Notele | 1 | 0 | BE & NL (1) |
 | Other: NTV | 1 | 0 | Канада (1) |
-| Other: Obiektivi | 1 | 0 | Грузия (1) |
 | Other: Ocko | 1 | 0 | Музыкальные (1) |
 | Other: OLERO | 1 | 1 | Для взрослых (1) |
 | Other: One | 1 | 0 | Германия (1) |
@@ -238,7 +229,6 @@ Unmatched channels: **658**
 | Other: OTVA | 1 | 0 | Германия (1) |
 | Other: Oxygen | 1 | 0 | Музыкальные (1) |
 | Other: PAI | 1 | 0 | Музыкальные (1) |
-| Other: Palitra | 1 | 0 | Грузия (1) |
 | Other: paprika | 1 | 0 | Румыния (1) |
 | Other: Play4 | 1 | 0 | BE & NL (1) |
 | Other: Play5 | 1 | 0 | BE & NL (1) |
@@ -265,9 +255,9 @@ Unmatched channels: **658**
 | Other: Rlive | 1 | 0 | Молдова (1) |
 | Other: RMC | 1 | 0 | BE & NL (1) |
 | Other: Russian | 1 | 0 | Для взрослых (1) |
-| Other: Saperavi | 1 | 0 | Грузия (1) |
 | Other: SERIEN | 1 | 0 | Германия (1) |
 | Other: ServusTV | 1 | 0 | Германия (1) |
+| Other: Setanta | 1 | 0 | Молдова (1) |
 | Other: Sfero | 1 | 0 | Грузия (1) |
 | Other: Shelanu | 1 | 0 | Израиль (1) |
 | Other: ShopLC | 1 | 0 | Германия (1) |
@@ -278,7 +268,6 @@ Unmatched channels: **658**
 | Other: Speranta | 1 | 0 | Румыния (1) |
 | Other: Sportdigital | 1 | 0 | Германия (1) |
 | Other: Stimmungsgarten | 1 | 0 | Германия (1) |
-| Other: STV | 1 | 0 | Латвия (1) |
 | Other: SWEET | 1 | 0 | Кинозалы UA (1) |
 | Other: Syfy | 1 | 0 | Германия (1) |
 | Other: Tataf | 1 | 0 | Румыния (1) |
@@ -292,12 +281,10 @@ Unmatched channels: **658**
 | Other: TIC | 1 | 0 | Украинские (1) |
 | Other: Top | 1 | 0 | Спорт (1) |
 | Other: Topaz | 1 | 0 | Азербайджан (1) |
-| Other: TRACE | 1 | 0 | Спорт (1) |
+| Other: Trace | 1 | 0 | Музыкальные (1) |
 | Other: Travel | 1 | 0 | Израиль (1) |
 | Other: Treehouse | 1 | 0 | Канада (1) |
-| Other: Tricolor | 1 | 0 | Кинозалы (1) |
 | Other: TV1 | 1 | 0 | Германия (1) |
-| Other: TV6 | 1 | 0 | Эстония (1) |
 | Other: TV7+ | 1 | 0 | Украинские (1) |
 | Other: TV8 | 1 | 0 | Молдова (1) |
 | Other: TVM | 1 | 0 | Музыкальные (1) |
@@ -328,7 +315,6 @@ Unmatched channels: **658**
 | Other: Ziggo | 1 | 0 | BE & NL (1) |
 | Other: ZooSweet | 1 | 0 | Познавательные (1) |
 | Other: ZU | 1 | 0 | Румыния (1) |
-| Other: Арм | 1 | 0 | Украинские (1) |
 | Other: БНТ3 | 1 | 0 | Болгария (1) |
 | Other: БНТ4 | 1 | 0 | Болгария (1) |
 | Other: Вар | 1 | 0 | Украинские (1) |
@@ -342,11 +328,9 @@ Unmatched channels: **658**
 | Other: Детективи | 1 | 0 | Украинские (1) |
 | Other: Детектор | 1 | 0 | Украинские (1) |
 | Other: Дорами | 1 | 0 | Кинозалы UA (1) |
-| Other: Евпатория | 1 | 0 | Россия (1) |
 | Other: ЖВЛ+ | 1 | 0 | Украинские (1) |
 | Other: Загублений | 1 | 0 | Познавательные (1) |
-| Other: Закон | 1 | 0 | Разное (1) |
-| Other: Исландия | 1 | 0 | Украинские (1) |
+| Other: Картковий | 1 | 0 | Кинозалы UA (1) |
 | Other: Кинодром | 1 | 0 | Кино (1) |
 | Other: Кинолаффка | 1 | 0 | Кино (1) |
 | Other: Конкурент | 1 | 0 | Украинские (1) |
@@ -370,7 +354,6 @@ Unmatched channels: **658**
 | Other: ОХ-АХ | 1 | 1 | Для взрослых (1) |
 | Other: Перший | 1 | 0 | Украинские (1) |
 | Other: Пес | 1 | 0 | Кино (1) |
-| Other: Планета | 1 | 0 | Болгария (1) |
 | Other: Полювання | 1 | 0 | Кинозалы UA (1) |
 | Other: Раменское | 1 | 0 | Россия (1) |
 | Other: Рев | 1 | 0 | Украинские (1) |
@@ -439,7 +422,7 @@ Unmatched channels: **658**
 - DITV Мультфильмы для малышей
 - DITV XXX 18+
 
-### Other — 25
+### Other — 26
 
 - Сімейні мелодрами+
 - Діти проти зірок HD
@@ -451,14 +434,15 @@ Unmatched channels: **658**
 - Кіно Та Серіали
 - Кіно на Різдво
 - Містика і Таємниц
+- Рік і Марті
 - Різдво
 - 100% NL
 - 538 T
 - TV Jūrmala
-- 360 TV HD
 - Channel 11
 - Channel 14 HD
 - Channel 24
+- 2 TV
 - A TV
 - Cinema 1 HD
 - 24 Kitchen
@@ -466,6 +450,32 @@ Unmatched channels: **658**
 - Šláger Original
 - Šláger Premium
 - 192 TV NL
+
+### Joker — 23
+
+- jk_fargo
+- jk_SexandCity
+- jk_desperate
+- Joker:Love
+- Joker:CSI NY
+- Joker:CSI Vegas
+- Joker:CSI Miami
+- Joker:Дім Дракона
+- Joker:Кращі фільми 2024
+- Joker:Формула
+- Joker:Тарантіно
+- Joker:Гріфіни
+- Joker:Русалочка
+- Joker:Чіп та Дейл
+- Joker:Гей Арнольд!
+- Joker: Том та Джеррі
+- Joker:Мел Гібсон
+- Joker:South Park
+- Joker:Cinema2
+- Joker:Герої
+- jk_doku_Ukraine
+- jk_Stargate
+- Joker: Twin Peaks
 
 ### Play-X — 15
 
@@ -484,23 +494,6 @@ Unmatched channels: **658**
 - Play-X Муз коллекция Дитер Болен
 - Play-X Музыкальная дорожка 90-х
 - Play-X Русский рок
-
-### Magic — 14
-
-- Magic Premiere
-- Magic Adventure
-- Magic Russian
-- Magic Action
-- Magic Comedy
-- Magic Family
-- Magic Galaxy
-- Magic Horror
-- Magic Karate
-- Magic Love
-- Magic Thriller
-- Magic VHS
-- Magic Disney
-- Magic TV
 
 ### Other: Football — 13
 
@@ -596,24 +589,6 @@ Unmatched channels: **658**
 - AXN Black
 - AXN White
 
-### BCU — 6
-
-- BCU Cinema HD
-- BCU CINEMA+ HD
-- BCU Russian HD
-- BCU Cosmo HD
-- BCU NEW MEDIA 2
-- BCU Kids HD
-
-### Joker — 6
-
-- jk_SexandCity
-- jk_desperate
-- Joker:Кращі фільми 2024
-- Joker: Том та Джеррі
-- Joker:Cinema2
-- Joker: Twin Peaks
-
 ### Other: DAZN — 6
 
 - DAZN 1 DE
@@ -650,14 +625,6 @@ Unmatched channels: **658**
 - НТВ Сериал Следствие Вели
 - НТВ Сериал Пять Минут Тишины
 
-### Other: LRT — 5
-
-- LRT HD
-- LRT Klasika
-- LRT Opus
-- LRT Radijas
-- LRT TV
-
 ### Other: Viasat — 5
 
 - Viasat Explore Best HD
@@ -687,6 +654,13 @@ Unmatched channels: **658**
 - FintGa 3
 - FintGa 4
 
+### Other: LRT — 4
+
+- LRT Klasika
+- LRT Opus
+- LRT Radijas
+- LRT TV
+
 ### Other: Power — 4
 
 - Power Hit Radio
@@ -714,13 +688,6 @@ Unmatched channels: **658**
 - Sport 5 Gold
 - Sport 2 HD
 - Sport 10
-
-### Other: Star — 4
-
-- Star Media
-- Star Family HD
-- Star TV
-- Star TV HD TR
 
 ### Other: ViP — 4
 
@@ -753,6 +720,12 @@ Unmatched channels: **658**
 - Nickelodeon
 - Nickelodeon
 
+### Other: Star — 3
+
+- Star Media
+- Star Family HD
+- Star TV
+
 ### Other: Total — 3
 
 - Total Music Dance
@@ -765,6 +738,11 @@ Unmatched channels: **658**
 - УПЛ ТВ 2
 - УПЛ ТВ 3
 
+### BCU — 2
+
+- BCU NEW MEDIA 2
+- BCU Kids HD
+
 ### Other: Arena — 2
 
 - Arena Premium 4 HD
@@ -775,20 +753,10 @@ Unmatched channels: **658**
 - betking live 1
 - betking live 2
 
-### Other: BTV — 2
-
-- BTV HD
-- BTV
-
 ### Other: CANAL+ — 2
 
 - CANAL+ Sport (CZ)
 - CANAL+ Sport 2 (SK)
-
-### Other: Cartoon — 2
-
-- Cartoon Network
-- Cartoon Network
 
 ### Other: Cartoonito — 2
 
@@ -805,11 +773,6 @@ Unmatched channels: **658**
 - CineManExExEx
 - CineManExExEx TWO
 
-### Other: CNN — 2
-
-- CNN
-- CNN
-
 ### Other: Discovery — 2
 
 - Discovery Science HD RO
@@ -819,11 +782,6 @@ Unmatched channels: **658**
 
 - Dubai Sports 2
 - Dubai Sports 3
-
-### Other: ETV — 2
-
-- ETV
-- ETV 2
 
 ### Other: FilmBox — 2
 
@@ -925,16 +883,6 @@ Unmatched channels: **658**
 - SES UHD Demo Channel
 - SES UHD Demo Channel 06
 
-### Other: Setanta — 2
-
-- Setanta Sports HD MD
-- Setanta Sports HD MD
-
-### Other: Trace — 2
-
-- Trace Brazil
-- Trace Latina
-
 ### Other: TVN — 2
 
 - TVN HD
@@ -950,6 +898,11 @@ Unmatched channels: **658**
 - Zoom
 - Zoom
 
+### Other: Планета — 2
+
+- Планета HD BG
+- Планета Фолк
+
 ### Other: Сер — 2
 
 - Серіал Україна 1
@@ -960,6 +913,10 @@ Unmatched channels: **658**
 - VeleS С Новым годом!
 - VeleS Movie Hits
 
+### Magic — 1
+
+- Magic TV
+
 ### Other: +BAKU — 1
 
 - +BAKU TV
@@ -967,10 +924,6 @@ Unmatched channels: **658**
 ### Other: 1+1 — 1
 
 - 1+1 Кіно
-
-### Other: 2TV — 1
-
-- 2TV HD
 
 ### Other: 5Sport — 1
 
@@ -1011,6 +964,10 @@ Unmatched channels: **658**
 ### Other: Antwerpen — 1
 
 - Antwerpen Live
+
+### Other: Apsua — 1
+
+- Apsua TV
 
 ### Other: Aristo — 1
 
@@ -1132,6 +1089,10 @@ Unmatched channels: **658**
 
 - BX1
 
+### Other: Cartoon — 1
+
+- Cartoon Network
+
 ### Other: Channel21 — 1
 
 - Channel21 HD
@@ -1147,6 +1108,10 @@ Unmatched channels: **658**
 ### Other: Club — 1
 
 - Club 3
+
+### Other: CNN — 1
+
+- CNN
 
 ### Other: CodeFashion — 1
 
@@ -1196,10 +1161,6 @@ Unmatched channels: **658**
 
 - Dunya TV AZ
 
-### Other: Duo — 1
-
-- Duo 3
-
 ### Other: EDM — 1
 
 - EDM Mainstage
@@ -1224,10 +1185,6 @@ Unmatched channels: **658**
 
 - Entertaiment
 
-### Other: ETV+ — 1
-
-- ETV+ HD
-
 ### Other: Euronews — 1
 
 - Euronews Bulgaria
@@ -1239,10 +1196,6 @@ Unmatched channels: **658**
 ### Other: Exclusiv — 1
 
 - Exclusiv TV
-
-### Other: Extreme — 1
-
-- Extreme Sport
 
 ### Other: FEN — 1
 
@@ -1400,10 +1353,6 @@ Unmatched channels: **658**
 
 - Kan Educational
 
-### Other: Kanal — 1
-
-- Kanal 2
-
 ### Other: Ketnet — 1
 
 - Ketnet Junior
@@ -1464,14 +1413,6 @@ Unmatched channels: **658**
 
 - Man City 24/7
 
-### Other: Marao — 1
-
-- Marao
-
-### Other: Marneuli — 1
-
-- Marneuli TV
-
 ### Other: Medeniyyet — 1
 
 - Medeniyyet AZ
@@ -1520,6 +1461,10 @@ Unmatched channels: **658**
 
 - Nat Geo Wild HD
 
+### Other: News — 1
+
+- News Front
+
 ### Other: NGC — 1
 
 - NGC HD
@@ -1551,10 +1496,6 @@ Unmatched channels: **658**
 ### Other: NTV — 1
 
 - NTV Live Stream
-
-### Other: Obiektivi — 1
-
-- Obiektivi TV
 
 ### Other: Ocko — 1
 
@@ -1591,10 +1532,6 @@ Unmatched channels: **658**
 ### Other: PAI — 1
 
 - PAI Музика
-
-### Other: Palitra — 1
-
-- Palitra News
 
 ### Other: paprika — 1
 
@@ -1700,10 +1637,6 @@ Unmatched channels: **658**
 
 - Russian HD
 
-### Other: Saperavi — 1
-
-- Saperavi TV
-
 ### Other: SERIEN — 1
 
 - SERIEN + HD
@@ -1711,6 +1644,10 @@ Unmatched channels: **658**
 ### Other: ServusTV — 1
 
 - ServusTV HD Oesterreich
+
+### Other: Setanta — 1
+
+- Setanta Sports HD MD
 
 ### Other: Sfero — 1
 
@@ -1751,10 +1688,6 @@ Unmatched channels: **658**
 ### Other: Stimmungsgarten — 1
 
 - Stimmungsgarten TV
-
-### Other: STV — 1
-
-- STV Pirma!
 
 ### Other: SWEET — 1
 
@@ -1808,9 +1741,9 @@ Unmatched channels: **658**
 
 - Topaz 2 AZ
 
-### Other: TRACE — 1
+### Other: Trace — 1
 
-- TRACE Sport Stars
+- Trace Brazil
 
 ### Other: Travel — 1
 
@@ -1820,17 +1753,9 @@ Unmatched channels: **658**
 
 - Treehouse
 
-### Other: Tricolor — 1
-
-- Tricolor Cinema 9
-
 ### Other: TV1 — 1
 
 - TV1 OOE NEU
-
-### Other: TV6 — 1
-
-- TV6
 
 ### Other: TV7+ — 1
 
@@ -1952,10 +1877,6 @@ Unmatched channels: **658**
 
 - ZU
 
-### Other: Арм — 1
-
-- Армія TV HD
-
 ### Other: БНТ3 — 1
 
 - БНТ3
@@ -2008,10 +1929,6 @@ Unmatched channels: **658**
 
 - Дорами Українською HD
 
-### Other: Евпатория — 1
-
-- Евпатория 24
-
 ### Other: ЖВЛ+ — 1
 
 - ЖВЛ+
@@ -2020,13 +1937,9 @@ Unmatched channels: **658**
 
 - Загублений світ
 
-### Other: Закон — 1
+### Other: Картковий — 1
 
-- Закон
-
-### Other: Исландия — 1
-
-- Исландия
+- Картковий Будинок
 
 ### Other: Кинодром — 1
 
@@ -2119,10 +2032,6 @@ Unmatched channels: **658**
 ### Other: Пес — 1
 
 - Пес HD
-
-### Other: Планета — 1
-
-- Планета Фолк
 
 ### Other: Полювання — 1
 

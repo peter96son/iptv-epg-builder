@@ -3,16 +3,16 @@
 Diagnostic queue for Russian-language and CIS recovery. It does not create aliases by itself.
 Regional variants, time-shifts and virtual/FAST families must be verified before production mapping.
 
-Candidate channels: **103**
+Candidate channels: **105**
 
-Unsafe virtual/dummy-ID channels: **54**
+Unsafe virtual/dummy-ID channels: **57**
 
 ## By group
 
 - Кинозалы: 25
 - Кино: 20
-- Украинские: 14
-- Кинозалы UA: 10
+- Кинозалы UA: 14
+- Украинские: 13
 - Музыкальные: 9
 - Россия: 7
 - Детские: 6
@@ -20,7 +20,6 @@ Unsafe virtual/dummy-ID channels: **54**
 - Спорт: 3
 - Беларусь: 2
 - Кино 4K: 1
-- Разное: 1
 
 ## Channels
 
@@ -67,6 +66,9 @@ Unsafe virtual/dummy-ID channels: **54**
 | KLI Новинки HD | Кинозалы |  | KLI | no |
 | KLI СССР HD | Кинозалы |  | KLI | no |
 | VeleS С Новым годом! | Кинозалы |  | VeleS | no |
+| Joker:Гей Арнольд! | Кинозалы UA |  | Joker | no |
+| Joker:Русалочка | Кинозалы UA |  | Joker | no |
+| Joker:Формула | Кинозалы UA |  | Joker | no |
 | Play-X Украинский кинозал 1 HD | Кинозалы UA |  | Play-X | no |
 | Play-X Украинский кинозал 2 HD | Кинозалы UA |  | Play-X | no |
 | Play-X Фильмы про войну в Украине | Кинозалы UA |  | Play-X | no |
@@ -94,6 +96,7 @@ Unsafe virtual/dummy-ID channels: **54**
 | РуКино HD | Кино |  | Other: РуКино | review |
 | Честный Детекти | Кино |  | Other: Честный | review |
 | SWEET КIНО HD | Кинозалы UA |  | Other: SWEET | review |
+| Картковий Будинок | Кинозалы UA |  | Other: Картковий | review |
 | Кохання на виживання HD | Кинозалы UA |  | Other: Кохання | review |
 | На Трьох HD | Кинозалы UA |  | Other: На | review |
 | Полювання на в бивцю HD | Кинозалы UA |  | Other: Полювання | review |
@@ -104,12 +107,11 @@ Unsafe virtual/dummy-ID channels: **54**
 | Легенды Ретро FM | Музыкальные |  | Other: Легенды | review |
 | Континент Е | Познавательные |  | Other: Континент | review |
 | Орел и Решка | Познавательные |  | Other: Орел | review |
-| Закон | Разное |  | Other: Закон | review |
+| News Front | Россия | RU | Other: News | review |
 | Sochi Live | Россия | RU | Other: Sochi | review |
 | Вестник Надыма | Россия | RU | Other: Вестник | review |
 | Витрина | Россия | RU | Other: Витрина | review |
 | ВТК 41 Аргус | Россия | RU | Other: ВТК | review |
-| Евпатория 24 | Россия | RU | Other: Евпатория | review |
 | Раменское ТВ | Россия | RU | Other: Раменское | review |
 | Телеплюс | Россия | RU | Other: Телеплюс | review |
 | УПЛ ТВ 1 | Спорт |  | Other: УПЛ | review |
@@ -120,7 +122,6 @@ Unsafe virtual/dummy-ID channels: **54**
 | Вещдок HD | Украинские | UA | Other: Вещдок | review |
 | Детективи HD | Украинские | UA | Other: Детективи | review |
 | ЖВЛ+ | Украинские | UA | Other: ЖВЛ+ | review |
-| Исландия | Украинские | UA | Other: Исландия | review |
 | Конкурент TV | Украинские | UA | Other: Конкурент | review |
 | Мастер Шеф | Украинские | UA | Other: Мастер | review |
 | Мелодрами | Украинские | UA | Other: Мелодрами | review |
