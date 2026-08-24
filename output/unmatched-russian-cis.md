@@ -3,23 +3,23 @@
 Diagnostic queue for Russian-language and CIS recovery. It does not create aliases by itself.
 Regional variants, time-shifts and virtual/FAST families must be verified before production mapping.
 
-Candidate channels: **100**
+Candidate channels: **103**
 
 Unsafe virtual/dummy-ID channels: **54**
 
 ## By group
 
 - Кинозалы: 25
-- Кино: 19
+- Кино: 20
 - Украинские: 14
 - Кинозалы UA: 10
 - Музыкальные: 9
+- Россия: 7
 - Детские: 6
-- Россия: 6
 - Познавательные: 5
 - Спорт: 3
+- Беларусь: 2
 - Кино 4K: 1
-- Беларусь: 1
 - Разное: 1
 
 ## Channels
@@ -80,6 +80,7 @@ Unsafe virtual/dummy-ID channels: **54**
 | DITV 4К | Познавательные |  | DITV | no |
 | DITV Дикая природа 4К | Познавательные |  | DITV | no |
 | DITV Кулинария | Познавательные |  | DITV | no |
+| СкиФ Витебск | Беларусь | BY | Other: СкиФ | review |
 | Центр BY | Беларусь | BY | Other: Центр | review |
 | Детектив HD | Кино |  | Other: Детектив | review |
 | Кино 24/7 | Кино |  | Other | review |
@@ -87,6 +88,7 @@ Unsafe virtual/dummy-ID channels: **54**
 | Кинодром | Кино |  | Other: Кинодром | review |
 | Кинолаффка HD | Кино |  | Other: Кинолаффка | review |
 | Лента Кино | Кино |  | Other: Лента | review |
+| Новелла ТВ | Кино |  | Other: Новелла | review |
 | Новый Русский HD | Кино |  | Other: Новый | review |
 | Пес HD | Кино |  | Other: Пес | review |
 | РуКино HD | Кино |  | Other: РуКино | review |
@@ -103,6 +105,7 @@ Unsafe virtual/dummy-ID channels: **54**
 | Континент Е | Познавательные |  | Other: Континент | review |
 | Орел и Решка | Познавательные |  | Other: Орел | review |
 | Закон | Разное |  | Other: Закон | review |
+| Sochi Live | Россия | RU | Other: Sochi | review |
 | Вестник Надыма | Россия | RU | Other: Вестник | review |
 | Витрина | Россия | RU | Other: Витрина | review |
 | ВТК 41 Аргус | Россия | RU | Other: ВТК | review |
