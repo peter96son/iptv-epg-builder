@@ -3,14 +3,14 @@
 Diagnostic queue for Russian-language and CIS recovery. It does not create aliases by itself.
 Regional variants, time-shifts and virtual/FAST families must be verified before production mapping.
 
-Candidate channels: **99**
+Candidate channels: **96**
 
-Unsafe virtual/dummy-ID channels: **54**
+Unsafe virtual/dummy-ID channels: **52**
 
 ## By group
 
-- Кинозалы: 25
-- Кино: 19
+- Кинозалы: 23
+- Кино: 18
 - Украинские: 13
 - Кинозалы UA: 10
 - Музыкальные: 10
@@ -64,8 +64,6 @@ Unsafe virtual/dummy-ID channels: **54**
 | DITV ФИЛЬМЫ | Кинозалы |  | DITV | no |
 | DITV ФИЛЬМЫ УЖАСОВ 80-х | Кинозалы |  | DITV | no |
 | KLI Новинки HD | Кинозалы |  | KLI | no |
-| KLI СССР HD | Кинозалы |  | KLI | no |
-| VeleS С Новым годом! | Кинозалы |  | VeleS | no |
 | Play-X Украинский кинозал 1 HD | Кинозалы UA |  | Play-X | no |
 | Play-X Украинский кинозал 2 HD | Кинозалы UA |  | Play-X | no |
 | Play-X Фильмы про войну в Украине | Кинозалы UA |  | Play-X | no |
@@ -88,7 +86,6 @@ Unsafe virtual/dummy-ID channels: **54**
 | Лента Кино | Кино |  | Other: Лента | review |
 | Новый Русский HD | Кино |  | Other: Новый | review |
 | Пес HD | Кино |  | Other: Пес | review |
-| РуКино HD | Кино |  | Other: РуКино | review |
 | Честный Детекти | Кино |  | Other: Честный | review |
 | SWEET КIНО HD | Кинозалы UA |  | Other: SWEET | review |
 | Кохання на виживання HD | Кинозалы UA |  | Other: Кохання | review |

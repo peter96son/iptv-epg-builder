@@ -3,12 +3,12 @@
 This report is diagnostic only. It does not create EPG mappings.
 A family must be researched and verified before aliases are added to the live builder.
 
-Unmatched channels: **603**
+Unmatched channels: **674**
 
 | Family | Channels | no_epg_* IDs | Main groups |
 |---|---:|---:|---|
 | DITV | 35 | 32 | Кинозалы (25), Детские (6), Познавательные (3), Для взрослых (1) |
-| Other | 25 | 0 | Украинские (6), Кинозалы UA (3), Израиль (3), Кино (2) |
+| Other | 32 | 0 | Украинские (6), Кинозалы UA (3), Израиль (3), Испания (3) |
 | Play-X | 15 | 0 | Музыкальные (9), Кино (3), Кинозалы UA (3) |
 | Other: Football | 13 | 0 | Спорт (13) |
 | Other: VIP | 12 | 0 | Спорт (12) |
@@ -16,6 +16,7 @@ Unmatched channels: **603**
 | BOX | 9 | 0 | Спорт (8), Кино 4K (1) |
 | Other: FIFA+ | 8 | 0 | Спорт (8) |
 | Other: AXN | 7 | 0 | Румыния (4), SkyLink (3) |
+| Other: Rakuten | 7 | 0 | Испания (4), Италия (3) |
 | Other: DAZN | 6 | 0 | Спорт (6) |
 | Other: Pimple | 6 | 0 | Спорт (6) |
 | Other: TRT | 6 | 0 | Турция (6) |
@@ -24,51 +25,67 @@ Unmatched channels: **603**
 | Other: Viasat | 5 | 0 | Познавательные (3), UK (2) |
 | Other: Carac | 4 | 0 | BE & NL (4) |
 | Other: CBS | 4 | 0 | Польша (2), Румыния (2) |
+| Other: Disney | 4 | 0 | Израиль (1), Испания (1), Молдова (1), Канада (1) |
 | Other: FintGa | 4 | 0 | Спорт (4) |
 | Other: LRT | 4 | 0 | Латвия (4) |
 | Other: Power | 4 | 0 | Турция (3), Латвия (1) |
 | Other: PowerT | 4 | 0 | Турция (4) |
 | Other: RAI | 4 | 0 | Италия (4) |
+| Other: Sky | 4 | 0 | Спорт (3), Германия (1) |
 | Other: Sport | 4 | 0 | Спорт (1), Израиль (1), SkyLink (1), BE & NL (1) |
+| Other: Star | 4 | 0 | Кино (2), Испания (1), Молдова (1) |
 | Other: ViP | 4 | 0 | Спорт (4) |
-| KLI | 3 | 0 | Кинозалы (2), Кино 4K (1) |
-| Other: Disney | 3 | 0 | Израиль (1), Молдова (1), Канада (1) |
+| Other: Cine | 3 | 0 | Испания (3) |
+| Other: Discovery | 3 | 0 | Румыния (2), Испания (1) |
 | Other: Filmbox | 3 | 0 | Румыния (1), Венгрия (1), BE & NL (1) |
+| Other: History | 3 | 0 | Познавательные (1), Германия (1), Испания (1) |
+| Other: LA | 3 | 0 | Испания (3) |
 | Other: Live | 3 | 0 | Спорт (2), Музыкальные (1) |
+| Other: National | 3 | 0 | Познавательные (1), Эстония (1), Болгария (1) |
 | Other: Nickelodeon | 3 | 0 | Литва (1), Израиль (1), Румыния (1) |
-| Other: Star | 3 | 0 | Кино (2), Молдова (1) |
 | Other: Total | 3 | 0 | Музыкальные (3) |
 | Other: УПЛ | 3 | 0 | Спорт (3) |
 | BCU | 2 | 0 | Кинозалы (1), Детские (1) |
+| KLI | 2 | 0 | Кинозалы (1), Кино 4K (1) |
 | Other: Arena | 2 | 0 | Спорт (2) |
+| Other: BBC | 2 | 0 | Испания (1), BE & NL (1) |
 | Other: betking | 2 | 0 | Спорт (2) |
 | Other: CANAL+ | 2 | 0 | SkyLink (2) |
+| Other: Canal+ | 2 | 0 | BE & NL (2) |
+| Other: Canale | 2 | 0 | Италия (2) |
 | Other: Cartoonito | 2 | 0 | Германия (1), Румыния (1) |
 | Other: CBC | 2 | 0 | Азербайджан (2) |
+| Other: Cine+ | 2 | 0 | BE & NL (2) |
 | Other: CineManExExEx | 2 | 2 | Для взрослых (2) |
-| Other: Discovery | 2 | 0 | Румыния (2) |
 | Other: Dubai | 2 | 0 | Спорт (2) |
+| Other: Duo | 2 | 0 | Эстония (2) |
 | Other: Epic | 2 | 0 | Кино (2) |
+| Other: ETB | 2 | 0 | Испания (2) |
 | Other: FilmBox | 2 | 0 | Венгрия (2) |
 | Other: Fishing | 2 | 0 | Болгария (1), Румыния (1) |
 | Other: Food | 2 | 0 | Разное (1), Израиль (1) |
 | Other: Global | 2 | 0 | Молдова (2) |
 | Other: Golf | 2 | 0 | Польша (1), SkyLink (1) |
-| Other: History | 2 | 0 | Познавательные (1), Германия (1) |
+| Other: HBO | 2 | 0 | Спорт (1), Румыния (1) |
 | Other: Impact | 2 | 0 | Музыкальные (2) |
 | Other: Just | 2 | 0 | Германия (2) |
+| Other: LaC | 2 | 0 | Италия (2) |
 | Other: Limburg | 2 | 0 | BE & NL (2) |
 | Other: Mega | 2 | 0 | Грузия (1), Турция (1) |
 | Other: Music | 2 | 0 | Музыкальные (1), Израиль (1) |
 | Other: Musicbox | 2 | 0 | Музыкальные (2) |
-| Other: National | 2 | 0 | Познавательные (1), Болгария (1) |
+| Other: Nat | 2 | 0 | Израиль (1), Испания (1) |
 | Other: Nova | 2 | 0 | SkyLink (2) |
 | Other: ORF | 2 | 0 | Германия (2) |
 | Other: PMC | 2 | 0 | Музыкальные (2) |
 | Other: Radio | 2 | 0 | Музыкальные (1), Литва (1) |
 | Other: Rai | 2 | 0 | Италия (1), Болгария (1) |
 | Other: Retro | 2 | 0 | Музыкальные (1), Чехия (1) |
+| Other: RMC | 2 | 0 | BE & NL (2) |
 | Other: SES | 2 | 0 | Германия (2) |
+| Other: Tele | 2 | 0 | Музыкальные (1), Италия (1) |
+| Other: Telepace | 2 | 0 | Италия (2) |
+| Other: TVG | 2 | 0 | Испания (2) |
 | Other: TVN | 2 | 0 | Польша (1), Молдова (1) |
 | Other: Viva | 2 | 0 | Израиль (2) |
 | Other: Zoom | 2 | 0 | Украинские (1), Израиль (1) |
@@ -84,17 +101,19 @@ Unmatched channels: **603**
 | Other: Amazing | 1 | 0 | Канада (1) |
 | Other: Anal | 1 | 0 | Для взрослых (1) |
 | Other: Ant | 1 | 0 | Греция (1) |
+| Other: Antena | 1 | 0 | Испания (1) |
 | Other: Antwerpen | 1 | 0 | BE & NL (1) |
 | Other: Apsua | 1 | 0 | Грузия (1) |
+| Other: Aragon | 1 | 0 | Испания (1) |
 | Other: Aristo | 1 | 0 | Германия (1) |
 | Other: ARTN | 1 | 0 | Армения (1) |
 | Other: Atv | 1 | 0 | BE & NL (1) |
 | Other: ATV | 1 | 0 | Азербайджан (1) |
 | Other: AutoMotorSport | 1 | 0 | SkyLink (1) |
 | Other: AzTV | 1 | 0 | Азербайджан (1) |
-| Other: BBC | 1 | 0 | BE & NL (1) |
 | Other: BEATTV | 1 | 0 | BE & NL (1) |
 | Other: BeIN | 1 | 0 | Спорт (1) |
+| Other: BeJoy | 1 | 0 | Италия (1) |
 | Other: Bel | 1 | 0 | BE & NL (1) |
 | Other: Best | 1 | 0 | Музыкальные (1) |
 | Other: Betking | 1 | 0 | Спорт (1) |
@@ -116,15 +135,19 @@ Unmatched channels: **603**
 | Other: Bucuresti | 1 | 0 | Румыния (1) |
 | Other: Busuioc | 1 | 0 | Молдова (1) |
 | Other: BX1 | 1 | 0 | BE & NL (1) |
+| Other: Canal | 1 | 0 | Испания (1) |
 | Other: Cartoon | 1 | 0 | Канада (1) |
 | Other: Channel21 | 1 | 0 | Германия (1) |
 | Other: City | 1 | 0 | Канада (1) |
+| Other: Clan | 1 | 0 | Испания (1) |
 | Other: ClipMyHorse | 1 | 0 | Германия (1) |
 | Other: Club | 1 | 0 | Германия (1) |
 | Other: CNN | 1 | 0 | Болгария (1) |
 | Other: CodeFashion | 1 | 0 | Болгария (1) |
 | Other: Company | 1 | 0 | Музыкальные (1) |
 | Other: Crime | 1 | 0 | Германия (1) |
+| Other: Crimenes | 1 | 0 | Испания (1) |
+| Other: Cuatro | 1 | 0 | Испания (1) |
 | Other: D1 | 1 | 0 | Украинские (1) |
 | Other: Dave | 1 | 0 | UK (1) |
 | Other: DDF | 1 | 0 | Для взрослых (1) |
@@ -140,13 +163,19 @@ Unmatched channels: **603**
 | Other: Energy | 1 | 0 | Музыкальные (1) |
 | Other: Enjoy | 1 | 0 | Музыкальные (1) |
 | Other: Entertaiment | 1 | 0 | Израиль (1) |
+| Other: Esperia | 1 | 0 | Италия (1) |
 | Other: Euronews | 1 | 0 | Болгария (1) |
 | Other: Eurosport | 1 | 0 | Спорт (1) |
 | Other: Exclusiv | 1 | 0 | Молдова (1) |
 | Other: FEN | 1 | 0 | Болгария (1) |
+| Other: Film | 1 | 0 | Италия (1) |
+| Other: Filmzone | 1 | 0 | Эстония (1) |
 | Other: FlixSpin | 1 | 0 | Познавательные (1) |
+| Other: FM | 1 | 0 | Италия (1) |
 | Other: FomixTV | 1 | 0 | Музыкальные (1) |
 | Other: FOMO | 1 | 0 | Израиль (1) |
+| Other: Fox | 1 | 0 | Испания (1) |
+| Other: France | 1 | 0 | Испания (1) |
 | Other: Fun | 1 | 0 | Музыкальные (1) |
 | Other: FUN | 1 | 0 | Израиль (1) |
 | Other: Glory | 1 | 0 | Спорт (1) |
@@ -158,11 +187,11 @@ Unmatched channels: **603**
 | Other: Halk | 1 | 0 | Турция (1) |
 | Other: Handystar | 1 | 0 | Германия (1) |
 | Other: Happy | 1 | 0 | Музыкальные (1) |
-| Other: HBO | 1 | 0 | Румыния (1) |
 | Other: Health | 1 | 0 | Израиль (1) |
 | Other: Hidabroot | 1 | 0 | Израиль (1) |
 | Other: High | 1 | 0 | Армения (1) |
 | Other: Hinuhit | 1 | 0 | Израиль (1) |
+| Other: Historia | 1 | 0 | Испания (1) |
 | Other: HLN | 1 | 0 | BE & NL (1) |
 | Other: Hohenrausch | 1 | 0 | Германия (1) |
 | Other: Hot | 1 | 0 | Израиль (1) |
@@ -175,8 +204,9 @@ Unmatched channels: **603**
 | Other: Ictimai | 1 | 0 | Азербайджан (1) |
 | Other: Idman | 1 | 0 | Азербайджан (1) |
 | Other: Infinity | 1 | 0 | Музыкальные (1) |
-| Other: Insomnia | 1 | 0 | Кино (1) |
+| Other: Investigation | 1 | 0 | Эстония (1) |
 | Other: Israel | 1 | 0 | Израиль (1) |
+| Other: Italia | 1 | 0 | Италия (1) |
 | Other: ITV | 1 | 0 | Украинские (1) |
 | Other: Jim | 1 | 0 | Румыния (1) |
 | Other: Junior | 1 | 0 | Израиль (1) |
@@ -190,18 +220,22 @@ Unmatched channels: **603**
 | Other: Knesset | 1 | 0 | Израиль (1) |
 | Other: Konservatorebi | 1 | 0 | Грузия (1) |
 | Other: Kvartal | 1 | 0 | Украинские (1) |
+| Other: La | 1 | 0 | Италия (1) |
+| Other: Lancelot | 1 | 0 | Испания (1) |
 | Other: LangLab | 1 | 0 | Германия (1) |
 | Other: LCI | 1 | 0 | BE & NL (1) |
 | Other: Logi | 1 | 0 | Израиль (1) |
 | Other: Luban | 1 | 0 | Польша (1) |
 | Other: Luli | 1 | 0 | Израиль (1) |
 | Other: M-1 | 1 | 0 | Латвия (1) |
+| Other: M6 | 1 | 0 | BE & NL (1) |
 | Other: Magyar | 1 | 0 | Венгрия (1) |
 | Other: Makan | 1 | 0 | Израиль (1) |
 | Other: Man | 1 | 0 | Спорт (1) |
 | Other: Medeniyyet | 1 | 0 | Азербайджан (1) |
 | Other: Melodie | 1 | 0 | Германия (1) |
 | Other: Ment | 1 | 0 | BE & NL (1) |
+| Other: Mijas | 1 | 0 | Испания (1) |
 | Other: Mikan | 1 | 0 | Израиль (1) |
 | Other: MMA | 1 | 0 | Спорт (1) |
 | Other: MNML | 1 | 0 | Музыкальные (1) |
@@ -211,7 +245,6 @@ Unmatched channels: **603**
 | Other: MTV | 1 | 0 | Музыкальные (1) |
 | Other: Muzzik | 1 | 0 | Музыкальные (1) |
 | Other: N24 | 1 | 0 | Румыния (1) |
-| Other: Nat | 1 | 0 | Израиль (1) |
 | Other: NGC | 1 | 0 | BE & NL (1) |
 | Other: Nick | 1 | 0 | Израиль (1) |
 | Other: Nicktoons | 1 | 0 | Румыния (1) |
@@ -230,13 +263,13 @@ Unmatched channels: **603**
 | Other: Oxygen | 1 | 0 | Музыкальные (1) |
 | Other: PAI | 1 | 0 | Музыкальные (1) |
 | Other: paprika | 1 | 0 | Румыния (1) |
+| Other: Paramount | 1 | 0 | Испания (1) |
 | Other: Play4 | 1 | 0 | BE & NL (1) |
 | Other: Play5 | 1 | 0 | BE & NL (1) |
 | Other: Play6 | 1 | 0 | BE & NL (1) |
 | Other: Play7 | 1 | 0 | BE & NL (1) |
 | Other: PLUS+ | 1 | 0 | Израиль (1) |
 | Other: Polar | 1 | 0 | Чехия (1) |
-| Other: Premium | 1 | 0 | Кино (1) |
 | Other: PRIME | 1 | 0 | Израиль (1) |
 | Other: Privesc | 1 | 0 | Молдова (1) |
 | Other: Pro | 1 | 0 | Молдова (1) |
@@ -253,15 +286,16 @@ Unmatched channels: **603**
 | Other: RFM | 1 | 0 | Музыкальные (1) |
 | Other: Rioni | 1 | 0 | Грузия (1) |
 | Other: Rlive | 1 | 0 | Молдова (1) |
-| Other: RMC | 1 | 0 | BE & NL (1) |
+| Other: RTP | 1 | 0 | Италия (1) |
 | Other: Russian | 1 | 0 | Для взрослых (1) |
 | Other: Rutube | 1 | 0 | Россия (1) |
 | Other: SERIEN | 1 | 0 | Германия (1) |
 | Other: ServusTV | 1 | 0 | Германия (1) |
+| Other: Setanta | 1 | 0 | Молдова (1) |
 | Other: Sfero | 1 | 0 | Грузия (1) |
 | Other: Shelanu | 1 | 0 | Израиль (1) |
 | Other: ShopLC | 1 | 0 | Германия (1) |
-| Other: Sky | 1 | 0 | Германия (1) |
+| Other: Sony | 1 | 0 | Испания (1) |
 | Other: Soul | 1 | 0 | Болгария (1) |
 | Other: Space | 1 | 0 | Азербайджан (1) |
 | Other: Speranta | 1 | 0 | Румыния (1) |
@@ -271,21 +305,24 @@ Unmatched channels: **603**
 | Other: Syfy | 1 | 0 | Германия (1) |
 | Other: Tataf | 1 | 0 | Румыния (1) |
 | Other: Tech | 1 | 0 | Музыкальные (1) |
-| Other: Tele | 1 | 0 | Музыкальные (1) |
+| Other: Telecinco | 1 | 0 | Испания (1) |
 | Other: Tezaur | 1 | 0 | Молдова (1) |
 | Other: TF | 1 | 0 | BE & NL (1) |
 | Other: TFavorit | 1 | 0 | Румыния (1) |
 | Other: This | 1 | 0 | Болгария (1) |
-| Other: Thriller | 1 | 0 | Кино (1) |
 | Other: TIC | 1 | 0 | Украинские (1) |
+| Other: TLC | 1 | 0 | Эстония (1) |
+| Other: TNT | 1 | 0 | Испания (1) |
 | Other: Top | 1 | 0 | Спорт (1) |
 | Other: Topaz | 1 | 0 | Азербайджан (1) |
 | Other: Trace | 1 | 0 | Музыкальные (1) |
 | Other: Travel | 1 | 0 | Израиль (1) |
 | Other: Treehouse | 1 | 0 | Канада (1) |
+| Other: True | 1 | 0 | UK (1) |
 | Other: TV1 | 1 | 0 | Германия (1) |
 | Other: TV7+ | 1 | 0 | Украинские (1) |
 | Other: TV8 | 1 | 0 | Молдова (1) |
+| Other: TVE | 1 | 0 | Испания (1) |
 | Other: TVM | 1 | 0 | Музыкальные (1) |
 | Other: TVR | 1 | 0 | Молдова (1) |
 | Other: TVR1 | 1 | 0 | Румыния (1) |
@@ -294,7 +331,6 @@ Unmatched channels: **603**
 | Other: VB | 1 | 0 | Молдова (1) |
 | Other: Veronica | 1 | 0 | BE & NL (1) |
 | Other: VEVO | 1 | 0 | Музыкальные (1) |
-| Other: VHS | 1 | 0 | Кино (1) |
 | Other: VIVA | 1 | 0 | Музыкальные (1) |
 | Other: Volksmusik | 1 | 0 | Германия (1) |
 | Other: VTM | 1 | 0 | BE & NL (1) |
@@ -359,7 +395,6 @@ Unmatched channels: **603**
 | Other: Родина | 1 | 0 | Болгария (1) |
 | Other: Розсл | 1 | 0 | Украинские (1) |
 | Other: Романтичний | 1 | 0 | Кинозалы UA (1) |
-| Other: РуКино | 1 | 0 | Кино (1) |
 | Other: Сл | 1 | 0 | Украинские (1) |
 | Other: Снятин | 1 | 0 | Украинские (1) |
 | Other: Справа | 1 | 0 | Украинские (1) |
@@ -377,7 +412,6 @@ Unmatched channels: **603**
 | Other: Центр | 1 | 0 | Беларусь (1) |
 | Other: Черн | 1 | 0 | Украинские (1) |
 | Other: Честный | 1 | 0 | Кино (1) |
-| VeleS | 1 | 0 | Кинозалы (1) |
 | Velilla | 1 | 0 | Детские (1) |
 
 ## Channels by family
@@ -420,7 +454,7 @@ Unmatched channels: **603**
 - DITV Мультфильмы для малышей
 - DITV XXX 18+
 
-### Other — 25
+### Other — 32
 
 - Сімейні мелодрами+
 - Діти проти зірок HD
@@ -436,9 +470,15 @@ Unmatched channels: **603**
 - 100% NL
 - 538 T
 - TV Jūrmala
+- Канал 7
 - Channel 11
 - Channel 14 HD
 - Channel 24
+- TV 2000
+- 50 Canale
+- 24 Horas ES
+- 12 Do
+- A TPA
 - 2 TV
 - A TV
 - Cinema 1 HD
@@ -447,6 +487,7 @@ Unmatched channels: **603**
 - Šláger Original
 - Šláger Premium
 - 192 TV NL
+- 6 Ter
 
 ### Play-X — 15
 
@@ -544,6 +585,16 @@ Unmatched channels: **603**
 - AXN Black
 - AXN White
 
+### Other: Rakuten — 7
+
+- Rakuten TV Action
+- Rakuten TV Comedy
+- Rakuten TV Drama
+- Rakuten TV Action
+- Rakuten TV Comedy
+- Rakuten TV Drama
+- Rakuten TV Top
+
 ### Other: DAZN — 6
 
 - DAZN 1 DE
@@ -610,6 +661,13 @@ Unmatched channels: **603**
 - CBS Reality
 - CBS Reality RO
 
+### Other: Disney — 4
+
+- Disney Junior
+- Disney Channel
+- Disney
+- Disney Channel
+
 ### Other: FintGa — 4
 
 - FintGa 1
@@ -645,12 +703,26 @@ Unmatched channels: **603**
 - RAI News 24 HD
 - RAI Sport+ HD
 
+### Other: Sky — 4
+
+- Sky Sports Mix
+- Sky Sports Tennis
+- Sky Sports Football UK
+- Sky Sports News HD
+
 ### Other: Sport — 4
 
 - Sport 4 UA
 - Sport 5 Gold
 - Sport 2 HD
 - Sport 10
+
+### Other: Star — 4
+
+- Star Media
+- Star Family HD
+- Star Channel
+- Star TV
 
 ### Other: ViP — 4
 
@@ -659,17 +731,17 @@ Unmatched channels: **603**
 - ViP Sport 16
 - ViP Sport 17
 
-### KLI — 3
+### Other: Cine — 3
 
-- KLI Новинки HD
-- KLI СССР HD
-- KLI Новинки 4K Ultra HD
+- Cine Friki
+- Cine Pride
+- Cine Canal
 
-### Other: Disney — 3
+### Other: Discovery — 3
 
-- Disney Junior
-- Disney
-- Disney Channel
+- Discovery
+- Discovery Science HD RO
+- Discovery Science
 
 ### Other: Filmbox — 3
 
@@ -677,23 +749,35 @@ Unmatched channels: **603**
 - Filmbox Family  HU
 - Filmbox NL HD
 
+### Other: History — 3
+
+- History HD
+- History HD DE
+- History 2
+
+### Other: LA — 3
+
+- LA 1 HD ES
+- LA 2 HD ES
+- LA 8
+
 ### Other: Live — 3
 
 - Live Sport 1
 - Live Sport 2
 - Live Музыка
 
+### Other: National — 3
+
+- National Geographic HD
+- National Geographic
+- National Geographic
+
 ### Other: Nickelodeon — 3
 
 - Nickelodeon Baltic
 - Nickelodeon
 - Nickelodeon
-
-### Other: Star — 3
-
-- Star Media
-- Star Family HD
-- Star TV
 
 ### Other: Total — 3
 
@@ -712,10 +796,20 @@ Unmatched channels: **603**
 - BCU NEW MEDIA 2
 - BCU Kids HD
 
+### KLI — 2
+
+- KLI Новинки HD
+- KLI Новинки 4K Ultra HD
+
 ### Other: Arena — 2
 
 - Arena Premium 4 HD
 - Arena Premium 5 HD
+
+### Other: BBC — 2
+
+- BBC Series HD
+- BBC First
 
 ### Other: betking — 2
 
@@ -727,6 +821,16 @@ Unmatched channels: **603**
 - CANAL+ Sport (CZ)
 - CANAL+ Sport 2 (SK)
 
+### Other: Canal+ — 2
+
+- Canal+ Cinema
+- Canal+ FR
+
+### Other: Canale — 2
+
+- Canale 7 HD
+- Canale 2
+
 ### Other: Cartoonito — 2
 
 - Cartoonito
@@ -737,25 +841,35 @@ Unmatched channels: **603**
 - CBC Azerbaijan TV HD AZ
 - CBC Sport AZ
 
+### Other: Cine+ — 2
+
+- Cine+ Classic
+- Cine+ Emotion
+
 ### Other: CineManExExEx — 2
 
 - CineManExExEx
 - CineManExExEx TWO
-
-### Other: Discovery — 2
-
-- Discovery Science HD RO
-- Discovery Science
 
 ### Other: Dubai — 2
 
 - Dubai Sports 2
 - Dubai Sports 3
 
+### Other: Duo — 2
+
+- Duo 5
+- Duo 4
+
 ### Other: Epic — 2
 
 - Epic Media Love
 - Epic Media
+
+### Other: ETB — 2
+
+- ETB 1 HD ON
+- ETB 2 HD ON
 
 ### Other: FilmBox — 2
 
@@ -782,10 +896,10 @@ Unmatched channels: **603**
 - Golf Channel
 - Golf Channel
 
-### Other: History — 2
+### Other: HBO — 2
 
-- History HD
-- History HD DE
+- HBO Boxing
+- HBO AXN
 
 ### Other: Impact — 2
 
@@ -796,6 +910,11 @@ Unmatched channels: **603**
 
 - Just Cooking HD
 - Just Fishing HD
+
+### Other: LaC — 2
+
+- LaC
+- LaC On Air
 
 ### Other: Limburg — 2
 
@@ -817,10 +936,10 @@ Unmatched channels: **603**
 - Musicbox 80s
 - Musicbox 90s
 
-### Other: National — 2
+### Other: Nat — 2
 
-- National Geographic HD
-- National Geographic
+- Nat Geo Wild HD
+- Nat Geo
 
 ### Other: Nova — 2
 
@@ -852,10 +971,30 @@ Unmatched channels: **603**
 - Retro Plus Senal Dos
 - Retro Music Television
 
+### Other: RMC — 2
+
+- RMC Life HD
+- RMC Story
+
 ### Other: SES — 2
 
 - SES UHD Demo Channel
 - SES UHD Demo Channel 06
+
+### Other: Tele — 2
+
+- Tele 7 Music
+- Tele One 16
+
+### Other: Telepace — 2
+
+- Telepace 1
+- Telepace 2
+
+### Other: TVG — 2
+
+- TVG
+- TVG Galicia
 
 ### Other: TVN — 2
 
@@ -921,6 +1060,10 @@ Unmatched channels: **603**
 
 - Ant 1 GR
 
+### Other: Antena — 1
+
+- Antena 3 HD ES
+
 ### Other: Antwerpen — 1
 
 - Antwerpen Live
@@ -928,6 +1071,10 @@ Unmatched channels: **603**
 ### Other: Apsua — 1
 
 - Apsua TV
+
+### Other: Aragon — 1
+
+- Aragon TV int
 
 ### Other: Aristo — 1
 
@@ -953,10 +1100,6 @@ Unmatched channels: **603**
 
 - AzTV AZ
 
-### Other: BBC — 1
-
-- BBC First
-
 ### Other: BEATTV — 1
 
 - BEATTV
@@ -964,6 +1107,10 @@ Unmatched channels: **603**
 ### Other: BeIN — 1
 
 - BeIN EXTRAS
+
+### Other: BeJoy — 1
+
+- BeJoy Kids
 
 ### Other: Bel — 1
 
@@ -1049,6 +1196,10 @@ Unmatched channels: **603**
 
 - BX1
 
+### Other: Canal — 1
+
+- Canal 33 Madr
+
 ### Other: Cartoon — 1
 
 - Cartoon Network
@@ -1060,6 +1211,10 @@ Unmatched channels: **603**
 ### Other: City — 1
 
 - City News Toronto
+
+### Other: Clan — 1
+
+- TV Clan HD
 
 ### Other: ClipMyHorse — 1
 
@@ -1084,6 +1239,14 @@ Unmatched channels: **603**
 ### Other: Crime — 1
 
 - Crime Time HD
+
+### Other: Crimenes — 1
+
+- Crimenes Reales
+
+### Other: Cuatro — 1
+
+- Cuatro HD ES
 
 ### Other: D1 — 1
 
@@ -1145,6 +1308,10 @@ Unmatched channels: **603**
 
 - Entertaiment
 
+### Other: Esperia — 1
+
+- Esperia TV
+
 ### Other: Euronews — 1
 
 - Euronews Bulgaria
@@ -1161,9 +1328,21 @@ Unmatched channels: **603**
 
 - FEN HD
 
+### Other: Film — 1
+
+- Film Top - Rakuten TV
+
+### Other: Filmzone — 1
+
+- Filmzone
+
 ### Other: FlixSpin — 1
 
 - FlixSpin
+
+### Other: FM — 1
+
+- FM Italia TV
 
 ### Other: FomixTV — 1
 
@@ -1172,6 +1351,14 @@ Unmatched channels: **603**
 ### Other: FOMO — 1
 
 - FOMO
+
+### Other: Fox — 1
+
+- Fox ES
+
+### Other: France — 1
+
+- France 24 España
 
 ### Other: Fun — 1
 
@@ -1217,10 +1404,6 @@ Unmatched channels: **603**
 
 - Happy Radio
 
-### Other: HBO — 1
-
-- HBO AXN
-
 ### Other: Health — 1
 
 - Health Channel
@@ -1236,6 +1419,10 @@ Unmatched channels: **603**
 ### Other: Hinuhit — 1
 
 - Hinuhit
+
+### Other: Historia — 1
+
+- Historia
 
 ### Other: HLN — 1
 
@@ -1285,13 +1472,17 @@ Unmatched channels: **603**
 
 - Infinity
 
-### Other: Insomnia — 1
+### Other: Investigation — 1
 
-- Insomnia HD
+- Investigation Discovery
 
 ### Other: Israel — 1
 
 - Israel Music
+
+### Other: Italia — 1
+
+- Italia 2 News
 
 ### Other: ITV — 1
 
@@ -1345,6 +1536,14 @@ Unmatched channels: **603**
 
 - Kvartal TV int. HD
 
+### Other: La — 1
+
+- La 7 HD
+
+### Other: Lancelot — 1
+
+- Lancelot TV
+
 ### Other: LangLab — 1
 
 - LangLab
@@ -1369,6 +1568,10 @@ Unmatched channels: **603**
 
 - M-1
 
+### Other: M6 — 1
+
+- M6 4K
+
 ### Other: Magyar — 1
 
 - Magyar ATV HU
@@ -1392,6 +1595,10 @@ Unmatched channels: **603**
 ### Other: Ment — 1
 
 - Ment Pop
+
+### Other: Mijas — 1
+
+- Mijas TV
 
 ### Other: Mikan — 1
 
@@ -1428,10 +1635,6 @@ Unmatched channels: **603**
 ### Other: N24 — 1
 
 - N24
-
-### Other: Nat — 1
-
-- Nat Geo Wild HD
 
 ### Other: NGC — 1
 
@@ -1505,6 +1708,10 @@ Unmatched channels: **603**
 
 - TV paprika
 
+### Other: Paramount — 1
+
+- Paramount Channel
+
 ### Other: Play4 — 1
 
 - Play4
@@ -1528,10 +1735,6 @@ Unmatched channels: **603**
 ### Other: Polar — 1
 
 - Polar 2 HD
-
-### Other: Premium — 1
-
-- Premium HD
 
 ### Other: PRIME — 1
 
@@ -1597,9 +1800,9 @@ Unmatched channels: **603**
 
 - Rlive HD
 
-### Other: RMC — 1
+### Other: RTP — 1
 
-- RMC Life HD
+- RTP 50 HD
 
 ### Other: Russian — 1
 
@@ -1617,6 +1820,10 @@ Unmatched channels: **603**
 
 - ServusTV HD Oesterreich
 
+### Other: Setanta — 1
+
+- Setanta Sports HD MD
+
 ### Other: Sfero — 1
 
 - Sfero TV
@@ -1629,9 +1836,9 @@ Unmatched channels: **603**
 
 - ShopLC HD
 
-### Other: Sky — 1
+### Other: Sony — 1
 
-- Sky Sports News HD
+- Sony Cine HD ES
 
 ### Other: Soul — 1
 
@@ -1669,9 +1876,9 @@ Unmatched channels: **603**
 
 - Tech House | Algorhythm
 
-### Other: Tele — 1
+### Other: Telecinco — 1
 
-- Tele 7 Music
+- Telecinco HD ES
 
 ### Other: Tezaur — 1
 
@@ -1689,13 +1896,17 @@ Unmatched channels: **603**
 
 - This is Bulgaria
 
-### Other: Thriller — 1
-
-- Thriller HD
-
 ### Other: TIC — 1
 
 - TIC (Одеса)
+
+### Other: TLC — 1
+
+- TLC
+
+### Other: TNT — 1
+
+- TNT Novelas
 
 ### Other: Top — 1
 
@@ -1717,6 +1928,10 @@ Unmatched channels: **603**
 
 - Treehouse
 
+### Other: True — 1
+
+- True Crime UK
+
 ### Other: TV1 — 1
 
 - TV1 OOE NEU
@@ -1728,6 +1943,10 @@ Unmatched channels: **603**
 ### Other: TV8 — 1
 
 - TV8 HD
+
+### Other: TVE — 1
+
+- TVE int
 
 ### Other: TVM — 1
 
@@ -1760,10 +1979,6 @@ Unmatched channels: **603**
 ### Other: VEVO — 1
 
 - VEVO 90S
-
-### Other: VHS — 1
-
-- VHS HD
 
 ### Other: VIVA — 1
 
@@ -2021,10 +2236,6 @@ Unmatched channels: **603**
 
 - Романтичний Марафон HD
 
-### Other: РуКино — 1
-
-- РуКино HD
-
 ### Other: Сл — 1
 
 - Слідство ведуть екстрасенси HD
@@ -2092,10 +2303,6 @@ Unmatched channels: **603**
 ### Other: Честный — 1
 
 - Честный Детекти
-
-### VeleS — 1
-
-- VeleS С Новым годом!
 
 ### Velilla — 1
 
