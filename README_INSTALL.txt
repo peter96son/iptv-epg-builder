@@ -1,11 +1,23 @@
-v13.23.1 FIX
+v13.24.1
 
-Fixes the failed 13.23 run:
-- VeleS Movie Hits remains pinned ONLY to runigma-iptv / veles-movie-hits.
-- Gabbarit is a late rescue SOURCE, not a duplicate hard pin.
-- Movie QA still checks Кино / USSR / Кинозалы / Кино 4K and writes gap reports.
-- Missing EPG no longer blocks publication or removes the channel.
-- Playlist/video streams remain usable even when no schedule exists.
+Upload all files over repository root and Commit.
 
-Upload all files over repo root -> Commit -> Actions -> Update EPG.
-No Worker deploy required.
+Then run:
+1. Actions -> Update EPG
+2. Actions -> Deploy Cloudflare Worker
+
+Deploy is required because worker.js changes from 2.2.0 to 2.3.0.
+
+After deploy check:
+https://private-uhf-playlist.peter96son.workers.dev/health
+It should report version 2.3.0.
+
+Then refresh UHF with:
+https://private-uhf-playlist.peter96son.workers.dev/tv?fresh=1
+
+
+UniPlayer/CPS compatibility:
+Worker 2.3.1 publishes the same EPG URL in BOTH M3U header attributes:
+- url-tvg="..."
+- x-tvg-url="..."
+This keeps UHF compatibility and helps players that only parse x-tvg-url.
