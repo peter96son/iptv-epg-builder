@@ -3,12 +3,12 @@
 This report is diagnostic only. It does not create EPG mappings.
 A family must be researched and verified before aliases are added to the live builder.
 
-Unmatched channels: **631**
+Unmatched channels: **644**
 
 | Family | Channels | no_epg_* IDs | Main groups |
 |---|---:|---:|---|
 | DITV | 35 | 32 | Кинозалы (25), Детские (6), Познавательные (3), Для взрослых (1) |
-| Other | 24 | 0 | Украинские (6), Кинозалы UA (3), Израиль (3), Кино (2) |
+| Other | 25 | 0 | Украинские (6), Кинозалы UA (3), Израиль (3), Кино (2) |
 | Play-X | 15 | 0 | Музыкальные (9), Кино (3), Кинозалы UA (3) |
 | Magic | 14 | 0 | Кинозалы (12), Детские (1), Болгария (1) |
 | Fresh | 13 | 0 | Кинозалы (13) |
@@ -16,8 +16,8 @@ Unmatched channels: **631**
 | Clarity | 12 | 0 | Кино 4K (11), Музыкальные (1) |
 | Other: VIP | 12 | 0 | Спорт (12) |
 | Other: RTL | 11 | 0 | Музыкальные (8), Германия (3) |
+| BOX | 8 | 0 | Спорт (6), Кино 4K (1), Болгария (1) |
 | Other: FIFA+ | 8 | 0 | Спорт (8) |
-| BOX | 7 | 0 | Спорт (6), Кино 4K (1) |
 | Other: AXN | 7 | 0 | Румыния (4), SkyLink (3) |
 | Other: DAZN | 6 | 0 | Спорт (6) |
 | Other: Pimple | 6 | 0 | Спорт (6) |
@@ -25,6 +25,7 @@ Unmatched channels: **631**
 | Other: НТВ | 6 | 6 | Кино (6) |
 | Joker | 5 | 0 | Кинозалы UA (3), Кинозалы (2) |
 | Other: Viasat | 5 | 0 | Познавательные (3), UK (2) |
+| BCU | 4 | 0 | Кинозалы (3), Детские (1) |
 | Other: Carac | 4 | 0 | BE & NL (4) |
 | Other: CBS | 4 | 0 | Польша (2), Румыния (2) |
 | Other: FintGa | 4 | 0 | Спорт (4) |
@@ -41,7 +42,6 @@ Unmatched channels: **631**
 | Other: Star | 3 | 0 | Кино (2), Молдова (1) |
 | Other: Total | 3 | 0 | Музыкальные (3) |
 | Other: УПЛ | 3 | 0 | Спорт (3) |
-| BCU | 2 | 0 | Кинозалы (1), Детские (1) |
 | Other: Arena | 2 | 0 | Спорт (2) |
 | Other: betking | 2 | 0 | Спорт (2) |
 | Other: CANAL+ | 2 | 0 | SkyLink (2) |
@@ -74,7 +74,9 @@ Unmatched channels: **631**
 | Other: Viva | 2 | 0 | Израиль (2) |
 | Other: Zoom | 2 | 0 | Украинские (1), Израиль (1) |
 | Other: Сер | 2 | 0 | Кино (2) |
+| VeleS | 2 | 0 | Кинозалы (2) |
 | Other: +BAKU | 1 | 0 | Азербайджан (1) |
+| Other: 2TV | 1 | 0 | Литва (1) |
 | Other: 5Sport | 1 | 0 | Израиль (1) |
 | Other: A1 | 1 | 0 | BE & NL (1) |
 | Other: AABC | 1 | 0 | Армения (1) |
@@ -82,6 +84,7 @@ Unmatched channels: **631**
 | Other: Agro | 1 | 0 | Молдова (1) |
 | Other: Amazing | 1 | 0 | Канада (1) |
 | Other: Anal | 1 | 0 | Для взрослых (1) |
+| Other: Angel | 1 | 0 | Разное (1) |
 | Other: Ant | 1 | 0 | Греция (1) |
 | Other: Antwerpen | 1 | 0 | BE & NL (1) |
 | Other: Aristo | 1 | 0 | Германия (1) |
@@ -195,6 +198,8 @@ Unmatched channels: **631**
 | Other: Magyar | 1 | 0 | Венгрия (1) |
 | Other: Makan | 1 | 0 | Израиль (1) |
 | Other: Man | 1 | 0 | Спорт (1) |
+| Other: Marao | 1 | 0 | Грузия (1) |
+| Other: Marneuli | 1 | 0 | Грузия (1) |
 | Other: Medeniyyet | 1 | 0 | Азербайджан (1) |
 | Other: Melodie | 1 | 0 | Германия (1) |
 | Other: Ment | 1 | 0 | BE & NL (1) |
@@ -215,6 +220,7 @@ Unmatched channels: **631**
 | Other: Noroc | 1 | 0 | Молдова (1) |
 | Other: Notele | 1 | 0 | BE & NL (1) |
 | Other: NTV | 1 | 0 | Канада (1) |
+| Other: Obiektivi | 1 | 0 | Грузия (1) |
 | Other: Ocko | 1 | 0 | Музыкальные (1) |
 | Other: OLERO | 1 | 1 | Для взрослых (1) |
 | Other: One | 1 | 0 | Германия (1) |
@@ -224,6 +230,7 @@ Unmatched channels: **631**
 | Other: OTVA | 1 | 0 | Германия (1) |
 | Other: Oxygen | 1 | 0 | Музыкальные (1) |
 | Other: PAI | 1 | 0 | Музыкальные (1) |
+| Other: Palitra | 1 | 0 | Грузия (1) |
 | Other: paprika | 1 | 0 | Румыния (1) |
 | Other: Play4 | 1 | 0 | BE & NL (1) |
 | Other: Play5 | 1 | 0 | BE & NL (1) |
@@ -263,6 +270,7 @@ Unmatched channels: **631**
 | Other: Speranta | 1 | 0 | Румыния (1) |
 | Other: Sportdigital | 1 | 0 | Германия (1) |
 | Other: Stimmungsgarten | 1 | 0 | Германия (1) |
+| Other: STV | 1 | 0 | Латвия (1) |
 | Other: SWEET | 1 | 0 | Кинозалы UA (1) |
 | Other: Syfy | 1 | 0 | Германия (1) |
 | Other: Tataf | 1 | 0 | Румыния (1) |
@@ -327,6 +335,7 @@ Unmatched channels: **631**
 | Other: Евпатория | 1 | 0 | Россия (1) |
 | Other: ЖВЛ+ | 1 | 0 | Украинские (1) |
 | Other: Загублений | 1 | 0 | Познавательные (1) |
+| Other: Исландия | 1 | 0 | Украинские (1) |
 | Other: Кинодром | 1 | 0 | Кино (1) |
 | Other: Кинолаффка | 1 | 0 | Кино (1) |
 | Other: Конкурент | 1 | 0 | Украинские (1) |
@@ -375,7 +384,6 @@ Unmatched channels: **631**
 | Other: Центр | 1 | 0 | Беларусь (1) |
 | Other: Черн | 1 | 0 | Украинские (1) |
 | Other: Честный | 1 | 0 | Кино (1) |
-| VeleS | 1 | 0 | Кинозалы (1) |
 | Velilla | 1 | 0 | Детские (1) |
 
 ## Channels by family
@@ -418,7 +426,7 @@ Unmatched channels: **631**
 - DITV Мультфильмы для малышей
 - DITV XXX 18+
 
-### Other — 24
+### Other — 25
 
 - Сімейні мелодрами+
 - Діти проти зірок HD
@@ -434,6 +442,7 @@ Unmatched channels: **631**
 - 100% NL
 - 538 T
 - TV Jūrmala
+- 360 TV HD
 - Channel 11
 - Channel 14 HD
 - Channel 24
@@ -556,6 +565,17 @@ Unmatched channels: **631**
 - RTL Nitro
 - RTL Zwei HD
 
+### BOX — 8
+
+- BOX Remast Plus 4K
+- BOX SportCast Live 8 HD
+- BOX SportCast Live 9 HD
+- Box Sport Live 12 HD
+- Box Sport Live 13 HD
+- Box Sport Live 14 HD
+- Box Sport Live 15 HD
+- BOX TV
+
 ### Other: FIFA+ — 8
 
 - FIFA+ HD (Spain)
@@ -566,16 +586,6 @@ Unmatched channels: **631**
 - FIFA+ HD (Italy)
 - FIFA+ HD (Portugal)
 - FIFA+ Women HD
-
-### BOX — 7
-
-- BOX Remast Plus 4K
-- BOX SportCast Live 8 HD
-- BOX SportCast Live 9 HD
-- Box Sport Live 12 HD
-- Box Sport Live 13 HD
-- Box Sport Live 14 HD
-- Box Sport Live 15 HD
 
 ### Other: AXN — 7
 
@@ -638,6 +648,13 @@ Unmatched channels: **631**
 - Viasat History Best HD
 - Viasat History HD
 - Viasat Nature HD
+
+### BCU — 4
+
+- BCU Marvel OLD
+- BCU Cosmo HD
+- BCU NEW MEDIA 2
+- BCU Kids HD
 
 ### Other: Carac — 4
 
@@ -743,11 +760,6 @@ Unmatched channels: **631**
 - УПЛ ТВ 1
 - УПЛ ТВ 2
 - УПЛ ТВ 3
-
-### BCU — 2
-
-- BCU NEW MEDIA 2
-- BCU Kids HD
 
 ### Other: Arena — 2
 
@@ -909,9 +921,18 @@ Unmatched channels: **631**
 - Серіал Україна 1
 - Серіал Україна 2
 
+### VeleS — 2
+
+- VeleS С Новым годом!
+- VeleS Movie Hits
+
 ### Other: +BAKU — 1
 
 - +BAKU TV
+
+### Other: 2TV — 1
+
+- 2TV HD
 
 ### Other: 5Sport — 1
 
@@ -940,6 +961,10 @@ Unmatched channels: **631**
 ### Other: Anal — 1
 
 - Anal
+
+### Other: Angel — 1
+
+- Angel TV
 
 ### Other: Ant — 1
 
@@ -1393,6 +1418,14 @@ Unmatched channels: **631**
 
 - Man City 24/7
 
+### Other: Marao — 1
+
+- Marao
+
+### Other: Marneuli — 1
+
+- Marneuli TV
+
 ### Other: Medeniyyet — 1
 
 - Medeniyyet AZ
@@ -1473,6 +1506,10 @@ Unmatched channels: **631**
 
 - NTV Live Stream
 
+### Other: Obiektivi — 1
+
+- Obiektivi TV
+
 ### Other: Ocko — 1
 
 - Ocko tv MUSIK
@@ -1508,6 +1545,10 @@ Unmatched channels: **631**
 ### Other: PAI — 1
 
 - PAI Музика
+
+### Other: Palitra — 1
+
+- Palitra News
 
 ### Other: paprika — 1
 
@@ -1664,6 +1705,10 @@ Unmatched channels: **631**
 ### Other: Stimmungsgarten — 1
 
 - Stimmungsgarten TV
+
+### Other: STV — 1
+
+- STV Pirma!
 
 ### Other: SWEET — 1
 
@@ -1921,6 +1966,10 @@ Unmatched channels: **631**
 
 - Загублений світ
 
+### Other: Исландия — 1
+
+- Исландия
+
 ### Other: Кинодром — 1
 
 - Кинодром
@@ -2112,10 +2161,6 @@ Unmatched channels: **631**
 ### Other: Честный — 1
 
 - Честный Детекти
-
-### VeleS — 1
-
-- VeleS С Новым годом!
 
 ### Velilla — 1
 

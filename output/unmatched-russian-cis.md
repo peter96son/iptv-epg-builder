@@ -3,7 +3,7 @@
 Diagnostic queue for Russian-language and CIS recovery. It does not create aliases by itself.
 Regional variants, time-shifts and virtual/FAST families must be verified before production mapping.
 
-Candidate channels: **98**
+Candidate channels: **99**
 
 Unsafe virtual/dummy-ID channels: **54**
 
@@ -11,7 +11,7 @@ Unsafe virtual/dummy-ID channels: **54**
 
 - Кинозалы: 25
 - Кино: 19
-- Украинские: 13
+- Украинские: 14
 - Кинозалы UA: 10
 - Музыкальные: 9
 - Детские: 6
@@ -115,6 +115,7 @@ Unsafe virtual/dummy-ID channels: **54**
 | Вещдок HD | Украинские | UA | Other: Вещдок | review |
 | Детективи HD | Украинские | UA | Other: Детективи | review |
 | ЖВЛ+ | Украинские | UA | Other: ЖВЛ+ | review |
+| Исландия | Украинские | UA | Other: Исландия | review |
 | Конкурент TV | Украинские | UA | Other: Конкурент | review |
 | Мастер Шеф | Украинские | UA | Other: Мастер | review |
 | Мелодрами | Украинские | UA | Other: Мелодрами | review |
