@@ -3,13 +3,15 @@
 This report is diagnostic only. It does not create EPG mappings.
 A family must be researched and verified before aliases are added to the live builder.
 
-Unmatched channels: **601**
+Unmatched channels: **631**
 
 | Family | Channels | no_epg_* IDs | Main groups |
 |---|---:|---:|---|
 | DITV | 35 | 32 | Кинозалы (25), Детские (6), Познавательные (3), Для взрослых (1) |
 | Other | 24 | 0 | Украинские (6), Кинозалы UA (3), Израиль (3), Кино (2) |
 | Play-X | 15 | 0 | Музыкальные (9), Кино (3), Кинозалы UA (3) |
+| Magic | 14 | 0 | Кинозалы (12), Детские (1), Болгария (1) |
+| Fresh | 13 | 0 | Кинозалы (13) |
 | Other: Football | 13 | 0 | Спорт (13) |
 | Clarity | 12 | 0 | Кино 4K (11), Музыкальные (1) |
 | Other: VIP | 12 | 0 | Спорт (12) |
@@ -72,7 +74,6 @@ Unmatched channels: **601**
 | Other: Viva | 2 | 0 | Израиль (2) |
 | Other: Zoom | 2 | 0 | Украинские (1), Израиль (1) |
 | Other: Сер | 2 | 0 | Кино (2) |
-| Magic | 1 | 0 | Болгария (1) |
 | Other: +BAKU | 1 | 0 | Азербайджан (1) |
 | Other: 5Sport | 1 | 0 | Израиль (1) |
 | Other: A1 | 1 | 0 | BE & NL (1) |
@@ -100,6 +101,9 @@ Unmatched channels: **601**
 | Other: BOLLYSHOW | 1 | 0 | Израиль (1) |
 | Other: Bolywood | 1 | 0 | Румыния (1) |
 | Other: BOX_MUSIC2_4K | 1 | 0 | Музыкальные (1) |
+| Other: BOX_SPORT_LIVE_2_HD | 1 | 0 | Спорт (1) |
+| Other: BOX_SPORT_LIVE_3_HD | 1 | 0 | Спорт (1) |
+| Other: BOX_SPORT_LIVE_4_HD | 1 | 0 | Спорт (1) |
 | Other: BOX_SPORT_LIVE_4K | 1 | 0 | Спорт (1) |
 | Other: BOX_SPORT_LIVE_5_HD | 1 | 0 | Спорт (1) |
 | Other: BOX_SPORT_LIVE_6_HD | 1 | 0 | Спорт (1) |
@@ -371,6 +375,7 @@ Unmatched channels: **601**
 | Other: Центр | 1 | 0 | Беларусь (1) |
 | Other: Черн | 1 | 0 | Украинские (1) |
 | Other: Честный | 1 | 0 | Кино (1) |
+| VeleS | 1 | 0 | Кинозалы (1) |
 | Velilla | 1 | 0 | Детские (1) |
 
 ## Channels by family
@@ -457,6 +462,39 @@ Unmatched channels: **601**
 - Play-X Муз коллекция Дитер Болен
 - Play-X Музыкальная дорожка 90-х
 - Play-X Русский рок
+
+### Magic — 14
+
+- Magic Premiere
+- Magic Adventure
+- Magic Russian
+- Magic Action
+- Magic Comedy
+- Magic Family
+- Magic Galaxy
+- Magic Horror
+- Magic Karate
+- Magic Love
+- Magic Thriller
+- Magic VHS
+- Magic Disney
+- Magic TV
+
+### Fresh — 13
+
+- Fresh Fantastic
+- Fresh VHS
+- Fresh Rating
+- Fresh Family
+- Fresh Premiere
+- Fresh Comedy
+- Fresh Kids
+- Fresh Cinema
+- Fresh Horror
+- Fresh Adventure
+- Fresh Romantic
+- Fresh Russian
+- Fresh Thriller
 
 ### Other: Football — 13
 
@@ -871,10 +909,6 @@ Unmatched channels: **601**
 - Серіал Україна 1
 - Серіал Україна 2
 
-### Magic — 1
-
-- Magic TV
-
 ### Other: +BAKU — 1
 
 - +BAKU TV
@@ -982,6 +1016,18 @@ Unmatched channels: **601**
 ### Other: BOX_MUSIC2_4K — 1
 
 - BOX_MUSIC2_4K
+
+### Other: BOX_SPORT_LIVE_2_HD — 1
+
+- BOX_SPORT_LIVE_2_HD
+
+### Other: BOX_SPORT_LIVE_3_HD — 1
+
+- BOX_SPORT_LIVE_3_HD
+
+### Other: BOX_SPORT_LIVE_4_HD — 1
+
+- BOX_SPORT_LIVE_4_HD
 
 ### Other: BOX_SPORT_LIVE_4K — 1
 
@@ -2066,6 +2112,10 @@ Unmatched channels: **601**
 ### Other: Честный — 1
 
 - Честный Детекти
+
+### VeleS — 1
+
+- VeleS С Новым годом!
 
 ### Velilla — 1
 
