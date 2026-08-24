@@ -32,16 +32,21 @@ class Matcher:
     def _result(self, sid: str, method: str):
         return sid, method, CONFIDENCE[method]
 
-    def _source_allowed(self, channel, source) -> bool:
+    def _source_allowed(self, channel, source, source_cfg: dict | None = None) -> bool:
+        source_cfg = source_cfg or {}
         pinned = self.pinned_sources_by_name.get(channel.name)
-        return not pinned or source.name in pinned
+        # v13.23: a hard pin still wins normally, but a late rescue source may
+        # try only after all normal sources have left the channel unresolved.
+        return (
+            not pinned
+            or source.name in pinned
+            or bool(source_cfg.get("rescue_source"))
+        )
 
     def match(self, channel, source, source_cfg: dict | None = None, *, allow_family: bool = True):
         source_cfg = source_cfg or {}
 
-        # Hard source pin must run BEFORE exact tvg-id matching.
-        # Otherwise an earlier source with the same/generic ID steals the channel.
-        if not self._source_allowed(channel, source):
+        if not self._source_allowed(channel, source, source_cfg):
             return None, None, 0
 
         channel_region = region_for_group(channel.group)
@@ -96,7 +101,7 @@ class Matcher:
     def match_family(self, channel, source, source_cfg: dict | None = None):
         source_cfg = source_cfg or {}
 
-        if not self._source_allowed(channel, source):
+        if not self._source_allowed(channel, source, source_cfg):
             return None, None, 0
 
         channel_region = region_for_group(channel.group)

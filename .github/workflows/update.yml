@@ -63,6 +63,11 @@ jobs:
           XMLTV_SPILL_THRESHOLD_BYTES: "4194304"
         run: python run.py
 
+      - name: Strict movie EPG QA
+        env:
+          PLAYLIST_URL: ${{ secrets.PLAYLIST_URL }}
+        run: python -m src.movie_epg_audit
+
       - name: Save EPG and metadata cache
         if: always()
         uses: actions/cache/save@v4
@@ -80,19 +85,10 @@ jobs:
         run: |
           set -euo pipefail
           echo "Keeping newest ${KEEP_CACHES} caches with prefix ${CACHE_PREFIX}"
-          gh api --paginate \
-            -H "Accept: application/vnd.github+json" \
-            "/repos/${GITHUB_REPOSITORY}/actions/caches?per_page=100" \
-            --jq '.actions_caches[] | [.id,.key,.created_at] | @tsv' \
-          | awk -F '\t' -v prefix="$CACHE_PREFIX" '$2 ~ "^" prefix {print}' \
-          | sort -t $'\t' -k3,3r \
-          | tail -n "+$((KEEP_CACHES + 1))" \
-          | while IFS=$'\t' read -r cache_id cache_key created_at; do
+          gh api --paginate             -H "Accept: application/vnd.github+json"             "/repos/${GITHUB_REPOSITORY}/actions/caches?per_page=100"             --jq '.actions_caches[] | [.id,.key,.created_at] | @tsv'           | awk -F '\t' -v prefix="$CACHE_PREFIX" '$2 ~ "^" prefix {print}'           | sort -t $'\t' -k3,3r           | tail -n "+$((KEEP_CACHES + 1))"           | while IFS=$'\t' read -r cache_id cache_key created_at; do
               [ -n "${cache_id:-}" ] || continue
               echo "Deleting old cache ${cache_key} (${created_at})"
-              gh api --method DELETE \
-                -H "Accept: application/vnd.github+json" \
-                "/repos/${GITHUB_REPOSITORY}/actions/caches/${cache_id}"
+              gh api --method DELETE                 -H "Accept: application/vnd.github+json"                 "/repos/${GITHUB_REPOSITORY}/actions/caches/${cache_id}"
             done
 
       - name: Save durable metadata snapshot
@@ -126,7 +122,7 @@ jobs:
 
       - name: Audit live Cloudflare Worker delivery
         env:
-          WORKER_PLAYLIST_URL: https://iptv-epg.peter96son.workers.dev/tv
+          WORKER_PLAYLIST_URL: https://private-uhf-playlist.peter96son.workers.dev/tv
           WORKER_AUDIT_ATTEMPTS: "6"
           WORKER_AUDIT_DELAY: "8"
         run: python -m src.worker_audit
