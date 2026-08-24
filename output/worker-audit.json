@@ -1,16 +1,17 @@
 {
   "summary": {
-    "worker_channels": 2396,
-    "mapping_channels": 2066,
-    "validated_epg_ids": 1980,
-    "audited_rows": 2665,
-    "ok_rows": 2396,
-    "gap_rows": 269,
+    "worker_channels": 2490,
+    "mapping_channels": 2092,
+    "validated_epg_ids": 2003,
+    "audited_rows": 2762,
+    "ok_rows": 2487,
+    "gap_rows": 275,
     "issue_counts": {
-      "mapped_channel_missing_from_worker": 269
+      "wrong_tvg_id": 3,
+      "mapped_channel_missing_from_worker": 272
     },
-    "worker_url": "https://iptv-epg.peter96son.workers.dev/tv",
-    "worker_version": "2.1.0",
+    "worker_url": "https://private-uhf-playlist.peter96son.workers.dev/tv",
+    "worker_version": "2.2.0",
     "worker_cache": "bypass",
     "worker_mapping_loaded": "true",
     "attempt": 6,
@@ -2270,10 +2271,10 @@
     {
       "playlist_name": "Premium HD",
       "group": "Кино",
-      "expected_tvg_id": "",
-      "actual_tvg_id": "",
-      "actual_tvg_name": "",
-      "epg_validated": false,
+      "expected_tvg_id": "premium-hd",
+      "actual_tvg_id": "premium-hd",
+      "actual_tvg_name": "Premium HD",
+      "epg_validated": true,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -2290,30 +2291,30 @@
     {
       "playlist_name": "VHS HD",
       "group": "Кино",
-      "expected_tvg_id": "",
-      "actual_tvg_id": "",
-      "actual_tvg_name": "",
-      "epg_validated": false,
+      "expected_tvg_id": "vhs-hd",
+      "actual_tvg_id": "vhs-hd",
+      "actual_tvg_name": "VHS HD",
+      "epg_validated": true,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Thriller HD",
       "group": "Кино",
-      "expected_tvg_id": "",
-      "actual_tvg_id": "",
-      "actual_tvg_name": "",
-      "epg_validated": false,
+      "expected_tvg_id": "thriller-hd",
+      "actual_tvg_id": "thriller-hd",
+      "actual_tvg_name": "Thriller HD",
+      "epg_validated": true,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "РуКино HD",
       "group": "Кино",
-      "expected_tvg_id": "",
-      "actual_tvg_id": "",
-      "actual_tvg_name": "",
-      "epg_validated": false,
+      "expected_tvg_id": "Xklirussian",
+      "actual_tvg_id": "Xklirussian",
+      "actual_tvg_name": "РуКино HD",
+      "epg_validated": true,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -2370,10 +2371,10 @@
     {
       "playlist_name": "Insomnia HD",
       "group": "Кино",
-      "expected_tvg_id": "",
-      "actual_tvg_id": "",
-      "actual_tvg_name": "",
-      "epg_validated": false,
+      "expected_tvg_id": "insomnia-hd",
+      "actual_tvg_id": "insomnia-hd",
+      "actual_tvg_name": "Insomnia HD",
+      "epg_validated": true,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -4074,7 +4075,7 @@
       "actual_tvg_id": "Xbcu-catastrophe",
       "actual_tvg_name": "BCU Catastrophe HD",
       "epg_validated": true,
-      "duplicate_name_count": 1,
+      "duplicate_name_count": 2,
       "status": "ok"
     },
     {
@@ -4144,7 +4145,7 @@
       "actual_tvg_id": "Xbcu-history",
       "actual_tvg_name": "BCU History HD",
       "epg_validated": true,
-      "duplicate_name_count": 1,
+      "duplicate_name_count": 2,
       "status": "ok"
     },
     {
@@ -4378,14 +4379,14 @@
       "status": "ok"
     },
     {
-      "playlist_name": "BCU Premiere 3 HDR",
+      "playlist_name": "BCU Fantastic HDR",
       "group": "Кинозалы",
-      "expected_tvg_id": "Xbcu-media-3-hdr",
+      "expected_tvg_id": "Xbcu-fantastic",
       "actual_tvg_id": "Xbcu-media-3-hdr",
-      "actual_tvg_name": "BCU Premiere 3 HDR",
+      "actual_tvg_name": "BCU Fantastic HDR",
       "epg_validated": true,
-      "duplicate_name_count": 1,
-      "status": "ok"
+      "duplicate_name_count": 2,
+      "status": "wrong_tvg_id"
     },
     {
       "playlist_name": "BCU Reality OLD",
@@ -4444,7 +4445,7 @@
       "actual_tvg_id": "Xbcu-fantastic",
       "actual_tvg_name": "BCU Fantastic HDR",
       "epg_validated": true,
-      "duplicate_name_count": 1,
+      "duplicate_name_count": 2,
       "status": "ok"
     },
     {
@@ -4508,24 +4509,24 @@
       "status": "ok"
     },
     {
-      "playlist_name": "BCU_UTIFY_2_HD",
+      "playlist_name": "BCU Catastrophe HD",
       "group": "Кинозалы",
-      "expected_tvg_id": "bcu-catastrophe",
+      "expected_tvg_id": "Xbcu-catastrophe",
       "actual_tvg_id": "bcu-catastrophe",
-      "actual_tvg_name": "BCU_UTIFY_2_HD",
+      "actual_tvg_name": "BCU Catastrophe HD",
       "epg_validated": true,
-      "duplicate_name_count": 1,
-      "status": "ok"
+      "duplicate_name_count": 2,
+      "status": "wrong_tvg_id"
     },
     {
-      "playlist_name": "BCU_UTIFY_3_HD",
+      "playlist_name": "BCU History HD",
       "group": "Кинозалы",
-      "expected_tvg_id": "bcu-history",
+      "expected_tvg_id": "Xbcu-history",
       "actual_tvg_id": "bcu-history",
-      "actual_tvg_name": "BCU_UTIFY_3_HD",
+      "actual_tvg_name": "BCU History HD",
       "epg_validated": true,
-      "duplicate_name_count": 1,
-      "status": "ok"
+      "duplicate_name_count": 2,
+      "status": "wrong_tvg_id"
     },
     {
       "playlist_name": "VeleS Криминальный",
@@ -4570,10 +4571,10 @@
     {
       "playlist_name": "VeleS С Новым годом!",
       "group": "Кинозалы",
-      "expected_tvg_id": "",
-      "actual_tvg_id": "",
-      "actual_tvg_name": "",
-      "epg_validated": false,
+      "expected_tvg_id": "velesyear-new",
+      "actual_tvg_id": "velesyear-new",
+      "actual_tvg_name": "VeleS С Новым годом!",
+      "epg_validated": true,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -7310,10 +7311,10 @@
     {
       "playlist_name": "KLI СССР HD",
       "group": "USSR",
-      "expected_tvg_id": "",
-      "actual_tvg_id": "Xkliussr",
+      "expected_tvg_id": "kli-sssr-hd",
+      "actual_tvg_id": "kli-sssr-hd",
       "actual_tvg_name": "KLI СССР HD",
-      "epg_validated": false,
+      "epg_validated": true,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -8660,8 +8661,8 @@
     {
       "playlist_name": "Setanta Sports HD MD",
       "group": "Спорт",
-      "expected_tvg_id": "setanta-sports-md",
-      "actual_tvg_id": "setanta-sports-md",
+      "expected_tvg_id": "7244",
+      "actual_tvg_id": "7244",
       "actual_tvg_name": "Setanta Sports HD MD",
       "epg_validated": true,
       "duplicate_name_count": 2,
@@ -9360,20 +9361,20 @@
     {
       "playlist_name": "Premier Sports 1 HD",
       "group": "Спорт",
-      "expected_tvg_id": "",
+      "expected_tvg_id": "Xpremier-sports-1",
       "actual_tvg_id": "Xpremier-sports-1",
       "actual_tvg_name": "Premier Sports 1 HD",
-      "epg_validated": false,
+      "epg_validated": true,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Premier Sports 2 HD",
       "group": "Спорт",
-      "expected_tvg_id": "",
+      "expected_tvg_id": "Xpremier-sports-2",
       "actual_tvg_id": "Xpremier-sports-2",
       "actual_tvg_name": "Premier Sports 2 HD",
-      "epg_validated": false,
+      "epg_validated": true,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -9440,20 +9441,20 @@
     {
       "playlist_name": "Fox Sport 1 HD",
       "group": "Спорт",
-      "expected_tvg_id": "",
+      "expected_tvg_id": "Xno_epg_sport",
       "actual_tvg_id": "Xno_epg_sport",
       "actual_tvg_name": "Fox Sport 1 HD",
-      "epg_validated": false,
+      "epg_validated": true,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Fox Sport 2 HD",
       "group": "Спорт",
-      "expected_tvg_id": "",
+      "expected_tvg_id": "Xno_epg_sport",
       "actual_tvg_id": "Xno_epg_sport",
       "actual_tvg_name": "Fox Sport 2 HD",
-      "epg_validated": false,
+      "epg_validated": true,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -10820,19 +10821,99 @@
     {
       "playlist_name": "Sport 1 Baltic",
       "group": "Спорт",
-      "expected_tvg_id": "",
+      "expected_tvg_id": "sport1-baltic",
       "actual_tvg_id": "sport1-baltic",
       "actual_tvg_name": "Sport 1 Baltic",
-      "epg_validated": false,
+      "epg_validated": true,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "TNT Sports 4 HD",
       "group": "Спорт",
+      "expected_tvg_id": "400478",
+      "actual_tvg_id": "400478",
+      "actual_tvg_name": "TNT Sports 4 HD",
+      "epg_validated": true,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "V Sport Ultra HD",
+      "group": "Спорт",
+      "expected_tvg_id": "Xv-sport-ultrahd",
+      "actual_tvg_id": "Xv-sport-ultrahd",
+      "actual_tvg_name": "V Sport Ultra HD",
+      "epg_validated": true,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "NHL Network",
+      "group": "Спорт",
+      "expected_tvg_id": "Xnhl-network-us",
+      "actual_tvg_id": "Xnhl-network-us",
+      "actual_tvg_name": "NHL Network",
+      "epg_validated": true,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "HBO Boxing",
+      "group": "Спорт",
       "expected_tvg_id": "",
       "actual_tvg_id": "",
-      "actual_tvg_name": "TNT Sports 4 HD",
+      "actual_tvg_name": "HBO Boxing",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Go3 Sport 1 HD",
+      "group": "Спорт",
+      "expected_tvg_id": "tvplay-sports",
+      "actual_tvg_id": "tvplay-sports",
+      "actual_tvg_name": "Go3 Sport 1 HD",
+      "epg_validated": true,
+      "duplicate_name_count": 2,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Go3 Sport 2 HD",
+      "group": "Спорт",
+      "expected_tvg_id": "tvplay-sports-plus",
+      "actual_tvg_id": "tvplay-sports-plus",
+      "actual_tvg_name": "Go3 Sport 2 HD",
+      "epg_validated": true,
+      "duplicate_name_count": 2,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Go3 Sport Open HD",
+      "group": "Спорт",
+      "expected_tvg_id": "tv3-sport-open",
+      "actual_tvg_id": "tv3-sport-open",
+      "actual_tvg_name": "Go3 Sport Open HD",
+      "epg_validated": true,
+      "duplicate_name_count": 2,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Sky Sports Tennis",
+      "group": "Спорт",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "Xsky-sports-tennis",
+      "actual_tvg_name": "Sky Sports Tennis",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Sky Sports Football UK",
+      "group": "Спорт",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "Xsky-sports-football",
+      "actual_tvg_name": "Sky Sports Football UK",
       "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
@@ -10874,7 +10955,7 @@
       "actual_tvg_id": "XNational.Geographic.HD.ro",
       "actual_tvg_name": "National Geographic",
       "epg_validated": true,
-      "duplicate_name_count": 3,
+      "duplicate_name_count": 4,
       "status": "ok"
     },
     {
@@ -15334,7 +15415,7 @@
       "actual_tvg_id": "Xtv1000-premium",
       "actual_tvg_name": "Go3 Films HD",
       "epg_validated": true,
-      "duplicate_name_count": 2,
+      "duplicate_name_count": 3,
       "status": "ok"
     },
     {
@@ -15380,21 +15461,21 @@
     {
       "playlist_name": "Go3 Sport 1 HD",
       "group": "Литва",
-      "expected_tvg_id": "Xtvplay-sports",
-      "actual_tvg_id": "Xtvplay-sports",
+      "expected_tvg_id": "tvplay-sports",
+      "actual_tvg_id": "tvplay-sports",
       "actual_tvg_name": "Go3 Sport 1 HD",
       "epg_validated": true,
-      "duplicate_name_count": 1,
+      "duplicate_name_count": 2,
       "status": "ok"
     },
     {
       "playlist_name": "Go3 Sport 2 HD",
       "group": "Литва",
-      "expected_tvg_id": "Xtvplay-sports-plus",
-      "actual_tvg_id": "Xtvplay-sports-plus",
+      "expected_tvg_id": "tvplay-sports-plus",
+      "actual_tvg_id": "tvplay-sports-plus",
       "actual_tvg_name": "Go3 Sport 2 HD",
       "epg_validated": true,
-      "duplicate_name_count": 1,
+      "duplicate_name_count": 2,
       "status": "ok"
     },
     {
@@ -15410,11 +15491,11 @@
     {
       "playlist_name": "Go3 Sport Open HD",
       "group": "Литва",
-      "expected_tvg_id": "Xtv3-sport-open",
-      "actual_tvg_id": "Xtv3-sport-open",
+      "expected_tvg_id": "tv3-sport-open",
+      "actual_tvg_id": "tv3-sport-open",
       "actual_tvg_name": "Go3 Sport Open HD",
       "epg_validated": true,
-      "duplicate_name_count": 1,
+      "duplicate_name_count": 2,
       "status": "ok"
     },
     {
@@ -15554,7 +15635,7 @@
       "actual_tvg_id": "Xtv1000-premium",
       "actual_tvg_name": "Go3 Films HD",
       "epg_validated": true,
-      "duplicate_name_count": 2,
+      "duplicate_name_count": 3,
       "status": "ok"
     },
     {
@@ -15758,6 +15839,26 @@
       "status": "ok"
     },
     {
+      "playlist_name": "Viasat Kino",
+      "group": "Эстония",
+      "expected_tvg_id": "Xtv1000-cee",
+      "actual_tvg_id": "Xtv1000-cee",
+      "actual_tvg_name": "Viasat Kino",
+      "epg_validated": true,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Go3 Films HD",
+      "group": "Эстония",
+      "expected_tvg_id": "Xtv1000-premium",
+      "actual_tvg_id": "Xtv1000-premium",
+      "actual_tvg_name": "Go3 Films HD",
+      "epg_validated": true,
+      "duplicate_name_count": 3,
+      "status": "ok"
+    },
+    {
       "playlist_name": "Duo 3",
       "group": "Эстония",
       "expected_tvg_id": "Xsony-channel-ee",
@@ -15765,6 +15866,86 @@
       "actual_tvg_name": "Duo 3",
       "epg_validated": true,
       "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Duo 5",
+      "group": "Эстония",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "Xkanal-12-ee",
+      "actual_tvg_name": "Duo 5",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Duo 4",
+      "group": "Эстония",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "Xkanal-11-ee",
+      "actual_tvg_name": "Duo 4",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Eesti Kanal",
+      "group": "Эстония",
+      "expected_tvg_id": "Xeesti-kanal",
+      "actual_tvg_id": "Xeesti-kanal",
+      "actual_tvg_name": "Eesti Kanal",
+      "epg_validated": true,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "TLC",
+      "group": "Эстония",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "TLC",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Investigation Discovery",
+      "group": "Эстония",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "Investigation Discovery",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Filmzone",
+      "group": "Эстония",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "Xfilmzone-ee",
+      "actual_tvg_name": "Filmzone",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Канал 7",
+      "group": "Эстония",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "Канал 7",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "National Geographic",
+      "group": "Эстония",
+      "expected_tvg_id": "XNational.Geographic.HD.ro",
+      "actual_tvg_id": "XNational.Geographic.HD.ro",
+      "actual_tvg_name": "National Geographic",
+      "epg_validated": true,
+      "duplicate_name_count": 4,
       "status": "ok"
     },
     {
@@ -18018,6 +18199,636 @@
       "status": "ok"
     },
     {
+      "playlist_name": "LA 5 HD",
+      "group": "Италия",
+      "expected_tvg_id": "La.5.it",
+      "actual_tvg_id": "La.5.it",
+      "actual_tvg_name": "LA 5 HD",
+      "epg_validated": true,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Rakuten TV Action",
+      "group": "Италия",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "Rakuten TV Action",
+      "epg_validated": false,
+      "duplicate_name_count": 2,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Rakuten TV Comedy",
+      "group": "Италия",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "Rakuten TV Comedy",
+      "epg_validated": false,
+      "duplicate_name_count": 2,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Rakuten TV Drama",
+      "group": "Италия",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "Rakuten TV Drama",
+      "epg_validated": false,
+      "duplicate_name_count": 2,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Film Top - Rakuten TV",
+      "group": "Италия",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "Film Top - Rakuten TV",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "LaC",
+      "group": "Италия",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "LaC",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "LaC On Air",
+      "group": "Италия",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "LaC On Air",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "TV 2000",
+      "group": "Италия",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "TV 2000",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Esperia TV",
+      "group": "Италия",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "Esperia TV",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Canale 7 HD",
+      "group": "Италия",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "Canale 7 HD",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Italia 2 News",
+      "group": "Италия",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "Italia 2 News",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Canale 2",
+      "group": "Италия",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "Canale 2",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "BeJoy Kids",
+      "group": "Италия",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "BeJoy Kids",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Super!",
+      "group": "Италия",
+      "expected_tvg_id": "Xsuperplus",
+      "actual_tvg_id": "Xsuperplus",
+      "actual_tvg_name": "Super!",
+      "epg_validated": true,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "50 Canale",
+      "group": "Италия",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "50 Canale",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "RTP 50 HD",
+      "group": "Италия",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "RTP 50 HD",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Tele One 16",
+      "group": "Италия",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "Tele One 16",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Telepace 1",
+      "group": "Италия",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "Telepace 1",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Telepace 2",
+      "group": "Италия",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "Telepace 2",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "La 7 HD",
+      "group": "Италия",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "La 7 HD",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "FM Italia TV",
+      "group": "Италия",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "FM Italia TV",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "LA 1 HD ES",
+      "group": "Испания",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "LA 1 HD ES",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "LA 2 HD ES",
+      "group": "Испания",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "LA 2 HD ES",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "24 Horas ES",
+      "group": "Испания",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "24 Horas ES",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Telecinco HD ES",
+      "group": "Испания",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "Telecinco HD ES",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Antena 3 HD ES",
+      "group": "Испания",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "Antena 3 HD ES",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Cuatro HD ES",
+      "group": "Испания",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "Cuatro HD ES",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "ETB 1 HD ON",
+      "group": "Испания",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "ETB 1 HD ON",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "ETB 2 HD ON",
+      "group": "Испания",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "ETB 2 HD ON",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "TVE int",
+      "group": "Испания",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "TVE int",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Mijas TV",
+      "group": "Испания",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "Mijas TV",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Sony Cine HD ES",
+      "group": "Испания",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "Sony Cine HD ES",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Paramount Channel",
+      "group": "Испания",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "Paramount Channel",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Cine Friki",
+      "group": "Испания",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "Cine Friki",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Crimenes Reales",
+      "group": "Испания",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "Crimenes Reales",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "BBC Series HD",
+      "group": "Испания",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "BBC Series HD",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Cine Pride",
+      "group": "Испания",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "Cine Pride",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Cine Canal",
+      "group": "Испания",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "Cine Canal",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "TNT Novelas",
+      "group": "Испания",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "TNT Novelas",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Fox ES",
+      "group": "Испания",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "Fox ES",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Rakuten TV Action",
+      "group": "Испания",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "Rakuten TV Action",
+      "epg_validated": false,
+      "duplicate_name_count": 2,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Rakuten TV Comedy",
+      "group": "Испания",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "Rakuten TV Comedy",
+      "epg_validated": false,
+      "duplicate_name_count": 2,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Rakuten TV Drama",
+      "group": "Испания",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "Rakuten TV Drama",
+      "epg_validated": false,
+      "duplicate_name_count": 2,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Rakuten TV Top",
+      "group": "Испания",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "Rakuten TV Top",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Historia",
+      "group": "Испания",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "Historia",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Discovery",
+      "group": "Испания",
+      "expected_tvg_id": "XDiscovery.Channel.ro",
+      "actual_tvg_id": "XDiscovery.Channel.ro",
+      "actual_tvg_name": "Discovery",
+      "epg_validated": true,
+      "duplicate_name_count": 2,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Travel XP",
+      "group": "Испания",
+      "expected_tvg_id": "Xtravel-xp-hd",
+      "actual_tvg_id": "Xtravel-xp-hd",
+      "actual_tvg_name": "Travel XP",
+      "epg_validated": true,
+      "duplicate_name_count": 2,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Nat Geo",
+      "group": "Испания",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "Nat Geo",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "History 2",
+      "group": "Испания",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "History 2",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "LA 8",
+      "group": "Испания",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "LA 8",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Star Channel",
+      "group": "Испания",
+      "expected_tvg_id": "XSTAR.Channel.nl",
+      "actual_tvg_id": "XSTAR.Channel.nl",
+      "actual_tvg_name": "Star Channel",
+      "epg_validated": true,
+      "duplicate_name_count": 2,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Canal 33 Madr",
+      "group": "Испания",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "Canal 33 Madr",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "12 Do",
+      "group": "Испания",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "12 Do",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "TVG",
+      "group": "Испания",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "TVG",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Aragon TV int",
+      "group": "Испания",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "Aragon TV int",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "TVG Galicia",
+      "group": "Испания",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "TVG Galicia",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Lancelot TV",
+      "group": "Испания",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "Lancelot TV",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "TV Clan HD",
+      "group": "Испания",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "TV Clan HD",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Disney Channel",
+      "group": "Испания",
+      "expected_tvg_id": "XDisney.Channel.nl",
+      "actual_tvg_id": "XDisney.Channel.nl",
+      "actual_tvg_name": "Disney Channel",
+      "epg_validated": true,
+      "duplicate_name_count": 3,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "A TPA",
+      "group": "Испания",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "A TPA",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Deutsche Welle",
+      "group": "Испания",
+      "expected_tvg_id": "13467",
+      "actual_tvg_id": "13467",
+      "actual_tvg_name": "Deutsche Welle",
+      "epg_validated": true,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "France 24 España",
+      "group": "Испания",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "France 24 España",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Teledeporte HD ES",
+      "group": "Испания",
+      "expected_tvg_id": "teledeporte-es",
+      "actual_tvg_id": "teledeporte-es",
+      "actual_tvg_name": "Teledeporte HD ES",
+      "epg_validated": true,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
       "playlist_name": "Polsat HD",
       "group": "Польша",
       "expected_tvg_id": "Xpolsat",
@@ -19270,8 +20081,8 @@
     {
       "playlist_name": "Setanta Sports HD MD",
       "group": "Молдова",
-      "expected_tvg_id": "setanta-sports-md",
-      "actual_tvg_id": "setanta-sports-md",
+      "expected_tvg_id": "7244",
+      "actual_tvg_id": "7244",
       "actual_tvg_name": "Setanta Sports HD MD",
       "epg_validated": true,
       "duplicate_name_count": 2,
@@ -19684,7 +20495,7 @@
       "actual_tvg_id": "XNational.Geographic.HD.ro",
       "actual_tvg_name": "National Geographic",
       "epg_validated": true,
-      "duplicate_name_count": 3,
+      "duplicate_name_count": 4,
       "status": "ok"
     },
     {
@@ -20024,7 +20835,7 @@
       "actual_tvg_id": "XDisney.Channel.nl",
       "actual_tvg_name": "Disney Channel",
       "epg_validated": true,
-      "duplicate_name_count": 2,
+      "duplicate_name_count": 3,
       "status": "ok"
     },
     {
@@ -20314,7 +21125,7 @@
       "actual_tvg_id": "XDiscovery.Channel.ro",
       "actual_tvg_name": "Discovery",
       "epg_validated": true,
-      "duplicate_name_count": 1,
+      "duplicate_name_count": 2,
       "status": "ok"
     },
     {
@@ -20654,7 +21465,7 @@
       "actual_tvg_id": "XNational.Geographic.HD.ro",
       "actual_tvg_name": "National Geographic",
       "epg_validated": true,
-      "duplicate_name_count": 3,
+      "duplicate_name_count": 4,
       "status": "ok"
     },
     {
@@ -22184,7 +22995,7 @@
       "actual_tvg_id": "XDisney.Channel.nl",
       "actual_tvg_name": "Disney Channel",
       "epg_validated": true,
-      "duplicate_name_count": 2,
+      "duplicate_name_count": 3,
       "status": "ok"
     },
     {
@@ -22424,7 +23235,7 @@
       "actual_tvg_id": "XSTAR.Channel.nl",
       "actual_tvg_name": "Star Channel",
       "epg_validated": true,
-      "duplicate_name_count": 1,
+      "duplicate_name_count": 2,
       "status": "ok"
     },
     {
@@ -22818,6 +23629,106 @@
       "status": "ok"
     },
     {
+      "playlist_name": "M6 4K",
+      "group": "BE & NL",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "M6 4K",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "6 Ter",
+      "group": "BE & NL",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "6 Ter",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Canal+ Cinema",
+      "group": "BE & NL",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "Canal+ Cinema",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Canal+ FR",
+      "group": "BE & NL",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "Canal+ FR",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Cine+ Classic",
+      "group": "BE & NL",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "Cine+ Classic",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "La Une",
+      "group": "BE & NL",
+      "expected_tvg_id": "La.Une.HD.be",
+      "actual_tvg_id": "La.Une.HD.be",
+      "actual_tvg_name": "La Une",
+      "epg_validated": true,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Cine+ Emotion",
+      "group": "BE & NL",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "Cine+ Emotion",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Travel XP",
+      "group": "BE & NL",
+      "expected_tvg_id": "Xtravel-xp-hd",
+      "actual_tvg_id": "Xtravel-xp-hd",
+      "actual_tvg_name": "Travel XP",
+      "epg_validated": true,
+      "duplicate_name_count": 2,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "Tipik",
+      "group": "BE & NL",
+      "expected_tvg_id": "Tipik.be",
+      "actual_tvg_id": "Tipik.be",
+      "actual_tvg_name": "Tipik",
+      "epg_validated": true,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "RMC Story",
+      "group": "BE & NL",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "RMC Story",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
       "playlist_name": "BBC Cbeebies HD",
       "group": "UK",
       "expected_tvg_id": "Xbbc-four-uk",
@@ -23028,6 +23939,16 @@
       "status": "ok"
     },
     {
+      "playlist_name": "Sky Kids HD",
+      "group": "UK",
+      "expected_tvg_id": "Sky.Kids.HD.uk",
+      "actual_tvg_id": "Sky.Kids.HD.uk",
+      "actual_tvg_name": "Sky Kids HD",
+      "epg_validated": true,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
       "playlist_name": "Film4 HD",
       "group": "UK",
       "expected_tvg_id": "Film4.HD.uk",
@@ -23083,6 +24004,26 @@
       "expected_tvg_id": "Xdiscovery-channel",
       "actual_tvg_id": "Xdiscovery-channel",
       "actual_tvg_name": "Discovery HD",
+      "epg_validated": true,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "True Crime UK",
+      "group": "UK",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "True Crime UK",
+      "epg_validated": false,
+      "duplicate_name_count": 1,
+      "status": "ok"
+    },
+    {
+      "playlist_name": "MTV HD",
+      "group": "UK",
+      "expected_tvg_id": "MTV.HD.uk",
+      "actual_tvg_id": "MTV.HD.uk",
+      "actual_tvg_name": "MTV HD",
       "epg_validated": true,
       "duplicate_name_count": 1,
       "status": "ok"
@@ -24668,6 +25609,16 @@
       "status": "mapped_channel_missing_from_worker"
     },
     {
+      "playlist_name": "BCU Premiere 3 HDR",
+      "group": "",
+      "expected_tvg_id": "Xbcu-media-3-hdr",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": true,
+      "duplicate_name_count": 0,
+      "status": "mapped_channel_missing_from_worker"
+    },
+    {
       "playlist_name": "Joker:Сімсони",
       "group": "",
       "expected_tvg_id": "XSimson",
@@ -25771,6 +26722,26 @@
       "playlist_name": "СК1",
       "group": "",
       "expected_tvg_id": "ck1-ua",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": true,
+      "duplicate_name_count": 0,
+      "status": "mapped_channel_missing_from_worker"
+    },
+    {
+      "playlist_name": "BCU_UTIFY_2_HD",
+      "group": "",
+      "expected_tvg_id": "bcu-catastrophe",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": true,
+      "duplicate_name_count": 0,
+      "status": "mapped_channel_missing_from_worker"
+    },
+    {
+      "playlist_name": "BCU_UTIFY_3_HD",
+      "group": "",
+      "expected_tvg_id": "bcu-history",
       "actual_tvg_id": "",
       "actual_tvg_name": "",
       "epg_validated": true,
