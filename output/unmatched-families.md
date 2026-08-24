@@ -3,7 +3,7 @@
 This report is diagnostic only. It does not create EPG mappings.
 A family must be researched and verified before aliases are added to the live builder.
 
-Unmatched channels: **674**
+Unmatched channels: **672**
 
 | Family | Channels | no_epg_* IDs | Main groups |
 |---|---:|---:|---|
@@ -13,8 +13,8 @@ Unmatched channels: **674**
 | Other: Football | 13 | 0 | Спорт (13) |
 | Other: VIP | 12 | 0 | Спорт (12) |
 | Other: RTL | 11 | 0 | Музыкальные (8), Германия (3) |
-| BOX | 9 | 0 | Спорт (8), Кино 4K (1) |
 | Other: FIFA+ | 8 | 0 | Спорт (8) |
+| BOX | 7 | 0 | Спорт (6), Кино 4K (1) |
 | Other: AXN | 7 | 0 | Румыния (4), SkyLink (3) |
 | Other: Rakuten | 7 | 0 | Испания (4), Италия (3) |
 | Other: DAZN | 6 | 0 | Спорт (6) |
@@ -552,18 +552,6 @@ Unmatched channels: **674**
 - RTL Nitro
 - RTL Zwei HD
 
-### BOX — 9
-
-- BOX Remast Plus 4K
-- BOX SportCast Live 2 HD
-- BOX SportCast Live 3 HD
-- BOX SportCast Live 8 HD
-- BOX SportCast Live 9 HD
-- Box Sport Live 12 HD
-- Box Sport Live 13 HD
-- Box Sport Live 14 HD
-- Box Sport Live 15 HD
-
 ### Other: FIFA+ — 8
 
 - FIFA+ HD (Spain)
@@ -574,6 +562,16 @@ Unmatched channels: **674**
 - FIFA+ HD (Italy)
 - FIFA+ HD (Portugal)
 - FIFA+ Women HD
+
+### BOX — 7
+
+- BOX Remast Plus 4K
+- BOX SportCast Live 8 HD
+- BOX SportCast Live 9 HD
+- Box Sport Live 12 HD
+- Box Sport Live 13 HD
+- Box Sport Live 14 HD
+- Box Sport Live 15 HD
 
 ### Other: AXN — 7
 
