@@ -3,23 +3,23 @@
 Diagnostic queue for Russian-language and CIS recovery. It does not create aliases by itself.
 Regional variants, time-shifts and virtual/FAST families must be verified before production mapping.
 
-Candidate channels: **105**
+Candidate channels: **99**
 
-Unsafe virtual/dummy-ID channels: **57**
+Unsafe virtual/dummy-ID channels: **54**
 
 ## By group
 
 - Кинозалы: 25
-- Кино: 20
-- Кинозалы UA: 14
+- Кино: 19
 - Украинские: 13
-- Музыкальные: 9
-- Россия: 7
+- Кинозалы UA: 10
+- Музыкальные: 10
 - Детские: 6
+- Россия: 6
 - Познавательные: 5
 - Спорт: 3
-- Беларусь: 2
 - Кино 4K: 1
+- Беларусь: 1
 
 ## Channels
 
@@ -66,9 +66,6 @@ Unsafe virtual/dummy-ID channels: **57**
 | KLI Новинки HD | Кинозалы |  | KLI | no |
 | KLI СССР HD | Кинозалы |  | KLI | no |
 | VeleS С Новым годом! | Кинозалы |  | VeleS | no |
-| Joker:Гей Арнольд! | Кинозалы UA |  | Joker | no |
-| Joker:Русалочка | Кинозалы UA |  | Joker | no |
-| Joker:Формула | Кинозалы UA |  | Joker | no |
 | Play-X Украинский кинозал 1 HD | Кинозалы UA |  | Play-X | no |
 | Play-X Украинский кинозал 2 HD | Кинозалы UA |  | Play-X | no |
 | Play-X Фильмы про войну в Украине | Кинозалы UA |  | Play-X | no |
@@ -82,7 +79,6 @@ Unsafe virtual/dummy-ID channels: **57**
 | DITV 4К | Познавательные |  | DITV | no |
 | DITV Дикая природа 4К | Познавательные |  | DITV | no |
 | DITV Кулинария | Познавательные |  | DITV | no |
-| СкиФ Витебск | Беларусь | BY | Other: СкиФ | review |
 | Центр BY | Беларусь | BY | Other: Центр | review |
 | Детектив HD | Кино |  | Other: Детектив | review |
 | Кино 24/7 | Кино |  | Other | review |
@@ -90,25 +86,23 @@ Unsafe virtual/dummy-ID channels: **57**
 | Кинодром | Кино |  | Other: Кинодром | review |
 | Кинолаффка HD | Кино |  | Other: Кинолаффка | review |
 | Лента Кино | Кино |  | Other: Лента | review |
-| Новелла ТВ | Кино |  | Other: Новелла | review |
 | Новый Русский HD | Кино |  | Other: Новый | review |
 | Пес HD | Кино |  | Other: Пес | review |
 | РуКино HD | Кино |  | Other: РуКино | review |
 | Честный Детекти | Кино |  | Other: Честный | review |
 | SWEET КIНО HD | Кинозалы UA |  | Other: SWEET | review |
-| Картковий Будинок | Кинозалы UA |  | Other: Картковий | review |
 | Кохання на виживання HD | Кинозалы UA |  | Other: Кохання | review |
 | На Трьох HD | Кинозалы UA |  | Other: На | review |
 | Полювання на в бивцю HD | Кинозалы UA |  | Other: Полювання | review |
 | Релакс | Кинозалы UA |  | Other: Релакс | review |
 | Романтичний Марафон HD | Кинозалы UA |  | Other: Романтичний | review |
 | Ховаючи колишню HD | Кинозалы UA |  | Other: Ховаючи | review |
+| Live Музыка | Музыкальные |  | Other: Live | review |
 | PAI Музика | Музыкальные |  | Other: PAI | review |
 | Легенды Ретро FM | Музыкальные |  | Other: Легенды | review |
 | Континент Е | Познавательные |  | Other: Континент | review |
 | Орел и Решка | Познавательные |  | Other: Орел | review |
-| News Front | Россия | RU | Other: News | review |
-| Sochi Live | Россия | RU | Other: Sochi | review |
+| Rutube TV | Россия | RU | Other: Rutube | review |
 | Вестник Надыма | Россия | RU | Other: Вестник | review |
 | Витрина | Россия | RU | Other: Витрина | review |
 | ВТК 41 Аргус | Россия | RU | Other: ВТК | review |
