@@ -3,7 +3,7 @@
 Diagnostic queue for Russian-language and CIS recovery. It does not create aliases by itself.
 Regional variants, time-shifts and virtual/FAST families must be verified before production mapping.
 
-Candidate channels: **98**
+Candidate channels: **99**
 
 Unsafe virtual/dummy-ID channels: **54**
 
@@ -13,7 +13,7 @@ Unsafe virtual/dummy-ID channels: **54**
 - Кино: 19
 - Украинские: 13
 - Кинозалы UA: 10
-- Музыкальные: 9
+- Музыкальные: 10
 - Детские: 6
 - Россия: 6
 - Познавательные: 5
@@ -97,14 +97,15 @@ Unsafe virtual/dummy-ID channels: **54**
 | Релакс | Кинозалы UA |  | Other: Релакс | review |
 | Романтичний Марафон HD | Кинозалы UA |  | Other: Романтичний | review |
 | Ховаючи колишню HD | Кинозалы UA |  | Other: Ховаючи | review |
+| Live Музыка | Музыкальные |  | Other: Live | review |
 | PAI Музика | Музыкальные |  | Other: PAI | review |
 | Легенды Ретро FM | Музыкальные |  | Other: Легенды | review |
 | Континент Е | Познавательные |  | Other: Континент | review |
 | Орел и Решка | Познавательные |  | Other: Орел | review |
+| Rutube TV | Россия | RU | Other: Rutube | review |
 | Вестник Надыма | Россия | RU | Other: Вестник | review |
 | Витрина | Россия | RU | Other: Витрина | review |
 | ВТК 41 Аргус | Россия | RU | Other: ВТК | review |
-| Евпатория 24 | Россия | RU | Other: Евпатория | review |
 | Раменское ТВ | Россия | RU | Other: Раменское | review |
 | Телеплюс | Россия | RU | Other: Телеплюс | review |
 | УПЛ ТВ 1 | Спорт |  | Other: УПЛ | review |
