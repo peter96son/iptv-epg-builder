@@ -1,4 +1,4 @@
-const VERSION = "2.1.0";
+const VERSION = "2.2.0";
 const DEFAULT_EPG_URL = "https://raw.githubusercontent.com/peter96son/iptv-epg-builder/main/output/epg.xml.gz";
 const DEFAULT_MAPPING_URL = "https://raw.githubusercontent.com/peter96son/iptv-epg-builder/main/output/uhf-mapping.json";
 const DEFAULT_RULES_URL = "https://raw.githubusercontent.com/peter96son/iptv-epg-builder/main/data/playlist_rules.json";
@@ -19,6 +19,14 @@ function rewriteTvgId(line,newId){
   if(comma!==-1) return `${line.slice(0,comma)} tvg-id="${newId}"${line.slice(comma)}`;
   return line;
 }
+function rewriteChannelName(line,newName){
+  if(!newName) return line;
+  let out=line;
+  const comma=out.indexOf(",");
+  if(comma>=0) out=out.slice(0,comma+1)+newName;
+  if(/\btvg-name\s*=\s*"[^"]*"/i.test(out)) out=out.replace(/\btvg-name\s*=\s*"[^"]*"/i,`tvg-name="${newName}"`);
+  return out;
+}
 function removeAttribute(line,attribute){ return line.replace(new RegExp(`\\s+${attribute}\\s*=\\s*"[^"]*"`,"ig"),""); }
 function getAttribute(line,attribute){ const m=line.match(new RegExp(`\\b${attribute}\\s*=\\s*"([^"]*)"`,"i")); return m?m[1].trim():""; }
 function getChannelName(line){ const c=line.indexOf(","); return c>=0?line.slice(c+1).trim():""; }
@@ -32,11 +40,15 @@ function rewriteGroupInBlock(lines,newGroup){
 }
 function hasPlaceholderTvgId(line){ return /^no_epg(?:_|$)/i.test(getAttribute(line,"tvg-id")); }
 function cleanUnmatchedChannel(line){ return removeAttribute(removeAttribute(line,"tvg-id"),"tvg-name"); }
-function normalizeRules(p){ return {excludeGroups:new Set(Array.isArray(p?.exclude_groups)?p.exclude_groups:[]),groupOverrides:(p&&typeof p.group_overrides==="object"&&p.group_overrides)||{}}; }
+function normalizeRules(p){ return {
+  excludeGroups:new Set(Array.isArray(p?.exclude_groups)?p.exclude_groups:[]),
+  groupOverrides:(p&&typeof p.group_overrides==="object"&&p.group_overrides)||{},
+  nameOverrides:(p&&typeof p.name_overrides==="object"&&p.name_overrides)||{}
+}; }
 
 function rewritePlaylist(m3u,mapping,epgUrl,rulesPayload={}){
   const lines=m3u.split(/\r?\n/),out=[],rules=normalizeRules(rulesPayload);
-  let totalChannels=0,matched=0,protectedUnmatched=0,placeholderCleaned=0,excluded=0,regrouped=0;
+  let totalChannels=0,matched=0,protectedUnmatched=0,placeholderCleaned=0,excluded=0,regrouped=0,renamed=0;
   for(let i=0;i<lines.length;i++){
     let line=lines[i];
     if(line.startsWith("#EXTM3U")){ out.push(rewriteHeader(line,epgUrl)); continue; }
@@ -44,17 +56,23 @@ function rewritePlaylist(m3u,mapping,epgUrl,rulesPayload={}){
     let block=[line];
     while(i+1<lines.length&&!lines[i+1].startsWith("#EXTINF")&&!lines[i+1].startsWith("#EXTM3U")) block.push(lines[++i]);
     totalChannels++;
-    const name=getChannelName(block[0]), originalGroup=getGroupFromBlock(block);
+    const originalName=getChannelName(block[0]), originalGroup=getGroupFromBlock(block);
     if(rules.excludeGroups.has(originalGroup)){ excluded++; continue; }
-    const override=rules.groupOverrides[name];
-    if(override){ block=rewriteGroupInBlock(block,override); regrouped++; }
-    const group=getGroupFromBlock(block), newId=mapping[name];
-    if(newId){ block[0]=rewriteTvgId(block[0],newId); matched++; out.push(...block); continue; }
-    if(PROTECTED_GROUPS.has(group)){ block[0]=cleanUnmatchedChannel(block[0]); protectedUnmatched++; out.push(...block); continue; }
-    if(hasPlaceholderTvgId(block[0])){ block[0]=cleanUnmatchedChannel(block[0]); placeholderCleaned++; }
+
+    const groupOverride=rules.groupOverrides[originalName];
+    if(groupOverride){ block=rewriteGroupInBlock(block,groupOverride); regrouped++; }
+
+    // IMPORTANT: mapping lookup uses provider/original name before display rename.
+    const group=getGroupFromBlock(block), newId=mapping[originalName];
+    if(newId){ block[0]=rewriteTvgId(block[0],newId); matched++; }
+    else if(PROTECTED_GROUPS.has(group)){ block[0]=cleanUnmatchedChannel(block[0]); protectedUnmatched++; }
+    else if(hasPlaceholderTvgId(block[0])){ block[0]=cleanUnmatchedChannel(block[0]); placeholderCleaned++; }
+
+    const displayName=rules.nameOverrides[originalName];
+    if(displayName){ block[0]=rewriteChannelName(block[0],displayName); renamed++; }
     out.push(...block);
   }
-  return {playlist:out.join("\n"),totalChannels,matched,protectedUnmatched,placeholderCleaned,excluded,regrouped};
+  return {playlist:out.join("\n"),totalChannels,matched,protectedUnmatched,placeholderCleaned,excluded,regrouped,renamed};
 }
 function notFound(){ return new Response("Not found",{status:404,headers:{"Cache-Control":"no-store","X-Content-Type-Options":"nosniff"}}); }
 function jsonResponse(data,status=200){ return new Response(JSON.stringify(data,null,2),{status,headers:{"Content-Type":"application/json; charset=utf-8","Cache-Control":"no-store","X-Content-Type-Options":"nosniff"}}); }
@@ -72,7 +90,7 @@ export default {
   const isTv=url.pathname==="/tv",isDownload=url.pathname==="/download",forceFresh=url.searchParams.get("fresh")==="1";
   if(!isTv&&!isDownload) return notFound();
   if(!env.PLAYLIST_URL) return new Response("PLAYLIST_URL is not configured",{status:500,headers:{"Cache-Control":"no-store"}});
-  const cache=caches.default, cacheKey=new Request(url.origin+"/tv-cache-v210",{method:"GET"}), cached=forceFresh?null:await cache.match(cacheKey);
+  const cache=caches.default, cacheKey=new Request(url.origin+"/tv-cache-v220",{method:"GET"}), cached=forceFresh?null:await cache.match(cacheKey);
   if(cached){ if(isDownload){ const h=new Headers(cached.headers); h.set("Content-Disposition",'attachment; filename="playlist.m3u"'); return new Response(cached.body,{status:cached.status,headers:h}); } return cached; }
   const [pr,mr,rr]=await Promise.all([
     fetch(env.PLAYLIST_URL,{headers:{"User-Agent":`UHF-Private-Playlist-Worker/${VERSION}`}}),
@@ -84,11 +102,11 @@ export default {
   if(mr.ok){ try{ const p=await mr.json(); mapping=p.channels||{}; mappingLoaded=true;}catch(_){}}
   if(rr.ok){ try{ rules=await rr.json(); rulesLoaded=true;}catch(_){}}
   const original=await pr.text(), result=rewritePlaylist(original,mapping,epgUrl,rules), rewritten=result.playlist;
-  const headers={"Content-Type":"application/x-mpegURL; charset=utf-8","Content-Disposition":isDownload?'attachment; filename="playlist.m3u"':'inline; filename="playlist.m3u"',"Cache-Control":"private, max-age=0","X-Content-Type-Options":"nosniff","Referrer-Policy":"no-referrer","X-EPG-Worker-Version":VERSION,"X-EPG-Mapping-Loaded":String(mappingLoaded),"X-Playlist-Rules-Loaded":String(rulesLoaded),"X-EPG-Total-Channels":String(result.totalChannels),"X-EPG-Matched":String(result.matched),"X-Playlist-Excluded":String(result.excluded),"X-Playlist-Regrouped":String(result.regrouped),"X-EPG-Cache":forceFresh?"bypass":"miss"};
+  const headers={"Content-Type":"application/x-mpegURL; charset=utf-8","Content-Disposition":isDownload?'attachment; filename="playlist.m3u"':'inline; filename="playlist.m3u"',"Cache-Control":"private, max-age=0","X-Content-Type-Options":"nosniff","Referrer-Policy":"no-referrer","X-EPG-Worker-Version":VERSION,"X-EPG-Mapping-Loaded":String(mappingLoaded),"X-Playlist-Rules-Loaded":String(rulesLoaded),"X-EPG-Total-Channels":String(result.totalChannels),"X-EPG-Matched":String(result.matched),"X-Playlist-Excluded":String(result.excluded),"X-Playlist-Regrouped":String(result.regrouped),"X-Playlist-Renamed":String(result.renamed),"X-EPG-Cache":forceFresh?"bypass":"miss"};
   const response=new Response(rewritten,{status:200,headers});
   if(!forceFresh) ctx.waitUntil(cache.put(cacheKey,new Response(rewritten,{status:200,headers:{...headers,"Content-Disposition":'inline; filename="playlist.m3u"',"Cache-Control":"s-maxage=900"}})));
   return response;
  }
 };
 
-export {rewriteHeader,rewriteTvgId,rewritePlaylist,rewriteGroupInBlock,cleanUnmatchedChannel,getGroupFromBlock,hasPlaceholderTvgId,normalizeRules};
+export {rewriteHeader,rewriteTvgId,rewriteChannelName,rewritePlaylist,rewriteGroupInBlock,cleanUnmatchedChannel,getGroupFromBlock,hasPlaceholderTvgId,normalizeRules};

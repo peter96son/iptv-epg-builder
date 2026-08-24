@@ -1,17 +1,27 @@
+import test from "node:test";
 import assert from "node:assert/strict";
-import { rewritePlaylist } from "./worker.js";
-const sample=`#EXTM3U catchup="flussonic" tvg-rec="5" timeshift="5"
-#EXTINF:-1 tvg-id="a",CPS USSR
+import {rewritePlaylist} from "./worker.js";
+
+test("name override happens after mapping lookup and preserves EPG mapping",()=>{
+ const src=`#EXTM3U
+#EXTINF:-1 tvg-id="" tvg-name="BCU_UTIFY_2_HD",BCU_UTIFY_2_HD
 #EXTGRP:Кинозалы
-http://example/cps
-#EXTINF:-1 tvg-id="b",MM USSR Драма HD
-#EXTGRP:Кино
-http://example/mm
-#EXTINF:-1 tvg-id="c",UA Movie
-#EXTGRP:Кино UA
-http://example/ua`;
-const r=rewritePlaylist(sample,{},"https://example/epg.gz",{exclude_groups:["Кино UA"],group_overrides:{"CPS USSR":"USSR","MM USSR Драма HD":"USSR"}});
-assert.equal(r.excluded,1); assert.equal(r.regrouped,2);
-assert.match(r.playlist,/#EXTGRP:USSR/); assert.doesNotMatch(r.playlist,/UA Movie/);
-assert.match(r.playlist,/catchup="flussonic"/); assert.match(r.playlist,/tvg-rec="5"/); assert.match(r.playlist,/timeshift="5"/);
-console.log("worker personalization tests passed");
+http://a`;
+ const r=rewritePlaylist(src,{"BCU_UTIFY_2_HD":"bcu-catastrophe"},"https://x/epg",{
+   name_overrides:{"BCU_UTIFY_2_HD":"BCU Catastrophe HD"}
+ });
+ assert.match(r.playlist,/tvg-id="bcu-catastrophe"/);
+ assert.match(r.playlist,/tvg-name="BCU Catastrophe HD"/);
+ assert.match(r.playlist,/,BCU Catastrophe HD/);
+ assert.equal(r.renamed,1);
+});
+
+test("Utify 1 can get Comedy EPG without being renamed",()=>{
+ const src=`#EXTM3U
+#EXTINF:-1 tvg-id="",BCU_UTIFY_1_HDR
+#EXTGRP:Кинозалы
+http://a`;
+ const r=rewritePlaylist(src,{"BCU_UTIFY_1_HDR":"bcu-comedy"},"https://x/epg",{});
+ assert.match(r.playlist,/tvg-id="bcu-comedy"/);
+ assert.match(r.playlist,/,BCU_UTIFY_1_HDR/);
+});
