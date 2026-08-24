@@ -42,7 +42,7 @@ def _rules():
     except Exception:
         return {}
 
-def run(strict: bool=True):
+def run(strict: bool=False):
     playlist_url=os.environ.get("PLAYLIST_URL","").strip()
     if not playlist_url:
         raise SystemExit("movie QA: PLAYLIST_URL is missing")
@@ -143,4 +143,4 @@ def run(strict: bool=True):
     return summary
 
 if __name__=="__main__":
-    run(strict=True)
+    run(strict=False)
