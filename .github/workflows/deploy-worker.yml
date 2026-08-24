@@ -33,6 +33,18 @@ jobs:
       - name: Test Worker
         run: node worker.test.mjs
 
+      - name: Upload PLAYLIST_URL secret to Cloudflare
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          PLAYLIST_URL: ${{ secrets.PLAYLIST_URL }}
+        run: |
+          if [ -z "$PLAYLIST_URL" ]; then
+            echo "PLAYLIST_URL GitHub secret is empty or missing."
+            exit 1
+          fi
+          printf '%s' "$PLAYLIST_URL" | npx wrangler secret put PLAYLIST_URL
+
       - name: Deploy Worker
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
