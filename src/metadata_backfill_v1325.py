@@ -2,6 +2,7 @@ from __future__ import annotations
 import os,re
 from . import v14_policy_patch  # noqa: F401
 from . import metadata_backfill as _mb
+from . import metadata_enrichment as _me
 from .utils import normalize_name
 
 _ORIGINAL_BUILD_QUEUE=_mb.build_queue
@@ -19,7 +20,7 @@ def _clean_backfill_title(title,year):
     if m:
         if not year: year=m.group(1)
         value=value[:m.start()].strip(" \t-–—:;,.")
-    value=_mb._clean_search_title(value)
+    value=_me._clean_search_title(value)
     return re.sub(r"\s+"," ",value).strip(),year
 
 def _skip_row(title):
