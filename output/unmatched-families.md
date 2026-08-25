@@ -3,7 +3,7 @@
 This report is diagnostic only. It does not create EPG mappings.
 A family must be researched and verified before aliases are added to the live builder.
 
-Unmatched channels: **672**
+Unmatched channels: **676**
 
 | Family | Channels | no_epg_* IDs | Main groups |
 |---|---:|---:|---|
@@ -13,8 +13,8 @@ Unmatched channels: **672**
 | Other: Football | 13 | 0 | Спорт (13) |
 | Other: VIP | 12 | 0 | Спорт (12) |
 | Other: RTL | 11 | 0 | Музыкальные (8), Германия (3) |
+| BOX | 8 | 0 | Спорт (7), Кино 4K (1) |
 | Other: FIFA+ | 8 | 0 | Спорт (8) |
-| BOX | 7 | 0 | Спорт (6), Кино 4K (1) |
 | Other: AXN | 7 | 0 | Румыния (4), SkyLink (3) |
 | Other: Rakuten | 7 | 0 | Испания (4), Италия (3) |
 | Other: DAZN | 6 | 0 | Спорт (6) |
@@ -87,6 +87,7 @@ Unmatched channels: **672**
 | Other: Telepace | 2 | 0 | Италия (2) |
 | Other: TVG | 2 | 0 | Испания (2) |
 | Other: TVN | 2 | 0 | Польша (1), Молдова (1) |
+| Other: TVR | 2 | 0 | Молдова (1), Румыния (1) |
 | Other: Viva | 2 | 0 | Израиль (2) |
 | Other: Zoom | 2 | 0 | Украинские (1), Израиль (1) |
 | Other: Сер | 2 | 0 | Кино (2) |
@@ -270,6 +271,7 @@ Unmatched channels: **672**
 | Other: Play7 | 1 | 0 | BE & NL (1) |
 | Other: PLUS+ | 1 | 0 | Израиль (1) |
 | Other: Polar | 1 | 0 | Чехия (1) |
+| Other: Premiere | 1 | 0 | Кино (1) |
 | Other: PRIME | 1 | 0 | Израиль (1) |
 | Other: Privesc | 1 | 0 | Молдова (1) |
 | Other: Pro | 1 | 0 | Молдова (1) |
@@ -324,7 +326,6 @@ Unmatched channels: **672**
 | Other: TV8 | 1 | 0 | Молдова (1) |
 | Other: TVE | 1 | 0 | Испания (1) |
 | Other: TVM | 1 | 0 | Музыкальные (1) |
-| Other: TVR | 1 | 0 | Молдова (1) |
 | Other: TVR1 | 1 | 0 | Румыния (1) |
 | Other: USArmenia | 1 | 0 | Армения (1) |
 | Other: V2Beat | 1 | 0 | Музыкальные (1) |
@@ -381,6 +382,7 @@ Unmatched channels: **672**
 | Other: Невигадан | 1 | 0 | Познавательные (1) |
 | Other: Новый | 1 | 0 | Кино (1) |
 | Other: НТК | 1 | 0 | Украинские (1) |
+| Other: НТРК | 1 | 0 | Россия (1) |
 | Other: Опер | 1 | 0 | Украинские (1) |
 | Other: Орб | 1 | 0 | Украинские (1) |
 | Other: Орел | 1 | 0 | Познавательные (1) |
@@ -552,6 +554,17 @@ Unmatched channels: **672**
 - RTL Nitro
 - RTL Zwei HD
 
+### BOX — 8
+
+- BOX Remast Plus 4K
+- BOX Be ON Edge 2 Live HD
+- BOX SportCast Live 8 HD
+- BOX SportCast Live 9 HD
+- Box Sport Live 12 HD
+- Box Sport Live 13 HD
+- Box Sport Live 14 HD
+- Box Sport Live 15 HD
+
 ### Other: FIFA+ — 8
 
 - FIFA+ HD (Spain)
@@ -562,16 +575,6 @@ Unmatched channels: **672**
 - FIFA+ HD (Italy)
 - FIFA+ HD (Portugal)
 - FIFA+ Women HD
-
-### BOX — 7
-
-- BOX Remast Plus 4K
-- BOX SportCast Live 8 HD
-- BOX SportCast Live 9 HD
-- Box Sport Live 12 HD
-- Box Sport Live 13 HD
-- Box Sport Live 14 HD
-- Box Sport Live 15 HD
 
 ### Other: AXN — 7
 
@@ -998,6 +1001,11 @@ Unmatched channels: **672**
 
 - TVN HD
 - TVN HD
+
+### Other: TVR — 2
+
+- TVR
+- TVR Iasi
 
 ### Other: Viva — 2
 
@@ -1734,6 +1742,10 @@ Unmatched channels: **672**
 
 - Polar 2 HD
 
+### Other: Premiere — 1
+
+- Premiere HD 4
+
 ### Other: PRIME — 1
 
 - PRIME
@@ -1949,10 +1961,6 @@ Unmatched channels: **672**
 ### Other: TVM — 1
 
 - TVM 3
-
-### Other: TVR — 1
-
-- TVR
 
 ### Other: TVR1 — 1
 
@@ -2177,6 +2185,10 @@ Unmatched channels: **672**
 ### Other: НТК — 1
 
 - НТК КОЛОМИЯ
+
+### Other: НТРК — 1
+
+- НТРК Ингушетия
 
 ### Other: Опер — 1
 

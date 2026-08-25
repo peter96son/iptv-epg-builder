@@ -1,13 +1,13 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-08-24T16:05:30.371877-07:00`
+- Generated: `2026-08-24T20:43:14.104759-07:00`
 - Playlist channels: **2815**
-- Baseline covered: **1567**
-- Final covered: **2143**
+- Baseline covered: **1563**
+- Final covered: **2139**
 - Added by fallbacks: **+576**
-- Unmatched: **672**
-- Programmes: **407332**
-- Movie coverage: **773/849** (+263)
+- Unmatched: **676**
+- Programmes: **393361**
+- Movie coverage: **772/849** (+266)
 
 ## Playlist changes
 
@@ -21,18 +21,18 @@
 
 | Group | Total | Baseline | Final | Added | Coverage |
 |---|---:|---:|---:|---:|---:|
-| Кинозалы | 358 | 203 | 329 | +126 | 91.9% |
+| Кинозалы | 358 | 202 | 329 | +127 | 91.9% |
 | Кинозалы UA | 206 | 103 | 187 | +84 | 90.8% |
-| Спорт | 264 | 93 | 173 | +80 | 65.5% |
+| Спорт | 264 | 93 | 172 | +79 | 65.2% |
 | Музыкальные | 162 | 45 | 97 | +52 | 59.9% |
-| Кино | 220 | 145 | 194 | +49 | 88.2% |
-| Россия | 183 | 152 | 177 | +25 | 96.7% |
+| Кино | 220 | 142 | 193 | +51 | 87.7% |
+| Россия | 183 | 152 | 176 | +24 | 96.2% |
 | BE & NL | 100 | 33 | 54 | +21 | 54.0% |
 | UK | 30 | 9 | 26 | +17 | 86.7% |
 | Болгария | 49 | 13 | 27 | +14 | 55.1% |
 | Германия | 134 | 85 | 97 | +12 | 72.4% |
-| Румыния | 85 | 46 | 58 | +12 | 68.2% |
 | Украинские | 119 | 70 | 82 | +12 | 68.9% |
+| Румыния | 85 | 46 | 57 | +11 | 67.1% |
 | Детские | 82 | 63 | 73 | +10 | 89.0% |
 | Познавательные | 118 | 94 | 104 | +10 | 88.1% |
 | Италия | 34 | 1 | 10 | +9 | 29.4% |
@@ -64,25 +64,25 @@
 
 | Source | Status | Added |
 |---|---|---:|
-| iptv-online-primary | ok | 1567 |
-| iptvx-noarch | ok | 244 |
+| iptv-online-primary | ok | 1563 |
+| iptvx-noarch | ok | 243 |
 | klimedia-dedicated | failed | 0 |
-| runigma-iptv | ok | 22 |
+| runigma-iptv | ok | 21 |
 | openbox-tsd | ok | 43 |
 | next-dedicated | ok | 0 |
-| bcumedia-dedicated | ok | 6 |
+| bcumedia-dedicated | ok | 10 |
 | cineman-dedicated | ok | 0 |
 | minimax-mm-dedicated | ok | 0 |
 | sharavoz-guide | failed | 0 |
-| tvteam | ok | 68 |
-| epgpw-sreda | failed | 0 |
-| epgpw-chestny-detektiv | failed | 0 |
-| epgpw-RU | ok | 10 |
+| tvteam | ok | 71 |
+| epgpw-sreda | ok | 0 |
+| epgpw-chestny-detektiv | ok | 0 |
+| epgpw-RU | ok | 3 |
 | epgpw-DE | ok | 5 |
 | epgpw-GB | ok | 6 |
 | epgpw-US | ok | 1 |
 | epgpw-CA | ok | 1 |
-| epgone-ru2 | ok | 15 |
+| epgone-ru2 | ok | 16 |
 | epgpw-all-lite | ok | 5 |
 | skyhigh-fhd | ok | 0 |
 | skyhigh-hdr | ok | 0 |
@@ -99,7 +99,7 @@
 | epgshare-MUSICBOX | ok | 1 |
 | epgshare-DELUXEMUSIC | ok | 1 |
 | epgshare-IT | ok | 9 |
-| epgshare-RO | ok | 13 |
+| epgshare-RO | ok | 12 |
 | epgshare-BG | ok | 7 |
 | epgshare-PL | ok | 1 |
 | epgshare-HU | ok | 0 |
@@ -112,7 +112,7 @@
 | epgshare-LT | ok | 0 |
 | epgshare-LV | ok | 2 |
 | teleguide-ru | ok | 2 |
-| gabbarit-current | ok | 64 |
+| gabbarit-current | ok | 66 |
 | gabbarit-primary | ok | 7 |
 | gabbarit-mirror | ok | 0 |
 | epgone-full-movie-rescue | ok | 0 |
@@ -127,8 +127,8 @@
 | Other: Football | 13 | 0 |
 | Other: VIP | 12 | 0 |
 | Other: RTL | 11 | 0 |
+| BOX | 8 | 0 |
 | Other: FIFA+ | 8 | 0 |
-| BOX | 7 | 0 |
 | Other: AXN | 7 | 0 |
 | Other: Rakuten | 7 | 0 |
 | Other: DAZN | 6 | 0 |
@@ -141,7 +141,6 @@
 
 | Generated | Covered | Unmatched | Programmes |
 |---|---:|---:|---:|
-| 2026-08-22T01:09:11.614185-07:00 | 2013 | 687 | 319318 |
 | 2026-08-22T07:03:50.482435-07:00 | 2094 | 606 | 322572 |
 | 2026-08-22T09:32:51.682164-07:00 | 2095 | 605 | 323630 |
 | 2026-08-22T10:43:12.227080-07:00 | 2097 | 603 | 324585 |
@@ -161,4 +160,5 @@
 | 2026-08-24T12:44:05.101100-07:00 | 2141 | 674 | 407210 |
 | 2026-08-24T13:10:25.498609-07:00 | 2141 | 674 | 407210 |
 | 2026-08-24T16:05:30.371877-07:00 | 2143 | 672 | 407332 |
+| 2026-08-24T20:43:14.104759-07:00 | 2139 | 676 | 393361 |
 
