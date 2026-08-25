@@ -1,13 +1,13 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-08-25T07:51:11.205636-07:00`
+- Generated: `2026-08-25T13:12:08.775277-07:00`
 - Playlist channels: **2815**
 - Baseline covered: **1608**
-- Final covered: **2128**
-- Added by fallbacks: **+520**
-- Unmatched: **687**
-- Programmes: **447438**
-- Movie coverage: **753/849** (+242)
+- Final covered: **2149**
+- Added by fallbacks: **+541**
+- Unmatched: **666**
+- Programmes: **451192**
+- Movie coverage: **774/849** (+263)
 
 ## Playlist changes
 
@@ -21,10 +21,10 @@
 
 | Group | Total | Baseline | Final | Added | Coverage |
 |---|---:|---:|---:|---:|---:|
-| Кинозалы | 358 | 203 | 328 | +125 | 91.6% |
+| Кинозалы | 358 | 203 | 329 | +126 | 91.9% |
+| Кинозалы UA | 206 | 103 | 187 | +84 | 90.8% |
 | Спорт | 264 | 98 | 175 | +77 | 66.3% |
-| Кинозалы UA | 206 | 103 | 168 | +65 | 81.6% |
-| Кино | 220 | 146 | 194 | +48 | 88.2% |
+| Кино | 220 | 146 | 195 | +49 | 88.6% |
 | Музыкальные | 162 | 50 | 97 | +47 | 59.9% |
 | BE & NL | 100 | 33 | 54 | +21 | 54.0% |
 | UK | 30 | 9 | 26 | +17 | 86.7% |
@@ -65,24 +65,24 @@
 | Source | Status | Added |
 |---|---|---:|
 | iptv-online-primary | ok | 1608 |
-| iptvx-noarch | ok | 214 |
+| iptvx-noarch | ok | 222 |
 | klimedia-dedicated | failed | 0 |
 | runigma-iptv | ok | 21 |
 | openbox-tsd | ok | 40 |
 | next-dedicated | ok | 0 |
-| bcumedia-dedicated | ok | 6 |
+| bcumedia-dedicated | ok | 5 |
 | cineman-dedicated | ok | 0 |
 | minimax-mm-dedicated | ok | 0 |
 | sharavoz-guide | failed | 0 |
 | tvteam | ok | 71 |
 | epgpw-sreda | ok | 0 |
 | epgpw-chestny-detektiv | ok | 0 |
-| epgpw-RU | ok | 5 |
+| epgpw-RU | ok | 3 |
 | epgpw-DE | ok | 5 |
 | epgpw-GB | ok | 6 |
 | epgpw-US | ok | 0 |
 | epgpw-CA | ok | 1 |
-| epgone-ru2 | ok | 15 |
+| epgone-ru2 | ok | 11 |
 | epgpw-all-lite | ok | 5 |
 | skyhigh-fhd | ok | 0 |
 | skyhigh-hdr | ok | 0 |
@@ -112,7 +112,7 @@
 | epgshare-LT | ok | 0 |
 | epgshare-LV | ok | 2 |
 | teleguide-ru | ok | 2 |
-| gabbarit-current | ok | 45 |
+| gabbarit-current | ok | 65 |
 | gabbarit-primary | ok | 7 |
 | gabbarit-mirror | ok | 0 |
 | epgone-full-movie-rescue | ok | 0 |
@@ -122,8 +122,7 @@
 | Family | Channels | no_epg_* |
 |---|---:|---:|
 | DITV | 35 | 32 |
-| Other | 33 | 0 |
-| Joker | 23 | 0 |
+| Other | 32 | 0 |
 | Play-X | 15 | 0 |
 | Other: Football | 13 | 0 |
 | Other: VIP | 12 | 0 |
@@ -136,13 +135,12 @@
 | Other: Pimple | 6 | 0 |
 | Other: TRT | 6 | 0 |
 | Other: НТВ | 6 | 6 |
+| Joker | 5 | 0 |
 
 ## Recent history
 
 | Generated | Covered | Unmatched | Programmes |
 |---|---:|---:|---:|
-| 2026-08-22T10:43:12.227080-07:00 | 2097 | 603 | 324585 |
-| 2026-08-22T11:18:19.560211-07:00 | 2096 | 604 | 324313 |
 | 2026-08-22T12:31:37.292926-07:00 | 2096 | 604 | 324052 |
 | 2026-08-22T20:50:05.531888-07:00 | 2096 | 604 | 310332 |
 | 2026-08-23T01:13:36.143763-07:00 | 2079 | 621 | 311786 |
@@ -161,4 +159,6 @@
 | 2026-08-24T20:43:14.104759-07:00 | 2139 | 676 | 393361 |
 | 2026-08-25T01:44:20.662326-07:00 | 2129 | 686 | 453103 |
 | 2026-08-25T07:51:11.205636-07:00 | 2128 | 687 | 447438 |
+| 2026-08-25T11:44:26.274479-07:00 | 2149 | 666 | 449096 |
+| 2026-08-25T13:12:08.775277-07:00 | 2149 | 666 | 451192 |
 

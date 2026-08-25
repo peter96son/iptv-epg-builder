@@ -1,14 +1,14 @@
 {
   "summary": {
-    "worker_channels": 2481,
-    "mapping_channels": 2078,
-    "validated_epg_ids": 1991,
-    "audited_rows": 2740,
-    "ok_rows": 2478,
-    "gap_rows": 262,
+    "worker_channels": 2478,
+    "mapping_channels": 2099,
+    "validated_epg_ids": 2012,
+    "audited_rows": 2759,
+    "ok_rows": 2475,
+    "gap_rows": 284,
     "issue_counts": {
       "wrong_tvg_id": 3,
-      "mapped_channel_missing_from_worker": 259
+      "mapped_channel_missing_from_worker": 281
     },
     "worker_url": "https://private-uhf-playlist.peter96son.workers.dev/tv",
     "worker_version": "2.3.1",
@@ -314,16 +314,6 @@
       "expected_tvg_id": "Xtnt4-pl4",
       "actual_tvg_id": "Xtnt4-pl4",
       "actual_tvg_name": "ТНТ4 +4",
-      "epg_validated": true,
-      "duplicate_name_count": 1,
-      "status": "ok"
-    },
-    {
-      "playlist_name": "НТВ Мир",
-      "group": "Россия",
-      "expected_tvg_id": "Xntv-mir",
-      "actual_tvg_id": "Xntv-mir",
-      "actual_tvg_name": "НТВ Мир",
       "epg_validated": true,
       "duplicate_name_count": 1,
       "status": "ok"
@@ -2561,10 +2551,10 @@
     {
       "playlist_name": "Premiere HD 4",
       "group": "Кино",
-      "expected_tvg_id": "",
-      "actual_tvg_id": "",
-      "actual_tvg_name": "",
-      "epg_validated": false,
+      "expected_tvg_id": "Xpremierehd4",
+      "actual_tvg_id": "Xpremierehd4",
+      "actual_tvg_name": "Premiere HD 4",
+      "epg_validated": true,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -3539,16 +3529,6 @@
       "status": "ok"
     },
     {
-      "playlist_name": "Советское кино",
-      "group": "USSR",
-      "expected_tvg_id": "Xsov-kinklass",
-      "actual_tvg_id": "Xsov-kinklass",
-      "actual_tvg_name": "Советское кино",
-      "epg_validated": true,
-      "duplicate_name_count": 1,
-      "status": "ok"
-    },
-    {
       "playlist_name": "Победа",
       "group": "Кино",
       "expected_tvg_id": "Xpobeda",
@@ -4231,8 +4211,8 @@
     {
       "playlist_name": "BCUMEDIA HD",
       "group": "Кинозалы",
-      "expected_tvg_id": "BCUMedia HD",
-      "actual_tvg_id": "BCUMedia HD",
+      "expected_tvg_id": "bcu-media",
+      "actual_tvg_id": "bcu-media",
       "actual_tvg_name": "BCUMEDIA HD",
       "epg_validated": true,
       "duplicate_name_count": 1,
@@ -7231,10 +7211,10 @@
     {
       "playlist_name": "jk_fargo",
       "group": "Сериалы",
-      "expected_tvg_id": "",
-      "actual_tvg_id": "",
+      "expected_tvg_id": "jk_fargo",
+      "actual_tvg_id": "jk_fargo",
       "actual_tvg_name": "jk_fargo",
-      "epg_validated": false,
+      "epg_validated": true,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -14934,16 +14914,6 @@
       "expected_tvg_id": "Xbelarus24",
       "actual_tvg_id": "Xbelarus24",
       "actual_tvg_name": "Беларусь 24",
-      "epg_validated": true,
-      "duplicate_name_count": 1,
-      "status": "ok"
-    },
-    {
-      "playlist_name": "РТР HD",
-      "group": "Беларусь",
-      "expected_tvg_id": "Xrtr-belarus",
-      "actual_tvg_id": "Xrtr-belarus",
-      "actual_tvg_name": "РТР HD",
       "epg_validated": true,
       "duplicate_name_count": 1,
       "status": "ok"
@@ -24829,6 +24799,16 @@
       "status": "ok"
     },
     {
+      "playlist_name": "НТВ Мир",
+      "group": "",
+      "expected_tvg_id": "Xntv-mir",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": true,
+      "duplicate_name_count": 0,
+      "status": "mapped_channel_missing_from_worker"
+    },
+    {
       "playlist_name": "1+1",
       "group": "",
       "expected_tvg_id": "X1plus1",
@@ -25562,6 +25542,16 @@
       "playlist_name": "Твоє Кіно Relax",
       "group": "",
       "expected_tvg_id": "Xtvoje-kino-relax",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": true,
+      "duplicate_name_count": 0,
+      "status": "mapped_channel_missing_from_worker"
+    },
+    {
+      "playlist_name": "Советское кино",
+      "group": "",
+      "expected_tvg_id": "Xsov-kinklass",
       "actual_tvg_id": "",
       "actual_tvg_name": "",
       "epg_validated": true,
@@ -26609,6 +26599,16 @@
       "status": "mapped_channel_missing_from_worker"
     },
     {
+      "playlist_name": "РТР HD",
+      "group": "",
+      "expected_tvg_id": "Xrtr-belarus",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": true,
+      "duplicate_name_count": 0,
+      "status": "mapped_channel_missing_from_worker"
+    },
+    {
       "playlist_name": "Конкурент.Україна",
       "group": "",
       "expected_tvg_id": "Xkonkurent-ua",
@@ -27412,6 +27412,196 @@
       "playlist_name": "Дніпро TV HD",
       "group": "",
       "expected_tvg_id": "51 канал",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": true,
+      "duplicate_name_count": 0,
+      "status": "mapped_channel_missing_from_worker"
+    },
+    {
+      "playlist_name": "Joker:Love",
+      "group": "",
+      "expected_tvg_id": "jk_love",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": true,
+      "duplicate_name_count": 0,
+      "status": "mapped_channel_missing_from_worker"
+    },
+    {
+      "playlist_name": "Joker:CSI NY",
+      "group": "",
+      "expected_tvg_id": "jk_csi_NY",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": true,
+      "duplicate_name_count": 0,
+      "status": "mapped_channel_missing_from_worker"
+    },
+    {
+      "playlist_name": "Joker:CSI Vegas",
+      "group": "",
+      "expected_tvg_id": "jk_csi_vegas",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": true,
+      "duplicate_name_count": 0,
+      "status": "mapped_channel_missing_from_worker"
+    },
+    {
+      "playlist_name": "Joker:CSI Miami",
+      "group": "",
+      "expected_tvg_id": "jk_csi_m",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": true,
+      "duplicate_name_count": 0,
+      "status": "mapped_channel_missing_from_worker"
+    },
+    {
+      "playlist_name": "Joker:Дім Дракона",
+      "group": "",
+      "expected_tvg_id": "jk_House_Dragon",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": true,
+      "duplicate_name_count": 0,
+      "status": "mapped_channel_missing_from_worker"
+    },
+    {
+      "playlist_name": "Joker:Формула",
+      "group": "",
+      "expected_tvg_id": "jk_formula",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": true,
+      "duplicate_name_count": 0,
+      "status": "mapped_channel_missing_from_worker"
+    },
+    {
+      "playlist_name": "Joker:Тарантіно",
+      "group": "",
+      "expected_tvg_id": "jk_Tarantino",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": true,
+      "duplicate_name_count": 0,
+      "status": "mapped_channel_missing_from_worker"
+    },
+    {
+      "playlist_name": "Joker:Гріфіни",
+      "group": "",
+      "expected_tvg_id": "jk_Grifins",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": true,
+      "duplicate_name_count": 0,
+      "status": "mapped_channel_missing_from_worker"
+    },
+    {
+      "playlist_name": "Joker:Русалочка",
+      "group": "",
+      "expected_tvg_id": "jk_rusaloshka",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": true,
+      "duplicate_name_count": 0,
+      "status": "mapped_channel_missing_from_worker"
+    },
+    {
+      "playlist_name": "Joker:Чіп та Дейл",
+      "group": "",
+      "expected_tvg_id": "jk_Chip_Dale",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": true,
+      "duplicate_name_count": 0,
+      "status": "mapped_channel_missing_from_worker"
+    },
+    {
+      "playlist_name": "Joker:Гей Арнольд!",
+      "group": "",
+      "expected_tvg_id": "jk_arnold",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": true,
+      "duplicate_name_count": 0,
+      "status": "mapped_channel_missing_from_worker"
+    },
+    {
+      "playlist_name": "Joker:Мел Гібсон",
+      "group": "",
+      "expected_tvg_id": "jk_Mel",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": true,
+      "duplicate_name_count": 0,
+      "status": "mapped_channel_missing_from_worker"
+    },
+    {
+      "playlist_name": "Joker:South Park",
+      "group": "",
+      "expected_tvg_id": "jk_South_Park",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": true,
+      "duplicate_name_count": 0,
+      "status": "mapped_channel_missing_from_worker"
+    },
+    {
+      "playlist_name": "Joker:Cinema2",
+      "group": "",
+      "expected_tvg_id": "jk_Cinema2",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": true,
+      "duplicate_name_count": 0,
+      "status": "mapped_channel_missing_from_worker"
+    },
+    {
+      "playlist_name": "Joker:Герої",
+      "group": "",
+      "expected_tvg_id": "jk_Heroes",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": true,
+      "duplicate_name_count": 0,
+      "status": "mapped_channel_missing_from_worker"
+    },
+    {
+      "playlist_name": "jk_doku_Ukraine",
+      "group": "",
+      "expected_tvg_id": "jk_doku_Ukraine",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": true,
+      "duplicate_name_count": 0,
+      "status": "mapped_channel_missing_from_worker"
+    },
+    {
+      "playlist_name": "Рік і Марті",
+      "group": "",
+      "expected_tvg_id": "jk_Rik_i_Marti",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": true,
+      "duplicate_name_count": 0,
+      "status": "mapped_channel_missing_from_worker"
+    },
+    {
+      "playlist_name": "Картковий Будинок",
+      "group": "",
+      "expected_tvg_id": "jk_house_of_cards",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": true,
+      "duplicate_name_count": 0,
+      "status": "mapped_channel_missing_from_worker"
+    },
+    {
+      "playlist_name": "jk_Stargate",
+      "group": "",
+      "expected_tvg_id": "jk_Stargate",
       "actual_tvg_id": "",
       "actual_tvg_name": "",
       "epg_validated": true,
