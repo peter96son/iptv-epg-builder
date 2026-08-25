@@ -1,12 +1,12 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-08-24T13:10:25.498609-07:00`
+- Generated: `2026-08-24T16:05:30.371877-07:00`
 - Playlist channels: **2815**
 - Baseline covered: **1567**
-- Final covered: **2141**
-- Added by fallbacks: **+574**
-- Unmatched: **674**
-- Programmes: **407210**
+- Final covered: **2143**
+- Added by fallbacks: **+576**
+- Unmatched: **672**
+- Programmes: **407332**
 - Movie coverage: **773/849** (+263)
 
 ## Playlist changes
@@ -23,7 +23,7 @@
 |---|---:|---:|---:|---:|---:|
 | Кинозалы | 358 | 203 | 329 | +126 | 91.9% |
 | Кинозалы UA | 206 | 103 | 187 | +84 | 90.8% |
-| Спорт | 264 | 93 | 171 | +78 | 64.8% |
+| Спорт | 264 | 93 | 173 | +80 | 65.5% |
 | Музыкальные | 162 | 45 | 97 | +52 | 59.9% |
 | Кино | 220 | 145 | 194 | +49 | 88.2% |
 | Россия | 183 | 152 | 177 | +25 | 96.7% |
@@ -75,14 +75,14 @@
 | minimax-mm-dedicated | ok | 0 |
 | sharavoz-guide | failed | 0 |
 | tvteam | ok | 68 |
-| epgpw-sreda | ok | 0 |
-| epgpw-chestny-detektiv | ok | 0 |
+| epgpw-sreda | failed | 0 |
+| epgpw-chestny-detektiv | failed | 0 |
 | epgpw-RU | ok | 10 |
 | epgpw-DE | ok | 5 |
 | epgpw-GB | ok | 6 |
 | epgpw-US | ok | 1 |
 | epgpw-CA | ok | 1 |
-| epgone-ru2 | ok | 13 |
+| epgone-ru2 | ok | 15 |
 | epgpw-all-lite | ok | 5 |
 | skyhigh-fhd | ok | 0 |
 | skyhigh-hdr | ok | 0 |
@@ -127,8 +127,8 @@
 | Other: Football | 13 | 0 |
 | Other: VIP | 12 | 0 |
 | Other: RTL | 11 | 0 |
-| BOX | 9 | 0 |
 | Other: FIFA+ | 8 | 0 |
+| BOX | 7 | 0 |
 | Other: AXN | 7 | 0 |
 | Other: Rakuten | 7 | 0 |
 | Other: DAZN | 6 | 0 |
@@ -141,7 +141,6 @@
 
 | Generated | Covered | Unmatched | Programmes |
 |---|---:|---:|---:|
-| 2026-08-21T20:33:37.674547-07:00 | 2092 | 608 | 342252 |
 | 2026-08-22T01:09:11.614185-07:00 | 2013 | 687 | 319318 |
 | 2026-08-22T07:03:50.482435-07:00 | 2094 | 606 | 322572 |
 | 2026-08-22T09:32:51.682164-07:00 | 2095 | 605 | 323630 |
@@ -161,4 +160,5 @@
 | 2026-08-24T07:47:56.713726-07:00 | 2111 | 603 | 403555 |
 | 2026-08-24T12:44:05.101100-07:00 | 2141 | 674 | 407210 |
 | 2026-08-24T13:10:25.498609-07:00 | 2141 | 674 | 407210 |
+| 2026-08-24T16:05:30.371877-07:00 | 2143 | 672 | 407332 |
 
