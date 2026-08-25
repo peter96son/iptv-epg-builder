@@ -3,13 +3,12 @@
 This report is diagnostic only. It does not create EPG mappings.
 A family must be researched and verified before aliases are added to the live builder.
 
-Unmatched channels: **687**
+Unmatched channels: **666**
 
 | Family | Channels | no_epg_* IDs | Main groups |
 |---|---:|---:|---|
 | DITV | 35 | 32 | Кинозалы (25), Детские (6), Познавательные (3), Для взрослых (1) |
-| Other | 33 | 0 | Украинские (6), Кинозалы UA (4), Израиль (3), Испания (3) |
-| Joker | 23 | 0 | Кинозалы UA (20), Кинозалы (3) |
+| Other | 32 | 0 | Украинские (6), Кинозалы UA (3), Израиль (3), Испания (3) |
 | Play-X | 15 | 0 | Музыкальные (9), Кино (3), Кинозалы UA (3) |
 | Other: Football | 13 | 0 | Спорт (13) |
 | Other: VIP | 12 | 0 | Спорт (12) |
@@ -22,6 +21,7 @@ Unmatched channels: **687**
 | Other: Pimple | 6 | 0 | Спорт (6) |
 | Other: TRT | 6 | 0 | Турция (6) |
 | Other: НТВ | 6 | 6 | Кино (6) |
+| Joker | 5 | 0 | Кинозалы UA (3), Кинозалы (2) |
 | Other: Viasat | 5 | 0 | Познавательные (3), UK (2) |
 | Other: Carac | 4 | 0 | BE & NL (4) |
 | Other: CBS | 4 | 0 | Польша (2), Румыния (2) |
@@ -267,7 +267,6 @@ Unmatched channels: **687**
 | Other: Play7 | 1 | 0 | BE & NL (1) |
 | Other: PLUS+ | 1 | 0 | Израиль (1) |
 | Other: Polar | 1 | 0 | Чехия (1) |
-| Other: Premiere | 1 | 0 | Кино (1) |
 | Other: PRIME | 1 | 0 | Израиль (1) |
 | Other: Privesc | 1 | 0 | Молдова (1) |
 | Other: Pro | 1 | 0 | Молдова (1) |
@@ -365,7 +364,6 @@ Unmatched channels: **687**
 | Other: Дорами | 1 | 0 | Кинозалы UA (1) |
 | Other: ЖВЛ+ | 1 | 0 | Украинские (1) |
 | Other: Загублений | 1 | 0 | Познавательные (1) |
-| Other: Картковий | 1 | 0 | Кинозалы UA (1) |
 | Other: Кинодром | 1 | 0 | Кино (1) |
 | Other: Кинолаффка | 1 | 0 | Кино (1) |
 | Other: Конкурент | 1 | 0 | Украинские (1) |
@@ -455,7 +453,7 @@ Unmatched channels: **687**
 - DITV Мультфильмы для малышей
 - DITV XXX 18+
 
-### Other — 33
+### Other — 32
 
 - Сімейні мелодрами+
 - Діти проти зірок HD
@@ -467,7 +465,6 @@ Unmatched channels: **687**
 - Кіно Та Серіали
 - Кіно на Різдво
 - Містика і Таємниц
-- Рік і Марті
 - Різдво
 - 100% NL
 - 538 T
@@ -490,32 +487,6 @@ Unmatched channels: **687**
 - Šláger Premium
 - 192 TV NL
 - 6 Ter
-
-### Joker — 23
-
-- jk_fargo
-- jk_SexandCity
-- jk_desperate
-- Joker:Love
-- Joker:CSI NY
-- Joker:CSI Vegas
-- Joker:CSI Miami
-- Joker:Дім Дракона
-- Joker:Кращі фільми 2024
-- Joker:Формула
-- Joker:Тарантіно
-- Joker:Гріфіни
-- Joker:Русалочка
-- Joker:Чіп та Дейл
-- Joker:Гей Арнольд!
-- Joker: Том та Джеррі
-- Joker:Мел Гібсон
-- Joker:South Park
-- Joker:Cinema2
-- Joker:Герої
-- jk_doku_Ukraine
-- jk_Stargate
-- Joker: Twin Peaks
 
 ### Play-X — 15
 
@@ -656,6 +627,14 @@ Unmatched channels: **687**
 - НТВ Сериал Скорая Помощь
 - НТВ Сериал Следствие Вели
 - НТВ Сериал Пять Минут Тишины
+
+### Joker — 5
+
+- jk_SexandCity
+- jk_desperate
+- Joker:Кращі фільми 2024
+- Joker: Том та Джеррі
+- Joker: Twin Peaks
 
 ### Other: Viasat — 5
 
@@ -1737,10 +1716,6 @@ Unmatched channels: **687**
 
 - Polar 2 HD
 
-### Other: Premiere — 1
-
-- Premiere HD 4
-
 ### Other: PRIME — 1
 
 - PRIME
@@ -2128,10 +2103,6 @@ Unmatched channels: **687**
 ### Other: Загублений — 1
 
 - Загублений світ
-
-### Other: Картковий — 1
-
-- Картковий Будинок
 
 ### Other: Кинодром — 1
 
