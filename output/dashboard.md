@@ -1,12 +1,12 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-08-25T01:44:20.662326-07:00`
+- Generated: `2026-08-25T07:51:11.205636-07:00`
 - Playlist channels: **2815**
-- Baseline covered: **1609**
-- Final covered: **2129**
+- Baseline covered: **1608**
+- Final covered: **2128**
 - Added by fallbacks: **+520**
-- Unmatched: **686**
-- Programmes: **453103**
+- Unmatched: **687**
+- Programmes: **447438**
 - Movie coverage: **753/849** (+242)
 
 ## Playlist changes
@@ -31,7 +31,7 @@
 | Болгария | 49 | 13 | 27 | +14 | 55.1% |
 | Германия | 134 | 85 | 97 | +12 | 72.4% |
 | Румыния | 85 | 46 | 58 | +12 | 68.2% |
-| Украинские | 119 | 70 | 82 | +12 | 68.9% |
+| Украинские | 119 | 69 | 81 | +12 | 68.1% |
 | Детские | 82 | 64 | 73 | +9 | 89.0% |
 | Италия | 34 | 1 | 10 | +9 | 29.4% |
 | Россия | 183 | 168 | 177 | +9 | 96.7% |
@@ -64,7 +64,7 @@
 
 | Source | Status | Added |
 |---|---|---:|
-| iptv-online-primary | ok | 1609 |
+| iptv-online-primary | ok | 1608 |
 | iptvx-noarch | ok | 214 |
 | klimedia-dedicated | failed | 0 |
 | runigma-iptv | ok | 21 |
@@ -75,8 +75,8 @@
 | minimax-mm-dedicated | ok | 0 |
 | sharavoz-guide | failed | 0 |
 | tvteam | ok | 71 |
-| epgpw-sreda | failed | 0 |
-| epgpw-chestny-detektiv | failed | 0 |
+| epgpw-sreda | ok | 0 |
+| epgpw-chestny-detektiv | ok | 0 |
 | epgpw-RU | ok | 5 |
 | epgpw-DE | ok | 5 |
 | epgpw-GB | ok | 6 |
@@ -141,7 +141,6 @@
 
 | Generated | Covered | Unmatched | Programmes |
 |---|---:|---:|---:|
-| 2026-08-22T09:32:51.682164-07:00 | 2095 | 605 | 323630 |
 | 2026-08-22T10:43:12.227080-07:00 | 2097 | 603 | 324585 |
 | 2026-08-22T11:18:19.560211-07:00 | 2096 | 604 | 324313 |
 | 2026-08-22T12:31:37.292926-07:00 | 2096 | 604 | 324052 |
@@ -161,4 +160,5 @@
 | 2026-08-24T16:05:30.371877-07:00 | 2143 | 672 | 407332 |
 | 2026-08-24T20:43:14.104759-07:00 | 2139 | 676 | 393361 |
 | 2026-08-25T01:44:20.662326-07:00 | 2129 | 686 | 453103 |
+| 2026-08-25T07:51:11.205636-07:00 | 2128 | 687 | 447438 |
 
