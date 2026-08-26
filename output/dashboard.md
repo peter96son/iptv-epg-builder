@@ -1,17 +1,17 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-08-26T07:43:34.503958-07:00`
+- Generated: `2026-08-26T10:10:56.950928-07:00`
 - Playlist channels: **2814**
 - Baseline covered: **1610**
-- Final covered: **2131**
-- Added by fallbacks: **+521**
-- Unmatched: **683**
-- Programmes: **422234**
-- Movie coverage: **752/848** (+246)
+- Final covered: **2153**
+- Added by fallbacks: **+543**
+- Unmatched: **661**
+- Programmes: **423026**
+- Movie coverage: **773/848** (+267)
 
 ## Playlist changes
 
-- New channels: **2**
+- New channels: **0**
 - Removed channels: **0**
 - Renamed: **0**
 - Stream URL changed: **0**
@@ -21,9 +21,9 @@
 
 | Group | Total | Baseline | Final | Added | Coverage |
 |---|---:|---:|---:|---:|---:|
-| Кинозалы | 358 | 203 | 327 | +124 | 91.3% |
+| Кинозалы | 358 | 203 | 329 | +126 | 91.9% |
+| Кинозалы UA | 206 | 103 | 187 | +84 | 90.8% |
 | Спорт | 264 | 107 | 179 | +72 | 67.8% |
-| Кинозалы UA | 206 | 103 | 168 | +65 | 81.6% |
 | Кино | 219 | 141 | 194 | +53 | 88.6% |
 | Музыкальные | 162 | 49 | 97 | +48 | 59.9% |
 | BE & NL | 100 | 33 | 54 | +21 | 54.0% |
@@ -33,8 +33,8 @@
 | Румыния | 85 | 46 | 58 | +12 | 68.2% |
 | Украинские | 119 | 70 | 82 | +12 | 68.9% |
 | Детские | 82 | 63 | 73 | +10 | 89.0% |
+| Россия | 183 | 168 | 178 | +10 | 97.3% |
 | Италия | 34 | 1 | 10 | +9 | 29.4% |
-| Россия | 183 | 168 | 177 | +9 | 96.7% |
 | Познавательные | 118 | 98 | 104 | +6 | 88.1% |
 | Израиль | 78 | 29 | 34 | +5 | 43.6% |
 | Греция | 10 | 3 | 7 | +4 | 70.0% |
@@ -65,7 +65,7 @@
 | Source | Status | Added |
 |---|---|---:|
 | iptv-online-primary | ok | 1610 |
-| iptvx-noarch | ok | 221 |
+| iptvx-noarch | ok | 222 |
 | klimedia-dedicated | failed | 0 |
 | runigma-iptv | ok | 21 |
 | openbox-tsd | ok | 41 |
@@ -85,7 +85,7 @@
 | epgone-ru2 | ok | 11 |
 | epgpw-all-lite | ok | 5 |
 | skyhigh-fhd | ok | 0 |
-| skyhigh-hdr | ok | 0 |
+| skyhigh-hdr | failed | 0 |
 | anzo-top | ok | 5 |
 | epgshare-DE | ok | 0 |
 | epgshare-AT | ok | 2 |
@@ -112,8 +112,8 @@
 | epgshare-LT | ok | 0 |
 | epgshare-LV | ok | 2 |
 | teleguide-ru | ok | 2 |
-| gabbarit-current | ok | 45 |
-| gabbarit-primary | ok | 6 |
+| gabbarit-current | ok | 65 |
+| gabbarit-primary | ok | 7 |
 | gabbarit-mirror | ok | 0 |
 | epgone-full-movie-rescue | ok | 0 |
 
@@ -122,8 +122,7 @@
 | Family | Channels | no_epg_* |
 |---|---:|---:|
 | DITV | 35 | 32 |
-| Other | 33 | 0 |
-| Joker | 23 | 0 |
+| Other | 32 | 0 |
 | Play-X | 15 | 0 |
 | Other: Football | 13 | 0 |
 | Other: VIP | 12 | 0 |
@@ -136,12 +135,12 @@
 | Other: DAZN | 6 | 0 |
 | Other: Pimple | 6 | 0 |
 | Other: НТВ | 6 | 6 |
+| Joker | 5 | 0 |
 
 ## Recent history
 
 | Generated | Covered | Unmatched | Programmes |
 |---|---:|---:|---:|
-| 2026-08-23T14:46:31.397665-07:00 | 2099 | 601 | 308178 |
 | 2026-08-23T19:02:18.785640-07:00 | 2069 | 631 | 291235 |
 | 2026-08-23T20:28:55.636677-07:00 | 2056 | 644 | 287480 |
 | 2026-08-23T20:53:58.086241-07:00 | 2048 | 652 | 287628 |
@@ -161,4 +160,5 @@
 | 2026-08-25T20:53:20.647785-07:00 | 2145 | 667 | 435726 |
 | 2026-08-26T01:45:43.902610-07:00 | 2130 | 682 | 426870 |
 | 2026-08-26T07:43:34.503958-07:00 | 2131 | 683 | 422234 |
+| 2026-08-26T10:10:56.950928-07:00 | 2153 | 661 | 423026 |
 
