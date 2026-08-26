@@ -1,13 +1,13 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-08-25T20:12:50.669603-07:00`
+- Generated: `2026-08-25T20:53:20.647785-07:00`
 - Playlist channels: **2812**
-- Baseline covered: **1595**
+- Baseline covered: **1594**
 - Final covered: **2145**
-- Added by fallbacks: **+550**
+- Added by fallbacks: **+551**
 - Unmatched: **667**
-- Programmes: **435779**
-- Movie coverage: **772/848** (+270)
+- Programmes: **435726**
+- Movie coverage: **772/848** (+271)
 
 ## Playlist changes
 
@@ -24,7 +24,7 @@
 | Кинозалы | 358 | 200 | 328 | +128 | 91.6% |
 | Кинозалы UA | 206 | 103 | 187 | +84 | 90.8% |
 | Спорт | 264 | 98 | 175 | +77 | 66.3% |
-| Кино | 219 | 140 | 194 | +54 | 88.6% |
+| Кино | 219 | 139 | 194 | +55 | 88.6% |
 | Музыкальные | 162 | 49 | 97 | +48 | 59.9% |
 | BE & NL | 100 | 33 | 54 | +21 | 54.0% |
 | UK | 30 | 9 | 26 | +17 | 86.7% |
@@ -64,8 +64,8 @@
 
 | Source | Status | Added |
 |---|---|---:|
-| iptv-online-primary | ok | 1595 |
-| iptvx-noarch | ok | 208 |
+| iptv-online-primary | ok | 1594 |
+| iptvx-noarch | ok | 185 |
 | klimedia-dedicated | failed | 0 |
 | runigma-iptv | ok | 21 |
 | openbox-tsd | ok | 41 |
@@ -74,10 +74,10 @@
 | cineman-dedicated | ok | 0 |
 | minimax-mm-dedicated | ok | 2 |
 | sharavoz-guide | failed | 0 |
-| tvteam | ok | 88 |
+| tvteam | ok | 110 |
 | epgpw-sreda | ok | 0 |
 | epgpw-chestny-detektiv | ok | 0 |
-| epgpw-RU | ok | 4 |
+| epgpw-RU | ok | 6 |
 | epgpw-DE | ok | 5 |
 | epgpw-GB | ok | 6 |
 | epgpw-US | ok | 0 |
@@ -141,7 +141,6 @@
 
 | Generated | Covered | Unmatched | Programmes |
 |---|---:|---:|---:|
-| 2026-08-23T01:13:36.143763-07:00 | 2079 | 621 | 311786 |
 | 2026-08-23T07:09:43.633960-07:00 | 2078 | 622 | 308527 |
 | 2026-08-23T12:24:23.137852-07:00 | 2098 | 602 | 308309 |
 | 2026-08-23T14:46:31.397665-07:00 | 2099 | 601 | 308178 |
@@ -161,4 +160,5 @@
 | 2026-08-25T13:12:08.775277-07:00 | 2149 | 666 | 451192 |
 | 2026-08-25T14:58:55.184138-07:00 | 2146 | 666 | 447926 |
 | 2026-08-25T20:12:50.669603-07:00 | 2145 | 667 | 435779 |
+| 2026-08-25T20:53:20.647785-07:00 | 2145 | 667 | 435726 |
 
