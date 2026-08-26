@@ -1,18 +1,18 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-08-25T14:58:55.184138-07:00`
+- Generated: `2026-08-25T20:12:50.669603-07:00`
 - Playlist channels: **2812**
-- Baseline covered: **1598**
-- Final covered: **2146**
-- Added by fallbacks: **+548**
-- Unmatched: **666**
-- Programmes: **447926**
-- Movie coverage: **773/848** (+268)
+- Baseline covered: **1595**
+- Final covered: **2145**
+- Added by fallbacks: **+550**
+- Unmatched: **667**
+- Programmes: **435779**
+- Movie coverage: **772/848** (+270)
 
 ## Playlist changes
 
 - New channels: **0**
-- Removed channels: **3**
+- Removed channels: **0**
 - Renamed: **0**
 - Stream URL changed: **0**
 - Category changed: **0**
@@ -21,7 +21,7 @@
 
 | Group | Total | Baseline | Final | Added | Coverage |
 |---|---:|---:|---:|---:|---:|
-| Кинозалы | 358 | 203 | 329 | +126 | 91.9% |
+| Кинозалы | 358 | 200 | 328 | +128 | 91.6% |
 | Кинозалы UA | 206 | 103 | 187 | +84 | 90.8% |
 | Спорт | 264 | 98 | 175 | +77 | 66.3% |
 | Кино | 219 | 140 | 194 | +54 | 88.6% |
@@ -64,28 +64,28 @@
 
 | Source | Status | Added |
 |---|---|---:|
-| iptv-online-primary | ok | 1598 |
-| iptvx-noarch | ok | 228 |
+| iptv-online-primary | ok | 1595 |
+| iptvx-noarch | ok | 208 |
 | klimedia-dedicated | failed | 0 |
 | runigma-iptv | ok | 21 |
 | openbox-tsd | ok | 41 |
 | next-dedicated | ok | 0 |
 | bcumedia-dedicated | ok | 5 |
 | cineman-dedicated | ok | 0 |
-| minimax-mm-dedicated | ok | 0 |
+| minimax-mm-dedicated | ok | 2 |
 | sharavoz-guide | failed | 0 |
-| tvteam | ok | 71 |
+| tvteam | ok | 88 |
 | epgpw-sreda | ok | 0 |
 | epgpw-chestny-detektiv | ok | 0 |
-| epgpw-RU | ok | 3 |
+| epgpw-RU | ok | 4 |
 | epgpw-DE | ok | 5 |
 | epgpw-GB | ok | 6 |
 | epgpw-US | ok | 0 |
 | epgpw-CA | ok | 1 |
 | epgone-ru2 | ok | 11 |
 | epgpw-all-lite | ok | 5 |
-| skyhigh-fhd | failed | 0 |
-| skyhigh-hdr | failed | 0 |
+| skyhigh-fhd | ok | 0 |
+| skyhigh-hdr | ok | 0 |
 | anzo-top | ok | 5 |
 | epgshare-DE | ok | 0 |
 | epgshare-AT | ok | 2 |
@@ -113,7 +113,7 @@
 | epgshare-LV | ok | 2 |
 | teleguide-ru | ok | 2 |
 | gabbarit-current | ok | 65 |
-| gabbarit-primary | ok | 7 |
+| gabbarit-primary | ok | 9 |
 | gabbarit-mirror | ok | 0 |
 | epgone-full-movie-rescue | ok | 0 |
 
@@ -141,7 +141,6 @@
 
 | Generated | Covered | Unmatched | Programmes |
 |---|---:|---:|---:|
-| 2026-08-22T20:50:05.531888-07:00 | 2096 | 604 | 310332 |
 | 2026-08-23T01:13:36.143763-07:00 | 2079 | 621 | 311786 |
 | 2026-08-23T07:09:43.633960-07:00 | 2078 | 622 | 308527 |
 | 2026-08-23T12:24:23.137852-07:00 | 2098 | 602 | 308309 |
@@ -161,4 +160,5 @@
 | 2026-08-25T11:44:26.274479-07:00 | 2149 | 666 | 449096 |
 | 2026-08-25T13:12:08.775277-07:00 | 2149 | 666 | 451192 |
 | 2026-08-25T14:58:55.184138-07:00 | 2146 | 666 | 447926 |
+| 2026-08-25T20:12:50.669603-07:00 | 2145 | 667 | 435779 |
 

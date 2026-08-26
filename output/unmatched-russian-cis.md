@@ -3,13 +3,13 @@
 Diagnostic queue for Russian-language and CIS recovery. It does not create aliases by itself.
 Regional variants, time-shifts and virtual/FAST families must be verified before production mapping.
 
-Candidate channels: **96**
+Candidate channels: **97**
 
-Unsafe virtual/dummy-ID channels: **52**
+Unsafe virtual/dummy-ID channels: **53**
 
 ## By group
 
-- Кинозалы: 23
+- Кинозалы: 24
 - Кино: 18
 - Украинские: 13
 - Кинозалы UA: 10
@@ -64,6 +64,7 @@ Unsafe virtual/dummy-ID channels: **52**
 | DITV ФИЛЬМЫ | Кинозалы |  | DITV | no |
 | DITV ФИЛЬМЫ УЖАСОВ 80-х | Кинозалы |  | DITV | no |
 | KLI Новинки HD | Кинозалы |  | KLI | no |
+| VeleS С Новым годом! | Кинозалы |  | VeleS | no |
 | Play-X Украинский кинозал 1 HD | Кинозалы UA |  | Play-X | no |
 | Play-X Украинский кинозал 2 HD | Кинозалы UA |  | Play-X | no |
 | Play-X Фильмы про войну в Украине | Кинозалы UA |  | Play-X | no |
