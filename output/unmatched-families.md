@@ -3,7 +3,7 @@
 This report is diagnostic only. It does not create EPG mappings.
 A family must be researched and verified before aliases are added to the live builder.
 
-Unmatched channels: **682**
+Unmatched channels: **683**
 
 | Family | Channels | no_epg_* IDs | Main groups |
 |---|---:|---:|---|
@@ -18,9 +18,9 @@ Unmatched channels: **682**
 | BOX | 7 | 0 | Спорт (6), Кино 4K (1) |
 | Other: AXN | 7 | 0 | Румыния (4), SkyLink (3) |
 | Other: Rakuten | 7 | 0 | Испания (4), Италия (3) |
+| Other: TRT | 7 | 0 | Турция (7) |
 | Other: DAZN | 6 | 0 | Спорт (6) |
 | Other: Pimple | 6 | 0 | Спорт (6) |
-| Other: TRT | 6 | 0 | Турция (6) |
 | Other: НТВ | 6 | 6 | Кино (6) |
 | Other: Viasat | 5 | 0 | Познавательные (3), UK (2) |
 | Other: Carac | 4 | 0 | BE & NL (4) |
@@ -616,6 +616,16 @@ Unmatched channels: **682**
 - Rakuten TV Drama
 - Rakuten TV Top
 
+### Other: TRT — 7
+
+- TRT 2
+- TRT Çocuk
+- TRT Kurdî
+- TRT Eba Ortaokul
+- TRT Arabi
+- TRT Sport Yildiz HD TR
+- TRT Müzik
+
 ### Other: DAZN — 6
 
 - DAZN 1 DE
@@ -633,15 +643,6 @@ Unmatched channels: **682**
 - Pimple 4
 - Pimple 5
 - Pimple 6
-
-### Other: TRT — 6
-
-- TRT Çocuk
-- TRT Kurdî
-- TRT Eba Ortaokul
-- TRT Arabi
-- TRT Sport Yildiz HD TR
-- TRT Müzik
 
 ### Other: НТВ — 6
 
