@@ -35,3 +35,14 @@ After upload:
 4. Open /tv?fresh=1 once.
 
 V14.7: fixes CI year normalization regressions: parenthesized production year is removed, title-number 2049 is preserved.
+
+V14.9 delivery safety hotfix:
+- Cine+, Твоє/Твое Кино, PROKINO and 1+1 Кіно are now hard-blocked inside Worker code.
+- This block works even when playlist_rules.json cannot be loaded.
+- Worker cache key bumped to v14.9.
+
+V14.10 UniPlayer compatibility:
+- matched channels always receive exact output tvg-id and deterministic tvg-name;
+- mapping lookup tolerates case/whitespace differences;
+- EPG URL is versioned with uhf-mapping generated_at so UniPlayer refreshes after each EPG build;
+- UHF and UniPlayer use the same verified mapping contract.

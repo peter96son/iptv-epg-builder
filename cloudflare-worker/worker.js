@@ -1,8 +1,31 @@
-const VERSION = "3.0.5-v14.7";
+const VERSION = "3.0.8-v14.10";
 const DEFAULT_EPG_URL = "https://raw.githubusercontent.com/peter96son/iptv-epg-builder/main/output/epg.xml.gz";
 const DEFAULT_MAPPING_URL = "https://raw.githubusercontent.com/peter96son/iptv-epg-builder/main/output/uhf-mapping.json";
 const DEFAULT_RULES_URL = "https://raw.githubusercontent.com/peter96son/iptv-epg-builder/main/data/playlist_rules.json";
 const PROTECTED_GROUPS = new Set(["Кино","Кинозалы","Кино 4K","Кинозалы UA"]);
+
+// Hard safety blacklist. These feeds must never appear in the delivered playlist,
+// even if playlist_rules.json fails to load or Cloudflare serves stale rule data.
+const HARD_EXCLUDE_NAME_PREFIXES = [
+  "cine+",
+  "твоє кіно",
+  "твоє кино",
+  "твое кіно",
+  "твое кино",
+  "prokino",
+  "1+1 кіно",
+  "1+1 кино",
+];
+
+function isHardExcludedName(name){
+  const n=normName(name);
+  return HARD_EXCLUDE_NAME_PREFIXES.some(prefix =>
+    n === prefix ||
+    n.startsWith(prefix + " ") ||
+    n.startsWith(prefix + "+") ||
+    n.startsWith(prefix + "-")
+  );
+}
 
 // v14: Serial Ukraine 1/2 are no longer hidden; user explicitly moved them to "Сериалы".
 // Old Ukrainian cinema feeds remain conditionally hidden by stable provider play-id.
@@ -33,6 +56,21 @@ function rewriteTvgId(line,newId){
   const comma=line.indexOf(",");
   if(comma!==-1) return `${line.slice(0,comma)} tvg-id="${newId}"${line.slice(comma)}`;
   return line;
+}
+function rewriteTvgName(line,newName){
+  if(!newName) return line;
+  if(/\btvg-name\s*=\s*"[^"]*"/i.test(line)) return line.replace(/\btvg-name\s*=\s*"[^"]*"/i,`tvg-name="${newName}"`);
+  const comma=line.indexOf(",");
+  if(comma>=0) return `${line.slice(0,comma)} tvg-name="${newName}"${line.slice(comma)}`;
+  return line;
+}
+function versionedEpgUrl(base,version){
+  if(!version)return base;
+  try{
+    const u=new URL(base);
+    u.searchParams.set("v",String(version).replace(/[^0-9A-Za-z_.:-]/g,""));
+    return u.toString();
+  }catch(_){return base;}
 }
 function rewriteChannelName(line,newName){
   if(!newName) return line;
@@ -94,6 +132,11 @@ function shouldRuleExcludeName(name,rules){
 }
 function rewritePlaylist(m3u,mapping,epgUrl,rulesPayload={}){
   const lines=m3u.split(/\r?\n/),out=[],rules=normalizeRules(rulesPayload);
+  const normalizedMapping={};
+  for(const [name,id] of Object.entries(mapping||{})){
+    const key=normName(name);
+    if(key && !normalizedMapping[key]) normalizedMapping[key]=id;
+  }
   let totalChannels=0,matched=0,protectedUnmatched=0,placeholderCleaned=0,excluded=0,conditionalExcluded=0,regrouped=0,renamed=0;
   for(let i=0;i<lines.length;i++){
     let line=lines[i];
@@ -103,7 +146,7 @@ function rewritePlaylist(m3u,mapping,epgUrl,rulesPayload={}){
     while(i+1<lines.length&&!lines[i+1].startsWith("#EXTINF")&&!lines[i+1].startsWith("#EXTM3U"))block.push(lines[++i]);
     totalChannels++;
     const originalName=getChannelName(block[0]),originalGroup=getGroupFromBlock(block),streamUrl=getStreamUrlFromBlock(block);
-    if(rules.excludeGroups.has(originalGroup)||shouldRuleExcludeName(originalName,rules)){excluded++;continue;}
+    if(isHardExcludedName(originalName)||rules.excludeGroups.has(originalGroup)||shouldRuleExcludeName(originalName,rules)){excluded++;continue;}
     if(shouldConditionallyExclude(originalName,originalGroup,streamUrl)){conditionalExcluded++;continue;}
 
     const normalizedName=normName(originalName);
@@ -115,8 +158,12 @@ function rewritePlaylist(m3u,mapping,epgUrl,rulesPayload={}){
     const groupOverride=explicitOverride||automaticSeries;
     if(groupOverride){block=rewriteGroupInBlock(block,groupOverride);regrouped++;}
 
-    const group=getGroupFromBlock(block),newId=mapping[originalName];
-    if(newId){block[0]=rewriteTvgId(block[0],newId);matched++;}
+    const group=getGroupFromBlock(block),newId=mapping[originalName]||normalizedMapping[normalizedName];
+    if(newId){
+      block[0]=rewriteTvgId(block[0],newId);
+      block[0]=rewriteTvgName(block[0],originalName);
+      matched++;
+    }
     else if(PROTECTED_GROUPS.has(group)){block[0]=cleanUnmatchedChannel(block[0]);protectedUnmatched++;}
     else if(hasPlaceholderTvgId(block[0])){block[0]=cleanUnmatchedChannel(block[0]);placeholderCleaned++;}
 
@@ -142,7 +189,7 @@ export default {
   const isTv=url.pathname==="/tv",isDownload=url.pathname==="/download",forceFresh=url.searchParams.get("fresh")==="1";
   if(!isTv&&!isDownload)return notFound();
   if(!env.PLAYLIST_URL)return new Response("PLAYLIST_URL is not configured",{status:500,headers:{"Cache-Control":"no-store"}});
-  const cache=caches.default,cacheKey=new Request(url.origin+"/tv-cache-v14-7",{method:"GET"}),cached=forceFresh?null:await cache.match(cacheKey);
+  const cache=caches.default,cacheKey=new Request(url.origin+"/tv-cache-v14-10",{method:"GET"}),cached=forceFresh?null:await cache.match(cacheKey);
   if(cached){if(isDownload){const h=new Headers(cached.headers);h.set("Content-Disposition",'attachment; filename="playlist.m3u"');return new Response(cached.body,{status:cached.status,headers:h});}return cached;}
   const [pr,mr,rr]=await Promise.all([
     fetch(env.PLAYLIST_URL,{headers:{"User-Agent":`UHF-Private-Playlist-Worker/${VERSION}`}}),
@@ -150,14 +197,22 @@ export default {
     fetch(rulesUrl,{headers:{"User-Agent":`UHF-Private-Playlist-Worker/${VERSION}`}})
   ]);
   if(!pr.ok)return new Response(`Upstream playlist error: ${pr.status}`,{status:502,headers:{"Cache-Control":"no-store"}});
-  let mapping={},mappingLoaded=false,rules={},rulesLoaded=false;
-  if(mr.ok){try{const p=await mr.json();mapping=p.channels||{};mappingLoaded=true;}catch(_){}}
+  let mapping={},mappingLoaded=false,mappingVersion="",rules={},rulesLoaded=false;
+  if(mr.ok){
+    try{
+      const p=await mr.json();
+      mapping=p.channels||{};
+      mappingVersion=p.generated_at||"";
+      mappingLoaded=true;
+    }catch(_){}
+  }
   if(rr.ok){try{rules=await rr.json();rulesLoaded=true;}catch(_){}}
-  const original=await pr.text(),result=rewritePlaylist(original,mapping,epgUrl,rules),rewritten=result.playlist;
-  const headers={"Content-Type":"application/x-mpegURL; charset=utf-8","Content-Disposition":isDownload?'attachment; filename="playlist.m3u"':'inline; filename="playlist.m3u"',"Cache-Control":"private, max-age=0","X-Content-Type-Options":"nosniff","Referrer-Policy":"no-referrer","X-EPG-Worker-Version":VERSION,"X-EPG-Mapping-Loaded":String(mappingLoaded),"X-Playlist-Rules-Loaded":String(rulesLoaded),"X-EPG-Total-Channels":String(result.totalChannels),"X-EPG-Matched":String(result.matched),"X-Playlist-Excluded":String(result.excluded),"X-Playlist-Conditional-Excluded":String(result.conditionalExcluded),"X-Playlist-Regrouped":String(result.regrouped),"X-Playlist-Renamed":String(result.renamed),"X-EPG-Cache":forceFresh?"bypass":"miss"};
+  const deliveryEpgUrl=versionedEpgUrl(epgUrl,mappingVersion);
+  const original=await pr.text(),result=rewritePlaylist(original,mapping,deliveryEpgUrl,rules),rewritten=result.playlist;
+  const headers={"Content-Type":"application/x-mpegURL; charset=utf-8","Content-Disposition":isDownload?'attachment; filename="playlist.m3u"':'inline; filename="playlist.m3u"',"Cache-Control":"private, max-age=0","X-Content-Type-Options":"nosniff","Referrer-Policy":"no-referrer","X-EPG-Worker-Version":VERSION,"X-EPG-Mapping-Loaded":String(mappingLoaded),"X-EPG-Delivery-URL":deliveryEpgUrl,"X-Playlist-Rules-Loaded":String(rulesLoaded),"X-EPG-Total-Channels":String(result.totalChannels),"X-EPG-Matched":String(result.matched),"X-Playlist-Excluded":String(result.excluded),"X-Playlist-Conditional-Excluded":String(result.conditionalExcluded),"X-Playlist-Regrouped":String(result.regrouped),"X-Playlist-Renamed":String(result.renamed),"X-EPG-Cache":forceFresh?"bypass":"miss"};
   const response=new Response(rewritten,{status:200,headers});
   if(!forceFresh)ctx.waitUntil(cache.put(cacheKey,new Response(rewritten,{status:200,headers:{...headers,"Content-Disposition":'inline; filename="playlist.m3u"',"Cache-Control":"s-maxage=900"}})));
   return response;
  }
 };
-export {rewriteHeader,rewriteTvgId,rewriteChannelName,rewritePlaylist,rewriteGroupInBlock,cleanUnmatchedChannel,getGroupFromBlock,hasPlaceholderTvgId,normalizeRules,getStreamUrlFromBlock,getPlayId,shouldConditionallyExclude,shouldRuleExcludeName,normName};
+export {rewriteHeader,rewriteTvgId,rewriteTvgName,rewriteChannelName,rewritePlaylist,rewriteGroupInBlock,cleanUnmatchedChannel,getGroupFromBlock,hasPlaceholderTvgId,normalizeRules,getStreamUrlFromBlock,getPlayId,shouldConditionallyExclude,shouldRuleExcludeName,isHardExcludedName,versionedEpgUrl,normName};

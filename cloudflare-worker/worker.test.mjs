@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import {rewritePlaylist} from "./worker.js";
+import {rewritePlaylist,versionedEpgUrl} from "./worker.js";
 
 test("Cine+ family is removed unconditionally by v14 rules",()=>{
  const src=`#EXTM3U
@@ -102,4 +102,46 @@ test("Cine+ is still removed after cumulative fixes",()=>{
 http://a`;
  const r=rewritePlaylist(src,{},"https://x/epg",{exclude_name_prefixes:["Cine+"]});
  assert.doesNotMatch(r.playlist,/Cine\\+/);
+});
+
+
+test("hard blacklist removes Ukrainian cinema feeds even when rules JSON is empty",()=>{
+ const src=`#EXTM3U
+#EXTINF:-1 group-title="Кино",Cine+ HD
+#EXTGRP:Кино
+http://a
+#EXTINF:-1 group-title="Кино",Cine+ Legend
+#EXTGRP:Кино
+http://b
+#EXTINF:-1 group-title="Кино",Твоє Кіно Хіт
+#EXTGRP:Кино
+http://c
+#EXTINF:-1 group-title="Кино",Твое кино Action
+#EXTGRP:Кино
+http://d
+#EXTINF:-1 group-title="Кино",PROKINO
+#EXTGRP:Кино
+http://e
+#EXTINF:-1 group-title="Кино",1+1 Кіно
+#EXTGRP:Кино
+http://f`;
+ const r=rewritePlaylist(src,{},"https://x/epg",{});
+ assert.doesNotMatch(r.playlist,/Cine\+|Твоє Кіно|Твое кино|PROKINO|1\+1 Кіно/i);
+ assert.equal(r.excluded,6);
+});
+
+
+test("normalized mapping supplies exact tvg-id and tvg-name for strict players",()=>{
+ const src=`#EXTM3U
+#EXTINF:-1 tvg-name="wrong upstream name" group-title="Кино",KINO PREMIERE GROUP HD
+#EXTGRP:Кино
+http://a`;
+ const r=rewritePlaylist(src,{"Kino Premiere Group HD":"epg.strict.id"},"https://x/epg.xml.gz",{});
+ assert.match(r.playlist,/tvg-id="epg.strict.id"/);
+ assert.match(r.playlist,/tvg-name="KINO PREMIERE GROUP HD"/);
+});
+
+test("versioned EPG URL changes when a new mapping build is published",()=>{
+ const u=versionedEpgUrl("https://example.com/epg.xml.gz","2026-08-25T20:53:20-07:00");
+ assert.equal(u.startsWith("https://example.com/epg.xml.gz?v="),true);
 });
