@@ -1,6 +1,6 @@
 from __future__ import annotations
 import os,re
-from . import v14_policy_patch  # noqa: F401
+from . import title_normalization_patch  # noqa: F401
 from . import metadata_backfill as _mb
 from . import metadata_enrichment as _me
 from .utils import normalize_name
@@ -38,7 +38,7 @@ def smart_build_queue(tv,mappings):
         if _UK_CHARS_RE.search(title or "") or _UK_WORD_RE.search(title or ""): skipped_uk+=1; continue
         if _skip_row(title): skipped_generic+=1; continue
         row["title"]=title; row["year"]=year
-        # The V14 metadata patch is authoritative for series identity.
+        # The cumulative title-normalization policy is authoritative for series identity.
         fake_title=row["title"]
         if re.search(r"(?i)(?:\d+\s*(?:с|сер\.?|серия)|сезон\s*\d+|s\d{1,2}\s*e\d+)\s*$", fake_title):
             row["type"]="series"

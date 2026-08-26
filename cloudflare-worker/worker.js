@@ -1,4 +1,4 @@
-const VERSION = "3.0.0-v14";
+const VERSION = "3.0.4-v14.6";
 const DEFAULT_EPG_URL = "https://raw.githubusercontent.com/peter96son/iptv-epg-builder/main/output/epg.xml.gz";
 const DEFAULT_MAPPING_URL = "https://raw.githubusercontent.com/peter96son/iptv-epg-builder/main/output/uhf-mapping.json";
 const DEFAULT_RULES_URL = "https://raw.githubusercontent.com/peter96son/iptv-epg-builder/main/data/playlist_rules.json";
@@ -52,9 +52,26 @@ function shouldConditionallyExclude(name,group,streamUrl){
   return CONDITIONAL_EXCLUDES.some(r=>r.name===name && r.group===group && r.playId===playId);
 }
 function rewriteGroupInBlock(lines,newGroup){
-  if(!newGroup)return lines;let done=false;
-  const out=lines.map(l=>{if(l.startsWith("#EXTGRP:")){done=true;return `#EXTGRP:${newGroup}`;}return l;});
-  if(!done)out.splice(1,0,`#EXTGRP:${newGroup}`);return out;
+  if(!newGroup)return lines;
+  let extgrpDone=false;
+  const out=lines.map((l,idx)=>{
+    if(idx===0 && l.startsWith("#EXTINF")){
+      if(/\bgroup-title\s*=\s*"[^"]*"/i.test(l)){
+        l=l.replace(/\bgroup-title\s*=\s*"[^"]*"/i,`group-title="${newGroup}"`);
+      } else {
+        const comma=l.indexOf(",");
+        if(comma>=0) l=`${l.slice(0,comma)} group-title="${newGroup}"${l.slice(comma)}`;
+        else l=`${l} group-title="${newGroup}"`;
+      }
+    }
+    if(l.startsWith("#EXTGRP:")){
+      extgrpDone=true;
+      return `#EXTGRP:${newGroup}`;
+    }
+    return l;
+  });
+  if(!extgrpDone) out.splice(1,0,`#EXTGRP:${newGroup}`);
+  return out;
 }
 function hasPlaceholderTvgId(line){ return /^no_epg(?:_|$)/i.test(getAttribute(line,"tvg-id")); }
 function cleanUnmatchedChannel(line){ return removeAttribute(removeAttribute(line,"tvg-id"),"tvg-name"); }
@@ -89,7 +106,13 @@ function rewritePlaylist(m3u,mapping,epgUrl,rulesPayload={}){
     if(rules.excludeGroups.has(originalGroup)||shouldRuleExcludeName(originalName,rules)){excluded++;continue;}
     if(shouldConditionallyExclude(originalName,originalGroup,streamUrl)){conditionalExcluded++;continue;}
 
-    const groupOverride=rules.groupOverrides[originalName]||rules.normalizedGroupOverrides[normName(originalName)];
+    const normalizedName=normName(originalName);
+    const explicitOverride=rules.groupOverrides[originalName]||rules.normalizedGroupOverrides[normalizedName];
+    // User policy: if the channel name itself contains "сериал" / "serial",
+    // it belongs in the Series category unless an explicit override says otherwise.
+    const automaticSeries=(normalizedName.includes("сериал") || /(^|[^a-z])serial([^a-z]|$)/i.test(normalizedName))
+      ? "Сериалы" : "";
+    const groupOverride=explicitOverride||automaticSeries;
     if(groupOverride){block=rewriteGroupInBlock(block,groupOverride);regrouped++;}
 
     const group=getGroupFromBlock(block),newId=mapping[originalName];
@@ -119,7 +142,7 @@ export default {
   const isTv=url.pathname==="/tv",isDownload=url.pathname==="/download",forceFresh=url.searchParams.get("fresh")==="1";
   if(!isTv&&!isDownload)return notFound();
   if(!env.PLAYLIST_URL)return new Response("PLAYLIST_URL is not configured",{status:500,headers:{"Cache-Control":"no-store"}});
-  const cache=caches.default,cacheKey=new Request(url.origin+"/tv-cache-v14",{method:"GET"}),cached=forceFresh?null:await cache.match(cacheKey);
+  const cache=caches.default,cacheKey=new Request(url.origin+"/tv-cache-v14-6",{method:"GET"}),cached=forceFresh?null:await cache.match(cacheKey);
   if(cached){if(isDownload){const h=new Headers(cached.headers);h.set("Content-Disposition",'attachment; filename="playlist.m3u"');return new Response(cached.body,{status:cached.status,headers:h});}return cached;}
   const [pr,mr,rr]=await Promise.all([
     fetch(env.PLAYLIST_URL,{headers:{"User-Agent":`UHF-Private-Playlist-Worker/${VERSION}`}}),
