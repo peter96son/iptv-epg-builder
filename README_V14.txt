@@ -1,4 +1,4 @@
-V14.6 FINAL CUMULATIVE
+V14.7 FINAL CUMULATIVE
 
 Upload over repository root with replacement.
 
@@ -33,3 +33,5 @@ After upload:
 2. Run Update EPG.
 3. Deploy Cloudflare Worker.
 4. Open /tv?fresh=1 once.
+
+V14.7: fixes CI year normalization regressions: parenthesized production year is removed, title-number 2049 is preserved.

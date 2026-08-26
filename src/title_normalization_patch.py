@@ -11,7 +11,7 @@ import re
 
 from . import metadata_enrichment as me
 
-PATCH_VERSION = "14.5-cumulative-title-normalization"
+PATCH_VERSION = "14.7-cumulative-title-normalization"
 
 _IMDB_SUFFIX_RE = re.compile(
     r"\s*[·•]\s*IMDb\s*(?P<rating>(?:10(?:[.,]0)?|[0-9](?:[.,][0-9])?))"
@@ -59,15 +59,38 @@ def _strip_lookup_prefixes(title: str) -> str:
 
 def clean_search_title(title: str) -> str:
     raw = _strip_lookup_prefixes(title)
-    x = _ORIG_CLEAN_TITLE(raw)
+
+    # Preserve a trailing number that is clearly part of the title rather than
+    # a production-year annotation. The classic case is "Бегущий по лезвию 2049".
+    # The legacy cleaner treats any bare 19xx/20xx suffix as a year, so protect
+    # implausibly-future title numbers before delegating to it.
+    protected_year = ""
+    m_future = re.search(r"(?<!\\d)((?:20)\\d{2})\\s*$", raw)
+    if m_future and int(m_future.group(1)) >= 2030:
+        protected_year = m_future.group(1)
+        raw_for_legacy = raw[:m_future.start(1)] + "ZZTITLEYEARZZ"
+    else:
+        raw_for_legacy = raw
+
+    x = _ORIG_CLEAN_TITLE(raw_for_legacy)
+
+    if protected_year:
+        x = x.replace("ZZTITLEYEARZZ", protected_year)
+
+    # Parenthesized production years are metadata noise for lookup identity.
+    # Keep numeric title identity itself: "1984 (1984)" -> "1984".
+    x = re.sub(r"\\s*\\(\\s*(?:19|20)\\d{2}\\s*\\)\\s*$", "", x).strip()
+
     x = re.sub(
-        r"(?i)^\s*(?:т\s*/\s*с|сериал|мультсериал)\s*[:.\-–—]?\s*",
+        r"(?i)^\\s*(?:т\\s*/\\s*с|сериал|мультсериал)\\s*[:.\\-–—]?\\s*",
         "", x
     ).strip()
     x = _EPISODE_SUFFIX.sub("", x).strip(" -–—:;,.")
+
     if _parenthetical_known_series(raw):
         x = raw.split("(", 1)[0].strip(" -–—:;,.")
-    return re.sub(r"\s+", " ", x).strip() or raw
+
+    return re.sub(r"\\s+", " ", x).strip() or raw
 
 
 def is_fiction_candidate(programme, group):

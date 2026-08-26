@@ -76,3 +76,8 @@ def test_backfill_uses_existing_normalization_policy():
     text=(Path(__file__).resolve().parents[1]/"src"/"metadata_backfill_v1325.py").read_text(encoding="utf-8")
     assert "title_normalization_patch" in text
     assert "v14_policy_patch" not in text
+
+
+def test_ci_regression_year_handling():
+    assert me._clean_search_title("х/ф Фильм (2019)") == "Фильм"
+    assert me._clean_search_title("x/ф Бегущий по лезвию 2049") == "Бегущий по лезвию 2049"
