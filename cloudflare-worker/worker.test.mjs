@@ -25,15 +25,14 @@ http://b`;
  assert.equal(r.excluded,2);
 });
 
-test("Serial Ukraine is kept and moved to Series",()=>{
+test("Serial Ukraine is removed by current user policy",()=>{
  const src=`#EXTM3U
 #EXTINF:-1,Серіал Україна 1
 #EXTGRP:Кино
 http://bel.seetv.cc/play/1667/SECRET/video.m3u8`;
  const r=rewritePlaylist(src,{},"https://x/epg",{group_overrides:{"Серіал Україна 1":"Сериалы"}});
- assert.match(r.playlist,/Серіал Україна 1/);
- assert.match(r.playlist,/#EXTGRP:Сериалы/);
- assert.equal(r.conditionalExcluded,0);
+ assert.doesNotMatch(r.playlist,/Серіал Україна 1/);
+ assert.equal(r.excluded,1);
 });
 
 test("case-insensitive group override works",()=>{
@@ -144,4 +143,17 @@ http://a`;
 test("versioned EPG URL changes when a new mapping build is published",()=>{
  const u=versionedEpgUrl("https://example.com/epg.xml.gz","2026-08-25T20:53:20-07:00");
  assert.equal(u.startsWith("https://example.com/epg.xml.gz?v="),true);
+});
+
+
+test("v14.11 removes requested Ukrainian-only non-sports channels but keeps Ukrainian sports",()=>{
+ const removed=[
+  "Star Cinema HD","Star Cinema","M1 HD","M2 HD","MusicBox UA HD","UA.Music HD",
+  "Серіал Україна 1","Серіал Україна 2","FilmUA Drama","Про Київ","EWTN Украина"
+ ];
+ const sports=["Sport 1 UA","Суспільне Спорт","Setanta Sports Ukraine"];
+ const blocks=[...removed,...sports].map((name,i)=>`#EXTINF:-1 group-title="${sports.includes(name)?"Спорт":"Разное"}",${name}\n#EXTGRP:${sports.includes(name)?"Спорт":"Разное"}\nhttp://example/${i}`).join("\n");
+ const r=rewritePlaylist(`#EXTM3U\n${blocks}`,{},"https://x/epg",{});
+ for(const name of removed) assert.equal(r.playlist.includes(name),false,`must remove ${name}`);
+ for(const name of sports) assert.equal(r.playlist.includes(name),true,`must keep sports ${name}`);
 });

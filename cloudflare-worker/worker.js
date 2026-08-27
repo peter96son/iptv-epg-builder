@@ -1,4 +1,4 @@
-const VERSION = "3.0.8-v14.10";
+const VERSION = "3.0.9-v14.11";
 const DEFAULT_EPG_URL = "https://raw.githubusercontent.com/peter96son/iptv-epg-builder/main/output/epg.xml.gz";
 const DEFAULT_MAPPING_URL = "https://raw.githubusercontent.com/peter96son/iptv-epg-builder/main/output/uhf-mapping.json";
 const DEFAULT_RULES_URL = "https://raw.githubusercontent.com/peter96son/iptv-epg-builder/main/data/playlist_rules.json";
@@ -15,6 +15,20 @@ const HARD_EXCLUDE_NAME_PREFIXES = [
   "prokino",
   "1+1 кіно",
   "1+1 кино",
+  // v14.11 user policy: Ukrainian-only non-sports feeds. Sports UA stays.
+  "star cinema",
+  "m1 hd",
+  "m2 hd",
+  "musicbox ua hd",
+  "ua.music hd",
+  "серіал україна 1",
+  "серіал україна 2",
+  "сериал украина 1",
+  "сериал украина 2",
+  "filmua drama",
+  "про київ",
+  "ewtn украина",
+  "ewtn україна",
 ];
 
 function isHardExcludedName(name){
@@ -189,7 +203,7 @@ export default {
   const isTv=url.pathname==="/tv",isDownload=url.pathname==="/download",forceFresh=url.searchParams.get("fresh")==="1";
   if(!isTv&&!isDownload)return notFound();
   if(!env.PLAYLIST_URL)return new Response("PLAYLIST_URL is not configured",{status:500,headers:{"Cache-Control":"no-store"}});
-  const cache=caches.default,cacheKey=new Request(url.origin+"/tv-cache-v14-10",{method:"GET"}),cached=forceFresh?null:await cache.match(cacheKey);
+  const cache=caches.default,cacheKey=new Request(url.origin+"/tv-cache-v14-11",{method:"GET"}),cached=forceFresh?null:await cache.match(cacheKey);
   if(cached){if(isDownload){const h=new Headers(cached.headers);h.set("Content-Disposition",'attachment; filename="playlist.m3u"');return new Response(cached.body,{status:cached.status,headers:h});}return cached;}
   const [pr,mr,rr]=await Promise.all([
     fetch(env.PLAYLIST_URL,{headers:{"User-Agent":`UHF-Private-Playlist-Worker/${VERSION}`}}),

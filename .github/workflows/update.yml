@@ -60,6 +60,7 @@ jobs:
           EPG_SOURCE_TIMEOUT_CAP: "90"
           EPG_SOURCE_RETRIES_CAP: "2"
           EPG_SOURCE_DEADLINE_SECONDS: "1500"
+          EPG_MIN_FUTURE_HOURS: "12"
           XMLTV_SPILL_THRESHOLD_BYTES: "4194304"
         run: python run.py
 
@@ -67,6 +68,11 @@ jobs:
         env:
           PLAYLIST_URL: ${{ secrets.PLAYLIST_URL }}
         run: python -m src.movie_epg_audit
+
+      - name: EPG horizon QA
+        env:
+          EPG_PUBLISH_MIN_FUTURE_HOURS: "6"
+        run: python -m src.epg_horizon_audit
 
       - name: Save EPG and metadata cache
         if: always()

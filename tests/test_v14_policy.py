@@ -60,7 +60,11 @@ def test_cumulative_playlist_personalizations_are_locked():
     }
     for name, group in required.items():
         assert g.get(name) == group
-    for prefix in ["Cine+","Твоє Кіно","Твое Кино","PROKINO"]:
+    for prefix in [
+        "Cine+","Твоє Кіно","Твое Кино","PROKINO",
+        "Star Cinema","M1 HD","M2 HD","MusicBox UA HD","UA.Music HD",
+        "Серіал Україна 1","Серіал Україна 2","FilmUA Drama","Про Київ","EWTN Украина",
+    ]:
         assert prefix in r["exclude_name_prefixes"]
 
 
@@ -81,3 +85,9 @@ def test_backfill_uses_existing_normalization_policy():
 def test_ci_regression_year_handling():
     assert me._clean_search_title("х/ф Фильм (2019)") == "Фильм"
     assert me._clean_search_title("x/ф Бегущий по лезвию 2049") == "Бегущий по лезвию 2049"
+
+
+def test_mm_ussr_adventures_uses_fresh_gabbarit_schedule():
+    rows = (Path(__file__).resolve().parents[1]/"data"/"source_pins.csv").read_text(encoding="utf-8")
+    assert "MM USSR Приключения HD,Xminimax-ussr-prikluchenija" in rows
+    assert "gabbarit-primary,ussr-prikluchenija-mm,1" in rows
