@@ -3,20 +3,20 @@
 Diagnostic queue for Russian-language and CIS recovery. It does not create aliases by itself.
 Regional variants, time-shifts and virtual/FAST families must be verified before production mapping.
 
-Candidate channels: **101**
+Candidate channels: **95**
 
-Unsafe virtual/dummy-ID channels: **56**
+Unsafe virtual/dummy-ID channels: **52**
 
 ## By group
 
-- Кинозалы: 24
+- Кинозалы: 23
 - Кино: 18
-- Кинозалы UA: 14
 - Украинские: 13
+- Кинозалы UA: 10
 - Музыкальные: 10
 - Детские: 6
-- Россия: 6
 - Познавательные: 5
+- Россия: 5
 - Спорт: 3
 - Кино 4K: 1
 - Беларусь: 1
@@ -64,10 +64,6 @@ Unsafe virtual/dummy-ID channels: **56**
 | DITV ФИЛЬМЫ | Кинозалы |  | DITV | no |
 | DITV ФИЛЬМЫ УЖАСОВ 80-х | Кинозалы |  | DITV | no |
 | KLI Новинки HD | Кинозалы |  | KLI | no |
-| VeleS С Новым годом! | Кинозалы |  | VeleS | no |
-| Joker:Гей Арнольд! | Кинозалы UA |  | Joker | no |
-| Joker:Русалочка | Кинозалы UA |  | Joker | no |
-| Joker:Формула | Кинозалы UA |  | Joker | no |
 | Play-X Украинский кинозал 1 HD | Кинозалы UA |  | Play-X | no |
 | Play-X Украинский кинозал 2 HD | Кинозалы UA |  | Play-X | no |
 | Play-X Фильмы про войну в Украине | Кинозалы UA |  | Play-X | no |
@@ -92,7 +88,6 @@ Unsafe virtual/dummy-ID channels: **56**
 | Пес HD | Кино |  | Other: Пес | review |
 | Честный Детекти | Кино |  | Other: Честный | review |
 | SWEET КIНО HD | Кинозалы UA |  | Other: SWEET | review |
-| Картковий Будинок | Кинозалы UA |  | Other: Картковий | review |
 | Кохання на виживання HD | Кинозалы UA |  | Other: Кохання | review |
 | На Трьох HD | Кинозалы UA |  | Other: На | review |
 | Полювання на в бивцю HD | Кинозалы UA |  | Other: Полювання | review |
@@ -108,7 +103,6 @@ Unsafe virtual/dummy-ID channels: **56**
 | Вестник Надыма | Россия | RU | Other: Вестник | review |
 | Витрина | Россия | RU | Other: Витрина | review |
 | ВТК 41 Аргус | Россия | RU | Other: ВТК | review |
-| Раменское ТВ | Россия | RU | Other: Раменское | review |
 | Телеплюс | Россия | RU | Other: Телеплюс | review |
 | УПЛ ТВ 1 | Спорт |  | Other: УПЛ | review |
 | УПЛ ТВ 2 | Спорт |  | Other: УПЛ | review |
