@@ -90,4 +90,4 @@ def test_ci_regression_year_handling():
 def test_mm_ussr_adventures_uses_fresh_gabbarit_schedule():
     rows = (Path(__file__).resolve().parents[1]/"data"/"source_pins.csv").read_text(encoding="utf-8")
     assert "MM USSR Приключения HD,Xminimax-ussr-prikluchenija" in rows
-    assert "gabbarit-primary,ussr-prikluchenija-mm,1" in rows
+    assert "gabbarit-primary,ussr-prikluchenija-mm,0" in rows
