@@ -3,13 +3,13 @@
 This report is diagnostic only. It does not create EPG mappings.
 A family must be researched and verified before aliases are added to the live builder.
 
-Unmatched channels: **742**
+Unmatched channels: **785**
 
 | Family | Channels | no_epg_* IDs | Main groups |
 |---|---:|---:|---|
-| Joker | 71 | 0 | Кинозалы UA (68), Кинозалы (3) |
+| Joker | 120 | 0 | Кинозалы UA (117), Кинозалы (3) |
 | DITV | 35 | 32 | Кинозалы (25), Детские (6), Познавательные (3), Для взрослых (1) |
-| Other | 33 | 0 | Украинские (6), Кинозалы UA (4), Израиль (3), Испания (3) |
+| Other | 35 | 0 | Украинские (6), Кинозалы UA (4), Израиль (3), Испания (3) |
 | Play-X | 15 | 0 | Музыкальные (9), Кино (3), Кинозалы UA (3) |
 | Other: Football | 13 | 0 | Спорт (13) |
 | Other: VIP | 12 | 0 | Спорт (12) |
@@ -22,13 +22,13 @@ Unmatched channels: **742**
 | Other: Pimple | 6 | 0 | Спорт (6) |
 | Other: TRT | 6 | 0 | Турция (6) |
 | Other: НТВ | 6 | 6 | Кино (6) |
-| Other: BeIN | 5 | 0 | Спорт (5) |
 | Other: Viasat | 5 | 0 | Познавательные (3), UK (2) |
 | Other: Carac | 4 | 0 | BE & NL (4) |
 | Other: CBS | 4 | 0 | Польша (2), Румыния (2) |
 | Other: Disney | 4 | 0 | Израиль (1), Испания (1), Молдова (1), Канада (1) |
 | Other: FintGa | 4 | 0 | Спорт (4) |
 | Other: LRT | 4 | 0 | Латвия (4) |
+| Other: Nickelodeon | 4 | 0 | Литва (1), Израиль (1), Болгария (1), Румыния (1) |
 | Other: Power | 4 | 0 | Турция (3), Латвия (1) |
 | Other: PowerT | 4 | 0 | Турция (4) |
 | Other: RAI | 4 | 0 | Италия (4) |
@@ -41,7 +41,6 @@ Unmatched channels: **742**
 | Other: History | 3 | 0 | Познавательные (1), Германия (1), Испания (1) |
 | Other: LA | 3 | 0 | Испания (3) |
 | Other: Live | 3 | 0 | Спорт (2), Музыкальные (1) |
-| Other: Nickelodeon | 3 | 0 | Литва (1), Израиль (1), Румыния (1) |
 | Other: Total | 3 | 0 | Музыкальные (3) |
 | Other: УПЛ | 3 | 0 | Спорт (3) |
 | KLI | 2 | 0 | Кинозалы (1), Кино 4K (1) |
@@ -74,10 +73,10 @@ Unmatched channels: **742**
 | Other: Musicbox | 2 | 0 | Музыкальные (2) |
 | Other: Nat | 2 | 0 | Израиль (1), Испания (1) |
 | Other: National | 2 | 0 | Познавательные (1), Болгария (1) |
+| Other: Nick | 2 | 0 | Израиль (1), Болгария (1) |
 | Other: Nova | 2 | 0 | SkyLink (2) |
 | Other: ORF | 2 | 0 | Германия (2) |
 | Other: PMC | 2 | 0 | Музыкальные (2) |
-| Other: Premiere | 2 | 0 | Кино (2) |
 | Other: Radio | 2 | 0 | Музыкальные (1), Литва (1) |
 | Other: Rai | 2 | 0 | Италия (1), Болгария (1) |
 | Other: Retro | 2 | 0 | Музыкальные (1), Чехия (1) |
@@ -92,7 +91,6 @@ Unmatched channels: **742**
 | Other: Сер | 2 | 0 | Кино (2) |
 | BCU | 1 | 0 | Детские (1) |
 | Magic | 1 | 0 | Болгария (1) |
-| MiniMax/MM | 1 | 0 | Детские (1) |
 | Other: +BAKU | 1 | 0 | Азербайджан (1) |
 | Other: 5Sport | 1 | 0 | Израиль (1) |
 | Other: 70-80 | 1 | 0 | Музыкальные (1) |
@@ -114,6 +112,7 @@ Unmatched channels: **742**
 | Other: AutoMotorSport | 1 | 0 | SkyLink (1) |
 | Other: AzTV | 1 | 0 | Азербайджан (1) |
 | Other: BEATTV | 1 | 0 | BE & NL (1) |
+| Other: BeIN | 1 | 0 | Спорт (1) |
 | Other: BeJoy | 1 | 0 | Италия (1) |
 | Other: Bel | 1 | 0 | BE & NL (1) |
 | Other: Best | 1 | 0 | Музыкальные (1) |
@@ -123,9 +122,6 @@ Unmatched channels: **742**
 | Other: BOLLYSHOW | 1 | 0 | Израиль (1) |
 | Other: Bolywood | 1 | 0 | Румыния (1) |
 | Other: BOX_MUSIC2_4K | 1 | 0 | Музыкальные (1) |
-| Other: BOX_SPORT_LIVE_1_HD | 1 | 0 | Спорт (1) |
-| Other: BOX_SPORT_LIVE_2_HD | 1 | 0 | Спорт (1) |
-| Other: BOX_SPORT_LIVE_3_HD | 1 | 0 | Спорт (1) |
 | Other: BOX_SPORT_LIVE_4_HD | 1 | 0 | Спорт (1) |
 | Other: BOX_SPORT_LIVE_4K | 1 | 0 | Спорт (1) |
 | Other: BOX_SPORT_LIVE_5_HD | 1 | 0 | Спорт (1) |
@@ -246,7 +242,6 @@ Unmatched channels: **742**
 | Other: Muzzik | 1 | 0 | Музыкальные (1) |
 | Other: N24 | 1 | 0 | Румыния (1) |
 | Other: NGC | 1 | 0 | BE & NL (1) |
-| Other: Nick | 1 | 0 | Израиль (1) |
 | Other: Nicktoons | 1 | 0 | Румыния (1) |
 | Other: NIEDERBAYERN | 1 | 0 | Германия (1) |
 | Other: Noord | 1 | 0 | BE & NL (1) |
@@ -300,6 +295,7 @@ Unmatched channels: **742**
 | Other: Soul | 1 | 0 | Болгария (1) |
 | Other: Space | 1 | 0 | Азербайджан (1) |
 | Other: Speranta | 1 | 0 | Румыния (1) |
+| Other: Sport+ | 1 | 0 | Казахстан (1) |
 | Other: Sportdigital | 1 | 0 | Германия (1) |
 | Other: Stimmungsgarten | 1 | 0 | Германия (1) |
 | Other: SWEET | 1 | 0 | Кинозалы UA (1) |
@@ -415,34 +411,80 @@ Unmatched channels: **742**
 | Other: Центр | 1 | 0 | Беларусь (1) |
 | Other: Черн | 1 | 0 | Украинские (1) |
 | Other: Честный | 1 | 0 | Кино (1) |
-| VeleS | 1 | 0 | Кинозалы (1) |
 | Velilla | 1 | 0 | Детские (1) |
 
 ## Channels by family
 
-### Joker — 71
+### Joker — 120
 
 - jk_fargo
 - jk_SexandCity
 - jk_desperate
 - Joker:Сімсони
+- Joker:Губка Боб
 - Joker:Love
+- Joker:Альф
+- Joker:Футурама
 - Joker:CSI NY
 - Joker:CSI Vegas
 - Joker:CSI Miami
+- Joker:Секретні матеріали
+- Joker:Друзі
 - Joker:Дім Дракона
 - Joker:Кращі фільми 2024
+- Joker:Шерлок
+- Joker:Гострі картузи
+- Joker:Відьмак
+- Joker:Панда Кун-фу
 - Joker:Формула
 - Joker:Тарантіно
+- Joker:Робокар Полі
+- Joker:Секс і Місто
+- Joker:Коломбо
+- Joker:Американський тато
 - Joker:Гріфіни
 - Joker:Русалочка
+- Joker:Аладдін
 - Joker:Чіп та Дейл
 - Joker:Гей Арнольд!
 - Joker: Том та Джеррі
+- Joker:Свинка Пепа
+- Joker:Щенячий патруль
+- Joker:Качині історії
+- Joker:90-ті
+- Joker:Леді Баг і Супер кіт
+- Joker:Пуаро Агати Крісті
+- Joker:Декстер
+- Joker:Касл
+- Joker:Бруклін 9-9
+- Joker:Фубар
+- Joker:Кістки
+- Joker:Пуститися берега
 - Joker:Мел Гібсон
+- Joker:Теорія брехні
+- Joker:Величне століття
+- Joker:Ван Дамм
+- Joker:Вітчайдушні домогосподарки
+- Joker:Маленьке королівство Бена і Холлі
+- Joker:Гравіті Фолз
 - Joker:South Park
+- Joker:Як я зустрів вашу маму
+- Joker:Теорія великого вибуху
+- Joker:Cinema
 - Joker:Cinema2
+- Joker:Горець
+- Joker:Mислити як злочинець
+- Joker:Менталіст
+- Joker:Пограбування
 - Joker:Герої
+- Joker:Корона
+- Joker:Загублені
+- Joker:Чорне дзеркало
+- Joker:Біографічне
+- Joker:Швидкість
+- Joker:Краще подзвоніть Солу
+- Joker:Пінгвіни Мадагаскару
+- Joker:Ліло і Стіч
 - jk_Cinema3
 - jk_doku_Ukraine
 - jk_serial
@@ -474,9 +516,11 @@ Unmatched channels: **742**
 - Joker: Twin Peaks
 - jk_boys
 - jk_Winx
+- Joker: Фантастика
 - jk_Morning_Show
 - jk_Ritchie
 - jk_Scorsese
+- Joker: Wednesday
 - jk_Spilberg
 - jk_Kopola
 - jk_Skott
@@ -532,7 +576,7 @@ Unmatched channels: **742**
 - DITV Мультфильмы для малышей
 - DITV XXX 18+
 
-### Other — 33
+### Other — 35
 
 - Сімейні мелодрами+
 - Діти проти зірок HD
@@ -567,6 +611,8 @@ Unmatched channels: **742**
 - Šláger Premium
 - 192 TV NL
 - 6 Ter
+- Q Sport League
+- Q Arena
 
 ### Play-X — 15
 
@@ -707,14 +753,6 @@ Unmatched channels: **742**
 - НТВ Сериал Следствие Вели
 - НТВ Сериал Пять Минут Тишины
 
-### Other: BeIN — 5
-
-- BeIN Sport 1 HD
-- BeIN Sport 2 HD
-- BeIN Sport 3 HD
-- BeIN Sport 4 HD
-- BeIN EXTRAS
-
 ### Other: Viasat — 5
 
 - Viasat Explore Best HD
@@ -757,6 +795,13 @@ Unmatched channels: **742**
 - LRT Opus
 - LRT Radijas
 - LRT TV
+
+### Other: Nickelodeon — 4
+
+- Nickelodeon Baltic
+- Nickelodeon
+- Nickelodeon
+- Nickelodeon
 
 ### Other: Power — 4
 
@@ -835,12 +880,6 @@ Unmatched channels: **742**
 - Live Sport 1
 - Live Sport 2
 - Live Музыка
-
-### Other: Nickelodeon — 3
-
-- Nickelodeon Baltic
-- Nickelodeon
-- Nickelodeon
 
 ### Other: Total — 3
 
@@ -1004,6 +1043,11 @@ Unmatched channels: **742**
 - National Geographic HD
 - National Geographic
 
+### Other: Nick — 2
+
+- Nick Jr
+- Nick Jr
+
 ### Other: Nova — 2
 
 - Nova Sport 3 HD
@@ -1018,11 +1062,6 @@ Unmatched channels: **742**
 
 - PMC
 - PMC Royale
-
-### Other: Premiere — 2
-
-- Premiere HD 2
-- Premiere HD 3
 
 ### Other: Radio — 2
 
@@ -1091,10 +1130,6 @@ Unmatched channels: **742**
 ### Magic — 1
 
 - Magic TV
-
-### MiniMax/MM — 1
-
-- MM Walt Disney HD
 
 ### Other: +BAKU — 1
 
@@ -1180,6 +1215,10 @@ Unmatched channels: **742**
 
 - BEATTV
 
+### Other: BeIN — 1
+
+- BeIN EXTRAS
+
 ### Other: BeJoy — 1
 
 - BeJoy Kids
@@ -1215,18 +1254,6 @@ Unmatched channels: **742**
 ### Other: BOX_MUSIC2_4K — 1
 
 - BOX_MUSIC2_4K
-
-### Other: BOX_SPORT_LIVE_1_HD — 1
-
-- BOX_SPORT_LIVE_1_HD
-
-### Other: BOX_SPORT_LIVE_2_HD — 1
-
-- BOX_SPORT_LIVE_2_HD
-
-### Other: BOX_SPORT_LIVE_3_HD — 1
-
-- BOX_SPORT_LIVE_3_HD
 
 ### Other: BOX_SPORT_LIVE_4_HD — 1
 
@@ -1708,10 +1735,6 @@ Unmatched channels: **742**
 
 - NGC HD
 
-### Other: Nick — 1
-
-- Nick Jr
-
 ### Other: Nicktoons — 1
 
 - Nicktoons
@@ -1923,6 +1946,10 @@ Unmatched channels: **742**
 ### Other: Speranta — 1
 
 - Speranta
+
+### Other: Sport+ — 1
+
+- Sport+ Qazaqstan
 
 ### Other: Sportdigital — 1
 
@@ -2383,10 +2410,6 @@ Unmatched channels: **742**
 ### Other: Честный — 1
 
 - Честный Детекти
-
-### VeleS — 1
-
-- VeleS С Новым годом!
 
 ### Velilla — 1
 

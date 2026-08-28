@@ -3,15 +3,15 @@
 Diagnostic queue for Russian-language and CIS recovery. It does not create aliases by itself.
 Regional variants, time-shifts and virtual/FAST families must be verified before production mapping.
 
-Candidate channels: **100**
+Candidate channels: **119**
 
-Unsafe virtual/dummy-ID channels: **56**
+Unsafe virtual/dummy-ID channels: **75**
 
 ## By group
 
-- Кинозалы: 24
+- Кинозалы UA: 34
+- Кинозалы: 23
 - Кино: 18
-- Кинозалы UA: 14
 - Украинские: 13
 - Музыкальные: 10
 - Детские: 6
@@ -64,10 +64,29 @@ Unsafe virtual/dummy-ID channels: **56**
 | DITV ФИЛЬМЫ | Кинозалы |  | DITV | no |
 | DITV ФИЛЬМЫ УЖАСОВ 80-х | Кинозалы |  | DITV | no |
 | KLI Новинки HD | Кинозалы |  | KLI | no |
-| VeleS С Новым годом! | Кинозалы |  | VeleS | no |
+| Joker: Фантастика | Кинозалы UA |  | Joker | no |
+| Joker:Mислити як злочинець | Кинозалы UA |  | Joker | no |
+| Joker:Альф | Кинозалы UA |  | Joker | no |
+| Joker:Американський тато | Кинозалы UA |  | Joker | no |
+| Joker:Ван Дамм | Кинозалы UA |  | Joker | no |
 | Joker:Гей Арнольд! | Кинозалы UA |  | Joker | no |
+| Joker:Горець | Кинозалы UA |  | Joker | no |
+| Joker:Губка Боб | Кинозалы UA |  | Joker | no |
+| Joker:Декстер | Кинозалы UA |  | Joker | no |
+| Joker:Касл | Кинозалы UA |  | Joker | no |
+| Joker:Коломбо | Кинозалы UA |  | Joker | no |
+| Joker:Корона | Кинозалы UA |  | Joker | no |
+| Joker:Панда Кун-фу | Кинозалы UA |  | Joker | no |
+| Joker:Пограбування | Кинозалы UA |  | Joker | no |
+| Joker:Пуститися берега | Кинозалы UA |  | Joker | no |
 | Joker:Русалочка | Кинозалы UA |  | Joker | no |
+| Joker:Свинка Пепа | Кинозалы UA |  | Joker | no |
 | Joker:Формула | Кинозалы UA |  | Joker | no |
+| Joker:Фубар | Кинозалы UA |  | Joker | no |
+| Joker:Футурама | Кинозалы UA |  | Joker | no |
+| Joker:Чорне дзеркало | Кинозалы UA |  | Joker | no |
+| Joker:Шерлок | Кинозалы UA |  | Joker | no |
+| Joker:Щенячий патруль | Кинозалы UA |  | Joker | no |
 | Play-X Украинский кинозал 1 HD | Кинозалы UA |  | Play-X | no |
 | Play-X Украинский кинозал 2 HD | Кинозалы UA |  | Play-X | no |
 | Play-X Фильмы про войну в Украине | Кинозалы UA |  | Play-X | no |
