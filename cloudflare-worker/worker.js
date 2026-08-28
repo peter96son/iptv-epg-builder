@@ -1,4 +1,4 @@
-const VERSION = "3.0.9-v14.11";
+const VERSION = "3.0.10-v14.12.3";
 const DEFAULT_EPG_URL = "https://raw.githubusercontent.com/peter96son/iptv-epg-builder/main/output/epg.xml.gz";
 const DEFAULT_MAPPING_URL = "https://raw.githubusercontent.com/peter96son/iptv-epg-builder/main/output/uhf-mapping.json";
 const DEFAULT_RULES_URL = "https://raw.githubusercontent.com/peter96son/iptv-epg-builder/main/data/playlist_rules.json";
@@ -200,10 +200,10 @@ export default {
     catch(e){return jsonResponse({ok:false,version:VERSION,error:String(e)},500);}
   }
   if(url.pathname==="/epg")return Response.redirect(epgUrl,302);
-  const isTv=url.pathname==="/tv",isDownload=url.pathname==="/download",forceFresh=url.searchParams.get("fresh")==="1";
-  if(!isTv&&!isDownload)return notFound();
+  const isTv=url.pathname==="/tv",isLive=url.pathname==="/tv-live",isDownload=url.pathname==="/download",forceFresh=url.searchParams.get("fresh")==="1"||isLive;
+  if(!isTv&&!isLive&&!isDownload)return notFound();
   if(!env.PLAYLIST_URL)return new Response("PLAYLIST_URL is not configured",{status:500,headers:{"Cache-Control":"no-store"}});
-  const cache=caches.default,cacheKey=new Request(url.origin+"/tv-cache-v14-11",{method:"GET"}),cached=forceFresh?null:await cache.match(cacheKey);
+  const cache=caches.default,cacheKey=new Request(url.origin+"/tv-cache-v14-12-3",{method:"GET"}),cached=forceFresh?null:await cache.match(cacheKey);
   if(cached){if(isDownload){const h=new Headers(cached.headers);h.set("Content-Disposition",'attachment; filename="playlist.m3u"');return new Response(cached.body,{status:cached.status,headers:h});}return cached;}
   const [pr,mr,rr]=await Promise.all([
     fetch(env.PLAYLIST_URL,{headers:{"User-Agent":`UHF-Private-Playlist-Worker/${VERSION}`}}),
@@ -223,9 +223,9 @@ export default {
   if(rr.ok){try{rules=await rr.json();rulesLoaded=true;}catch(_){}}
   const deliveryEpgUrl=versionedEpgUrl(epgUrl,mappingVersion);
   const original=await pr.text(),result=rewritePlaylist(original,mapping,deliveryEpgUrl,rules),rewritten=result.playlist;
-  const headers={"Content-Type":"application/x-mpegURL; charset=utf-8","Content-Disposition":isDownload?'attachment; filename="playlist.m3u"':'inline; filename="playlist.m3u"',"Cache-Control":"private, max-age=0","X-Content-Type-Options":"nosniff","Referrer-Policy":"no-referrer","X-EPG-Worker-Version":VERSION,"X-EPG-Mapping-Loaded":String(mappingLoaded),"X-EPG-Delivery-URL":deliveryEpgUrl,"X-Playlist-Rules-Loaded":String(rulesLoaded),"X-EPG-Total-Channels":String(result.totalChannels),"X-EPG-Matched":String(result.matched),"X-Playlist-Excluded":String(result.excluded),"X-Playlist-Conditional-Excluded":String(result.conditionalExcluded),"X-Playlist-Regrouped":String(result.regrouped),"X-Playlist-Renamed":String(result.renamed),"X-EPG-Cache":forceFresh?"bypass":"miss"};
+  const headers={"Content-Type":"application/x-mpegURL; charset=utf-8","Content-Disposition":isDownload?'attachment; filename="playlist.m3u"':'inline; filename="playlist.m3u"',"Cache-Control":"no-store, no-cache, must-revalidate, max-age=0","Pragma":"no-cache","Expires":"0","X-Content-Type-Options":"nosniff","Referrer-Policy":"no-referrer","X-EPG-Worker-Version":VERSION,"X-EPG-Mapping-Loaded":String(mappingLoaded),"X-EPG-Delivery-URL":deliveryEpgUrl,"X-Playlist-Rules-Loaded":String(rulesLoaded),"X-EPG-Total-Channels":String(result.totalChannels),"X-EPG-Matched":String(result.matched),"X-Playlist-Excluded":String(result.excluded),"X-Playlist-Conditional-Excluded":String(result.conditionalExcluded),"X-Playlist-Regrouped":String(result.regrouped),"X-Playlist-Renamed":String(result.renamed),"X-EPG-Cache":forceFresh?"bypass":"miss"};
   const response=new Response(rewritten,{status:200,headers});
-  if(!forceFresh)ctx.waitUntil(cache.put(cacheKey,new Response(rewritten,{status:200,headers:{...headers,"Content-Disposition":'inline; filename="playlist.m3u"',"Cache-Control":"s-maxage=900"}})));
+  if(!forceFresh)ctx.waitUntil(cache.put(cacheKey,new Response(rewritten,{status:200,headers:{...headers,"Content-Disposition":'inline; filename="playlist.m3u"',"Cache-Control":"no-store, no-cache, must-revalidate, max-age=0"}})));
   return response;
  }
 };
