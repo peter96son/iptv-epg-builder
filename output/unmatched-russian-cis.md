@@ -3,13 +3,13 @@
 Diagnostic queue for Russian-language and CIS recovery. It does not create aliases by itself.
 Regional variants, time-shifts and virtual/FAST families must be verified before production mapping.
 
-Candidate channels: **101**
+Candidate channels: **100**
 
 Unsafe virtual/dummy-ID channels: **56**
 
 ## By group
 
-- Кинозалы: 25
+- Кинозалы: 24
 - Кино: 18
 - Кинозалы UA: 14
 - Украинские: 13
@@ -91,7 +91,6 @@ Unsafe virtual/dummy-ID channels: **56**
 | Новый Русский HD | Кино |  | Other: Новый | review |
 | Пес HD | Кино |  | Other: Пес | review |
 | Честный Детекти | Кино |  | Other: Честный | review |
-| YOSSO TV Советские фильмы | Кинозалы |  | Other: YOSSO | review |
 | SWEET КIНО HD | Кинозалы UA |  | Other: SWEET | review |
 | Картковий Будинок | Кинозалы UA |  | Other: Картковий | review |
 | Кохання на виживання HD | Кинозалы UA |  | Other: Кохання | review |

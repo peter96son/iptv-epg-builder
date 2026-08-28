@@ -1,13 +1,13 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-08-27T19:17:58.892619-07:00`
+- Generated: `2026-08-27T19:52:42.196341-07:00`
 - Playlist channels: **2814**
-- Baseline covered: **1505**
-- Final covered: **2069**
-- Added by fallbacks: **+564**
-- Unmatched: **745**
-- Programmes: **376661**
-- Movie coverage: **699/848** (+278)
+- Baseline covered: **1503**
+- Final covered: **2072**
+- Added by fallbacks: **+569**
+- Unmatched: **742**
+- Programmes: **377473**
+- Movie coverage: **702/848** (+283)
 
 ## Playlist changes
 
@@ -21,7 +21,7 @@
 
 | Group | Total | Baseline | Final | Added | Coverage |
 |---|---:|---:|---:|---:|---:|
-| Кинозалы | 358 | 174 | 326 | +152 | 91.1% |
+| Кинозалы | 358 | 172 | 328 | +156 | 91.6% |
 | Спорт | 264 | 96 | 171 | +75 | 64.8% |
 | Кинозалы UA | 206 | 50 | 118 | +68 | 57.3% |
 | Кино | 219 | 139 | 192 | +53 | 87.7% |
@@ -35,10 +35,10 @@
 | Румыния | 85 | 46 | 58 | +12 | 68.2% |
 | Италия | 34 | 1 | 10 | +9 | 29.4% |
 | Россия | 183 | 169 | 178 | +9 | 97.3% |
+| Кино 4K | 65 | 58 | 64 | +6 | 98.5% |
 | Познавательные | 118 | 98 | 104 | +6 | 88.1% |
 | Для взрослых | 33 | 19 | 24 | +5 | 72.7% |
 | Израиль | 78 | 29 | 34 | +5 | 43.6% |
-| Кино 4K | 65 | 58 | 63 | +5 | 96.9% |
 | Греция | 10 | 3 | 7 | +4 | 70.0% |
 | Беларусь | 23 | 19 | 22 | +3 | 95.7% |
 | Разное | 30 | 26 | 29 | +3 | 96.7% |
@@ -64,11 +64,11 @@
 
 | Source | Status | Added |
 |---|---|---:|
-| iptv-online-primary | ok | 1505 |
-| iptvx-noarch | ok | 240 |
+| iptv-online-primary | ok | 1503 |
+| iptvx-noarch | ok | 243 |
 | klimedia-dedicated | failed | 0 |
 | runigma-iptv | ok | 20 |
-| openbox-tsd | ok | 40 |
+| openbox-tsd | ok | 42 |
 | next-dedicated | ok | 0 |
 | bcumedia-dedicated | ok | 5 |
 | cineman-dedicated | ok | 0 |
@@ -80,7 +80,7 @@
 | epgpw-RU | ok | 12 |
 | epgpw-DE | ok | 5 |
 | epgpw-GB | ok | 6 |
-| epgpw-US | ok | 0 |
+| epgpw-US | failed | 0 |
 | epgpw-CA | ok | 1 |
 | epgone-ru2 | ok | 12 |
 | epgpw-all-lite | ok | 5 |
@@ -129,9 +129,9 @@
 | Other: VIP | 12 | 0 |
 | Other: RTL | 11 | 0 |
 | Other: FIFA+ | 8 | 0 |
-| BOX | 7 | 0 |
 | Other: AXN | 7 | 0 |
 | Other: Rakuten | 7 | 0 |
+| BOX | 6 | 0 |
 | Other: DAZN | 6 | 0 |
 | Other: Pimple | 6 | 0 |
 | Other: TRT | 6 | 0 |
@@ -141,7 +141,6 @@
 
 | Generated | Covered | Unmatched | Programmes |
 |---|---:|---:|---:|
-| 2026-08-23T20:53:58.086241-07:00 | 2048 | 652 | 287628 |
 | 2026-08-23T22:34:35.287789-07:00 | 2042 | 658 | 293016 |
 | 2026-08-24T01:51:59.608690-07:00 | 2054 | 635 | 388167 |
 | 2026-08-24T07:47:56.713726-07:00 | 2111 | 603 | 403555 |
@@ -161,4 +160,5 @@
 | 2026-08-26T10:10:56.950928-07:00 | 2153 | 661 | 423026 |
 | 2026-08-27T14:28:40.597440-07:00 | 2020 | 794 | 385356 |
 | 2026-08-27T19:17:58.892619-07:00 | 2069 | 745 | 376661 |
+| 2026-08-27T19:52:42.196341-07:00 | 2072 | 742 | 377473 |
 

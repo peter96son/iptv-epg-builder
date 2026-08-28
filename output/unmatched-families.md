@@ -3,7 +3,7 @@
 This report is diagnostic only. It does not create EPG mappings.
 A family must be researched and verified before aliases are added to the live builder.
 
-Unmatched channels: **745**
+Unmatched channels: **742**
 
 | Family | Channels | no_epg_* IDs | Main groups |
 |---|---:|---:|---|
@@ -15,9 +15,9 @@ Unmatched channels: **745**
 | Other: VIP | 12 | 0 | Спорт (12) |
 | Other: RTL | 11 | 0 | Музыкальные (8), Германия (3) |
 | Other: FIFA+ | 8 | 0 | Спорт (8) |
-| BOX | 7 | 0 | Спорт (6), Кино 4K (1) |
 | Other: AXN | 7 | 0 | Румыния (4), SkyLink (3) |
 | Other: Rakuten | 7 | 0 | Испания (4), Италия (3) |
+| BOX | 6 | 0 | Спорт (6) |
 | Other: DAZN | 6 | 0 | Спорт (6) |
 | Other: Pimple | 6 | 0 | Спорт (6) |
 | Other: TRT | 6 | 0 | Турция (6) |
@@ -44,7 +44,6 @@ Unmatched channels: **745**
 | Other: Nickelodeon | 3 | 0 | Литва (1), Израиль (1), Румыния (1) |
 | Other: Total | 3 | 0 | Музыкальные (3) |
 | Other: УПЛ | 3 | 0 | Спорт (3) |
-| BCU | 2 | 0 | Кинозалы (1), Детские (1) |
 | KLI | 2 | 0 | Кинозалы (1), Кино 4K (1) |
 | Other: Arena | 2 | 0 | Спорт (2) |
 | Other: BBC | 2 | 0 | Испания (1), BE & NL (1) |
@@ -91,6 +90,7 @@ Unmatched channels: **745**
 | Other: Viva | 2 | 0 | Израиль (2) |
 | Other: Zoom | 2 | 0 | Украинские (1), Израиль (1) |
 | Other: Сер | 2 | 0 | Кино (2) |
+| BCU | 1 | 0 | Детские (1) |
 | Magic | 1 | 0 | Болгария (1) |
 | MiniMax/MM | 1 | 0 | Детские (1) |
 | Other: +BAKU | 1 | 0 | Азербайджан (1) |
@@ -347,7 +347,6 @@ Unmatched channels: **745**
 | Other: Yaldut | 1 | 0 | Израиль (1) |
 | Other: Yamtihoni | 1 | 0 | Израиль (1) |
 | Other: Yes | 1 | 0 | Израиль (1) |
-| Other: YOSSO | 1 | 0 | Кинозалы (1) |
 | Other: YTV | 1 | 0 | Канада (1) |
 | Other: Zeruno | 1 | 0 | Музыкальные (1) |
 | Other: Ziggo | 1 | 0 | BE & NL (1) |
@@ -643,16 +642,6 @@ Unmatched channels: **745**
 - FIFA+ HD (Portugal)
 - FIFA+ Women HD
 
-### BOX — 7
-
-- BOX Remast Plus 4K
-- BOX SportCast Live 8 HD
-- BOX SportCast Live 9 HD
-- Box Sport Live 12 HD
-- Box Sport Live 13 HD
-- Box Sport Live 14 HD
-- Box Sport Live 15 HD
-
 ### Other: AXN — 7
 
 - AXN White
@@ -672,6 +661,15 @@ Unmatched channels: **745**
 - Rakuten TV Comedy
 - Rakuten TV Drama
 - Rakuten TV Top
+
+### BOX — 6
+
+- BOX SportCast Live 8 HD
+- BOX SportCast Live 9 HD
+- Box Sport Live 12 HD
+- Box Sport Live 13 HD
+- Box Sport Live 14 HD
+- Box Sport Live 15 HD
 
 ### Other: DAZN — 6
 
@@ -855,11 +853,6 @@ Unmatched channels: **745**
 - УПЛ ТВ 1
 - УПЛ ТВ 2
 - УПЛ ТВ 3
-
-### BCU — 2
-
-- BCU NEW MEDIA 2
-- BCU Kids HD
 
 ### KLI — 2
 
@@ -1090,6 +1083,10 @@ Unmatched channels: **745**
 
 - Серіал Україна 1
 - Серіал Україна 2
+
+### BCU — 1
+
+- BCU Kids HD
 
 ### Magic — 1
 
@@ -2114,10 +2111,6 @@ Unmatched channels: **745**
 ### Other: Yes — 1
 
 - Yes TV Cinema
-
-### Other: YOSSO — 1
-
-- YOSSO TV Советские фильмы
 
 ### Other: YTV — 1
 
