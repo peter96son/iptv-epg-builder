@@ -1,13 +1,13 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-08-27T14:28:40.597440-07:00`
+- Generated: `2026-08-27T19:17:58.892619-07:00`
 - Playlist channels: **2814**
-- Baseline covered: **1515**
-- Final covered: **2020**
-- Added by fallbacks: **+505**
-- Unmatched: **794**
-- Programmes: **385356**
-- Movie coverage: **650/848** (+220)
+- Baseline covered: **1505**
+- Final covered: **2069**
+- Added by fallbacks: **+564**
+- Unmatched: **745**
+- Programmes: **376661**
+- Movie coverage: **699/848** (+278)
 
 ## Playlist changes
 
@@ -21,12 +21,12 @@
 
 | Group | Total | Baseline | Final | Added | Coverage |
 |---|---:|---:|---:|---:|---:|
-| Кинозалы | 358 | 183 | 326 | +143 | 91.1% |
+| Кинозалы | 358 | 174 | 326 | +152 | 91.1% |
 | Спорт | 264 | 96 | 171 | +75 | 64.8% |
+| Кинозалы UA | 206 | 50 | 118 | +68 | 57.3% |
 | Кино | 219 | 139 | 192 | +53 | 87.7% |
 | Музыкальные | 162 | 47 | 97 | +50 | 59.9% |
 | BE & NL | 100 | 33 | 54 | +21 | 54.0% |
-| Кинозалы UA | 206 | 50 | 69 | +19 | 33.5% |
 | UK | 30 | 9 | 26 | +17 | 86.7% |
 | Болгария | 49 | 13 | 27 | +14 | 55.1% |
 | Украинские | 119 | 67 | 81 | +14 | 68.1% |
@@ -41,10 +41,10 @@
 | Кино 4K | 65 | 58 | 63 | +5 | 96.9% |
 | Греция | 10 | 3 | 7 | +4 | 70.0% |
 | Беларусь | 23 | 19 | 22 | +3 | 95.7% |
+| Разное | 30 | 26 | 29 | +3 | 96.7% |
 | SkyLink | 20 | 8 | 10 | +2 | 50.0% |
 | Испания | 42 | 1 | 3 | +2 | 7.1% |
 | Новости | 12 | 10 | 12 | +2 | 100.0% |
-| Разное | 30 | 27 | 29 | +2 | 96.7% |
 | Турция | 24 | 6 | 8 | +2 | 33.3% |
 | Хорватия | 3 | 0 | 2 | +2 | 66.7% |
 | Чехия | 6 | 0 | 2 | +2 | 33.3% |
@@ -64,8 +64,8 @@
 
 | Source | Status | Added |
 |---|---|---:|
-| iptv-online-primary | ok | 1515 |
-| iptvx-noarch | ok | 232 |
+| iptv-online-primary | ok | 1505 |
+| iptvx-noarch | ok | 240 |
 | klimedia-dedicated | failed | 0 |
 | runigma-iptv | ok | 20 |
 | openbox-tsd | ok | 40 |
@@ -74,7 +74,7 @@
 | cineman-dedicated | ok | 0 |
 | minimax-mm-dedicated | ok | 0 |
 | sharavoz-guide | failed | 0 |
-| tvteam | ok | 29 |
+| tvteam | ok | 81 |
 | epgpw-sreda | ok | 0 |
 | epgpw-chestny-detektiv | ok | 0 |
 | epgpw-RU | ok | 12 |
@@ -112,7 +112,7 @@
 | epgshare-LT | ok | 0 |
 | epgshare-LV | ok | 2 |
 | teleguide-ru | ok | 2 |
-| gabbarit-current | ok | 48 |
+| gabbarit-current | ok | 47 |
 | gabbarit-primary | ok | 10 |
 | gabbarit-mirror | ok | 0 |
 | epgone-full-movie-rescue | ok | 0 |
@@ -121,7 +121,7 @@
 
 | Family | Channels | no_epg_* |
 |---|---:|---:|
-| Joker | 120 | 0 |
+| Joker | 71 | 0 |
 | DITV | 35 | 32 |
 | Other | 33 | 0 |
 | Play-X | 15 | 0 |
@@ -141,7 +141,6 @@
 
 | Generated | Covered | Unmatched | Programmes |
 |---|---:|---:|---:|
-| 2026-08-23T20:28:55.636677-07:00 | 2056 | 644 | 287480 |
 | 2026-08-23T20:53:58.086241-07:00 | 2048 | 652 | 287628 |
 | 2026-08-23T22:34:35.287789-07:00 | 2042 | 658 | 293016 |
 | 2026-08-24T01:51:59.608690-07:00 | 2054 | 635 | 388167 |
@@ -161,4 +160,5 @@
 | 2026-08-26T07:43:34.503958-07:00 | 2131 | 683 | 422234 |
 | 2026-08-26T10:10:56.950928-07:00 | 2153 | 661 | 423026 |
 | 2026-08-27T14:28:40.597440-07:00 | 2020 | 794 | 385356 |
+| 2026-08-27T19:17:58.892619-07:00 | 2069 | 745 | 376661 |
 
