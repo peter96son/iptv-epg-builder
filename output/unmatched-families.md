@@ -3,11 +3,11 @@
 This report is diagnostic only. It does not create EPG mappings.
 A family must be researched and verified before aliases are added to the live builder.
 
-Unmatched channels: **737**
+Unmatched channels: **742**
 
 | Family | Channels | no_epg_* IDs | Main groups |
 |---|---:|---:|---|
-| Joker | 71 | 0 | Кинозалы UA (68), Кинозалы (3) |
+| Joker | 75 | 0 | Кинозалы UA (72), Кинозалы (3) |
 | DITV | 35 | 32 | Кинозалы (25), Детские (6), Познавательные (3), Для взрослых (1) |
 | Other | 35 | 0 | Украинские (6), Кинозалы UA (4), Израиль (3), Испания (3) |
 | Play-X | 15 | 0 | Музыкальные (9), Кино (3), Кинозалы UA (3) |
@@ -174,6 +174,7 @@ Unmatched channels: **737**
 | Other: France | 1 | 0 | Испания (1) |
 | Other: Fun | 1 | 0 | Музыкальные (1) |
 | Other: FUN | 1 | 0 | Израиль (1) |
+| Other: GL | 1 | 0 | Кинозалы (1) |
 | Other: Glory | 1 | 0 | Спорт (1) |
 | Other: Good | 1 | 0 | Израиль (1) |
 | Other: GUNAZ | 1 | 0 | Азербайджан (1) |
@@ -207,6 +208,7 @@ Unmatched channels: **737**
 | Other: ITV | 1 | 0 | Украинские (1) |
 | Other: Jim | 1 | 0 | Румыния (1) |
 | Other: Junior | 1 | 0 | Израиль (1) |
+| Other: Jurmala | 1 | 0 | Латвия (1) |
 | Other: Jurnal | 1 | 0 | Молдова (1) |
 | Other: Kabala | 1 | 0 | Израиль (1) |
 | Other: Kabbalah | 1 | 0 | Израиль (1) |
@@ -265,6 +267,7 @@ Unmatched channels: **737**
 | Other: Play7 | 1 | 0 | BE & NL (1) |
 | Other: PLUS+ | 1 | 0 | Израиль (1) |
 | Other: Polar | 1 | 0 | Чехия (1) |
+| Other: Premiere | 1 | 0 | Кино (1) |
 | Other: PRIME | 1 | 0 | Израиль (1) |
 | Other: Privesc | 1 | 0 | Молдова (1) |
 | Other: Pro | 1 | 0 | Молдова (1) |
@@ -306,7 +309,6 @@ Unmatched channels: **737**
 | Other: Tezaur | 1 | 0 | Молдова (1) |
 | Other: TF | 1 | 0 | BE & NL (1) |
 | Other: TFavorit | 1 | 0 | Румыния (1) |
-| Other: The_Last_of_Us | 1 | 0 | Кинозалы UA (1) |
 | Other: This | 1 | 0 | Болгария (1) |
 | Other: TIC | 1 | 0 | Украинские (1) |
 | Other: TLC | 1 | 0 | Эстония (1) |
@@ -322,7 +324,6 @@ Unmatched channels: **737**
 | Other: TV8 | 1 | 0 | Молдова (1) |
 | Other: TVE | 1 | 0 | Испания (1) |
 | Other: TVM | 1 | 0 | Музыкальные (1) |
-| Other: TVPlay | 1 | 1 | Для взрослых (1) |
 | Other: TVR | 1 | 0 | Молдова (1) |
 | Other: TVR1 | 1 | 0 | Румыния (1) |
 | Other: USArmenia | 1 | 0 | Армения (1) |
@@ -416,78 +417,82 @@ Unmatched channels: **737**
 
 ## Channels by family
 
-### Joker — 71
+### Joker — 75
 
 - jk_fargo
 - jk_SexandCity
 - jk_desperate
 - Joker:Сімсони
+- Joker:Губка Боб
 - Joker:Love
+- Joker:Альф
+- Joker:Футурама
 - Joker:CSI NY
 - Joker:CSI Vegas
 - Joker:CSI Miami
+- Joker:Друзі
 - Joker:Дім Дракона
 - Joker:Кращі фільми 2024
+- Joker:Відьмак
+- Joker:Панда Кун-фу
 - Joker:Формула
 - Joker:Тарантіно
+- Joker:Робокар Полі
+- Joker:Секс і Місто
+- Joker:Коломбо
+- Joker:Американський тато
 - Joker:Гріфіни
 - Joker:Русалочка
+- Joker:Аладдін
 - Joker:Чіп та Дейл
 - Joker:Гей Арнольд!
 - Joker: Том та Джеррі
+- Joker:Свинка Пепа
+- Joker:Щенячий патруль
+- Joker:Качині історії
+- Joker:Леді Баг і Супер кіт
+- Joker:Декстер
+- Joker:Касл
+- Joker:Бруклін 9-9
+- Joker:Фубар
 - Joker:Мел Гібсон
+- Joker:Теорія брехні
+- Joker:Ван Дамм
+- Joker:Маленьке королівство Бена і Холлі
+- Joker:Гравіті Фолз
 - Joker:South Park
+- Joker:Як я зустрів вашу маму
+- Joker:Теорія великого вибуху
+- Joker:Cinema
 - Joker:Cinema2
+- Joker:Горець
+- Joker:Mислити як злочинець
 - Joker:Герої
+- Joker:Чорне дзеркало
+- Joker:Краще подзвоніть Солу
+- Joker:Пінгвіни Мадагаскару
+- Joker:Ліло і Стіч
 - jk_Cinema3
 - jk_doku_Ukraine
-- jk_serial
 - jk_Magic
 - jk_90210
-- jk_dram
 - jk_fineas
-- jk_strah
 - jk_Sliders
-- jk_Succession
 - jk_Money_Heist
 - jk_office
 - jk_Scrubs
-- jk_element
-- jk_Buffy
 - jk_Melrose_Place
 - jk_Stargate
-- jk_Only_Murders
-- jk_detektiv
 - jk_NCIS
-- jk_dark
 - jk_balance
 - jk_timon
 - jk_Cartoon
 - jk_Flintstones
-- jk_grimm
-- jk_kids
 - jk_black_cloak
 - Joker: Twin Peaks
-- jk_boys
-- jk_Winx
-- jk_Morning_Show
-- jk_Ritchie
-- jk_Scorsese
+- Joker: Wednesday
 - jk_Spilberg
-- jk_Kopola
-- jk_Skott
-- jk_Kameron
-- jk_Besson
-- jk_Nolan
-- jk_King
-- jk_Crowe
-- jk_Reeves
-- jk_Hemsworth
-- jk_Butler
-- jk_Kunis
-- jk_Neeson
 - jk_Scorpion
-- jk_duva
 - jk_Emeli
 
 ### DITV — 35
@@ -1415,6 +1420,10 @@ Unmatched channels: **737**
 
 - FUN
 
+### Other: GL — 1
+
+- GL Exist
+
 ### Other: Glory — 1
 
 - Glory Kickboxing
@@ -1546,6 +1555,10 @@ Unmatched channels: **737**
 ### Other: Junior — 1
 
 - Junior
+
+### Other: Jurmala — 1
+
+- TV Jurmala HD
 
 ### Other: Jurnal — 1
 
@@ -1779,6 +1792,10 @@ Unmatched channels: **737**
 
 - Polar 2 HD
 
+### Other: Premiere — 1
+
+- Premiere HD 1
+
 ### Other: PRIME — 1
 
 - PRIME
@@ -1943,10 +1960,6 @@ Unmatched channels: **737**
 
 - TFavorit
 
-### Other: The_Last_of_Us — 1
-
-- The_Last_of_Us
-
 ### Other: This — 1
 
 - This is Bulgaria
@@ -2006,10 +2019,6 @@ Unmatched channels: **737**
 ### Other: TVM — 1
 
 - TVM 3
-
-### Other: TVPlay — 1
-
-- TVPlay Наше XXX
 
 ### Other: TVR — 1
 
