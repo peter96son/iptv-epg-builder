@@ -1,50 +1,50 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-08-29T05:43:05.490267-07:00`
-- Playlist channels: **2812**
-- Baseline covered: **1556**
-- Final covered: **2070**
-- Added by fallbacks: **+514**
-- Unmatched: **742**
-- Programmes: **333137**
-- Movie coverage: **700/848** (+225)
+- Generated: `2026-08-29T11:36:45.202147-07:00`
+- Playlist channels: **2813**
+- Baseline covered: **1523**
+- Final covered: **2020**
+- Added by fallbacks: **+497**
+- Unmatched: **793**
+- Programmes: **332483**
+- Movie coverage: **653/848** (+209)
 
 ## Playlist changes
 
-- New channels: **1**
-- Removed channels: **2**
+- New channels: **4**
+- Removed channels: **4**
 - Renamed: **1**
-- Stream URL changed: **1**
+- Stream URL changed: **0**
 - Category changed: **0**
 
 ## Coverage by group
 
 | Group | Total | Baseline | Final | Added | Coverage |
 |---|---:|---:|---:|---:|---:|
-| Кинозалы | 358 | 196 | 328 | +132 | 91.6% |
+| Кинозалы | 358 | 196 | 326 | +130 | 91.1% |
 | Спорт | 264 | 103 | 178 | +75 | 67.4% |
-| Кино | 219 | 139 | 193 | +54 | 88.1% |
-| Музыкальные | 162 | 49 | 97 | +48 | 59.9% |
-| Кинозалы UA | 206 | 81 | 115 | +34 | 55.8% |
+| Кино | 219 | 139 | 194 | +55 | 88.6% |
+| Музыкальные | 162 | 49 | 96 | +47 | 59.3% |
 | BE & NL | 100 | 33 | 54 | +21 | 54.0% |
 | Детские | 82 | 51 | 72 | +21 | 87.8% |
+| Кинозалы UA | 206 | 50 | 69 | +19 | 33.5% |
 | UK | 30 | 9 | 26 | +17 | 86.7% |
-| Болгария | 49 | 12 | 25 | +13 | 51.0% |
+| Болгария | 49 | 11 | 26 | +15 | 53.1% |
 | Германия | 134 | 85 | 97 | +12 | 72.4% |
 | Румыния | 85 | 46 | 58 | +12 | 68.2% |
 | Украинские | 119 | 69 | 81 | +12 | 68.1% |
-| Россия | 183 | 168 | 178 | +10 | 97.3% |
 | Италия | 34 | 1 | 10 | +9 | 29.4% |
+| Россия | 183 | 169 | 178 | +9 | 97.3% |
+| Израиль | 78 | 29 | 35 | +6 | 44.9% |
 | Познавательные | 118 | 98 | 104 | +6 | 88.1% |
-| Израиль | 78 | 29 | 34 | +5 | 43.6% |
 | Кино 4K | 65 | 59 | 64 | +5 | 98.5% |
 | Греция | 10 | 3 | 7 | +4 | 70.0% |
 | Для взрослых | 33 | 20 | 24 | +4 | 72.7% |
-| SkyLink | 20 | 7 | 10 | +3 | 50.0% |
+| SkyLink | 20 | 5 | 7 | +2 | 35.0% |
 | Беларусь | 23 | 20 | 22 | +2 | 95.7% |
 | Испания | 42 | 1 | 3 | +2 | 7.1% |
 | Новости | 12 | 10 | 12 | +2 | 100.0% |
-| Разное | 30 | 27 | 29 | +2 | 96.7% |
+| Разное | 30 | 26 | 28 | +2 | 93.3% |
 | Турция | 24 | 6 | 8 | +2 | 33.3% |
 | Хорватия | 3 | 0 | 2 | +2 | 66.7% |
 | Чехия | 6 | 0 | 2 | +2 | 33.3% |
@@ -56,16 +56,16 @@
 | Армения | 5 | 1 | 1 | +0 | 20.0% |
 | Грузия | 22 | 15 | 15 | +0 | 68.2% |
 | Казахстан | 13 | 10 | 10 | +0 | 76.9% |
-| Литва | 36 | 33 | 33 | +0 | 91.7% |
 | Эстония | 15 | 12 | 12 | +0 | 80.0% |
-| Латвия | 23 | 17 | 16 | +-1 | 69.6% |
+| Латвия | 24 | 18 | 17 | +-1 | 70.8% |
+| Литва | 36 | 33 | 32 | +-1 | 88.9% |
 
 ## Source contribution
 
 | Source | Status | Added |
 |---|---|---:|
-| iptv-online-primary | ok | 1556 |
-| iptvx-noarch | ok | 217 |
+| iptv-online-primary | ok | 1523 |
+| iptvx-noarch | ok | 215 |
 | klimedia-dedicated | failed | 0 |
 | runigma-iptv | ok | 19 |
 | openbox-tsd | ok | 43 |
@@ -74,10 +74,10 @@
 | cineman-dedicated | ok | 0 |
 | minimax-mm-dedicated | ok | 1 |
 | sharavoz-guide | failed | 0 |
-| tvteam | ok | 53 |
+| tvteam | ok | 38 |
 | epgpw-sreda | ok | 0 |
 | epgpw-chestny-detektiv | ok | 0 |
-| epgpw-RU | ok | 7 |
+| epgpw-RU | ok | 8 |
 | epgpw-DE | ok | 5 |
 | epgpw-GB | ok | 6 |
 | epgpw-US | ok | 0 |
@@ -100,7 +100,7 @@
 | epgshare-DELUXEMUSIC | ok | 1 |
 | epgshare-IT | ok | 9 |
 | epgshare-RO | ok | 13 |
-| epgshare-BG | ok | 6 |
+| epgshare-BG | ok | 8 |
 | epgshare-PL | ok | 1 |
 | epgshare-HU | ok | 0 |
 | epgshare-CZ | ok | 3 |
@@ -115,13 +115,13 @@
 | gabbarit-current | ok | 48 |
 | gabbarit-primary | ok | 10 |
 | gabbarit-mirror | ok | 0 |
-| epgone-full-movie-rescue | ok | 1 |
+| epgone-full-movie-rescue | ok | 0 |
 
 ## Top unmatched families
 
 | Family | Channels | no_epg_* |
 |---|---:|---:|
-| Joker | 75 | 0 |
+| Joker | 120 | 0 |
 | DITV | 35 | 32 |
 | Other | 35 | 0 |
 | Play-X | 15 | 0 |
@@ -134,14 +134,13 @@
 | BOX | 6 | 0 |
 | Other: DAZN | 6 | 0 |
 | Other: Pimple | 6 | 0 |
+| Other: Sport | 6 | 0 |
 | Other: TRT | 6 | 0 |
-| Other: НТВ | 6 | 6 |
 
 ## Recent history
 
 | Generated | Covered | Unmatched | Programmes |
 |---|---:|---:|---:|
-| 2026-08-24T13:10:25.498609-07:00 | 2141 | 674 | 407210 |
 | 2026-08-24T16:05:30.371877-07:00 | 2143 | 672 | 407332 |
 | 2026-08-24T20:43:14.104759-07:00 | 2139 | 676 | 393361 |
 | 2026-08-25T01:44:20.662326-07:00 | 2129 | 686 | 453103 |
@@ -161,4 +160,5 @@
 | 2026-08-28T17:40:50.156481-07:00 | 2029 | 785 | 354115 |
 | 2026-08-28T23:40:20.007545-07:00 | 2077 | 737 | 359803 |
 | 2026-08-29T05:43:05.490267-07:00 | 2070 | 742 | 333137 |
+| 2026-08-29T11:36:45.202147-07:00 | 2020 | 793 | 332483 |
 

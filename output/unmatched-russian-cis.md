@@ -3,14 +3,14 @@
 Diagnostic queue for Russian-language and CIS recovery. It does not create aliases by itself.
 Regional variants, time-shifts and virtual/FAST families must be verified before production mapping.
 
-Candidate channels: **114**
+Candidate channels: **122**
 
-Unsafe virtual/dummy-ID channels: **70**
+Unsafe virtual/dummy-ID channels: **76**
 
 ## By group
 
-- Кинозалы UA: 29
-- Кинозалы: 23
+- Кинозалы UA: 34
+- Кинозалы: 25
 - Кино: 18
 - Украинские: 13
 - Музыкальные: 10
@@ -20,6 +20,7 @@ Unsafe virtual/dummy-ID channels: **70**
 - Спорт: 3
 - Кино 4K: 1
 - Беларусь: 1
+- Разное: 1
 
 ## Channels
 
@@ -64,6 +65,8 @@ Unsafe virtual/dummy-ID channels: **70**
 | DITV ФИЛЬМЫ | Кинозалы |  | DITV | no |
 | DITV ФИЛЬМЫ УЖАСОВ 80-х | Кинозалы |  | DITV | no |
 | KLI Новинки HD | Кинозалы |  | KLI | no |
+| VeleS С Новым годом! | Кинозалы |  | VeleS | no |
+| Joker: Фантастика | Кинозалы UA |  | Joker | no |
 | Joker:Mислити як злочинець | Кинозалы UA |  | Joker | no |
 | Joker:Альф | Кинозалы UA |  | Joker | no |
 | Joker:Американський тато | Кинозалы UA |  | Joker | no |
@@ -74,13 +77,17 @@ Unsafe virtual/dummy-ID channels: **70**
 | Joker:Декстер | Кинозалы UA |  | Joker | no |
 | Joker:Касл | Кинозалы UA |  | Joker | no |
 | Joker:Коломбо | Кинозалы UA |  | Joker | no |
+| Joker:Корона | Кинозалы UA |  | Joker | no |
 | Joker:Панда Кун-фу | Кинозалы UA |  | Joker | no |
+| Joker:Пограбування | Кинозалы UA |  | Joker | no |
+| Joker:Пуститися берега | Кинозалы UA |  | Joker | no |
 | Joker:Русалочка | Кинозалы UA |  | Joker | no |
 | Joker:Свинка Пепа | Кинозалы UA |  | Joker | no |
 | Joker:Формула | Кинозалы UA |  | Joker | no |
 | Joker:Фубар | Кинозалы UA |  | Joker | no |
 | Joker:Футурама | Кинозалы UA |  | Joker | no |
 | Joker:Чорне дзеркало | Кинозалы UA |  | Joker | no |
+| Joker:Шерлок | Кинозалы UA |  | Joker | no |
 | Joker:Щенячий патруль | Кинозалы UA |  | Joker | no |
 | Play-X Украинский кинозал 1 HD | Кинозалы UA |  | Play-X | no |
 | Play-X Украинский кинозал 2 HD | Кинозалы UA |  | Play-X | no |
@@ -105,6 +112,7 @@ Unsafe virtual/dummy-ID channels: **70**
 | Новый Русский HD | Кино |  | Other: Новый | review |
 | Пес HD | Кино |  | Other: Пес | review |
 | Честный Детекти | Кино |  | Other: Честный | review |
+| TVPlay АЛЬФ | Кинозалы |  | Other: TVPlay | review |
 | SWEET КIНО HD | Кинозалы UA |  | Other: SWEET | review |
 | Картковий Будинок | Кинозалы UA |  | Other: Картковий | review |
 | Кохання на виживання HD | Кинозалы UA |  | Other: Кохання | review |
@@ -118,6 +126,7 @@ Unsafe virtual/dummy-ID channels: **70**
 | Легенды Ретро FM | Музыкальные |  | Other: Легенды | review |
 | Континент Е | Познавательные |  | Other: Континент | review |
 | Орел и Решка | Познавательные |  | Other: Орел | review |
+| ТВОЁ ТВ HD | Разное |  | Other: ТВОЁ | review |
 | Rutube TV | Россия | RU | Other: Rutube | review |
 | Вестник Надыма | Россия | RU | Other: Вестник | review |
 | Витрина | Россия | RU | Other: Витрина | review |
