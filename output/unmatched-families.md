@@ -3,11 +3,11 @@
 This report is diagnostic only. It does not create EPG mappings.
 A family must be researched and verified before aliases are added to the live builder.
 
-Unmatched channels: **785**
+Unmatched channels: **737**
 
 | Family | Channels | no_epg_* IDs | Main groups |
 |---|---:|---:|---|
-| Joker | 120 | 0 | Кинозалы UA (117), Кинозалы (3) |
+| Joker | 71 | 0 | Кинозалы UA (68), Кинозалы (3) |
 | DITV | 35 | 32 | Кинозалы (25), Детские (6), Познавательные (3), Для взрослых (1) |
 | Other | 35 | 0 | Украинские (6), Кинозалы UA (4), Израиль (3), Испания (3) |
 | Play-X | 15 | 0 | Музыкальные (9), Кино (3), Кинозалы UA (3) |
@@ -322,6 +322,7 @@ Unmatched channels: **785**
 | Other: TV8 | 1 | 0 | Молдова (1) |
 | Other: TVE | 1 | 0 | Испания (1) |
 | Other: TVM | 1 | 0 | Музыкальные (1) |
+| Other: TVPlay | 1 | 1 | Для взрослых (1) |
 | Other: TVR | 1 | 0 | Молдова (1) |
 | Other: TVR1 | 1 | 0 | Румыния (1) |
 | Other: USArmenia | 1 | 0 | Армения (1) |
@@ -415,76 +416,29 @@ Unmatched channels: **785**
 
 ## Channels by family
 
-### Joker — 120
+### Joker — 71
 
 - jk_fargo
 - jk_SexandCity
 - jk_desperate
 - Joker:Сімсони
-- Joker:Губка Боб
 - Joker:Love
-- Joker:Альф
-- Joker:Футурама
 - Joker:CSI NY
 - Joker:CSI Vegas
 - Joker:CSI Miami
-- Joker:Секретні матеріали
-- Joker:Друзі
 - Joker:Дім Дракона
 - Joker:Кращі фільми 2024
-- Joker:Шерлок
-- Joker:Гострі картузи
-- Joker:Відьмак
-- Joker:Панда Кун-фу
 - Joker:Формула
 - Joker:Тарантіно
-- Joker:Робокар Полі
-- Joker:Секс і Місто
-- Joker:Коломбо
-- Joker:Американський тато
 - Joker:Гріфіни
 - Joker:Русалочка
-- Joker:Аладдін
 - Joker:Чіп та Дейл
 - Joker:Гей Арнольд!
 - Joker: Том та Джеррі
-- Joker:Свинка Пепа
-- Joker:Щенячий патруль
-- Joker:Качині історії
-- Joker:90-ті
-- Joker:Леді Баг і Супер кіт
-- Joker:Пуаро Агати Крісті
-- Joker:Декстер
-- Joker:Касл
-- Joker:Бруклін 9-9
-- Joker:Фубар
-- Joker:Кістки
-- Joker:Пуститися берега
 - Joker:Мел Гібсон
-- Joker:Теорія брехні
-- Joker:Величне століття
-- Joker:Ван Дамм
-- Joker:Вітчайдушні домогосподарки
-- Joker:Маленьке королівство Бена і Холлі
-- Joker:Гравіті Фолз
 - Joker:South Park
-- Joker:Як я зустрів вашу маму
-- Joker:Теорія великого вибуху
-- Joker:Cinema
 - Joker:Cinema2
-- Joker:Горець
-- Joker:Mислити як злочинець
-- Joker:Менталіст
-- Joker:Пограбування
 - Joker:Герої
-- Joker:Корона
-- Joker:Загублені
-- Joker:Чорне дзеркало
-- Joker:Біографічне
-- Joker:Швидкість
-- Joker:Краще подзвоніть Солу
-- Joker:Пінгвіни Мадагаскару
-- Joker:Ліло і Стіч
 - jk_Cinema3
 - jk_doku_Ukraine
 - jk_serial
@@ -516,11 +470,9 @@ Unmatched channels: **785**
 - Joker: Twin Peaks
 - jk_boys
 - jk_Winx
-- Joker: Фантастика
 - jk_Morning_Show
 - jk_Ritchie
 - jk_Scorsese
-- Joker: Wednesday
 - jk_Spilberg
 - jk_Kopola
 - jk_Skott
@@ -2054,6 +2006,10 @@ Unmatched channels: **785**
 ### Other: TVM — 1
 
 - TVM 3
+
+### Other: TVPlay — 1
+
+- TVPlay Наше XXX
 
 ### Other: TVR — 1
 
