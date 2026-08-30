@@ -3,23 +3,23 @@
 Diagnostic queue for Russian-language and CIS recovery. It does not create aliases by itself.
 Regional variants, time-shifts and virtual/FAST families must be verified before production mapping.
 
-Candidate channels: **120**
+Candidate channels: **142**
 
-Unsafe virtual/dummy-ID channels: **76**
+Unsafe virtual/dummy-ID channels: **74**
 
 ## By group
 
 - Кинозалы UA: 34
-- Кинозалы: 24
-- Кино: 18
-- Украинские: 13
+- Украинские: 26
+- Кино: 23
+- Кинозалы: 23
 - Музыкальные: 10
+- Россия: 7
 - Детские: 6
 - Познавательные: 5
-- Россия: 5
-- Спорт: 3
-- Кино 4K: 1
-- Беларусь: 1
+- Спорт: 4
+- Беларусь: 3
+- Разное: 1
 
 ## Channels
 
@@ -40,7 +40,6 @@ Unsafe virtual/dummy-ID channels: **76**
 | НТВ Сериал Скорая Помощь | Кино |  | Other: НТВ | no |
 | НТВ Сериал Следствие Вели | Кино |  | Other: НТВ | no |
 | НТВ Сериал Шеф | Кино |  | Other: НТВ | no |
-| KLI Новинки 4K Ultra HD | Кино 4K |  | KLI | no |
 | DITV Агент национальной безопасности | Кинозалы |  | DITV | no |
 | DITV Американские комедии 80-90-х | Кинозалы |  | DITV | no |
 | DITV ГАРИ ПОТЕР | Кинозалы |  | DITV | no |
@@ -63,7 +62,6 @@ Unsafe virtual/dummy-ID channels: **76**
 | DITV Счастливы вместе | Кинозалы |  | DITV | no |
 | DITV ФИЛЬМЫ | Кинозалы |  | DITV | no |
 | DITV ФИЛЬМЫ УЖАСОВ 80-х | Кинозалы |  | DITV | no |
-| KLI Новинки HD | Кинозалы |  | KLI | no |
 | VeleS С Новым годом! | Кинозалы |  | VeleS | no |
 | Joker: Фантастика | Кинозалы UA |  | Joker | no |
 | Joker:Mислити як злочинець | Кинозалы UA |  | Joker | no |
@@ -101,15 +99,22 @@ Unsafe virtual/dummy-ID channels: **76**
 | DITV 4К | Познавательные |  | DITV | no |
 | DITV Дикая природа 4К | Познавательные |  | DITV | no |
 | DITV Кулинария | Познавательные |  | DITV | no |
+| СкиФ Витебск | Беларусь | BY | Other: СкиФ | review |
+| Спорт ТВ [BY] | Беларусь | BY | Other: Спорт | review |
 | Центр BY | Беларусь | BY | Other: Центр | review |
 | Детектив HD | Кино |  | Other: Детектив | review |
 | Кино 24/7 | Кино |  | Other | review |
 | Кино Топ | Кино |  | Other: Топ | review |
+| Кинобоевик | Кино |  | Other: Кинобоевик | review |
+| Кинодрама | Кино |  | Other: Кинодрама | review |
 | Кинодром | Кино |  | Other: Кинодром | review |
 | Кинолаффка HD | Кино |  | Other: Кинолаффка | review |
+| Киносериал | Кино |  | Other: Киносериал | review |
 | Лента Кино | Кино |  | Other: Лента | review |
+| Мировое Кино | Кино |  | Other: Мировое | review |
 | Новый Русский HD | Кино |  | Other: Новый | review |
 | Пес HD | Кино |  | Other: Пес | review |
+| Ужасы HD | Кино |  | Other: Ужасы | review |
 | Честный Детекти | Кино |  | Other: Честный | review |
 | SWEET КIНО HD | Кинозалы UA |  | Other: SWEET | review |
 | Картковий Будинок | Кинозалы UA |  | Other: Картковий | review |
@@ -124,24 +129,41 @@ Unsafe virtual/dummy-ID channels: **76**
 | Легенды Ретро FM | Музыкальные |  | Other: Легенды | review |
 | Континент Е | Познавательные |  | Other: Континент | review |
 | Орел и Решка | Познавательные |  | Other: Орел | review |
+| Закон | Разное |  | Other: Закон | review |
 | Rutube TV | Россия | RU | Other: Rutube | review |
+| Sochi Live | Россия | RU | Other: Sochi | review |
 | Вестник Надыма | Россия | RU | Other: Вестник | review |
 | Витрина | Россия | RU | Other: Витрина | review |
 | ВТК 41 Аргус | Россия | RU | Other: ВТК | review |
+| Раменское ТВ | Россия | RU | Other: Раменское | review |
 | Телеплюс | Россия | RU | Other: Телеплюс | review |
+| Megogo Футбол 1 HD | Спорт |  | Other: Megogo | review |
 | УПЛ ТВ 1 | Спорт |  | Other: УПЛ | review |
 | УПЛ ТВ 2 | Спорт |  | Other: УПЛ | review |
 | УПЛ ТВ 3 | Спорт |  | Other: УПЛ | review |
+| Eспресо TV | Украинские | UA | Other: Eспресо | review |
 | TIC (Одеса) | Украинские | UA | Other: TIC | review |
+| Апостроф TV | Украинские | UA | Other: Апостроф | review |
 | Вар'яти HD | Украинские | UA | Other: Вар | review |
 | Вещдок HD | Украинские | UA | Other: Вещдок | review |
 | Детективи HD | Украинские | UA | Other: Детективи | review |
 | ЖВЛ+ | Украинские | UA | Other: ЖВЛ+ | review |
+| Исландия | Украинские | UA | Other: Исландия | review |
 | Конкурент TV | Украинские | UA | Other: Конкурент | review |
 | Мастер Шеф | Украинские | UA | Other: Мастер | review |
 | Мелодрами | Украинские | UA | Other: Мелодрами | review |
 | НТК КОЛОМИЯ | Украинские | UA | Other: НТК | review |
 | Опер за викликом | Украинские | UA | Other: Опер | review |
+| ОТБ Галичина | Украинские | UA | Other: ОТБ | review |
+| Оце HD | Украинские | UA | Other: Оце | review |
+| Первый Автомобильный | Украинские | UA | Other: Первый | review |
+| Прямий HD | Украинские | UA | Other: Прямий | review |
+| ПТРК (Павлоград) | Украинские | UA | Other: ПТРК | review |
+| Сварожичи | Украинские | UA | Other: Сварожичи | review |
+| СК1 | Украинские | UA | Other: СК1 | review |
 | Снятин HD | Украинские | UA | Other: Снятин | review |
 | Справа НБР HD | Украинские | UA | Other: Справа | review |
+| СуперМама | Украинские | UA | Other: СуперМама | review |
 | ТРК Круг | Украинские | UA | Other: ТРК | review |
+| Униан ТВ | Украинские | UA | Other: Униан | review |
+| Фронт | Украинские | UA | Other: Фронт | review |
