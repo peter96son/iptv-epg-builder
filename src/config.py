@@ -76,10 +76,12 @@ def load_sources():
     # fill an unresolved channel, but must never override a dedicated/provider
     # mapping. The normal runtime freshness/horizon gate still applies.
     extra_rescue_sources = [
+        # Verified alive in the 2026-08-30 production run.
         ("teleguide-rescue", "https://teleguide.info/download/new3/xmltv.xml.gz", 240),
-        ("ottepg-rescue", "https://ottepg.ru/ottepg.xml.gz", 240),
-        ("kineskop-rescue", "http://st.kineskop.tv/epg.xml.gz", 240),
-        ("shara-tv-rescue", "http://stb.shara-tv.org/epg/epgtv.xml.gz", 240),
+        # Large but current aggregator. Keep it rescue-only and last among the
+        # researched RU/CIS sources; the horizon guard still decides whether
+        # any candidate schedule is usable.
+        ("m3u-edit-all-rescue", "https://m3u-edit.com/epg-source.php?file=ALL_SOURCES1.xml.gz", 600),
     ]
     for rescue_name, rescue_url, rescue_timeout in extra_rescue_sources:
         if rescue_name in names:
@@ -155,8 +157,17 @@ def _read_alias_csv(path: Path):
         for line_no, row in enumerate(reader, start=2):
             extras = row.pop(None, None)
             if extras and any(str(v).strip() for v in extras):
-                print(f"[config] WARNING: {path.name}:{line_no} has extra columns; row skipped", flush=True)
-                continue
+                # The final CSV field is free-form notes. A human-readable note
+                # can legitimately contain commas; DictReader exposes those as
+                # extra columns when the row was not quoted. Preserve the row
+                # instead of silently dropping a verified source pin.
+                if "notes" in row:
+                    tail = ",".join(str(v).strip() for v in extras if str(v).strip())
+                    head = str(row.get("notes") or "").strip()
+                    row["notes"] = ", ".join(v for v in (head, tail) if v)
+                else:
+                    print(f"[config] WARNING: {path.name}:{line_no} has extra columns; row skipped", flush=True)
+                    continue
             clean = {str(k): str(v or "").strip() for k, v in row.items() if k is not None}
             if expected and set(clean) != expected:
                 print(f"[config] WARNING: {path.name}:{line_no} has invalid schema; row skipped", flush=True)
