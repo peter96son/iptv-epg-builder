@@ -3,7 +3,7 @@
 This report is diagnostic only. It does not create EPG mappings.
 A family must be researched and verified before aliases are added to the live builder.
 
-Unmatched channels: **795**
+Unmatched channels: **807**
 
 | Family | Channels | no_epg_* IDs | Main groups |
 |---|---:|---:|---|
@@ -23,6 +23,8 @@ Unmatched channels: **795**
 | Other: Pimple | 6 | 0 | Спорт (6) |
 | Other: TRT | 6 | 0 | Турция (6) |
 | Other: НТВ | 6 | 6 | Кино (6) |
+| Magic | 5 | 0 | Кинозалы (3), Детские (1), Болгария (1) |
+| Other: Star | 5 | 0 | Кино (2), Испания (1), Молдова (1), Турция (1) |
 | Other: Viasat | 5 | 0 | Познавательные (3), UK (2) |
 | Other: Carac | 4 | 0 | BE & NL (4) |
 | Other: CBS | 4 | 0 | Польша (2), Румыния (2) |
@@ -32,8 +34,9 @@ Unmatched channels: **795**
 | Other: Power | 4 | 0 | Турция (3), Латвия (1) |
 | Other: PowerT | 4 | 0 | Турция (4) |
 | Other: RAI | 4 | 0 | Италия (4) |
-| Other: Star | 4 | 0 | Кино (2), Испания (1), Молдова (1) |
 | Other: ViP | 4 | 0 | Спорт (4) |
+| Fresh | 3 | 0 | Кинозалы (3) |
+| KLI | 3 | 0 | Кинозалы (2), Кино 4K (1) |
 | Other: CANAL+ | 3 | 0 | SkyLink (3) |
 | Other: Cine | 3 | 0 | Испания (3) |
 | Other: Discovery | 3 | 0 | Румыния (2), Испания (1) |
@@ -44,9 +47,9 @@ Unmatched channels: **795**
 | Other: Nickelodeon | 3 | 0 | Литва (1), Израиль (1), Румыния (1) |
 | Other: Total | 3 | 0 | Музыкальные (3) |
 | Other: УПЛ | 3 | 0 | Спорт (3) |
-| KLI | 2 | 0 | Кинозалы (1), Кино 4K (1) |
 | Other: Arena | 2 | 0 | Спорт (2) |
 | Other: BBC | 2 | 0 | Испания (1), BE & NL (1) |
+| Other: BeIN | 2 | 0 | Спорт (2) |
 | Other: betking | 2 | 0 | Спорт (2) |
 | Other: Canal+ | 2 | 0 | BE & NL (2) |
 | Other: Canale | 2 | 0 | Италия (2) |
@@ -85,13 +88,12 @@ Unmatched channels: **795**
 | Other: Telepace | 2 | 0 | Италия (2) |
 | Other: TVG | 2 | 0 | Испания (2) |
 | Other: TVN | 2 | 0 | Польша (1), Молдова (1) |
-| Other: TVPlay | 2 | 0 | Кинозалы (2) |
+| Other: TVPlay | 2 | 1 | Кинозалы (1), Для взрослых (1) |
 | Other: Viva | 2 | 0 | Израиль (2) |
 | Other: Zoom | 2 | 0 | Украинские (1), Израиль (1) |
 | Other: Сер | 2 | 0 | Кино (2) |
 | Velilla | 2 | 0 | Детские (1), Для взрослых (1) |
 | BCU | 1 | 0 | Детские (1) |
-| Magic | 1 | 0 | Болгария (1) |
 | Other: +BAKU | 1 | 0 | Азербайджан (1) |
 | Other: 70-80 | 1 | 0 | Музыкальные (1) |
 | Other: A1 | 1 | 0 | BE & NL (1) |
@@ -112,7 +114,6 @@ Unmatched channels: **795**
 | Other: AutoMotorSport | 1 | 0 | SkyLink (1) |
 | Other: AzTV | 1 | 0 | Азербайджан (1) |
 | Other: BEATTV | 1 | 0 | BE & NL (1) |
-| Other: BeIN | 1 | 0 | Спорт (1) |
 | Other: BeJoy | 1 | 0 | Италия (1) |
 | Other: Bel | 1 | 0 | BE & NL (1) |
 | Other: Best | 1 | 0 | Музыкальные (1) |
@@ -122,6 +123,8 @@ Unmatched channels: **795**
 | Other: BOLLYSHOW | 1 | 0 | Израиль (1) |
 | Other: Bolywood | 1 | 0 | Румыния (1) |
 | Other: BOX_MUSIC2_4K | 1 | 0 | Музыкальные (1) |
+| Other: BOX_SPORT_LIVE_2_HD | 1 | 0 | Спорт (1) |
+| Other: BOX_SPORT_LIVE_3_HD | 1 | 0 | Спорт (1) |
 | Other: BOX_SPORT_LIVE_4_HD | 1 | 0 | Спорт (1) |
 | Other: BOX_SPORT_LIVE_4K | 1 | 0 | Спорт (1) |
 | Other: BOX_SPORT_LIVE_5_HD | 1 | 0 | Спорт (1) |
@@ -769,6 +772,22 @@ Unmatched channels: **795**
 - НТВ Сериал Следствие Вели
 - НТВ Сериал Пять Минут Тишины
 
+### Magic — 5
+
+- Magic Premiere
+- Magic Adventure
+- Magic Russian
+- Magic Disney
+- Magic TV
+
+### Other: Star — 5
+
+- Star Media
+- Star Family HD
+- Star Channel
+- Star TV
+- Star TV HD TR
+
 ### Other: Viasat — 5
 
 - Viasat Explore Best HD
@@ -833,19 +852,24 @@ Unmatched channels: **795**
 - RAI News 24 HD
 - RAI Sport+ HD
 
-### Other: Star — 4
-
-- Star Media
-- Star Family HD
-- Star Channel
-- Star TV
-
 ### Other: ViP — 4
 
 - ViP Sport 14
 - ViP Sport 15
 - ViP Sport 16
 - ViP Sport 17
+
+### Fresh — 3
+
+- Fresh Premiere
+- Fresh Romantic
+- Fresh Thriller
+
+### KLI — 3
+
+- KLI Новинки HD
+- KLI Retro
+- KLI Новинки 4K Ultra HD
 
 ### Other: CANAL+ — 3
 
@@ -907,11 +931,6 @@ Unmatched channels: **795**
 - УПЛ ТВ 2
 - УПЛ ТВ 3
 
-### KLI — 2
-
-- KLI Новинки HD
-- KLI Новинки 4K Ultra HD
-
 ### Other: Arena — 2
 
 - Arena Premium 4 HD
@@ -921,6 +940,11 @@ Unmatched channels: **795**
 
 - BBC Series HD
 - BBC First
+
+### Other: BeIN — 2
+
+- BeIN Sport 4 HD
+- BeIN EXTRAS
 
 ### Other: betking — 2
 
@@ -1115,7 +1139,7 @@ Unmatched channels: **795**
 ### Other: TVPlay — 2
 
 - TVPlay DC Comics HD
-- TVPlay АЛЬФ
+- TVPlay Наше XXX
 
 ### Other: Viva — 2
 
@@ -1140,10 +1164,6 @@ Unmatched channels: **795**
 ### BCU — 1
 
 - BCU Kids HD
-
-### Magic — 1
-
-- Magic TV
 
 ### Other: +BAKU — 1
 
@@ -1225,10 +1245,6 @@ Unmatched channels: **795**
 
 - BEATTV
 
-### Other: BeIN — 1
-
-- BeIN EXTRAS
-
 ### Other: BeJoy — 1
 
 - BeJoy Kids
@@ -1264,6 +1280,14 @@ Unmatched channels: **795**
 ### Other: BOX_MUSIC2_4K — 1
 
 - BOX_MUSIC2_4K
+
+### Other: BOX_SPORT_LIVE_2_HD — 1
+
+- BOX_SPORT_LIVE_2_HD
+
+### Other: BOX_SPORT_LIVE_3_HD — 1
+
+- BOX_SPORT_LIVE_3_HD
 
 ### Other: BOX_SPORT_LIVE_4_HD — 1
 
