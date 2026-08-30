@@ -71,6 +71,33 @@ def load_sources():
         sources.insert(insert_at, pg)
         names.add("premiere-group-dedicated")
 
+    # v14.15: additional independent Russian/CIS rescue feeds discovered and
+    # re-verified on 2026-08-30. They are deliberately rescue-only: they may
+    # fill an unresolved channel, but must never override a dedicated/provider
+    # mapping. The normal runtime freshness/horizon gate still applies.
+    extra_rescue_sources = [
+        ("teleguide-rescue", "https://teleguide.info/download/new3/xmltv.xml.gz", 240),
+        ("ottepg-rescue", "https://ottepg.ru/ottepg.xml.gz", 240),
+        ("kineskop-rescue", "http://st.kineskop.tv/epg.xml.gz", 240),
+        ("shara-tv-rescue", "http://stb.shara-tv.org/epg/epgtv.xml.gz", 240),
+    ]
+    for rescue_name, rescue_url, rescue_timeout in extra_rescue_sources:
+        if rescue_name in names:
+            continue
+        sources.append({
+            "name": rescue_name,
+            "url": rescue_url,
+            "enabled": True,
+            "timeout": rescue_timeout,
+            "retries": 2,
+            "groups": MOVIE_GROUPS,
+            "rescue_source": True,
+            "cache_fallback": True,
+            "stale_if_error_seconds": 172800,
+            "note": "v14.15 independent RU/CIS rescue; never preferred over provider/dedicated mappings; runtime freshness gate required."
+        })
+        names.add(rescue_name)
+
     # Huge current-week aggregator. It contains custom cinema families that are
     # missing from the provider EPG (BCU, Magic, Clarity4K, VeleS, KLI, BOX, Play-X, etc.).
     if "gabbarit-primary" not in names:
