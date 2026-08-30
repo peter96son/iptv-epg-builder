@@ -1,17 +1,17 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-08-30T11:37:37.722386-07:00`
-- Playlist channels: **2777**
-- Baseline covered: **1041**
-- Final covered: **1788**
-- Added by fallbacks: **+747**
-- Unmatched: **989**
-- Programmes: **274570**
-- Movie coverage: **503/825** (+264)
+- Generated: `2026-08-30T12:48:35.919038-07:00`
+- Playlist channels: **2780**
+- Baseline covered: **1039**
+- Final covered: **1790**
+- Added by fallbacks: **+751**
+- Unmatched: **990**
+- Programmes: **275544**
+- Movie coverage: **504/826** (+267)
 
 ## Playlist changes
 
-- New channels: **1**
+- New channels: **2**
 - Removed channels: **0**
 - Renamed: **0**
 - Stream URL changed: **0**
@@ -22,12 +22,12 @@
 | Group | Total | Baseline | Final | Added | Coverage |
 |---|---:|---:|---:|---:|---:|
 | Кинозалы | 338 | 153 | 269 | +116 | 79.6% |
-| Спорт | 264 | 52 | 160 | +108 | 60.6% |
-| Кино | 218 | 77 | 161 | +84 | 73.9% |
+| Спорт | 265 | 52 | 160 | +108 | 60.4% |
+| Кино | 219 | 77 | 162 | +85 | 74.0% |
 | Украинские | 119 | 1 | 69 | +68 | 58.0% |
 | Музыкальные | 161 | 35 | 93 | +58 | 57.8% |
-| Кино 4K | 63 | 9 | 63 | +54 | 100.0% |
-| Россия | 183 | 134 | 173 | +39 | 94.5% |
+| Кино 4K | 63 | 7 | 63 | +56 | 100.0% |
+| Россия | 184 | 134 | 174 | +40 | 94.6% |
 | Детские | 70 | 28 | 60 | +32 | 85.7% |
 | Познавательные | 118 | 65 | 96 | +31 | 81.4% |
 | BE & NL | 100 | 33 | 54 | +21 | 54.0% |
@@ -64,20 +64,21 @@
 
 | Source | Status | Added |
 |---|---|---:|
-| iptv-online-primary | ok | 1041 |
-| iptvx-noarch | ok | 416 |
+| iptv-online-primary | ok | 1039 |
+| premiere-group-dedicated | ok | 0 |
+| iptvx-noarch | ok | 417 |
 | klimedia-dedicated | failed | 0 |
 | runigma-iptv | ok | 11 |
 | openbox-tsd | ok | 41 |
 | next-dedicated | ok | 0 |
-| bcumedia-dedicated | ok | 3 |
+| bcumedia-dedicated | ok | 4 |
 | cineman-dedicated | ok | 0 |
 | minimax-mm-dedicated | ok | 0 |
 | sharavoz-guide | failed | 0 |
 | tvteam | ok | 9 |
 | epgpw-sreda | ok | 0 |
 | epgpw-chestny-detektiv | ok | 0 |
-| epgpw-RU | ok | 87 |
+| epgpw-RU | ok | 89 |
 | epgpw-DE | ok | 5 |
 | epgpw-GB | ok | 6 |
 | epgpw-US | ok | 0 |
@@ -86,7 +87,7 @@
 | epgpw-all-lite | ok | 5 |
 | skyhigh-fhd | ok | 0 |
 | skyhigh-hdr | ok | 0 |
-| anzo-top | ok | 10 |
+| anzo-top | ok | 9 |
 | epgshare-DE | ok | 0 |
 | epgshare-AT | ok | 2 |
 | epgshare-BE | ok | 15 |
@@ -111,9 +112,13 @@
 | epgshare-TR | ok | 1 |
 | epgshare-LT | ok | 0 |
 | epgshare-LV | ok | 1 |
-| teleguide-ru | ok | 4 |
+| teleguide-ru | ok | 5 |
 | gabbarit-current | ok | 45 |
-| gabbarit-primary | ok | 7 |
+| teleguide-rescue | ok | 1 |
+| ottepg-rescue | failed | 0 |
+| kineskop-rescue | failed | 0 |
+| shara-tv-rescue | failed | 0 |
+| gabbarit-primary | ok | 6 |
 | gabbarit-mirror | ok | 0 |
 | epgone-full-movie-rescue | ok | 0 |
 
@@ -130,7 +135,7 @@
 | Magic | 14 | 0 |
 | Fresh | 13 | 0 |
 | Other: Football | 13 | 0 |
-| Other: VIP | 12 | 0 |
+| Other: VIP | 13 | 0 |
 | Other: RTL | 11 | 0 |
 | Other: Tricolor | 11 | 0 |
 | Other: FIFA+ | 8 | 0 |
@@ -141,7 +146,6 @@
 
 | Generated | Covered | Unmatched | Programmes |
 |---|---:|---:|---:|
-| 2026-08-25T11:44:26.274479-07:00 | 2149 | 666 | 449096 |
 | 2026-08-25T13:12:08.775277-07:00 | 2149 | 666 | 451192 |
 | 2026-08-25T14:58:55.184138-07:00 | 2146 | 666 | 447926 |
 | 2026-08-25T20:12:50.669603-07:00 | 2145 | 667 | 435779 |
@@ -161,4 +165,5 @@
 | 2026-08-29T23:36:46.818511-07:00 | 2006 | 807 | 309581 |
 | 2026-08-30T05:38:30.738165-07:00 | 1912 | 864 | 275628 |
 | 2026-08-30T11:37:37.722386-07:00 | 1788 | 989 | 274570 |
+| 2026-08-30T12:48:35.919038-07:00 | 1790 | 990 | 275544 |
 
