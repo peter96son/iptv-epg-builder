@@ -3,7 +3,7 @@
 This report is diagnostic only. It does not create EPG mappings.
 A family must be researched and verified before aliases are added to the live builder.
 
-Unmatched channels: **989**
+Unmatched channels: **990**
 
 | Family | Channels | no_epg_* IDs | Main groups |
 |---|---:|---:|---|
@@ -16,7 +16,7 @@ Unmatched channels: **989**
 | Magic | 14 | 0 | Кинозалы (12), Детские (1), Болгария (1) |
 | Fresh | 13 | 0 | Кинозалы (13) |
 | Other: Football | 13 | 0 | Спорт (13) |
-| Other: VIP | 12 | 0 | Спорт (12) |
+| Other: VIP | 13 | 0 | Спорт (13) |
 | Other: RTL | 11 | 0 | Музыкальные (8), Германия (3) |
 | Other: Tricolor | 11 | 0 | Кинозалы (11) |
 | Other: FIFA+ | 8 | 0 | Спорт (8) |
@@ -31,6 +31,7 @@ Unmatched channels: **989**
 | Other: НТВ | 6 | 6 | Кино (6) |
 | BCU | 5 | 0 | Кинозалы (4), Детские (1) |
 | Other: BeIN | 5 | 0 | Спорт (5) |
+| Other: Fox | 5 | 0 | Кино (4), Испания (1) |
 | Other: Setanta | 5 | 0 | Спорт (4), Молдова (1) |
 | Other: Sport | 5 | 0 | Спорт (2), Израиль (1), SkyLink (1), BE & NL (1) |
 | Other: Carac | 4 | 0 | BE & NL (4) |
@@ -38,7 +39,6 @@ Unmatched channels: **989**
 | Other: Discovery | 4 | 0 | Румыния (2), Познавательные (1), Испания (1) |
 | Other: Disney | 4 | 0 | Израиль (1), Испания (1), Молдова (1), Канада (1) |
 | Other: FintGa | 4 | 0 | Спорт (4) |
-| Other: Fox | 4 | 0 | Кино (3), Испания (1) |
 | Other: LRT | 4 | 0 | Латвия (4) |
 | Other: Power | 4 | 0 | Турция (3), Латвия (1) |
 | Other: PowerT | 4 | 0 | Турция (4) |
@@ -465,7 +465,6 @@ Unmatched channels: **989**
 | Other: Топ | 1 | 0 | Кино (1) |
 | Other: ТРК | 1 | 0 | Украинские (1) |
 | Other: Тянков | 1 | 0 | Болгария (1) |
-| Other: Ужасы | 1 | 0 | Кино (1) |
 | Other: Фен | 1 | 0 | Болгария (1) |
 | Other: Херсон | 1 | 0 | Украинские (1) |
 | Other: Ховаючи | 1 | 0 | Кинозалы UA (1) |
@@ -817,7 +816,7 @@ Unmatched channels: **989**
 - Football Live 12
 - Football Live 13
 
-### Other: VIP — 12
+### Other: VIP — 13
 
 - VIP Sport 1
 - VIP Sport 2
@@ -828,6 +827,7 @@ Unmatched channels: **989**
 - VIP Sport 7
 - VIP Sport 8
 - VIP Sport 9
+- VIP Sport 10
 - VIP Sport 11
 - VIP Sport 12
 - VIP Sport 13
@@ -972,6 +972,14 @@ Unmatched channels: **989**
 - BeIN Sport 4 HD
 - BeIN EXTRAS
 
+### Other: Fox — 5
+
+- Fox Life HD
+- Fox Life
+- Fox HD
+- Fox
+- Fox ES
+
 ### Other: Setanta — 5
 
 - Setanta Sports Ukraine
@@ -1022,13 +1030,6 @@ Unmatched channels: **989**
 - FintGa 2
 - FintGa 3
 - FintGa 4
-
-### Other: Fox — 4
-
-- Fox Life
-- Fox HD
-- Fox
-- Fox ES
 
 ### Other: LRT — 4
 
@@ -2830,10 +2831,6 @@ Unmatched channels: **989**
 ### Other: Тянков — 1
 
 - Тянков Ориент
-
-### Other: Ужасы — 1
-
-- Ужасы HD
 
 ### Other: Фен — 1
 

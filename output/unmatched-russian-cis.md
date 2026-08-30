@@ -3,14 +3,14 @@
 Diagnostic queue for Russian-language and CIS recovery. It does not create aliases by itself.
 Regional variants, time-shifts and virtual/FAST families must be verified before production mapping.
 
-Candidate channels: **151**
+Candidate channels: **150**
 
 Unsafe virtual/dummy-ID channels: **74**
 
 ## By group
 
 - Кинозалы UA: 39
-- Кино: 30
+- Кино: 29
 - Кинозалы: 22
 - Украинские: 19
 - Музыкальные: 11
@@ -121,7 +121,6 @@ Unsafe virtual/dummy-ID channels: **74**
 | Пес HD | Кино |  | Other: Пес | review |
 | Премиум Кино | Кино |  | Other: Премиум | review |
 | Семейное Кино | Кино |  | Other: Семейное | review |
-| Ужасы HD | Кино |  | Other: Ужасы | review |
 | Честный Детекти | Кино |  | Other: Честный | review |
 | Bear TV Великий Екран UA HD | Кинозалы UA |  | Other: Bear | review |
 | Bear TV Малий Екран UA HD | Кинозалы UA |  | Other: Bear | review |
