@@ -3,7 +3,7 @@
 This report is diagnostic only. It does not create EPG mappings.
 A family must be researched and verified before aliases are added to the live builder.
 
-Unmatched channels: **793**
+Unmatched channels: **795**
 
 | Family | Channels | no_epg_* IDs | Main groups |
 |---|---:|---:|---|
@@ -17,10 +17,10 @@ Unmatched channels: **793**
 | Other: FIFA+ | 8 | 0 | Спорт (8) |
 | Other: AXN | 7 | 0 | Румыния (4), SkyLink (3) |
 | Other: Rakuten | 7 | 0 | Испания (4), Италия (3) |
+| Other: Sport | 7 | 0 | Спорт (2), SkyLink (2), Литва (1), Израиль (1) |
 | BOX | 6 | 0 | Спорт (6) |
 | Other: DAZN | 6 | 0 | Спорт (6) |
 | Other: Pimple | 6 | 0 | Спорт (6) |
-| Other: Sport | 6 | 0 | SkyLink (2), Спорт (1), Литва (1), Израиль (1) |
 | Other: TRT | 6 | 0 | Турция (6) |
 | Other: НТВ | 6 | 6 | Кино (6) |
 | Other: Viasat | 5 | 0 | Познавательные (3), UK (2) |
@@ -85,9 +85,11 @@ Unmatched channels: **793**
 | Other: Telepace | 2 | 0 | Италия (2) |
 | Other: TVG | 2 | 0 | Испания (2) |
 | Other: TVN | 2 | 0 | Польша (1), Молдова (1) |
+| Other: TVPlay | 2 | 0 | Кинозалы (2) |
 | Other: Viva | 2 | 0 | Израиль (2) |
 | Other: Zoom | 2 | 0 | Украинские (1), Израиль (1) |
 | Other: Сер | 2 | 0 | Кино (2) |
+| Velilla | 2 | 0 | Детские (1), Для взрослых (1) |
 | BCU | 1 | 0 | Детские (1) |
 | Magic | 1 | 0 | Болгария (1) |
 | Other: +BAKU | 1 | 0 | Азербайджан (1) |
@@ -326,7 +328,6 @@ Unmatched channels: **793**
 | Other: TV8 | 1 | 0 | Молдова (1) |
 | Other: TVE | 1 | 0 | Испания (1) |
 | Other: TVM | 1 | 0 | Музыкальные (1) |
-| Other: TVPlay | 1 | 0 | Кинозалы (1) |
 | Other: TVR | 1 | 0 | Молдова (1) |
 | Other: TVR1 | 1 | 0 | Румыния (1) |
 | Other: USArmenia | 1 | 0 | Армения (1) |
@@ -406,7 +407,6 @@ Unmatched channels: **793**
 | Other: Та | 1 | 0 | Украинские (1) |
 | Other: Тв | 1 | 0 | Кинозалы UA (1) |
 | Other: ТВ | 1 | 0 | Болгария (1) |
-| Other: ТВОЁ | 1 | 0 | Разное (1) |
 | Other: Телеплюс | 1 | 0 | Россия (1) |
 | Other: Топ | 1 | 0 | Кино (1) |
 | Other: ТРК | 1 | 0 | Украинские (1) |
@@ -418,7 +418,6 @@ Unmatched channels: **793**
 | Other: Черн | 1 | 0 | Украинские (1) |
 | Other: Честный | 1 | 0 | Кино (1) |
 | VeleS | 1 | 0 | Кинозалы (1) |
-| Velilla | 1 | 0 | Детские (1) |
 
 ## Channels by family
 
@@ -715,6 +714,16 @@ Unmatched channels: **793**
 - Rakuten TV Drama
 - Rakuten TV Top
 
+### Other: Sport — 7
+
+- Sport 3 UA HD
+- Sport 4 UA
+- Sport 1 HD
+- Sport 5 Gold
+- Sport 1 HD
+- Sport 2 HD
+- Sport 10
+
 ### BOX — 6
 
 - BOX SportCast Live 8 HD
@@ -741,15 +750,6 @@ Unmatched channels: **793**
 - Pimple 4
 - Pimple 5
 - Pimple 6
-
-### Other: Sport — 6
-
-- Sport 4 UA
-- Sport 1 HD
-- Sport 5 Gold
-- Sport 1 HD
-- Sport 2 HD
-- Sport 10
 
 ### Other: TRT — 6
 
@@ -1112,6 +1112,11 @@ Unmatched channels: **793**
 - TVN HD
 - TVN HD
 
+### Other: TVPlay — 2
+
+- TVPlay DC Comics HD
+- TVPlay АЛЬФ
+
 ### Other: Viva — 2
 
 - Viva plus
@@ -1126,6 +1131,11 @@ Unmatched channels: **793**
 
 - Серіал Україна 1
 - Серіал Україна 2
+
+### Velilla — 2
+
+- Velilla TV Cartoons Disney 4K
+- Velilla TV Hardcore Sex HD
 
 ### BCU — 1
 
@@ -2079,10 +2089,6 @@ Unmatched channels: **793**
 
 - TVM 3
 
-### Other: TVPlay — 1
-
-- TVPlay АЛЬФ
-
 ### Other: TVR — 1
 
 - TVR
@@ -2399,10 +2405,6 @@ Unmatched channels: **793**
 
 - ТВ Скат
 
-### Other: ТВОЁ — 1
-
-- ТВОЁ ТВ HD
-
 ### Other: Телеплюс — 1
 
 - Телеплюс
@@ -2446,8 +2448,4 @@ Unmatched channels: **793**
 ### VeleS — 1
 
 - VeleS С Новым годом!
-
-### Velilla — 1
-
-- Velilla TV Cartoons Disney 4K
 

@@ -3,7 +3,7 @@
 Diagnostic queue for Russian-language and CIS recovery. It does not create aliases by itself.
 Regional variants, time-shifts and virtual/FAST families must be verified before production mapping.
 
-Candidate channels: **122**
+Candidate channels: **121**
 
 Unsafe virtual/dummy-ID channels: **76**
 
@@ -20,7 +20,6 @@ Unsafe virtual/dummy-ID channels: **76**
 - Спорт: 3
 - Кино 4K: 1
 - Беларусь: 1
-- Разное: 1
 
 ## Channels
 
@@ -126,7 +125,6 @@ Unsafe virtual/dummy-ID channels: **76**
 | Легенды Ретро FM | Музыкальные |  | Other: Легенды | review |
 | Континент Е | Познавательные |  | Other: Континент | review |
 | Орел и Решка | Познавательные |  | Other: Орел | review |
-| ТВОЁ ТВ HD | Разное |  | Other: ТВОЁ | review |
 | Rutube TV | Россия | RU | Other: Rutube | review |
 | Вестник Надыма | Россия | RU | Other: Вестник | review |
 | Витрина | Россия | RU | Other: Витрина | review |

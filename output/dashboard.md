@@ -1,19 +1,19 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-08-29T11:36:45.202147-07:00`
+- Generated: `2026-08-29T17:38:49.334569-07:00`
 - Playlist channels: **2813**
-- Baseline covered: **1523**
-- Final covered: **2020**
-- Added by fallbacks: **+497**
-- Unmatched: **793**
-- Programmes: **332483**
-- Movie coverage: **653/848** (+209)
+- Baseline covered: **1522**
+- Final covered: **2018**
+- Added by fallbacks: **+496**
+- Unmatched: **795**
+- Programmes: **319763**
+- Movie coverage: **652/848** (+209)
 
 ## Playlist changes
 
-- New channels: **4**
-- Removed channels: **4**
-- Renamed: **1**
+- New channels: **0**
+- Removed channels: **0**
+- Renamed: **0**
 - Stream URL changed: **0**
 - Category changed: **0**
 
@@ -21,8 +21,8 @@
 
 | Group | Total | Baseline | Final | Added | Coverage |
 |---|---:|---:|---:|---:|---:|
-| Кинозалы | 358 | 196 | 326 | +130 | 91.1% |
-| Спорт | 264 | 103 | 178 | +75 | 67.4% |
+| Кинозалы | 358 | 195 | 325 | +130 | 90.8% |
+| Спорт | 264 | 103 | 177 | +74 | 67.0% |
 | Кино | 219 | 139 | 194 | +55 | 88.6% |
 | Музыкальные | 162 | 49 | 96 | +47 | 59.3% |
 | BE & NL | 100 | 33 | 54 | +21 | 54.0% |
@@ -39,12 +39,12 @@
 | Познавательные | 118 | 98 | 104 | +6 | 88.1% |
 | Кино 4K | 65 | 59 | 64 | +5 | 98.5% |
 | Греция | 10 | 3 | 7 | +4 | 70.0% |
-| Для взрослых | 33 | 20 | 24 | +4 | 72.7% |
+| Для взрослых | 33 | 20 | 23 | +3 | 69.7% |
+| Разное | 30 | 26 | 29 | +3 | 96.7% |
 | SkyLink | 20 | 5 | 7 | +2 | 35.0% |
 | Беларусь | 23 | 20 | 22 | +2 | 95.7% |
 | Испания | 42 | 1 | 3 | +2 | 7.1% |
 | Новости | 12 | 10 | 12 | +2 | 100.0% |
-| Разное | 30 | 26 | 28 | +2 | 93.3% |
 | Турция | 24 | 6 | 8 | +2 | 33.3% |
 | Хорватия | 3 | 0 | 2 | +2 | 66.7% |
 | Чехия | 6 | 0 | 2 | +2 | 33.3% |
@@ -64,8 +64,8 @@
 
 | Source | Status | Added |
 |---|---|---:|
-| iptv-online-primary | ok | 1523 |
-| iptvx-noarch | ok | 215 |
+| iptv-online-primary | ok | 1522 |
+| iptvx-noarch | ok | 212 |
 | klimedia-dedicated | failed | 0 |
 | runigma-iptv | ok | 19 |
 | openbox-tsd | ok | 43 |
@@ -74,10 +74,10 @@
 | cineman-dedicated | ok | 0 |
 | minimax-mm-dedicated | ok | 1 |
 | sharavoz-guide | failed | 0 |
-| tvteam | ok | 38 |
+| tvteam | ok | 37 |
 | epgpw-sreda | ok | 0 |
 | epgpw-chestny-detektiv | ok | 0 |
-| epgpw-RU | ok | 8 |
+| epgpw-RU | ok | 10 |
 | epgpw-DE | ok | 5 |
 | epgpw-GB | ok | 6 |
 | epgpw-US | ok | 0 |
@@ -112,7 +112,7 @@
 | epgshare-LT | ok | 0 |
 | epgshare-LV | ok | 2 |
 | teleguide-ru | ok | 3 |
-| gabbarit-current | ok | 48 |
+| gabbarit-current | ok | 49 |
 | gabbarit-primary | ok | 10 |
 | gabbarit-mirror | ok | 0 |
 | epgone-full-movie-rescue | ok | 0 |
@@ -131,17 +131,16 @@
 | Other: FIFA+ | 8 | 0 |
 | Other: AXN | 7 | 0 |
 | Other: Rakuten | 7 | 0 |
+| Other: Sport | 7 | 0 |
 | BOX | 6 | 0 |
 | Other: DAZN | 6 | 0 |
 | Other: Pimple | 6 | 0 |
-| Other: Sport | 6 | 0 |
 | Other: TRT | 6 | 0 |
 
 ## Recent history
 
 | Generated | Covered | Unmatched | Programmes |
 |---|---:|---:|---:|
-| 2026-08-24T16:05:30.371877-07:00 | 2143 | 672 | 407332 |
 | 2026-08-24T20:43:14.104759-07:00 | 2139 | 676 | 393361 |
 | 2026-08-25T01:44:20.662326-07:00 | 2129 | 686 | 453103 |
 | 2026-08-25T07:51:11.205636-07:00 | 2128 | 687 | 447438 |
@@ -161,4 +160,5 @@
 | 2026-08-28T23:40:20.007545-07:00 | 2077 | 737 | 359803 |
 | 2026-08-29T05:43:05.490267-07:00 | 2070 | 742 | 333137 |
 | 2026-08-29T11:36:45.202147-07:00 | 2020 | 793 | 332483 |
+| 2026-08-29T17:38:49.334569-07:00 | 2018 | 795 | 319763 |
 
