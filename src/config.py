@@ -10,6 +10,12 @@ MOVIE_GROUPS = ["Кино", "USSR", "Кинозалы", "Кино 4K"]
 def load_json(name: str):
     return json.loads((DATA / name).read_text(encoding="utf-8"))
 
+def _ensure_group(source: dict, group: str) -> None:
+    groups = list(source.get("groups") or [])
+    if group not in groups:
+        groups.append(group)
+    source["groups"] = groups
+
 def load_sources():
     raw = load_json("sources.json")
     if isinstance(raw, dict):
@@ -34,7 +40,36 @@ def load_sources():
                 "Incomplete coverage is supplemented by rescue sources."
             )
 
+    # v14.14: dedicated custom-channel sources must be eligible in USSR too.
+    # Live checks on 2026-08-30 proved that generic mirrors can carry a different
+    # schedule for KLI/BCU custom channels.
+    for source in sources:
+        if source.get("name") in {"klimedia-dedicated", "bcumedia-dedicated"}:
+            _ensure_group(source, "USSR")
+
     names = {str(s.get("name","")) for s in sources}
+
+    # v14.14: Premiere Group has its own EPG. Put it before generic aggregators
+    # so Premium/Paradox/Paradise/etc. are not stolen by same-name mirror feeds.
+    if "premiere-group-dedicated" not in names:
+        pg = {
+            "name": "premiere-group-dedicated",
+            "url": "http://epg-iptv.ru/premiere-group.xml",
+            "enabled": True,
+            "timeout": 120,
+            "retries": 2,
+            "groups": MOVIE_GROUPS,
+            "cache_fallback": True,
+            "stale_if_error_seconds": 172800,
+            "note": "v14.14 Premiere Group dedicated EPG; live Premium HD mismatch proved generic Openbox mapping wrong."
+        }
+        insert_at = 0
+        for i, source in enumerate(sources):
+            if source.get("name") == "iptv-online-primary":
+                insert_at = i + 1
+                break
+        sources.insert(insert_at, pg)
+        names.add("premiere-group-dedicated")
 
     # Huge current-week aggregator. It contains custom cinema families that are
     # missing from the provider EPG (BCU, Magic, Clarity4K, VeleS, KLI, BOX, Play-X, etc.).

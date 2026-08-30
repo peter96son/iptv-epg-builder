@@ -81,7 +81,14 @@ class Matcher:
                 return None, None, 0
             return self._result(channel.tvg_id, "id")
         for candidate in (channel.name, channel.tvg_name):
-            ids = source.names.get(normalize_name(candidate), set())
+            candidate_keys = [normalize_name(candidate)]
+            # v14.14 Premiere Group EPG often labels channels with an SPG prefix
+            # while provider playlists use names such as "Premium HD".
+            if source.name == "premiere-group-dedicated" and candidate:
+                candidate_keys.append(normalize_name(f"SPG {candidate}"))
+            ids = set()
+            for key in candidate_keys:
+                ids.update(source.names.get(key, set()))
             if len(ids) != 1:
                 continue
             if is_regional_sensitive(candidate):
