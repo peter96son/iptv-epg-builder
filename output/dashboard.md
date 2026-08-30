@@ -1,17 +1,17 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-08-30T12:48:35.919038-07:00`
+- Generated: `2026-08-30T13:48:15.756689-07:00`
 - Playlist channels: **2780**
-- Baseline covered: **1039**
-- Final covered: **1790**
-- Added by fallbacks: **+751**
-- Unmatched: **990**
-- Programmes: **275544**
-- Movie coverage: **504/826** (+267)
+- Baseline covered: **1035**
+- Final covered: **1791**
+- Added by fallbacks: **+756**
+- Unmatched: **989**
+- Programmes: **276062**
+- Movie coverage: **505/826** (+269)
 
 ## Playlist changes
 
-- New channels: **2**
+- New channels: **0**
 - Removed channels: **0**
 - Renamed: **0**
 - Stream URL changed: **0**
@@ -21,15 +21,15 @@
 
 | Group | Total | Baseline | Final | Added | Coverage |
 |---|---:|---:|---:|---:|---:|
-| Кинозалы | 338 | 153 | 269 | +116 | 79.6% |
+| Кинозалы | 338 | 152 | 269 | +117 | 79.6% |
 | Спорт | 265 | 52 | 160 | +108 | 60.4% |
-| Кино | 219 | 77 | 162 | +85 | 74.0% |
+| Кино | 219 | 77 | 163 | +86 | 74.4% |
 | Украинские | 119 | 1 | 69 | +68 | 58.0% |
-| Музыкальные | 161 | 35 | 93 | +58 | 57.8% |
+| Музыкальные | 161 | 34 | 93 | +59 | 57.8% |
 | Кино 4K | 63 | 7 | 63 | +56 | 100.0% |
 | Россия | 184 | 134 | 174 | +40 | 94.6% |
+| Познавательные | 118 | 63 | 96 | +33 | 81.4% |
 | Детские | 70 | 28 | 60 | +32 | 85.7% |
-| Познавательные | 118 | 65 | 96 | +31 | 81.4% |
 | BE & NL | 100 | 33 | 54 | +21 | 54.0% |
 | UK | 30 | 7 | 26 | +19 | 86.7% |
 | Болгария | 49 | 12 | 24 | +12 | 49.0% |
@@ -64,16 +64,16 @@
 
 | Source | Status | Added |
 |---|---|---:|
-| iptv-online-primary | ok | 1039 |
+| iptv-online-primary | ok | 1035 |
 | premiere-group-dedicated | ok | 0 |
-| iptvx-noarch | ok | 417 |
+| iptvx-noarch | ok | 415 |
 | klimedia-dedicated | failed | 0 |
 | runigma-iptv | ok | 11 |
-| openbox-tsd | ok | 41 |
+| openbox-tsd | ok | 45 |
 | next-dedicated | ok | 0 |
 | bcumedia-dedicated | ok | 4 |
 | cineman-dedicated | ok | 0 |
-| minimax-mm-dedicated | ok | 0 |
+| minimax-mm-dedicated | ok | 1 |
 | sharavoz-guide | failed | 0 |
 | tvteam | ok | 9 |
 | epgpw-sreda | ok | 0 |
@@ -85,9 +85,9 @@
 | epgpw-CA | ok | 1 |
 | epgone-ru2 | ok | 30 |
 | epgpw-all-lite | ok | 5 |
-| skyhigh-fhd | ok | 0 |
+| skyhigh-fhd | failed | 0 |
 | skyhigh-hdr | ok | 0 |
-| anzo-top | ok | 9 |
+| anzo-top | ok | 8 |
 | epgshare-DE | ok | 0 |
 | epgshare-AT | ok | 2 |
 | epgshare-BE | ok | 15 |
@@ -113,12 +113,10 @@
 | epgshare-LT | ok | 0 |
 | epgshare-LV | ok | 1 |
 | teleguide-ru | ok | 5 |
-| gabbarit-current | ok | 45 |
+| gabbarit-current | ok | 47 |
 | teleguide-rescue | ok | 1 |
-| ottepg-rescue | failed | 0 |
-| kineskop-rescue | failed | 0 |
-| shara-tv-rescue | failed | 0 |
-| gabbarit-primary | ok | 6 |
+| m3u-edit-all-rescue | ok | 2 |
+| gabbarit-primary | ok | 5 |
 | gabbarit-mirror | ok | 0 |
 | epgone-full-movie-rescue | ok | 0 |
 
@@ -146,7 +144,6 @@
 
 | Generated | Covered | Unmatched | Programmes |
 |---|---:|---:|---:|
-| 2026-08-25T13:12:08.775277-07:00 | 2149 | 666 | 451192 |
 | 2026-08-25T14:58:55.184138-07:00 | 2146 | 666 | 447926 |
 | 2026-08-25T20:12:50.669603-07:00 | 2145 | 667 | 435779 |
 | 2026-08-25T20:53:20.647785-07:00 | 2145 | 667 | 435726 |
@@ -166,4 +163,5 @@
 | 2026-08-30T05:38:30.738165-07:00 | 1912 | 864 | 275628 |
 | 2026-08-30T11:37:37.722386-07:00 | 1788 | 989 | 274570 |
 | 2026-08-30T12:48:35.919038-07:00 | 1790 | 990 | 275544 |
+| 2026-08-30T13:48:15.756689-07:00 | 1791 | 989 | 276062 |
 
