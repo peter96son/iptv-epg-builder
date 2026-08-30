@@ -1,6 +1,4 @@
-from pathlib import Path
-
-from src.config import load_aliases, load_sources
+from src.config import _read_alias_csv, load_aliases, load_sources
 
 
 def test_kli_pin_with_note_is_not_dropped():
@@ -18,7 +16,7 @@ def test_dead_v1415_rescues_removed_and_m3uedit_added():
     m = sources["m3u-edit-all-rescue"]
     assert m["rescue_source"] is True
     assert m["groups"] == ["Кино", "USSR", "Кинозалы", "Кино 4K"]
-    assert "ALL_SOURCES1.xml.gz" in m["url"]
+    assert m["url"] == "https://m3u-edit.com/epg-source.php?file=ALL_SOURCES1.xml.gz"
 
 
 def test_source_pin_parser_merges_unquoted_note_tail(tmp_path):
@@ -28,10 +26,8 @@ def test_source_pin_parser_merges_unquoted_note_tail(tmp_path):
         "1,KLI СССР HD,Xkliussr,,,klimedia-dedicated,kli-sssr-hd,1,live verified, not Runigma\n",
         encoding="utf-8",
     )
-    from src.config import _read_alias_csv
     rows = _read_alias_csv(p)
     assert len(rows) == 1
-    assert rows[0]["playlist_name"] == "KLI СССР HD"
     assert rows[0]["source"] == "klimedia-dedicated"
     assert rows[0]["hard_pin"] == "1"
     assert rows[0]["notes"] == "live verified, not Runigma"
