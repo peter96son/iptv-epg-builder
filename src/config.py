@@ -28,8 +28,6 @@ def load_sources():
     else:
         sources = raw if isinstance(raw, list) else []
 
-    # v13.23: the provider's own EPG must really be the provider EPG.
-    # Earlier versions accidentally pointed "iptv-online-primary" to ip-tv.dev.
     for source in sources:
         if source.get("name") == "iptv-online-primary":
             source["url"] = "https://iptv.online/epg/epg.xml.gz"
@@ -40,17 +38,12 @@ def load_sources():
                 "Incomplete coverage is supplemented by rescue sources."
             )
 
-    # v14.14: dedicated custom-channel sources must be eligible in USSR too.
-    # Live checks on 2026-08-30 proved that generic mirrors can carry a different
-    # schedule for KLI/BCU custom channels.
     for source in sources:
         if source.get("name") in {"klimedia-dedicated", "bcumedia-dedicated"}:
             _ensure_group(source, "USSR")
 
     names = {str(s.get("name","")) for s in sources}
 
-    # v14.14: Premiere Group has its own EPG. Put it before generic aggregators
-    # so Premium/Paradox/Paradise/etc. are not stolen by same-name mirror feeds.
     if "premiere-group-dedicated" not in names:
         pg = {
             "name": "premiere-group-dedicated",
@@ -71,37 +64,36 @@ def load_sources():
         sources.insert(insert_at, pg)
         names.add("premiere-group-dedicated")
 
-    # v14.15: additional independent Russian/CIS rescue feeds discovered and
-    # re-verified on 2026-08-30. They are deliberately rescue-only: they may
-    # fill an unresolved channel, but must never override a dedicated/provider
-    # mapping. The normal runtime freshness/horizon gate still applies.
-    extra_rescue_sources = [
-        # Verified alive in the 2026-08-30 production run.
-        ("teleguide-rescue", "https://teleguide.info/download/new3/xmltv.xml.gz", 240),
-        # Large but current aggregator. Keep it rescue-only and last among the
-        # researched RU/CIS sources; the horizon guard still decides whether
-        # any candidate schedule is usable.
-        ("m3u-edit-all-rescue", "https://m3u-edit.com/epg-source.php?file=ALL_SOURCES1.xml.gz", 600),
-    ]
-    for rescue_name, rescue_url, rescue_timeout in extra_rescue_sources:
-        if rescue_name in names:
-            continue
+    if "teleguide-rescue" not in names:
         sources.append({
-            "name": rescue_name,
-            "url": rescue_url,
+            "name": "teleguide-rescue",
+            "url": "https://teleguide.info/download/new3/xmltv.xml.gz",
             "enabled": True,
-            "timeout": rescue_timeout,
+            "timeout": 240,
             "retries": 2,
             "groups": MOVIE_GROUPS,
             "rescue_source": True,
             "cache_fallback": True,
             "stale_if_error_seconds": 172800,
-            "note": "v14.15 independent RU/CIS rescue; never preferred over provider/dedicated mappings; runtime freshness gate required."
+            "note": "Independent RU/CIS rescue; runtime freshness gate required."
         })
-        names.add(rescue_name)
+        names.add("teleguide-rescue")
 
-    # Huge current-week aggregator. It contains custom cinema families that are
-    # missing from the provider EPG (BCU, Magic, Clarity4K, VeleS, KLI, BOX, Play-X, etc.).
+    if "m3u-edit-all-rescue" not in names:
+        sources.append({
+            "name": "m3u-edit-all-rescue",
+            "url": "https://m3u-edit.com/epg/ALL_SOURCES1.xml.gz",
+            "enabled": True,
+            "timeout": 600,
+            "retries": 2,
+            "groups": MOVIE_GROUPS,
+            "rescue_source": True,
+            "cache_fallback": True,
+            "stale_if_error_seconds": 172800,
+            "note": "v14.16 M3U-Edit ALL_SOURCES1 last-resort rescue for unresolved movie/USSR channels only."
+        })
+        names.add("m3u-edit-all-rescue")
+
     if "gabbarit-primary" not in names:
         sources.append({
             "name": "gabbarit-primary",
@@ -129,8 +121,6 @@ def load_sources():
             "note": "v13.23 Gabbarit mirror; only used for still-unresolved movie channels."
         })
 
-    # Full epg.one is intentionally separate from ru2.xml.gz: IPTV services that
-    # recently added DITV advertise the full file as their EPG.
     if "epgone-full-movie-rescue" not in names:
         sources.append({
             "name": "epgone-full-movie-rescue",
@@ -157,16 +147,20 @@ def _read_alias_csv(path: Path):
         for line_no, row in enumerate(reader, start=2):
             extras = row.pop(None, None)
             if extras and any(str(v).strip() for v in extras):
-                # The final CSV field is free-form notes. A human-readable note
-                # can legitimately contain commas; DictReader exposes those as
-                # extra columns when the row was not quoted. Preserve the row
-                # instead of silently dropping a verified source pin.
+                # Never let a comma inside free-form notes disable a verified pin.
                 if "notes" in row:
-                    tail = ",".join(str(v).strip() for v in extras if str(v).strip())
-                    head = str(row.get("notes") or "").strip()
-                    row["notes"] = ", ".join(v for v in (head, tail) if v)
+                    parts = [str(row.get("notes") or "").strip()]
+                    parts.extend(str(v or "").strip() for v in extras)
+                    row["notes"] = ", ".join(p for p in parts if p)
+                    print(
+                        f"[config] WARNING: {path.name}:{line_no} had extra note columns; merged into notes",
+                        flush=True,
+                    )
                 else:
-                    print(f"[config] WARNING: {path.name}:{line_no} has extra columns; row skipped", flush=True)
+                    print(
+                        f"[config] WARNING: {path.name}:{line_no} has extra columns and no notes field; row skipped",
+                        flush=True,
+                    )
                     continue
             clean = {str(k): str(v or "").strip() for k, v in row.items() if k is not None}
             if expected and set(clean) != expected:
