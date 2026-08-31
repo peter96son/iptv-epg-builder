@@ -1,13 +1,13 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-08-30T17:47:36.569498-07:00`
+- Generated: `2026-08-30T23:40:40.786261-07:00`
 - Playlist channels: **2780**
-- Baseline covered: **1022**
-- Final covered: **1827**
-- Added by fallbacks: **+805**
-- Unmatched: **953**
-- Programmes: **263489**
-- Movie coverage: **537/826** (+310)
+- Baseline covered: **320**
+- Final covered: **1773**
+- Added by fallbacks: **+1453**
+- Unmatched: **1007**
+- Programmes: **307766**
+- Movie coverage: **637/826** (+613)
 
 ## Playlist changes
 
@@ -21,130 +21,129 @@
 
 | Group | Total | Baseline | Final | Added | Coverage |
 |---|---:|---:|---:|---:|---:|
-| Кинозалы | 338 | 143 | 295 | +152 | 87.3% |
-| Спорт | 265 | 49 | 157 | +108 | 59.2% |
-| Кино | 219 | 77 | 169 | +92 | 77.2% |
-| Украинские | 119 | 1 | 74 | +73 | 62.2% |
-| Музыкальные | 161 | 34 | 93 | +59 | 57.8% |
-| Кино 4K | 63 | 7 | 63 | +56 | 100.0% |
-| Россия | 184 | 134 | 175 | +41 | 95.1% |
-| Познавательные | 118 | 63 | 97 | +34 | 82.2% |
-| Детские | 70 | 28 | 60 | +32 | 85.7% |
-| BE & NL | 100 | 33 | 54 | +21 | 54.0% |
-| UK | 30 | 7 | 26 | +19 | 86.7% |
-| Болгария | 49 | 12 | 24 | +12 | 49.0% |
-| Германия | 134 | 85 | 97 | +12 | 72.4% |
-| Для взрослых | 33 | 13 | 24 | +11 | 72.7% |
-| Разное | 30 | 17 | 28 | +11 | 93.3% |
-| Беларусь | 23 | 9 | 19 | +10 | 82.6% |
+| Кинозалы | 338 | 22 | 289 | +267 | 85.5% |
+| Россия | 184 | 0 | 177 | +177 | 96.2% |
+| Кино | 219 | 2 | 163 | +161 | 74.4% |
+| Спорт | 265 | 8 | 149 | +141 | 56.2% |
+| Кинозалы UA | 206 | 0 | 122 | +122 | 59.2% |
+| Познавательные | 118 | 2 | 91 | +89 | 77.1% |
+| Музыкальные | 161 | 9 | 92 | +83 | 57.1% |
+| Украинские | 119 | 1 | 68 | +67 | 57.1% |
+| Кино 4K | 63 | 0 | 63 | +63 | 100.0% |
+| Детские | 70 | 3 | 55 | +52 | 78.6% |
+| Разное | 30 | 0 | 28 | +28 | 93.3% |
+| BE & NL | 100 | 31 | 53 | +22 | 53.0% |
+| UK | 30 | 2 | 23 | +21 | 76.7% |
+| Германия | 134 | 67 | 88 | +21 | 65.7% |
+| Беларусь | 23 | 0 | 18 | +18 | 78.3% |
+| Болгария | 49 | 8 | 23 | +15 | 46.9% |
+| Литва | 36 | 2 | 16 | +14 | 44.4% |
+| Румыния | 85 | 46 | 60 | +14 | 70.6% |
+| Для взрослых | 33 | 1 | 14 | +13 | 42.4% |
+| Новости | 12 | 0 | 11 | +11 | 91.7% |
+| Польша | 97 | 15 | 26 | +11 | 26.8% |
 | Италия | 34 | 0 | 10 | +10 | 29.4% |
-| Кинозалы UA | 206 | 0 | 10 | +10 | 4.9% |
-| Румыния | 85 | 47 | 57 | +10 | 67.1% |
-| Израиль | 78 | 27 | 34 | +7 | 43.6% |
-| Новости | 12 | 5 | 11 | +6 | 91.7% |
+| Латвия | 24 | 1 | 9 | +8 | 37.5% |
+| SkyLink | 20 | 8 | 13 | +5 | 65.0% |
 | Греция | 10 | 3 | 7 | +4 | 70.0% |
-| Турция | 24 | 4 | 7 | +3 | 29.2% |
-| SkyLink | 20 | 8 | 10 | +2 | 50.0% |
-| Молдова | 29 | 3 | 5 | +2 | 17.2% |
+| Молдова | 29 | 0 | 4 | +4 | 13.8% |
+| Турция | 24 | 0 | 4 | +4 | 16.7% |
+| Израиль | 78 | 26 | 28 | +2 | 35.9% |
 | Хорватия | 3 | 0 | 2 | +2 | 66.7% |
 | Чехия | 6 | 0 | 2 | +2 | 33.3% |
-| Венгрия | 59 | 53 | 54 | +1 | 91.5% |
-| Испания | 42 | 1 | 2 | +1 | 4.8% |
 | Канада | 10 | 0 | 1 | +1 | 10.0% |
-| Литва | 36 | 31 | 32 | +1 | 88.9% |
-| Польша | 97 | 87 | 88 | +1 | 90.7% |
+| Эстония | 15 | 0 | 1 | +1 | 6.7% |
 | Азербайджан | 14 | 0 | 0 | +0 | 0.0% |
-| Армения | 5 | 1 | 1 | +0 | 20.0% |
+| Армения | 5 | 0 | 0 | +0 | 0.0% |
+| Венгрия | 59 | 53 | 53 | +0 | 89.8% |
 | Грузия | 22 | 10 | 10 | +0 | 45.5% |
-| Казахстан | 13 | 3 | 3 | +0 | 23.1% |
-| Эстония | 15 | 11 | 11 | +0 | 73.3% |
-| Латвия | 24 | 16 | 15 | +-1 | 62.5% |
+| Испания | 42 | 0 | 0 | +0 | 0.0% |
+| Казахстан | 13 | 0 | 0 | +0 | 0.0% |
 
 ## Source contribution
 
 | Source | Status | Added |
 |---|---|---:|
-| iptv-online-primary | ok | 1022 |
+| iptv-online-primary | ok | 320 |
 | premiere-group-dedicated | ok | 0 |
-| iptvx-noarch | ok | 421 |
+| iptvx-noarch | ok | 7 |
 | klimedia-dedicated | failed | 0 |
-| runigma-iptv | ok | 10 |
-| openbox-tsd | ok | 45 |
-| next-dedicated | ok | 0 |
-| bcumedia-dedicated | ok | 30 |
+| runigma-iptv | ok | 33 |
+| openbox-tsd | ok | 574 |
+| next-dedicated | ok | 19 |
+| bcumedia-dedicated | ok | 38 |
 | cineman-dedicated | ok | 0 |
-| minimax-mm-dedicated | ok | 2 |
+| minimax-mm-dedicated | ok | 3 |
 | sharavoz-guide | failed | 0 |
-| tvteam | ok | 8 |
+| tvteam | ok | 68 |
 | epgpw-sreda | ok | 0 |
 | epgpw-chestny-detektiv | ok | 0 |
-| epgpw-RU | ok | 80 |
-| epgpw-DE | ok | 5 |
+| epgpw-RU | ok | 244 |
+| epgpw-DE | ok | 15 |
 | epgpw-GB | ok | 6 |
-| epgpw-US | ok | 0 |
+| epgpw-US | ok | 1 |
 | epgpw-CA | ok | 1 |
-| epgone-ru2 | ok | 35 |
-| epgpw-all-lite | ok | 5 |
+| epgone-ru2 | ok | 26 |
+| epgpw-all-lite | ok | 20 |
 | skyhigh-fhd | ok | 0 |
 | skyhigh-hdr | ok | 0 |
-| anzo-top | ok | 5 |
+| anzo-top | ok | 33 |
 | epgshare-DE | ok | 0 |
-| epgshare-AT | ok | 2 |
-| epgshare-BE | ok | 15 |
+| epgshare-AT | ok | 3 |
+| epgshare-BE | ok | 16 |
 | epgshare-NL | ok | 6 |
-| epgshare-UK | ok | 16 |
+| epgshare-UK | ok | 18 |
 | epgshare-US | ok | 0 |
 | epgshare-CA | ok | 0 |
 | epgshare-US-SPORTS | ok | 0 |
 | epgshare-BEIN | ok | 0 |
 | epgshare-MUSICBOX | ok | 1 |
 | epgshare-DELUXEMUSIC | ok | 1 |
-| epgshare-IT | ok | 9 |
-| epgshare-RO | ok | 13 |
-| epgshare-BG | ok | 7 |
-| epgshare-PL | ok | 1 |
+| epgshare-IT | ok | 10 |
+| epgshare-RO | ok | 16 |
+| epgshare-BG | ok | 13 |
+| epgshare-PL | ok | 11 |
 | epgshare-HU | ok | 0 |
-| epgshare-CZ | ok | 3 |
+| epgshare-CZ | ok | 7 |
 | epgshare-SK | ok | 1 |
 | epgshare-GR | ok | 4 |
 | epgshare-HR | ok | 2 |
 | epgshare-PT | ok | 10 |
-| epgshare-TR | ok | 1 |
-| epgshare-LT | ok | 0 |
-| epgshare-LV | ok | 1 |
-| teleguide-ru | ok | 5 |
-| gabbarit-current | ok | 48 |
+| epgshare-TR | ok | 3 |
+| epgshare-LT | ok | 13 |
+| epgshare-LV | ok | 8 |
+| teleguide-ru | ok | 7 |
+| gabbarit-current | ok | 203 |
 | teleguide-rescue | ok | 1 |
 | m3u-edit-all-rescue | ok | 2 |
-| gabbarit-primary | ok | 5 |
+| gabbarit-primary | ok | 8 |
 | gabbarit-mirror | ok | 0 |
-| epgone-full-movie-rescue | ok | 24 |
+| epgone-full-movie-rescue | ok | 14 |
 
 ## Top unmatched families
 
 | Family | Channels | no_epg_* |
 |---|---:|---:|
-| Joker | 120 | 0 |
 | Other: Bear | 50 | 0 |
-| Other | 36 | 0 |
+| Other | 39 | 0 |
 | DITV | 35 | 32 |
-| Other: Viasat | 15 | 0 |
+| Joker | 19 | 0 |
+| Other: Viasat | 16 | 0 |
 | Play-X | 15 | 0 |
 | Other: Football | 13 | 0 |
+| Other: Polsat | 13 | 0 |
 | Other: VIP | 13 | 0 |
+| Other: CANAL+ | 11 | 0 |
 | Other: RTL | 11 | 0 |
 | Other: Tricolor | 11 | 0 |
-| Other: FIFA+ | 8 | 0 |
-| BOX | 7 | 0 |
-| Other: AXN | 7 | 0 |
-| Other: Fox | 7 | 0 |
-| Other: Rakuten | 7 | 0 |
+| Other: FIFA+ | 9 | 0 |
+| Other: Viju | 9 | 0 |
+| BCU | 8 | 0 |
 
 ## Recent history
 
 | Generated | Covered | Unmatched | Programmes |
 |---|---:|---:|---:|
-| 2026-08-25T20:12:50.669603-07:00 | 2145 | 667 | 435779 |
 | 2026-08-25T20:53:20.647785-07:00 | 2145 | 667 | 435726 |
 | 2026-08-26T01:45:43.902610-07:00 | 2130 | 682 | 426870 |
 | 2026-08-26T07:43:34.503958-07:00 | 2131 | 683 | 422234 |
@@ -164,4 +163,5 @@
 | 2026-08-30T12:48:35.919038-07:00 | 1790 | 990 | 275544 |
 | 2026-08-30T13:48:15.756689-07:00 | 1791 | 989 | 276062 |
 | 2026-08-30T17:47:36.569498-07:00 | 1827 | 953 | 263489 |
+| 2026-08-30T23:40:40.786261-07:00 | 1773 | 1007 | 307766 |
 

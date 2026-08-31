@@ -3,21 +3,21 @@
 Diagnostic queue for Russian-language and CIS recovery. It does not create aliases by itself.
 Regional variants, time-shifts and virtual/FAST families must be verified before production mapping.
 
-Candidate channels: **142**
+Candidate channels: **123**
 
-Unsafe virtual/dummy-ID channels: **74**
+Unsafe virtual/dummy-ID channels: **53**
 
 ## By group
 
-- Кинозалы UA: 39
-- Кино: 23
-- Кинозалы: 23
-- Украинские: 18
-- Музыкальные: 11
-- Россия: 9
-- Детские: 6
+- Кино: 24
+- Кинозалы: 22
+- Украинские: 21
+- Кинозалы UA: 16
+- Музыкальные: 12
+- Детские: 7
+- Россия: 7
 - Познавательные: 5
-- Беларусь: 4
+- Беларусь: 5
 - Спорт: 3
 - Разное: 1
 
@@ -31,6 +31,7 @@ Unsafe virtual/dummy-ID channels: **74**
 | DITV Сборник мультфильмов сказок | Детские |  | DITV | no |
 | DITV Союзмултфилм | Детские |  | DITV | no |
 | DITV Фиксики  4К | Детские |  | DITV | no |
+| MM USSR Сказки HD | Детские |  | MiniMax/MM | no |
 | Play-X Военные сериалы | Кино |  | Play-X | no |
 | Play-X Кухня | Кино |  | Play-X | no |
 | Play-X Леонид Гайдай | Кино |  | Play-X | no |
@@ -64,28 +65,6 @@ Unsafe virtual/dummy-ID channels: **74**
 | DITV ФИЛЬМЫ | Кинозалы |  | DITV | no |
 | DITV ФИЛЬМЫ УЖАСОВ 80-х | Кинозалы |  | DITV | no |
 | Joker: Фантастика | Кинозалы UA |  | Joker | no |
-| Joker:Mислити як злочинець | Кинозалы UA |  | Joker | no |
-| Joker:Альф | Кинозалы UA |  | Joker | no |
-| Joker:Американський тато | Кинозалы UA |  | Joker | no |
-| Joker:Ван Дамм | Кинозалы UA |  | Joker | no |
-| Joker:Гей Арнольд! | Кинозалы UA |  | Joker | no |
-| Joker:Горець | Кинозалы UA |  | Joker | no |
-| Joker:Губка Боб | Кинозалы UA |  | Joker | no |
-| Joker:Декстер | Кинозалы UA |  | Joker | no |
-| Joker:Касл | Кинозалы UA |  | Joker | no |
-| Joker:Коломбо | Кинозалы UA |  | Joker | no |
-| Joker:Корона | Кинозалы UA |  | Joker | no |
-| Joker:Панда Кун-фу | Кинозалы UA |  | Joker | no |
-| Joker:Пограбування | Кинозалы UA |  | Joker | no |
-| Joker:Пуститися берега | Кинозалы UA |  | Joker | no |
-| Joker:Русалочка | Кинозалы UA |  | Joker | no |
-| Joker:Свинка Пепа | Кинозалы UA |  | Joker | no |
-| Joker:Формула | Кинозалы UA |  | Joker | no |
-| Joker:Фубар | Кинозалы UA |  | Joker | no |
-| Joker:Футурама | Кинозалы UA |  | Joker | no |
-| Joker:Чорне дзеркало | Кинозалы UA |  | Joker | no |
-| Joker:Шерлок | Кинозалы UA |  | Joker | no |
-| Joker:Щенячий патруль | Кинозалы UA |  | Joker | no |
 | Play-X Украинский кинозал 1 HD | Кинозалы UA |  | Play-X | no |
 | Play-X Украинский кинозал 2 HD | Кинозалы UA |  | Play-X | no |
 | Play-X Фильмы про войну в Украине | Кинозалы UA |  | Play-X | no |
@@ -99,11 +78,14 @@ Unsafe virtual/dummy-ID channels: **74**
 | DITV 4К | Познавательные |  | DITV | no |
 | DITV Дикая природа 4К | Познавательные |  | DITV | no |
 | DITV Кулинария | Познавательные |  | DITV | no |
+| +TV | Беларусь | BY | Other: +TV | review |
 | RU.TV | Беларусь | BY | Other: TV | review |
 | СкиФ Витебск | Беларусь | BY | Other: СкиФ | review |
-| Спорт ТВ [BY] | Беларусь | BY | Other: Спорт | review |
+| ТВ3 Беларусь | Беларусь | BY | Other: ТВ3 | review |
 | Центр BY | Беларусь | BY | Other: Центр | review |
 | Viju TV1000 Новелла | Кино |  | Other: Viju | review |
+| Viju TV1000 Русское кино | Кино |  | Other: Viju | review |
+| Viju TV1000 Русское кино HD | Кино |  | Other: Viju | review |
 | Детектив HD | Кино |  | Other: Детектив | review |
 | Кино 24/7 | Кино |  | Other | review |
 | Кино Топ | Кино |  | Other: Топ | review |
@@ -111,19 +93,16 @@ Unsafe virtual/dummy-ID channels: **74**
 | Киножелезо HD | Кино |  | Other: Киножелезо | review |
 | Кинолаффка HD | Кино |  | Other: Кинолаффка | review |
 | Лента Кино | Кино |  | Other: Лента | review |
-| Наше любимое кино UA | Кино |  | Other: Наше | review |
 | Новый Русский HD | Кино |  | Other: Новый | review |
 | Окко ТВ H | Кино |  | Other: Окко | review |
 | Пес HD | Кино |  | Other: Пес | review |
 | Честный Детекти | Кино |  | Other: Честный | review |
-| TVPlay Лихие 90е Сериал | Кинозалы |  | Other: TVPlay | review |
 | Bear TV Великий Екран UA HD | Кинозалы UA |  | Other: Bear | review |
 | Bear TV Малий Екран UA HD | Кинозалы UA |  | Other: Bear | review |
 | Bear TV Мульт 24 UA HD | Кинозалы UA |  | Other: Bear | review |
 | Bear TV МультЗал UA HD | Кинозалы UA |  | Other: Bear | review |
 | Bear TV Сеанс 24 UA HD | Кинозалы UA |  | Other: Bear | review |
 | SWEET КIНО HD | Кинозалы UA |  | Other: SWEET | review |
-| Картковий Будинок | Кинозалы UA |  | Other: Картковий | review |
 | Кохання на виживання HD | Кинозалы UA |  | Other: Кохання | review |
 | На Трьох HD | Кинозалы UA |  | Other: На | review |
 | Полювання на в бивцю HD | Кинозалы UA |  | Other: Полювання | review |
@@ -133,26 +112,24 @@ Unsafe virtual/dummy-ID channels: **74**
 | Live Музыка | Музыкальные |  | Other: Live | review |
 | PAI Музика | Музыкальные |  | Other: PAI | review |
 | Легенды Ретро FM | Музыкальные |  | Other: Легенды | review |
-| Наше Ретро | Музыкальные |  | Other: Наше | review |
+| МУЗ | Музыкальные |  | Other: МУЗ | review |
+| Страна FM | Музыкальные |  | Other: Страна | review |
 | Континент Е | Познавательные |  | Other: Континент | review |
 | Орел и Решка | Познавательные |  | Other: Орел | review |
 | Закон | Разное |  | Other: Закон | review |
-| News Front | Россия | RU | Other: News | review |
 | Rutube TV | Россия | RU | Other: Rutube | review |
-| Sochi Live | Россия | RU | Other: Sochi | review |
 | Вестник Надыма | Россия | RU | Other: Вестник | review |
 | Витрина | Россия | RU | Other: Витрина | review |
 | ВТК 41 Аргус | Россия | RU | Other: ВТК | review |
-| Планета РТР | Россия | RU | Other: Планета | review |
 | Раменское ТВ | Россия | RU | Other: Раменское | review |
+| ТВК Красноярск | Россия | RU | Other: ТВК | review |
 | Телеплюс | Россия | RU | Other: Телеплюс | review |
 | УПЛ ТВ 1 | Спорт |  | Other: УПЛ | review |
 | УПЛ ТВ 2 | Спорт |  | Other: УПЛ | review |
 | УПЛ ТВ 3 | Спорт |  | Other: УПЛ | review |
+| Eспресо TV | Украинские | UA | Other: Eспресо | review |
 | TIC (Одеса) | Украинские | UA | Other: TIC | review |
-| UA: Херсон | Украинские | UA | Other: Херсон | review |
 | UA:Одесcа | Украинские | UA | Other: Одесcа | review |
-| Апостроф TV | Украинские | UA | Other: Апостроф | review |
 | Вар'яти HD | Украинские | UA | Other: Вар | review |
 | Вещдок HD | Украинские | UA | Other: Вещдок | review |
 | Детективи HD | Украинские | UA | Other: Детективи | review |
@@ -163,7 +140,11 @@ Unsafe virtual/dummy-ID channels: **74**
 | Мелодрами | Украинские | UA | Other: Мелодрами | review |
 | НТК КОЛОМИЯ | Украинские | UA | Other: НТК | review |
 | Опер за викликом | Украинские | UA | Other: Опер | review |
+| ОТБ Галичина | Украинские | UA | Other: ОТБ | review |
+| ПТРК (Павлоград) | Украинские | UA | Other: ПТРК | review |
+| Розпакуй.TV | Украинские | UA | Other: Розпакуй | review |
 | СК1 | Украинские | UA | Other: СК1 | review |
 | Снятин HD | Украинские | UA | Other: Снятин | review |
 | Справа НБР HD | Украинские | UA | Other: Справа | review |
+| СуперМама | Украинские | UA | Other: СуперМама | review |
 | ТРК Круг | Украинские | UA | Other: ТРК | review |
