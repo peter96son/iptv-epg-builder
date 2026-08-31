@@ -1,19 +1,19 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-08-31T05:40:27.102141-07:00`
-- Playlist channels: **2780**
-- Baseline covered: **1543**
-- Final covered: **2057**
-- Added by fallbacks: **+514**
-- Unmatched: **723**
-- Programmes: **409360**
-- Movie coverage: **713/826** (+242)
+- Generated: `2026-08-31T11:43:30.398016-07:00`
+- Playlist channels: **2776**
+- Baseline covered: **1507**
+- Final covered: **1965**
+- Added by fallbacks: **+458**
+- Unmatched: **811**
+- Programmes: **408091**
+- Movie coverage: **618/822** (+179)
 
 ## Playlist changes
 
 - New channels: **0**
 - Removed channels: **0**
-- Renamed: **2**
+- Renamed: **0**
 - Stream URL changed: **0**
 - Category changed: **0**
 
@@ -21,21 +21,21 @@
 
 | Group | Total | Baseline | Final | Added | Coverage |
 |---|---:|---:|---:|---:|---:|
-| Кинозалы | 338 | 193 | 305 | +112 | 90.2% |
-| Кинозалы UA | 206 | 76 | 161 | +85 | 78.2% |
-| Спорт | 265 | 94 | 168 | +74 | 63.4% |
+| Кинозалы | 334 | 187 | 301 | +114 | 90.1% |
+| Спорт | 265 | 94 | 170 | +76 | 64.2% |
 | Музыкальные | 161 | 47 | 96 | +49 | 59.6% |
-| Кино | 219 | 143 | 184 | +41 | 84.0% |
+| Кино | 219 | 143 | 185 | +42 | 84.5% |
 | BE & NL | 100 | 33 | 54 | +21 | 54.0% |
+| Кинозалы UA | 206 | 50 | 69 | +19 | 33.5% |
 | UK | 30 | 9 | 26 | +17 | 86.7% |
-| Болгария | 49 | 13 | 26 | +13 | 53.1% |
+| Болгария | 49 | 13 | 27 | +14 | 55.1% |
 | Германия | 134 | 85 | 97 | +12 | 72.4% |
+| Украинские | 119 | 69 | 81 | +12 | 68.1% |
 | Румыния | 85 | 46 | 57 | +11 | 67.1% |
-| Украинские | 119 | 70 | 81 | +11 | 68.1% |
-| Детские | 70 | 50 | 59 | +9 | 84.3% |
+| Детские | 70 | 50 | 60 | +10 | 85.7% |
 | Италия | 34 | 1 | 10 | +9 | 29.4% |
-| Россия | 184 | 172 | 179 | +7 | 97.3% |
-| Познавательные | 118 | 98 | 104 | +6 | 88.1% |
+| Россия | 184 | 171 | 179 | +8 | 97.3% |
+| Познавательные | 118 | 97 | 104 | +7 | 88.1% |
 | Для взрослых | 33 | 19 | 24 | +5 | 72.7% |
 | Израиль | 78 | 28 | 33 | +5 | 42.3% |
 | Греция | 10 | 3 | 7 | +4 | 70.0% |
@@ -54,7 +54,7 @@
 | Польша | 97 | 89 | 90 | +1 | 92.8% |
 | Азербайджан | 14 | 0 | 0 | +0 | 0.0% |
 | Армения | 5 | 1 | 1 | +0 | 20.0% |
-| Грузия | 22 | 15 | 15 | +0 | 68.2% |
+| Грузия | 22 | 14 | 14 | +0 | 63.6% |
 | Казахстан | 13 | 9 | 9 | +0 | 69.2% |
 | Литва | 36 | 33 | 33 | +0 | 91.7% |
 | Эстония | 15 | 12 | 12 | +0 | 80.0% |
@@ -64,18 +64,18 @@
 
 | Source | Status | Added |
 |---|---|---:|
-| iptv-online-primary | ok | 1543 |
+| iptv-online-primary | ok | 1507 |
 | premiere-group-dedicated | ok | 0 |
-| iptvx-noarch | ok | 213 |
+| iptvx-noarch | ok | 223 |
 | klimedia-dedicated | failed | 0 |
-| runigma-iptv | ok | 14 |
+| runigma-iptv | ok | 12 |
 | openbox-tsd | ok | 51 |
 | next-dedicated | ok | 0 |
-| bcumedia-dedicated | ok | 5 |
+| bcumedia-dedicated | ok | 4 |
 | cineman-dedicated | ok | 0 |
 | minimax-mm-dedicated | ok | 0 |
 | sharavoz-guide | failed | 0 |
-| tvteam | ok | 28 |
+| tvteam | ok | 8 |
 | epgpw-sreda | ok | 0 |
 | epgpw-chestny-detektiv | ok | 0 |
 | epgpw-RU | ok | 0 |
@@ -83,7 +83,7 @@
 | epgpw-GB | ok | 6 |
 | epgpw-US | ok | 0 |
 | epgpw-CA | ok | 1 |
-| epgone-ru2 | ok | 8 |
+| epgone-ru2 | ok | 13 |
 | epgpw-all-lite | ok | 5 |
 | skyhigh-fhd | ok | 0 |
 | skyhigh-hdr | ok | 0 |
@@ -113,10 +113,10 @@
 | epgshare-LT | ok | 0 |
 | epgshare-LV | ok | 1 |
 | teleguide-ru | ok | 3 |
-| gabbarit-current | ok | 91 |
+| gabbarit-current | ok | 44 |
 | teleguide-rescue | ok | 1 |
 | m3u-edit-all-rescue | ok | 2 |
-| gabbarit-primary | ok | 5 |
+| gabbarit-primary | ok | 4 |
 | gabbarit-mirror | ok | 0 |
 | epgone-full-movie-rescue | ok | 0 |
 
@@ -124,14 +124,14 @@
 
 | Family | Channels | no_epg_* |
 |---|---:|---:|
+| Joker | 120 | 0 |
 | DITV | 35 | 32 |
 | Other | 35 | 0 |
-| Joker | 30 | 0 |
 | Play-X | 15 | 0 |
 | Other: Football | 13 | 0 |
 | Other: VIP | 13 | 0 |
 | Other: RTL | 11 | 0 |
-| BOX | 10 | 0 |
+| BOX | 9 | 0 |
 | Other: FIFA+ | 8 | 0 |
 | Other: AXN | 7 | 0 |
 | Other: Rakuten | 7 | 0 |
@@ -144,8 +144,6 @@
 
 | Generated | Covered | Unmatched | Programmes |
 |---|---:|---:|---:|
-| 2026-08-26T01:45:43.902610-07:00 | 2130 | 682 | 426870 |
-| 2026-08-26T07:43:34.503958-07:00 | 2131 | 683 | 422234 |
 | 2026-08-26T10:10:56.950928-07:00 | 2153 | 661 | 423026 |
 | 2026-08-27T14:28:40.597440-07:00 | 2020 | 794 | 385356 |
 | 2026-08-27T19:17:58.892619-07:00 | 2069 | 745 | 376661 |
@@ -164,4 +162,6 @@
 | 2026-08-30T17:47:36.569498-07:00 | 1827 | 953 | 263489 |
 | 2026-08-30T23:40:40.786261-07:00 | 1773 | 1007 | 307766 |
 | 2026-08-31T05:40:27.102141-07:00 | 2057 | 723 | 409360 |
+| 2026-08-31T10:32:35.012067-07:00 | 1965 | 811 | 408159 |
+| 2026-08-31T11:43:30.398016-07:00 | 1965 | 811 | 408091 |
 
