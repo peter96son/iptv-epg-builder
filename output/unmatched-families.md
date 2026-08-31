@@ -3,18 +3,18 @@
 This report is diagnostic only. It does not create EPG mappings.
 A family must be researched and verified before aliases are added to the live builder.
 
-Unmatched channels: **723**
+Unmatched channels: **811**
 
 | Family | Channels | no_epg_* IDs | Main groups |
 |---|---:|---:|---|
+| Joker | 120 | 0 | Кинозалы UA (117), Кинозалы (3) |
 | DITV | 35 | 32 | Кинозалы (25), Детские (6), Познавательные (3), Для взрослых (1) |
-| Other | 35 | 0 | Украинские (7), Кинозалы UA (3), Израиль (3), Испания (3) |
-| Joker | 30 | 0 | Кинозалы UA (27), Кинозалы (3) |
+| Other | 35 | 0 | Украинские (6), Кинозалы UA (4), Израиль (3), Испания (3) |
 | Play-X | 15 | 0 | Музыкальные (9), Кино (3), Кинозалы UA (3) |
 | Other: Football | 13 | 0 | Спорт (13) |
 | Other: VIP | 13 | 0 | Спорт (13) |
 | Other: RTL | 11 | 0 | Музыкальные (8), Германия (3) |
-| BOX | 10 | 0 | Спорт (10) |
+| BOX | 9 | 0 | Спорт (9) |
 | Other: FIFA+ | 8 | 0 | Спорт (8) |
 | Other: AXN | 7 | 0 | Румыния (4), SkyLink (3) |
 | Other: Rakuten | 7 | 0 | Испания (4), Италия (3) |
@@ -22,7 +22,6 @@ Unmatched channels: **723**
 | Other: DAZN | 6 | 0 | Спорт (6) |
 | Other: Pimple | 6 | 0 | Спорт (6) |
 | Other: НТВ | 6 | 6 | Кино (6) |
-| Other: Sport | 5 | 0 | Спорт (2), Израиль (1), SkyLink (1), BE & NL (1) |
 | Other: Viasat | 5 | 0 | Познавательные (3), UK (2) |
 | Other: Carac | 4 | 0 | BE & NL (4) |
 | Other: CBS | 4 | 0 | Польша (2), Румыния (2) |
@@ -32,8 +31,8 @@ Unmatched channels: **723**
 | Other: Power | 4 | 0 | Турция (3), Латвия (1) |
 | Other: PowerT | 4 | 0 | Турция (4) |
 | Other: RAI | 4 | 0 | Италия (4) |
+| Other: Sport | 4 | 0 | Спорт (1), Израиль (1), SkyLink (1), BE & NL (1) |
 | Other: Star | 4 | 0 | Кино (2), Испания (1), Молдова (1) |
-| Other: TVPlay | 4 | 0 | Кинозалы (4) |
 | Other: ViP | 4 | 0 | Спорт (4) |
 | Other: Cine | 3 | 0 | Испания (3) |
 | Other: Discovery | 3 | 0 | Румыния (2), Испания (1) |
@@ -43,6 +42,7 @@ Unmatched channels: **723**
 | Other: Live | 3 | 0 | Спорт (2), Музыкальные (1) |
 | Other: Nickelodeon | 3 | 0 | Литва (1), Израиль (1), Румыния (1) |
 | Other: Total | 3 | 0 | Музыкальные (3) |
+| Other: TVPlay | 3 | 0 | Кинозалы (3) |
 | Other: УПЛ | 3 | 0 | Спорт (3) |
 | BCU | 2 | 0 | Кинозалы (1), Детские (1) |
 | Other: Arena | 2 | 0 | Спорт (2) |
@@ -90,10 +90,8 @@ Unmatched channels: **723**
 | Other: TVR | 2 | 0 | Молдова (1), Румыния (1) |
 | Other: Viva | 2 | 0 | Израиль (2) |
 | Other: Zoom | 2 | 0 | Украинские (1), Израиль (1) |
-| Other: Планета | 2 | 0 | Болгария (2) |
 | Other: Сер | 2 | 0 | Кино (2) |
 | Magic | 1 | 0 | Болгария (1) |
-| MiniMax/MM | 1 | 0 | Детские (1) |
 | Other: +BAKU | 1 | 0 | Азербайджан (1) |
 | Other: 5Sport | 1 | 0 | Израиль (1) |
 | Other: 70-80 | 1 | 0 | Музыкальные (1) |
@@ -174,7 +172,6 @@ Unmatched channels: **723**
 | Other: Exclusiv | 1 | 0 | Молдова (1) |
 | Other: FEN | 1 | 0 | Болгария (1) |
 | Other: Film | 1 | 0 | Италия (1) |
-| Other: FilmZone | 1 | 0 | Кино (1) |
 | Other: FlixSpin | 1 | 0 | Познавательные (1) |
 | Other: FM | 1 | 0 | Италия (1) |
 | Other: FomixTV | 1 | 0 | Музыкальные (1) |
@@ -202,6 +199,7 @@ Unmatched channels: **723**
 | Other: Hot | 1 | 0 | Израиль (1) |
 | Other: HOT | 1 | 0 | Израиль (1) |
 | Other: House | 1 | 0 | Музыкальные (1) |
+| Other: House_ukr | 1 | 0 | Кинозалы UA (1) |
 | Other: HRT | 1 | 0 | Хорватия (1) |
 | Other: Hype | 1 | 0 | Музыкальные (1) |
 | Other: i24 | 1 | 0 | Израиль (1) |
@@ -306,6 +304,7 @@ Unmatched channels: **723**
 | Other: Sfero | 1 | 0 | Грузия (1) |
 | Other: Shelanu | 1 | 0 | Израиль (1) |
 | Other: ShopLC | 1 | 0 | Германия (1) |
+| Other: Silk | 1 | 0 | Грузия (1) |
 | Other: Sky | 1 | 0 | Германия (1) |
 | Other: Sony | 1 | 0 | Испания (1) |
 | Other: Soul | 1 | 0 | Болгария (1) |
@@ -365,6 +364,7 @@ Unmatched channels: **723**
 | Other: Ziggo | 1 | 0 | BE & NL (1) |
 | Other: ZooSweet | 1 | 0 | Познавательные (1) |
 | Other: ZU | 1 | 0 | Румыния (1) |
+| Other: Арм | 1 | 0 | Украинские (1) |
 | Other: БНТ3 | 1 | 0 | Болгария (1) |
 | Other: БНТ4 | 1 | 0 | Болгария (1) |
 | Other: Вар | 1 | 0 | Украинские (1) |
@@ -404,6 +404,7 @@ Unmatched channels: **723**
 | Other: ОХ-АХ | 1 | 1 | Для взрослых (1) |
 | Other: Перший | 1 | 0 | Украинские (1) |
 | Other: Пес | 1 | 0 | Кино (1) |
+| Other: Планета | 1 | 0 | Болгария (1) |
 | Other: Полювання | 1 | 0 | Кинозалы UA (1) |
 | Other: Рев | 1 | 0 | Украинские (1) |
 | Other: Релакс | 1 | 0 | Кинозалы UA (1) |
@@ -428,9 +429,133 @@ Unmatched channels: **723**
 | Other: Центр | 1 | 0 | Беларусь (1) |
 | Other: Черн | 1 | 0 | Украинские (1) |
 | Other: Честный | 1 | 0 | Кино (1) |
+| VeleS | 1 | 0 | Кинозалы (1) |
 | Velilla | 1 | 0 | Детские (1) |
 
 ## Channels by family
+
+### Joker — 120
+
+- jk_fargo
+- jk_SexandCity
+- jk_desperate
+- Joker:Сімсони
+- Joker:Губка Боб
+- Joker:Love
+- Joker:Альф
+- Joker:Футурама
+- Joker:CSI NY
+- Joker:CSI Vegas
+- Joker:CSI Miami
+- Joker:Секретні матеріали
+- Joker:Друзі
+- Joker:Дім Дракона
+- Joker:Кращі фільми 2024
+- Joker:Шерлок
+- Joker:Гострі картузи
+- Joker:Відьмак
+- Joker:Панда Кун-фу
+- Joker:Формула
+- Joker:Тарантіно
+- Joker:Робокар Полі
+- Joker:Секс і Місто
+- Joker:Коломбо
+- Joker:Американський тато
+- Joker:Гріфіни
+- Joker:Русалочка
+- Joker:Аладдін
+- Joker:Чіп та Дейл
+- Joker:Гей Арнольд!
+- Joker: Том та Джеррі
+- Joker:Свинка Пепа
+- Joker:Щенячий патруль
+- Joker:Качині історії
+- Joker:90-ті
+- Joker:Леді Баг і Супер кіт
+- Joker:Пуаро Агати Крісті
+- Joker:Декстер
+- Joker:Касл
+- Joker:Бруклін 9-9
+- Joker:Фубар
+- Joker:Кістки
+- Joker:Пуститися берега
+- Joker:Мел Гібсон
+- Joker:Теорія брехні
+- Joker:Величне століття
+- Joker:Ван Дамм
+- Joker:Вітчайдушні домогосподарки
+- Joker:Маленьке королівство Бена і Холлі
+- Joker:Гравіті Фолз
+- Joker:South Park
+- Joker:Як я зустрів вашу маму
+- Joker:Теорія великого вибуху
+- Joker:Cinema
+- Joker:Cinema2
+- Joker:Горець
+- Joker:Mислити як злочинець
+- Joker:Менталіст
+- Joker:Пограбування
+- Joker:Герої
+- Joker:Корона
+- Joker:Загублені
+- Joker:Чорне дзеркало
+- Joker:Біографічне
+- Joker:Швидкість
+- Joker:Краще подзвоніть Солу
+- Joker:Пінгвіни Мадагаскару
+- Joker:Ліло і Стіч
+- jk_Cinema3
+- jk_doku_Ukraine
+- jk_serial
+- jk_Magic
+- jk_90210
+- jk_dram
+- jk_fineas
+- jk_strah
+- jk_Sliders
+- jk_Succession
+- jk_Money_Heist
+- jk_office
+- jk_Scrubs
+- jk_element
+- jk_Buffy
+- jk_Melrose_Place
+- jk_Stargate
+- jk_Only_Murders
+- jk_detektiv
+- jk_NCIS
+- jk_dark
+- jk_balance
+- jk_timon
+- jk_Cartoon
+- jk_Flintstones
+- jk_grimm
+- jk_kids
+- jk_black_cloak
+- Joker: Twin Peaks
+- jk_boys
+- jk_Winx
+- Joker: Фантастика
+- jk_Morning_Show
+- jk_Ritchie
+- jk_Scorsese
+- Joker: Wednesday
+- jk_Spilberg
+- jk_Kopola
+- jk_Skott
+- jk_Kameron
+- jk_Besson
+- jk_Nolan
+- jk_King
+- jk_Crowe
+- jk_Reeves
+- jk_Hemsworth
+- jk_Butler
+- jk_Kunis
+- jk_Neeson
+- jk_Scorpion
+- jk_duva
+- jk_Emeli
 
 ### DITV — 35
 
@@ -475,7 +600,6 @@ Unmatched channels: **723**
 - Сімейні мелодрами+
 - Діти проти зірок HD
 - Вікторина
-- 11 канал Дніпро
 - Віта  ТБ (Вінниця) HD
 - Місто+
 - Візит HD
@@ -483,6 +607,7 @@ Unmatched channels: **723**
 - Кіно Та Серіали
 - Кіно на Різдво
 - Містика і Таємниц
+- Рік і Марті
 - Різдво
 - 100% NL
 - 538 T
@@ -507,39 +632,6 @@ Unmatched channels: **723**
 - 6 Ter
 - Q Sport League
 - Q Arena
-
-### Joker — 30
-
-- jk_fargo
-- jk_SexandCity
-- jk_desperate
-- Joker:Сімсони
-- Joker:Love
-- Joker:Кращі фільми 2024
-- Joker:Гострі картузи
-- Joker:Русалочка
-- Joker: Том та Джеррі
-- Joker:90-ті
-- Joker:Пуститися берега
-- Joker:Мел Гібсон
-- Joker:Величне століття
-- Joker:Вітчайдушні домогосподарки
-- Joker:Cinema2
-- Joker:Горець
-- Joker:Швидкість
-- jk_Cinema3
-- jk_90210
-- jk_Sliders
-- jk_Succession
-- jk_Buffy
-- jk_dark
-- jk_balance
-- jk_kids
-- Joker: Twin Peaks
-- jk_boys
-- jk_Winx
-- Joker: Wednesday
-- jk_Nolan
 
 ### Play-X — 15
 
@@ -605,9 +697,8 @@ Unmatched channels: **723**
 - RTL Nitro
 - RTL Zwei HD
 
-### BOX — 10
+### BOX — 9
 
-- BOX Be ON Edge 2 Live HD
 - BOX SportCast Live 1 HD
 - BOX SportCast Live 2 HD
 - BOX SportCast Live 3 HD
@@ -686,14 +777,6 @@ Unmatched channels: **723**
 - НТВ Сериал Следствие Вели
 - НТВ Сериал Пять Минут Тишины
 
-### Other: Sport — 5
-
-- Sport 3 UA HD
-- Sport 4 UA
-- Sport 5 Gold
-- Sport 2 HD
-- Sport 10
-
 ### Other: Viasat — 5
 
 - Viasat Explore Best HD
@@ -758,19 +841,19 @@ Unmatched channels: **723**
 - RAI News 24 HD
 - RAI Sport+ HD
 
+### Other: Sport — 4
+
+- Sport 4 UA
+- Sport 5 Gold
+- Sport 2 HD
+- Sport 10
+
 ### Other: Star — 4
 
 - Star Media
 - Star Family HD
 - Star Channel
 - Star TV
-
-### Other: TVPlay — 4
-
-- TVPlay Авторский перевод HD
-- TVPlay АЛЬФ
-- TVPlay Космический
-- TVPlay Лихие 90е Сериал
 
 ### Other: ViP — 4
 
@@ -826,6 +909,12 @@ Unmatched channels: **723**
 - Total Music Dance
 - Total Music Concerts
 - Total Music 2000s
+
+### Other: TVPlay — 3
+
+- TVPlay Авторский перевод HD
+- TVPlay АЛЬФ
+- TVPlay Космический
 
 ### Other: УПЛ — 3
 
@@ -1063,11 +1152,6 @@ Unmatched channels: **723**
 - Zoom
 - Zoom
 
-### Other: Планета — 2
-
-- Планета HD BG
-- Планета Фолк
-
 ### Other: Сер — 2
 
 - Серіал Україна 1
@@ -1076,10 +1160,6 @@ Unmatched channels: **723**
 ### Magic — 1
 
 - Magic TV
-
-### MiniMax/MM — 1
-
-- MM USSR Сказки HD
 
 ### Other: +BAKU — 1
 
@@ -1401,10 +1481,6 @@ Unmatched channels: **723**
 
 - Film Top - Rakuten TV
 
-### Other: FilmZone — 1
-
-- FilmZone
-
 ### Other: FlixSpin — 1
 
 - FlixSpin
@@ -1512,6 +1588,10 @@ Unmatched channels: **723**
 ### Other: House — 1
 
 - House Floor
+
+### Other: House_ukr — 1
+
+- House_ukr
 
 ### Other: HRT — 1
 
@@ -1929,6 +2009,10 @@ Unmatched channels: **723**
 
 - ShopLC HD
 
+### Other: Silk — 1
+
+- Silk Universal
+
 ### Other: Sky — 1
 
 - Sky Sports News HD
@@ -2165,6 +2249,10 @@ Unmatched channels: **723**
 
 - ZU
 
+### Other: Арм — 1
+
+- Армія TV HD
+
 ### Other: БНТ3 — 1
 
 - БНТ3
@@ -2321,6 +2409,10 @@ Unmatched channels: **723**
 
 - Пес HD
 
+### Other: Планета — 1
+
+- Планета Фолк
+
 ### Other: Полювання — 1
 
 - Полювання на в бивцю HD
@@ -2416,6 +2508,10 @@ Unmatched channels: **723**
 ### Other: Честный — 1
 
 - Честный Детекти
+
+### VeleS — 1
+
+- VeleS С Новым годом!
 
 ### Velilla — 1
 
