@@ -3,20 +3,20 @@
 Diagnostic queue for Russian-language and CIS recovery. It does not create aliases by itself.
 Regional variants, time-shifts and virtual/FAST families must be verified before production mapping.
 
-Candidate channels: **150**
+Candidate channels: **142**
 
 Unsafe virtual/dummy-ID channels: **74**
 
 ## By group
 
 - Кинозалы UA: 39
-- Кино: 29
-- Кинозалы: 22
-- Украинские: 19
+- Кино: 23
+- Кинозалы: 23
+- Украинские: 18
 - Музыкальные: 11
-- Россия: 10
+- Россия: 9
 - Детские: 6
-- Познавательные: 6
+- Познавательные: 5
 - Беларусь: 4
 - Спорт: 3
 - Разное: 1
@@ -107,21 +107,16 @@ Unsafe virtual/dummy-ID channels: **74**
 | Детектив HD | Кино |  | Other: Детектив | review |
 | Кино 24/7 | Кино |  | Other | review |
 | Кино Топ | Кино |  | Other: Топ | review |
-| Кинобоевик | Кино |  | Other: Кинобоевик | review |
-| Кинодрама | Кино |  | Other: Кинодрама | review |
 | Кинодром | Кино |  | Other: Кинодром | review |
 | Киножелезо HD | Кино |  | Other: Киножелезо | review |
 | Кинолаффка HD | Кино |  | Other: Кинолаффка | review |
-| Киносериал | Кино |  | Other: Киносериал | review |
 | Лента Кино | Кино |  | Other: Лента | review |
-| Мировое Кино | Кино |  | Other: Мировое | review |
 | Наше любимое кино UA | Кино |  | Other: Наше | review |
 | Новый Русский HD | Кино |  | Other: Новый | review |
 | Окко ТВ H | Кино |  | Other: Окко | review |
 | Пес HD | Кино |  | Other: Пес | review |
-| Премиум Кино | Кино |  | Other: Премиум | review |
-| Семейное Кино | Кино |  | Other: Семейное | review |
 | Честный Детекти | Кино |  | Other: Честный | review |
+| TVPlay Лихие 90е Сериал | Кинозалы |  | Other: TVPlay | review |
 | Bear TV Великий Екран UA HD | Кинозалы UA |  | Other: Bear | review |
 | Bear TV Малий Екран UA HD | Кинозалы UA |  | Other: Bear | review |
 | Bear TV Мульт 24 UA HD | Кинозалы UA |  | Other: Bear | review |
@@ -141,7 +136,6 @@ Unsafe virtual/dummy-ID channels: **74**
 | Наше Ретро | Музыкальные |  | Other: Наше | review |
 | Континент Е | Познавательные |  | Other: Континент | review |
 | Орел и Решка | Познавательные |  | Other: Орел | review |
-| Чемодан ТВ HD | Познавательные |  | Other: Чемодан | review |
 | Закон | Разное |  | Other: Закон | review |
 | News Front | Россия | RU | Other: News | review |
 | Rutube TV | Россия | RU | Other: Rutube | review |
@@ -151,12 +145,10 @@ Unsafe virtual/dummy-ID channels: **74**
 | ВТК 41 Аргус | Россия | RU | Other: ВТК | review |
 | Планета РТР | Россия | RU | Other: Планета | review |
 | Раменское ТВ | Россия | RU | Other: Раменское | review |
-| ТВЦ International | Россия | RU | Other: ТВЦ | review |
 | Телеплюс | Россия | RU | Other: Телеплюс | review |
 | УПЛ ТВ 1 | Спорт |  | Other: УПЛ | review |
 | УПЛ ТВ 2 | Спорт |  | Other: УПЛ | review |
 | УПЛ ТВ 3 | Спорт |  | Other: УПЛ | review |
-| Eспресо TV | Украинские | UA | Other: Eспресо | review |
 | TIC (Одеса) | Украинские | UA | Other: TIC | review |
 | UA: Херсон | Украинские | UA | Other: Херсон | review |
 | UA:Одесcа | Украинские | UA | Other: Одесcа | review |

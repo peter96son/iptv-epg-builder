@@ -3,18 +3,16 @@
 This report is diagnostic only. It does not create EPG mappings.
 A family must be researched and verified before aliases are added to the live builder.
 
-Unmatched channels: **989**
+Unmatched channels: **953**
 
 | Family | Channels | no_epg_* IDs | Main groups |
 |---|---:|---:|---|
 | Joker | 120 | 0 | Кинозалы UA (117), Кинозалы (3) |
 | Other: Bear | 50 | 0 | Кинозалы UA (50) |
-| Other | 37 | 0 | Украинские (7), Кинозалы UA (4), Израиль (3), Испания (3) |
+| Other | 36 | 0 | Украинские (6), Кинозалы UA (4), Израиль (3), Испания (3) |
 | DITV | 35 | 32 | Кинозалы (25), Детские (6), Познавательные (3), Для взрослых (1) |
 | Other: Viasat | 15 | 0 | Кино (6), Познавательные (6), UK (2), Эстония (1) |
 | Play-X | 15 | 0 | Музыкальные (9), Кино (3), Кинозалы UA (3) |
-| Magic | 14 | 0 | Кинозалы (12), Детские (1), Болгария (1) |
-| Fresh | 13 | 0 | Кинозалы (13) |
 | Other: Football | 13 | 0 | Спорт (13) |
 | Other: VIP | 13 | 0 | Спорт (13) |
 | Other: RTL | 11 | 0 | Музыкальные (8), Германия (3) |
@@ -22,6 +20,7 @@ Unmatched channels: **989**
 | Other: FIFA+ | 8 | 0 | Спорт (8) |
 | BOX | 7 | 0 | Спорт (6), Болгария (1) |
 | Other: AXN | 7 | 0 | Румыния (4), SkyLink (3) |
+| Other: Fox | 7 | 0 | Кино (4), Спорт (2), Испания (1) |
 | Other: Rakuten | 7 | 0 | Испания (4), Италия (3) |
 | Other: Star | 7 | 0 | Кино (4), Испания (1), Молдова (1), Турция (1) |
 | Other: DAZN | 6 | 0 | Спорт (6) |
@@ -29,9 +28,7 @@ Unmatched channels: **989**
 | Other: Pimple | 6 | 0 | Спорт (6) |
 | Other: TRT | 6 | 0 | Турция (6) |
 | Other: НТВ | 6 | 6 | Кино (6) |
-| BCU | 5 | 0 | Кинозалы (4), Детские (1) |
 | Other: BeIN | 5 | 0 | Спорт (5) |
-| Other: Fox | 5 | 0 | Кино (4), Испания (1) |
 | Other: Setanta | 5 | 0 | Спорт (4), Молдова (1) |
 | Other: Sport | 5 | 0 | Спорт (2), Израиль (1), SkyLink (1), BE & NL (1) |
 | Other: Carac | 4 | 0 | BE & NL (4) |
@@ -45,6 +42,7 @@ Unmatched channels: **989**
 | Other: RAI | 4 | 0 | Италия (4) |
 | Other: Start | 4 | 0 | Кино (4) |
 | Other: ViP | 4 | 0 | Спорт (4) |
+| Magic | 3 | 0 | Кинозалы (1), Детские (1), Болгария (1) |
 | Other: Cine | 3 | 0 | Испания (3) |
 | Other: Eurosport | 3 | 0 | Спорт (3) |
 | Other: Filmbox | 3 | 0 | Румыния (1), Венгрия (1), BE & NL (1) |
@@ -56,6 +54,7 @@ Unmatched channels: **989**
 | Other: Total | 3 | 0 | Музыкальные (3) |
 | Other: Планета | 3 | 0 | Болгария (2), Россия (1) |
 | Other: УПЛ | 3 | 0 | Спорт (3) |
+| BCU | 2 | 0 | Кинозалы (1), Детские (1) |
 | Other: Arena | 2 | 0 | Спорт (2) |
 | Other: BBC | 2 | 0 | Испания (1), BE & NL (1) |
 | Other: betking | 2 | 0 | Спорт (2) |
@@ -68,7 +67,6 @@ Unmatched channels: **989**
 | Other: CineManExExEx | 2 | 2 | Для взрослых (2) |
 | Other: CNN | 2 | 0 | Новости (1), Болгария (1) |
 | Other: Dubai | 2 | 0 | Спорт (2) |
-| Other: Enter-ф | 2 | 0 | Украинские (2) |
 | Other: ETB | 2 | 0 | Испания (2) |
 | Other: FilmBox | 2 | 0 | Венгрия (2) |
 | Other: Fishing | 2 | 0 | Болгария (1), Румыния (1) |
@@ -103,14 +101,8 @@ Unmatched channels: **989**
 | Other: Viju | 2 | 0 | Кино (2) |
 | Other: Viva | 2 | 0 | Израиль (2) |
 | Other: Zoom | 2 | 0 | Украинские (1), Израиль (1) |
-| Other: Кинобоевик | 2 | 0 | Кино (1), Казахстан (1) |
-| Other: Кинодрама | 2 | 0 | Кино (1), Казахстан (1) |
 | Other: Киножелезо | 2 | 1 | Кино (2) |
-| Other: Киносериал | 2 | 0 | Кино (1), Казахстан (1) |
-| Other: Мировое | 2 | 0 | Кино (1), Казахстан (1) |
 | Other: Наше | 2 | 0 | Кино (1), Музыкальные (1) |
-| Other: Премиум | 2 | 0 | Кино (1), Казахстан (1) |
-| Other: Семейное | 2 | 0 | Кино (1), Казахстан (1) |
 | Other: Сер | 2 | 0 | Кино (2) |
 | Other: Сусп | 2 | 0 | Украинские (1), Спорт (1) |
 | Other: +BAKU | 1 | 0 | Азербайджан (1) |
@@ -196,7 +188,6 @@ Unmatched channels: **989**
 | Other: Euronews | 1 | 0 | Болгария (1) |
 | Other: Exclusiv | 1 | 0 | Молдова (1) |
 | Other: Extreme | 1 | 0 | Польша (1) |
-| Other: Eспресо | 1 | 0 | Украинские (1) |
 | Other: Family | 1 | 0 | Кинозалы UA (1) |
 | Other: Fantasy | 1 | 0 | Кинозалы UA (1) |
 | Other: FEN | 1 | 0 | Болгария (1) |
@@ -281,6 +272,7 @@ Unmatched channels: **989**
 | Other: Moldova | 1 | 0 | Молдова (1) |
 | Other: Montreal | 1 | 0 | Греция (1) |
 | Other: Movify | 1 | 0 | Кино (1) |
+| Other: Movistar | 1 | 0 | Спорт (1) |
 | Other: MTV | 1 | 0 | Музыкальные (1) |
 | Other: Muzzik | 1 | 0 | Музыкальные (1) |
 | Other: N24 | 1 | 0 | Румыния (1) |
@@ -371,6 +363,7 @@ Unmatched channels: **989**
 | Other: TV8 | 1 | 0 | Молдова (1) |
 | Other: TVE | 1 | 0 | Испания (1) |
 | Other: TVM | 1 | 0 | Музыкальные (1) |
+| Other: TVPlay | 1 | 0 | Кинозалы (1) |
 | Other: TVR | 1 | 0 | Молдова (1) |
 | Other: TVR1 | 1 | 0 | Румыния (1) |
 | Other: USArmenia | 1 | 0 | Армения (1) |
@@ -417,9 +410,11 @@ Unmatched channels: **989**
 | Other: Закон | 1 | 0 | Разное (1) |
 | Other: Исландия | 1 | 0 | Украинские (1) |
 | Other: Картковий | 1 | 0 | Кинозалы UA (1) |
-| Other: Ки | 1 | 0 | Украинские (1) |
+| Other: Кинобоевик | 1 | 0 | Казахстан (1) |
+| Other: Кинодрама | 1 | 0 | Казахстан (1) |
 | Other: Кинодром | 1 | 0 | Кино (1) |
 | Other: Кинолаффка | 1 | 0 | Кино (1) |
+| Other: Киносериал | 1 | 0 | Казахстан (1) |
 | Other: Конкурент | 1 | 0 | Украинские (1) |
 | Other: Континент | 1 | 0 | Познавательные (1) |
 | Other: Кохання | 1 | 0 | Кинозалы UA (1) |
@@ -429,6 +424,7 @@ Unmatched channels: **989**
 | Other: Март | 1 | 0 | Украинские (1) |
 | Other: Мастер | 1 | 0 | Украинские (1) |
 | Other: Мелодрами | 1 | 0 | Украинские (1) |
+| Other: Мировое | 1 | 0 | Казахстан (1) |
 | Other: Мультф | 1 | 0 | Детские (1) |
 | Other: На | 1 | 0 | Кинозалы UA (1) |
 | Other: Невигадан | 1 | 0 | Познавательные (1) |
@@ -443,12 +439,14 @@ Unmatched channels: **989**
 | Other: Перший | 1 | 0 | Украинские (1) |
 | Other: Пес | 1 | 0 | Кино (1) |
 | Other: Полювання | 1 | 0 | Кинозалы UA (1) |
+| Other: Премиум | 1 | 0 | Казахстан (1) |
 | Other: Раменское | 1 | 0 | Россия (1) |
 | Other: Рев | 1 | 0 | Украинские (1) |
 | Other: Релакс | 1 | 0 | Кинозалы UA (1) |
 | Other: Родина | 1 | 0 | Болгария (1) |
 | Other: Розсл | 1 | 0 | Украинские (1) |
 | Other: Романтичний | 1 | 0 | Кинозалы UA (1) |
+| Other: Семейное | 1 | 0 | Казахстан (1) |
 | Other: СК1 | 1 | 0 | Украинские (1) |
 | Other: СкиФ | 1 | 0 | Беларусь (1) |
 | Other: Сл | 1 | 0 | Украинские (1) |
@@ -459,7 +457,6 @@ Unmatched channels: **989**
 | Other: Та | 1 | 0 | Украинские (1) |
 | Other: Тв | 1 | 0 | Кинозалы UA (1) |
 | Other: ТВ | 1 | 0 | Болгария (1) |
-| Other: ТВЦ | 1 | 0 | Россия (1) |
 | Other: Телеплюс | 1 | 0 | Россия (1) |
 | Other: Топ | 1 | 0 | Кино (1) |
 | Other: ТРК | 1 | 0 | Украинские (1) |
@@ -469,7 +466,6 @@ Unmatched channels: **989**
 | Other: Ховаючи | 1 | 0 | Кинозалы UA (1) |
 | Other: Хрон | 1 | 0 | Украинские (1) |
 | Other: Центр | 1 | 0 | Беларусь (1) |
-| Other: Чемодан | 1 | 0 | Познавательные (1) |
 | Other: Черн | 1 | 0 | Украинские (1) |
 | Other: Честный | 1 | 0 | Кино (1) |
 | Velilla | 1 | 0 | Детские (1) |
@@ -652,12 +648,11 @@ Unmatched channels: **989**
 - Bear TV Вибір Глядача UA HD
 - Bear TV Золота Колекція UA HD
 
-### Other — 37
+### Other — 36
 
 - Сімейні мелодрами+
 - Діти проти зірок HD
 - Вікторина
-- 11 канал Дніпро
 - Віта  ТБ (Вінниця) HD
 - Місто+
 - Візит HD
@@ -766,39 +761,6 @@ Unmatched channels: **989**
 - Play-X Музыкальная дорожка 90-х
 - Play-X Русский рок
 
-### Magic — 14
-
-- Magic Premiere
-- Magic Adventure
-- Magic Russian
-- Magic Action
-- Magic Comedy
-- Magic Family
-- Magic Galaxy
-- Magic Horror
-- Magic Karate
-- Magic Love
-- Magic Thriller
-- Magic VHS
-- Magic Disney
-- Magic TV
-
-### Fresh — 13
-
-- Fresh Fantastic
-- Fresh VHS
-- Fresh Rating
-- Fresh Family
-- Fresh Premiere
-- Fresh Comedy
-- Fresh Kids
-- Fresh Cinema
-- Fresh Horror
-- Fresh Adventure
-- Fresh Romantic
-- Fresh Russian
-- Fresh Thriller
-
 ### Other: Football — 13
 
 - Football Live 1
@@ -890,6 +852,16 @@ Unmatched channels: **989**
 - AXN Black
 - AXN White
 
+### Other: Fox — 7
+
+- Fox Life HD
+- Fox Life
+- Fox HD
+- Fox
+- Fox Sport 1 HD
+- Fox Sport 2 HD
+- Fox ES
+
 ### Other: Rakuten — 7
 
 - Rakuten TV Action
@@ -955,14 +927,6 @@ Unmatched channels: **989**
 - НТВ Сериал Следствие Вели
 - НТВ Сериал Пять Минут Тишины
 
-### BCU — 5
-
-- BCU STARS HD
-- BCU Reality OLD
-- BCU Survival OLD
-- BCU Romantic OLD
-- BCU Kids HD
-
 ### Other: BeIN — 5
 
 - BeIN Sport 1 HD
@@ -970,14 +934,6 @@ Unmatched channels: **989**
 - BeIN Sport 3 HD
 - BeIN Sport 4 HD
 - BeIN EXTRAS
-
-### Other: Fox — 5
-
-- Fox Life HD
-- Fox Life
-- Fox HD
-- Fox
-- Fox ES
 
 ### Other: Setanta — 5
 
@@ -1072,6 +1028,12 @@ Unmatched channels: **989**
 - ViP Sport 16
 - ViP Sport 17
 
+### Magic — 3
+
+- Magic Premiere
+- Magic Disney
+- Magic TV
+
 ### Other: Cine — 3
 
 - Cine Friki
@@ -1138,6 +1100,11 @@ Unmatched channels: **989**
 - УПЛ ТВ 2
 - УПЛ ТВ 3
 
+### BCU — 2
+
+- BCU STARS HD
+- BCU Kids HD
+
 ### Other: Arena — 2
 
 - Arena Premium 4 HD
@@ -1197,11 +1164,6 @@ Unmatched channels: **989**
 
 - Dubai Sports 2
 - Dubai Sports 3
-
-### Other: Enter-ф — 2
-
-- Enter-фільм
-- Enter-фільм HD
 
 ### Other: ETB — 2
 
@@ -1373,45 +1335,15 @@ Unmatched channels: **989**
 - Zoom
 - Zoom
 
-### Other: Кинобоевик — 2
-
-- Кинобоевик
-- Кинобоевик
-
-### Other: Кинодрама — 2
-
-- Кинодрама
-- Кинодрама
-
 ### Other: Киножелезо — 2
 
 - Киножелезо HD
 - Киножелезо HD
 
-### Other: Киносериал — 2
-
-- Киносериал
-- Киносериал
-
-### Other: Мировое — 2
-
-- Мировое Кино
-- Мировое Кино
-
 ### Other: Наше — 2
 
 - Наше любимое кино UA
 - Наше Ретро
-
-### Other: Премиум — 2
-
-- Премиум Кино
-- Премиум Кино
-
-### Other: Семейное — 2
-
-- Семейное Кино
-- Семейное Кино
 
 ### Other: Сер — 2
 
@@ -1755,10 +1687,6 @@ Unmatched channels: **989**
 
 - Extreme Sport
 
-### Other: Eспресо — 1
-
-- Eспресо TV
-
 ### Other: Family — 1
 
 - Cinema Family HD
@@ -2094,6 +2022,10 @@ Unmatched channels: **989**
 ### Other: Movify — 1
 
 - Movify History
+
+### Other: Movistar — 1
+
+- Movistar Formula 1
 
 ### Other: MTV — 1
 
@@ -2455,6 +2387,10 @@ Unmatched channels: **989**
 
 - TVM 3
 
+### Other: TVPlay — 1
+
+- TVPlay Лихие 90е Сериал
+
 ### Other: TVR — 1
 
 - TVR
@@ -2639,9 +2575,13 @@ Unmatched channels: **989**
 
 - Картковий Будинок
 
-### Other: Ки — 1
+### Other: Кинобоевик — 1
 
-- UA: Київ
+- Кинобоевик
+
+### Other: Кинодрама — 1
+
+- Кинодрама
 
 ### Other: Кинодром — 1
 
@@ -2650,6 +2590,10 @@ Unmatched channels: **989**
 ### Other: Кинолаффка — 1
 
 - Кинолаффка HD
+
+### Other: Киносериал — 1
+
+- Киносериал
 
 ### Other: Конкурент — 1
 
@@ -2686,6 +2630,10 @@ Unmatched channels: **989**
 ### Other: Мелодрами — 1
 
 - Мелодрами
+
+### Other: Мировое — 1
+
+- Мировое Кино
 
 ### Other: Мультф — 1
 
@@ -2743,6 +2691,10 @@ Unmatched channels: **989**
 
 - Полювання на в бивцю HD
 
+### Other: Премиум — 1
+
+- Премиум Кино
+
 ### Other: Раменское — 1
 
 - Раменское ТВ
@@ -2766,6 +2718,10 @@ Unmatched channels: **989**
 ### Other: Романтичний — 1
 
 - Романтичний Марафон HD
+
+### Other: Семейное — 1
+
+- Семейное Кино
 
 ### Other: СК1 — 1
 
@@ -2807,10 +2763,6 @@ Unmatched channels: **989**
 
 - ТВ Скат
 
-### Other: ТВЦ — 1
-
-- ТВЦ International
-
 ### Other: Телеплюс — 1
 
 - Телеплюс
@@ -2846,10 +2798,6 @@ Unmatched channels: **989**
 ### Other: Центр — 1
 
 - Центр BY
-
-### Other: Чемодан — 1
-
-- Чемодан ТВ HD
 
 ### Other: Черн — 1
 
