@@ -1,18 +1,18 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-08-31T10:32:35.012067-07:00`
+- Generated: `2026-08-31T11:43:30.398016-07:00`
 - Playlist channels: **2776**
-- Baseline covered: **1508**
+- Baseline covered: **1507**
 - Final covered: **1965**
-- Added by fallbacks: **+457**
+- Added by fallbacks: **+458**
 - Unmatched: **811**
-- Programmes: **408159**
-- Movie coverage: **618/822** (+178)
+- Programmes: **408091**
+- Movie coverage: **618/822** (+179)
 
 ## Playlist changes
 
 - New channels: **0**
-- Removed channels: **4**
+- Removed channels: **0**
 - Renamed: **0**
 - Stream URL changed: **0**
 - Category changed: **0**
@@ -21,7 +21,7 @@
 
 | Group | Total | Baseline | Final | Added | Coverage |
 |---|---:|---:|---:|---:|---:|
-| Кинозалы | 334 | 188 | 301 | +113 | 90.1% |
+| Кинозалы | 334 | 187 | 301 | +114 | 90.1% |
 | Спорт | 265 | 94 | 170 | +76 | 64.2% |
 | Музыкальные | 161 | 47 | 96 | +49 | 59.6% |
 | Кино | 219 | 143 | 185 | +42 | 84.5% |
@@ -64,9 +64,9 @@
 
 | Source | Status | Added |
 |---|---|---:|
-| iptv-online-primary | ok | 1508 |
+| iptv-online-primary | ok | 1507 |
 | premiere-group-dedicated | ok | 0 |
-| iptvx-noarch | ok | 222 |
+| iptvx-noarch | ok | 223 |
 | klimedia-dedicated | failed | 0 |
 | runigma-iptv | ok | 12 |
 | openbox-tsd | ok | 51 |
@@ -144,7 +144,6 @@
 
 | Generated | Covered | Unmatched | Programmes |
 |---|---:|---:|---:|
-| 2026-08-26T07:43:34.503958-07:00 | 2131 | 683 | 422234 |
 | 2026-08-26T10:10:56.950928-07:00 | 2153 | 661 | 423026 |
 | 2026-08-27T14:28:40.597440-07:00 | 2020 | 794 | 385356 |
 | 2026-08-27T19:17:58.892619-07:00 | 2069 | 745 | 376661 |
@@ -164,4 +163,5 @@
 | 2026-08-30T23:40:40.786261-07:00 | 1773 | 1007 | 307766 |
 | 2026-08-31T05:40:27.102141-07:00 | 2057 | 723 | 409360 |
 | 2026-08-31T10:32:35.012067-07:00 | 1965 | 811 | 408159 |
+| 2026-08-31T11:43:30.398016-07:00 | 1965 | 811 | 408091 |
 
