@@ -15,13 +15,20 @@ _ORIGINAL_LOAD_SOURCES = _config.load_sources
 
 
 def _canonical_source_url(url: str) -> str:
+    """Return a dedup key only for real absolute HTTP(S) URLs.
+
+    Test/config fixtures may use placeholders such as "x". Those are source
+    definitions, not network endpoints, and must never collapse as duplicates.
+    """
     raw=(url or "").strip()
     if not raw:
         return ""
     try:
         p=urlsplit(raw)
     except ValueError:
-        return raw.lower()
+        return ""
+    if p.scheme.lower() not in {"http","https"} or not p.hostname:
+        return ""
     host=(p.hostname or "").lower()
     if host.startswith("www."):
         host=host[4:]

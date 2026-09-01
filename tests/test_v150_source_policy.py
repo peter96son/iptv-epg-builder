@@ -99,3 +99,19 @@ def test_ussr_gabbarit_fallback_survives_dedup_scope_merge(monkeypatch):
     rows=v15.load_sources_v15()
     assert rows[0]["name"]=="gabbarit-current"
     assert "USSR" in rows[0]["groups"]
+
+
+def test_placeholder_urls_are_never_deduplicated(monkeypatch):
+    raw=[
+        {"name":"iptv-online-primary","url":"x"},
+        {"name":"iptvx-noarch","url":"x"},
+        {"name":"klimedia-dedicated","url":"x","groups":["Кино"]},
+        {"name":"bcumedia-dedicated","url":"x","groups":["Кинозалы"]},
+    ]
+    monkeypatch.setattr(v15,"_ORIGINAL_LOAD_SOURCES",lambda:raw)
+    rows=v15.load_sources_v15()
+    assert [r["name"] for r in rows] == [
+        "iptv-online-primary","iptvx-noarch",
+        "klimedia-dedicated","bcumedia-dedicated"
+    ]
+    assert v15._canonical_source_url("x") == ""
