@@ -1,13 +1,13 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-09-01T14:21:49.372785-07:00`
+- Generated: `2026-09-01T14:47:26.569079-07:00`
 - Playlist channels: **2776**
 - Baseline covered: **1580**
-- Final covered: **2098**
-- Added by fallbacks: **+518**
-- Unmatched: **678**
-- Programmes: **434484**
-- Movie coverage: **740/822** (+241)
+- Final covered: **2099**
+- Added by fallbacks: **+519**
+- Unmatched: **677**
+- Programmes: **434690**
+- Movie coverage: **741/822** (+242)
 
 ## Playlist changes
 
@@ -21,7 +21,7 @@
 
 | Group | Total | Baseline | Final | Added | Coverage |
 |---|---:|---:|---:|---:|---:|
-| Кинозалы | 334 | 193 | 306 | +113 | 91.6% |
+| Кинозалы | 334 | 193 | 307 | +114 | 91.9% |
 | Кинозалы UA | 206 | 103 | 187 | +84 | 90.8% |
 | Спорт | 265 | 102 | 175 | +73 | 66.0% |
 | Музыкальные | 161 | 47 | 96 | +49 | 59.6% |
@@ -68,7 +68,7 @@
 | premiere-group-dedicated | ok | 0 |
 | iptvx-noarch | ok | 223 |
 | klimedia-dedicated | failed | 0 |
-| runigma-iptv | ok | 12 |
+| runigma-iptv | ok | 11 |
 | openbox-tsd | ok | 53 |
 | next-dedicated | ok | 0 |
 | bcumedia-dedicated | ok | 4 |
@@ -113,7 +113,7 @@
 | epgshare-LT | ok | 0 |
 | epgshare-LV | ok | 2 |
 | teleguide-ru | ok | 3 |
-| gabbarit-current | ok | 58 |
+| gabbarit-current | ok | 59 |
 | m3u-edit-all-rescue | ok | 1 |
 | gabbarit-mirror | ok | 0 |
 | epgone-full-movie-rescue | ok | 0 |
@@ -142,7 +142,6 @@
 
 | Generated | Covered | Unmatched | Programmes |
 |---|---:|---:|---:|
-| 2026-08-28T23:40:20.007545-07:00 | 2077 | 737 | 359803 |
 | 2026-08-29T05:43:05.490267-07:00 | 2070 | 742 | 333137 |
 | 2026-08-29T11:36:45.202147-07:00 | 2020 | 793 | 332483 |
 | 2026-08-29T17:38:49.334569-07:00 | 2018 | 795 | 319763 |
@@ -162,4 +161,5 @@
 | 2026-08-31T23:54:11.483726-07:00 | 2023 | 753 | 399630 |
 | 2026-09-01T05:55:27.452511-07:00 | 2099 | 677 | 433967 |
 | 2026-09-01T14:21:49.372785-07:00 | 2098 | 678 | 434484 |
+| 2026-09-01T14:47:26.569079-07:00 | 2099 | 677 | 434690 |
 

@@ -3,13 +3,13 @@
 Diagnostic queue for Russian-language and CIS recovery. It does not create aliases by itself.
 Regional variants, time-shifts and virtual/FAST families must be verified before production mapping.
 
-Candidate channels: **97**
+Candidate channels: **96**
 
 Unsafe virtual/dummy-ID channels: **50**
 
 ## By group
 
-- Кинозалы: 23
+- Кинозалы: 22
 - Кино: 19
 - Украинские: 13
 - Кинозалы UA: 10
@@ -85,7 +85,6 @@ Unsafe virtual/dummy-ID channels: **50**
 | Пес HD | Кино |  | Other: Пес | review |
 | РуКино HD | Кино |  | Other: РуКино | review |
 | Честный Детекти | Кино |  | Other: Честный | review |
-| TVPlay Латинские сериалы ретро | Кинозалы |  | Other: TVPlay | review |
 | SWEET КIНО HD | Кинозалы UA |  | Other: SWEET | review |
 | Кохання на виживання HD | Кинозалы UA |  | Other: Кохання | review |
 | На Трьох HD | Кинозалы UA |  | Other: На | review |

@@ -3,7 +3,7 @@
 This report is diagnostic only. It does not create EPG mappings.
 A family must be researched and verified before aliases are added to the live builder.
 
-Unmatched channels: **678**
+Unmatched channels: **677**
 
 | Family | Channels | no_epg_* IDs | Main groups |
 |---|---:|---:|---|
@@ -329,7 +329,6 @@ Unmatched channels: **678**
 | Other: TV8 | 1 | 0 | Молдова (1) |
 | Other: TVE | 1 | 0 | Испания (1) |
 | Other: TVM | 1 | 0 | Музыкальные (1) |
-| Other: TVPlay | 1 | 0 | Кинозалы (1) |
 | Other: TVR | 1 | 0 | Молдова (1) |
 | Other: TVR1 | 1 | 0 | Румыния (1) |
 | Other: USArmenia | 1 | 0 | Армения (1) |
@@ -1975,10 +1974,6 @@ Unmatched channels: **678**
 ### Other: TVM — 1
 
 - TVM 3
-
-### Other: TVPlay — 1
-
-- TVPlay Латинские сериалы ретро
 
 ### Other: TVR — 1
 
