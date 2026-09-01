@@ -1,19 +1,19 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-09-01T05:55:27.452511-07:00`
+- Generated: `2026-09-01T14:21:49.372785-07:00`
 - Playlist channels: **2776**
-- Baseline covered: **1579**
-- Final covered: **2099**
-- Added by fallbacks: **+520**
-- Unmatched: **677**
-- Programmes: **433967**
-- Movie coverage: **742/822** (+244)
+- Baseline covered: **1580**
+- Final covered: **2098**
+- Added by fallbacks: **+518**
+- Unmatched: **678**
+- Programmes: **434484**
+- Movie coverage: **740/822** (+241)
 
 ## Playlist changes
 
-- New channels: **1**
-- Removed channels: **1**
-- Renamed: **1**
+- New channels: **0**
+- Removed channels: **0**
+- Renamed: **0**
 - Stream URL changed: **0**
 - Category changed: **0**
 
@@ -21,11 +21,11 @@
 
 | Group | Total | Baseline | Final | Added | Coverage |
 |---|---:|---:|---:|---:|---:|
-| Кинозалы | 334 | 192 | 306 | +114 | 91.6% |
+| Кинозалы | 334 | 193 | 306 | +113 | 91.6% |
 | Кинозалы UA | 206 | 103 | 187 | +84 | 90.8% |
 | Спорт | 265 | 102 | 175 | +73 | 66.0% |
 | Музыкальные | 161 | 47 | 96 | +49 | 59.6% |
-| Кино | 219 | 144 | 186 | +42 | 84.9% |
+| Кино | 219 | 144 | 184 | +40 | 84.0% |
 | BE & NL | 100 | 33 | 54 | +21 | 54.0% |
 | UK | 30 | 9 | 26 | +17 | 86.7% |
 | Болгария | 49 | 13 | 27 | +14 | 55.1% |
@@ -36,9 +36,9 @@
 | Италия | 34 | 1 | 10 | +9 | 29.4% |
 | Россия | 184 | 171 | 179 | +8 | 97.3% |
 | Познавательные | 118 | 97 | 104 | +7 | 88.1% |
+| Для взрослых | 33 | 19 | 24 | +5 | 72.7% |
 | Израиль | 78 | 28 | 33 | +5 | 42.3% |
 | Греция | 10 | 3 | 7 | +4 | 70.0% |
-| Для взрослых | 33 | 19 | 23 | +4 | 69.7% |
 | Кино 4K | 63 | 59 | 63 | +4 | 100.0% |
 | SkyLink | 20 | 8 | 10 | +2 | 50.0% |
 | Беларусь | 23 | 20 | 22 | +2 | 95.7% |
@@ -64,18 +64,18 @@
 
 | Source | Status | Added |
 |---|---|---:|
-| iptv-online-primary | ok | 1579 |
+| iptv-online-primary | ok | 1580 |
 | premiere-group-dedicated | ok | 0 |
-| iptvx-noarch | ok | 219 |
+| iptvx-noarch | ok | 223 |
 | klimedia-dedicated | failed | 0 |
-| runigma-iptv | ok | 11 |
-| openbox-tsd | ok | 52 |
+| runigma-iptv | ok | 12 |
+| openbox-tsd | ok | 53 |
 | next-dedicated | ok | 0 |
 | bcumedia-dedicated | ok | 4 |
 | cineman-dedicated | ok | 0 |
-| minimax-mm-dedicated | ok | 1 |
+| minimax-mm-dedicated | ok | 0 |
 | sharavoz-guide | failed | 0 |
-| tvteam | ok | 54 |
+| tvteam | ok | 53 |
 | epgpw-sreda | ok | 0 |
 | epgpw-chestny-detektiv | ok | 0 |
 | epgpw-RU | ok | 4 |
@@ -113,10 +113,8 @@
 | epgshare-LT | ok | 0 |
 | epgshare-LV | ok | 2 |
 | teleguide-ru | ok | 3 |
-| gabbarit-current | ok | 59 |
-| teleguide-rescue | ok | 1 |
-| m3u-edit-all-rescue | ok | 2 |
-| gabbarit-primary | ok | 2 |
+| gabbarit-current | ok | 58 |
+| m3u-edit-all-rescue | ok | 1 |
 | gabbarit-mirror | ok | 0 |
 | epgone-full-movie-rescue | ok | 0 |
 
@@ -144,7 +142,6 @@
 
 | Generated | Covered | Unmatched | Programmes |
 |---|---:|---:|---:|
-| 2026-08-28T17:40:50.156481-07:00 | 2029 | 785 | 354115 |
 | 2026-08-28T23:40:20.007545-07:00 | 2077 | 737 | 359803 |
 | 2026-08-29T05:43:05.490267-07:00 | 2070 | 742 | 333137 |
 | 2026-08-29T11:36:45.202147-07:00 | 2020 | 793 | 332483 |
@@ -164,4 +161,5 @@
 | 2026-08-31T19:50:38.667875-07:00 | 2018 | 758 | 398778 |
 | 2026-08-31T23:54:11.483726-07:00 | 2023 | 753 | 399630 |
 | 2026-09-01T05:55:27.452511-07:00 | 2099 | 677 | 433967 |
+| 2026-09-01T14:21:49.372785-07:00 | 2098 | 678 | 434484 |
 
