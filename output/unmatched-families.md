@@ -3,7 +3,7 @@
 This report is diagnostic only. It does not create EPG mappings.
 A family must be researched and verified before aliases are added to the live builder.
 
-Unmatched channels: **809**
+Unmatched channels: **810**
 
 | Family | Channels | no_epg_* IDs | Main groups |
 |---|---:|---:|---|
@@ -33,6 +33,7 @@ Unmatched channels: **809**
 | Other: RAI | 4 | 0 | Италия (4) |
 | Other: Sport | 4 | 0 | Спорт (1), Израиль (1), SkyLink (1), BE & NL (1) |
 | Other: Star | 4 | 0 | Кино (2), Испания (1), Молдова (1) |
+| Other: TVPlay | 4 | 0 | Кинозалы (4) |
 | Other: ViP | 4 | 0 | Спорт (4) |
 | Other: Cine | 3 | 0 | Испания (3) |
 | Other: Discovery | 3 | 0 | Румыния (2), Испания (1) |
@@ -42,7 +43,6 @@ Unmatched channels: **809**
 | Other: Live | 3 | 0 | Спорт (2), Музыкальные (1) |
 | Other: Nickelodeon | 3 | 0 | Литва (1), Израиль (1), Румыния (1) |
 | Other: Total | 3 | 0 | Музыкальные (3) |
-| Other: TVPlay | 3 | 0 | Кинозалы (3) |
 | Other: УПЛ | 3 | 0 | Спорт (3) |
 | Other: Arena | 2 | 0 | Спорт (2) |
 | Other: Baby | 2 | 0 | Детские (1), Израиль (1) |
@@ -853,6 +853,13 @@ Unmatched channels: **809**
 - Star Channel
 - Star TV
 
+### Other: TVPlay — 4
+
+- TVPlay Игра Престолов HD
+- TVPlay Авторский перевод HD
+- TVPlay АЛЬФ
+- TVPlay Космический
+
 ### Other: ViP — 4
 
 - ViP Sport 14
@@ -907,12 +914,6 @@ Unmatched channels: **809**
 - Total Music Dance
 - Total Music Concerts
 - Total Music 2000s
-
-### Other: TVPlay — 3
-
-- TVPlay Игра Престолов HD
-- TVPlay Авторский перевод HD
-- TVPlay АЛЬФ
 
 ### Other: УПЛ — 3
 

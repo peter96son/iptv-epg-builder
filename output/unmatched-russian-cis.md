@@ -3,14 +3,14 @@
 Diagnostic queue for Russian-language and CIS recovery. It does not create aliases by itself.
 Regional variants, time-shifts and virtual/FAST families must be verified before production mapping.
 
-Candidate channels: **126**
+Candidate channels: **127**
 
 Unsafe virtual/dummy-ID channels: **75**
 
 ## By group
 
 - Кинозалы UA: 34
-- Кинозалы: 27
+- Кинозалы: 28
 - Кино: 20
 - Украинские: 13
 - Музыкальные: 10
@@ -114,6 +114,7 @@ Unsafe virtual/dummy-ID channels: **75**
 | TVPlay Авторский перевод HD | Кинозалы |  | Other: TVPlay | review |
 | TVPlay АЛЬФ | Кинозалы |  | Other: TVPlay | review |
 | TVPlay Игра Престолов HD | Кинозалы |  | Other: TVPlay | review |
+| TVPlay Космический | Кинозалы |  | Other: TVPlay | review |
 | SWEET КIНО HD | Кинозалы UA |  | Other: SWEET | review |
 | Картковий Будинок | Кинозалы UA |  | Other: Картковий | review |
 | Кохання на виживання HD | Кинозалы UA |  | Other: Кохання | review |
