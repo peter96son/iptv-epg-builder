@@ -3,16 +3,16 @@
 Diagnostic queue for Russian-language and CIS recovery. It does not create aliases by itself.
 Regional variants, time-shifts and virtual/FAST families must be verified before production mapping.
 
-Candidate channels: **102**
+Candidate channels: **96**
 
-Unsafe virtual/dummy-ID channels: **54**
+Unsafe virtual/dummy-ID channels: **50**
 
 ## By group
 
-- Кинозалы: 23
-- Кино: 20
-- Кинозалы UA: 14
+- Кинозалы: 22
+- Кино: 19
 - Украинские: 13
+- Кинозалы UA: 10
 - Музыкальные: 10
 - Детские: 6
 - Познавательные: 5
@@ -61,10 +61,6 @@ Unsafe virtual/dummy-ID channels: **54**
 | DITV Счастливы вместе | Кинозалы |  | DITV | no |
 | DITV ФИЛЬМЫ | Кинозалы |  | DITV | no |
 | DITV ФИЛЬМЫ УЖАСОВ 80-х | Кинозалы |  | DITV | no |
-| VeleS С Новым годом! | Кинозалы |  | VeleS | no |
-| Joker:Гей Арнольд! | Кинозалы UA |  | Joker | no |
-| Joker:Русалочка | Кинозалы UA |  | Joker | no |
-| Joker:Формула | Кинозалы UA |  | Joker | no |
 | Play-X Украинский кинозал 1 HD | Кинозалы UA |  | Play-X | no |
 | Play-X Украинский кинозал 2 HD | Кинозалы UA |  | Play-X | no |
 | Play-X Фильмы про войну в Украине | Кинозалы UA |  | Play-X | no |
@@ -85,13 +81,11 @@ Unsafe virtual/dummy-ID channels: **54**
 | Кинодром | Кино |  | Other: Кинодром | review |
 | Кинолаффка HD | Кино |  | Other: Кинолаффка | review |
 | Лента Кино | Кино |  | Other: Лента | review |
-| Новелла ТВ | Кино |  | Other: Новелла | review |
 | Новый Русский HD | Кино |  | Other: Новый | review |
 | Пес HD | Кино |  | Other: Пес | review |
 | РуКино HD | Кино |  | Other: РуКино | review |
 | Честный Детекти | Кино |  | Other: Честный | review |
 | SWEET КIНО HD | Кинозалы UA |  | Other: SWEET | review |
-| Картковий Будинок | Кинозалы UA |  | Other: Картковий | review |
 | Кохання на виживання HD | Кинозалы UA |  | Other: Кохання | review |
 | На Трьох HD | Кинозалы UA |  | Other: На | review |
 | Полювання на в бивцю HD | Кинозалы UA |  | Other: Полювання | review |

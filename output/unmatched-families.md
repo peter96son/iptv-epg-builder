@@ -3,25 +3,25 @@
 This report is diagnostic only. It does not create EPG mappings.
 A family must be researched and verified before aliases are added to the live builder.
 
-Unmatched channels: **753**
+Unmatched channels: **677**
 
 | Family | Channels | no_epg_* IDs | Main groups |
 |---|---:|---:|---|
-| Joker | 71 | 0 | Кинозалы UA (68), Кинозалы (3) |
 | DITV | 35 | 32 | Кинозалы (25), Детские (6), Познавательные (3), Для взрослых (1) |
-| Other | 35 | 0 | Украинские (6), Кинозалы UA (4), Израиль (3), Испания (3) |
+| Other | 34 | 0 | Украинские (6), Кинозалы UA (3), Израиль (3), Испания (3) |
 | Play-X | 15 | 0 | Музыкальные (9), Кино (3), Кинозалы UA (3) |
 | Other: Football | 13 | 0 | Спорт (13) |
 | Other: VIP | 13 | 0 | Спорт (13) |
 | Other: RTL | 11 | 0 | Музыкальные (8), Германия (3) |
+| BOX | 8 | 0 | Спорт (8) |
 | Other: FIFA+ | 8 | 0 | Спорт (8) |
-| BOX | 7 | 0 | Спорт (7) |
 | Other: AXN | 7 | 0 | Румыния (4), SkyLink (3) |
 | Other: Rakuten | 7 | 0 | Испания (4), Италия (3) |
-| Other: TRT | 7 | 0 | Турция (7) |
 | Other: DAZN | 6 | 0 | Спорт (6) |
 | Other: Pimple | 6 | 0 | Спорт (6) |
+| Other: TRT | 6 | 0 | Турция (6) |
 | Other: НТВ | 6 | 6 | Кино (6) |
+| Joker | 5 | 0 | Кинозалы UA (3), Кинозалы (2) |
 | Other: Viasat | 5 | 0 | Познавательные (3), UK (2) |
 | Other: Carac | 4 | 0 | BE & NL (4) |
 | Other: CBS | 4 | 0 | Польша (2), Румыния (2) |
@@ -85,6 +85,7 @@ Unmatched channels: **753**
 | Other: Telepace | 2 | 0 | Италия (2) |
 | Other: TVG | 2 | 0 | Испания (2) |
 | Other: TVN | 2 | 0 | Польша (1), Молдова (1) |
+| Other: TVPlay | 2 | 1 | Кинозалы (1), Для взрослых (1) |
 | Other: Viva | 2 | 0 | Израиль (2) |
 | Other: Zoom | 2 | 0 | Украинские (1), Израиль (1) |
 | Other: Сер | 2 | 0 | Кино (2) |
@@ -122,10 +123,6 @@ Unmatched channels: **753**
 | Other: BOLLYSHOW | 1 | 0 | Израиль (1) |
 | Other: Bolywood | 1 | 0 | Румыния (1) |
 | Other: BOX_MUSIC2_4K | 1 | 0 | Музыкальные (1) |
-| Other: BOX_SPORT_LIVE_1_HD | 1 | 0 | Спорт (1) |
-| Other: BOX_SPORT_LIVE_2_HD | 1 | 0 | Спорт (1) |
-| Other: BOX_SPORT_LIVE_3_HD | 1 | 0 | Спорт (1) |
-| Other: BOX_SPORT_LIVE_4_HD | 1 | 0 | Спорт (1) |
 | Other: BOX_SPORT_LIVE_4K | 1 | 0 | Спорт (1) |
 | Other: BOX_SPORT_LIVE_5_HD | 1 | 0 | Спорт (1) |
 | Other: BOX_SPORT_LIVE_6_HD | 1 | 0 | Спорт (1) |
@@ -197,7 +194,6 @@ Unmatched channels: **753**
 | Other: Hot | 1 | 0 | Израиль (1) |
 | Other: HOT | 1 | 0 | Израиль (1) |
 | Other: House | 1 | 0 | Музыкальные (1) |
-| Other: House_ukr | 1 | 0 | Кинозалы UA (1) |
 | Other: HRT | 1 | 0 | Хорватия (1) |
 | Other: Hype | 1 | 0 | Музыкальные (1) |
 | Other: i24 | 1 | 0 | Израиль (1) |
@@ -221,7 +217,6 @@ Unmatched channels: **753**
 | Other: Kinoerotica | 1 | 1 | Для взрослых (1) |
 | Other: Knesset | 1 | 0 | Израиль (1) |
 | Other: Konservatorebi | 1 | 0 | Грузия (1) |
-| Other: Kvartal | 1 | 0 | Украинские (1) |
 | Other: La | 1 | 0 | Италия (1) |
 | Other: Lancelot | 1 | 0 | Испания (1) |
 | Other: LangLab | 1 | 0 | Германия (1) |
@@ -284,6 +279,7 @@ Unmatched channels: **753**
 | Other: Qmusic | 1 | 0 | BE & NL (1) |
 | Other: QVC | 1 | 0 | Германия (1) |
 | Other: R9 | 1 | 0 | Германия (1) |
+| Other: RAZ | 1 | 0 | Украинские (1) |
 | Other: Rcheuli | 1 | 0 | Грузия (1) |
 | Other: Real | 1 | 0 | Азербайджан (1) |
 | Other: Record | 1 | 0 | Музыкальные (1) |
@@ -301,7 +297,6 @@ Unmatched channels: **753**
 | Other: Sfero | 1 | 0 | Грузия (1) |
 | Other: Shelanu | 1 | 0 | Израиль (1) |
 | Other: ShopLC | 1 | 0 | Германия (1) |
-| Other: Silk | 1 | 0 | Грузия (1) |
 | Other: Sky | 1 | 0 | Германия (1) |
 | Other: Sony | 1 | 0 | Испания (1) |
 | Other: Soul | 1 | 0 | Болгария (1) |
@@ -318,7 +313,6 @@ Unmatched channels: **753**
 | Other: Tezaur | 1 | 0 | Молдова (1) |
 | Other: TF | 1 | 0 | BE & NL (1) |
 | Other: TFavorit | 1 | 0 | Румыния (1) |
-| Other: The_Last_of_Us | 1 | 0 | Кинозалы UA (1) |
 | Other: This | 1 | 0 | Болгария (1) |
 | Other: Thriller | 1 | 0 | Кино (1) |
 | Other: TIC | 1 | 0 | Украинские (1) |
@@ -362,7 +356,6 @@ Unmatched channels: **753**
 | Other: Ziggo | 1 | 0 | BE & NL (1) |
 | Other: ZooSweet | 1 | 0 | Познавательные (1) |
 | Other: ZU | 1 | 0 | Румыния (1) |
-| Other: Арм | 1 | 0 | Украинские (1) |
 | Other: БНТ3 | 1 | 0 | Болгария (1) |
 | Other: БНТ4 | 1 | 0 | Болгария (1) |
 | Other: Вар | 1 | 0 | Украинские (1) |
@@ -378,7 +371,6 @@ Unmatched channels: **753**
 | Other: Дорами | 1 | 0 | Кинозалы UA (1) |
 | Other: ЖВЛ+ | 1 | 0 | Украинские (1) |
 | Other: Загублений | 1 | 0 | Познавательные (1) |
-| Other: Картковий | 1 | 0 | Кинозалы UA (1) |
 | Other: Кинодром | 1 | 0 | Кино (1) |
 | Other: Кинолаффка | 1 | 0 | Кино (1) |
 | Other: Конкурент | 1 | 0 | Украинские (1) |
@@ -393,7 +385,6 @@ Unmatched channels: **753**
 | Other: Мультф | 1 | 0 | Детские (1) |
 | Other: На | 1 | 0 | Кинозалы UA (1) |
 | Other: Невигадан | 1 | 0 | Познавательные (1) |
-| Other: Новелла | 1 | 0 | Кино (1) |
 | Other: Новый | 1 | 0 | Кино (1) |
 | Other: НТК | 1 | 0 | Украинские (1) |
 | Other: Опер | 1 | 0 | Украинские (1) |
@@ -427,84 +418,9 @@ Unmatched channels: **753**
 | Other: Центр | 1 | 0 | Беларусь (1) |
 | Other: Черн | 1 | 0 | Украинские (1) |
 | Other: Честный | 1 | 0 | Кино (1) |
-| VeleS | 1 | 0 | Кинозалы (1) |
 | Velilla | 1 | 0 | Детские (1) |
 
 ## Channels by family
-
-### Joker — 71
-
-- jk_fargo
-- jk_SexandCity
-- jk_desperate
-- Joker:Сімсони
-- Joker:Love
-- Joker:CSI NY
-- Joker:CSI Vegas
-- Joker:CSI Miami
-- Joker:Дім Дракона
-- Joker:Кращі фільми 2024
-- Joker:Формула
-- Joker:Тарантіно
-- Joker:Гріфіни
-- Joker:Русалочка
-- Joker:Чіп та Дейл
-- Joker:Гей Арнольд!
-- Joker: Том та Джеррі
-- Joker:Мел Гібсон
-- Joker:South Park
-- Joker:Cinema2
-- Joker:Герої
-- jk_Cinema3
-- jk_doku_Ukraine
-- jk_serial
-- jk_Magic
-- jk_90210
-- jk_dram
-- jk_fineas
-- jk_strah
-- jk_Sliders
-- jk_Succession
-- jk_Money_Heist
-- jk_office
-- jk_Scrubs
-- jk_element
-- jk_Buffy
-- jk_Melrose_Place
-- jk_Stargate
-- jk_Only_Murders
-- jk_detektiv
-- jk_NCIS
-- jk_dark
-- jk_balance
-- jk_timon
-- jk_Cartoon
-- jk_Flintstones
-- jk_grimm
-- jk_kids
-- jk_black_cloak
-- Joker: Twin Peaks
-- jk_boys
-- jk_Winx
-- jk_Morning_Show
-- jk_Ritchie
-- jk_Scorsese
-- jk_Spilberg
-- jk_Kopola
-- jk_Skott
-- jk_Kameron
-- jk_Besson
-- jk_Nolan
-- jk_King
-- jk_Crowe
-- jk_Reeves
-- jk_Hemsworth
-- jk_Butler
-- jk_Kunis
-- jk_Neeson
-- jk_Scorpion
-- jk_duva
-- jk_Emeli
 
 ### DITV — 35
 
@@ -544,7 +460,7 @@ Unmatched channels: **753**
 - DITV Мультфильмы для малышей
 - DITV XXX 18+
 
-### Other — 35
+### Other — 34
 
 - Сімейні мелодрами+
 - Діти проти зірок HD
@@ -556,7 +472,6 @@ Unmatched channels: **753**
 - Кіно Та Серіали
 - Кіно на Різдво
 - Містика і Таємниц
-- Рік і Марті
 - Різдво
 - 100% NL
 - 538 T
@@ -646,6 +561,17 @@ Unmatched channels: **753**
 - RTL Nitro
 - RTL Zwei HD
 
+### BOX — 8
+
+- BOX Be ON Edge 2 Live HD
+- BOX SportCast Live 5 HD
+- BOX SportCast Live 8 HD
+- BOX SportCast Live 9 HD
+- Box Sport Live 12 HD
+- Box Sport Live 13 HD
+- Box Sport Live 14 HD
+- Box Sport Live 15 HD
+
 ### Other: FIFA+ — 8
 
 - FIFA+ HD (Spain)
@@ -656,16 +582,6 @@ Unmatched channels: **753**
 - FIFA+ HD (Italy)
 - FIFA+ HD (Portugal)
 - FIFA+ Women HD
-
-### BOX — 7
-
-- BOX Be ON Edge 2 Live HD
-- BOX SportCast Live 8 HD
-- BOX SportCast Live 9 HD
-- Box Sport Live 12 HD
-- Box Sport Live 13 HD
-- Box Sport Live 14 HD
-- Box Sport Live 15 HD
 
 ### Other: AXN — 7
 
@@ -687,16 +603,6 @@ Unmatched channels: **753**
 - Rakuten TV Drama
 - Rakuten TV Top
 
-### Other: TRT — 7
-
-- TRT Haber HD
-- TRT Çocuk
-- TRT Kurdî
-- TRT Eba Ortaokul
-- TRT Arabi
-- TRT Sport Yildiz HD TR
-- TRT Müzik
-
 ### Other: DAZN — 6
 
 - DAZN 1 DE
@@ -715,6 +621,15 @@ Unmatched channels: **753**
 - Pimple 5
 - Pimple 6
 
+### Other: TRT — 6
+
+- TRT Çocuk
+- TRT Kurdî
+- TRT Eba Ortaokul
+- TRT Arabi
+- TRT Sport Yildiz HD TR
+- TRT Müzik
+
 ### Other: НТВ — 6
 
 - НТВ Сериал Шеф
@@ -723,6 +638,14 @@ Unmatched channels: **753**
 - НТВ Сериал Скорая Помощь
 - НТВ Сериал Следствие Вели
 - НТВ Сериал Пять Минут Тишины
+
+### Joker — 5
+
+- jk_SexandCity
+- jk_desperate
+- Joker:Кращі фільми 2024
+- Joker: Том та Джеррі
+- Joker: Twin Peaks
 
 ### Other: Viasat — 5
 
@@ -1072,6 +995,11 @@ Unmatched channels: **753**
 - TVN HD
 - TVN HD
 
+### Other: TVPlay — 2
+
+- TVPlay DC Comics HD
+- TVPlay Наше XXX
+
 ### Other: Viva — 2
 
 - Viva plus
@@ -1222,22 +1150,6 @@ Unmatched channels: **753**
 ### Other: BOX_MUSIC2_4K — 1
 
 - BOX_MUSIC2_4K
-
-### Other: BOX_SPORT_LIVE_1_HD — 1
-
-- BOX_SPORT_LIVE_1_HD
-
-### Other: BOX_SPORT_LIVE_2_HD — 1
-
-- BOX_SPORT_LIVE_2_HD
-
-### Other: BOX_SPORT_LIVE_3_HD — 1
-
-- BOX_SPORT_LIVE_3_HD
-
-### Other: BOX_SPORT_LIVE_4_HD — 1
-
-- BOX_SPORT_LIVE_4_HD
 
 ### Other: BOX_SPORT_LIVE_4K — 1
 
@@ -1523,10 +1435,6 @@ Unmatched channels: **753**
 
 - House Floor
 
-### Other: House_ukr — 1
-
-- House_ukr
-
 ### Other: HRT — 1
 
 - HRT Int.
@@ -1618,10 +1526,6 @@ Unmatched channels: **753**
 ### Other: Konservatorebi — 1
 
 - Konservatorebi
-
-### Other: Kvartal — 1
-
-- Kvartal TV int. HD
 
 ### Other: La — 1
 
@@ -1871,6 +1775,10 @@ Unmatched channels: **753**
 
 - R9 Oesterreich HD
 
+### Other: RAZ — 1
+
+- RAZ 3 int. HD
+
 ### Other: Rcheuli — 1
 
 - Rcheuli TV
@@ -1939,10 +1847,6 @@ Unmatched channels: **753**
 
 - ShopLC HD
 
-### Other: Silk — 1
-
-- Silk Universal
-
 ### Other: Sky — 1
 
 - Sky Sports News HD
@@ -2006,10 +1910,6 @@ Unmatched channels: **753**
 ### Other: TFavorit — 1
 
 - TFavorit
-
-### Other: The_Last_of_Us — 1
-
-- The_Last_of_Us
 
 ### Other: This — 1
 
@@ -2183,10 +2083,6 @@ Unmatched channels: **753**
 
 - ZU
 
-### Other: Арм — 1
-
-- Армія TV HD
-
 ### Other: БНТ3 — 1
 
 - БНТ3
@@ -2247,10 +2143,6 @@ Unmatched channels: **753**
 
 - Загублений світ
 
-### Other: Картковий — 1
-
-- Картковий Будинок
-
 ### Other: Кинодром — 1
 
 - Кинодром
@@ -2306,10 +2198,6 @@ Unmatched channels: **753**
 ### Other: Невигадан — 1
 
 - Невигадані Історії HD
-
-### Other: Новелла — 1
-
-- Новелла ТВ
 
 ### Other: Новый — 1
 
@@ -2442,10 +2330,6 @@ Unmatched channels: **753**
 ### Other: Честный — 1
 
 - Честный Детекти
-
-### VeleS — 1
-
-- VeleS С Новым годом!
 
 ### Velilla — 1
 
