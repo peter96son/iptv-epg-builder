@@ -12,11 +12,25 @@ CONFIDENCE = {
 }
 
 class Matcher:
+    """Safe matcher with v15 source-chain semantics.
+
+    A channel becomes source-restricted when at least one alias/policy row has
+    hard_pin=1. Once restricted, *only* sources explicitly listed for that
+    channel are allowed. Rows with hard_pin=0 are ordered fallbacks and are
+    allowed too. rescue_source no longer bypasses the restriction.
+
+    The actual fallback order remains the configured source order, so provider
+    and dedicated feeds can win before generic rescue feeds.
+    """
+
     def __init__(self, aliases: list[dict]):
         self.alias_by_name = {}
         self.alias_by_normalized_name = {}
-        self.pinned_sources_by_name = {}
-        self.pinned_sources_by_normalized_name = {}
+        self.restricted_names = set()
+        self.restricted_normalized_names = set()
+        self.allowed_sources_by_name = {}
+        self.allowed_sources_by_normalized_name = {}
+
         for row in aliases:
             if str(row.get("enabled", "1")).strip().lower() in {"0", "false", "no", "off"}:
                 continue
@@ -26,47 +40,63 @@ class Matcher:
             provider_group = (row.get("provider_group") or row.get("group") or "").strip()
             region = (row.get("region") or row.get("country") or "").strip().upper()
             hard_pin = str(row.get("hard_pin", "")).strip().lower() in {"1", "true", "yes", "on"}
-            if name and sid:
-                item=(source, sid, provider_group, region)
+
+            if not name:
+                continue
+
+            norm = normalize_name(name)
+
+            # All explicitly named sources for a restricted channel form its
+            # allowed fallback chain, regardless of whether that particular row
+            # is the row that turns restriction on.
+            if source:
+                self.allowed_sources_by_name.setdefault(name, set()).add(source)
+                if norm:
+                    self.allowed_sources_by_normalized_name.setdefault(norm, set()).add(source)
+
+            if hard_pin:
+                self.restricted_names.add(name)
+                if norm:
+                    self.restricted_normalized_names.add(norm)
+
+            if sid:
+                item = (source, sid, provider_group, region)
                 self.alias_by_name.setdefault(name, []).append(item)
-                norm=normalize_name(name)
                 if norm:
                     self.alias_by_normalized_name.setdefault(norm, []).append(item)
-                if hard_pin and source:
-                    self.pinned_sources_by_name.setdefault(name, set()).add(source)
-                    if norm:
-                        self.pinned_sources_by_normalized_name.setdefault(norm, set()).add(source)
 
     def _result(self, sid: str, method: str):
         return sid, method, CONFIDENCE[method]
 
     def _aliases_for_channel(self, channel):
-        exact=self.alias_by_name.get(channel.name)
+        exact = self.alias_by_name.get(channel.name)
         if exact:
             return exact
         return self.alias_by_normalized_name.get(normalize_name(channel.name), [])
 
-    def _pins_for_channel(self, channel):
-        exact=self.pinned_sources_by_name.get(channel.name)
-        if exact:
-            return exact
-        return self.pinned_sources_by_normalized_name.get(normalize_name(channel.name))
+    def _restriction_for_channel(self, channel):
+        if channel.name in self.restricted_names:
+            return True, self.allowed_sources_by_name.get(channel.name, set())
+        norm = normalize_name(channel.name)
+        if norm in self.restricted_normalized_names:
+            return True, self.allowed_sources_by_normalized_name.get(norm, set())
+        return False, set()
 
     def _source_allowed(self, channel, source, source_cfg: dict | None = None) -> bool:
-        source_cfg = source_cfg or {}
-        pinned = self._pins_for_channel(channel)
-        return (
-            not pinned
-            or source.name in pinned
-            or bool(source_cfg.get("rescue_source"))
-        )
+        restricted, allowed = self._restriction_for_channel(channel)
+        if not restricted:
+            return True
+        # v15: rescue_source is NOT a bypass. This is the core regression fix.
+        return source.name in allowed
 
     def match(self, channel, source, source_cfg: dict | None = None, *, allow_family: bool = True):
         source_cfg = source_cfg or {}
         if not self._source_allowed(channel, source, source_cfg):
             return None, None, 0
+
         channel_region = region_for_group(channel.group)
         source_regions = source_cfg.get("regions") or source_cfg.get("region_scope") or []
+
         for source_name, sid, provider_group, alias_region in self._aliases_for_channel(channel):
             if source_name and source_name != source.name:
                 continue
@@ -76,14 +106,14 @@ class Matcher:
                 continue
             if sid in source.channels:
                 return self._result(sid, "alias")
+
         if is_real_tvg_id(channel.tvg_id) and channel.tvg_id in source.channels:
             if source_cfg.get("require_region_for_id") and not regions_compatible(channel_region, source_regions):
                 return None, None, 0
             return self._result(channel.tvg_id, "id")
+
         for candidate in (channel.name, channel.tvg_name):
             candidate_keys = [normalize_name(candidate)]
-            # v14.14 Premiere Group EPG often labels channels with an SPG prefix
-            # while provider playlists use names such as "Premium HD".
             if source.name == "premiere-group-dedicated" and candidate:
                 candidate_keys.append(normalize_name(f"SPG {candidate}"))
             ids = set()
@@ -96,8 +126,10 @@ class Matcher:
                     continue
                 return self._result(next(iter(ids)), "name-region")
             return self._result(next(iter(ids)), "name")
+
         if not allow_family:
             return None, None, 0
+
         for candidate in (channel.name, channel.tvg_name):
             if not candidate or not is_regional_sensitive(candidate):
                 continue
