@@ -3,19 +3,19 @@
 This report is diagnostic only. It does not create EPG mappings.
 A family must be researched and verified before aliases are added to the live builder.
 
-Unmatched channels: **810**
+Unmatched channels: **758**
 
 | Family | Channels | no_epg_* IDs | Main groups |
 |---|---:|---:|---|
-| Joker | 120 | 0 | Кинозалы UA (117), Кинозалы (3) |
+| Joker | 71 | 0 | Кинозалы UA (68), Кинозалы (3) |
 | DITV | 35 | 32 | Кинозалы (25), Детские (6), Познавательные (3), Для взрослых (1) |
 | Other | 35 | 0 | Украинские (6), Кинозалы UA (4), Израиль (3), Испания (3) |
 | Play-X | 15 | 0 | Музыкальные (9), Кино (3), Кинозалы UA (3) |
 | Other: Football | 13 | 0 | Спорт (13) |
 | Other: VIP | 13 | 0 | Спорт (13) |
 | Other: RTL | 11 | 0 | Музыкальные (8), Германия (3) |
-| BOX | 8 | 0 | Спорт (8) |
 | Other: FIFA+ | 8 | 0 | Спорт (8) |
+| BOX | 7 | 0 | Спорт (7) |
 | Other: AXN | 7 | 0 | Румыния (4), SkyLink (3) |
 | Other: Rakuten | 7 | 0 | Испания (4), Италия (3) |
 | Other: TRT | 7 | 0 | Турция (7) |
@@ -33,7 +33,6 @@ Unmatched channels: **810**
 | Other: RAI | 4 | 0 | Италия (4) |
 | Other: Sport | 4 | 0 | Спорт (1), Израиль (1), SkyLink (1), BE & NL (1) |
 | Other: Star | 4 | 0 | Кино (2), Испания (1), Молдова (1) |
-| Other: TVPlay | 4 | 0 | Кинозалы (4) |
 | Other: ViP | 4 | 0 | Спорт (4) |
 | Other: Cine | 3 | 0 | Испания (3) |
 | Other: Discovery | 3 | 0 | Румыния (2), Испания (1) |
@@ -181,6 +180,7 @@ Unmatched channels: **810**
 | Other: France | 1 | 0 | Испания (1) |
 | Other: Fun | 1 | 0 | Музыкальные (1) |
 | Other: FUN | 1 | 0 | Израиль (1) |
+| Other: GL | 1 | 0 | Кинозалы (1) |
 | Other: Glory | 1 | 0 | Спорт (1) |
 | Other: Good | 1 | 0 | Израиль (1) |
 | Other: GUNAZ | 1 | 0 | Азербайджан (1) |
@@ -338,6 +338,7 @@ Unmatched channels: **810**
 | Other: TV8 | 1 | 0 | Молдова (1) |
 | Other: TVE | 1 | 0 | Испания (1) |
 | Other: TVM | 1 | 0 | Музыкальные (1) |
+| Other: TVPlay | 1 | 0 | Кинозалы (1) |
 | Other: TVR1 | 1 | 0 | Румыния (1) |
 | Other: USArmenia | 1 | 0 | Армения (1) |
 | Other: USSR | 1 | 0 | Кино (1) |
@@ -433,76 +434,29 @@ Unmatched channels: **810**
 
 ## Channels by family
 
-### Joker — 120
+### Joker — 71
 
 - jk_fargo
 - jk_SexandCity
 - jk_desperate
 - Joker:Сімсони
-- Joker:Губка Боб
 - Joker:Love
-- Joker:Альф
-- Joker:Футурама
 - Joker:CSI NY
 - Joker:CSI Vegas
 - Joker:CSI Miami
-- Joker:Секретні матеріали
-- Joker:Друзі
 - Joker:Дім Дракона
 - Joker:Кращі фільми 2024
-- Joker:Шерлок
-- Joker:Гострі картузи
-- Joker:Відьмак
-- Joker:Панда Кун-фу
 - Joker:Формула
 - Joker:Тарантіно
-- Joker:Робокар Полі
-- Joker:Секс і Місто
-- Joker:Коломбо
-- Joker:Американський тато
 - Joker:Гріфіни
 - Joker:Русалочка
-- Joker:Аладдін
 - Joker:Чіп та Дейл
 - Joker:Гей Арнольд!
 - Joker: Том та Джеррі
-- Joker:Свинка Пепа
-- Joker:Щенячий патруль
-- Joker:Качині історії
-- Joker:90-ті
-- Joker:Леді Баг і Супер кіт
-- Joker:Пуаро Агати Крісті
-- Joker:Декстер
-- Joker:Касл
-- Joker:Бруклін 9-9
-- Joker:Фубар
-- Joker:Кістки
-- Joker:Пуститися берега
 - Joker:Мел Гібсон
-- Joker:Теорія брехні
-- Joker:Величне століття
-- Joker:Ван Дамм
-- Joker:Вітчайдушні домогосподарки
-- Joker:Маленьке королівство Бена і Холлі
-- Joker:Гравіті Фолз
 - Joker:South Park
-- Joker:Як я зустрів вашу маму
-- Joker:Теорія великого вибуху
-- Joker:Cinema
 - Joker:Cinema2
-- Joker:Горець
-- Joker:Mислити як злочинець
-- Joker:Менталіст
-- Joker:Пограбування
 - Joker:Герої
-- Joker:Корона
-- Joker:Загублені
-- Joker:Чорне дзеркало
-- Joker:Біографічне
-- Joker:Швидкість
-- Joker:Краще подзвоніть Солу
-- Joker:Пінгвіни Мадагаскару
-- Joker:Ліло і Стіч
 - jk_Cinema3
 - jk_doku_Ukraine
 - jk_serial
@@ -534,11 +488,9 @@ Unmatched channels: **810**
 - Joker: Twin Peaks
 - jk_boys
 - jk_Winx
-- Joker: Фантастика
 - jk_Morning_Show
 - jk_Ritchie
 - jk_Scorsese
-- Joker: Wednesday
 - jk_Spilberg
 - jk_Kopola
 - jk_Skott
@@ -696,17 +648,6 @@ Unmatched channels: **810**
 - RTL Nitro
 - RTL Zwei HD
 
-### BOX — 8
-
-- BOX Be ON Edge 2 Live HD
-- BOX SportCast Live 1 HD
-- BOX SportCast Live 8 HD
-- BOX SportCast Live 9 HD
-- Box Sport Live 12 HD
-- Box Sport Live 13 HD
-- Box Sport Live 14 HD
-- Box Sport Live 15 HD
-
 ### Other: FIFA+ — 8
 
 - FIFA+ HD (Spain)
@@ -717,6 +658,16 @@ Unmatched channels: **810**
 - FIFA+ HD (Italy)
 - FIFA+ HD (Portugal)
 - FIFA+ Women HD
+
+### BOX — 7
+
+- BOX Be ON Edge 2 Live HD
+- BOX SportCast Live 8 HD
+- BOX SportCast Live 9 HD
+- Box Sport Live 12 HD
+- Box Sport Live 13 HD
+- Box Sport Live 14 HD
+- Box Sport Live 15 HD
 
 ### Other: AXN — 7
 
@@ -852,13 +803,6 @@ Unmatched channels: **810**
 - Star Family HD
 - Star Channel
 - Star TV
-
-### Other: TVPlay — 4
-
-- TVPlay Игра Престолов HD
-- TVPlay Авторский перевод HD
-- TVPlay АЛЬФ
-- TVPlay Космический
 
 ### Other: ViP — 4
 
@@ -1516,6 +1460,10 @@ Unmatched channels: **810**
 
 - FUN
 
+### Other: GL — 1
+
+- GL Island
+
 ### Other: Glory — 1
 
 - Glory Kickboxing
@@ -2143,6 +2091,10 @@ Unmatched channels: **810**
 ### Other: TVM — 1
 
 - TVM 3
+
+### Other: TVPlay — 1
+
+- TVPlay DC Comics HD
 
 ### Other: TVR1 — 1
 
