@@ -3,13 +3,13 @@
 Diagnostic queue for Russian-language and CIS recovery. It does not create aliases by itself.
 Regional variants, time-shifts and virtual/FAST families must be verified before production mapping.
 
-Candidate channels: **103**
+Candidate channels: **102**
 
-Unsafe virtual/dummy-ID channels: **55**
+Unsafe virtual/dummy-ID channels: **54**
 
 ## By group
 
-- Кинозалы: 24
+- Кинозалы: 23
 - Кино: 20
 - Кинозалы UA: 14
 - Украинские: 13
@@ -61,7 +61,6 @@ Unsafe virtual/dummy-ID channels: **55**
 | DITV Счастливы вместе | Кинозалы |  | DITV | no |
 | DITV ФИЛЬМЫ | Кинозалы |  | DITV | no |
 | DITV ФИЛЬМЫ УЖАСОВ 80-х | Кинозалы |  | DITV | no |
-| VeleS Вестерн | Кинозалы |  | VeleS | no |
 | VeleS С Новым годом! | Кинозалы |  | VeleS | no |
 | Joker:Гей Арнольд! | Кинозалы UA |  | Joker | no |
 | Joker:Русалочка | Кинозалы UA |  | Joker | no |

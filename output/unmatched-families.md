@@ -3,7 +3,7 @@
 This report is diagnostic only. It does not create EPG mappings.
 A family must be researched and verified before aliases are added to the live builder.
 
-Unmatched channels: **758**
+Unmatched channels: **753**
 
 | Family | Channels | no_epg_* IDs | Main groups |
 |---|---:|---:|---|
@@ -40,7 +40,6 @@ Unmatched channels: **758**
 | Other: History | 3 | 0 | Познавательные (1), Германия (1), Испания (1) |
 | Other: LA | 3 | 0 | Испания (3) |
 | Other: Live | 3 | 0 | Спорт (2), Музыкальные (1) |
-| Other: Nickelodeon | 3 | 0 | Литва (1), Израиль (1), Румыния (1) |
 | Other: Total | 3 | 0 | Музыкальные (3) |
 | Other: УПЛ | 3 | 0 | Спорт (3) |
 | Other: Arena | 2 | 0 | Спорт (2) |
@@ -73,6 +72,7 @@ Unmatched channels: **758**
 | Other: Musicbox | 2 | 0 | Музыкальные (2) |
 | Other: Nat | 2 | 0 | Израиль (1), Испания (1) |
 | Other: National | 2 | 0 | Познавательные (1), Болгария (1) |
+| Other: Nickelodeon | 2 | 0 | Литва (1), Израиль (1) |
 | Other: Nova | 2 | 0 | SkyLink (2) |
 | Other: ORF | 2 | 0 | Германия (2) |
 | Other: PMC | 2 | 0 | Музыкальные (2) |
@@ -85,11 +85,9 @@ Unmatched channels: **758**
 | Other: Telepace | 2 | 0 | Италия (2) |
 | Other: TVG | 2 | 0 | Испания (2) |
 | Other: TVN | 2 | 0 | Польша (1), Молдова (1) |
-| Other: TVR | 2 | 0 | Молдова (1), Румыния (1) |
 | Other: Viva | 2 | 0 | Израиль (2) |
 | Other: Zoom | 2 | 0 | Украинские (1), Израиль (1) |
 | Other: Сер | 2 | 0 | Кино (2) |
-| VeleS | 2 | 0 | Кинозалы (2) |
 | BCU | 1 | 0 | Детские (1) |
 | Magic | 1 | 0 | Болгария (1) |
 | Other: +BAKU | 1 | 0 | Азербайджан (1) |
@@ -180,7 +178,6 @@ Unmatched channels: **758**
 | Other: France | 1 | 0 | Испания (1) |
 | Other: Fun | 1 | 0 | Музыкальные (1) |
 | Other: FUN | 1 | 0 | Израиль (1) |
-| Other: GL | 1 | 0 | Кинозалы (1) |
 | Other: Glory | 1 | 0 | Спорт (1) |
 | Other: Good | 1 | 0 | Израиль (1) |
 | Other: GUNAZ | 1 | 0 | Азербайджан (1) |
@@ -338,7 +335,7 @@ Unmatched channels: **758**
 | Other: TV8 | 1 | 0 | Молдова (1) |
 | Other: TVE | 1 | 0 | Испания (1) |
 | Other: TVM | 1 | 0 | Музыкальные (1) |
-| Other: TVPlay | 1 | 0 | Кинозалы (1) |
+| Other: TVR | 1 | 0 | Молдова (1) |
 | Other: TVR1 | 1 | 0 | Румыния (1) |
 | Other: USArmenia | 1 | 0 | Армения (1) |
 | Other: USSR | 1 | 0 | Кино (1) |
@@ -430,6 +427,7 @@ Unmatched channels: **758**
 | Other: Центр | 1 | 0 | Беларусь (1) |
 | Other: Черн | 1 | 0 | Украинские (1) |
 | Other: Честный | 1 | 0 | Кино (1) |
+| VeleS | 1 | 0 | Кинозалы (1) |
 | Velilla | 1 | 0 | Детские (1) |
 
 ## Channels by family
@@ -847,12 +845,6 @@ Unmatched channels: **758**
 - Live Sport 2
 - Live Музыка
 
-### Other: Nickelodeon — 3
-
-- Nickelodeon Baltic
-- Nickelodeon
-- Nickelodeon
-
 ### Other: Total — 3
 
 - Total Music Dance
@@ -1015,6 +1007,11 @@ Unmatched channels: **758**
 - National Geographic HD
 - National Geographic
 
+### Other: Nickelodeon — 2
+
+- Nickelodeon Baltic
+- Nickelodeon
+
 ### Other: Nova — 2
 
 - Nova Sport 3 HD
@@ -1075,11 +1072,6 @@ Unmatched channels: **758**
 - TVN HD
 - TVN HD
 
-### Other: TVR — 2
-
-- TVR
-- TVR Iasi
-
 ### Other: Viva — 2
 
 - Viva plus
@@ -1094,11 +1086,6 @@ Unmatched channels: **758**
 
 - Серіал Україна 1
 - Серіал Україна 2
-
-### VeleS — 2
-
-- VeleS Вестерн
-- VeleS С Новым годом!
 
 ### BCU — 1
 
@@ -1459,10 +1446,6 @@ Unmatched channels: **758**
 ### Other: FUN — 1
 
 - FUN
-
-### Other: GL — 1
-
-- GL Island
 
 ### Other: Glory — 1
 
@@ -2092,9 +2075,9 @@ Unmatched channels: **758**
 
 - TVM 3
 
-### Other: TVPlay — 1
+### Other: TVR — 1
 
-- TVPlay DC Comics HD
+- TVR
 
 ### Other: TVR1 — 1
 
@@ -2459,6 +2442,10 @@ Unmatched channels: **758**
 ### Other: Честный — 1
 
 - Честный Детекти
+
+### VeleS — 1
+
+- VeleS С Новым годом!
 
 ### Velilla — 1
 
