@@ -3,7 +3,7 @@
 This report is diagnostic only. It does not create EPG mappings.
 A family must be researched and verified before aliases are added to the live builder.
 
-Unmatched channels: **811**
+Unmatched channels: **810**
 
 | Family | Channels | no_epg_* IDs | Main groups |
 |---|---:|---:|---|
@@ -14,7 +14,7 @@ Unmatched channels: **811**
 | Other: Football | 13 | 0 | Спорт (13) |
 | Other: VIP | 13 | 0 | Спорт (13) |
 | Other: RTL | 11 | 0 | Музыкальные (8), Германия (3) |
-| BOX | 9 | 0 | Спорт (9) |
+| BOX | 8 | 0 | Спорт (8) |
 | Other: FIFA+ | 8 | 0 | Спорт (8) |
 | Other: AXN | 7 | 0 | Румыния (4), SkyLink (3) |
 | Other: Rakuten | 7 | 0 | Испания (4), Италия (3) |
@@ -33,6 +33,7 @@ Unmatched channels: **811**
 | Other: RAI | 4 | 0 | Италия (4) |
 | Other: Sport | 4 | 0 | Спорт (1), Израиль (1), SkyLink (1), BE & NL (1) |
 | Other: Star | 4 | 0 | Кино (2), Испания (1), Молдова (1) |
+| Other: TVPlay | 4 | 0 | Кинозалы (4) |
 | Other: ViP | 4 | 0 | Спорт (4) |
 | Other: Cine | 3 | 0 | Испания (3) |
 | Other: Discovery | 3 | 0 | Румыния (2), Испания (1) |
@@ -42,9 +43,7 @@ Unmatched channels: **811**
 | Other: Live | 3 | 0 | Спорт (2), Музыкальные (1) |
 | Other: Nickelodeon | 3 | 0 | Литва (1), Израиль (1), Румыния (1) |
 | Other: Total | 3 | 0 | Музыкальные (3) |
-| Other: TVPlay | 3 | 0 | Кинозалы (3) |
 | Other: УПЛ | 3 | 0 | Спорт (3) |
-| BCU | 2 | 0 | Кинозалы (1), Детские (1) |
 | Other: Arena | 2 | 0 | Спорт (2) |
 | Other: Baby | 2 | 0 | Детские (1), Израиль (1) |
 | Other: BBC | 2 | 0 | Испания (1), BE & NL (1) |
@@ -91,6 +90,8 @@ Unmatched channels: **811**
 | Other: Viva | 2 | 0 | Израиль (2) |
 | Other: Zoom | 2 | 0 | Украинские (1), Израиль (1) |
 | Other: Сер | 2 | 0 | Кино (2) |
+| VeleS | 2 | 0 | Кинозалы (2) |
+| BCU | 1 | 0 | Детские (1) |
 | Magic | 1 | 0 | Болгария (1) |
 | Other: +BAKU | 1 | 0 | Азербайджан (1) |
 | Other: 5Sport | 1 | 0 | Израиль (1) |
@@ -262,7 +263,6 @@ Unmatched channels: **811**
 | Other: ONE | 1 | 0 | Молдова (1) |
 | Other: Ontario | 1 | 0 | Канада (1) |
 | Other: Oost | 1 | 0 | BE & NL (1) |
-| Other: OTV | 1 | 0 | Латвия (1) |
 | Other: OTVA | 1 | 0 | Германия (1) |
 | Other: Oxygen | 1 | 0 | Музыкальные (1) |
 | Other: PAI | 1 | 0 | Музыкальные (1) |
@@ -429,7 +429,6 @@ Unmatched channels: **811**
 | Other: Центр | 1 | 0 | Беларусь (1) |
 | Other: Черн | 1 | 0 | Украинские (1) |
 | Other: Честный | 1 | 0 | Кино (1) |
-| VeleS | 1 | 0 | Кинозалы (1) |
 | Velilla | 1 | 0 | Детские (1) |
 
 ## Channels by family
@@ -697,11 +696,10 @@ Unmatched channels: **811**
 - RTL Nitro
 - RTL Zwei HD
 
-### BOX — 9
+### BOX — 8
 
+- BOX Be ON Edge 2 Live HD
 - BOX SportCast Live 1 HD
-- BOX SportCast Live 2 HD
-- BOX SportCast Live 3 HD
 - BOX SportCast Live 8 HD
 - BOX SportCast Live 9 HD
 - Box Sport Live 12 HD
@@ -855,6 +853,13 @@ Unmatched channels: **811**
 - Star Channel
 - Star TV
 
+### Other: TVPlay — 4
+
+- TVPlay Игра Престолов HD
+- TVPlay Авторский перевод HD
+- TVPlay АЛЬФ
+- TVPlay Космический
+
 ### Other: ViP — 4
 
 - ViP Sport 14
@@ -910,22 +915,11 @@ Unmatched channels: **811**
 - Total Music Concerts
 - Total Music 2000s
 
-### Other: TVPlay — 3
-
-- TVPlay Авторский перевод HD
-- TVPlay АЛЬФ
-- TVPlay Космический
-
 ### Other: УПЛ — 3
 
 - УПЛ ТВ 1
 - УПЛ ТВ 2
 - УПЛ ТВ 3
-
-### BCU — 2
-
-- BCU Ruserial HD
-- BCU Kids HD
 
 ### Other: Arena — 2
 
@@ -1156,6 +1150,15 @@ Unmatched channels: **811**
 
 - Серіал Україна 1
 - Серіал Україна 2
+
+### VeleS — 2
+
+- VeleS Вестерн
+- VeleS С Новым годом!
+
+### BCU — 1
+
+- BCU Kids HD
 
 ### Magic — 1
 
@@ -1841,10 +1844,6 @@ Unmatched channels: **811**
 
 - TV Oost
 
-### Other: OTV — 1
-
-- OTV HD
-
 ### Other: OTVA — 1
 
 - OTVA HD
@@ -2508,10 +2507,6 @@ Unmatched channels: **811**
 ### Other: Честный — 1
 
 - Честный Детекти
-
-### VeleS — 1
-
-- VeleS С Новым годом!
 
 ### Velilla — 1
 
