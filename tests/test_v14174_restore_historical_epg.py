@@ -1,19 +1,27 @@
+import csv
 from pathlib import Path
 
-REQUIRED = [
-("USSR HD","Xussr-premieregroup","gabbarit-primary","USSR HD"),
-("Premium HD","Xpremium-hd","gabbarit-primary","Premium HD"),
-("Premiere HD","Xpremiere-hd","gabbarit-primary","Premiere HD"),
-("Thriller HD","Xthriller-hd","gabbarit-primary","Thriller HD"),
-("РуКино HD","Xrukino-hd","gabbarit-primary","РуКино HD"),
-("Paradise HD","Xparadise-hd","gabbarit-primary","Paradise HD"),
-("Paradox HD","Xparadox-hd","gabbarit-primary","Paradox HD"),
-("VeleS Вестерн","veles-vestern","openbox-tsd","veles-vestern"),
-("VeleS С Новым годом!","velesyear-new","gabbarit-primary","VeleS NewYear"),
-]
+ROOT=Path(__file__).resolve().parents[1]
 
-def test_historical_movie_epg_bindings_are_locked():
-    rows=(Path(__file__).resolve().parents[1]/"data"/"source_pins.csv").read_text(encoding="utf-8")
-    for name,tvg,source,source_id in REQUIRED:
-        needle=f"{name},{tvg},,,{source},{source_id}"
-        assert needle in rows, needle
+def pins():
+    with (ROOT/"data/source_pins.csv").open(encoding="utf-8-sig",newline="") as f:
+        return list(csv.DictReader(f))
+
+def test_current_verified_movie_epg_bindings_are_locked():
+    rows=pins()
+    required={
+      ("USSR HD","Xussr-premieregroup","gabbarit-primary","USSR HD","0"),
+      ("Premium HD","Xpremium-hd","premiere-group-dedicated","premium-hd","1"),
+      ("Premiere HD","Xpremiere-hd","gabbarit-primary","Premiere HD","0"),
+      ("Thriller HD","Xthriller-hd","openbox-tsd","thriller-hd","1"),
+      ("РуКино HD","Xrukino-hd","iptv-online-primary","Xklirussian","1"),
+      ("Paradise HD","Xparadise-hd","gabbarit-primary","Paradise HD","0"),
+      ("Paradox HD","Xparadox-hd","gabbarit-primary","Paradox HD","0"),
+      ("VeleS Вестерн","veles-vestern","openbox-tsd","veles-vestern","1"),
+      ("VeleS С Новым годом!","velesyear-new","runigma-iptv","veles-newyear","1"),
+    }
+    actual={(r["playlist_name"],r["playlist_tvg_id"],r["source"],r["source_id"],r["hard_pin"]) for r in rows}
+    assert required <= actual
+
+def test_gabbarit_is_fallback_not_duplicate_hard_pin():
+    assert not any(r["source"].startswith("gabbarit") and r["hard_pin"]=="1" for r in pins())
