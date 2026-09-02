@@ -13,6 +13,11 @@ STRICT_VERIFIED={
     "KLI СССР HD":{"source":"klimedia-dedicated","source_id":"kli-sssr-hd","forbidden":set()},
 }
 
+# Backward-compatible public name used by existing regression tests and older
+# tooling. Keep this alias stable even though policy-aware channels are no
+# longer hard-coded here.
+VERIFIED=STRICT_VERIFIED
+
 def _enabled(value):
     return str(value if value is not None else "1").strip().lower() not in {"0","false","no","off"}
 
