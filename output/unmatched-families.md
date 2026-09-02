@@ -3,7 +3,7 @@
 This report is diagnostic only. It does not create EPG mappings.
 A family must be researched and verified before aliases are added to the live builder.
 
-Unmatched channels: **543**
+Unmatched channels: **542**
 
 | Family | Channels | no_epg_* IDs | Main groups |
 |---|---:|---:|---|
@@ -285,7 +285,6 @@ Unmatched channels: **543**
 | Other: Veronica | 1 | 0 | BE & NL (1) |
 | Other: VEVO | 1 | 0 | Музыкальные (1) |
 | Other: VHS | 1 | 0 | Кино (1) |
-| Other: VIVA | 1 | 0 | Музыкальные (1) |
 | Other: Volksmusik | 1 | 0 | Германия (1) |
 | Other: VTM | 1 | 0 | BE & NL (1) |
 | Other: W9 | 1 | 0 | BE & NL (1) |
@@ -1664,10 +1663,6 @@ Unmatched channels: **543**
 ### Other: VHS — 1
 
 - VHS HD
-
-### Other: VIVA — 1
-
-- VIVA H
 
 ### Other: Volksmusik — 1
 
