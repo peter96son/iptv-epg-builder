@@ -1,18 +1,18 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-09-02T02:46:24.579841-07:00`
-- Playlist channels: **2776**
-- Baseline covered: **1584**
-- Final covered: **1989**
+- Generated: `2026-09-02T05:57:29.688148-07:00`
+- Playlist channels: **2775**
+- Baseline covered: **1583**
+- Final covered: **1988**
 - Added by fallbacks: **+405**
 - Unmatched: **787**
-- Programmes: **398355**
+- Programmes: **393663**
 - Movie coverage: **721/822** (+221)
 
 ## Playlist changes
 
 - New channels: **0**
-- Removed channels: **0**
+- Removed channels: **1**
 - Renamed: **0**
 - Stream URL changed: **0**
 - Category changed: **0**
@@ -57,14 +57,14 @@
 | Хорватия | 3 | 0 | 0 | +0 | 0.0% |
 | Чехия | 6 | 0 | 0 | +0 | 0.0% |
 | Эстония | 15 | 12 | 12 | +0 | 80.0% |
-| Румыния | 85 | 46 | 45 | +-1 | 52.9% |
+| Румыния | 84 | 45 | 44 | +-1 | 52.4% |
 | Латвия | 24 | 18 | 15 | +-3 | 62.5% |
 
 ## Source contribution
 
 | Source | Status | Added |
 |---|---|---:|
-| iptv-online-primary | ok | 1584 |
+| iptv-online-primary | ok | 1583 |
 | premiere-group-dedicated | ok | 0 |
 | iptvx-noarch | ok | 221 |
 | klimedia-dedicated | failed | 0 |
@@ -142,7 +142,6 @@
 
 | Generated | Covered | Unmatched | Programmes |
 |---|---:|---:|---:|
-| 2026-08-30T11:37:37.722386-07:00 | 1788 | 989 | 274570 |
 | 2026-08-30T12:48:35.919038-07:00 | 1790 | 990 | 275544 |
 | 2026-08-30T13:48:15.756689-07:00 | 1791 | 989 | 276062 |
 | 2026-08-30T17:47:36.569498-07:00 | 1827 | 953 | 263489 |
@@ -162,4 +161,5 @@
 | 2026-09-01T20:41:52.196807-07:00 | 2094 | 682 | 422435 |
 | 2026-09-01T23:56:27.318789-07:00 | 1971 | 805 | 409779 |
 | 2026-09-02T02:46:24.579841-07:00 | 1989 | 787 | 398355 |
+| 2026-09-02T05:57:29.688148-07:00 | 1988 | 787 | 393663 |
 
