@@ -1,12 +1,12 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-09-01T17:27:52.592547-07:00`
+- Generated: `2026-09-01T18:39:38.163996-07:00`
 - Playlist channels: **2776**
 - Baseline covered: **1579**
 - Final covered: **2094**
 - Added by fallbacks: **+515**
 - Unmatched: **682**
-- Programmes: **419892**
+- Programmes: **422254**
 - Movie coverage: **741/822** (+243)
 
 ## Playlist changes
@@ -78,7 +78,7 @@
 | tvteam | ok | 53 |
 | epgpw-sreda | ok | 0 |
 | epgpw-chestny-detektiv | ok | 0 |
-| epgpw-RU | ok | 4 |
+| epgpw-RU | ok | 3 |
 | epgpw-DE | ok | 5 |
 | epgpw-GB | ok | 6 |
 | epgpw-US | ok | 0 |
@@ -113,7 +113,7 @@
 | epgshare-LT | ok | 0 |
 | epgshare-LV | ok | 2 |
 | teleguide-ru | ok | 3 |
-| gabbarit-current | ok | 59 |
+| gabbarit-current | ok | 60 |
 | m3u-edit-all-rescue | ok | 1 |
 | gabbarit-mirror | ok | 0 |
 | epgone-full-movie-rescue | ok | 0 |
@@ -142,7 +142,6 @@
 
 | Generated | Covered | Unmatched | Programmes |
 |---|---:|---:|---:|
-| 2026-08-29T11:36:45.202147-07:00 | 2020 | 793 | 332483 |
 | 2026-08-29T17:38:49.334569-07:00 | 2018 | 795 | 319763 |
 | 2026-08-29T23:36:46.818511-07:00 | 2006 | 807 | 309581 |
 | 2026-08-30T05:38:30.738165-07:00 | 1912 | 864 | 275628 |
@@ -162,4 +161,5 @@
 | 2026-09-01T14:21:49.372785-07:00 | 2098 | 678 | 434484 |
 | 2026-09-01T14:47:26.569079-07:00 | 2099 | 677 | 434690 |
 | 2026-09-01T17:27:52.592547-07:00 | 2094 | 682 | 419892 |
+| 2026-09-01T18:39:38.163996-07:00 | 2094 | 682 | 422254 |
 
