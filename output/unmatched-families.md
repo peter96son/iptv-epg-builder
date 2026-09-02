@@ -85,7 +85,6 @@ Unmatched channels: **677**
 | Other: Telepace | 2 | 0 | Италия (2) |
 | Other: TVG | 2 | 0 | Испания (2) |
 | Other: TVN | 2 | 0 | Польша (1), Молдова (1) |
-| Other: TVPlay | 2 | 1 | Кинозалы (1), Для взрослых (1) |
 | Other: Viva | 2 | 0 | Израиль (2) |
 | Other: Zoom | 2 | 0 | Украинские (1), Израиль (1) |
 | Other: Сер | 2 | 0 | Кино (2) |
@@ -201,6 +200,7 @@ Unmatched channels: **677**
 | Other: Ictimai | 1 | 0 | Азербайджан (1) |
 | Other: Idman | 1 | 0 | Азербайджан (1) |
 | Other: Infinity | 1 | 0 | Музыкальные (1) |
+| Other: Insomnia | 1 | 0 | Кино (1) |
 | Other: Investigation | 1 | 0 | Эстония (1) |
 | Other: Israel | 1 | 0 | Израиль (1) |
 | Other: Italia | 1 | 0 | Италия (1) |
@@ -337,6 +337,7 @@ Unmatched channels: **677**
 | Other: VB | 1 | 0 | Молдова (1) |
 | Other: Veronica | 1 | 0 | BE & NL (1) |
 | Other: VEVO | 1 | 0 | Музыкальные (1) |
+| Other: VHS | 1 | 0 | Кино (1) |
 | Other: VIVA | 1 | 0 | Музыкальные (1) |
 | Other: Volksmusik | 1 | 0 | Германия (1) |
 | Other: VTM | 1 | 0 | BE & NL (1) |
@@ -995,11 +996,6 @@ Unmatched channels: **677**
 - TVN HD
 - TVN HD
 
-### Other: TVPlay — 2
-
-- TVPlay DC Comics HD
-- TVPlay Наше XXX
-
 ### Other: Viva — 2
 
 - Viva plus
@@ -1462,6 +1458,10 @@ Unmatched channels: **677**
 ### Other: Infinity — 1
 
 - Infinity
+
+### Other: Insomnia — 1
+
+- Insomnia HD
 
 ### Other: Investigation — 1
 
@@ -2006,6 +2006,10 @@ Unmatched channels: **677**
 ### Other: VEVO — 1
 
 - VEVO 90S
+
+### Other: VHS — 1
+
+- VHS HD
 
 ### Other: VIVA — 1
 
