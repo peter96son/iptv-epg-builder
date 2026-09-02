@@ -5,6 +5,7 @@ import src.v15_policy_patch  # noqa: F401
 import src.horizon_guard_patch  # noqa: F401
 from src.builder import build
 from src.source_reselector import reselect_policy_sources
+from src.source_catalog import snapshot_missing_source_catalog
 from src.verified_metadata_fixes import apply_verified_metadata_fixes
 
 if __name__ == "__main__":
@@ -13,6 +14,11 @@ if __name__ == "__main__":
     print(
         f"[source-selection] selected={selection.get('selected', 0)}; "
         f"changed={selection.get('changed', 0)}"
+    )
+    catalog = snapshot_missing_source_catalog()
+    print(
+        f"[source-catalog] sources={catalog.get('sources', 0)}; "
+        f"channels={catalog.get('channels', 0)}"
     )
     result = apply_verified_metadata_fixes()
     print(
