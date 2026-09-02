@@ -3,16 +3,16 @@
 Diagnostic queue for Russian-language and CIS recovery. It does not create aliases by itself.
 Regional variants, time-shifts and virtual/FAST families must be verified before production mapping.
 
-Candidate channels: **96**
+Candidate channels: **98**
 
-Unsafe virtual/dummy-ID channels: **50**
+Unsafe virtual/dummy-ID channels: **51**
 
 ## By group
 
 - Кинозалы: 22
 - Кино: 19
 - Украинские: 13
-- Кинозалы UA: 10
+- Кинозалы UA: 12
 - Музыкальные: 10
 - Детские: 6
 - Познавательные: 5
@@ -61,6 +61,7 @@ Unsafe virtual/dummy-ID channels: **50**
 | DITV Счастливы вместе | Кинозалы |  | DITV | no |
 | DITV ФИЛЬМЫ | Кинозалы |  | DITV | no |
 | DITV ФИЛЬМЫ УЖАСОВ 80-х | Кинозалы |  | DITV | no |
+| Joker:Формула | Кинозалы UA |  | Joker | no |
 | Play-X Украинский кинозал 1 HD | Кинозалы UA |  | Play-X | no |
 | Play-X Украинский кинозал 2 HD | Кинозалы UA |  | Play-X | no |
 | Play-X Фильмы про войну в Украине | Кинозалы UA |  | Play-X | no |
@@ -86,6 +87,7 @@ Unsafe virtual/dummy-ID channels: **50**
 | РуКино HD | Кино |  | Other: РуКино | review |
 | Честный Детекти | Кино |  | Other: Честный | review |
 | SWEET КIНО HD | Кинозалы UA |  | Other: SWEET | review |
+| Картковий Будинок | Кинозалы UA |  | Other: Картковий | review |
 | Кохання на виживання HD | Кинозалы UA |  | Other: Кохання | review |
 | На Трьох HD | Кинозалы UA |  | Other: На | review |
 | Полювання на в бивцю HD | Кинозалы UA |  | Other: Полювання | review |
