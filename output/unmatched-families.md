@@ -3,25 +3,25 @@
 This report is diagnostic only. It does not create EPG mappings.
 A family must be researched and verified before aliases are added to the live builder.
 
-Unmatched channels: **805**
+Unmatched channels: **787**
 
 | Family | Channels | no_epg_* IDs | Main groups |
 |---|---:|---:|---|
-| Other | 36 | 0 | Украинские (6), Кинозалы UA (3), Израиль (3), Испания (3) |
+| Other | 37 | 0 | Украинские (6), Кинозалы UA (4), Израиль (3), Испания (3) |
 | DITV | 35 | 32 | Кинозалы (25), Детские (6), Познавательные (3), Для взрослых (1) |
-| Joker | 35 | 0 | Кинозалы UA (33), Кинозалы (2) |
+| Joker | 23 | 0 | Кинозалы UA (20), Кинозалы (3) |
 | Play-X | 15 | 0 | Музыкальные (9), Кино (3), Кинозалы UA (3) |
 | Other: Football | 13 | 0 | Спорт (13) |
 | Other: VIP | 13 | 0 | Спорт (13) |
 | Other: RAI | 12 | 0 | Италия (12) |
 | Other: RTL | 11 | 0 | Музыкальные (8), Германия (3) |
-| Other: TRT | 9 | 0 | Турция (9) |
 | BOX | 8 | 0 | Спорт (8) |
 | Other: DAZN | 8 | 0 | Спорт (8) |
 | Other: FIFA+ | 8 | 0 | Спорт (8) |
 | Other: AXN | 7 | 0 | Румыния (4), SkyLink (3) |
 | Other: Rakuten | 7 | 0 | Испания (4), Италия (3) |
 | Other: SPORT | 7 | 0 | Спорт (7) |
+| Other: TRT | 7 | 0 | Турция (7) |
 | Other: Pimple | 6 | 0 | Спорт (6) |
 | Other: НТВ | 6 | 6 | Кино (6) |
 | Other: France | 5 | 0 | BE & NL (4), Испания (1) |
@@ -80,7 +80,6 @@ Unmatched channels: **805**
 | Other: LaC | 2 | 0 | Италия (2) |
 | Other: Limburg | 2 | 0 | BE & NL (2) |
 | Other: Mega | 2 | 0 | Грузия (1), Турция (1) |
-| Other: Megogo | 2 | 0 | Спорт (2) |
 | Other: MTV | 2 | 0 | Музыкальные (1), UK (1) |
 | Other: Musicbox | 2 | 0 | Музыкальные (2) |
 | Other: Nat | 2 | 0 | Израиль (1), Испания (1) |
@@ -221,7 +220,6 @@ Unmatched channels: **805**
 | Other: Hot | 1 | 0 | Израиль (1) |
 | Other: HOT | 1 | 0 | Израиль (1) |
 | Other: House | 1 | 0 | Музыкальные (1) |
-| Other: House_ukr | 1 | 0 | Кинозалы UA (1) |
 | Other: HRT | 1 | 0 | Хорватия (1) |
 | Other: HRT1 | 1 | 0 | Хорватия (1) |
 | Other: Hype | 1 | 0 | Музыкальные (1) |
@@ -348,7 +346,6 @@ Unmatched channels: **805**
 | Other: TF | 1 | 0 | BE & NL (1) |
 | Other: TF1 | 1 | 0 | BE & NL (1) |
 | Other: TFavorit | 1 | 0 | Румыния (1) |
-| Other: The_Last_of_Us | 1 | 0 | Кинозалы UA (1) |
 | Other: This | 1 | 0 | Болгария (1) |
 | Other: Thriller | 1 | 0 | Кино (1) |
 | Other: TIC | 1 | 0 | Украинские (1) |
@@ -364,7 +361,6 @@ Unmatched channels: **805**
 | Other: TV8 | 1 | 0 | Молдова (1) |
 | Other: TVE | 1 | 0 | Испания (1) |
 | Other: TVM | 1 | 0 | Музыкальные (1) |
-| Other: TVPlay | 1 | 1 | Для взрослых (1) |
 | Other: TVR1 | 1 | 0 | Румыния (1) |
 | Other: TVR2 | 1 | 0 | Румыния (1) |
 | Other: TVR3 | 1 | 0 | Румыния (1) |
@@ -465,7 +461,7 @@ Unmatched channels: **805**
 
 ## Channels by family
 
-### Other — 36
+### Other — 37
 
 - Сімейні мелодрами+
 - Діти проти зірок HD
@@ -477,6 +473,7 @@ Unmatched channels: **805**
 - Кіно Та Серіали
 - Кіно на Різдво
 - Містика і Таємниц
+- Рік і Марті
 - Різдво
 - 100% NL
 - 538 T
@@ -542,43 +539,31 @@ Unmatched channels: **805**
 - DITV Мультфильмы для малышей
 - DITV XXX 18+
 
-### Joker — 35
+### Joker — 23
 
+- jk_fargo
 - jk_SexandCity
 - jk_desperate
-- Joker:Сімсони
 - Joker:Love
+- Joker:CSI NY
 - Joker:CSI Vegas
 - Joker:CSI Miami
+- Joker:Дім Дракона
 - Joker:Кращі фільми 2024
 - Joker:Формула
 - Joker:Тарантіно
 - Joker:Гріфіни
+- Joker:Русалочка
+- Joker:Чіп та Дейл
+- Joker:Гей Арнольд!
 - Joker: Том та Джеррі
 - Joker:Мел Гібсон
+- Joker:South Park
+- Joker:Cinema2
 - Joker:Герої
-- jk_serial
-- jk_Magic
-- jk_90210
-- jk_Sliders
-- jk_Succession
-- jk_Money_Heist
-- jk_element
-- jk_Melrose_Place
+- jk_doku_Ukraine
 - jk_Stargate
-- jk_NCIS
-- jk_dark
-- jk_balance
-- jk_timon
-- jk_grimm
-- jk_kids
 - Joker: Twin Peaks
-- jk_boys
-- jk_Winx
-- jk_Morning_Show
-- jk_Kunis
-- jk_duva
-- jk_Emeli
 
 ### Play-X — 15
 
@@ -659,18 +644,6 @@ Unmatched channels: **805**
 - RTL Nitro
 - RTL Zwei HD
 
-### Other: TRT — 9
-
-- TRT Türk
-- TRT Haber HD
-- TRT Çocuk
-- TRT Kurdî
-- TRT Eba Ortaokul
-- TRT Avaz
-- TRT Arabi
-- TRT Sport Yildiz HD TR
-- TRT Müzik
-
 ### BOX — 8
 
 - BOX Be ON Edge 2 Live HD
@@ -733,6 +706,16 @@ Unmatched channels: **805**
 - SPORT TV 4 PT
 - SPORT TV 5 PT
 - SPORT TV 6 PT
+
+### Other: TRT — 7
+
+- TRT Türk
+- TRT Çocuk
+- TRT Kurdî
+- TRT Eba Ortaokul
+- TRT Arabi
+- TRT Sport Yildiz HD TR
+- TRT Müzik
 
 ### Other: Pimple — 6
 
@@ -1081,11 +1064,6 @@ Unmatched channels: **805**
 
 - Mega TV
 - Mega TV
-
-### Other: Megogo — 2
-
-- Megogo Футбол 4 HD
-- Megogo Футбол 5 HD
 
 ### Other: MTV — 2
 
@@ -1671,10 +1649,6 @@ Unmatched channels: **805**
 
 - House Floor
 
-### Other: House_ukr — 1
-
-- House_ukr
-
 ### Other: HRT — 1
 
 - HRT Int.
@@ -2179,10 +2153,6 @@ Unmatched channels: **805**
 
 - TFavorit
 
-### Other: The_Last_of_Us — 1
-
-- The_Last_of_Us
-
 ### Other: This — 1
 
 - This is Bulgaria
@@ -2242,10 +2212,6 @@ Unmatched channels: **805**
 ### Other: TVM — 1
 
 - TVM 3
-
-### Other: TVPlay — 1
-
-- TVPlay Наше XXX
 
 ### Other: TVR1 — 1
 

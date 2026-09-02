@@ -1,13 +1,13 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-09-01T23:56:27.318789-07:00`
+- Generated: `2026-09-02T02:46:24.579841-07:00`
 - Playlist channels: **2776**
-- Baseline covered: **1539**
-- Final covered: **1971**
-- Added by fallbacks: **+432**
-- Unmatched: **805**
-- Programmes: **409779**
-- Movie coverage: **708/822** (+246)
+- Baseline covered: **1584**
+- Final covered: **1989**
+- Added by fallbacks: **+405**
+- Unmatched: **787**
+- Programmes: **398355**
+- Movie coverage: **721/822** (+221)
 
 ## Playlist changes
 
@@ -21,19 +21,19 @@
 
 | Group | Total | Baseline | Final | Added | Coverage |
 |---|---:|---:|---:|---:|---:|
-| Кинозалы | 334 | 190 | 307 | +117 | 91.9% |
-| Кинозалы UA | 206 | 70 | 154 | +84 | 74.8% |
-| Спорт | 265 | 102 | 165 | +63 | 62.3% |
+| Кинозалы | 334 | 194 | 306 | +112 | 91.6% |
+| Кинозалы UA | 206 | 103 | 168 | +65 | 81.6% |
+| Спорт | 265 | 104 | 167 | +63 | 63.0% |
 | Музыкальные | 161 | 47 | 95 | +48 | 59.0% |
-| Кино | 219 | 143 | 184 | +41 | 84.0% |
+| Кино | 219 | 144 | 184 | +40 | 84.0% |
 | Украинские | 119 | 70 | 82 | +12 | 68.9% |
-| Детские | 70 | 49 | 60 | +11 | 85.7% |
 | Германия | 134 | 85 | 95 | +10 | 70.9% |
+| Детские | 70 | 51 | 60 | +9 | 85.7% |
 | Россия | 184 | 171 | 179 | +8 | 97.3% |
 | Болгария | 49 | 13 | 20 | +7 | 40.8% |
-| Познавательные | 118 | 97 | 104 | +7 | 88.1% |
+| Познавательные | 118 | 98 | 104 | +6 | 88.1% |
+| Для взрослых | 33 | 19 | 24 | +5 | 72.7% |
 | Израиль | 78 | 28 | 33 | +5 | 42.3% |
-| Для взрослых | 33 | 19 | 23 | +4 | 69.7% |
 | Кино 4K | 63 | 59 | 63 | +4 | 100.0% |
 | UK | 30 | 9 | 12 | +3 | 40.0% |
 | Беларусь | 23 | 20 | 22 | +2 | 95.7% |
@@ -43,7 +43,7 @@
 | Венгрия | 59 | 53 | 54 | +1 | 91.5% |
 | Канада | 10 | 0 | 1 | +1 | 10.0% |
 | Молдова | 29 | 4 | 5 | +1 | 17.2% |
-| Турция | 24 | 4 | 5 | +1 | 20.8% |
+| Турция | 24 | 6 | 7 | +1 | 29.2% |
 | BE & NL | 100 | 33 | 33 | +0 | 33.0% |
 | SkyLink | 20 | 8 | 8 | +0 | 40.0% |
 | Азербайджан | 14 | 0 | 0 | +0 | 0.0% |
@@ -64,21 +64,21 @@
 
 | Source | Status | Added |
 |---|---|---:|
-| iptv-online-primary | ok | 1539 |
+| iptv-online-primary | ok | 1584 |
 | premiere-group-dedicated | ok | 0 |
-| iptvx-noarch | ok | 222 |
+| iptvx-noarch | ok | 221 |
 | klimedia-dedicated | failed | 0 |
 | runigma-iptv | ok | 11 |
-| openbox-tsd | ok | 58 |
+| openbox-tsd | ok | 53 |
 | next-dedicated | ok | 0 |
 | bcumedia-dedicated | ok | 4 |
 | cineman-dedicated | ok | 0 |
 | minimax-mm-dedicated | ok | 0 |
 | sharavoz-guide | failed | 0 |
-| tvteam | ok | 54 |
+| tvteam | ok | 53 |
 | epgpw-sreda | ok | 0 |
 | epgpw-chestny-detektiv | ok | 0 |
-| epgpw-RU | ok | 4 |
+| epgpw-RU | ok | 3 |
 | epgpw-DE | ok | 5 |
 | epgpw-GB | ok | 6 |
 | epgpw-US | ok | 0 |
@@ -113,7 +113,7 @@
 | epgshare-LT | failed | 0 |
 | epgshare-LV | failed | 0 |
 | teleguide-ru | ok | 3 |
-| gabbarit-current | ok | 61 |
+| gabbarit-current | ok | 41 |
 | m3u-edit-all-rescue | ok | 1 |
 | gabbarit-mirror | ok | 0 |
 | epgone-full-movie-rescue | ok | 0 |
@@ -122,27 +122,26 @@
 
 | Family | Channels | no_epg_* |
 |---|---:|---:|
-| Other | 36 | 0 |
+| Other | 37 | 0 |
 | DITV | 35 | 32 |
-| Joker | 35 | 0 |
+| Joker | 23 | 0 |
 | Play-X | 15 | 0 |
 | Other: Football | 13 | 0 |
 | Other: VIP | 13 | 0 |
 | Other: RAI | 12 | 0 |
 | Other: RTL | 11 | 0 |
-| Other: TRT | 9 | 0 |
 | BOX | 8 | 0 |
 | Other: DAZN | 8 | 0 |
 | Other: FIFA+ | 8 | 0 |
 | Other: AXN | 7 | 0 |
 | Other: Rakuten | 7 | 0 |
 | Other: SPORT | 7 | 0 |
+| Other: TRT | 7 | 0 |
 
 ## Recent history
 
 | Generated | Covered | Unmatched | Programmes |
 |---|---:|---:|---:|
-| 2026-08-30T05:38:30.738165-07:00 | 1912 | 864 | 275628 |
 | 2026-08-30T11:37:37.722386-07:00 | 1788 | 989 | 274570 |
 | 2026-08-30T12:48:35.919038-07:00 | 1790 | 990 | 275544 |
 | 2026-08-30T13:48:15.756689-07:00 | 1791 | 989 | 276062 |
@@ -162,4 +161,5 @@
 | 2026-09-01T18:39:38.163996-07:00 | 2094 | 682 | 422254 |
 | 2026-09-01T20:41:52.196807-07:00 | 2094 | 682 | 422435 |
 | 2026-09-01T23:56:27.318789-07:00 | 1971 | 805 | 409779 |
+| 2026-09-02T02:46:24.579841-07:00 | 1989 | 787 | 398355 |
 

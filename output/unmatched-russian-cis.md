@@ -5,19 +5,19 @@ Regional variants, time-shifts and virtual/FAST families must be verified before
 
 Candidate channels: **98**
 
-Unsafe virtual/dummy-ID channels: **51**
+Unsafe virtual/dummy-ID channels: **53**
 
 ## By group
 
 - Кинозалы: 22
 - Кино: 19
+- Кинозалы UA: 14
 - Украинские: 13
-- Кинозалы UA: 12
 - Музыкальные: 10
 - Детские: 6
 - Познавательные: 5
 - Россия: 5
-- Спорт: 5
+- Спорт: 3
 - Беларусь: 1
 
 ## Channels
@@ -61,6 +61,8 @@ Unsafe virtual/dummy-ID channels: **51**
 | DITV Счастливы вместе | Кинозалы |  | DITV | no |
 | DITV ФИЛЬМЫ | Кинозалы |  | DITV | no |
 | DITV ФИЛЬМЫ УЖАСОВ 80-х | Кинозалы |  | DITV | no |
+| Joker:Гей Арнольд! | Кинозалы UA |  | Joker | no |
+| Joker:Русалочка | Кинозалы UA |  | Joker | no |
 | Joker:Формула | Кинозалы UA |  | Joker | no |
 | Play-X Украинский кинозал 1 HD | Кинозалы UA |  | Play-X | no |
 | Play-X Украинский кинозал 2 HD | Кинозалы UA |  | Play-X | no |
@@ -104,8 +106,6 @@ Unsafe virtual/dummy-ID channels: **51**
 | Витрина | Россия | RU | Other: Витрина | review |
 | ВТК 41 Аргус | Россия | RU | Other: ВТК | review |
 | Телеплюс | Россия | RU | Other: Телеплюс | review |
-| Megogo Футбол 4 HD | Спорт |  | Other: Megogo | review |
-| Megogo Футбол 5 HD | Спорт |  | Other: Megogo | review |
 | УПЛ ТВ 1 | Спорт |  | Other: УПЛ | review |
 | УПЛ ТВ 2 | Спорт |  | Other: УПЛ | review |
 | УПЛ ТВ 3 | Спорт |  | Other: УПЛ | review |
