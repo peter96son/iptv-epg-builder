@@ -1,13 +1,13 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-09-01T18:39:38.163996-07:00`
+- Generated: `2026-09-01T20:41:52.196807-07:00`
 - Playlist channels: **2776**
-- Baseline covered: **1579**
+- Baseline covered: **1577**
 - Final covered: **2094**
-- Added by fallbacks: **+515**
+- Added by fallbacks: **+517**
 - Unmatched: **682**
-- Programmes: **422254**
-- Movie coverage: **741/822** (+243)
+- Programmes: **422435**
+- Movie coverage: **741/822** (+245)
 
 ## Playlist changes
 
@@ -21,11 +21,11 @@
 
 | Group | Total | Baseline | Final | Added | Coverage |
 |---|---:|---:|---:|---:|---:|
-| Кинозалы | 334 | 192 | 307 | +115 | 91.9% |
+| Кинозалы | 334 | 191 | 307 | +116 | 91.9% |
 | Кинозалы UA | 206 | 103 | 187 | +84 | 90.8% |
 | Спорт | 265 | 102 | 175 | +73 | 66.0% |
 | Музыкальные | 161 | 47 | 96 | +49 | 59.6% |
-| Кино | 219 | 144 | 184 | +40 | 84.0% |
+| Кино | 219 | 143 | 184 | +41 | 84.0% |
 | BE & NL | 100 | 33 | 54 | +21 | 54.0% |
 | UK | 30 | 9 | 26 | +17 | 86.7% |
 | Болгария | 49 | 13 | 27 | +14 | 55.1% |
@@ -64,9 +64,9 @@
 
 | Source | Status | Added |
 |---|---|---:|
-| iptv-online-primary | ok | 1579 |
+| iptv-online-primary | ok | 1577 |
 | premiere-group-dedicated | ok | 0 |
-| iptvx-noarch | ok | 223 |
+| iptvx-noarch | ok | 222 |
 | klimedia-dedicated | failed | 0 |
 | runigma-iptv | ok | 11 |
 | openbox-tsd | ok | 53 |
@@ -113,7 +113,7 @@
 | epgshare-LT | ok | 0 |
 | epgshare-LV | ok | 2 |
 | teleguide-ru | ok | 3 |
-| gabbarit-current | ok | 60 |
+| gabbarit-current | ok | 63 |
 | m3u-edit-all-rescue | ok | 1 |
 | gabbarit-mirror | ok | 0 |
 | epgone-full-movie-rescue | ok | 0 |
@@ -142,7 +142,6 @@
 
 | Generated | Covered | Unmatched | Programmes |
 |---|---:|---:|---:|
-| 2026-08-29T17:38:49.334569-07:00 | 2018 | 795 | 319763 |
 | 2026-08-29T23:36:46.818511-07:00 | 2006 | 807 | 309581 |
 | 2026-08-30T05:38:30.738165-07:00 | 1912 | 864 | 275628 |
 | 2026-08-30T11:37:37.722386-07:00 | 1788 | 989 | 274570 |
@@ -162,4 +161,5 @@
 | 2026-09-01T14:47:26.569079-07:00 | 2099 | 677 | 434690 |
 | 2026-09-01T17:27:52.592547-07:00 | 2094 | 682 | 419892 |
 | 2026-09-01T18:39:38.163996-07:00 | 2094 | 682 | 422254 |
+| 2026-09-01T20:41:52.196807-07:00 | 2094 | 682 | 422435 |
 
