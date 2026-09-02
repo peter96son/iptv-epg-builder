@@ -3,7 +3,7 @@
 This report is diagnostic only. It does not create EPG mappings.
 A family must be researched and verified before aliases are added to the live builder.
 
-Unmatched channels: **677**
+Unmatched channels: **682**
 
 | Family | Channels | no_epg_* IDs | Main groups |
 |---|---:|---:|---|
@@ -22,6 +22,7 @@ Unmatched channels: **677**
 | Other: TRT | 6 | 0 | Турция (6) |
 | Other: НТВ | 6 | 6 | Кино (6) |
 | Joker | 5 | 0 | Кинозалы UA (3), Кинозалы (2) |
+| Other: Star | 5 | 0 | Кино (2), Испания (1), Молдова (1), Греция (1) |
 | Other: Viasat | 5 | 0 | Познавательные (3), UK (2) |
 | Other: Carac | 4 | 0 | BE & NL (4) |
 | Other: CBS | 4 | 0 | Польша (2), Румыния (2) |
@@ -32,7 +33,6 @@ Unmatched channels: **677**
 | Other: PowerT | 4 | 0 | Турция (4) |
 | Other: RAI | 4 | 0 | Италия (4) |
 | Other: Sport | 4 | 0 | Спорт (1), Израиль (1), SkyLink (1), BE & NL (1) |
-| Other: Star | 4 | 0 | Кино (2), Испания (1), Молдова (1) |
 | Other: ViP | 4 | 0 | Спорт (4) |
 | Other: Cine | 3 | 0 | Испания (3) |
 | Other: Discovery | 3 | 0 | Румыния (2), Испания (1) |
@@ -95,8 +95,10 @@ Unmatched channels: **677**
 | Other: 70-80 | 1 | 0 | Музыкальные (1) |
 | Other: A1 | 1 | 0 | BE & NL (1) |
 | Other: AABC | 1 | 0 | Армения (1) |
+| Other: Action | 1 | 0 | Греция (1) |
 | Other: Activa | 1 | 0 | Музыкальные (1) |
 | Other: Agro | 1 | 0 | Молдова (1) |
+| Other: Alpha | 1 | 0 | Греция (1) |
 | Other: Amazing | 1 | 0 | Канада (1) |
 | Other: Anal | 1 | 0 | Для взрослых (1) |
 | Other: Ant | 1 | 0 | Греция (1) |
@@ -241,6 +243,7 @@ Unmatched channels: **677**
 | Other: MTV | 1 | 0 | Музыкальные (1) |
 | Other: Muzzik | 1 | 0 | Музыкальные (1) |
 | Other: N24 | 1 | 0 | Румыния (1) |
+| Other: Nea | 1 | 0 | Греция (1) |
 | Other: NGC | 1 | 0 | BE & NL (1) |
 | Other: Nick | 1 | 0 | Израиль (1) |
 | Other: Nicktoons | 1 | 0 | Румыния (1) |
@@ -329,6 +332,7 @@ Unmatched channels: **677**
 | Other: TV8 | 1 | 0 | Молдова (1) |
 | Other: TVE | 1 | 0 | Испания (1) |
 | Other: TVM | 1 | 0 | Музыкальные (1) |
+| Other: TVPlay | 1 | 1 | Для взрослых (1) |
 | Other: TVR | 1 | 0 | Молдова (1) |
 | Other: TVR1 | 1 | 0 | Румыния (1) |
 | Other: USArmenia | 1 | 0 | Армения (1) |
@@ -648,6 +652,14 @@ Unmatched channels: **677**
 - Joker: Том та Джеррі
 - Joker: Twin Peaks
 
+### Other: Star — 5
+
+- Star Media
+- Star Family HD
+- Star Channel
+- Star TV
+- Star GR
+
 ### Other: Viasat — 5
 
 - Viasat Explore Best HD
@@ -718,13 +730,6 @@ Unmatched channels: **677**
 - Sport 5 Gold
 - Sport 2 HD
 - Sport 10
-
-### Other: Star — 4
-
-- Star Media
-- Star Family HD
-- Star Channel
-- Star TV
 
 ### Other: ViP — 4
 
@@ -1039,6 +1044,10 @@ Unmatched channels: **677**
 
 - AABC
 
+### Other: Action — 1
+
+- Action 24 GR
+
 ### Other: Activa — 1
 
 - Activa T
@@ -1046,6 +1055,10 @@ Unmatched channels: **677**
 ### Other: Agro — 1
 
 - Agro HD
+
+### Other: Alpha — 1
+
+- Alpha GR
 
 ### Other: Amazing — 1
 
@@ -1623,6 +1636,10 @@ Unmatched channels: **677**
 
 - N24
 
+### Other: Nea — 1
+
+- Nea TV
+
 ### Other: NGC — 1
 
 - NGC HD
@@ -1974,6 +1991,10 @@ Unmatched channels: **677**
 ### Other: TVM — 1
 
 - TVM 3
+
+### Other: TVPlay — 1
+
+- TVPlay Наше XXX
 
 ### Other: TVR — 1
 
