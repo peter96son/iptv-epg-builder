@@ -3,16 +3,14 @@
 Diagnostic queue for Russian-language and CIS recovery. It does not create aliases by itself.
 Regional variants, time-shifts and virtual/FAST families must be verified before production mapping.
 
-Candidate channels: **98**
+Candidate channels: **71**
 
-Unsafe virtual/dummy-ID channels: **53**
+Unsafe virtual/dummy-ID channels: **47**
 
 ## By group
 
 - Кинозалы: 22
 - Кино: 19
-- Кинозалы UA: 14
-- Украинские: 13
 - Музыкальные: 10
 - Детские: 6
 - Познавательные: 5
@@ -61,12 +59,6 @@ Unsafe virtual/dummy-ID channels: **53**
 | DITV Счастливы вместе | Кинозалы |  | DITV | no |
 | DITV ФИЛЬМЫ | Кинозалы |  | DITV | no |
 | DITV ФИЛЬМЫ УЖАСОВ 80-х | Кинозалы |  | DITV | no |
-| Joker:Гей Арнольд! | Кинозалы UA |  | Joker | no |
-| Joker:Русалочка | Кинозалы UA |  | Joker | no |
-| Joker:Формула | Кинозалы UA |  | Joker | no |
-| Play-X Украинский кинозал 1 HD | Кинозалы UA |  | Play-X | no |
-| Play-X Украинский кинозал 2 HD | Кинозалы UA |  | Play-X | no |
-| Play-X Фильмы про войну в Украине | Кинозалы UA |  | Play-X | no |
 | Play-X Дискотека 90-х | Музыкальные |  | Play-X | no |
 | Play-X Золото шансона | Музыкальные |  | Play-X | no |
 | Play-X Муз коллекция Дитер Болен | Музыкальные |  | Play-X | no |
@@ -88,14 +80,6 @@ Unsafe virtual/dummy-ID channels: **53**
 | Пес HD | Кино |  | Other: Пес | review |
 | РуКино HD | Кино |  | Other: РуКино | review |
 | Честный Детекти | Кино |  | Other: Честный | review |
-| SWEET КIНО HD | Кинозалы UA |  | Other: SWEET | review |
-| Картковий Будинок | Кинозалы UA |  | Other: Картковий | review |
-| Кохання на виживання HD | Кинозалы UA |  | Other: Кохання | review |
-| На Трьох HD | Кинозалы UA |  | Other: На | review |
-| Полювання на в бивцю HD | Кинозалы UA |  | Other: Полювання | review |
-| Релакс | Кинозалы UA |  | Other: Релакс | review |
-| Романтичний Марафон HD | Кинозалы UA |  | Other: Романтичний | review |
-| Ховаючи колишню HD | Кинозалы UA |  | Other: Ховаючи | review |
 | Live Музыка | Музыкальные |  | Other: Live | review |
 | PAI Музика | Музыкальные |  | Other: PAI | review |
 | Легенды Ретро FM | Музыкальные |  | Other: Легенды | review |
@@ -109,16 +93,3 @@ Unsafe virtual/dummy-ID channels: **53**
 | УПЛ ТВ 1 | Спорт |  | Other: УПЛ | review |
 | УПЛ ТВ 2 | Спорт |  | Other: УПЛ | review |
 | УПЛ ТВ 3 | Спорт |  | Other: УПЛ | review |
-| TIC (Одеса) | Украинские | UA | Other: TIC | review |
-| Вар'яти HD | Украинские | UA | Other: Вар | review |
-| Вещдок HD | Украинские | UA | Other: Вещдок | review |
-| Детективи HD | Украинские | UA | Other: Детективи | review |
-| ЖВЛ+ | Украинские | UA | Other: ЖВЛ+ | review |
-| Конкурент TV | Украинские | UA | Other: Конкурент | review |
-| Мастер Шеф | Украинские | UA | Other: Мастер | review |
-| Мелодрами | Украинские | UA | Other: Мелодрами | review |
-| НТК КОЛОМИЯ | Украинские | UA | Other: НТК | review |
-| Опер за викликом | Украинские | UA | Other: Опер | review |
-| Снятин HD | Украинские | UA | Other: Снятин | review |
-| Справа НБР HD | Украинские | UA | Other: Справа | review |
-| ТРК Круг | Украинские | UA | Other: ТРК | review |
