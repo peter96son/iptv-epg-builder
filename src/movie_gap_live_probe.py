@@ -11,6 +11,7 @@ OUTPUT=ROOT/"output"
 TARGET_GROUPS={"Кино","USSR","Кинозалы","Кино 4K"}
 GAPS=OUTPUT/"movie-epg-gaps.csv"
 RESULT=OUTPUT/"movie-gap-live-probe.json"
+PROFILES=OUTPUT/"movie-gap-ocr-profiles.json"
 FRAME_SECONDS=(5,25,45)
 OCR_LANG=os.environ.get("STREAM_OCR_LANG","rus+eng")
 MAX_CHANNELS=max(0,int(os.environ.get("GAP_PROBE_MAX_CHANNELS","0")))
@@ -90,12 +91,18 @@ def _capture_frames(url,directory):
     return sorted(directory.glob("frame-*.png"))[:3]
 
 OCR_VARIANTS={
- "top_left":"crop=iw*0.62:ih*0.30:0:0,scale=3000:-2,format=gray,eq=contrast=1.8:brightness=0.05,unsharp=5:5:1.2",
- "top_left_tight":"crop=iw*0.48:ih*0.22:0:0,scale=3200:-2,format=gray,eq=contrast=2.0:brightness=0.06,unsharp=5:5:1.4",
- "left_bottom":"crop=iw*0.62:ih*0.34:0:ih*0.66,scale=3000:-2,format=gray,eq=contrast=1.8:brightness=0.05,unsharp=5:5:1.2",
- "left_bottom_tight":"crop=iw*0.48:ih*0.24:0:ih*0.76,scale=3200:-2,format=gray,eq=contrast=2.0:brightness=0.06,unsharp=5:5:1.4",
- "lower50":"crop=iw:ih*0.50:0:ih*0.50,scale=2200:-2,format=gray,eq=contrast=1.45:brightness=0.03,unsharp=5:5:0.8"
+ "top_left":"crop=iw*0.62:ih*0.30:0:0,scale=2600:-2,format=gray,eq=contrast=1.7:brightness=0.04,unsharp=5:5:1.0",
+ "top_left_tight":"crop=iw*0.48:ih*0.22:0:0,scale=2800:-2,format=gray,eq=contrast=1.9:brightness=0.05,unsharp=5:5:1.2",
+ "left_bottom":"crop=iw*0.62:ih*0.34:0:ih*0.66,scale=2600:-2,format=gray,eq=contrast=1.7:brightness=0.04,unsharp=5:5:1.0",
+ "left_bottom_tight":"crop=iw*0.48:ih*0.24:0:ih*0.76,scale=2800:-2,format=gray,eq=contrast=1.9:brightness=0.05,unsharp=5:5:1.2"
 }
+
+def _variant_plan(channel_name):
+    n=(channel_name or "").casefold().replace("ё","е")
+    if "ditv" in n:
+        return ("left_bottom_tight","left_bottom","top_left_tight")
+    return ("top_left_tight","top_left","left_bottom_tight")
+
 
 def _preprocess(frame,out,flt):
     try:p=subprocess.run(["ffmpeg","-hide_banner","-loglevel","error","-i",str(frame),"-frames:v","1","-vf",flt,"-y",str(out)],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL,timeout=10)
@@ -179,23 +186,54 @@ def _tesseract(path,psm):
     except subprocess.TimeoutExpired:return []
     return _clean_lines(p.stdout.splitlines()) if p.returncode==0 else []
 
-def _ocr_frame(frame,workdir):
-    lines=[];candidates=[]
-    for variant,flt in OCR_VARIANTS.items():
-        processed=workdir/f"{frame.stem}-{variant}.png"
-        if not _preprocess(frame,processed,flt):continue
+def _ocr_frame(frame,workdir,channel_name="",profile=None):
+    lines=[];candidates=[];processed={}
+    profile=profile or {}
+    primary_tight,primary_wide,opposite_tight=_variant_plan(channel_name)
+    learned=profile.get("preferred_zone")
+    if learned in OCR_VARIANTS:
+        # Start exactly where this channel succeeded previously.
+        if learned.startswith("left_bottom"):
+            primary_tight,primary_wide,opposite_tight=("left_bottom_tight","left_bottom","top_left_tight")
+        elif learned.startswith("top_left"):
+            primary_tight,primary_wide,opposite_tight=("top_left_tight","top_left","left_bottom_tight")
 
-        p_lines=_paddle_ocr(processed)
-        if p_lines:candidates.append({"engine":"paddleocr","variant":variant,"lines":p_lines})
-        for x in p_lines:
+    def make(variant):
+        if variant in processed:return processed[variant]
+        out=workdir/f"{frame.stem}-{variant}.png"
+        processed[variant]=out if _preprocess(frame,out,OCR_VARIANTS[variant]) else None
+        return processed[variant]
+
+    def add(engine,variant,found,psm=None):
+        if not found:return False
+        item={"engine":engine,"variant":variant,"lines":found}
+        if psm is not None:item["psm"]=psm
+        candidates.append(item)
+        for x in found:
             if x not in lines:lines.append(x)
+        return True
 
-        # Tesseract is fallback/second opinion, not the primary recognizer.
-        for psm in (6,7,11):
-            t_lines=_tesseract(processed,psm)
-            if t_lines:candidates.append({"engine":"tesseract","variant":variant,"psm":psm,"lines":t_lines})
-            for x in t_lines:
-                if x not in lines:lines.append(x)
+    img=make(primary_tight)
+    if img and add("paddleocr",primary_tight,_paddle_ocr(img)):
+        return lines,candidates
+
+    img2=make(primary_wide)
+    if img2 and add("paddleocr",primary_wide,_paddle_ocr(img2)):
+        return lines,candidates
+
+    best=img or img2
+    best_variant=primary_tight if img else primary_wide
+    if best:
+        if add("tesseract",best_variant,_tesseract(best,11),11):
+            return lines,candidates
+        if add("tesseract",best_variant,_tesseract(best,6),6):
+            return lines,candidates
+
+    other=make(opposite_tight)
+    if other:
+        if add("paddleocr",opposite_tight,_paddle_ocr(other)):
+            return lines,candidates
+        add("tesseract",opposite_tight,_tesseract(other,11),11)
     return lines,candidates
 
 def _stable_ocr_lines(frames):
@@ -208,17 +246,197 @@ def _stable_ocr_lines(frames):
             seen.add(key);counts[key]+=1;original.setdefault(key,line)
     return [original[k] for k,n in counts.items() if n>=2]
 
-def _probe(channel,gap):
-    meta=_ffprobe(channel["url"]);frames=[];all_lines=[]
+
+def _load_profiles(path=PROFILES):
+    if not path.exists():
+        return {}
+    try:
+        data=json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+    return data if isinstance(data,dict) else {}
+
+
+def _save_profiles(profiles,path=PROFILES):
+    path.parent.mkdir(exist_ok=True)
+    path.write_text(
+        json.dumps(profiles,ensure_ascii=False,indent=2),
+        encoding="utf-8",
+    )
+
+
+def _tokens(value):
+    return {x for x in _norm(value).split() if len(x)>=2}
+
+
+def _is_channel_identity(line,channel_name,provider_name=""):
+    """Reject channel/logo text while keeping unrelated movie titles."""
+    ln=_norm(line)
+    if not ln:
+        return True
+    names=[_norm(channel_name),_norm(provider_name)]
+    for name in names:
+        if not name:
+            continue
+        if ln==name or ln in name or name in ln:
+            return True
+        lt=_tokens(ln); nt=_tokens(name)
+        if lt and nt and len(lt & nt)/max(1,min(len(lt),len(nt)))>=0.8:
+            return True
+    return False
+
+
+def _candidate_score(line,engine,variant,profile):
+    """Simple ranking, intentionally explainable."""
+    text=str(line or "").strip()
+    n=_norm(text)
+    if not n:
+        return -999
+    letters=sum(c.isalpha() for c in text)
+    if letters<3:
+        return -999
+
+    score=0.0
+    # Film titles are usually short enough to be a title, not a paragraph.
+    score += min(20,letters)/4
+    if 3<=len(text)<=60:
+        score += 4
+    if any("а"<=c.casefold()<="я" or c.casefold()=="ё" for c in text):
+        score += 2
+
+    if variant==profile.get("preferred_zone"):
+        score += 5
+    if engine==profile.get("preferred_engine"):
+        score += 4
+
+    # Stable text already learned to be channel decoration is strongly rejected.
+    static={_norm(x) for x in profile.get("static_text",[]) if _norm(x)}
+    if n in static:
+        return -999
+    return score
+
+
+def _pick_title(candidates,channel_name,provider_name,profile):
+    ranked=[]
+    for item in candidates:
+        engine=item.get("engine","")
+        variant=item.get("variant","")
+        for line in item.get("lines",[]) or []:
+            if _is_channel_identity(line,channel_name,provider_name):
+                continue
+            score=_candidate_score(line,engine,variant,profile)
+            if score>-100:
+                ranked.append((score,line,engine,variant))
+    if not ranked:
+        return None
+    ranked.sort(key=lambda x:(x[0],len(x[1])),reverse=True)
+    score,line,engine,variant=ranked[0]
+    return {
+        "title":line,
+        "score":round(score,2),
+        "engine":engine,
+        "zone":variant,
+    }
+
+
+def _update_profile(profile,chosen,all_candidates,channel_name,provider_name):
+    """Learn successful zone/engine and channel-static text.
+
+    A line is promoted to static_text only after it has co-occurred with at
+    least 3 DIFFERENT chosen movie titles. That avoids treating a long movie
+    title as a permanent logo just because it survived several hourly runs.
+    """
+    profile.setdefault("preferred_zone","")
+    profile.setdefault("preferred_engine","")
+    profile.setdefault("static_text",[])
+    profile.setdefault("line_contexts",{})
+    profile.setdefault("title_history",[])
+
+    if chosen:
+        title=chosen["title"]
+        profile["last_title"]=title
+        profile["preferred_zone"]=chosen["zone"]
+        profile["preferred_engine"]=chosen["engine"]
+
+        hist=profile["title_history"]
+        if not hist or _norm(hist[-1])!=_norm(title):
+            hist.append(title)
+            del hist[:-12]
+
+        chosen_norm=_norm(title)
+        for item in all_candidates:
+            for line in item.get("lines",[]) or []:
+                ln=_norm(line)
+                if not ln or ln==chosen_norm:
+                    continue
+                if _is_channel_identity(line,channel_name,provider_name):
+                    if line not in profile["static_text"]:
+                        profile["static_text"].append(line)
+                    continue
+                ctx=profile["line_contexts"].setdefault(ln,[])
+                if chosen_norm not in ctx:
+                    ctx.append(chosen_norm)
+                    del ctx[:-8]
+                if len(set(ctx))>=3 and line not in profile["static_text"]:
+                    profile["static_text"].append(line)
+
+    profile["updated_at"]=datetime.now(timezone.utc).isoformat()
+    profile["static_text"]=profile["static_text"][-30:]
+    return profile
+
+def _probe(channel,gap,profile):
+    meta=_ffprobe(channel["url"])
+    frames=[];all_lines=[];all_candidates=[]
+    provider_name=gap.get("provider_name") or channel.get("name","")
+    display_name=gap.get("playlist_name") or channel.get("name","")
     with tempfile.TemporaryDirectory(prefix="gap-live-") as td:
-        td=Path(td);captured=_capture_frames(channel["url"],td)
+        td=Path(td)
+        captured=_capture_frames(channel["url"],td)
         for i,fp in enumerate(captured):
-            ocr,candidates=_ocr_frame(fp,td)
-            frames.append({"approx_second":FRAME_SECONDS[i],"captured":True,"sha256":hashlib.sha256(fp.read_bytes()).hexdigest(),"ocr_lines":ocr,"ocr_candidates":candidates})
+            ocr,candidates=_ocr_frame(fp,td,provider_name,profile)
+            all_candidates.extend(candidates)
+            frames.append({
+                "approx_second":FRAME_SECONDS[i],
+                "captured":True,
+                "sha256":hashlib.sha256(fp.read_bytes()).hexdigest(),
+                "ocr_lines":ocr,
+                "ocr_candidates":candidates,
+            })
             for line in ocr:
-                if line not in all_lines:all_lines.append(line)
-        while len(frames)<3:frames.append({"approx_second":FRAME_SECONDS[len(frames)],"captured":False})
-    return {"group":gap.get("group",""),"playlist_name":gap.get("playlist_name",""),"provider_name":gap.get("provider_name",""),"provider_tvg_id":gap.get("provider_tvg_id",""),"gap_status":gap.get("status",""),"found_in_playlist":True,"live_playlist_name":channel["name"],"live_tvg_id":channel["tvg_id"],"stream_metadata":meta,"ocr_lines":all_lines,"stable_ocr_lines":_stable_ocr_lines(frames),"unique_frame_hashes":len({f.get("sha256") for f in frames if f.get("sha256")}),"captured_frames":sum(1 for x in frames if x.get("captured")),"frames":frames}
+                if line not in all_lines:
+                    all_lines.append(line)
+        while len(frames)<3:
+            frames.append({
+                "approx_second":FRAME_SECONDS[len(frames)],
+                "captured":False,
+            })
+
+    chosen=_pick_title(all_candidates,display_name,provider_name,profile)
+    _update_profile(profile,chosen,all_candidates,display_name,provider_name)
+
+    return {
+        "group":gap.get("group",""),
+        "playlist_name":display_name,
+        "provider_name":provider_name,
+        "provider_tvg_id":gap.get("provider_tvg_id",""),
+        "gap_status":gap.get("status",""),
+        "found_in_playlist":True,
+        "live_playlist_name":channel["name"],
+        "live_tvg_id":channel["tvg_id"],
+        "stream_metadata":meta,
+        "recognized_title":chosen,
+        "profile_used":{
+            "preferred_zone":profile.get("preferred_zone",""),
+            "preferred_engine":profile.get("preferred_engine",""),
+            "static_text":profile.get("static_text",[]),
+            "last_title":profile.get("last_title",""),
+        },
+        "ocr_lines":all_lines,
+        "stable_ocr_lines":_stable_ocr_lines(frames),
+        "unique_frame_hashes":len({f.get("sha256") for f in frames if f.get("sha256")}),
+        "captured_frames":sum(1 for x in frames if x.get("captured")),
+        "frames":frames,
+    }
 
 def main():
     playlist_url=os.environ.get("PLAYLIST_URL","").strip()
@@ -227,7 +445,7 @@ def main():
     _get_paddle()
     gaps=_load_gaps()
     if MAX_CHANNELS:gaps=gaps[:MAX_CHANNELS]
-    playlist=_parse_m3u(_download_playlist(playlist_url));results={};jobs={}
+    playlist=_parse_m3u(_download_playlist(playlist_url));results={};jobs={};profiles=_load_profiles()
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as pool:
         for gap in gaps:
             display=(gap.get("playlist_name") or "").strip()
@@ -237,13 +455,17 @@ def main():
             ch=_find_exact(playlist,provider_name)
             if ch is None:
                 results[key]={"group":gap.get("group",""),"playlist_name":display,"provider_name":provider_name,"provider_tvg_id":gap.get("provider_tvg_id",""),"gap_status":gap.get("status",""),"found_in_playlist":False};continue
-            jobs[pool.submit(_probe,ch,gap)]=key
+            profile_key=provider_name or display
+            profile=profiles.setdefault(profile_key,{})
+            jobs[pool.submit(_probe,ch,gap,profile)]=(key,profile_key)
         for future in as_completed(jobs):
-            key=jobs[future]
-            try:results[key]=future.result()
-            except Exception as exc:results[key]={"playlist_name":key,"found_in_playlist":True,"error":type(exc).__name__}
-    payload={"generated_at":datetime.now(timezone.utc).isoformat(),"source_gap_file":"output/movie-epg-gaps.csv","target_groups":sorted(TARGET_GROUPS),"channels_considered":len(gaps),"method":"live ffprobe + spaced frames + PaddleOCR primary + Tesseract fallback","privacy":"stream URLs and video frames are never persisted","frame_seconds":list(FRAME_SECONDS),"ocr_variants":list(OCR_VARIANTS),"paddle_available":_PADDLE is not None,"paddle_error":_PADDLE_ERROR,"channels":results}
-    OUTPUT.mkdir(exist_ok=True);RESULT.write_text(json.dumps(payload,ensure_ascii=False,indent=2),encoding="utf-8")
+            key,profile_key=jobs[future]
+            try:
+                results[key]=future.result()
+            except Exception as exc:
+                results[key]={"playlist_name":key,"found_in_playlist":True,"error":type(exc).__name__}
+    payload={"generated_at":datetime.now(timezone.utc).isoformat(),"source_gap_file":"output/movie-epg-gaps.csv","target_groups":sorted(TARGET_GROUPS),"channels_considered":len(gaps),"method":"adaptive OCR with persistent per-channel zone/engine/static-text learning","privacy":"stream URLs and video frames are never persisted","frame_seconds":list(FRAME_SECONDS),"ocr_variants":list(OCR_VARIANTS),"paddle_available":_PADDLE is not None,"paddle_error":_PADDLE_ERROR,"channels":results}
+    OUTPUT.mkdir(exist_ok=True);_save_profiles(profiles);RESULT.write_text(json.dumps(payload,ensure_ascii=False,indent=2),encoding="utf-8")
     return 0
 
 if __name__=="__main__":raise SystemExit(main())

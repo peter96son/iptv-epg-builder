@@ -73,5 +73,14 @@ def test_paddle_and_corner_ocr_are_enabled():
     assert "top_left" in m.OCR_VARIANTS
     assert "left_bottom" in m.OCR_VARIANTS
     source=inspect.getsource(m._ocr_frame)
-    assert "_paddle_ocr(processed)" in source
-    assert "_tesseract(processed,psm)" in source
+    assert "_paddle_ocr(img)" in source
+    assert "_tesseract(best,11)" in source
+
+def test_adaptive_ocr_prefers_correct_corner():
+    assert m._variant_plan("Insomnia HD")[0]=="top_left_tight"
+    assert m._variant_plan("Premiere HD")[0]=="top_left_tight"
+    assert m._variant_plan("DITV КОМЕДИИ СССР")[0]=="left_bottom_tight"
+
+def test_fast_ocr_has_no_full_variant_loop():
+    source=inspect.getsource(m._ocr_frame)
+    assert "for variant,flt in OCR_VARIANTS.items()" not in source
