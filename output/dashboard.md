@@ -1,27 +1,27 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-09-03T08:48:10.526109-07:00`
+- Generated: `2026-09-03T11:51:34.535298-07:00`
 - Playlist channels: **2256**
-- Baseline covered: **1321**
-- Final covered: **1721**
-- Added by fallbacks: **+400**
-- Unmatched: **535**
-- Programmes: **332643**
-- Movie coverage: **560/619** (+161)
+- Baseline covered: **1320**
+- Final covered: **1722**
+- Added by fallbacks: **+402**
+- Unmatched: **534**
+- Programmes: **332513**
+- Movie coverage: **561/619** (+163)
 
 ## Playlist changes
 
-- New channels: **29**
-- Removed channels: **28**
-- Renamed: **12**
-- Stream URL changed: **2**
-- Category changed: **2**
+- New channels: **0**
+- Removed channels: **0**
+- Renamed: **0**
+- Stream URL changed: **0**
+- Category changed: **0**
 
 ## Coverage by group
 
 | Group | Total | Baseline | Final | Added | Coverage |
 |---|---:|---:|---:|---:|---:|
-| Кинозалы | 337 | 195 | 306 | +111 | 90.8% |
+| Кинозалы | 337 | 194 | 307 | +113 | 91.1% |
 | Спорт | 265 | 114 | 184 | +70 | 69.4% |
 | Музыкальные | 162 | 50 | 103 | +53 | 63.6% |
 | Кино | 219 | 144 | 191 | +47 | 87.2% |
@@ -55,9 +55,9 @@
 
 | Source | Status | Added |
 |---|---|---:|
-| iptv-online-primary | ok | 1321 |
+| iptv-online-primary | ok | 1320 |
 | premiere-group-dedicated | ok | 0 |
-| iptvx-noarch | ok | 207 |
+| iptvx-noarch | ok | 208 |
 | klimedia-dedicated | failed | 0 |
 | runigma-iptv | ok | 9 |
 | openbox-tsd | ok | 30 |
@@ -99,7 +99,7 @@
 | epgshare-LT | ok | 0 |
 | epgshare-LV | ok | 2 |
 | teleguide-ru | ok | 3 |
-| gabbarit-current | ok | 51 |
+| gabbarit-current | ok | 52 |
 | m3u-edit-all-rescue | ok | 0 |
 | gabbarit-mirror | ok | 0 |
 | epgone-full-movie-rescue | ok | 0 |
@@ -128,7 +128,6 @@
 
 | Generated | Covered | Unmatched | Programmes |
 |---|---:|---:|---:|
-| 2026-08-31T19:50:38.667875-07:00 | 2018 | 758 | 398778 |
 | 2026-08-31T23:54:11.483726-07:00 | 2023 | 753 | 399630 |
 | 2026-09-01T05:55:27.452511-07:00 | 2099 | 677 | 433967 |
 | 2026-09-01T14:21:49.372785-07:00 | 2098 | 678 | 434484 |
@@ -148,4 +147,5 @@
 | 2026-09-03T02:47:13.397416-07:00 | 1707 | 545 | 335064 |
 | 2026-09-03T05:53:16.770794-07:00 | 1707 | 544 | 331501 |
 | 2026-09-03T08:48:10.526109-07:00 | 1721 | 535 | 332643 |
+| 2026-09-03T11:51:34.535298-07:00 | 1722 | 534 | 332513 |
 
