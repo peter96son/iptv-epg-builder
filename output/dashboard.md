@@ -1,13 +1,13 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-09-02T18:40:30.470968-07:00`
+- Generated: `2026-09-02T22:53:54.052337-07:00`
 - Playlist channels: **2252**
-- Baseline covered: **1300**
+- Baseline covered: **1297**
 - Final covered: **1705**
-- Added by fallbacks: **+405**
+- Added by fallbacks: **+408**
 - Unmatched: **547**
-- Programmes: **348434**
-- Movie coverage: **560/616** (+165)
+- Programmes: **348268**
+- Movie coverage: **560/616** (+167)
 
 ## Playlist changes
 
@@ -21,10 +21,10 @@
 
 | Group | Total | Baseline | Final | Added | Coverage |
 |---|---:|---:|---:|---:|---:|
-| Кинозалы | 334 | 192 | 307 | +115 | 91.9% |
-| Спорт | 265 | 104 | 177 | +73 | 66.8% |
+| Кинозалы | 334 | 191 | 307 | +116 | 91.9% |
+| Спорт | 265 | 103 | 177 | +74 | 66.8% |
 | Музыкальные | 162 | 47 | 98 | +51 | 60.5% |
-| Кино | 219 | 144 | 190 | +46 | 86.8% |
+| Кино | 219 | 143 | 190 | +47 | 86.8% |
 | UK | 30 | 9 | 26 | +17 | 86.7% |
 | BE & NL | 100 | 33 | 49 | +16 | 49.0% |
 | Болгария | 49 | 13 | 27 | +14 | 55.1% |
@@ -55,9 +55,9 @@
 
 | Source | Status | Added |
 |---|---|---:|
-| iptv-online-primary | ok | 1300 |
+| iptv-online-primary | ok | 1297 |
 | premiere-group-dedicated | ok | 0 |
-| iptvx-noarch | ok | 206 |
+| iptvx-noarch | ok | 203 |
 | klimedia-dedicated | failed | 0 |
 | runigma-iptv | ok | 9 |
 | openbox-tsd | ok | 32 |
@@ -66,10 +66,10 @@
 | cineman-dedicated | ok | 0 |
 | minimax-mm-dedicated | ok | 1 |
 | sharavoz-guide | failed | 0 |
-| tvteam | ok | 10 |
+| tvteam | ok | 11 |
 | epgpw-sreda | ok | 0 |
 | epgpw-chestny-detektiv | ok | 0 |
-| epgpw-RU | ok | 3 |
+| epgpw-RU | ok | 5 |
 | epgpw-DE | ok | 5 |
 | epgpw-GB | ok | 6 |
 | epgpw-US | ok | 0 |
@@ -99,7 +99,7 @@
 | epgshare-LT | ok | 0 |
 | epgshare-LV | ok | 2 |
 | teleguide-ru | ok | 3 |
-| gabbarit-current | ok | 48 |
+| gabbarit-current | ok | 51 |
 | m3u-edit-all-rescue | ok | 0 |
 | gabbarit-mirror | ok | 0 |
 | epgone-full-movie-rescue | ok | 0 |
@@ -128,7 +128,6 @@
 
 | Generated | Covered | Unmatched | Programmes |
 |---|---:|---:|---:|
-| 2026-08-31T05:40:27.102141-07:00 | 2057 | 723 | 409360 |
 | 2026-08-31T10:32:35.012067-07:00 | 1965 | 811 | 408159 |
 | 2026-08-31T11:43:30.398016-07:00 | 1965 | 811 | 408091 |
 | 2026-08-31T16:41:35.066323-07:00 | 1967 | 809 | 409713 |
@@ -148,4 +147,5 @@
 | 2026-09-02T11:54:00.670462-07:00 | 1708 | 543 | 362054 |
 | 2026-09-02T14:41:54.272576-07:00 | 1710 | 542 | 362154 |
 | 2026-09-02T18:40:30.470968-07:00 | 1705 | 547 | 348434 |
+| 2026-09-02T22:53:54.052337-07:00 | 1705 | 547 | 348268 |
 
