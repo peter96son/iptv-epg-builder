@@ -254,7 +254,20 @@ def _load_profiles(path=PROFILES):
         data=json.loads(path.read_text(encoding="utf-8"))
     except Exception:
         return {}
-    return data if isinstance(data,dict) else {}
+    if not isinstance(data,dict):
+        return {}
+    for profile in data.values():
+        if not isinstance(profile,dict):
+            continue
+        last=profile.get("last_title","")
+        if last and not _looks_like_title(last):
+            profile["rejected_last_title"]=last
+            profile["last_title"]=""
+            profile["title_history"]=[x for x in profile.get("title_history",[]) if _looks_like_title(x)]
+            if not profile["title_history"]:
+                profile["preferred_zone"]=""
+                profile["preferred_engine"]=""
+    return data
 
 
 def _save_profiles(profiles,path=PROFILES):
@@ -286,15 +299,65 @@ def _is_channel_identity(line,channel_name,provider_name=""):
     return False
 
 
+
+def _script_profile(text):
+    letters=[c for c in str(text or "") if c.isalpha()]
+    cyr=sum("а"<=c.casefold()<="я" or c.casefold()=="ё" for c in letters)
+    lat=sum("a"<=c.casefold()<="z" for c in letters)
+    return {"letters":len(letters),"cyr":cyr,"lat":lat,"other":len(letters)-cyr-lat}
+
+
+def _looks_like_title(text):
+    text=str(text or "").strip()
+    if not text or len(text)>90:
+        return False
+    prof=_script_profile(text)
+    if prof["letters"]<4:
+        return False
+
+    alnum=sum(c.isalnum() for c in text)
+    visible=sum(not c.isspace() for c in text)
+    if visible and alnum/visible<0.58:
+        return False
+
+    if prof["cyr"] and prof["lat"]:
+        dominant=max(prof["cyr"],prof["lat"])/max(1,prof["cyr"]+prof["lat"])
+        if dominant<0.78:
+            return False
+
+    words=re.findall(r"[A-Za-zА-Яа-яЁё0-9]+",text)
+    alpha_words=[w for w in words if any(c.isalpha() for c in w)]
+    if not alpha_words:
+        return False
+
+    if len(alpha_words)==1:
+        w=alpha_words[0]
+        if any("а"<=c.casefold()<="я" or c.casefold()=="ё" for c in w):
+            return len(w)>=4
+        return len(w)>=5
+
+    short=sum(1 for w in alpha_words if len(w)<=2)
+    if short/len(alpha_words)>0.45:
+        return False
+    return True
+
+
+def _confidence_label(score,text):
+    if not _looks_like_title(text):
+        return "reject"
+    if score>=12:
+        return "high"
+    if score>=9:
+        return "medium"
+    return "low"
+
 def _candidate_score(line,engine,variant,profile):
     """Simple ranking, intentionally explainable."""
     text=str(line or "").strip()
     n=_norm(text)
-    if not n:
+    if not n or not _looks_like_title(text):
         return -999
     letters=sum(c.isalpha() for c in text)
-    if letters<3:
-        return -999
 
     score=0.0
     # Film titles are usually short enough to be a title, not a paragraph.
@@ -308,6 +371,12 @@ def _candidate_score(line,engine,variant,profile):
         score += 5
     if engine==profile.get("preferred_engine"):
         score += 4
+    prof=_script_profile(text)
+    if prof["cyr"]>=5 and prof["cyr"]>=prof["lat"]*3:
+        score += 3
+    words=re.findall(r"[A-Za-zА-Яа-яЁё0-9]+",text)
+    if 1<=len(words)<=7:
+        score += 2
 
     # Stable text already learned to be channel decoration is strongly rejected.
     static={_norm(x) for x in profile.get("static_text",[]) if _norm(x)}
@@ -331,9 +400,13 @@ def _pick_title(candidates,channel_name,provider_name,profile):
         return None
     ranked.sort(key=lambda x:(x[0],len(x[1])),reverse=True)
     score,line,engine,variant=ranked[0]
+    confidence=_confidence_label(score,line)
+    if confidence=="reject" or (confidence=="low" and not profile.get("last_title")):
+        return None
     return {
         "title":line,
         "score":round(score,2),
+        "confidence":confidence,
         "engine":engine,
         "zone":variant,
     }
@@ -353,6 +426,11 @@ def _update_profile(profile,chosen,all_candidates,channel_name,provider_name):
     profile.setdefault("title_history",[])
 
     if chosen:
+        confidence=chosen.get("confidence") or _confidence_label(chosen.get("score",0),chosen.get("title",""))
+        if confidence not in {"high","medium"}:
+            profile["updated_at"]=datetime.now(timezone.utc).isoformat()
+            return profile
+        chosen["confidence"]=confidence
         title=chosen["title"]
         profile["last_title"]=title
         profile["preferred_zone"]=chosen["zone"]
