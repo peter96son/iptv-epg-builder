@@ -1,18 +1,18 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-09-02T14:41:54.272576-07:00`
+- Generated: `2026-09-02T18:40:30.470968-07:00`
 - Playlist channels: **2252**
-- Baseline covered: **1301**
-- Final covered: **1710**
-- Added by fallbacks: **+409**
-- Unmatched: **542**
-- Programmes: **362154**
-- Movie coverage: **560/616** (+164)
+- Baseline covered: **1300**
+- Final covered: **1705**
+- Added by fallbacks: **+405**
+- Unmatched: **547**
+- Programmes: **348434**
+- Movie coverage: **560/616** (+165)
 
 ## Playlist changes
 
-- New channels: **2**
-- Removed channels: **1**
+- New channels: **0**
+- Removed channels: **0**
 - Renamed: **0**
 - Stream URL changed: **0**
 - Category changed: **0**
@@ -21,12 +21,12 @@
 
 | Group | Total | Baseline | Final | Added | Coverage |
 |---|---:|---:|---:|---:|---:|
-| Кинозалы | 334 | 193 | 307 | +114 | 91.9% |
+| Кинозалы | 334 | 192 | 307 | +115 | 91.9% |
 | Спорт | 265 | 104 | 177 | +73 | 66.8% |
 | Музыкальные | 162 | 47 | 98 | +51 | 60.5% |
 | Кино | 219 | 144 | 190 | +46 | 86.8% |
-| BE & NL | 100 | 33 | 54 | +21 | 54.0% |
 | UK | 30 | 9 | 26 | +17 | 86.7% |
+| BE & NL | 100 | 33 | 49 | +16 | 49.0% |
 | Болгария | 49 | 13 | 27 | +14 | 55.1% |
 | Германия | 134 | 85 | 97 | +12 | 72.4% |
 | Детские | 70 | 51 | 60 | +9 | 85.7% |
@@ -55,18 +55,18 @@
 
 | Source | Status | Added |
 |---|---|---:|
-| iptv-online-primary | ok | 1301 |
+| iptv-online-primary | ok | 1300 |
 | premiere-group-dedicated | ok | 0 |
-| iptvx-noarch | ok | 209 |
+| iptvx-noarch | ok | 206 |
 | klimedia-dedicated | failed | 0 |
 | runigma-iptv | ok | 9 |
 | openbox-tsd | ok | 32 |
 | next-dedicated | ok | 0 |
 | bcumedia-dedicated | ok | 4 |
 | cineman-dedicated | ok | 0 |
-| minimax-mm-dedicated | ok | 0 |
+| minimax-mm-dedicated | ok | 1 |
 | sharavoz-guide | failed | 0 |
-| tvteam | ok | 7 |
+| tvteam | ok | 10 |
 | epgpw-sreda | ok | 0 |
 | epgpw-chestny-detektiv | ok | 0 |
 | epgpw-RU | ok | 3 |
@@ -81,7 +81,7 @@
 | anzo-top | ok | 7 |
 | epgshare-DE | ok | 0 |
 | epgshare-AT | ok | 2 |
-| epgshare-BE | ok | 15 |
+| epgshare-BE | ok | 10 |
 | epgshare-NL | ok | 6 |
 | epgshare-UK | ok | 14 |
 | epgshare-US | ok | 0 |
@@ -120,15 +120,14 @@
 | Other: DAZN | 6 | 0 |
 | Other: Pimple | 6 | 0 |
 | Other: НТВ | 6 | 6 |
+| Other: France | 5 | 0 |
 | Other: Viasat | 5 | 0 |
 | Other: Carac | 4 | 0 |
-| Other: Disney | 4 | 0 |
 
 ## Recent history
 
 | Generated | Covered | Unmatched | Programmes |
 |---|---:|---:|---:|
-| 2026-08-30T23:40:40.786261-07:00 | 1773 | 1007 | 307766 |
 | 2026-08-31T05:40:27.102141-07:00 | 2057 | 723 | 409360 |
 | 2026-08-31T10:32:35.012067-07:00 | 1965 | 811 | 408159 |
 | 2026-08-31T11:43:30.398016-07:00 | 1965 | 811 | 408091 |
@@ -148,4 +147,5 @@
 | 2026-09-02T08:55:51.018855-07:00 | 2076 | 699 | 405736 |
 | 2026-09-02T11:54:00.670462-07:00 | 1708 | 543 | 362054 |
 | 2026-09-02T14:41:54.272576-07:00 | 1710 | 542 | 362154 |
+| 2026-09-02T18:40:30.470968-07:00 | 1705 | 547 | 348434 |
 
