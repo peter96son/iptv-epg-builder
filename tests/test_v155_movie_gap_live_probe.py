@@ -1,7 +1,8 @@
 import csv
-from pathlib import Path
+import inspect
 
 from src.movie_gap_live_probe import _find_exact,_load_gaps,_parse_m3u
+import src.movie_gap_live_probe as m
 
 
 def test_only_requested_movie_groups_are_monitored(tmp_path):
@@ -30,18 +31,16 @@ http://secret/bcu
     assert _find_exact(rows,"VHS HD")["tvg_id"]=="Xvhshd"
 
 
-def test_capture_is_single_connection_design():
-    import inspect
-    import src.movie_gap_live_probe as m
+def test_capture_is_single_connection_with_spaced_frames():
     source=inspect.getsource(m._capture_frames)
-    assert '"-t","20"' in source
+    assert '"-t","49"' in source
     assert '"-frames:v","3"' in source
-    assert "timeout=34" in source
+    assert "timeout=65" in source
+    assert "fps=fps=1/20:start_time=5" in source
+    assert m.FRAME_SECONDS==(5,25,45)
 
 
 def test_all_non_ok_movie_audit_statuses_are_monitored(tmp_path):
-    import csv
-    from src.movie_gap_live_probe import _load_gaps
     p=tmp_path/"gaps.csv"
     with p.open("w",encoding="utf-8",newline="") as f:
         w=csv.DictWriter(f,fieldnames=["group","playlist_name","provider_name","status"])
@@ -56,22 +55,23 @@ def test_all_non_ok_movie_audit_statuses_are_monitored(tmp_path):
 
 
 def test_provider_name_is_preserved_for_name_override_rows():
-    # movie_epg_audit may write playlist_name after name_overrides while
-    # provider_name remains the actual M3U channel name. The verifier must have
-    # both fields available and locate streams by provider_name.
-    import inspect
-    import src.movie_gap_live_probe as m
     source=inspect.getsource(m.main)
     assert 'gap.get("provider_name")' in source
     assert '_find_exact(playlist,provider_name)' in source
 
 
 def test_url_metadata_is_redacted():
-    from src.movie_gap_live_probe import _redact_metadata
-    assert _redact_metadata("watch https://secret.example/a?token=x now") == "watch [URL] now"
+    assert m._redact_metadata("watch https://secret.example/a?token=x now")=="watch [URL] now"
 
 
 def test_unlimited_gap_mode_is_default():
-    import src.movie_gap_live_probe as m
-    assert m.MAX_CHANNELS == 0
-    assert m.MAX_WORKERS == 4
+    assert m.MAX_CHANNELS==0
+    assert m.MAX_WORKERS==4
+
+
+def test_paddle_and_corner_ocr_are_enabled():
+    assert "top_left" in m.OCR_VARIANTS
+    assert "left_bottom" in m.OCR_VARIANTS
+    source=inspect.getsource(m._ocr_frame)
+    assert "_paddle_ocr(processed)" in source
+    assert "_tesseract(processed,psm)" in source

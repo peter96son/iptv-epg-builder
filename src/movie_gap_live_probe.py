@@ -230,11 +230,13 @@ def main():
     playlist=_parse_m3u(_download_playlist(playlist_url));results={};jobs={}
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as pool:
         for gap in gaps:
-            display=(gap.get("playlist_name") or "").strip();provider=(gap.get("provider_name") or display).strip();key=display or provider
+            display=(gap.get("playlist_name") or "").strip()
+            provider_name=(gap.get("provider_name") or display).strip()
+            key=display or provider_name
             if key in results or key in jobs.values():key=f"{gap.get('group','')}::{key}"
-            ch=_find_exact(playlist,provider)
+            ch=_find_exact(playlist,provider_name)
             if ch is None:
-                results[key]={"group":gap.get("group",""),"playlist_name":display,"provider_name":provider,"provider_tvg_id":gap.get("provider_tvg_id",""),"gap_status":gap.get("status",""),"found_in_playlist":False};continue
+                results[key]={"group":gap.get("group",""),"playlist_name":display,"provider_name":provider_name,"provider_tvg_id":gap.get("provider_tvg_id",""),"gap_status":gap.get("status",""),"found_in_playlist":False};continue
             jobs[pool.submit(_probe,ch,gap)]=key
         for future in as_completed(jobs):
             key=jobs[future]
