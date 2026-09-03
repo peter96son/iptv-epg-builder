@@ -9,8 +9,8 @@ permissions:
   contents: write
 
 concurrency:
-  group: movie-gap-live-probe
-  cancel-in-progress: true
+  group: epg-publish
+  cancel-in-progress: false
 
 jobs:
   verify:
@@ -51,14 +51,4 @@ jobs:
       - name: Commit verification result
         shell: bash
         run: |
-          set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add             output/movie-gap-live-probe.json             output/movie-gap-ocr-profiles.json             output/live-ocr-epg-state.json             output/epg.xml.gz             output/uhf-mapping.json             output/movie-epg-audit.csv             output/movie-epg-audit.json             output/movie-epg-gaps.csv
-          if git diff --cached --quiet; then
-            echo "No verification changes"
-          else
-            git commit -m "Apply OCR movie titles to live EPG"
-            git pull --rebase origin main
-            git push origin HEAD:main
-          fi
+          .github/scripts/safe-publish.sh "Apply OCR movie titles to live EPG"             output/movie-gap-live-probe.json             output/movie-gap-ocr-profiles.json             output/live-ocr-epg-state.json             output/epg.xml.gz             output/uhf-mapping.json             output/movie-epg-audit.csv             output/movie-epg-audit.json             output/movie-epg-gaps.csv

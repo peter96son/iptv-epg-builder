@@ -9,8 +9,8 @@ permissions:
   contents: write
 
 concurrency:
-  group: existing-movie-epg-verifier
-  cancel-in-progress: true
+  group: epg-publish
+  cancel-in-progress: false
 
 jobs:
   verify-existing:
@@ -49,14 +49,4 @@ jobs:
       - name: Commit verification evidence
         shell: bash
         run: |
-          set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add             output/live-epg-verification.json             output/live-epg-verification-state.json             output/live-ocr-epg-state.json             output/epg.xml.gz             output/uhf-mapping.json
-          if git diff --cached --quiet; then
-            echo "No verification changes"
-          else
-            git commit -m "Verify existing movie EPG against live stream"
-            git pull --rebase origin main
-            git push origin HEAD:main
-          fi
+          .github/scripts/safe-publish.sh "Verify existing movie EPG against live stream"             output/live-epg-verification.json             output/live-epg-verification-state.json             output/live-ocr-epg-state.json             output/epg.xml.gz             output/uhf-mapping.json
