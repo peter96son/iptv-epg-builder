@@ -3,7 +3,7 @@
 This report is diagnostic only. It does not create EPG mappings.
 A family must be researched and verified before aliases are added to the live builder.
 
-Unmatched channels: **547**
+Unmatched channels: **548**
 
 | Family | Channels | no_epg_* IDs | Main groups |
 |---|---:|---:|---|
@@ -29,6 +29,7 @@ Unmatched channels: **547**
 | Other: Sport | 4 | 0 | Спорт (1), Израиль (1), SkyLink (1), BE & NL (1) |
 | Other: Star | 4 | 0 | Кино (2), Испания (1), Молдова (1) |
 | Other: ViP | 4 | 0 | Спорт (4) |
+| Joker | 3 | 0 | Кинозалы (3) |
 | Other: AXN | 3 | 0 | SkyLink (3) |
 | Other: Cine | 3 | 0 | Испания (3) |
 | Other: History | 3 | 0 | Познавательные (1), Германия (1), Испания (1) |
@@ -36,7 +37,6 @@ Unmatched channels: **547**
 | Other: Live | 3 | 0 | Спорт (2), Музыкальные (1) |
 | Other: Total | 3 | 0 | Музыкальные (3) |
 | Other: УПЛ | 3 | 0 | Спорт (3) |
-| Joker | 2 | 0 | Кинозалы (2) |
 | Other: Arena | 2 | 0 | Спорт (2) |
 | Other: Baby | 2 | 0 | Детские (1), Израиль (1) |
 | Other: BBC | 2 | 0 | Испания (1), BE & NL (1) |
@@ -589,6 +589,12 @@ Unmatched channels: **547**
 - ViP Sport 16
 - ViP Sport 17
 
+### Joker — 3
+
+- jk_fargo
+- jk_SexandCity
+- jk_desperate
+
 ### Other: AXN — 3
 
 - AXN
@@ -630,11 +636,6 @@ Unmatched channels: **547**
 - УПЛ ТВ 1
 - УПЛ ТВ 2
 - УПЛ ТВ 3
-
-### Joker — 2
-
-- jk_SexandCity
-- jk_desperate
 
 ### Other: Arena — 2
 
