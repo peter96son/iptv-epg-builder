@@ -3,7 +3,7 @@
 This report is diagnostic only. It does not create EPG mappings.
 A family must be researched and verified before aliases are added to the live builder.
 
-Unmatched channels: **542**
+Unmatched channels: **547**
 
 | Family | Channels | no_epg_* IDs | Main groups |
 |---|---:|---:|---|
@@ -19,6 +19,7 @@ Unmatched channels: **542**
 | Other: DAZN | 6 | 0 | Спорт (6) |
 | Other: Pimple | 6 | 0 | Спорт (6) |
 | Other: НТВ | 6 | 6 | Кино (6) |
+| Other: France | 5 | 0 | BE & NL (4), Испания (1) |
 | Other: Viasat | 5 | 0 | Познавательные (3), UK (2) |
 | Other: Carac | 4 | 0 | BE & NL (4) |
 | Other: Disney | 4 | 0 | Израиль (1), Испания (1), Молдова (1), Канада (1) |
@@ -54,6 +55,7 @@ Unmatched channels: **542**
 | Other: Golf | 2 | 0 | Польша (1), SkyLink (1) |
 | Other: Impact | 2 | 0 | Музыкальные (2) |
 | Other: Just | 2 | 0 | Германия (2) |
+| Other: La | 2 | 0 | Италия (1), BE & NL (1) |
 | Other: LaC | 2 | 0 | Италия (2) |
 | Other: Limburg | 2 | 0 | BE & NL (2) |
 | Other: Music | 2 | 0 | Музыкальные (1), Израиль (1) |
@@ -74,6 +76,7 @@ Unmatched channels: **542**
 | Other: TVG | 2 | 0 | Испания (2) |
 | Other: TVN | 2 | 0 | Польша (1), Молдова (1) |
 | Other: Viva | 2 | 0 | Израиль (2) |
+| Other: VTM | 2 | 0 | BE & NL (2) |
 | Other: Сер | 2 | 0 | Кино (2) |
 | BCU | 1 | 0 | Детские (1) |
 | Magic | 1 | 0 | Болгария (1) |
@@ -109,7 +112,6 @@ Unmatched channels: **542**
 | Other: BOX_SPORT_LIVE_9_HD | 1 | 0 | Спорт (1) |
 | Other: BR6 | 1 | 0 | BE & NL (1) |
 | Other: Busuioc | 1 | 0 | Молдова (1) |
-| Other: BX1 | 1 | 0 | BE & NL (1) |
 | Other: Canal | 1 | 0 | Испания (1) |
 | Other: Cartoon | 1 | 0 | Канада (1) |
 | Other: Cartoonito | 1 | 0 | Германия (1) |
@@ -149,7 +151,6 @@ Unmatched channels: **542**
 | Other: FomixTV | 1 | 0 | Музыкальные (1) |
 | Other: FOMO | 1 | 0 | Израиль (1) |
 | Other: Fox | 1 | 0 | Испания (1) |
-| Other: France | 1 | 0 | Испания (1) |
 | Other: Fun | 1 | 0 | Музыкальные (1) |
 | Other: FUN | 1 | 0 | Израиль (1) |
 | Other: Glory | 1 | 0 | Спорт (1) |
@@ -187,7 +188,6 @@ Unmatched channels: **542**
 | Other: Kinoerotica | 1 | 1 | Для взрослых (1) |
 | Other: Knesset | 1 | 0 | Израиль (1) |
 | Other: Konservatorebi | 1 | 0 | Грузия (1) |
-| Other: La | 1 | 0 | Италия (1) |
 | Other: Lancelot | 1 | 0 | Испания (1) |
 | Other: LangLab | 1 | 0 | Германия (1) |
 | Other: LCI | 1 | 0 | BE & NL (1) |
@@ -195,7 +195,6 @@ Unmatched channels: **542**
 | Other: Luban | 1 | 0 | Польша (1) |
 | Other: Luli | 1 | 0 | Израиль (1) |
 | Other: M-1 | 1 | 0 | Латвия (1) |
-| Other: M6 | 1 | 0 | BE & NL (1) |
 | Other: Makan | 1 | 0 | Израиль (1) |
 | Other: Man | 1 | 0 | Спорт (1) |
 | Other: Mega | 1 | 0 | Грузия (1) |
@@ -266,6 +265,7 @@ Unmatched channels: **542**
 | Other: Telecinco | 1 | 0 | Испания (1) |
 | Other: Tezaur | 1 | 0 | Молдова (1) |
 | Other: TF | 1 | 0 | BE & NL (1) |
+| Other: TF1 | 1 | 0 | BE & NL (1) |
 | Other: This | 1 | 0 | Болгария (1) |
 | Other: Thriller | 1 | 0 | Кино (1) |
 | Other: TLC | 1 | 0 | Эстония (1) |
@@ -286,7 +286,6 @@ Unmatched channels: **542**
 | Other: VEVO | 1 | 0 | Музыкальные (1) |
 | Other: VHS | 1 | 0 | Кино (1) |
 | Other: Volksmusik | 1 | 0 | Германия (1) |
-| Other: VTM | 1 | 0 | BE & NL (1) |
 | Other: W9 | 1 | 0 | BE & NL (1) |
 | Other: We | 1 | 0 | Молдова (1) |
 | Other: WELT | 1 | 0 | Германия (1) |
@@ -518,6 +517,14 @@ Unmatched channels: **542**
 - НТВ Сериал Следствие Вели
 - НТВ Сериал Пять Минут Тишины
 
+### Other: France — 5
+
+- France 24 España
+- France 3
+- France 2
+- France 4
+- France 5
+
 ### Other: Viasat — 5
 
 - Viasat Explore Best HD
@@ -719,6 +726,11 @@ Unmatched channels: **542**
 - Just Cooking HD
 - Just Fishing HD
 
+### Other: La — 2
+
+- La 7 HD
+- La Une
+
 ### Other: LaC — 2
 
 - LaC
@@ -818,6 +830,11 @@ Unmatched channels: **542**
 
 - Viva plus
 - Viva
+
+### Other: VTM — 2
+
+- VTM HD
+- VTM Non-Stop 90s
 
 ### Other: Сер — 2
 
@@ -959,10 +976,6 @@ Unmatched channels: **542**
 ### Other: Busuioc — 1
 
 - Busuioc TV
-
-### Other: BX1 — 1
-
-- BX1
 
 ### Other: Canal — 1
 
@@ -1120,10 +1133,6 @@ Unmatched channels: **542**
 
 - Fox ES
 
-### Other: France — 1
-
-- France 24 España
-
 ### Other: Fun — 1
 
 - Fun Radio TV
@@ -1272,10 +1281,6 @@ Unmatched channels: **542**
 
 - Konservatorebi
 
-### Other: La — 1
-
-- La 7 HD
-
 ### Other: Lancelot — 1
 
 - Lancelot TV
@@ -1303,10 +1308,6 @@ Unmatched channels: **542**
 ### Other: M-1 — 1
 
 - M-1
-
-### Other: M6 — 1
-
-- M6 4K
 
 ### Other: Makan — 1
 
@@ -1588,6 +1589,10 @@ Unmatched channels: **542**
 
 - TF 1 Series Film HD
 
+### Other: TF1 — 1
+
+- TF1
+
 ### Other: This — 1
 
 - This is Bulgaria
@@ -1667,10 +1672,6 @@ Unmatched channels: **542**
 ### Other: Volksmusik — 1
 
 - Volksmusik.TV NEU
-
-### Other: VTM — 1
-
-- VTM Non-Stop 90s
 
 ### Other: W9 — 1
 
