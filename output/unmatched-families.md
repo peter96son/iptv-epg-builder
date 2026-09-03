@@ -3,12 +3,12 @@
 This report is diagnostic only. It does not create EPG mappings.
 A family must be researched and verified before aliases are added to the live builder.
 
-Unmatched channels: **545**
+Unmatched channels: **544**
 
 | Family | Channels | no_epg_* IDs | Main groups |
 |---|---:|---:|---|
 | DITV | 35 | 32 | Кинозалы (25), Детские (6), Познавательные (3), Для взрослых (1) |
-| Other | 24 | 0 | Израиль (3), Испания (3), Кино (2), Музыкальные (2) |
+| Other | 23 | 0 | Испания (3), Кино (2), Музыкальные (2), Израиль (2) |
 | Other: Football | 13 | 0 | Спорт (13) |
 | Other: VIP | 13 | 0 | Спорт (13) |
 | Play-X | 12 | 0 | Музыкальные (9), Кино (3) |
@@ -369,7 +369,7 @@ Unmatched channels: **545**
 - DITV Мультфильмы для малышей
 - DITV XXX 18+
 
-### Other — 24
+### Other — 23
 
 - Кино 24/7
 - Кіно Та Серіали
@@ -379,7 +379,6 @@ Unmatched channels: **545**
 - Канал 7
 - Channel 11
 - Channel 14 HD
-- Channel 24
 - TV 2000
 - 50 Canale
 - 24 Horas ES

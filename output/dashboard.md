@@ -1,18 +1,18 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-09-03T02:47:13.397416-07:00`
-- Playlist channels: **2252**
-- Baseline covered: **1307**
+- Generated: `2026-09-03T05:53:16.770794-07:00`
+- Playlist channels: **2251**
+- Baseline covered: **1306**
 - Final covered: **1707**
-- Added by fallbacks: **+400**
-- Unmatched: **545**
-- Programmes: **335064**
+- Added by fallbacks: **+401**
+- Unmatched: **544**
+- Programmes: **331501**
 - Movie coverage: **559/616** (+162)
 
 ## Playlist changes
 
 - New channels: **0**
-- Removed channels: **0**
+- Removed channels: **1**
 - Renamed: **0**
 - Stream URL changed: **0**
 - Category changed: **0**
@@ -34,13 +34,13 @@
 | Россия | 184 | 171 | 179 | +8 | 97.3% |
 | Познавательные | 118 | 98 | 104 | +6 | 88.1% |
 | Для взрослых | 33 | 19 | 24 | +5 | 72.7% |
-| Израиль | 78 | 28 | 33 | +5 | 42.3% |
+| Израиль | 77 | 28 | 33 | +5 | 42.9% |
 | Кино 4K | 63 | 59 | 63 | +4 | 100.0% |
+| Разное | 30 | 26 | 29 | +3 | 96.7% |
 | SkyLink | 20 | 8 | 10 | +2 | 50.0% |
 | Беларусь | 23 | 20 | 22 | +2 | 95.7% |
 | Испания | 42 | 1 | 3 | +2 | 7.1% |
 | Новости | 12 | 10 | 12 | +2 | 100.0% |
-| Разное | 30 | 27 | 29 | +2 | 96.7% |
 | Чехия | 6 | 0 | 2 | +2 | 33.3% |
 | Канада | 10 | 0 | 1 | +1 | 10.0% |
 | Молдова | 29 | 4 | 5 | +1 | 17.2% |
@@ -55,12 +55,12 @@
 
 | Source | Status | Added |
 |---|---|---:|
-| iptv-online-primary | ok | 1307 |
+| iptv-online-primary | ok | 1306 |
 | premiere-group-dedicated | ok | 0 |
 | iptvx-noarch | ok | 206 |
 | klimedia-dedicated | failed | 0 |
 | runigma-iptv | ok | 9 |
-| openbox-tsd | ok | 32 |
+| openbox-tsd | ok | 33 |
 | next-dedicated | ok | 0 |
 | bcumedia-dedicated | ok | 4 |
 | cineman-dedicated | ok | 0 |
@@ -109,7 +109,7 @@
 | Family | Channels | no_epg_* |
 |---|---:|---:|
 | DITV | 35 | 32 |
-| Other | 24 | 0 |
+| Other | 23 | 0 |
 | Other: Football | 13 | 0 |
 | Other: VIP | 13 | 0 |
 | Play-X | 12 | 0 |
@@ -128,7 +128,6 @@
 
 | Generated | Covered | Unmatched | Programmes |
 |---|---:|---:|---:|
-| 2026-08-31T16:41:35.066323-07:00 | 1967 | 809 | 409713 |
 | 2026-08-31T18:04:55.329799-07:00 | 1966 | 810 | 394846 |
 | 2026-08-31T19:50:38.667875-07:00 | 2018 | 758 | 398778 |
 | 2026-08-31T23:54:11.483726-07:00 | 2023 | 753 | 399630 |
@@ -148,4 +147,5 @@
 | 2026-09-02T22:53:54.052337-07:00 | 1705 | 547 | 348268 |
 | 2026-09-02T23:49:45.627929-07:00 | 1704 | 548 | 348301 |
 | 2026-09-03T02:47:13.397416-07:00 | 1707 | 545 | 335064 |
+| 2026-09-03T05:53:16.770794-07:00 | 1707 | 544 | 331501 |
 
