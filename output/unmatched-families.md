@@ -3,17 +3,16 @@
 This report is diagnostic only. It does not create EPG mappings.
 A family must be researched and verified before aliases are added to the live builder.
 
-Unmatched channels: **547**
+Unmatched channels: **534**
 
 | Family | Channels | no_epg_* IDs | Main groups |
 |---|---:|---:|---|
 | DITV | 35 | 32 | Кинозалы (25), Детские (6), Познавательные (3), Для взрослых (1) |
-| Other | 24 | 0 | Израиль (3), Испания (3), Кино (2), Музыкальные (2) |
+| Other | 22 | 0 | Испания (3), Кино (2), Израиль (2), Италия (2) |
 | Other: Football | 13 | 0 | Спорт (13) |
 | Other: VIP | 13 | 0 | Спорт (13) |
 | Play-X | 12 | 0 | Музыкальные (9), Кино (3) |
 | Other: RTL | 11 | 0 | Музыкальные (8), Германия (3) |
-| BOX | 8 | 0 | Спорт (8) |
 | Other: FIFA+ | 8 | 0 | Спорт (8) |
 | Other: Rakuten | 7 | 0 | Испания (4), Италия (3) |
 | Other: DAZN | 6 | 0 | Спорт (6) |
@@ -21,9 +20,10 @@ Unmatched channels: **547**
 | Other: НТВ | 6 | 6 | Кино (6) |
 | Other: France | 5 | 0 | BE & NL (4), Испания (1) |
 | Other: Viasat | 5 | 0 | Познавательные (3), UK (2) |
+| BOX | 4 | 0 | Спорт (4) |
 | Other: Carac | 4 | 0 | BE & NL (4) |
 | Other: Disney | 4 | 0 | Израиль (1), Испания (1), Молдова (1), Канада (1) |
-| Other: FintGa | 4 | 0 | Спорт (4) |
+| Other: Fint | 4 | 0 | Спорт (4) |
 | Other: LRT | 4 | 0 | Латвия (4) |
 | Other: RAI | 4 | 0 | Италия (4) |
 | Other: Sport | 4 | 0 | Спорт (1), Израиль (1), SkyLink (1), BE & NL (1) |
@@ -33,14 +33,16 @@ Unmatched channels: **547**
 | Other: Cine | 3 | 0 | Испания (3) |
 | Other: History | 3 | 0 | Познавательные (1), Германия (1), Испания (1) |
 | Other: LA | 3 | 0 | Испания (3) |
-| Other: Live | 3 | 0 | Спорт (2), Музыкальные (1) |
 | Other: Total | 3 | 0 | Музыкальные (3) |
+| Other: Tricolor | 3 | 0 | Кинозалы (3) |
 | Other: УПЛ | 3 | 0 | Спорт (3) |
 | Joker | 2 | 0 | Кинозалы (2) |
 | Other: Arena | 2 | 0 | Спорт (2) |
 | Other: Baby | 2 | 0 | Детские (1), Израиль (1) |
 | Other: BBC | 2 | 0 | Испания (1), BE & NL (1) |
+| Other: BeIN | 2 | 0 | Спорт (2) |
 | Other: betking | 2 | 0 | Спорт (2) |
+| Other: Canal | 2 | 0 | Спорт (1), Испания (1) |
 | Other: CANAL+ | 2 | 0 | SkyLink (2) |
 | Other: Canal+ | 2 | 0 | BE & NL (2) |
 | Other: Canale | 2 | 0 | Италия (2) |
@@ -58,6 +60,7 @@ Unmatched channels: **547**
 | Other: La | 2 | 0 | Италия (1), BE & NL (1) |
 | Other: LaC | 2 | 0 | Италия (2) |
 | Other: Limburg | 2 | 0 | BE & NL (2) |
+| Other: Live | 2 | 0 | Спорт (2) |
 | Other: Music | 2 | 0 | Музыкальные (1), Израиль (1) |
 | Other: Musicbox | 2 | 0 | Музыкальные (2) |
 | Other: Nat | 2 | 0 | Израиль (1), Испания (1) |
@@ -76,7 +79,6 @@ Unmatched channels: **547**
 | Other: TVG | 2 | 0 | Испания (2) |
 | Other: TVN | 2 | 0 | Польша (1), Молдова (1) |
 | Other: Viva | 2 | 0 | Израиль (2) |
-| Other: VTM | 2 | 0 | BE & NL (2) |
 | Other: Сер | 2 | 0 | Кино (2) |
 | BCU | 1 | 0 | Детские (1) |
 | Magic | 1 | 0 | Болгария (1) |
@@ -95,7 +97,6 @@ Unmatched channels: **547**
 | Other: Atv | 1 | 0 | BE & NL (1) |
 | Other: AutoMotorSport | 1 | 0 | SkyLink (1) |
 | Other: BEATTV | 1 | 0 | BE & NL (1) |
-| Other: BeIN | 1 | 0 | Спорт (1) |
 | Other: BeJoy | 1 | 0 | Италия (1) |
 | Other: Bel | 1 | 0 | BE & NL (1) |
 | Other: Best | 1 | 0 | Музыкальные (1) |
@@ -103,16 +104,9 @@ Unmatched channels: **547**
 | Other: BG | 1 | 0 | Болгария (1) |
 | Other: BNR | 1 | 0 | BE & NL (1) |
 | Other: BOLLYSHOW | 1 | 0 | Израиль (1) |
-| Other: BOX_MUSIC2_4K | 1 | 0 | Музыкальные (1) |
 | Other: BOX_SPORT_LIVE_4K | 1 | 0 | Спорт (1) |
-| Other: BOX_SPORT_LIVE_5_HD | 1 | 0 | Спорт (1) |
-| Other: BOX_SPORT_LIVE_6_HD | 1 | 0 | Спорт (1) |
-| Other: BOX_SPORT_LIVE_7_HD | 1 | 0 | Спорт (1) |
-| Other: BOX_SPORT_LIVE_8_HD | 1 | 0 | Спорт (1) |
-| Other: BOX_SPORT_LIVE_9_HD | 1 | 0 | Спорт (1) |
 | Other: BR6 | 1 | 0 | BE & NL (1) |
 | Other: Busuioc | 1 | 0 | Молдова (1) |
-| Other: Canal | 1 | 0 | Испания (1) |
 | Other: Cartoon | 1 | 0 | Канада (1) |
 | Other: Cartoonito | 1 | 0 | Германия (1) |
 | Other: Channel21 | 1 | 0 | Германия (1) |
@@ -214,7 +208,6 @@ Unmatched channels: **547**
 | Other: Noroc | 1 | 0 | Молдова (1) |
 | Other: Notele | 1 | 0 | BE & NL (1) |
 | Other: NTV | 1 | 0 | Канада (1) |
-| Other: Ocko | 1 | 0 | Музыкальные (1) |
 | Other: OLERO | 1 | 1 | Для взрослых (1) |
 | Other: One | 1 | 0 | Германия (1) |
 | Other: ONE | 1 | 0 | Молдова (1) |
@@ -280,7 +273,6 @@ Unmatched channels: **547**
 | Other: TVE | 1 | 0 | Испания (1) |
 | Other: TVM | 1 | 0 | Музыкальные (1) |
 | Other: TVR | 1 | 0 | Молдова (1) |
-| Other: V2Beat | 1 | 0 | Музыкальные (1) |
 | Other: VB | 1 | 0 | Молдова (1) |
 | Other: Veronica | 1 | 0 | BE & NL (1) |
 | Other: VEVO | 1 | 0 | Музыкальные (1) |
@@ -310,7 +302,6 @@ Unmatched channels: **547**
 | Other: Кинодром | 1 | 0 | Кино (1) |
 | Other: Кинолаффка | 1 | 0 | Кино (1) |
 | Other: Континент | 1 | 0 | Познавательные (1) |
-| Other: Легенды | 1 | 0 | Музыкальные (1) |
 | Other: Лента | 1 | 0 | Кино (1) |
 | Other: Мультф | 1 | 0 | Детские (1) |
 | Other: Невигадан | 1 | 0 | Познавательные (1) |
@@ -321,13 +312,13 @@ Unmatched channels: **547**
 | Other: Планета | 1 | 0 | Болгария (1) |
 | Other: Родина | 1 | 0 | Болгария (1) |
 | Other: РуКино | 1 | 0 | Кино (1) |
+| Other: СуперДискотека | 1 | 0 | Музыкальные (1) |
 | Other: ТВ | 1 | 0 | Болгария (1) |
 | Other: Телеплюс | 1 | 0 | Россия (1) |
 | Other: Топ | 1 | 0 | Кино (1) |
 | Other: Тянков | 1 | 0 | Болгария (1) |
 | Other: Фен | 1 | 0 | Болгария (1) |
 | Other: Центр | 1 | 0 | Беларусь (1) |
-| Other: Честный | 1 | 0 | Кино (1) |
 | Velilla | 1 | 0 | Детские (1) |
 
 ## Channels by family
@@ -370,17 +361,15 @@ Unmatched channels: **547**
 - DITV Мультфильмы для малышей
 - DITV XXX 18+
 
-### Other — 24
+### Other — 22
 
 - Кино 24/7
-- Кіно Та Серіали
-- 100% NL
-- 538 T
+- Кіно та Серіали HD
+- 100% NL TV HD
 - TV Jūrmala
 - Канал 7
 - Channel 11
 - Channel 14 HD
-- Channel 24
 - TV 2000
 - 50 Canale
 - 24 Horas ES
@@ -458,17 +447,6 @@ Unmatched channels: **547**
 - RTL Nitro
 - RTL Zwei HD
 
-### BOX — 8
-
-- BOX Be ON Edge 2 Live HD
-- BOX SportCast Live 5 HD
-- BOX SportCast Live 8 HD
-- BOX SportCast Live 9 HD
-- Box Sport Live 12 HD
-- Box Sport Live 13 HD
-- Box Sport Live 14 HD
-- Box Sport Live 15 HD
-
 ### Other: FIFA+ — 8
 
 - FIFA+ HD (Spain)
@@ -533,6 +511,13 @@ Unmatched channels: **547**
 - Viasat History HD
 - Viasat Nature HD
 
+### BOX — 4
+
+- Box Sport Live 12 HD
+- Box Sport Live 13 HD
+- Box Sport Live 14 HD
+- Box Sport Live 15 HD
+
 ### Other: Carac — 4
 
 - Carac 1
@@ -547,12 +532,12 @@ Unmatched channels: **547**
 - Disney
 - Disney Channel
 
-### Other: FintGa — 4
+### Other: Fint — 4
 
-- FintGa 1
-- FintGa 2
-- FintGa 3
-- FintGa 4
+- Fint Ga 1
+- Fint Ga 2
+- Fint Ga 3
+- Fint Ga 4
 
 ### Other: LRT — 4
 
@@ -573,7 +558,7 @@ Unmatched channels: **547**
 - Sport 4 UA
 - Sport 5 Gold
 - Sport 2 HD
-- Sport 10
+- Sport 10 Belgium HD
 
 ### Other: Star — 4
 
@@ -613,17 +598,17 @@ Unmatched channels: **547**
 - LA 2 HD ES
 - LA 8
 
-### Other: Live — 3
-
-- Live Sport 1
-- Live Sport 2
-- Live Музыка
-
 ### Other: Total — 3
 
 - Total Music Dance
 - Total Music Concerts
 - Total Music 2000s
+
+### Other: Tricolor — 3
+
+- Tricolor Cinema 9
+- Tricolor Cinema 10
+- Tricolor Cinema 11
 
 ### Other: УПЛ — 3
 
@@ -651,10 +636,20 @@ Unmatched channels: **547**
 - BBC Series HD
 - BBC First
 
+### Other: BeIN — 2
+
+- BeIN Sports 1 HD FR
+- BeIN Sports Xtra HD
+
 ### Other: betking — 2
 
 - betking live 1
 - betking live 2
+
+### Other: Canal — 2
+
+- Canal 11 Portugal HD
+- Canal 33 Madr
 
 ### Other: CANAL+ — 2
 
@@ -740,6 +735,11 @@ Unmatched channels: **547**
 
 - TV Limburg
 - Limburg 1
+
+### Other: Live — 2
+
+- Live Sport 1 HD
+- Live Sport 2
 
 ### Other: Music — 2
 
@@ -831,11 +831,6 @@ Unmatched channels: **547**
 - Viva plus
 - Viva
 
-### Other: VTM — 2
-
-- VTM HD
-- VTM Non-Stop 90s
-
 ### Other: Сер — 2
 
 - Серіал Україна 1
@@ -909,10 +904,6 @@ Unmatched channels: **547**
 
 - BEATTV
 
-### Other: BeIN — 1
-
-- BeIN EXTRAS
-
 ### Other: BeJoy — 1
 
 - BeJoy Kids
@@ -941,33 +932,9 @@ Unmatched channels: **547**
 
 - BOLLYSHOW
 
-### Other: BOX_MUSIC2_4K — 1
-
-- BOX_MUSIC2_4K
-
 ### Other: BOX_SPORT_LIVE_4K — 1
 
 - BOX_SPORT_LIVE_4K
-
-### Other: BOX_SPORT_LIVE_5_HD — 1
-
-- BOX_SPORT_LIVE_5_HD
-
-### Other: BOX_SPORT_LIVE_6_HD — 1
-
-- BOX_SPORT_LIVE_6_HD
-
-### Other: BOX_SPORT_LIVE_7_HD — 1
-
-- BOX_SPORT_LIVE_7_HD
-
-### Other: BOX_SPORT_LIVE_8_HD — 1
-
-- BOX_SPORT_LIVE_8_HD
-
-### Other: BOX_SPORT_LIVE_9_HD — 1
-
-- BOX_SPORT_LIVE_9_HD
 
 ### Other: BR6 — 1
 
@@ -976,10 +943,6 @@ Unmatched channels: **547**
 ### Other: Busuioc — 1
 
 - Busuioc TV
-
-### Other: Canal — 1
-
-- Canal 33 Madr
 
 ### Other: Cartoon — 1
 
@@ -1071,7 +1034,7 @@ Unmatched channels: **547**
 
 ### Other: Energy — 1
 
-- Energy Music
+- Energy Music HD
 
 ### Other: Enjoy — 1
 
@@ -1385,10 +1348,6 @@ Unmatched channels: **547**
 
 - NTV Live Stream
 
-### Other: Ocko — 1
-
-- Ocko tv MUSIK
-
 ### Other: OLERO — 1
 
 - OLERO Babes
@@ -1415,7 +1374,7 @@ Unmatched channels: **547**
 
 ### Other: Oxygen — 1
 
-- Oxygen Music
+- Oxygen Music HD
 
 ### Other: PAI — 1
 
@@ -1499,7 +1458,7 @@ Unmatched channels: **547**
 
 ### Other: RFM — 1
 
-- RFM TV
+- RFM TV HD
 
 ### Other: Rioni — 1
 
@@ -1559,7 +1518,7 @@ Unmatched channels: **547**
 
 ### Other: Sport+ — 1
 
-- Sport+ Qazaqstan
+- Sport+ Qazaqstan HD
 
 ### Other: Sportdigital — 1
 
@@ -1615,7 +1574,7 @@ Unmatched channels: **547**
 
 ### Other: Trace — 1
 
-- Trace Brazil
+- Trace Brasil HD
 
 ### Other: Travel — 1
 
@@ -1648,10 +1607,6 @@ Unmatched channels: **547**
 ### Other: TVR — 1
 
 - TVR
-
-### Other: V2Beat — 1
-
-- V2Beat TV Live
 
 ### Other: VB — 1
 
@@ -1769,10 +1724,6 @@ Unmatched channels: **547**
 
 - Континент Е
 
-### Other: Легенды — 1
-
-- Легенды Ретро FM
-
 ### Other: Лента — 1
 
 - Лента Кино
@@ -1813,6 +1764,10 @@ Unmatched channels: **547**
 
 - РуКино HD
 
+### Other: СуперДискотека — 1
+
+- СуперДискотека 90-х
+
 ### Other: ТВ — 1
 
 - ТВ Скат
@@ -1836,10 +1791,6 @@ Unmatched channels: **547**
 ### Other: Центр — 1
 
 - Центр BY
-
-### Other: Честный — 1
-
-- Честный Детекти
 
 ### Velilla — 1
 
