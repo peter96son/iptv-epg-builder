@@ -8,6 +8,7 @@ from src.builder import build
 from src.source_reselector import reselect_policy_sources
 from src.source_catalog import snapshot_missing_source_catalog
 from src.verified_metadata_fixes import apply_verified_metadata_fixes
+from src.live_ocr_epg_overlay import run as apply_live_ocr_epg_overlay
 
 if __name__ == "__main__":
     build()
@@ -25,4 +26,9 @@ if __name__ == "__main__":
     print(
         f"[verified-metadata] changed={result.get('changed', 0)}; "
         f"normalized_titles={result.get('normalized_titles', 0)}"
+    )
+    ocr_overlay = apply_live_ocr_epg_overlay(consume_probe=False)
+    print(
+        f"[live-ocr-epg] active={ocr_overlay.get('overlay',{}).get('active',0)}; "
+        f"applied={ocr_overlay.get('overlay',{}).get('applied',0)}"
     )

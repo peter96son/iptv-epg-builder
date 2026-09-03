@@ -1,21 +1,21 @@
-name: Verify Missing Movie EPG
+name: Verify Existing Movie EPG
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: "55 * * * *"
+    - cron: "25 */3 * * *"
 
 permissions:
   contents: write
 
 concurrency:
-  group: movie-gap-live-probe
+  group: existing-movie-epg-verifier
   cancel-in-progress: true
 
 jobs:
-  verify:
+  verify-existing:
     runs-on: ubuntu-latest
-    timeout-minutes: 55
+    timeout-minutes: 35
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -34,31 +34,29 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements-ocr.txt
 
-      - name: Verify live streams for current movie EPG gaps
+      - name: Verify rotating sample of existing movie EPG
         env:
           PLAYLIST_URL: ${{ secrets.PLAYLIST_URL }}
           STREAM_OCR_LANG: rus+eng
-          GAP_PROBE_WORKERS: "4"
-        run: python -m src.movie_gap_live_probe
+          LIVE_EPG_VERIFY_MAX: "250"
+          LIVE_EPG_VERIFY_WORKERS: "12"
+          LIVE_EPG_MISMATCH_CONFIRM: "2"
+        run: python -m src.live_epg_verifier
 
-      - name: Apply recognized titles to live EPG
-        env:
-          PLAYLIST_URL: ${{ secrets.PLAYLIST_URL }}
-        run: |
-          python -m src.live_ocr_epg_overlay
-          python -m src.movie_epg_audit
+      - name: Apply confirmed live mismatches to OCR state
+        run: python -m src.live_ocr_epg_overlay
 
-      - name: Commit verification result
+      - name: Commit verification evidence
         shell: bash
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add             output/movie-gap-live-probe.json             output/movie-gap-ocr-profiles.json             output/live-ocr-epg-state.json             output/epg.xml.gz             output/uhf-mapping.json             output/movie-epg-audit.csv             output/movie-epg-audit.json             output/movie-epg-gaps.csv
+          git add             output/live-epg-verification.json             output/live-epg-verification-state.json             output/live-ocr-epg-state.json             output/epg.xml.gz             output/uhf-mapping.json
           if git diff --cached --quiet; then
             echo "No verification changes"
           else
-            git commit -m "Apply OCR movie titles to live EPG"
+            git commit -m "Verify existing movie EPG against live stream"
             git pull --rebase origin main
             git push origin HEAD:main
           fi
