@@ -1,30 +1,30 @@
 # IPTV EPG Dashboard
 
-- Generated: `2026-09-03T05:53:16.770794-07:00`
-- Playlist channels: **2251**
-- Baseline covered: **1306**
-- Final covered: **1707**
-- Added by fallbacks: **+401**
-- Unmatched: **544**
-- Programmes: **331501**
-- Movie coverage: **559/616** (+162)
+- Generated: `2026-09-03T08:48:10.526109-07:00`
+- Playlist channels: **2256**
+- Baseline covered: **1321**
+- Final covered: **1721**
+- Added by fallbacks: **+400**
+- Unmatched: **535**
+- Programmes: **332643**
+- Movie coverage: **560/619** (+161)
 
 ## Playlist changes
 
-- New channels: **0**
-- Removed channels: **1**
-- Renamed: **0**
-- Stream URL changed: **0**
-- Category changed: **0**
+- New channels: **29**
+- Removed channels: **28**
+- Renamed: **12**
+- Stream URL changed: **2**
+- Category changed: **2**
 
 ## Coverage by group
 
 | Group | Total | Baseline | Final | Added | Coverage |
 |---|---:|---:|---:|---:|---:|
-| Кинозалы | 334 | 194 | 306 | +112 | 91.6% |
-| Спорт | 265 | 105 | 178 | +73 | 67.2% |
-| Музыкальные | 162 | 48 | 98 | +50 | 60.5% |
-| Кино | 219 | 144 | 190 | +46 | 86.8% |
+| Кинозалы | 337 | 195 | 306 | +111 | 90.8% |
+| Спорт | 265 | 114 | 184 | +70 | 69.4% |
+| Музыкальные | 162 | 50 | 103 | +53 | 63.6% |
+| Кино | 219 | 144 | 191 | +47 | 87.2% |
 | UK | 30 | 9 | 26 | +17 | 86.7% |
 | BE & NL | 100 | 35 | 51 | +16 | 51.0% |
 | Болгария | 49 | 13 | 27 | +14 | 55.1% |
@@ -35,7 +35,7 @@
 | Познавательные | 118 | 98 | 104 | +6 | 88.1% |
 | Для взрослых | 33 | 19 | 24 | +5 | 72.7% |
 | Израиль | 77 | 28 | 33 | +5 | 42.9% |
-| Кино 4K | 63 | 59 | 63 | +4 | 100.0% |
+| Кино 4K | 63 | 60 | 63 | +3 | 100.0% |
 | Разное | 30 | 26 | 29 | +3 | 96.7% |
 | SkyLink | 20 | 8 | 10 | +2 | 50.0% |
 | Беларусь | 23 | 20 | 22 | +2 | 95.7% |
@@ -47,7 +47,7 @@
 | Польша | 97 | 89 | 90 | +1 | 92.8% |
 | Грузия | 22 | 15 | 15 | +0 | 68.2% |
 | Казахстан | 13 | 10 | 10 | +0 | 76.9% |
-| Литва | 36 | 33 | 33 | +0 | 91.7% |
+| Литва | 38 | 35 | 35 | +0 | 92.1% |
 | Эстония | 15 | 12 | 12 | +0 | 80.0% |
 | Латвия | 24 | 18 | 17 | +-1 | 70.8% |
 
@@ -55,12 +55,12 @@
 
 | Source | Status | Added |
 |---|---|---:|
-| iptv-online-primary | ok | 1306 |
+| iptv-online-primary | ok | 1321 |
 | premiere-group-dedicated | ok | 0 |
-| iptvx-noarch | ok | 206 |
+| iptvx-noarch | ok | 207 |
 | klimedia-dedicated | failed | 0 |
 | runigma-iptv | ok | 9 |
-| openbox-tsd | ok | 33 |
+| openbox-tsd | ok | 30 |
 | next-dedicated | ok | 0 |
 | bcumedia-dedicated | ok | 4 |
 | cineman-dedicated | ok | 0 |
@@ -74,7 +74,7 @@
 | epgpw-GB | ok | 6 |
 | epgpw-US | ok | 0 |
 | epgpw-CA | ok | 1 |
-| epgone-ru2 | ok | 10 |
+| epgone-ru2 | ok | 8 |
 | epgpw-all-lite | ok | 4 |
 | skyhigh-fhd | ok | 0 |
 | skyhigh-hdr | ok | 0 |
@@ -95,11 +95,11 @@
 | epgshare-PL | ok | 1 |
 | epgshare-CZ | ok | 3 |
 | epgshare-SK | ok | 1 |
-| epgshare-PT | ok | 10 |
+| epgshare-PT | ok | 9 |
 | epgshare-LT | ok | 0 |
 | epgshare-LV | ok | 2 |
 | teleguide-ru | ok | 3 |
-| gabbarit-current | ok | 47 |
+| gabbarit-current | ok | 51 |
 | m3u-edit-all-rescue | ok | 0 |
 | gabbarit-mirror | ok | 0 |
 | epgone-full-movie-rescue | ok | 0 |
@@ -109,26 +109,25 @@
 | Family | Channels | no_epg_* |
 |---|---:|---:|
 | DITV | 35 | 32 |
-| Other | 23 | 0 |
+| Other | 22 | 0 |
 | Other: Football | 13 | 0 |
 | Other: VIP | 13 | 0 |
 | Play-X | 12 | 0 |
 | Other: RTL | 11 | 0 |
 | Other: FIFA+ | 8 | 0 |
-| BOX | 7 | 0 |
 | Other: Rakuten | 7 | 0 |
 | Other: DAZN | 6 | 0 |
 | Other: Pimple | 6 | 0 |
 | Other: НТВ | 6 | 6 |
 | Other: France | 5 | 0 |
 | Other: Viasat | 5 | 0 |
+| BOX | 4 | 0 |
 | Other: Carac | 4 | 0 |
 
 ## Recent history
 
 | Generated | Covered | Unmatched | Programmes |
 |---|---:|---:|---:|
-| 2026-08-31T18:04:55.329799-07:00 | 1966 | 810 | 394846 |
 | 2026-08-31T19:50:38.667875-07:00 | 2018 | 758 | 398778 |
 | 2026-08-31T23:54:11.483726-07:00 | 2023 | 753 | 399630 |
 | 2026-09-01T05:55:27.452511-07:00 | 2099 | 677 | 433967 |
@@ -148,4 +147,5 @@
 | 2026-09-02T23:49:45.627929-07:00 | 1704 | 548 | 348301 |
 | 2026-09-03T02:47:13.397416-07:00 | 1707 | 545 | 335064 |
 | 2026-09-03T05:53:16.770794-07:00 | 1707 | 544 | 331501 |
+| 2026-09-03T08:48:10.526109-07:00 | 1721 | 535 | 332643 |
 

@@ -3,15 +3,15 @@
 Diagnostic queue for Russian-language and CIS recovery. It does not create aliases by itself.
 Regional variants, time-shifts and virtual/FAST families must be verified before production mapping.
 
-Candidate channels: **71**
+Candidate channels: **69**
 
 Unsafe virtual/dummy-ID channels: **47**
 
 ## By group
 
 - Кинозалы: 22
-- Кино: 19
-- Музыкальные: 10
+- Кино: 18
+- Музыкальные: 9
 - Детские: 6
 - Познавательные: 5
 - Россия: 5
@@ -79,10 +79,8 @@ Unsafe virtual/dummy-ID channels: **47**
 | Новый Русский HD | Кино |  | Other: Новый | review |
 | Пес HD | Кино |  | Other: Пес | review |
 | РуКино HD | Кино |  | Other: РуКино | review |
-| Честный Детекти | Кино |  | Other: Честный | review |
-| Live Музыка | Музыкальные |  | Other: Live | review |
 | PAI Музика | Музыкальные |  | Other: PAI | review |
-| Легенды Ретро FM | Музыкальные |  | Other: Легенды | review |
+| СуперДискотека 90-х | Музыкальные |  | Other: СуперДискотека | review |
 | Континент Е | Познавательные |  | Other: Континент | review |
 | Орел и Решка | Познавательные |  | Other: Орел | review |
 | Rutube TV | Россия | RU | Other: Rutube | review |
