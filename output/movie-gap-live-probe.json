@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-02T21:01:22.711386+00:00",
+  "generated_at": "2026-09-03T00:25:22.192060+00:00",
   "source_gap_file": "output/movie-epg-gaps.csv",
   "target_groups": [
     "USSR",
@@ -7,46 +7,24 @@
     "Кино 4K",
     "Кинозалы"
   ],
-  "channels_considered": 33,
-  "method": "live ffprobe metadata + temporary lower-screen OCR",
+  "channels_considered": 35,
+  "method": "live ffprobe + spaced frames + PaddleOCR primary + Tesseract fallback",
   "privacy": "stream URLs and video frames are never persisted",
+  "frame_seconds": [
+    5,
+    25,
+    45
+  ],
+  "ocr_variants": [
+    "top_left",
+    "top_left_tight",
+    "left_bottom",
+    "left_bottom_tight",
+    "lower50"
+  ],
+  "paddle_available": true,
+  "paddle_error": null,
   "channels": {
-    "Insomnia HD": {
-      "group": "Кино",
-      "playlist_name": "Insomnia HD",
-      "provider_name": "Insomnia HD",
-      "provider_tvg_id": "Xinsomnia-hd",
-      "gap_status": "NO_MAPPING",
-      "found_in_playlist": true,
-      "live_playlist_name": "Insomnia HD",
-      "live_tvg_id": "Xinsomnia-hd",
-      "stream_metadata": {
-        "ok": true,
-        "metadata": {}
-      },
-      "ocr_lines": [],
-      "captured_frames": 3,
-      "frames": [
-        {
-          "approx_second": 4,
-          "captured": true,
-          "sha256": "783a5793f8b4d1b4aebaa97d3815b26196f1f454a3112f05a73df611951f6c00",
-          "ocr_lines": []
-        },
-        {
-          "approx_second": 10,
-          "captured": true,
-          "sha256": "783a5793f8b4d1b4aebaa97d3815b26196f1f454a3112f05a73df611951f6c00",
-          "ocr_lines": []
-        },
-        {
-          "approx_second": 16,
-          "captured": true,
-          "sha256": "779efd8fe7a33eac30e06f237038c957d1196ff20b6627d5961fab16e13dd9a2",
-          "ocr_lines": []
-        }
-      ]
-    },
     "Thriller HD": {
       "group": "Кино",
       "playlist_name": "Thriller HD",
@@ -60,62 +38,131 @@
         "ok": true,
         "metadata": {}
       },
-      "ocr_lines": [],
-      "captured_frames": 3,
+      "ocr_lines": [
+        "ОКНО СПАЛЬНИ",
+        "г 7 - = о",
+        "ь | q Е SS",
+        ": 4 t — { atl by \"==",
+        "q Ё“[—— А al",
+        "7 es. a é",
+        "г . \"7 alt aaa ae! dl 7 . .:",
+        "1 7 о р. Ч. | 4",
+        "вании",
+        "й о a vin",
+        "\\ a 7 ~~",
+        "= — ’ ры в",
+        "i | | 4 >. Г. =~” 68 Ste 7. \\ 4 \\ == лы 9",
+        "ws \\3",
+        "ui eo <",
+        "tts"
+      ],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
       "frames": [
         {
-          "approx_second": 4,
+          "approx_second": 5,
           "captured": true,
-          "sha256": "b3da34d476aeb699492fb708ba19ae99db3dd24ab3ebe3764df39ea87317790d",
-          "ocr_lines": []
+          "sha256": "fdc7410a0cacc08fce90a572d8267a22eeabe2fdc071cb33f230903c20e5d29e",
+          "ocr_lines": [
+            "ОКНО СПАЛЬНИ",
+            "г 7 - = о",
+            "ь | q Е SS",
+            ": 4 t — { atl by \"==",
+            "q Ё“[—— А al",
+            "7 es. a é",
+            "г . \"7 alt aaa ae! dl 7 . .:",
+            "1 7 о р. Ч. | 4",
+            "вании",
+            "й о a vin",
+            "\\ a 7 ~~",
+            "= — ’ ры в",
+            "i | | 4 >. Г. =~” 68 Ste 7. \\ 4 \\ == лы 9",
+            "ws \\3",
+            "ui eo <",
+            "tts"
+          ],
+          "ocr_candidates": [
+            {
+              "engine": "tesseract",
+              "variant": "top_left",
+              "psm": 6,
+              "lines": [
+                "ОКНО СПАЛЬНИ",
+                "г 7 - = о",
+                "ь | q Е SS",
+                ": 4 t — { atl by \"==",
+                "q Ё“[—— А al",
+                "7 es. a é",
+                "г . \"7 alt aaa ae! dl 7 . .:",
+                "1 7 о р. Ч. | 4"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "top_left",
+              "psm": 11,
+              "lines": [
+                "ОКНО СПАЛЬНИ",
+                "вании"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "top_left_tight",
+              "psm": 6,
+              "lines": [
+                "ОКНО СПАЛЬНИ",
+                "й о a vin"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "top_left_tight",
+              "psm": 7,
+              "lines": [
+                "\\ a 7 ~~"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "top_left_tight",
+              "psm": 11,
+              "lines": [
+                "ОКНО СПАЛЬНИ"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom",
+              "psm": 6,
+              "lines": [
+                "= — ’ ры в",
+                "i | | 4 >. Г. =~” 68 Ste 7. \\ 4 \\ == лы 9",
+                "ws \\3",
+                "ui eo <"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom",
+              "psm": 11,
+              "lines": [
+                "tts"
+              ]
+            }
+          ]
         },
         {
-          "approx_second": 10,
+          "approx_second": 25,
           "captured": true,
-          "sha256": "b3da34d476aeb699492fb708ba19ae99db3dd24ab3ebe3764df39ea87317790d",
-          "ocr_lines": []
+          "sha256": "5bed7535648c445f04c5b0ae879dab3defe6d7e3bb580c4a010a4ce65ebd529b",
+          "ocr_lines": [],
+          "ocr_candidates": []
         },
         {
-          "approx_second": 16,
-          "captured": true,
-          "sha256": "752ae51a6dab9f05beb0905dfa5187f11678081549c39d4d3c1d0aac4185df12",
-          "ocr_lines": []
-        }
-      ]
-    },
-    "VHS HD": {
-      "group": "Кино",
-      "playlist_name": "VHS HD",
-      "provider_name": "VHS HD",
-      "provider_tvg_id": "Xvhshd",
-      "gap_status": "NO_MAPPING",
-      "found_in_playlist": true,
-      "live_playlist_name": "VHS HD",
-      "live_tvg_id": "Xvhshd",
-      "stream_metadata": {
-        "ok": true,
-        "metadata": {}
-      },
-      "ocr_lines": [],
-      "captured_frames": 3,
-      "frames": [
-        {
-          "approx_second": 4,
-          "captured": true,
-          "sha256": "5c97494599ca8bdaa0540e8acb4e0501689e18cec426cd41bcbde90bbdcd58f1",
-          "ocr_lines": []
-        },
-        {
-          "approx_second": 10,
-          "captured": true,
-          "sha256": "5c97494599ca8bdaa0540e8acb4e0501689e18cec426cd41bcbde90bbdcd58f1",
-          "ocr_lines": []
-        },
-        {
-          "approx_second": 16,
-          "captured": true,
-          "sha256": "07f8e6e64290a9daa299333f46a187b28d96bd26063439c5c4f1381c4006fa8a",
-          "ocr_lines": []
+          "approx_second": 45,
+          "captured": false
         }
       ]
     },
@@ -132,26 +179,471 @@
         "ok": true,
         "metadata": {}
       },
-      "ocr_lines": [],
-      "captured_frames": 3,
+      "ocr_lines": [
+        "ЧЕЛОВЕК ИЗ ПОДОЛЬСКА"
+      ],
+      "stable_ocr_lines": [
+        "ЧЕЛОВЕК ИЗ ПОДОЛЬСКА"
+      ],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
       "frames": [
         {
-          "approx_second": 4,
+          "approx_second": 5,
           "captured": true,
-          "sha256": "35bb81f585099e6bcf48c8fda261fa054319a46f522c889ff435deba3ed5f452",
-          "ocr_lines": []
+          "sha256": "2818ed0fc98f299404d89f85219713f05ec59ddce30518de386697247008a3e9",
+          "ocr_lines": [
+            "ЧЕЛОВЕК ИЗ ПОДОЛЬСКА"
+          ],
+          "ocr_candidates": [
+            {
+              "engine": "tesseract",
+              "variant": "top_left",
+              "psm": 6,
+              "lines": [
+                "ЧЕЛОВЕК ИЗ ПОДОЛЬСКА"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "top_left",
+              "psm": 11,
+              "lines": [
+                "ЧЕЛОВЕК ИЗ ПОДОЛЬСКА"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "top_left_tight",
+              "psm": 7,
+              "lines": [
+                "ЧЕЛОВЕК ИЗ ПОДОЛЬСКА"
+              ]
+            }
+          ]
         },
         {
-          "approx_second": 10,
+          "approx_second": 25,
           "captured": true,
-          "sha256": "35bb81f585099e6bcf48c8fda261fa054319a46f522c889ff435deba3ed5f452",
-          "ocr_lines": []
+          "sha256": "f7f50f4e9c874ff7e99c728e2c47fc9188e421021d6d1ac874e6cfc6ed8c7a8e",
+          "ocr_lines": [
+            "ЧЕЛОВЕК ИЗ ПОДОЛЬСКА"
+          ],
+          "ocr_candidates": [
+            {
+              "engine": "tesseract",
+              "variant": "top_left_tight",
+              "psm": 7,
+              "lines": [
+                "ЧЕЛОВЕК ИЗ ПОДОЛЬСКА"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "top_left_tight",
+              "psm": 11,
+              "lines": [
+                "ЧЕЛОВЕК ИЗ ПОДОЛЬСКА"
+              ]
+            }
+          ]
         },
         {
-          "approx_second": 16,
+          "approx_second": 45,
+          "captured": false
+        }
+      ]
+    },
+    "VHS HD": {
+      "group": "Кино",
+      "playlist_name": "VHS HD",
+      "provider_name": "VHS HD",
+      "provider_tvg_id": "Xvhshd",
+      "gap_status": "NO_MAPPING",
+      "found_in_playlist": true,
+      "live_playlist_name": "VHS HD",
+      "live_tvg_id": "Xvhshd",
+      "stream_metadata": {
+        "ok": true,
+        "metadata": {}
+      },
+      "ocr_lines": [
+        "МЫС СТРАХА",
+        "Lar",
+        "> Cd"
+      ],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
+      "frames": [
+        {
+          "approx_second": 5,
           "captured": true,
-          "sha256": "08b70a1d51fc5a81e78a47f1f11edcb08c3ecc9e9d2c884e7ebeaddbed1d62c8",
-          "ocr_lines": []
+          "sha256": "b3a90ef890948dfdf902bc6cb8959348363fd49ad78e460bde558904899086b5",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        },
+        {
+          "approx_second": 25,
+          "captured": true,
+          "sha256": "9c9fd9c596a6775d9874a1d15f8602e6242894a7d408580bee8fa422d98437f8",
+          "ocr_lines": [
+            "МЫС СТРАХА",
+            "Lar",
+            "> Cd"
+          ],
+          "ocr_candidates": [
+            {
+              "engine": "tesseract",
+              "variant": "top_left_tight",
+              "psm": 6,
+              "lines": [
+                "МЫС СТРАХА"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "top_left_tight",
+              "psm": 7,
+              "lines": [
+                "МЫС СТРАХА"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom",
+              "psm": 11,
+              "lines": [
+                "Lar"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "lower50",
+              "psm": 6,
+              "lines": [
+                "> Cd"
+              ]
+            }
+          ]
+        },
+        {
+          "approx_second": 45,
+          "captured": false
+        }
+      ]
+    },
+    "Insomnia HD": {
+      "group": "Кино",
+      "playlist_name": "Insomnia HD",
+      "provider_name": "Insomnia HD",
+      "provider_tvg_id": "Xinsomnia-hd",
+      "gap_status": "NO_MAPPING",
+      "found_in_playlist": true,
+      "live_playlist_name": "Insomnia HD",
+      "live_tvg_id": "Xinsomnia-hd",
+      "stream_metadata": {
+        "ok": true,
+        "metadata": {}
+      },
+      "ocr_lines": [
+        "Mighty and dreadful beast.",
+        "СОЛНЦЕСТОЯНИЕ",
+        "СОЛНЦЕСТОЯНИЕ 7",
+        "их.",
+        "Ч \" ny к",
+        "a aN ‘i к BN",
+        "} \\ “ д г Е oe bo %"
+      ],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
+      "frames": [
+        {
+          "approx_second": 5,
+          "captured": true,
+          "sha256": "1a94d8bef2b793a6d6195a4e8ea0666718131e8b36ea65bbab7885cd21e9ef61",
+          "ocr_lines": [
+            "Mighty and dreadful beast."
+          ],
+          "ocr_candidates": [
+            {
+              "engine": "tesseract",
+              "variant": "lower50",
+              "psm": 7,
+              "lines": [
+                "Mighty and dreadful beast."
+              ]
+            }
+          ]
+        },
+        {
+          "approx_second": 25,
+          "captured": true,
+          "sha256": "14ec29be7db53e26bbdab917c8863385f1167e56ba40ae72ded3964f963259e5",
+          "ocr_lines": [
+            "СОЛНЦЕСТОЯНИЕ",
+            "СОЛНЦЕСТОЯНИЕ 7",
+            "их.",
+            "Ч \" ny к",
+            "a aN ‘i к BN",
+            "} \\ “ д г Е oe bo %"
+          ],
+          "ocr_candidates": [
+            {
+              "engine": "tesseract",
+              "variant": "top_left",
+              "psm": 6,
+              "lines": [
+                "СОЛНЦЕСТОЯНИЕ"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "top_left",
+              "psm": 7,
+              "lines": [
+                "СОЛНЦЕСТОЯНИЕ 7"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "top_left_tight",
+              "psm": 6,
+              "lines": [
+                "СОЛНЦЕСТОЯНИЕ"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "top_left_tight",
+              "psm": 7,
+              "lines": [
+                "СОЛНЦЕСТОЯНИЕ"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom",
+              "psm": 11,
+              "lines": [
+                "их."
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom_tight",
+              "psm": 6,
+              "lines": [
+                "Ч \" ny к",
+                "a aN ‘i к BN",
+                "} \\ “ д г Е oe bo %"
+              ]
+            }
+          ]
+        },
+        {
+          "approx_second": 45,
+          "captured": false
+        }
+      ]
+    },
+    "Premiere HD 2": {
+      "group": "Кино",
+      "playlist_name": "Premiere HD 2",
+      "provider_name": "Premiere HD 2",
+      "provider_tvg_id": "Xpremierehd2",
+      "gap_status": "NO_CURRENT_PROGRAMME;NO_NEXT_PROGRAMME",
+      "found_in_playlist": true,
+      "live_playlist_name": "Premiere HD 2",
+      "live_tvg_id": "Xpremierehd2",
+      "stream_metadata": {
+        "ok": true,
+        "metadata": {}
+      },
+      "ocr_lines": [
+        "Доктор Глас",
+        "М о sont",
+        "WY 2920 ли БГ LLCS FUCK",
+        "TRIANGLEDRAMA AB, UNLIMITED STORIES AB.",
+        "AB SVENSK FILMINDUSTRI, SVT, DREAM FREE"
+      ],
+      "stable_ocr_lines": [
+        "Доктор Глас"
+      ],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
+      "frames": [
+        {
+          "approx_second": 5,
+          "captured": true,
+          "sha256": "483fa48dcebd6402c371e9f024628b35258b0e4050d56aec122bbb9761eecbda",
+          "ocr_lines": [
+            "Доктор Глас",
+            "М о sont",
+            "WY 2920 ли БГ LLCS FUCK",
+            "TRIANGLEDRAMA AB, UNLIMITED STORIES AB.",
+            "AB SVENSK FILMINDUSTRI, SVT, DREAM FREE"
+          ],
+          "ocr_candidates": [
+            {
+              "engine": "tesseract",
+              "variant": "top_left_tight",
+              "psm": 6,
+              "lines": [
+                "Доктор Глас"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "top_left_tight",
+              "psm": 7,
+              "lines": [
+                "Доктор Глас"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "top_left_tight",
+              "psm": 11,
+              "lines": [
+                "Доктор Глас"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom",
+              "psm": 7,
+              "lines": [
+                "М о sont"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom",
+              "psm": 11,
+              "lines": [
+                "WY 2920 ли БГ LLCS FUCK",
+                "TRIANGLEDRAMA AB, UNLIMITED STORIES AB.",
+                "AB SVENSK FILMINDUSTRI, SVT, DREAM FREE"
+              ]
+            }
+          ]
+        },
+        {
+          "approx_second": 25,
+          "captured": true,
+          "sha256": "6fbc2294673d8830eb2d39ea0b828ee05f9d7dd7f16de7c41d61f29427f69113",
+          "ocr_lines": [
+            "Доктор Глас"
+          ],
+          "ocr_candidates": [
+            {
+              "engine": "tesseract",
+              "variant": "top_left",
+              "psm": 6,
+              "lines": [
+                "Доктор Глас"
+              ]
+            }
+          ]
+        },
+        {
+          "approx_second": 45,
+          "captured": false
+        }
+      ]
+    },
+    "Epic Media Love": {
+      "group": "Кино",
+      "playlist_name": "Epic Media Love",
+      "provider_name": "Epic Media Love",
+      "provider_tvg_id": "",
+      "gap_status": "NO_MAPPING",
+      "found_in_playlist": true,
+      "live_playlist_name": "Epic Media Love",
+      "live_tvg_id": "",
+      "stream_metadata": {
+        "ok": true,
+        "metadata": {}
+      },
+      "ocr_lines": [
+        "‚оо",
+        "Г. Г | г _ зай рр и а в.",
+        "mma",
+        "“4 САН",
+        "‘Ne."
+      ],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
+      "frames": [
+        {
+          "approx_second": 5,
+          "captured": true,
+          "sha256": "227a36feb4b99335daebf0788e29a40c5b794345c15bc389333f5876639c94ed",
+          "ocr_lines": [
+            "‚оо",
+            "Г. Г | г _ зай рр и а в.",
+            "mma"
+          ],
+          "ocr_candidates": [
+            {
+              "engine": "tesseract",
+              "variant": "top_left_tight",
+              "psm": 6,
+              "lines": [
+                "‚оо"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "top_left_tight",
+              "psm": 7,
+              "lines": [
+                "Г. Г | г _ зай рр и а в."
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "top_left_tight",
+              "psm": 11,
+              "lines": [
+                "mma"
+              ]
+            }
+          ]
+        },
+        {
+          "approx_second": 25,
+          "captured": true,
+          "sha256": "de36be8a69c7137110a3715e2c1d4369f67f105354638594155ae0e625b39be9",
+          "ocr_lines": [
+            "“4 САН",
+            "‘Ne."
+          ],
+          "ocr_candidates": [
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom",
+              "psm": 11,
+              "lines": [
+                "“4 САН"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom_tight",
+              "psm": 11,
+              "lines": [
+                "‘Ne."
+              ]
+            }
+          ]
+        },
+        {
+          "approx_second": 45,
+          "captured": false
         }
       ]
     },
@@ -169,25 +661,27 @@
         "metadata": {}
       },
       "ocr_lines": [],
-      "captured_frames": 3,
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
       "frames": [
         {
-          "approx_second": 4,
+          "approx_second": 5,
           "captured": true,
-          "sha256": "1bd2eeae58b2651e24642b4b8836ff2ede2f040261b47163d32cfa32eb57a5d4",
-          "ocr_lines": []
+          "sha256": "0ede3aa20cdaf18139a8058c852f4fa521f9b3ed9e513031924e8513879aedb3",
+          "ocr_lines": [],
+          "ocr_candidates": []
         },
         {
-          "approx_second": 10,
+          "approx_second": 25,
           "captured": true,
-          "sha256": "1bd2eeae58b2651e24642b4b8836ff2ede2f040261b47163d32cfa32eb57a5d4",
-          "ocr_lines": []
+          "sha256": "c643b936c2b88789021b7a4009875af4fc8750749f5e5274a49dffe1fa924e64",
+          "ocr_lines": [],
+          "ocr_candidates": []
         },
         {
-          "approx_second": 16,
-          "captured": true,
-          "sha256": "55537efb6480c5a6955d7bea6f5ea8ebac9e0917b1c653aff9b32e4bfd1b78bf",
-          "ocr_lines": []
+          "approx_second": 45,
+          "captured": false
         }
       ]
     },
@@ -204,26 +698,99 @@
         "ok": true,
         "metadata": {}
       },
-      "ocr_lines": [],
-      "captured_frames": 3,
+      "ocr_lines": [
+        "= & ‘any А а “Ч",
+        "= РЯ я Fal",
+        "у | 7",
+        "р я",
+        "; a il",
+        "А -4",
+        "4 Е on a",
+        "‘o/s a,",
+        "a а | (",
+        ": 7 ее. чи .",
+        "@ и a ; у ( >, 7 cone"
+      ],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
       "frames": [
         {
-          "approx_second": 4,
+          "approx_second": 5,
           "captured": true,
-          "sha256": "8ed22e9b3b6f030fc1ad8947b2c7863de98f11c8a752085eaf0019d132098bc7",
-          "ocr_lines": []
+          "sha256": "955ec0042ad622d86e12ce9cf1bba7fa6478e0077031a909c8540833937c6a20",
+          "ocr_lines": [],
+          "ocr_candidates": []
         },
         {
-          "approx_second": 10,
+          "approx_second": 25,
           "captured": true,
-          "sha256": "8ed22e9b3b6f030fc1ad8947b2c7863de98f11c8a752085eaf0019d132098bc7",
-          "ocr_lines": []
+          "sha256": "551dc493d00ca03007a176622d9a57680762025682bed40e84fc8b0b969ed4db",
+          "ocr_lines": [
+            "= & ‘any А а “Ч",
+            "= РЯ я Fal",
+            "у | 7",
+            "р я",
+            "; a il",
+            "А -4",
+            "4 Е on a",
+            "‘o/s a,",
+            "a а | (",
+            ": 7 ее. чи .",
+            "@ и a ; у ( >, 7 cone"
+          ],
+          "ocr_candidates": [
+            {
+              "engine": "tesseract",
+              "variant": "top_left_tight",
+              "psm": 6,
+              "lines": [
+                "= & ‘any А а “Ч",
+                "= РЯ я Fal"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom_tight",
+              "psm": 6,
+              "lines": [
+                "у | 7",
+                "р я",
+                "; a il"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom_tight",
+              "psm": 7,
+              "lines": [
+                "А -4"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "lower50",
+              "psm": 6,
+              "lines": [
+                "4 Е on a",
+                "‘o/s a,",
+                "a а | (",
+                ": 7 ее. чи ."
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "lower50",
+              "psm": 7,
+              "lines": [
+                "@ и a ; у ( >, 7 cone"
+              ]
+            }
+          ]
         },
         {
-          "approx_second": 16,
-          "captured": true,
-          "sha256": "dd3dd3a00745aacdc703040fffcb226f931b5f51947d045889cf1e36091bf4ff",
-          "ocr_lines": []
+          "approx_second": 45,
+          "captured": false
         }
       ]
     },
@@ -240,62 +807,95 @@
         "ok": true,
         "metadata": {}
       },
-      "ocr_lines": [],
-      "captured_frames": 3,
+      "ocr_lines": [
+        "в [В Г",
+        "~ Li",
+        "зна",
+        "F 1",
+        "} > Ww",
+        "SS) ~ i",
+        "и АА ие у: va ..",
+        "=, PD",
+        "4 all"
+      ],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
       "frames": [
         {
-          "approx_second": 4,
+          "approx_second": 5,
           "captured": true,
-          "sha256": "f9a8e8ded09a0d0e7168b4b2e137fe74d4009ba1e93f106c787e9cb8bf34bc43",
-          "ocr_lines": []
+          "sha256": "b404444d500aeb723969ffb0157125ac3ba3d5e4550d2b452616c7bbd1d6c91e",
+          "ocr_lines": [
+            "в [В Г",
+            "~ Li",
+            "зна",
+            "F 1",
+            "} > Ww",
+            "SS) ~ i",
+            "и АА ие у: va ..",
+            "=, PD"
+          ],
+          "ocr_candidates": [
+            {
+              "engine": "tesseract",
+              "variant": "top_left_tight",
+              "psm": 6,
+              "lines": [
+                "в [В Г"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "top_left_tight",
+              "psm": 11,
+              "lines": [
+                "~ Li"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom",
+              "psm": 11,
+              "lines": [
+                "зна"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "lower50",
+              "psm": 6,
+              "lines": [
+                "F 1",
+                "} > Ww",
+                "SS) ~ i",
+                "и АА ие у: va ..",
+                "=, PD"
+              ]
+            }
+          ]
         },
         {
-          "approx_second": 10,
+          "approx_second": 25,
           "captured": true,
-          "sha256": "f9a8e8ded09a0d0e7168b4b2e137fe74d4009ba1e93f106c787e9cb8bf34bc43",
-          "ocr_lines": []
+          "sha256": "3872f2e546363864caba37ddb10e2fe6d11987533d87af4b9146d21375ce0551",
+          "ocr_lines": [
+            "4 all"
+          ],
+          "ocr_candidates": [
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom",
+              "psm": 7,
+              "lines": [
+                "4 all"
+              ]
+            }
+          ]
         },
         {
-          "approx_second": 16,
-          "captured": true,
-          "sha256": "608090ab48d4387815262d71d0f62b2b27ae15e3212db464c7c143a436a56380",
-          "ocr_lines": []
-        }
-      ]
-    },
-    "Epic Media Love": {
-      "group": "Кино",
-      "playlist_name": "Epic Media Love",
-      "provider_name": "Epic Media Love",
-      "provider_tvg_id": "",
-      "gap_status": "NO_MAPPING",
-      "found_in_playlist": true,
-      "live_playlist_name": "Epic Media Love",
-      "live_tvg_id": "",
-      "stream_metadata": {
-        "ok": true,
-        "metadata": {}
-      },
-      "ocr_lines": [],
-      "captured_frames": 3,
-      "frames": [
-        {
-          "approx_second": 4,
-          "captured": true,
-          "sha256": "e168b3ee7655268aa50de52ef4bf65a8ee3e2cad7ddb596f24b5a5d745bdc765",
-          "ocr_lines": []
-        },
-        {
-          "approx_second": 10,
-          "captured": true,
-          "sha256": "e168b3ee7655268aa50de52ef4bf65a8ee3e2cad7ddb596f24b5a5d745bdc765",
-          "ocr_lines": []
-        },
-        {
-          "approx_second": 16,
-          "captured": true,
-          "sha256": "03117d2949180746acef16ece6b7e03032b2158892ca7068486562a66ac20062",
-          "ocr_lines": []
+          "approx_second": 45,
+          "captured": false
         }
       ]
     },
@@ -313,76 +913,75 @@
         "metadata": {}
       },
       "ocr_lines": [
-        "’ ый",
-        "(Paks;",
-        ". > - 4 49",
-        "ту ESS О",
-        "ae и === —$ №",
-        "Пн SS ь"
+        "3 | - Bal",
+        "4 a в. | < о",
+        "Е }. | Bal",
+        "ВВ 37-58.",
+        "СИИ] | Mh,"
       ],
-      "captured_frames": 3,
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
       "frames": [
         {
-          "approx_second": 4,
+          "approx_second": 5,
           "captured": true,
-          "sha256": "3bae7467c4ca03b941048b1d95fa5880f94913eacb37b4e96fb6e994ae27fc81",
-          "ocr_lines": []
-        },
-        {
-          "approx_second": 10,
-          "captured": true,
-          "sha256": "3bae7467c4ca03b941048b1d95fa5880f94913eacb37b4e96fb6e994ae27fc81",
+          "sha256": "2ad559fedb5bdd7c95de3bdb5f58b449ebff3d7029c5251ec684824940e4be3e",
           "ocr_lines": [
-            "’ ый"
+            "3 | - Bal",
+            "4 a в. | < о",
+            "Е }. | Bal",
+            "ВВ 37-58."
+          ],
+          "ocr_candidates": [
+            {
+              "engine": "tesseract",
+              "variant": "top_left",
+              "psm": 6,
+              "lines": [
+                "3 | - Bal",
+                "4 a в. | < о"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "top_left",
+              "psm": 7,
+              "lines": [
+                "Е }. | Bal"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom",
+              "psm": 6,
+              "lines": [
+                "ВВ 37-58."
+              ]
+            }
           ]
         },
         {
-          "approx_second": 16,
+          "approx_second": 25,
           "captured": true,
-          "sha256": "e8e78fdbac7a7fdaebedcb5398fe07a1b9c3aa44fee59d42194c61649a109cd6",
+          "sha256": "362c119755c5308e8e8ea5c08bc4d40c56f4faf58f16ccd5068d0889da9a0425",
           "ocr_lines": [
-            "(Paks;",
-            ". > - 4 49",
-            "ту ESS О",
-            "ae и === —$ №",
-            "Пн SS ь"
+            "СИИ] | Mh,"
+          ],
+          "ocr_candidates": [
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom_tight",
+              "psm": 7,
+              "lines": [
+                "СИИ] | Mh,"
+              ]
+            }
           ]
-        }
-      ]
-    },
-    "Детектив HD": {
-      "group": "Кино",
-      "playlist_name": "Детектив HD",
-      "provider_name": "Детектив HD",
-      "provider_tvg_id": "",
-      "gap_status": "NO_MAPPING",
-      "found_in_playlist": true,
-      "live_playlist_name": "Детектив HD",
-      "live_tvg_id": "",
-      "stream_metadata": {
-        "ok": true,
-        "metadata": {}
-      },
-      "ocr_lines": [],
-      "captured_frames": 3,
-      "frames": [
-        {
-          "approx_second": 4,
-          "captured": true,
-          "sha256": "b6b20382abd16766f0b48d3951f95d717b10be881f37bb0005b1a138f1d56260",
-          "ocr_lines": []
         },
         {
-          "approx_second": 10,
-          "captured": true,
-          "sha256": "b6b20382abd16766f0b48d3951f95d717b10be881f37bb0005b1a138f1d56260",
-          "ocr_lines": []
-        },
-        {
-          "approx_second": 16,
-          "captured": true,
-          "sha256": "fd3bc3e0e36da18b1fa1c879e9788c151caf04274f194cea9a34a9f8ad0764c8",
-          "ocr_lines": []
+          "approx_second": 45,
+          "captured": false
         }
       ]
     },
@@ -400,35 +999,90 @@
         "metadata": {}
       },
       "ocr_lines": [
-        "EP > © af",
-        "Ba г А.",
-        "\\ ее | =f 7 | > a",
-        "ee Icy yy 8 Bry)"
+        "\\ у \\ РУХ .",
+        "7 Сл ee | Wie"
       ],
-      "captured_frames": 3,
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
       "frames": [
         {
-          "approx_second": 4,
+          "approx_second": 5,
           "captured": true,
-          "sha256": "6a1740ed47cd472958949fdefff1cb0a715fd93482d80db05a4557eded141e3c",
+          "sha256": "acb3573f839909d516b610d789f2c376d94b0d079ed2c87114eb962f4ca27b2d",
           "ocr_lines": [
-            "EP > © af",
-            "Ba г А.",
-            "\\ ее | =f 7 | > a",
-            "ee Icy yy 8 Bry)"
+            "\\ у \\ РУХ ."
+          ],
+          "ocr_candidates": [
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom",
+              "psm": 7,
+              "lines": [
+                "\\ у \\ РУХ ."
+              ]
+            }
           ]
         },
         {
-          "approx_second": 10,
+          "approx_second": 25,
           "captured": true,
-          "sha256": "6a1740ed47cd472958949fdefff1cb0a715fd93482d80db05a4557eded141e3c",
-          "ocr_lines": []
+          "sha256": "52719b12accab42049f546e849a797103b00f538dc4dba0380167db8ab2fadf7",
+          "ocr_lines": [
+            "7 Сл ee | Wie"
+          ],
+          "ocr_candidates": [
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom_tight",
+              "psm": 7,
+              "lines": [
+                "7 Сл ee | Wie"
+              ]
+            }
+          ]
         },
         {
-          "approx_second": 16,
+          "approx_second": 45,
+          "captured": false
+        }
+      ]
+    },
+    "Детектив HD": {
+      "group": "Кино",
+      "playlist_name": "Детектив HD",
+      "provider_name": "Детектив HD",
+      "provider_tvg_id": "",
+      "gap_status": "NO_MAPPING",
+      "found_in_playlist": true,
+      "live_playlist_name": "Детектив HD",
+      "live_tvg_id": "",
+      "stream_metadata": {
+        "ok": true,
+        "metadata": {}
+      },
+      "ocr_lines": [],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
+      "frames": [
+        {
+          "approx_second": 5,
           "captured": true,
-          "sha256": "8d3ea578a3cab30d47516b9e6979a06ea2ebe232627e7da489f33f0d2479305c",
-          "ocr_lines": []
+          "sha256": "818a563d4827d619bc2b6718971ed6bca16065dbe0859a2ad32b5a1e49370861",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        },
+        {
+          "approx_second": 25,
+          "captured": true,
+          "sha256": "f2d07770be1f1d4418415a240fa230fca26291fc82126e75a9ea1a3bed6fd16c",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        },
+        {
+          "approx_second": 45,
+          "captured": false
         }
       ]
     },
@@ -445,62 +1099,107 @@
         "ok": true,
         "metadata": {}
       },
-      "ocr_lines": [],
-      "captured_frames": 3,
+      "ocr_lines": [
+        "х “a ~ , Jf",
+        "% | P 4",
+        "> ra <a",
+        "is >?",
+        "oda. 7 ~",
+        "asd >. .",
+        "EE ee",
+        "f a",
+        "Й т",
+        "a а",
+        "ee. “",
+        "8 в. ь oe > ы `",
+        "a к",
+        "чь/ ы # Е - . С \"a",
+        "ae . мы у = al",
+        "huge ** \\”"
+      ],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
       "frames": [
         {
-          "approx_second": 4,
+          "approx_second": 5,
           "captured": true,
-          "sha256": "d5a8c741de0d1f8680b79ac584a90c7003f473ca6c1e1850abd8c9729b8fc5b5",
-          "ocr_lines": []
+          "sha256": "d9ecc8c859238deecfd27257350b0b7d211c2046360777582defa6af8f8dd0e0",
+          "ocr_lines": [],
+          "ocr_candidates": []
         },
         {
-          "approx_second": 10,
+          "approx_second": 25,
           "captured": true,
-          "sha256": "d5a8c741de0d1f8680b79ac584a90c7003f473ca6c1e1850abd8c9729b8fc5b5",
-          "ocr_lines": []
+          "sha256": "92bd821412d56883f722aa60a82ce7f4ba6d9372dec0b80c7afda73328d44e22",
+          "ocr_lines": [
+            "х “a ~ , Jf",
+            "% | P 4",
+            "> ra <a",
+            "is >?",
+            "oda. 7 ~",
+            "asd >. .",
+            "EE ee",
+            "f a",
+            "Й т",
+            "a а",
+            "ee. “",
+            "8 в. ь oe > ы `",
+            "a к",
+            "чь/ ы # Е - . С \"a",
+            "ae . мы у = al",
+            "huge ** \\”"
+          ],
+          "ocr_candidates": [
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom",
+              "psm": 6,
+              "lines": [
+                "х “a ~ , Jf",
+                "% | P 4",
+                "> ra <a",
+                "is >?",
+                "oda. 7 ~",
+                "asd >. .",
+                "EE ee",
+                "f a",
+                "Й т",
+                "a а"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom_tight",
+              "psm": 6,
+              "lines": [
+                "ee. “",
+                "8 в. ь oe > ы `",
+                "a к",
+                "чь/ ы # Е - . С \"a"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "lower50",
+              "psm": 6,
+              "lines": [
+                "ae . мы у = al"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "lower50",
+              "psm": 11,
+              "lines": [
+                "huge ** \\”"
+              ]
+            }
+          ]
         },
         {
-          "approx_second": 16,
-          "captured": true,
-          "sha256": "9917ab074babe0fdd0922b95993c1abe43a5da03fdb0987c57a57fb10062b252",
-          "ocr_lines": []
-        }
-      ]
-    },
-    "Star Media": {
-      "group": "Кино",
-      "playlist_name": "Star Media",
-      "provider_name": "Star Media",
-      "provider_tvg_id": "",
-      "gap_status": "NO_MAPPING",
-      "found_in_playlist": true,
-      "live_playlist_name": "Star Media",
-      "live_tvg_id": "",
-      "stream_metadata": {
-        "ok": true,
-        "metadata": {}
-      },
-      "ocr_lines": [],
-      "captured_frames": 3,
-      "frames": [
-        {
-          "approx_second": 4,
-          "captured": true,
-          "sha256": "7766fe2fe2f9bb16a708908a81c217c8710874e2b61eaedac76fd5279c2419e9",
-          "ocr_lines": []
-        },
-        {
-          "approx_second": 10,
-          "captured": true,
-          "sha256": "7766fe2fe2f9bb16a708908a81c217c8710874e2b61eaedac76fd5279c2419e9",
-          "ocr_lines": []
-        },
-        {
-          "approx_second": 16,
-          "captured": true,
-          "sha256": "c97a4d860bdac6c6848d062d47c4ff7dd17276ee5e666308016d2d4ac5253fb2",
-          "ocr_lines": []
+          "approx_second": 45,
+          "captured": false
         }
       ]
     },
@@ -518,29 +1217,145 @@
         "metadata": {}
       },
       "ocr_lines": [
-        "NUE"
+        "Dey у \\ |}",
+        "и ыы",
+        "Е ie #",
+        "/ ff"
       ],
-      "captured_frames": 3,
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
       "frames": [
         {
-          "approx_second": 4,
+          "approx_second": 5,
           "captured": true,
-          "sha256": "9971d0af72997ee25ae5882849261dd2afb1f40e939ac445f3986b00125706d2",
-          "ocr_lines": []
-        },
-        {
-          "approx_second": 10,
-          "captured": true,
-          "sha256": "9971d0af72997ee25ae5882849261dd2afb1f40e939ac445f3986b00125706d2",
-          "ocr_lines": []
-        },
-        {
-          "approx_second": 16,
-          "captured": true,
-          "sha256": "3458a4cd3edc834ec307f5d6546f4043cf042b51175d36be9c7961b73a91198e",
+          "sha256": "0fe83a3cfd0e04d9715f765efb905132d385fdf64ae276f29c4128fa0780692e",
           "ocr_lines": [
-            "NUE"
+            "Dey у \\ |}",
+            "и ыы",
+            "Е ie #",
+            "/ ff"
+          ],
+          "ocr_candidates": [
+            {
+              "engine": "tesseract",
+              "variant": "top_left",
+              "psm": 6,
+              "lines": [
+                "Dey у \\ |}"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "top_left",
+              "psm": 11,
+              "lines": [
+                "и ыы"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "lower50",
+              "psm": 6,
+              "lines": [
+                "Е ie #"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "lower50",
+              "psm": 11,
+              "lines": [
+                "/ ff"
+              ]
+            }
           ]
+        },
+        {
+          "approx_second": 25,
+          "captured": true,
+          "sha256": "db289d8cf63cc23286136df8b98199f6453a71fc0bf409d385e944d3ce966127",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        },
+        {
+          "approx_second": 45,
+          "captured": false
+        }
+      ]
+    },
+    "Star Media": {
+      "group": "Кино",
+      "playlist_name": "Star Media",
+      "provider_name": "Star Media",
+      "provider_tvg_id": "",
+      "gap_status": "NO_MAPPING",
+      "found_in_playlist": true,
+      "live_playlist_name": "Star Media",
+      "live_tvg_id": "",
+      "stream_metadata": {
+        "ok": true,
+        "metadata": {}
+      },
+      "ocr_lines": [
+        "гм.",
+        "сана",
+        "ШЕЕ",
+        "ai)",
+        "we,",
+        "< * » Tach"
+      ],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
+      "frames": [
+        {
+          "approx_second": 5,
+          "captured": true,
+          "sha256": "350aaf232cd774cad0626bb16dbd7c354056bce3e998c950d1f522a52fc49218",
+          "ocr_lines": [
+            "гм.",
+            "сана",
+            "ШЕЕ",
+            "ai)",
+            "we,"
+          ],
+          "ocr_candidates": [
+            {
+              "engine": "tesseract",
+              "variant": "top_left_tight",
+              "psm": 11,
+              "lines": [
+                "гм.",
+                "сана",
+                "ШЕЕ",
+                "ai)",
+                "we,"
+              ]
+            }
+          ]
+        },
+        {
+          "approx_second": 25,
+          "captured": true,
+          "sha256": "f9905f4939689686da5392f5cf2fc4998a5af87df917487d74a880af646d401e",
+          "ocr_lines": [
+            "< * » Tach"
+          ],
+          "ocr_candidates": [
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom_tight",
+              "psm": 7,
+              "lines": [
+                "< * » Tach"
+              ]
+            }
+          ]
+        },
+        {
+          "approx_second": 45,
+          "captured": false
         }
       ]
     },
@@ -557,26 +1372,128 @@
         "ok": true,
         "metadata": {}
       },
-      "ocr_lines": [],
-      "captured_frames": 3,
+      "ocr_lines": [
+        "nu 9 ^^",
+        "‘и ee № i \\",
+        "ь За",
+        "у й И $ \\ \\",
+        ">, сини» =\" а № <",
+        "® 2 agit Yo С",
+        "ki № a",
+        "ck Liz aye ?",
+        "= ~ И foci ва [\\",
+        "Y OKs | 4/53",
+        "4 ИТ ) ~~",
+        "by >» (ff | .",
+        "а r.W",
+        "АЦ ING {iH ь",
+        "Ix >",
+        "иены. о",
+        "Ltn",
+        "rf]",
+        "IS)",
+        "(fl"
+      ],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
       "frames": [
         {
-          "approx_second": 4,
+          "approx_second": 5,
           "captured": true,
-          "sha256": "bb6860329409ddbee5a6ffb7c830510f35243c364270d6a34900e61c683b9c2d",
-          "ocr_lines": []
+          "sha256": "2305d62797ad5538b78d748d5d8a80d1bb46c9ad817d6a93b9a899cdb789c014",
+          "ocr_lines": [
+            "nu 9 ^^",
+            "‘и ee № i \\",
+            "ь За"
+          ],
+          "ocr_candidates": [
+            {
+              "engine": "tesseract",
+              "variant": "top_left",
+              "psm": 6,
+              "lines": [
+                "nu 9 ^^",
+                "‘и ee № i \\"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "top_left_tight",
+              "psm": 11,
+              "lines": [
+                "ь За"
+              ]
+            }
+          ]
         },
         {
-          "approx_second": 10,
+          "approx_second": 25,
           "captured": true,
-          "sha256": "bb6860329409ddbee5a6ffb7c830510f35243c364270d6a34900e61c683b9c2d",
-          "ocr_lines": []
+          "sha256": "f07aa1675dd97cbe7264e2b5721a1c1dab99f1c269969fa1117174e76428ff8b",
+          "ocr_lines": [
+            "у й И $ \\ \\",
+            ">, сини» =\" а № <",
+            "® 2 agit Yo С",
+            "ki № a",
+            "ck Liz aye ?",
+            "= ~ И foci ва [\\",
+            "Y OKs | 4/53",
+            "4 ИТ ) ~~",
+            "by >» (ff | .",
+            "а r.W",
+            "АЦ ING {iH ь",
+            "Ix >",
+            "иены. о",
+            "Ltn",
+            "rf]",
+            "IS)",
+            "(fl"
+          ],
+          "ocr_candidates": [
+            {
+              "engine": "tesseract",
+              "variant": "top_left",
+              "psm": 7,
+              "lines": [
+                "у й И $ \\ \\"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "lower50",
+              "psm": 6,
+              "lines": [
+                ">, сини» =\" а № <",
+                "® 2 agit Yo С",
+                "ki № a",
+                "ck Liz aye ?",
+                "= ~ И foci ва [\\",
+                "Y OKs | 4/53",
+                "4 ИТ ) ~~",
+                "by >» (ff | .",
+                "а r.W",
+                "АЦ ING {iH ь",
+                "Ix >"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "lower50",
+              "psm": 11,
+              "lines": [
+                "иены. о",
+                "Ltn",
+                "rf]",
+                "IS)",
+                "(fl"
+              ]
+            }
+          ]
         },
         {
-          "approx_second": 16,
-          "captured": true,
-          "sha256": "cdb31501b7a2ed56d1a71af0fd93a0364dd48cea83ffe8d67d3ef56d2f00a4a3",
-          "ocr_lines": []
+          "approx_second": 45,
+          "captured": false
         }
       ]
     },
@@ -593,62 +1510,146 @@
         "ok": true,
         "metadata": {}
       },
-      "ocr_lines": [],
-      "captured_frames": 3,
+      "ocr_lines": [
+        "ВИО",
+        "sy i\"",
+        "ig .",
+        "== Битов",
+        "MAL",
+        "BHMTOP!",
+        "m4 “",
+        "{ PES",
+        "= (Fe УММАНУ",
+        "% ae",
+        "№ ВИТоргл",
+        "ey pie,",
+        "EY У",
+        "BHTOPY:"
+      ],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
       "frames": [
         {
-          "approx_second": 4,
+          "approx_second": 5,
           "captured": true,
-          "sha256": "5a00f957edf2c5519061f4f4444a7c6fe09cf3ccdbf8f0fdd10e38798ac54e54",
-          "ocr_lines": []
+          "sha256": "192354eb00bbcbb5c5e06ef437aa7c949b7051dcc341553036ed4b6b661e82e1",
+          "ocr_lines": [
+            "ВИО"
+          ],
+          "ocr_candidates": [
+            {
+              "engine": "tesseract",
+              "variant": "top_left",
+              "psm": 6,
+              "lines": [
+                "ВИО"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "top_left",
+              "psm": 7,
+              "lines": [
+                "ВИО"
+              ]
+            }
+          ]
         },
         {
-          "approx_second": 10,
+          "approx_second": 25,
           "captured": true,
-          "sha256": "5a00f957edf2c5519061f4f4444a7c6fe09cf3ccdbf8f0fdd10e38798ac54e54",
-          "ocr_lines": []
+          "sha256": "d6d573ca06c4219f1cc1106ba4f29192c33669ca6a8e601a9990ed4a0f90be89",
+          "ocr_lines": [
+            "sy i\"",
+            "ig .",
+            "== Битов",
+            "MAL",
+            "BHMTOP!",
+            "m4 “",
+            "{ PES",
+            "= (Fe УММАНУ",
+            "% ae",
+            "№ ВИТоргл",
+            "ey pie,",
+            "EY У",
+            "BHTOPY:"
+          ],
+          "ocr_candidates": [
+            {
+              "engine": "tesseract",
+              "variant": "top_left",
+              "psm": 7,
+              "lines": [
+                "sy i\""
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom",
+              "psm": 6,
+              "lines": [
+                "ig ."
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom",
+              "psm": 7,
+              "lines": [
+                "== Битов"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom",
+              "psm": 11,
+              "lines": [
+                "MAL",
+                "BHMTOP!"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom_tight",
+              "psm": 6,
+              "lines": [
+                "m4 “",
+                "{ PES"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "lower50",
+              "psm": 6,
+              "lines": [
+                "= (Fe УММАНУ",
+                "% ae",
+                "№ ВИТоргл"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "lower50",
+              "psm": 7,
+              "lines": [
+                "ey pie,"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "lower50",
+              "psm": 11,
+              "lines": [
+                "EY У",
+                "BHTOPY:"
+              ]
+            }
+          ]
         },
         {
-          "approx_second": 16,
-          "captured": true,
-          "sha256": "af7ee241ce77a069c302ab29b195b26211be140763ac531460a71adc96c6ba4e",
-          "ocr_lines": []
-        }
-      ]
-    },
-    "Play-X Леонид Гайдай": {
-      "group": "Кино",
-      "playlist_name": "Play-X Леонид Гайдай",
-      "provider_name": "Play-X Леонид Гайдай",
-      "provider_tvg_id": "",
-      "gap_status": "NO_MAPPING",
-      "found_in_playlist": true,
-      "live_playlist_name": "Play-X Леонид Гайдай",
-      "live_tvg_id": "",
-      "stream_metadata": {
-        "ok": true,
-        "metadata": {}
-      },
-      "ocr_lines": [],
-      "captured_frames": 3,
-      "frames": [
-        {
-          "approx_second": 4,
-          "captured": true,
-          "sha256": "36ce8d456f96e25f2335701f036f4cae612e581c9a2caf501d11484013421808",
-          "ocr_lines": []
-        },
-        {
-          "approx_second": 10,
-          "captured": true,
-          "sha256": "36ce8d456f96e25f2335701f036f4cae612e581c9a2caf501d11484013421808",
-          "ocr_lines": []
-        },
-        {
-          "approx_second": 16,
-          "captured": true,
-          "sha256": "9c7f5bc24bbad0315953cb32550022f1dedb9f551968547ee603da108a5f3f87",
-          "ocr_lines": []
+          "approx_second": 45,
+          "captured": false
         }
       ]
     },
@@ -665,26 +1666,365 @@
         "ok": true,
         "metadata": {}
       },
-      "ocr_lines": [],
-      "captured_frames": 3,
+      "ocr_lines": [
+        "; Bie = = \"4 ~ | We",
+        "ы q >=« т ре | mi",
+        "г ый j в",
+        "a 4 ь",
+        "р р ЕЕ.",
+        "в м ы т = —\" ian в” a",
+        "и ч Ба j 2 ь. а № а ’ р { и",
+        "= q 4 a q Г | b",
+        "’ 7 ' —— ‚я | iil",
+        "7 a ПВ Г” 7 = é",
+        "cae ты i a — >» — р в. Zi",
+        "an с м ы =o > вый ча а — ae р в. 4",
+        "1 q и ты м. `` № 20 р i у",
+        "F q a = — 4 = . — ai",
+        "Se . = — a po 4 =. ai il iil =",
+        "ws: wg ай a c q a i ~",
+        "oa } гы i ail ,",
+        "iid — Е = a —— — ia 4",
+        "‘a 9 ВИ = = 4 ea)",
+        "`В 2 — в. р",
+        ". п Пе",
+        "\" ag ыы — ЫВВь.",
+        "ae в 33 а",
+        "Р р q ‘\\",
+        "a ’ q",
+        "dé = С. в | a",
+        "ы | J ро a",
+        "i =~ = а",
+        "р “a a | | q = q",
+        "wae | 1 7 `",
+        "\\ ре",
+        "ы +e q ’ | | a",
+        "ь } ы qj | | a",
+        "= ia \" = a 2 “I",
+        "т 4 q “ a _— q",
+        "9 “7 Г ` ь",
+        "q в —_* Г. q q",
+        "a Ч и. — q",
+        "@ Пе",
+        "А. й в | Г",
+        "х = АХ ЯР"
+      ],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
       "frames": [
         {
-          "approx_second": 4,
+          "approx_second": 5,
           "captured": true,
-          "sha256": "9f2f8052370ea7292c055740118661c8e847a029d6b40ee2fa0577d2645129b0",
-          "ocr_lines": []
+          "sha256": "f0fe5c41790eea9ff56ce20bf80fcbdaf39a84d4ab0d2d3bfdd74babab57ec1b",
+          "ocr_lines": [
+            "; Bie = = \"4 ~ | We",
+            "ы q >=« т ре | mi",
+            "г ый j в",
+            "a 4 ь",
+            "р р ЕЕ.",
+            "в м ы т = —\" ian в” a",
+            "и ч Ба j 2 ь. а № а ’ р { и",
+            "= q 4 a q Г | b",
+            "’ 7 ' —— ‚я | iil",
+            "7 a ПВ Г” 7 = é",
+            "cae ты i a — >» — р в. Zi",
+            "an с м ы =o > вый ча а — ae р в. 4",
+            "1 q и ты м. `` № 20 р i у",
+            "F q a = — 4 = . — ai",
+            "Se . = — a po 4 =. ai il iil =",
+            "ws: wg ай a c q a i ~",
+            "oa } гы i ail ,",
+            "iid — Е = a —— — ia 4",
+            "‘a 9 ВИ = = 4 ea)",
+            "`В 2 — в. р",
+            ". п Пе",
+            "\" ag ыы — ЫВВь.",
+            "ae в 33 а",
+            "Р р q ‘\\",
+            "a ’ q",
+            "dé = С. в | a",
+            "ы | J ро a",
+            "i =~ = а",
+            "р “a a | | q = q",
+            "wae | 1 7 `",
+            "\\ ре",
+            "ы +e q ’ | | a",
+            "ь } ы qj | | a",
+            "= ia \" = a 2 “I",
+            "т 4 q “ a _— q",
+            "9 “7 Г ` ь",
+            "q в —_* Г. q q",
+            "a Ч и. — q",
+            "@ Пе",
+            "А. й в | Г",
+            "х = АХ ЯР"
+          ],
+          "ocr_candidates": [
+            {
+              "engine": "tesseract",
+              "variant": "top_left",
+              "psm": 6,
+              "lines": [
+                "; Bie = = \"4 ~ | We"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "top_left_tight",
+              "psm": 6,
+              "lines": [
+                "ы q >=« т ре | mi",
+                "г ый j в",
+                "a 4 ь",
+                "р р ЕЕ.",
+                "в м ы т = —\" ian в” a",
+                "и ч Ба j 2 ь. а № а ’ р { и",
+                "= q 4 a q Г | b",
+                "’ 7 ' —— ‚я | iil",
+                "7 a ПВ Г” 7 = é",
+                "cae ты i a — >» — р в. Zi",
+                "an с м ы =o > вый ча а — ae р в. 4",
+                "1 q и ты м. `` № 20 р i у",
+                "F q a = — 4 = . — ai",
+                "Se . = — a po 4 =. ai il iil =",
+                "ws: wg ай a c q a i ~",
+                "oa } гы i ail ,",
+                "iid — Е = a —— — ia 4",
+                "‘a 9 ВИ = = 4 ea)",
+                "`В 2 — в. р",
+                ". п Пе",
+                "\" ag ыы — ЫВВь."
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom",
+              "psm": 6,
+              "lines": [
+                "ae в 33 а",
+                "Р р q ‘\\",
+                "a ’ q"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom_tight",
+              "psm": 6,
+              "lines": [
+                "dé = С. в | a",
+                "ы | J ро a",
+                "i =~ = а",
+                "р “a a | | q = q",
+                "wae | 1 7 `",
+                "\\ ре",
+                "ы +e q ’ | | a",
+                "ь } ы qj | | a",
+                "= ia \" = a 2 “I",
+                "т 4 q “ a _— q",
+                "9 “7 Г ` ь",
+                "q в —_* Г. q q",
+                "a Ч и. — q",
+                "@ Пе",
+                "А. й в | Г"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "lower50",
+              "psm": 6,
+              "lines": [
+                "х = АХ ЯР"
+              ]
+            }
+          ]
         },
         {
-          "approx_second": 10,
+          "approx_second": 25,
           "captured": true,
-          "sha256": "9f2f8052370ea7292c055740118661c8e847a029d6b40ee2fa0577d2645129b0",
-          "ocr_lines": []
+          "sha256": "da7bea5b4acb52f9ae7feb0e861ff1e8e23e6810bea3a80a4ac6d25bcd004d3a",
+          "ocr_lines": [],
+          "ocr_candidates": []
         },
         {
-          "approx_second": 16,
+          "approx_second": 45,
+          "captured": false
+        }
+      ]
+    },
+    "Play-X Леонид Гайдай": {
+      "group": "Кино",
+      "playlist_name": "Play-X Леонид Гайдай",
+      "provider_name": "Play-X Леонид Гайдай",
+      "provider_tvg_id": "",
+      "gap_status": "NO_MAPPING",
+      "found_in_playlist": true,
+      "live_playlist_name": "Play-X Леонид Гайдай",
+      "live_tvg_id": "",
+      "stream_metadata": {
+        "ok": true,
+        "metadata": {}
+      },
+      "ocr_lines": [
+        "2% = Е",
+        "Pn я f= Be",
+        "‚ мч жж м - >",
+        "PLAY-X 3",
+        "PLAY-X",
+        "ни = Р в i \""
+      ],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
+      "frames": [
+        {
+          "approx_second": 5,
           "captured": true,
-          "sha256": "7af70b7c190beedb2c2cfd57d6ac7d0ddd10818ad0d4e964f99efc94b07ef937",
-          "ocr_lines": []
+          "sha256": "1176d38ae5e1ab23c4fa4c0e9b5095e3326c986ae6c83b6fd1622c540076b4da",
+          "ocr_lines": [
+            "2% = Е",
+            "Pn я f= Be",
+            "‚ мч жж м - >",
+            "PLAY-X 3",
+            "PLAY-X",
+            "ни = Р в i \""
+          ],
+          "ocr_candidates": [
+            {
+              "engine": "tesseract",
+              "variant": "top_left",
+              "psm": 6,
+              "lines": [
+                "2% = Е",
+                "Pn я f= Be",
+                "‚ мч жж м - >"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "top_left",
+              "psm": 11,
+              "lines": [
+                "PLAY-X 3"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "top_left_tight",
+              "psm": 6,
+              "lines": [
+                "PLAY-X"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "top_left_tight",
+              "psm": 7,
+              "lines": [
+                "PLAY-X"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "top_left_tight",
+              "psm": 11,
+              "lines": [
+                "PLAY-X"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom",
+              "psm": 6,
+              "lines": [
+                "ни = Р в i \""
+              ]
+            }
+          ]
+        },
+        {
+          "approx_second": 25,
+          "captured": true,
+          "sha256": "a53a3770c96d9b4fa198d1b37e4099c1a6662ffe7c254b0101f90cb2bfcc5fb9",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        },
+        {
+          "approx_second": 45,
+          "captured": false
+        }
+      ]
+    },
+    "VeleS 60FPS": {
+      "group": "Кинозалы",
+      "playlist_name": "VeleS 60FPS",
+      "provider_name": "VeleS 60FPS",
+      "provider_tvg_id": "Xveles-60fps",
+      "gap_status": "NO_CURRENT_PROGRAMME;NO_NEXT_PROGRAMME",
+      "found_in_playlist": true,
+      "live_playlist_name": "VeleS 60FPS",
+      "live_tvg_id": "Xveles-60fps",
+      "stream_metadata": {
+        "ok": true,
+        "metadata": {}
+      },
+      "ocr_lines": [
+        "м J",
+        "Se &",
+        "“wre"
+      ],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
+      "frames": [
+        {
+          "approx_second": 5,
+          "captured": true,
+          "sha256": "5d777639a1ab834f15a85dcfe4c9e3fda14e86d8504cd316beaa17b669c0a16c",
+          "ocr_lines": [
+            "м J",
+            "Se &"
+          ],
+          "ocr_candidates": [
+            {
+              "engine": "tesseract",
+              "variant": "top_left_tight",
+              "psm": 7,
+              "lines": [
+                "м J"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "lower50",
+              "psm": 11,
+              "lines": [
+                "Se &"
+              ]
+            }
+          ]
+        },
+        {
+          "approx_second": 25,
+          "captured": true,
+          "sha256": "bb80d8be9fd3b4b5308b8290a465e7d75867fd1ab53705636f45c29aaa788e70",
+          "ocr_lines": [
+            "“wre"
+          ],
+          "ocr_candidates": [
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom_tight",
+              "psm": 11,
+              "lines": [
+                "“wre"
+              ]
+            }
+          ]
+        },
+        {
+          "approx_second": 45,
+          "captured": false
         }
       ]
     },
@@ -701,26 +2041,61 @@
         "ok": true,
         "metadata": {}
       },
-      "ocr_lines": [],
-      "captured_frames": 3,
+      "ocr_lines": [
+        "ПНВ",
+        "7 Ww",
+        "ИИ и"
+      ],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
       "frames": [
         {
-          "approx_second": 4,
+          "approx_second": 5,
           "captured": true,
-          "sha256": "2d10db8d0ca253a3a4a113e72c8371aa0f881dc07af6dee004ce7d2b977b0856",
-          "ocr_lines": []
+          "sha256": "1abad3952a30988e993d889576469d53f9a8238d5ea8d0728b8e54a6d5f5f167",
+          "ocr_lines": [],
+          "ocr_candidates": []
         },
         {
-          "approx_second": 10,
+          "approx_second": 25,
           "captured": true,
-          "sha256": "2d10db8d0ca253a3a4a113e72c8371aa0f881dc07af6dee004ce7d2b977b0856",
-          "ocr_lines": []
+          "sha256": "30fb7eb54b51edaff9d2f3fbc6256336579de1ee2ed2a3ce5460beb842be87e4",
+          "ocr_lines": [
+            "ПНВ",
+            "7 Ww",
+            "ИИ и"
+          ],
+          "ocr_candidates": [
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom_tight",
+              "psm": 6,
+              "lines": [
+                "ПНВ"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom_tight",
+              "psm": 7,
+              "lines": [
+                "7 Ww"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom_tight",
+              "psm": 11,
+              "lines": [
+                "ИИ и"
+              ]
+            }
+          ]
         },
         {
-          "approx_second": 16,
-          "captured": true,
-          "sha256": "ed2ddcaad64de92c7ec531fc48ea05cbf137a7cf9be07330293da0b3d2f62819",
-          "ocr_lines": []
+          "approx_second": 45,
+          "captured": false
         }
       ]
     },
@@ -737,26 +2112,132 @@
         "ok": true,
         "metadata": {}
       },
-      "ocr_lines": [],
-      "captured_frames": 3,
+      "ocr_lines": [
+        "Астрал 5 Красная дверь (2023)",
+        "№ ный ae 4 а ь.",
+        "! oni ь- ai 7 =? 4 . а if | .",
+        "4 eg Pe | <",
+        "Е НИЕ =e. 9 LL.",
+        "\"ый",
+        "ou”",
+        "é р",
+        "Ke fe",
+        "ms A",
+        "ны г; -& |!",
+        "И | ar"
+      ],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
       "frames": [
         {
-          "approx_second": 4,
+          "approx_second": 5,
           "captured": true,
-          "sha256": "26e175e315cdd54aa292ac98f52fd292694c3ac49dbb4fb82cc7f2f197a29e37",
-          "ocr_lines": []
+          "sha256": "2ed5e733a78067eed7f1e0961b8d82f5450616e60bcf61044ee2f67454397e4d",
+          "ocr_lines": [
+            "Астрал 5 Красная дверь (2023)"
+          ],
+          "ocr_candidates": [
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom_tight",
+              "psm": 11,
+              "lines": [
+                "Астрал 5 Красная дверь (2023)"
+              ]
+            }
+          ]
         },
         {
-          "approx_second": 10,
+          "approx_second": 25,
           "captured": true,
-          "sha256": "26e175e315cdd54aa292ac98f52fd292694c3ac49dbb4fb82cc7f2f197a29e37",
-          "ocr_lines": []
+          "sha256": "d14607bad7a30cd269d2818283f46ba7598041a50f1a59186b6a9b33ab587c73",
+          "ocr_lines": [
+            "№ ный ae 4 а ь.",
+            "! oni ь- ai 7 =? 4 . а if | .",
+            "4 eg Pe | <",
+            "Е НИЕ =e. 9 LL.",
+            "\"ый",
+            "ou”",
+            "é р",
+            "Ke fe",
+            "ms A",
+            "ны г; -& |!",
+            "И | ar"
+          ],
+          "ocr_candidates": [
+            {
+              "engine": "tesseract",
+              "variant": "top_left_tight",
+              "psm": 6,
+              "lines": [
+                "№ ный ae 4 а ь.",
+                "! oni ь- ai 7 =? 4 . а if | ."
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "top_left_tight",
+              "psm": 7,
+              "lines": [
+                "4 eg Pe | <"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom",
+              "psm": 6,
+              "lines": [
+                "Е НИЕ =e. 9 LL."
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom",
+              "psm": 11,
+              "lines": [
+                "\"ый",
+                "ou”"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom_tight",
+              "psm": 6,
+              "lines": [
+                "é р"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom_tight",
+              "psm": 7,
+              "lines": [
+                "Ke fe"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "lower50",
+              "psm": 6,
+              "lines": [
+                "ms A",
+                "ны г; -& |!"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "lower50",
+              "psm": 11,
+              "lines": [
+                "И | ar"
+              ]
+            }
+          ]
         },
         {
-          "approx_second": 16,
-          "captured": true,
-          "sha256": "ea48a7211bc77b68225dc0e3308d1877c2d7dd61a9b3f83bbe37c585f156ccdd",
-          "ocr_lines": []
+          "approx_second": 45,
+          "captured": false
         }
       ]
     },
@@ -774,25 +2255,53 @@
         "metadata": {}
       },
       "ocr_lines": [],
-      "captured_frames": 3,
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 0,
+      "captured_frames": 0,
       "frames": [
         {
-          "approx_second": 4,
-          "captured": true,
-          "sha256": "4305042b64625eb6c3ac47522f45c3eac07b3f0eb6ef9e22b3f66fc25bb70ba7",
-          "ocr_lines": []
+          "approx_second": 5,
+          "captured": false
         },
         {
-          "approx_second": 10,
-          "captured": true,
-          "sha256": "4305042b64625eb6c3ac47522f45c3eac07b3f0eb6ef9e22b3f66fc25bb70ba7",
-          "ocr_lines": []
+          "approx_second": 25,
+          "captured": false
         },
         {
-          "approx_second": 16,
-          "captured": true,
-          "sha256": "c1e225eb86e6220fcc96b7d64f9f5b4cff47deafd7d490e5b9068c1bbc9b7170",
-          "ocr_lines": []
+          "approx_second": 45,
+          "captured": false
+        }
+      ]
+    },
+    "DITV Про вампиров": {
+      "group": "Кинозалы",
+      "playlist_name": "DITV Про вампиров",
+      "provider_name": "DITV Про вампиров",
+      "provider_tvg_id": "no_epg_cinema",
+      "gap_status": "NO_MAPPING",
+      "found_in_playlist": true,
+      "live_playlist_name": "DITV Про вампиров",
+      "live_tvg_id": "no_epg_cinema",
+      "stream_metadata": {
+        "ok": false,
+        "error": "probe-failed"
+      },
+      "ocr_lines": [],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 0,
+      "captured_frames": 0,
+      "frames": [
+        {
+          "approx_second": 5,
+          "captured": false
+        },
+        {
+          "approx_second": 25,
+          "captured": false
+        },
+        {
+          "approx_second": 45,
+          "captured": false
         }
       ]
     },
@@ -810,25 +2319,53 @@
         "metadata": {}
       },
       "ocr_lines": [],
-      "captured_frames": 3,
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 0,
+      "captured_frames": 0,
       "frames": [
         {
-          "approx_second": 4,
-          "captured": true,
-          "sha256": "d9ceb3fb2e9d62dd651a329b357a2d9a551c32442b1d12de5e8abafba5f03080",
-          "ocr_lines": []
+          "approx_second": 5,
+          "captured": false
         },
         {
-          "approx_second": 10,
-          "captured": true,
-          "sha256": "d9ceb3fb2e9d62dd651a329b357a2d9a551c32442b1d12de5e8abafba5f03080",
-          "ocr_lines": []
+          "approx_second": 25,
+          "captured": false
         },
         {
-          "approx_second": 16,
-          "captured": true,
-          "sha256": "714a7bde738b261b65686783cf71d73a353ae64be75d254b6bd4f94b155ccf81",
-          "ocr_lines": []
+          "approx_second": 45,
+          "captured": false
+        }
+      ]
+    },
+    "DITV ФИЛЬМЫ": {
+      "group": "Кинозалы",
+      "playlist_name": "DITV ФИЛЬМЫ",
+      "provider_name": "DITV ФИЛЬМЫ",
+      "provider_tvg_id": "no_epg_cinema",
+      "gap_status": "NO_MAPPING",
+      "found_in_playlist": true,
+      "live_playlist_name": "DITV ФИЛЬМЫ",
+      "live_tvg_id": "no_epg_cinema",
+      "stream_metadata": {
+        "ok": false,
+        "error": "probe-failed"
+      },
+      "ocr_lines": [],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 0,
+      "captured_frames": 0,
+      "frames": [
+        {
+          "approx_second": 5,
+          "captured": false
+        },
+        {
+          "approx_second": 25,
+          "captured": false
+        },
+        {
+          "approx_second": 45,
+          "captured": false
         }
       ]
     },
@@ -845,62 +2382,350 @@
         "ok": true,
         "metadata": {}
       },
-      "ocr_lines": [],
-      "captured_frames": 3,
+      "ocr_lines": [
+        "; OF. =",
+        "A, АЯ `В»",
+        "и Les ig’ т",
+        "> 4 a Дб Sk",
+        "nil , ip — 7 p> of A №",
+        "wes f / 4 4 me ли) $ ых",
+        "&7 / Ly $ ca iy a ' хх",
+        "PT 4 a ° re ~~",
+        "wv LH, a че a ь. “>",
+        "Г и Е | , — и Ls . f и < - С",
+        "me - , Lge * 4 —,",
+        "i’ 7 os - — 2 р",
+        "иг” et",
+        "Sth",
+        "if =",
+        "gee.",
+        "of)",
+        "А ыы",
+        "~ of",
+        "> an",
+        "fur",
+        "ий <",
+        "wf # Га $; . Gg Se",
+        "F S44 72 a >",
+        "yA . и Е A, ; t, 3 ~ i",
+        ">. ‘ ” rs у é : ч",
+        "#’ vee ’ a 2 % J i) >",
+        "ь „>. WZ a в ь и, ar м",
+        "i \"LB ы `",
+        "Ра J р и › # 7 р SS | ~",
+        "a в 3 в ; . ; к { р",
+        "a ie , 7",
+        "ff.",
+        "q , is",
+        "a q y / ;",
+        ", ail ‘if р | 7",
+        "г’ 2. РТ",
+        "AM Li",
+        "Lod vs",
+        "it)",
+        "yA,",
+        "ву, 4",
+        "зе `.",
+        "р, рес a J",
+        "+ в ae an Ч ‘ : j",
+        "Я: -7-.. и",
+        "on <n `. a - ii",
+        "Гарри Поттер и Тайная чомната",
+        "WT of",
+        "ate”",
+        "Гарри Поттер и Тайная Комнат",
+        "Абак ng. « { / 7",
+        "Мень",
+        "/_ в \"i : vf =",
+        "А . sweep = а Г",
+        "{ | Вии\" ;",
+        "f а .› °. f",
+        "a i;",
+        "Я | | и",
+        "Гарри Поттер и Тайная Комната /",
+        "Гарри / o",
+        "a“) МА",
+        "Гарри Поттер I Тайная Комната vA",
+        "8 ad",
+        "ter \\",
+        "m “lS",
+        "‘ АЕ OOS ip a",
+        "foe gg | м",
+        "Гарри Поттер |. Тайная Комната 7. .",
+        "ell",
+        "Гарри Поттер и Тайная Комната"
+      ],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 1,
+      "captured_frames": 1,
       "frames": [
         {
-          "approx_second": 4,
+          "approx_second": 5,
           "captured": true,
-          "sha256": "452e80d59abc22b4c90f21a07bf20b894f54ad8b0003ddcb47d1d58e43f1c221",
-          "ocr_lines": []
+          "sha256": "91da7d5a3542821ef6b9110962580c13ed1beaab65a43385c08d7e14c6557b59",
+          "ocr_lines": [
+            "; OF. =",
+            "A, АЯ `В»",
+            "и Les ig’ т",
+            "> 4 a Дб Sk",
+            "nil , ip — 7 p> of A №",
+            "wes f / 4 4 me ли) $ ых",
+            "&7 / Ly $ ca iy a ' хх",
+            "PT 4 a ° re ~~",
+            "wv LH, a че a ь. “>",
+            "Г и Е | , — и Ls . f и < - С",
+            "me - , Lge * 4 —,",
+            "i’ 7 os - — 2 р",
+            "иг” et",
+            "Sth",
+            "if =",
+            "gee.",
+            "of)",
+            "А ыы",
+            "~ of",
+            "> an",
+            "fur",
+            "ий <",
+            "wf # Га $; . Gg Se",
+            "F S44 72 a >",
+            "yA . и Е A, ; t, 3 ~ i",
+            ">. ‘ ” rs у é : ч",
+            "#’ vee ’ a 2 % J i) >",
+            "ь „>. WZ a в ь и, ar м",
+            "i \"LB ы `",
+            "Ра J р и › # 7 р SS | ~",
+            "a в 3 в ; . ; к { р",
+            "a ie , 7",
+            "ff.",
+            "q , is",
+            "a q y / ;",
+            ", ail ‘if р | 7",
+            "г’ 2. РТ",
+            "AM Li",
+            "Lod vs",
+            "it)",
+            "yA,",
+            "ву, 4",
+            "зе `.",
+            "р, рес a J",
+            "+ в ae an Ч ‘ : j",
+            "Я: -7-.. и",
+            "on <n `. a - ii",
+            "Гарри Поттер и Тайная чомната",
+            "WT of",
+            "ate”",
+            "Гарри Поттер и Тайная Комнат",
+            "Абак ng. « { / 7",
+            "Мень",
+            "/_ в \"i : vf =",
+            "А . sweep = а Г",
+            "{ | Вии\" ;",
+            "f а .› °. f",
+            "a i;",
+            "Я | | и",
+            "Гарри Поттер и Тайная Комната /",
+            "Гарри / o",
+            "a“) МА",
+            "Гарри Поттер I Тайная Комната vA",
+            "8 ad",
+            "ter \\",
+            "m “lS",
+            "‘ АЕ OOS ip a",
+            "foe gg | м",
+            "Гарри Поттер |. Тайная Комната 7. .",
+            "ell",
+            "Гарри Поттер и Тайная Комната"
+          ],
+          "ocr_candidates": [
+            {
+              "engine": "tesseract",
+              "variant": "top_left",
+              "psm": 6,
+              "lines": [
+                "; OF. =",
+                "A, АЯ `В»",
+                "и Les ig’ т",
+                "> 4 a Дб Sk",
+                "nil , ip — 7 p> of A №",
+                "wes f / 4 4 me ли) $ ых",
+                "&7 / Ly $ ca iy a ' хх",
+                "PT 4 a ° re ~~",
+                "wv LH, a че a ь. “>",
+                "Г и Е | , — и Ls . f и < - С",
+                "me - , Lge * 4 —,",
+                "i’ 7 os - — 2 р",
+                "иг” et"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "top_left",
+              "psm": 11,
+              "lines": [
+                "Sth",
+                "if =",
+                "gee.",
+                "of)",
+                "А ыы",
+                "~ of",
+                "> an",
+                "fur"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "top_left_tight",
+              "psm": 6,
+              "lines": [
+                "ий <",
+                "wf # Га $; . Gg Se",
+                "F S44 72 a >",
+                "yA . и Е A, ; t, 3 ~ i",
+                ">. ‘ ” rs у é : ч",
+                "#’ vee ’ a 2 % J i) >",
+                "ь „>. WZ a в ь и, ar м",
+                "i \"LB ы `",
+                "Ра J р и › # 7 р SS | ~",
+                "a в 3 в ; . ; к { р",
+                "a ie , 7",
+                "ff.",
+                "q , is",
+                "a q y / ;",
+                ", ail ‘if р | 7",
+                "г’ 2. РТ"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "top_left_tight",
+              "psm": 11,
+              "lines": [
+                "AM Li",
+                "Lod vs",
+                "it)",
+                "yA,",
+                "ву, 4"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom",
+              "psm": 6,
+              "lines": [
+                "зе `.",
+                "р, рес a J",
+                "+ в ae an Ч ‘ : j",
+                "Я: -7-.. и",
+                "on <n `. a - ii",
+                "Гарри Поттер и Тайная чомната"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom",
+              "psm": 11,
+              "lines": [
+                "WT of",
+                "ate”",
+                "Гарри Поттер и Тайная Комнат"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom_tight",
+              "psm": 6,
+              "lines": [
+                "Абак ng. « { / 7",
+                "Мень",
+                "/_ в \"i : vf =",
+                "А . sweep = а Г",
+                "{ | Вии\" ;",
+                "f а .› °. f",
+                "a i;",
+                "Я | | и",
+                "Гарри Поттер и Тайная Комната /"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom_tight",
+              "psm": 7,
+              "lines": [
+                "Гарри / o"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom_tight",
+              "psm": 11,
+              "lines": [
+                "a“) МА",
+                "Гарри Поттер I Тайная Комната vA"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "lower50",
+              "psm": 6,
+              "lines": [
+                "8 ad",
+                "ter \\",
+                "m “lS",
+                "‘ АЕ OOS ip a",
+                "foe gg | м",
+                "Гарри Поттер |. Тайная Комната 7. ."
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "lower50",
+              "psm": 11,
+              "lines": [
+                "ell",
+                "Гарри Поттер и Тайная Комната"
+              ]
+            }
+          ]
         },
         {
-          "approx_second": 10,
-          "captured": true,
-          "sha256": "452e80d59abc22b4c90f21a07bf20b894f54ad8b0003ddcb47d1d58e43f1c221",
-          "ocr_lines": []
+          "approx_second": 25,
+          "captured": false
         },
         {
-          "approx_second": 16,
-          "captured": true,
-          "sha256": "0b70411b923fa2c26a4828e6433823aee9f19dc63dfc3a129876f4879ea5f86b",
-          "ocr_lines": []
+          "approx_second": 45,
+          "captured": false
         }
       ]
     },
-    "DITV ФИЛЬМЫ": {
+    "DITV КОМЕДИИ 90-х": {
       "group": "Кинозалы",
-      "playlist_name": "DITV ФИЛЬМЫ",
-      "provider_name": "DITV ФИЛЬМЫ",
+      "playlist_name": "DITV КОМЕДИИ 90-х",
+      "provider_name": "DITV КОМЕДИИ 90-х",
       "provider_tvg_id": "no_epg_cinema",
       "gap_status": "NO_MAPPING",
       "found_in_playlist": true,
-      "live_playlist_name": "DITV ФИЛЬМЫ",
+      "live_playlist_name": "DITV КОМЕДИИ 90-х",
       "live_tvg_id": "no_epg_cinema",
       "stream_metadata": {
-        "ok": true,
-        "metadata": {}
+        "ok": false,
+        "error": "probe-failed"
       },
       "ocr_lines": [],
-      "captured_frames": 3,
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 0,
+      "captured_frames": 0,
       "frames": [
         {
-          "approx_second": 4,
-          "captured": true,
-          "sha256": "a32bcab45d28a9883d9f46549a0442f52290484cecfa9fb305d1505251aee615",
-          "ocr_lines": []
+          "approx_second": 5,
+          "captured": false
         },
         {
-          "approx_second": 10,
-          "captured": true,
-          "sha256": "a32bcab45d28a9883d9f46549a0442f52290484cecfa9fb305d1505251aee615",
-          "ocr_lines": []
+          "approx_second": 25,
+          "captured": false
         },
         {
-          "approx_second": 16,
-          "captured": true,
-          "sha256": "c85d0ac1eabbf644c4416b6d862b7919b357e5ad5fd7bb75df89ec717bd812ce",
-          "ocr_lines": []
+          "approx_second": 45,
+          "captured": false
         }
       ]
     },
@@ -918,101 +2743,21 @@
         "metadata": {}
       },
       "ocr_lines": [],
-      "captured_frames": 3,
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 0,
+      "captured_frames": 0,
       "frames": [
         {
-          "approx_second": 4,
-          "captured": true,
-          "sha256": "01755af14899e2bcf04f9e120ee3944f48f2e9a50b27ffc8e0048f6e2d3bd433",
-          "ocr_lines": []
+          "approx_second": 5,
+          "captured": false
         },
         {
-          "approx_second": 10,
-          "captured": true,
-          "sha256": "01755af14899e2bcf04f9e120ee3944f48f2e9a50b27ffc8e0048f6e2d3bd433",
-          "ocr_lines": []
+          "approx_second": 25,
+          "captured": false
         },
         {
-          "approx_second": 16,
-          "captured": true,
-          "sha256": "2e61870a7645b68b319c6869aba6c9efc3df9243e2ddd9f64c507a741a5a0d1b",
-          "ocr_lines": []
-        }
-      ]
-    },
-    "DITV Про вампиров": {
-      "group": "Кинозалы",
-      "playlist_name": "DITV Про вампиров",
-      "provider_name": "DITV Про вампиров",
-      "provider_tvg_id": "no_epg_cinema",
-      "gap_status": "NO_MAPPING",
-      "found_in_playlist": true,
-      "live_playlist_name": "DITV Про вампиров",
-      "live_tvg_id": "no_epg_cinema",
-      "stream_metadata": {
-        "ok": true,
-        "metadata": {}
-      },
-      "ocr_lines": [
-        "ло быв"
-      ],
-      "captured_frames": 3,
-      "frames": [
-        {
-          "approx_second": 4,
-          "captured": true,
-          "sha256": "1a6df0ab4e6f4ece357d957edc3780d4e077668c20698a846ac439a22fe702d5",
-          "ocr_lines": []
-        },
-        {
-          "approx_second": 10,
-          "captured": true,
-          "sha256": "1a6df0ab4e6f4ece357d957edc3780d4e077668c20698a846ac439a22fe702d5",
-          "ocr_lines": [
-            "ло быв"
-          ]
-        },
-        {
-          "approx_second": 16,
-          "captured": true,
-          "sha256": "40a04d456f858774cc28c66b69625a4c004e3488d1e6cda4fcf0fbc811a6ea80",
-          "ocr_lines": []
-        }
-      ]
-    },
-    "DITV КОМЕДИИ 90-х": {
-      "group": "Кинозалы",
-      "playlist_name": "DITV КОМЕДИИ 90-х",
-      "provider_name": "DITV КОМЕДИИ 90-х",
-      "provider_tvg_id": "no_epg_cinema",
-      "gap_status": "NO_MAPPING",
-      "found_in_playlist": true,
-      "live_playlist_name": "DITV КОМЕДИИ 90-х",
-      "live_tvg_id": "no_epg_cinema",
-      "stream_metadata": {
-        "ok": true,
-        "metadata": {}
-      },
-      "ocr_lines": [],
-      "captured_frames": 3,
-      "frames": [
-        {
-          "approx_second": 4,
-          "captured": true,
-          "sha256": "0857d91b5452d8e34fb621c0c1f07821ad86386f406d1f728339b4ae9b211ecf",
-          "ocr_lines": []
-        },
-        {
-          "approx_second": 10,
-          "captured": true,
-          "sha256": "0857d91b5452d8e34fb621c0c1f07821ad86386f406d1f728339b4ae9b211ecf",
-          "ocr_lines": []
-        },
-        {
-          "approx_second": 16,
-          "captured": true,
-          "sha256": "fddc497c3b1f6512c1927fc8816692ad98b2e93e014d07b66cf2abc90ef3ef61",
-          "ocr_lines": []
+          "approx_second": 45,
+          "captured": false
         }
       ]
     },
@@ -1030,18 +2775,20 @@
         "error": "probe-failed"
       },
       "ocr_lines": [],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 0,
       "captured_frames": 0,
       "frames": [
         {
-          "approx_second": 4,
+          "approx_second": 5,
           "captured": false
         },
         {
-          "approx_second": 10,
+          "approx_second": 25,
           "captured": false
         },
         {
-          "approx_second": 16,
+          "approx_second": 45,
           "captured": false
         }
       ]
@@ -1059,62 +2806,187 @@
         "ok": true,
         "metadata": {}
       },
-      "ocr_lines": [],
-      "captured_frames": 3,
+      "ocr_lines": [
+        "Спортлото-82 (1982)",
+        "Спортлото-82 (1982) .",
+        "о ee"
+      ],
+      "stable_ocr_lines": [
+        "Спортлото-82 (1982)"
+      ],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
       "frames": [
         {
-          "approx_second": 4,
+          "approx_second": 5,
           "captured": true,
-          "sha256": "e197a7ceff440c836c1eb04c72e62b4e21302858d1ac6f9294c817ef64da993a",
-          "ocr_lines": []
+          "sha256": "e8b45bbeebc56428fc330526428dd7057d585e49e1551ef63726c6f1f7d13533",
+          "ocr_lines": [
+            "Спортлото-82 (1982)"
+          ],
+          "ocr_candidates": [
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom",
+              "psm": 6,
+              "lines": [
+                "Спортлото-82 (1982)"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom",
+              "psm": 7,
+              "lines": [
+                "Спортлото-82 (1982)"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom",
+              "psm": 11,
+              "lines": [
+                "Спортлото-82 (1982)"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom_tight",
+              "psm": 6,
+              "lines": [
+                "Спортлото-82 (1982)"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom_tight",
+              "psm": 7,
+              "lines": [
+                "Спортлото-82 (1982)"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom_tight",
+              "psm": 11,
+              "lines": [
+                "Спортлото-82 (1982)"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "lower50",
+              "psm": 6,
+              "lines": [
+                "Спортлото-82 (1982)"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "lower50",
+              "psm": 7,
+              "lines": [
+                "Спортлото-82 (1982)"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "lower50",
+              "psm": 11,
+              "lines": [
+                "Спортлото-82 (1982)"
+              ]
+            }
+          ]
         },
         {
-          "approx_second": 10,
+          "approx_second": 25,
           "captured": true,
-          "sha256": "e197a7ceff440c836c1eb04c72e62b4e21302858d1ac6f9294c817ef64da993a",
-          "ocr_lines": []
+          "sha256": "b079eb3e62be4d171350b6336eada2266aa54524d4b5f9b549b7fb35452f142b",
+          "ocr_lines": [
+            "Спортлото-82 (1982)",
+            "Спортлото-82 (1982) .",
+            "о ee"
+          ],
+          "ocr_candidates": [
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom",
+              "psm": 6,
+              "lines": [
+                "Спортлото-82 (1982)"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom",
+              "psm": 7,
+              "lines": [
+                "Спортлото-82 (1982)"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom",
+              "psm": 11,
+              "lines": [
+                "Спортлото-82 (1982)"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom_tight",
+              "psm": 6,
+              "lines": [
+                "Спортлото-82 (1982)"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom_tight",
+              "psm": 7,
+              "lines": [
+                "Спортлото-82 (1982) ."
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom_tight",
+              "psm": 11,
+              "lines": [
+                "Спортлото-82 (1982)"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "lower50",
+              "psm": 6,
+              "lines": [
+                "Спортлото-82 (1982)"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "lower50",
+              "psm": 7,
+              "lines": [
+                "Спортлото-82 (1982)"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "lower50",
+              "psm": 11,
+              "lines": [
+                "о ee",
+                "Спортлото-82 (1982)"
+              ]
+            }
+          ]
         },
         {
-          "approx_second": 16,
-          "captured": true,
-          "sha256": "d26a40d24d910a3d3f3472efe9f92820efccf3911726c79d97a25aa50dd308f6",
-          "ocr_lines": []
-        }
-      ]
-    },
-    "DITV КОМЕДИИ": {
-      "group": "Кинозалы",
-      "playlist_name": "DITV КОМЕДИИ",
-      "provider_name": "DITV КОМЕДИИ",
-      "provider_tvg_id": "no_epg_cinema",
-      "gap_status": "NO_MAPPING",
-      "found_in_playlist": true,
-      "live_playlist_name": "DITV КОМЕДИИ",
-      "live_tvg_id": "no_epg_cinema",
-      "stream_metadata": {
-        "ok": true,
-        "metadata": {}
-      },
-      "ocr_lines": [],
-      "captured_frames": 3,
-      "frames": [
-        {
-          "approx_second": 4,
-          "captured": true,
-          "sha256": "bffdd4ace29a92c095bf2b025fcc9437f9e7392868fb844c065d5cfb84f3422f",
-          "ocr_lines": []
-        },
-        {
-          "approx_second": 10,
-          "captured": true,
-          "sha256": "bffdd4ace29a92c095bf2b025fcc9437f9e7392868fb844c065d5cfb84f3422f",
-          "ocr_lines": []
-        },
-        {
-          "approx_second": 16,
-          "captured": true,
-          "sha256": "c16e5c8a63d27c7f1bfd4891ebb951d1e8f34cc66f816cb63757dcd9c7415c3b",
-          "ocr_lines": []
+          "approx_second": 45,
+          "captured": false
         }
       ]
     },
@@ -1132,36 +3004,167 @@
         "metadata": {}
       },
       "ocr_lines": [
-        "1-6",
-        "~ Ne. 1",
-        "os 4 | А"
+        "х a",
+        "f Ae ,",
+        "г y",
+        "rg р",
+        "i q",
+        "> 7 7 n",
+        "ax — .",
+        "$7. a",
+        "a oan",
+        "$7. . Г",
+        "rr ' >.",
+        "Г 4 | ‘ af",
+        "ve | = Ч",
+        "бам 1",
+        "= Tl"
       ],
-      "captured_frames": 3,
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 1,
+      "captured_frames": 1,
       "frames": [
         {
-          "approx_second": 4,
+          "approx_second": 5,
           "captured": true,
-          "sha256": "451057c241dca168a8c695535f05df5d5d3bd9739fb91edc9b0f7fa8425e4ff9",
+          "sha256": "611a7e68414e6712d5bc3a31197928d3927af8243f67f8552a863a1acf29cc19",
           "ocr_lines": [
-            "1-6"
+            "х a",
+            "f Ae ,",
+            "г y",
+            "rg р",
+            "i q",
+            "> 7 7 n",
+            "ax — .",
+            "$7. a",
+            "a oan",
+            "$7. . Г",
+            "rr ' >.",
+            "Г 4 | ‘ af",
+            "ve | = Ч",
+            "бам 1",
+            "= Tl"
+          ],
+          "ocr_candidates": [
+            {
+              "engine": "tesseract",
+              "variant": "top_left",
+              "psm": 6,
+              "lines": [
+                "х a",
+                "f Ae ,",
+                "г y"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "top_left",
+              "psm": 7,
+              "lines": [
+                "rg р"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "top_left_tight",
+              "psm": 6,
+              "lines": [
+                "i q"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom",
+              "psm": 6,
+              "lines": [
+                "> 7 7 n",
+                "ax — ."
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom_tight",
+              "psm": 6,
+              "lines": [
+                "$7. a",
+                "a oan"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom_tight",
+              "psm": 7,
+              "lines": [
+                "$7. . Г"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "lower50",
+              "psm": 6,
+              "lines": [
+                "rr ' >.",
+                "Г 4 | ‘ af"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "lower50",
+              "psm": 7,
+              "lines": [
+                "ve | = Ч"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "lower50",
+              "psm": 11,
+              "lines": [
+                "бам 1",
+                "= Tl"
+              ]
+            }
           ]
         },
         {
-          "approx_second": 10,
-          "captured": true,
-          "sha256": "451057c241dca168a8c695535f05df5d5d3bd9739fb91edc9b0f7fa8425e4ff9",
-          "ocr_lines": [
-            "1-6"
-          ]
+          "approx_second": 25,
+          "captured": false
         },
         {
-          "approx_second": 16,
-          "captured": true,
-          "sha256": "b84a1895084a24bb973175d335086155121dda016f8e98022c98e459a9c260f7",
-          "ocr_lines": [
-            "~ Ne. 1",
-            "os 4 | А"
-          ]
+          "approx_second": 45,
+          "captured": false
+        }
+      ]
+    },
+    "DITV КОМЕДИИ": {
+      "group": "Кинозалы",
+      "playlist_name": "DITV КОМЕДИИ",
+      "provider_name": "DITV КОМЕДИИ",
+      "provider_tvg_id": "no_epg_cinema",
+      "gap_status": "NO_MAPPING",
+      "found_in_playlist": true,
+      "live_playlist_name": "DITV КОМЕДИИ",
+      "live_tvg_id": "no_epg_cinema",
+      "stream_metadata": {
+        "ok": true,
+        "metadata": {}
+      },
+      "ocr_lines": [],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 0,
+      "captured_frames": 0,
+      "frames": [
+        {
+          "approx_second": 5,
+          "captured": false
+        },
+        {
+          "approx_second": 25,
+          "captured": false
+        },
+        {
+          "approx_second": 45,
+          "captured": false
         }
       ]
     },
@@ -1179,43 +3182,342 @@
         "metadata": {}
       },
       "ocr_lines": [
-        "Я ПЕ",
-        "А ee",
-        "eo Wis Je Kd — _——.",
-        "hii < Te <i",
-        "Уч: т ь"
+        "a ’ м oA",
+        "fd on, ГА a A",
+        ". а 2 P Ate вы ” )",
+        "Mu: ~",
+        "ieee",
+        "‚ож.",
+        "re)",
+        "wal",
+        "ve ie",
+        "Ae Ln",
+        "i © И и a",
+        "x © 4 ry Г}",
+        "С Db =",
+        "6 7 4. a",
+        "A) У ees",
+        "a | №24 cP eee",
+        "п = °”-9",
+        "< бт =",
+        "ег.",
+        "‘ae",
+        "чина",
+        "WARS",
+        "is В",
+        ", | а РУ | < <. в ieee.",
+        "AVA tN Voi",
+        "“ze",
+        "a nr",
+        "ВАУ",
+        "= —— on",
+        "eee - .",
+        "Ш. J a 25 ‘a",
+        "at - в эВ.) о. — aa —._ : a .",
+        "a eS",
+        "~ . Lees",
+        "~ - ай YS",
+        "Ех А” Я | я",
+        "me eA Nn A Sy | LN f",
+        "S ee",
+        "re di",
+        "< ci’",
+        "Foe",
+        ". № оне",
+        "= aA =",
+        "> <i = А 1 бы",
+        "г a 7",
+        "rit",
+        "\"ПИ",
+        "‚ ао",
+        "SED",
+        "= Le — og",
+        "= и о",
+        ". _ Oo 7 a An x ela У",
+        "т ent",
+        "¥ ru",
+        "ы ый",
+        "о = рН",
+        "т a Е i",
+        "р. | | ft",
+        "и © За"
       ],
-      "captured_frames": 3,
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
       "frames": [
         {
-          "approx_second": 4,
+          "approx_second": 5,
           "captured": true,
-          "sha256": "73a537743579b47d21c418baa56cba74bf5e1a4566fb4b627bdffb2ee2460b43",
+          "sha256": "71616449049ca59f8cc8fd0d20e104f2d0bfa48fde807be9e69b772b35d97c64",
           "ocr_lines": [
-            "Я ПЕ",
-            "А ee",
-            "eo Wis Je Kd — _——.",
-            "hii < Te <i",
-            "Уч: т ь"
+            "a ’ м oA",
+            "fd on, ГА a A",
+            ". а 2 P Ate вы ” )",
+            "Mu: ~",
+            "ieee",
+            "‚ож.",
+            "re)",
+            "wal",
+            "ve ie",
+            "Ae Ln",
+            "i © И и a",
+            "x © 4 ry Г}",
+            "С Db =",
+            "6 7 4. a",
+            "A) У ees",
+            "a | №24 cP eee",
+            "п = °”-9",
+            "< бт =",
+            "ег.",
+            "‘ae",
+            "чина",
+            "WARS",
+            "is В",
+            ", | а РУ | < <. в ieee.",
+            "AVA tN Voi",
+            "“ze",
+            "a nr",
+            "ВАУ",
+            "= —— on",
+            "eee - .",
+            "Ш. J a 25 ‘a",
+            "at - в эВ.) о. — aa —._ : a .",
+            "a eS"
+          ],
+          "ocr_candidates": [
+            {
+              "engine": "tesseract",
+              "variant": "top_left",
+              "psm": 6,
+              "lines": [
+                "a ’ м oA",
+                "fd on, ГА a A",
+                ". а 2 P Ate вы ” )",
+                "Mu: ~",
+                "ieee"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "top_left",
+              "psm": 11,
+              "lines": [
+                "‚ож.",
+                "re)",
+                "wal",
+                "ve ie"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "top_left_tight",
+              "psm": 6,
+              "lines": [
+                "Ae Ln",
+                "i © И и a",
+                "x © 4 ry Г}",
+                "С Db =",
+                "6 7 4. a",
+                "A) У ees",
+                "a | №24 cP eee"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "top_left_tight",
+              "psm": 11,
+              "lines": [
+                "п = °”-9",
+                "< бт =",
+                "ег.",
+                "‘ae",
+                "чина",
+                "WARS",
+                "is В"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom",
+              "psm": 6,
+              "lines": [
+                ", | а РУ | < <. в ieee.",
+                "AVA tN Voi"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom",
+              "psm": 11,
+              "lines": [
+                "“ze",
+                "a nr",
+                "ВАУ",
+                "= —— on"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "lower50",
+              "psm": 6,
+              "lines": [
+                "eee - .",
+                "Ш. J a 25 ‘a",
+                "at - в эВ.) о. — aa —._ : a ."
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "lower50",
+              "psm": 11,
+              "lines": [
+                "a eS"
+              ]
+            }
           ]
         },
         {
-          "approx_second": 10,
+          "approx_second": 25,
           "captured": true,
-          "sha256": "73a537743579b47d21c418baa56cba74bf5e1a4566fb4b627bdffb2ee2460b43",
+          "sha256": "1ba4d3f983441ca095e44119ffc9e3d2fcfdd1123edb36bcc500fccf8e041487",
           "ocr_lines": [
-            "Я ПЕ",
-            "А ee",
-            "eo Wis Je Kd — _——.",
-            "hii < Te <i",
-            "Уч: т ь"
+            "~ . Lees",
+            "~ - ай YS",
+            "Ех А” Я | я",
+            "me eA Nn A Sy | LN f",
+            "S ee",
+            "re di",
+            "< ci’",
+            "Foe",
+            ". № оне",
+            "= aA =",
+            "> <i = А 1 бы",
+            "г a 7",
+            "rit",
+            "\"ПИ",
+            "‚ ао",
+            "SED",
+            "= Le — og",
+            "= и о",
+            ". _ Oo 7 a An x ela У",
+            "т ent",
+            "¥ ru",
+            "ы ый",
+            "о = рН",
+            "т a Е i",
+            "р. | | ft",
+            "и © За"
+          ],
+          "ocr_candidates": [
+            {
+              "engine": "tesseract",
+              "variant": "top_left",
+              "psm": 6,
+              "lines": [
+                "~ . Lees",
+                "~ - ай YS",
+                "Ех А” Я | я",
+                "me eA Nn A Sy | LN f"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "top_left",
+              "psm": 11,
+              "lines": [
+                "S ee",
+                "re di",
+                "< ci’",
+                "Foe"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "top_left_tight",
+              "psm": 6,
+              "lines": [
+                ". № оне",
+                "= aA =",
+                "> <i = А 1 бы"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "top_left_tight",
+              "psm": 7,
+              "lines": [
+                "г a 7"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "top_left_tight",
+              "psm": 11,
+              "lines": [
+                "rit",
+                "\"ПИ",
+                "‚ ао",
+                "SED"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom",
+              "psm": 6,
+              "lines": [
+                "= Le — og",
+                "= и о"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom",
+              "psm": 7,
+              "lines": [
+                ". _ Oo 7 a An x ela У"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom",
+              "psm": 11,
+              "lines": [
+                "т ent",
+                "¥ ru"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom_tight",
+              "psm": 6,
+              "lines": [
+                "ы ый",
+                "о = рН",
+                "т a Е i"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom_tight",
+              "psm": 7,
+              "lines": [
+                "р. | | ft"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "lower50",
+              "psm": 6,
+              "lines": [
+                "и © За"
+              ]
+            }
           ]
         },
         {
-          "approx_second": 16,
-          "captured": true,
-          "sha256": "2395ed07a8e65150cf09f9023d3e88631e99e39268a8887ecdc065f35e41824b",
-          "ocr_lines": []
+          "approx_second": 45,
+          "captured": false
         }
       ]
     },
@@ -1233,55 +3535,276 @@
         "metadata": {}
       },
       "ocr_lines": [
-        "i ие | | | м",
-        ". os i 74 rt gj ' В = a ake",
-        "we sky or at № .",
-        "$ Ol ee \\ ‘as",
-        "elit. * АА жи =",
-        "= wk > № 3",
-        "и ыы НЫЙ , a т:",
-        "I lV С. | way",
-        "} 4 i мы ame Ay",
-        "У a"
+        "зн. <",
+        "7 аа",
+        "omer",
+        "Se5",
+        "Ре.",
+        "Ре\"",
+        "{ge",
+        "rie",
+        "д я",
+        "iy я",
+        "lie",
+        "= р а",
+        "a eu",
+        "q ta",
+        "heme",
+        "№ Зы №",
+        "тонио Роя",
+        "Танцо 7 gel Lo",
+        "pil",
+        "(1982) uum",
+        "‘anode",
+        "enol, a",
+        "HL /",
+        "Танцо",
+        "(1982) И",
+        "he Г.А Bh ч",
+        "convo ит",
+        "tenon REN 082) | ‘ a ч",
+        "Танцор диско (1982) у д",
+        "ВЫ om >",
+        "er.",
+        "Танцор диско (1982)",
+        "м 9“",
+        "що . om",
+        "УВ © №",
+        "Танцор диско (1982) УД"
       ],
-      "captured_frames": 3,
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
       "frames": [
         {
-          "approx_second": 4,
+          "approx_second": 5,
           "captured": true,
-          "sha256": "94d2a095ab3c995866972102837e5a288c89922c54cc4462ea448f6391963f25",
+          "sha256": "0d95c561dac3d69919309d8e9980d93bfe98fbac7b3145b49e6d7455ee21657c",
           "ocr_lines": [
-            "i ие | | | м",
-            ". os i 74 rt gj ' В = a ake",
-            "we sky or at № .",
-            "$ Ol ee \\ ‘as",
-            "elit. * АА жи =",
-            "= wk > № 3"
+            "зн. <",
+            "7 аа",
+            "omer",
+            "Se5",
+            "Ре.",
+            "Ре\"",
+            "{ge",
+            "rie",
+            "д я",
+            "iy я",
+            "lie",
+            "= р а",
+            "a eu",
+            "q ta",
+            "heme",
+            "№ Зы №",
+            "тонио Роя",
+            "Танцо 7 gel Lo",
+            "pil",
+            "(1982) uum",
+            "‘anode",
+            "enol, a",
+            "HL /",
+            "Танцо",
+            "(1982) И",
+            "he Г.А Bh ч",
+            "convo ит",
+            "tenon REN 082) | ‘ a ч"
+          ],
+          "ocr_candidates": [
+            {
+              "engine": "tesseract",
+              "variant": "top_left",
+              "psm": 6,
+              "lines": [
+                "зн. <",
+                "7 аа",
+                "omer",
+                "Se5",
+                "Ре.",
+                "Ре\""
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "top_left",
+              "psm": 11,
+              "lines": [
+                "{ge",
+                "rie"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "top_left_tight",
+              "psm": 6,
+              "lines": [
+                "д я",
+                "iy я",
+                "lie",
+                "= р а",
+                "a eu",
+                "q ta",
+                "heme"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom",
+              "psm": 6,
+              "lines": [
+                "№ Зы №",
+                "тонио Роя"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom",
+              "psm": 7,
+              "lines": [
+                "Танцо 7 gel Lo"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom",
+              "psm": 11,
+              "lines": [
+                "pil",
+                "(1982) uum"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom_tight",
+              "psm": 6,
+              "lines": [
+                "‘anode"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom_tight",
+              "psm": 7,
+              "lines": [
+                "enol, a"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom_tight",
+              "psm": 11,
+              "lines": [
+                "HL /",
+                "Танцо",
+                "(1982) И"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "lower50",
+              "psm": 6,
+              "lines": [
+                "he Г.А Bh ч",
+                "convo ит"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "lower50",
+              "psm": 7,
+              "lines": [
+                "tenon REN 082) | ‘ a ч"
+              ]
+            }
           ]
         },
         {
-          "approx_second": 10,
+          "approx_second": 25,
           "captured": true,
-          "sha256": "94d2a095ab3c995866972102837e5a288c89922c54cc4462ea448f6391963f25",
+          "sha256": "829a02b28df61c009f6ec87f3239c20d85cc2f5760a5f7bcb7d21d4b349980da",
           "ocr_lines": [
-            "i ие | | | м",
-            ". os i 74 rt gj ' В = a ake",
-            "we sky or at № .",
-            "$ Ol ee \\ ‘as",
-            "elit. * АА жи =",
-            "= wk > № 3"
+            "Танцор диско (1982) у д",
+            "ВЫ om >",
+            "er.",
+            "Танцор диско (1982)",
+            "м 9“",
+            "що . om",
+            "УВ © №",
+            "Танцор диско (1982) УД"
+          ],
+          "ocr_candidates": [
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom",
+              "psm": 6,
+              "lines": [
+                "Танцор диско (1982) у д"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom",
+              "psm": 7,
+              "lines": [
+                "ВЫ om >"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom",
+              "psm": 11,
+              "lines": [
+                "er.",
+                "Танцор диско (1982)"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom_tight",
+              "psm": 6,
+              "lines": [
+                "м 9“",
+                "Танцор диско (1982)"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom_tight",
+              "psm": 7,
+              "lines": [
+                "що . om"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom_tight",
+              "psm": 11,
+              "lines": [
+                "Танцор диско (1982)"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "lower50",
+              "psm": 6,
+              "lines": [
+                "УВ © №",
+                "Танцор диско (1982) УД"
+              ]
+            },
+            {
+              "engine": "tesseract",
+              "variant": "lower50",
+              "psm": 11,
+              "lines": [
+                "Танцор диско (1982)"
+              ]
+            }
           ]
         },
         {
-          "approx_second": 16,
-          "captured": true,
-          "sha256": "3ac57d7a803d1bf847798cfea8db5d613badd86eb96dc6e44ccc980c9c33e036",
-          "ocr_lines": [
-            "и ыы НЫЙ , a т:",
-            "I lV С. | way",
-            "} 4 i мы ame Ay",
-            "У a"
-          ]
+          "approx_second": 45,
+          "captured": false
         }
       ]
     }
