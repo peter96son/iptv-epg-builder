@@ -3,7 +3,7 @@
 This report is diagnostic only. It does not create EPG mappings.
 A family must be researched and verified before aliases are added to the live builder.
 
-Unmatched channels: **548**
+Unmatched channels: **545**
 
 | Family | Channels | no_epg_* IDs | Main groups |
 |---|---:|---:|---|
@@ -13,8 +13,8 @@ Unmatched channels: **548**
 | Other: VIP | 13 | 0 | Спорт (13) |
 | Play-X | 12 | 0 | Музыкальные (9), Кино (3) |
 | Other: RTL | 11 | 0 | Музыкальные (8), Германия (3) |
-| BOX | 8 | 0 | Спорт (8) |
 | Other: FIFA+ | 8 | 0 | Спорт (8) |
+| BOX | 7 | 0 | Спорт (7) |
 | Other: Rakuten | 7 | 0 | Испания (4), Италия (3) |
 | Other: DAZN | 6 | 0 | Спорт (6) |
 | Other: Pimple | 6 | 0 | Спорт (6) |
@@ -76,7 +76,6 @@ Unmatched channels: **548**
 | Other: TVG | 2 | 0 | Испания (2) |
 | Other: TVN | 2 | 0 | Польша (1), Молдова (1) |
 | Other: Viva | 2 | 0 | Израиль (2) |
-| Other: VTM | 2 | 0 | BE & NL (2) |
 | Other: Сер | 2 | 0 | Кино (2) |
 | BCU | 1 | 0 | Детские (1) |
 | Magic | 1 | 0 | Болгария (1) |
@@ -458,17 +457,6 @@ Unmatched channels: **548**
 - RTL Nitro
 - RTL Zwei HD
 
-### BOX — 8
-
-- BOX Be ON Edge 2 Live HD
-- BOX SportCast Live 5 HD
-- BOX SportCast Live 8 HD
-- BOX SportCast Live 9 HD
-- Box Sport Live 12 HD
-- Box Sport Live 13 HD
-- Box Sport Live 14 HD
-- Box Sport Live 15 HD
-
 ### Other: FIFA+ — 8
 
 - FIFA+ HD (Spain)
@@ -479,6 +467,16 @@ Unmatched channels: **548**
 - FIFA+ HD (Italy)
 - FIFA+ HD (Portugal)
 - FIFA+ Women HD
+
+### BOX — 7
+
+- BOX SportCast Live 5 HD
+- BOX SportCast Live 8 HD
+- BOX SportCast Live 9 HD
+- Box Sport Live 12 HD
+- Box Sport Live 13 HD
+- Box Sport Live 14 HD
+- Box Sport Live 15 HD
 
 ### Other: Rakuten — 7
 
@@ -831,11 +829,6 @@ Unmatched channels: **548**
 
 - Viva plus
 - Viva
-
-### Other: VTM — 2
-
-- VTM HD
-- VTM Non-Stop 90s
 
 ### Other: Сер — 2
 
