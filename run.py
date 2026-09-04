@@ -4,6 +4,7 @@ import src.year_safe_metadata_patch  # noqa: F401
 import src.v15_policy_patch  # noqa: F401
 import src.horizon_guard_patch  # noqa: F401
 import src.excluded_groups_patch  # noqa: F401
+import src.live_verified_source_pins_patch  # noqa: F401
 from src.builder import build
 from src.source_reselector import reselect_policy_sources
 from src.source_catalog import snapshot_missing_source_catalog
