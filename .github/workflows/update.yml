@@ -77,7 +77,7 @@ jobs:
       - name: Commit updated EPG output
         shell: bash
         run: |
-          .github/scripts/safe-publish.sh "Update EPG"             output/epg.xml.gz             output/mapping.csv             output/uhf-mapping.json             output/movie-epg-audit.csv             output/movie-epg-audit.json             output/movie-epg-gaps.csv             output/source-selection-v15.json             output/status.json             data/metadata.sqlite3.gz
+          bash .github/scripts/safe-publish.sh "Update EPG"             output/epg.xml.gz             output/mapping.csv             output/uhf-mapping.json             output/movie-epg-audit.csv             output/movie-epg-audit.json             output/movie-epg-gaps.csv             output/source-selection-v15.json             output/status.json             data/metadata.sqlite3.gz
       - name: Audit live Cloudflare Worker delivery
         env:
           WORKER_PLAYLIST_URL: https://private-uhf-playlist.peter96son.workers.dev/tv
@@ -87,4 +87,4 @@ jobs:
       - name: Commit Worker audit
         shell: bash
         run: |
-          .github/scripts/safe-publish.sh "Audit Worker delivery"             output/worker-audit.json             output/worker-audit.csv             output/worker-audit-gaps.csv             output/status.json
+          bash .github/scripts/safe-publish.sh "Audit Worker delivery"             output/worker-audit.json             output/worker-audit.csv             output/worker-audit-gaps.csv             output/status.json
