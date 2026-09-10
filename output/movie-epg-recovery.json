@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-10T07:44:52.528862+00:00",
+  "updated_at": "2026-09-10T08:33:18.807550+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-10T07:44:50.862493+00:00",
+      "checked_at_utc": "2026-09-10T08:33:17.154411+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,11 +10,11 @@
         "Кинозалы"
       ],
       "channels": 504,
-      "ok": 465,
-      "gaps": 39,
+      "ok": 462,
+      "gaps": 42,
       "issue_counts": {
         "NO_MAPPING": 35,
-        "NO_NEXT_PROGRAMME": 4
+        "NO_NEXT_PROGRAMME": 7
       },
       "group_counts": {
         "USSR": {
@@ -24,8 +24,8 @@
         },
         "Кино": {
           "channels": 168,
-          "ok": 148,
-          "gaps": 20
+          "ok": 147,
+          "gaps": 21
         },
         "Кино 4K": {
           "channels": 63,
@@ -34,37 +34,117 @@
         },
         "Кинозалы": {
           "channels": 255,
-          "ok": 238,
-          "gaps": 17
+          "ok": 236,
+          "gaps": 19
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 39,
-      "high_confidence_observations": 1,
+      "channels_considered": 42,
+      "high_confidence_observations": 6,
       "recognized": [
         {
           "playlist_name": "Insomnia HD",
           "provider_name": "Insomnia HD",
-          "title": "НЕЧТО",
-          "score": 21.25,
+          "title": "ВОЛЧЬЯ ЯМА",
+          "score": 22.25,
           "zone": "top_left_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "РуКино HD",
+          "provider_name": "РуКино HD",
+          "title": "ЧЕТЫРЕ ВОЗРАСТА ЛЮБВИ",
+          "score": 24.75,
+          "zone": "top_left_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "provider_name": "DITV ФИЛЬМЫ",
+          "title": "Свадь",
+          "score": 16.25,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "DITV КОМЕДИИ",
+          "provider_name": "DITV КОМЕДИИ",
+          "title": "Амели (2001)",
+          "score": 16.25,
+          "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "MM Honey HD",
+          "provider_name": "MM Honey HD",
+          "title": "Большое шоу Акулёнка: Сезон 1 | 1-3 4 / | os",
+          "score": 23.0,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
+          "provider_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
+          "title": "Sree | iy Nhs",
+          "score": 12.25,
+          "zone": "top_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 38,
+      "added": 6,
+      "rejected": 36,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-10T07:33:01.458411+00:00",
+          "observed_at": "2026-09-10T08:21:01.414674+00:00",
           "playlist_name": "Insomnia HD",
-          "observed_title": "НЕЧТО",
+          "observed_title": "ВОЛЧЬЯ ЯМА",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=21.25"
+          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=22.25"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-10T08:21:01.414674+00:00",
+          "playlist_name": "РуКино HD",
+          "observed_title": "ЧЕТЫРЕ ВОЗРАСТА ЛЮБВИ",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=24.75"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-10T08:21:01.414674+00:00",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "observed_title": "Свадь",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=16.25"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-10T08:21:01.414674+00:00",
+          "playlist_name": "DITV КОМЕДИИ",
+          "observed_title": "Амели (2001)",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=16.25"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-10T08:21:01.414674+00:00",
+          "playlist_name": "MM Honey HD",
+          "observed_title": "Большое шоу Акулёнка: Сезон 1 | 1-3 4 / | os",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=23.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-10T08:21:01.414674+00:00",
+          "playlist_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
+          "observed_title": "Sree | iy Nhs",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=12.25"
         }
       ]
     },
@@ -82,15 +162,15 @@
           "source": "gabbarit-current",
           "source_id": "Premium HD",
           "output_tvg_id": "premium-hd",
-          "horizon_hours": 84.7,
+          "horizon_hours": 83.9,
           "current": true,
-          "usable": 30
+          "usable": 29
         },
         "Premiere HD": {
           "source": "gabbarit-current",
           "source_id": "Premiere HD",
           "output_tvg_id": "Xpremiere-hd",
-          "horizon_hours": 85.36,
+          "horizon_hours": 84.56,
           "current": true,
           "usable": 32
         },
@@ -98,15 +178,15 @@
           "source": "gabbarit-current",
           "source_id": "USSR HD",
           "output_tvg_id": "Xussr-premieregroup",
-          "horizon_hours": 85.15,
+          "horizon_hours": 84.35,
           "current": true,
-          "usable": 33
+          "usable": 32
         },
         "Paradise HD": {
           "source": "gabbarit-current",
           "source_id": "Paradise HD",
           "output_tvg_id": "Xparadise-hd",
-          "horizon_hours": 85.88,
+          "horizon_hours": 85.08,
           "current": true,
           "usable": 35
         },
@@ -114,7 +194,7 @@
           "source": "gabbarit-current",
           "source_id": "Paradox HD",
           "output_tvg_id": "Xparadox-hd",
-          "horizon_hours": 85.38,
+          "horizon_hours": 84.57,
           "current": true,
           "usable": 30
         },
@@ -122,15 +202,15 @@
           "source": "openbox-tsd",
           "source_id": "4ever-cinema",
           "output_tvg_id": "X4ever-cinema",
-          "horizon_hours": 12.8,
+          "horizon_hours": 12.0,
           "current": true,
-          "usable": 12
+          "usable": 11
         },
         "4ever Drama HD": {
           "source": "openbox-tsd",
           "source_id": "4ever-drama",
           "output_tvg_id": "X4ever-drama",
-          "horizon_hours": 11.93,
+          "horizon_hours": 11.13,
           "current": true,
           "usable": 11
         },
@@ -138,17 +218,17 @@
           "source": "openbox-tsd",
           "source_id": "4ever-theater",
           "output_tvg_id": "X4ever-theater",
-          "horizon_hours": 12.79,
+          "horizon_hours": 11.98,
           "current": true,
-          "usable": 12
+          "usable": 11
         },
         "4ever Music HD": {
           "source": "iptvx-noarch",
           "source_id": "4ever-music",
           "output_tvg_id": "X4ever-music",
-          "horizon_hours": 90.36,
+          "horizon_hours": 89.56,
           "current": true,
-          "usable": 29
+          "usable": 28
         }
       },
       "quarantined": {
