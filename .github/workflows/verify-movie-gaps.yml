@@ -38,7 +38,7 @@ jobs:
         env:
           PLAYLIST_URL: ${{ secrets.PLAYLIST_URL }}
           STREAM_OCR_LANG: rus+eng
-          GAP_PROBE_WORKERS: "4"
+          GAP_PROBE_WORKERS: "6"
         run: python -m src.movie_gap_live_probe
 
       - name: Apply recognized titles to live EPG
