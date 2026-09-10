@@ -26,3 +26,99 @@ def test_install_appends_evidence_candidates(monkeypatch,tmp_path):
     rows=mod._read_policy()
     assert rows[0]["playlist_name"]=="BCU VHS HD"
     assert rows[0]["source"]=="a"
+
+def test_evidence_beats_policy_order_and_longer_horizon(monkeypatch, tmp_path):
+    t = datetime(2026, 9, 5, 2, 10, tzinfo=timezone.utc)
+    obs = tmp_path / "obs.csv"
+    obs.write_text(
+        "enabled,playlist_name,observed_at,observed_title,notes\n"
+        f"1,BCU VHS HD,{t.isoformat()},Адвокат дьявола,test\n",
+        encoding="utf-8",
+    )
+    state = tmp_path / "state.json"
+    monkeypatch.setattr(ev, "OBS_PATH", obs)
+    monkeypatch.setattr(ev, "STATE_PATH", state)
+    monkeypatch.setattr(ev, "_INSTALLED", False)
+
+    mod = SimpleNamespace(
+        _read_policy=lambda path=None: [],
+        choose_candidate=lambda c, target_hours=6.0: c[0] if c else None,
+    )
+    ev.install(mod)
+
+    candidates = [
+        {
+            "playlist_name": "BCU VHS HD",
+            "source": "wrong-first",
+            "source_id": "wrong",
+            "priority": 0,
+            "usable": 20,
+            "horizon_hours": 240.0,
+            "programmes": [
+                _p("Водный мир", t-timedelta(hours=1), t+timedelta(hours=1))
+            ],
+        },
+        {
+            "playlist_name": "BCU VHS HD",
+            "source": "verified-second",
+            "source_id": "right",
+            "priority": 1,
+            "usable": 2,
+            "horizon_hours": 8.0,
+            "programmes": [
+                _p(
+                    "Адвокат дьявола (1997)",
+                    t-timedelta(hours=1),
+                    t+timedelta(hours=1),
+                )
+            ],
+        },
+    ]
+
+    winner = mod.choose_candidate(candidates, 6.0)
+    assert winner["source"] == "verified-second"
+    assert winner["_evidence_negative"] == 0
+
+
+def test_contradictory_observation_blocks_learned_winner(monkeypatch, tmp_path):
+    import json
+
+    t = datetime(2026, 9, 5, 2, 10, tzinfo=timezone.utc)
+    obs = tmp_path / "obs.csv"
+    obs.write_text(
+        "enabled,playlist_name,observed_at,observed_title,notes\n"
+        f"1,BCU VHS HD,{t.isoformat()},Адвокат дьявола,test\n",
+        encoding="utf-8",
+    )
+    state = tmp_path / "state.json"
+    state.write_text(
+        '{"channels":{"BCU VHS HD":{"source":"old","source_id":"old-id"}}}',
+        encoding="utf-8",
+    )
+
+    monkeypatch.setattr(ev, "OBS_PATH", obs)
+    monkeypatch.setattr(ev, "STATE_PATH", state)
+    monkeypatch.setattr(ev, "_INSTALLED", False)
+
+    mod = SimpleNamespace(
+        _read_policy=lambda path=None: [],
+        choose_candidate=lambda c, target_hours=6.0: c[0] if c else None,
+    )
+    ev.install(mod)
+
+    candidates = [{
+        "playlist_name": "BCU VHS HD",
+        "source": "old",
+        "source_id": "old-id",
+        "priority": 0,
+        "usable": 20,
+        "horizon_hours": 240.0,
+        "programmes": [
+            _p("Водный мир", t-timedelta(hours=1), t+timedelta(hours=1))
+        ],
+    }]
+
+    assert mod.choose_candidate(candidates, 6.0) is None
+    saved = json.loads(state.read_text(encoding="utf-8"))
+    assert saved["channels"]["BCU VHS HD"]["status"] == "conflict"
+

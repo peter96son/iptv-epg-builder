@@ -215,19 +215,19 @@ def install(source_reselector_module):
                 c["_evidence_detail"] = detail
                 ranked.append(c)
 
-            best_positive = max((c["_evidence_positive"] for c in ranked), default=0)
+            clean = [c for c in ranked if c["_evidence_negative"] == 0]
+            best_positive = max(
+                (c["_evidence_positive"] for c in clean),
+                default=0,
+            )
             if best_positive > 0:
                 winners = [
-                    c for c in ranked
+                    c for c in clean
                     if c["_evidence_positive"] == best_positive
-                    and c["_evidence_negative"] == 0
                 ]
-                if not winners:
-                    winners = [c for c in ranked if c["_evidence_positive"] == best_positive]
                 winner = max(
                     winners,
                     key=lambda c: (
-                        -int(c.get("_evidence_negative", 0)),
                         float(c.get("horizon_hours", 0)),
                         -int(c.get("priority", 999999)),
                     ),
@@ -236,7 +236,7 @@ def install(source_reselector_module):
                     "source": winner.get("source"),
                     "source_id": winner.get("source_id"),
                     "positive_observations": int(winner["_evidence_positive"]),
-                    "negative_observations": int(winner["_evidence_negative"]),
+                    "negative_observations": 0,
                     "verified_at": datetime.now(timezone.utc).isoformat(),
                     "evidence": winner.get("_evidence_detail", []),
                 }
@@ -244,8 +244,31 @@ def install(source_reselector_module):
                 winner["_evidence_selected"] = True
                 return winner
 
+            learned = channels.get(channel_name)
+            if isinstance(learned, dict):
+                learned_candidate = next(
+                    (
+                        c for c in ranked
+                        if c.get("source") == learned.get("source")
+                        and c.get("source_id") == learned.get("source_id")
+                    ),
+                    None,
+                )
+                if (
+                    learned_candidate is not None
+                    and learned_candidate.get("_evidence_negative", 0) > 0
+                ):
+                    channels[channel_name] = {
+                        **learned,
+                        "status": "conflict",
+                        "conflict_at": datetime.now(timezone.utc).isoformat(),
+                        "evidence": learned_candidate.get("_evidence_detail", []),
+                    }
+                    _save_state(state)
+            return None
+
         learned = channels.get(channel_name) if channel_name else None
-        if isinstance(learned, dict):
+        if isinstance(learned, dict) and learned.get("status") != "conflict":
             for c in valid:
                 if (
                     c.get("source") == learned.get("source")
