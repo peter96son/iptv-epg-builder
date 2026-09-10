@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-10T12:35:08.289102+00:00",
+  "updated_at": "2026-09-10T13:34:43.243581+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-10T12:35:06.607777+00:00",
+      "checked_at_utc": "2026-09-10T13:34:41.915285+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 504,
-      "ok": 460,
-      "gaps": 44,
+      "ok": 461,
+      "gaps": 43,
       "issue_counts": {
-        "NO_MAPPING": 36,
-        "NO_NEXT_PROGRAMME": 8,
-        "NO_CURRENT_PROGRAMME": 1
+        "NO_MAPPING": 40,
+        "NO_CURRENT_PROGRAMME": 2,
+        "NO_NEXT_PROGRAMME": 3
       },
       "group_counts": {
         "USSR": {
@@ -35,37 +35,101 @@
         },
         "Кинозалы": {
           "channels": 255,
-          "ok": 234,
-          "gaps": 21
+          "ok": 235,
+          "gaps": 20
         }
       }
     },
     "observer": {
       "return_code": 0,
       "channels_considered": 43,
-      "high_confidence_observations": 1,
+      "high_confidence_observations": 5,
       "recognized": [
         {
-          "playlist_name": "MM Honey HD",
-          "provider_name": "MM Honey HD",
-          "title": "Щенячий патруль: Сезон 1 | 1-3",
-          "score": 19.75,
+          "playlist_name": "РуКино HD",
+          "provider_name": "РуКино HD",
+          "title": "МЕРТВЫЕ ЛАСТОЧКИ",
+          "score": 23.75,
+          "zone": "top_left_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "Детектив HD",
+          "provider_name": "Детектив HD",
+          "title": "© ООО \"Стар Меди",
+          "score": 22.75,
+          "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "DITV ФИЛЬМЫ УЖАСОВ 80-х",
+          "provider_name": "DITV ФИЛЬМЫ УЖАСОВ 80-х",
+          "title": "Ночь страха (1985)",
+          "score": 17.5,
+          "zone": "left_bottom",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "DITV КОМЕДИИ",
+          "provider_name": "DITV КОМЕДИИ",
+          "title": "Достать коротышку",
+          "score": 19.0,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "DITV КОМЕДИИ 90-х",
+          "provider_name": "DITV КОМЕДИИ 90-х",
+          "title": "Маска (1994)",
+          "score": 21.25,
           "zone": "left_bottom_tight",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 42,
+      "added": 5,
+      "rejected": 38,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-10T12:22:50.667292+00:00",
-          "playlist_name": "MM Honey HD",
-          "observed_title": "Щенячий патруль: Сезон 1 | 1-3",
+          "observed_at": "2026-09-10T13:23:04.300578+00:00",
+          "playlist_name": "РуКино HD",
+          "observed_title": "МЕРТВЫЕ ЛАСТОЧКИ",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=19.75"
+          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=23.75"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-10T13:23:04.300578+00:00",
+          "playlist_name": "Детектив HD",
+          "observed_title": "© ООО \"Стар Меди",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=22.75"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-10T13:23:04.300578+00:00",
+          "playlist_name": "DITV ФИЛЬМЫ УЖАСОВ 80-х",
+          "observed_title": "Ночь страха (1985)",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom; engine=tesseract; score=17.5"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-10T13:23:04.300578+00:00",
+          "playlist_name": "DITV КОМЕДИИ",
+          "observed_title": "Достать коротышку",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=19.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-10T13:23:04.300578+00:00",
+          "playlist_name": "DITV КОМЕДИИ 90-х",
+          "observed_title": "Маска (1994)",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=21.25"
         }
       ]
     },
@@ -83,15 +147,15 @@
           "source": "gabbarit-current",
           "source_id": "Premium HD",
           "output_tvg_id": "premium-hd",
-          "horizon_hours": 79.87,
+          "horizon_hours": 78.87,
           "current": true,
-          "usable": 29
+          "usable": 30
         },
         "Premiere HD": {
           "source": "gabbarit-current",
           "source_id": "Premiere HD",
           "output_tvg_id": "Xpremiere-hd",
-          "horizon_hours": 80.53,
+          "horizon_hours": 79.53,
           "current": true,
           "usable": 32
         },
@@ -99,55 +163,55 @@
           "source": "gabbarit-current",
           "source_id": "USSR HD",
           "output_tvg_id": "Xussr-premieregroup",
-          "horizon_hours": 80.32,
+          "horizon_hours": 79.32,
           "current": true,
-          "usable": 32
+          "usable": 31
         },
         "Paradise HD": {
           "source": "gabbarit-current",
           "source_id": "Paradise HD",
           "output_tvg_id": "Xparadise-hd",
-          "horizon_hours": 81.05,
+          "horizon_hours": 80.05,
           "current": true,
-          "usable": 35
+          "usable": 36
         },
         "Paradox HD": {
           "source": "gabbarit-current",
           "source_id": "Paradox HD",
           "output_tvg_id": "Xparadox-hd",
-          "horizon_hours": 80.54,
+          "horizon_hours": 79.54,
           "current": true,
           "usable": 29
         },
         "4ever Cinema HD": {
-          "source": "openbox-tsd",
+          "source": "iptvx-noarch",
           "source_id": "4ever-cinema",
           "output_tvg_id": "X4ever-cinema",
-          "horizon_hours": 7.97,
+          "horizon_hours": 6.99,
           "current": true,
-          "usable": 9
+          "usable": 5
         },
         "4ever Drama HD": {
           "source": "openbox-tsd",
           "source_id": "4ever-drama",
           "output_tvg_id": "X4ever-drama",
-          "horizon_hours": 7.09,
+          "horizon_hours": 6.1,
           "current": true,
           "usable": 8
         },
         "4ever Theater HD": {
-          "source": "openbox-tsd",
+          "source": "iptvx-noarch",
           "source_id": "4ever-theater",
           "output_tvg_id": "X4ever-theater",
-          "horizon_hours": 7.95,
+          "horizon_hours": 6.97,
           "current": true,
-          "usable": 9
+          "usable": 6
         },
         "4ever Music HD": {
           "source": "iptvx-noarch",
           "source_id": "4ever-music",
           "output_tvg_id": "X4ever-music",
-          "horizon_hours": 85.53,
+          "horizon_hours": 89.53,
           "current": true,
           "usable": 28
         }
