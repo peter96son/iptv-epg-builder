@@ -34,21 +34,32 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements-ocr.txt
 
-      - name: Verify live streams for current movie EPG gaps
+      - name: Dispatcher — identify movie EPG gaps
+        env:
+          PLAYLIST_URL: ${{ secrets.PLAYLIST_URL }}
+        run: python -m src.movie_epg_recovery audit
+
+      - name: Observer — read current title from live stream
         env:
           PLAYLIST_URL: ${{ secrets.PLAYLIST_URL }}
           STREAM_OCR_LANG: rus+eng
           GAP_PROBE_WORKERS: "6"
-        run: python -m src.movie_gap_live_probe
+        run: python -m src.movie_epg_recovery observe
 
-      - name: Apply recognized titles to live EPG
+      - name: Evidence recorder — persist proven live titles
+        run: python -m src.movie_epg_recovery record
+
+      - name: Judge — select only evidence-matching EPG donors
         env:
           PLAYLIST_URL: ${{ secrets.PLAYLIST_URL }}
-        run: |
-          python -m src.live_ocr_epg_overlay
-          python -m src.movie_epg_audit
+        run: python -m src.movie_epg_recovery select
 
-      - name: Commit verification result
+      - name: Auditor — measure movie EPG after donor selection
+        env:
+          PLAYLIST_URL: ${{ secrets.PLAYLIST_URL }}
+        run: python -m src.movie_epg_recovery audit
+
+      - name: Publish evidence and proven donor results
         shell: bash
         run: |
-          bash .github/scripts/safe-publish.sh "Apply OCR movie titles to live EPG"             output/movie-gap-live-probe.json             output/movie-gap-ocr-profiles.json             output/live-ocr-epg-state.json             output/epg.xml.gz             output/uhf-mapping.json             output/movie-epg-audit.csv             output/movie-epg-audit.json             output/movie-epg-gaps.csv
+          bash .github/scripts/safe-publish.sh "Recover movie EPG from live evidence"             data/live_epg_observations_v1518.csv             output/movie-gap-live-probe.json             output/movie-gap-ocr-profiles.json             output/movie-epg-recovery.json             output/source-selection-v15.json             output/mapping.csv             output/epg.xml.gz             output/uhf-mapping.json             output/movie-epg-audit.csv             output/movie-epg-audit.json             output/movie-epg-gaps.csv
