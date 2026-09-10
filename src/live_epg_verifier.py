@@ -9,6 +9,7 @@ from .movie_gap_live_probe import _find_exact,_load_profiles,_ocr_frame,_parse_m
 ROOT=Path(__file__).resolve().parents[1]
 OUTPUT=ROOT/"output"; AUDIT=OUTPUT/"movie-epg-audit.csv"; EPG=OUTPUT/"epg.xml.gz"
 RESULT=OUTPUT/"live-epg-verification.json"; STATE=OUTPUT/"live-epg-verification-state.json"
+GAPS=OUTPUT/"movie-epg-gaps.csv"; OBSERVATIONS=ROOT/"data"/"live_epg_observations_v1518.csv"
 TARGET_GROUPS={"Кино","USSR","Кинозалы","Кино 4K"}
 MAX_PER_RUN=max(20,min(600,int(os.environ.get("LIVE_EPG_VERIFY_MAX","250"))))
 WORKERS=max(2,min(24,int(os.environ.get("LIVE_EPG_VERIFY_WORKERS","12"))))
@@ -51,9 +52,17 @@ def _current_titles():
     return out
 
 def _load_ok_channels():
-    if not AUDIT.exists():return []
-    with AUDIT.open(encoding="utf-8-sig",newline="") as f:rows=list(csv.DictReader(f))
-    return [r for r in rows if (r.get("group") or "").strip() in TARGET_GROUPS and (r.get("status") or "").strip()=="OK" and (r.get("output_tvg_id") or "").strip()]
+    rows=[];seen=set()
+    for path in (AUDIT,GAPS):
+        if not path.exists():continue
+        with path.open(encoding="utf-8-sig",newline="") as f:
+            for r in csv.DictReader(f):
+                if (r.get("group") or "").strip() not in TARGET_GROUPS:continue
+                if path==AUDIT and (r.get("status") or "").strip()!="OK":continue
+                name=(r.get("provider_name") or r.get("playlist_name") or "").strip()
+                if not name or name in seen:continue
+                rows.append(dict(r));seen.add(name)
+    return rows
 
 def _norm_title(v):
     s=str(v or "").casefold().replace("ё","е")
@@ -90,7 +99,6 @@ def _verify_one(row,playlist,current,profiles):
     ch=_find_exact(playlist,provider); epg_title=current.get((row.get("output_tvg_id") or "").strip(),"")
     base={"group":row.get("group",""),"playlist_name":row.get("playlist_name",""),"provider_name":provider,"output_tvg_id":row.get("output_tvg_id",""),"epg_title":epg_title}
     if ch is None:return {**base,"verdict":"STREAM_NOT_FOUND"}
-    if not epg_title:return {**base,"verdict":"NO_CURRENT_EPG"}
     profile=profiles.get(provider,{}) if isinstance(profiles,dict) else {}
     with tempfile.TemporaryDirectory(prefix="epg-check-") as td:
         td=Path(td); frame=_capture_one(ch["url"],td)
@@ -99,7 +107,10 @@ def _verify_one(row,playlist,current,profiles):
     chosen=_pick_title(candidates,row.get("playlist_name") or provider,provider,profile)
     if not chosen or chosen.get("confidence") not in {"high","medium"}:
         return {**base,"verdict":"NO_CONFIDENT_OCR","ocr_lines":lines}
-    ocr_title=chosen.get("title",""); sim=_similarity(epg_title,ocr_title)
+    ocr_title=chosen.get("title","")
+    if not epg_title:
+        return {**base,"verdict":"OBSERVED_NO_EPG","ocr_title":ocr_title,"ocr_confidence":chosen.get("confidence"),"ocr_score":chosen.get("score"),"ocr_engine":chosen.get("engine"),"ocr_zone":chosen.get("zone")}
+    sim=_similarity(epg_title,ocr_title)
     return {**base,"verdict":"VERIFIED" if sim>=MATCH_THRESHOLD else "MISMATCH","ocr_title":ocr_title,"ocr_confidence":chosen.get("confidence"),"ocr_score":chosen.get("score"),"ocr_engine":chosen.get("engine"),"ocr_zone":chosen.get("zone"),"similarity":round(sim,3)}
 
 def _apply_observation(state,row,now):
@@ -123,6 +134,10 @@ def _apply_observation(state,row,now):
         same=_norm_title(item.get("epg_title"))==_norm_title(row.get("epg_title")) and _norm_title(item.get("ocr_title"))==_norm_title(row.get("ocr_title"))
         streak=int(item.get("mismatch_streak",0))+1 if same else 1
         item.update({"mismatch_streak":streak,"epg_title":row.get("epg_title",""),"ocr_title":row.get("ocr_title",""),"similarity":row.get("similarity",0),"ocr_confidence":row.get("ocr_confidence",""),"status":"MISMATCH_CONFIRMED" if streak>=CONFIRM_MISMATCHES else "MISMATCH_PENDING","last_mismatch":now.isoformat()})
+    elif verdict=="OBSERVED_NO_EPG":
+        item["verified_streak"]=0; item["mismatch_streak"]=0; item["no_title_streak"]=0
+        item["status"]="OBSERVED_NO_EPG"; item["ocr_title"]=row.get("ocr_title","")
+        item["ocr_confidence"]=row.get("ocr_confidence",""); item["last_observed"]=now.isoformat()
     elif verdict=="NO_CONFIDENT_OCR":
         item["verified_streak"]=0; item["mismatch_streak"]=0
         item["no_title_streak"]=int(item.get("no_title_streak",0))+1
@@ -134,6 +149,28 @@ def _apply_observation(state,row,now):
     state["channels"][name]=item
     row["state_status"]=item.get("status",""); row["verified_streak"]=item.get("verified_streak",0)
     row["no_title_streak"]=item.get("no_title_streak",0); row["mismatch_streak"]=item.get("mismatch_streak",0)
+
+def _append_evidence(results,now):
+    good=[]
+    for r in results:
+        if r.get("verdict")!="OBSERVED_NO_EPG" or r.get("ocr_confidence")!="high":continue
+        name=(r.get("provider_name") or r.get("playlist_name") or "").strip(); title=(r.get("ocr_title") or "").strip()
+        if name and title:good.append((name,title))
+    if not good:return 0
+    existing=set()
+    if OBSERVATIONS.exists():
+        with OBSERVATIONS.open(encoding="utf-8-sig",newline="") as f:
+            for r in csv.DictReader(f): existing.add(((r.get("playlist_name") or "").strip(),(r.get("observed_title") or "").strip(),(r.get("observed_at") or "")[:13]))
+    header=not OBSERVATIONS.exists() or OBSERVATIONS.stat().st_size==0
+    added=0; stamp=now.isoformat(); bucket=stamp[:13]
+    with OBSERVATIONS.open("a",encoding="utf-8",newline="") as f:
+        w=csv.writer(f)
+        if header:w.writerow(["enabled","observed_at","playlist_name","observed_title","origin","notes"])
+        for name,title in good:
+            key=(name,title,bucket)
+            if key in existing:continue
+            w.writerow(["1",stamp,name,title,"live-verifier","high-confidence OCR from live movie stream"]); existing.add(key); added+=1
+    return added
 
 def _age_hours(value,now):
     try:
@@ -182,11 +219,12 @@ def main():
             except Exception as exc:results.append({"verdict":"ERROR","error":type(exc).__name__})
     for row in results:
         if row.get("provider_name"):_apply_observation(state,row,now)
+    evidence_added=_append_evidence(results,now)
     state["updated_at"]=now.isoformat();_save_state(state)
     counts={}
     for item in state.get("channels",{}).values():
         if isinstance(item,dict):counts[item.get("status","NEW")]=counts.get(item.get("status","NEW"),0)+1
-    payload={"generated_at":now.isoformat(),"mode":"adaptive validation of channels that already have EPG","eligible":len(eligible),"selected":len(batch),"max_per_run":MAX_PER_RUN,"workers":WORKERS,"match_threshold":MATCH_THRESHOLD,"confirm_mismatches":CONFIRM_MISMATCHES,"trust_after":TRUST_AFTER,"no_title_after":NO_TITLE_AFTER,"state_counts":counts,"results":sorted(results,key=lambda x:x.get("provider_name","")),"confirmed_mismatches":{n:i for n,i in state["channels"].items() if isinstance(i,dict) and i.get("status")=="MISMATCH_CONFIRMED"}}
+    payload={"generated_at":now.isoformat(),"mode":"movie EPG validation plus live evidence recovery for movie gaps","evidence_added":evidence_added,"eligible":len(eligible),"selected":len(batch),"max_per_run":MAX_PER_RUN,"workers":WORKERS,"match_threshold":MATCH_THRESHOLD,"confirm_mismatches":CONFIRM_MISMATCHES,"trust_after":TRUST_AFTER,"no_title_after":NO_TITLE_AFTER,"state_counts":counts,"results":sorted(results,key=lambda x:x.get("provider_name","")),"confirmed_mismatches":{n:i for n,i in state["channels"].items() if isinstance(i,dict) and i.get("status")=="MISMATCH_CONFIRMED"}}
     RESULT.write_text(json.dumps(payload,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     print(json.dumps({"eligible":len(eligible),"selected":len(batch),"checked":len(results),"verified":sum(r.get("verdict")=="VERIFIED" for r in results),"mismatches":sum(r.get("verdict")=="MISMATCH" for r in results),"confirmed_total":len(payload["confirmed_mismatches"]),"state_counts":counts},ensure_ascii=False),flush=True);return 0
 if __name__=="__main__":raise SystemExit(main())
