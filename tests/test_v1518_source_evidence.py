@@ -121,4 +121,44 @@ def test_contradictory_observation_blocks_learned_winner(monkeypatch, tmp_path):
     assert mod.choose_candidate(candidates, 6.0) is None
     saved = json.loads(state.read_text(encoding="utf-8"))
     assert saved["channels"]["BCU VHS HD"]["status"] == "conflict"
+def test_evidence_required_does_not_fall_back_without_proof(monkeypatch, tmp_path):
+    obs = tmp_path / "obs.csv"
+    obs.write_text(
+        "enabled,playlist_name,observed_at,observed_title,notes\n",
+        encoding="utf-8",
+    )
+    state = tmp_path / "state.json"
+    monkeypatch.setattr(ev, "OBS_PATH", obs)
+    monkeypatch.setattr(ev, "STATE_PATH", state)
+    monkeypatch.setattr(ev, "_INSTALLED", False)
 
+    mod = SimpleNamespace(
+        _read_policy=lambda path=None: [],
+        choose_candidate=lambda c, target_hours=6.0: c[0] if c else None,
+    )
+    ev.install(mod)
+
+    candidate = {
+        "playlist_name": "BCU VHS HD",
+        "source": "policy-only",
+        "source_id": "wrong",
+        "priority": 0,
+        "usable": 20,
+        "horizon_hours": 240.0,
+        "programmes": [],
+        "evidence_required": True,
+    }
+    assert mod.choose_candidate([candidate], 6.0) is None
+
+
+def test_quarantine_orphan_detection_preserves_shared_output_id():
+    import src.source_reselector as sr
+
+    quarantined = {
+        "BCU VHS HD": "shared.id",
+        "BOX Oscar HD": "orphan.id",
+    }
+    remaining_mapping = [
+        {"playlist_name": "Other Channel", "output_tvg_id": "shared.id"},
+    ]
+    assert sr._orphaned_quarantine_ids(quarantined, remaining_mapping) == {"orphan.id"}

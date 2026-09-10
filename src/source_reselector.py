@@ -176,6 +176,23 @@ def _load_playlist_names() -> dict[str, object]:
     return {ch.name:ch for ch in parse_m3u(text)}
 
 
+def _requires_evidence(policy_rows: list[dict]) -> bool:
+    return any(_enabled(row.get("evidence_required", "0")) for row in policy_rows)
+
+
+def _orphaned_quarantine_ids(quarantined: dict[str, str], mapping_rows: list[dict]) -> set[str]:
+    active_ids = {
+        (row.get("output_tvg_id") or "").strip()
+        for row in mapping_rows
+        if (row.get("output_tvg_id") or "").strip()
+    }
+    return {
+        output_id
+        for output_id in quarantined.values()
+        if output_id and output_id not in active_ids
+    }
+
+
 def _output_id(channel, policy_rows: list[dict], existing: dict | None):
     if existing and existing.get("output_tvg_id"):
         return existing["output_tvg_id"]
@@ -235,6 +252,7 @@ def reselect_policy_sources(target_hours: float | None = None) -> dict:
     mapping_rows=_load_mapping_rows(mapping_path)
     mapping_by_name={r.get("playlist_name",""):r for r in mapping_rows}
     selected={}
+    quarantined={}
     diagnostics=[]
 
     for channel_name, rows in by_channel.items():
@@ -267,6 +285,7 @@ def reselect_policy_sources(target_hours: float | None = None) -> dict:
                 "usable":usable,
                 "programmes":programmes,
                 "source_obj":src,
+                "evidence_required":_requires_evidence(rows),
             }
             candidates.append(c)
             diagnostics.append({
@@ -286,13 +305,21 @@ def reselect_policy_sources(target_hours: float | None = None) -> dict:
             )
             if winner["output_tvg_id"]:
                 selected[channel_name]=winner
+        elif _requires_evidence(rows):
+            existing=mapping_by_name.get(channel_name) or {}
+            quarantined[channel_name]=(existing.get("output_tvg_id") or "").strip()
+            diagnostics.append({
+                "playlist_name":channel_name,
+                "status":"EVIDENCE_REQUIRED_NO_PROVEN_DONOR",
+                "output_tvg_id":quarantined[channel_name],
+            })
 
-    if not selected:
+    if not selected and not quarantined:
         (OUTPUT/"source-selection-v15.json").write_text(
             json.dumps({"target_hours":target_hours,"diagnostics":diagnostics},ensure_ascii=False,indent=2),
             encoding="utf-8"
         )
-        return {"changed":0,"selected":0,"reason":"no-live-candidates"}
+        return {"changed":0,"selected":0,"quarantined":0,"reason":"no-live-candidates"}
 
     with gzip.open(epg_path,"rb") as f:
         tv=ET.parse(f).getroot()
@@ -301,10 +328,32 @@ def reselect_policy_sources(target_hours: float | None = None) -> dict:
     for name,w in selected.items():
         selected_by_out[w["output_tvg_id"]].append((name,w))
 
-    # Remove the builder's first-match schedule only for output IDs we are
-    # deterministically replacing. This prevents duplicate/contradictory NOW.
+    managed_names=set(selected) | set(quarantined)
+    mapping_rows=[
+        r for r in mapping_rows
+        if r.get("playlist_name") not in managed_names
+    ]
+    for name,w in selected.items():
+        ch=playlist[name]
+        mapping_rows.append({
+            "playlist_name":name,
+            "playlist_tvg_id":getattr(ch,"tvg_id","") or "",
+            "output_tvg_id":w["output_tvg_id"],
+            "group":getattr(ch,"group","") or "",
+            "region":"",
+            "source":w["source"],
+            "source_id":w["source_id"],
+            "method":"policy-best-source",
+            "confidence":"100",
+        })
+
+    orphaned_quarantine_ids=_orphaned_quarantine_ids(quarantined,mapping_rows)
+
     for elem in list(tv):
-        if elem.tag.split("}")[-1]=="programme" and elem.get("channel","") in selected_by_out:
+        if elem.tag.split("}")[-1]!="programme":
+            continue
+        output_id=elem.get("channel","")
+        if output_id in selected_by_out or output_id in orphaned_quarantine_ids:
             tv.remove(elem)
 
     existing_channel_ids={
@@ -343,22 +392,6 @@ def reselect_policy_sources(target_hours: float | None = None) -> dict:
                     p.set(attr,convert_xmltv_timestamp(p.get(attr),timezone_name))
             tv.append(p)
 
-    # Replace mapping rows for selected playlist names.
-    selected_names=set(selected)
-    mapping_rows=[r for r in mapping_rows if r.get("playlist_name") not in selected_names]
-    for name,w in selected.items():
-        ch=playlist[name]
-        mapping_rows.append({
-            "playlist_name":name,
-            "playlist_tvg_id":getattr(ch,"tvg_id","") or "",
-            "output_tvg_id":w["output_tvg_id"],
-            "group":getattr(ch,"group","") or "",
-            "region":"",
-            "source":w["source"],
-            "source_id":w["source_id"],
-            "method":"policy-best-source",
-            "confidence":"100",
-        })
     _write_mapping_rows(mapping_path,mapping_rows)
 
     # Re-apply local SQLite metadata to newly inserted programmes.
@@ -384,6 +417,8 @@ def reselect_policy_sources(target_hours: float | None = None) -> dict:
     else:
         payload={"channels":{}}
     channels_map=dict(payload.get("channels",{}))
+    for name in quarantined:
+        channels_map.pop(name,None)
     for name,w in selected.items():
         channels_map[name]=w["output_tvg_id"]
     payload["channels"]=channels_map
@@ -411,6 +446,13 @@ def reselect_policy_sources(target_hours: float | None = None) -> dict:
             }
             for name,w in selected.items()
         },
+        "quarantined":{
+            name:{
+                "reason":"EVIDENCE_REQUIRED_NO_PROVEN_DONOR",
+                "previous_output_tvg_id":output_id,
+            }
+            for name,output_id in quarantined.items()
+        },
         "diagnostics":diagnostics,
     }
     (OUTPUT/"source-selection-v15.json").write_text(
@@ -424,7 +466,7 @@ def reselect_policy_sources(target_hours: float | None = None) -> dict:
             pass
 
     print(
-        f"[v15.1-selector] selected={len(selected)} target={target_hours:g}h",
+        f"[v15.1-selector] selected={len(selected)} quarantined={len(quarantined)} target={target_hours:g}h",
         flush=True,
     )
     for name,w in selected.items():
@@ -434,4 +476,9 @@ def reselect_policy_sources(target_hours: float | None = None) -> dict:
             flush=True,
         )
 
-    return {"changed":len(selected),"selected":len(selected),"target_hours":target_hours}
+    return {
+        "changed":len(selected)+len(quarantined),
+        "selected":len(selected),
+        "quarantined":len(quarantined),
+        "target_hours":target_hours,
+    }

@@ -154,6 +154,7 @@ def _load_extra_policy():
             "source": (row.get("source") or "").strip(),
             "source_id": (row.get("source_id") or "").strip(),
             "hard_pin": "0",
+            "evidence_required": "1",
             "notes": (row.get("notes") or "live evidence candidate").strip(),
         })
     return [r for r in rows if r["playlist_name"] and r["source"] and r["source_id"]]
@@ -276,6 +277,9 @@ def install(source_reselector_module):
                 ):
                     c["_evidence_selected"] = True
                     return c
+
+        if any(_enabled(c.get("evidence_required", "0")) for c in valid):
+            return None
 
         return original_choose(candidates, target_hours)
 
