@@ -92,8 +92,10 @@ def _capture_frame(url,directory,second,index):
 OCR_VARIANTS={
  "top_left":"crop=iw*0.62:ih*0.30:0:0,scale=2600:-2,format=gray,eq=contrast=1.7:brightness=0.04,unsharp=5:5:1.0",
  "top_left_tight":"crop=iw*0.48:ih*0.22:0:0,scale=2800:-2,format=gray,eq=contrast=1.9:brightness=0.05,unsharp=5:5:1.2",
+ "top_band":"crop=iw:ih*0.30:0:0,scale=2800:-2,format=gray,eq=contrast=1.8:brightness=0.04,unsharp=5:5:1.1",
  "left_bottom":"crop=iw*0.62:ih*0.34:0:ih*0.66,scale=2600:-2,format=gray,eq=contrast=1.7:brightness=0.04,unsharp=5:5:1.0",
- "left_bottom_tight":"crop=iw*0.48:ih*0.24:0:ih*0.76,scale=2800:-2,format=gray,eq=contrast=1.9:brightness=0.05,unsharp=5:5:1.2"
+ "left_bottom_tight":"crop=iw*0.48:ih*0.24:0:ih*0.76,scale=2800:-2,format=gray,eq=contrast=1.9:brightness=0.05,unsharp=5:5:1.2",
+ "bottom_band":"crop=iw:ih*0.30:0:ih*0.70,scale=2800:-2,format=gray,eq=contrast=1.8:brightness=0.04,unsharp=5:5:1.1"
 }
 
 def _variant_plan(channel_name):
@@ -185,17 +187,28 @@ def _tesseract(path,psm):
     except subprocess.TimeoutExpired:return []
     return _clean_lines(p.stdout.splitlines()) if p.returncode==0 else []
 
-def _ocr_frame(frame,workdir,channel_name="",profile=None):
+def _ocr_frame(frame,workdir,channel_name="",profile=None,provider_name=""):
+    """Read title text without letting one garbage OCR hit hide better zones.
+
+    The previously successful zone is tried first. A zone is remembered only
+    when a plausible movie title is selected; otherwise the scan expands to
+    full-width top/bottom bands.
+    """
     lines=[];candidates=[];processed={}
     profile=profile or {}
-    primary_tight,primary_wide,opposite_tight=_variant_plan(channel_name)
-    learned=profile.get("preferred_zone")
+    learned=profile.get("preferred_zone","")
+
     if learned in OCR_VARIANTS:
-        # Start exactly where this channel succeeded previously.
-        if learned.startswith("left_bottom"):
-            primary_tight,primary_wide,opposite_tight=("left_bottom_tight","left_bottom","top_left_tight")
-        elif learned.startswith("top_left"):
-            primary_tight,primary_wide,opposite_tight=("top_left_tight","top_left","left_bottom_tight")
+        plan=[learned]
+        if learned.startswith("top"):
+            plan += ["top_left_tight","top_left","top_band","left_bottom_tight","bottom_band"]
+        else:
+            plan += ["left_bottom_tight","left_bottom","bottom_band","top_left_tight","top_band"]
+    else:
+        primary_tight,primary_wide,opposite_tight=_variant_plan(channel_name)
+        plan=[primary_tight,primary_wide,opposite_tight,"top_band","bottom_band"]
+
+    plan=list(dict.fromkeys(x for x in plan if x in OCR_VARIANTS))
 
     def make(variant):
         if variant in processed:return processed[variant]
@@ -204,35 +217,28 @@ def _ocr_frame(frame,workdir,channel_name="",profile=None):
         return processed[variant]
 
     def add(engine,variant,found,psm=None):
-        if not found:return False
+        if not found:return
         item={"engine":engine,"variant":variant,"lines":found}
         if psm is not None:item["psm"]=psm
         candidates.append(item)
         for x in found:
             if x not in lines:lines.append(x)
-        return True
 
-    img=make(primary_tight)
-    if img and add("paddleocr",primary_tight,_paddle_ocr(img)):
-        return lines,candidates
+    for variant in plan:
+        img=make(variant)
+        if not img:
+            continue
 
-    img2=make(primary_wide)
-    if img2 and add("paddleocr",primary_wide,_paddle_ocr(img2)):
-        return lines,candidates
+        add("paddleocr",variant,_paddle_ocr(img))
+        add("tesseract",variant,_tesseract(img,11),11)
+        chosen=_pick_title(candidates,channel_name,provider_name,profile)
+        if not (chosen and chosen.get("confidence")=="high"):
+            add("tesseract",variant,_tesseract(img,6),6)
+            chosen=_pick_title(candidates,channel_name,provider_name,profile)
 
-    best=img or img2
-    best_variant=primary_tight if img else primary_wide
-    if best:
-        if add("tesseract",best_variant,_tesseract(best,11),11):
-            return lines,candidates
-        if add("tesseract",best_variant,_tesseract(best,6),6):
-            return lines,candidates
+        if chosen and chosen.get("confidence")=="high":
+            break
 
-    other=make(opposite_tight)
-    if other:
-        if add("paddleocr",opposite_tight,_paddle_ocr(other)):
-            return lines,candidates
-        add("tesseract",opposite_tight,_tesseract(other,11),11)
     return lines,candidates
 
 def _stable_ocr_lines(frames):
@@ -473,7 +479,7 @@ def _probe(channel,gap,profile):
             if fp is None:
                 frames.append({"approx_second":second,"captured":False})
                 continue
-            ocr,candidates=_ocr_frame(fp,td,provider_name,profile)
+            ocr,candidates=_ocr_frame(fp,td,display_name,profile,provider_name)
             all_candidates.extend(candidates)
             frames.append({
                 "approx_second":second,
@@ -549,7 +555,7 @@ def main():
                 results[key]=future.result()
             except Exception as exc:
                 results[key]={"playlist_name":key,"found_in_playlist":True,"error":type(exc).__name__}
-    payload={"generated_at":datetime.now(timezone.utc).isoformat(),"source_gap_file":"output/movie-epg-gaps.csv","target_groups":sorted(TARGET_GROUPS),"channels_considered":len(gaps),"method":"one-frame-first adaptive OCR; second frame only when first is not high-confidence","privacy":"stream URLs and video frames are never persisted","frame_seconds":list(FRAME_SECONDS),"ocr_variants":list(OCR_VARIANTS),"paddle_available":_PADDLE is not None,"paddle_error":_PADDLE_ERROR,"channels":results}
+    payload={"generated_at":datetime.now(timezone.utc).isoformat(),"source_gap_file":"output/movie-epg-gaps.csv","target_groups":sorted(TARGET_GROUPS),"channels_considered":len(gaps),"method":"learned-zone-first OCR with full-width top/bottom fallback; second frame only when needed","privacy":"stream URLs and video frames are never persisted","frame_seconds":list(FRAME_SECONDS),"ocr_variants":list(OCR_VARIANTS),"paddle_available":_PADDLE is not None,"paddle_error":_PADDLE_ERROR,"channels":results}
     OUTPUT.mkdir(exist_ok=True);_save_profiles(profiles);RESULT.write_text(json.dumps(payload,ensure_ascii=False,indent=2),encoding="utf-8")
     return 0
 
