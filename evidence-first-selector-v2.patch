@@ -1,91 +1,51 @@
+diff --git a/src/source_evidence.py b/src/source_evidence.py
 --- a/src/source_evidence.py
 +++ b/src/source_evidence.py
-@@
--        if observations:
--            ranked = []
--            for c in valid:
--                pos, neg, detail = _candidate_evidence(c, observations)
--                c["_evidence_positive"] = pos
--                c["_evidence_negative"] = neg
--                c["_evidence_detail"] = detail
--                ranked.append(c)
--
+@@ -194,18 +194,25 @@ def install(source_reselector_module):
+                 c["_evidence_detail"] = detail
+                 ranked.append(c)
+
 -            best_positive = max((c["_evidence_positive"] for c in ranked), default=0)
--            if best_positive > 0:
--                winners = [
--                    c for c in ranked
--                    if c["_evidence_positive"] == best_positive
--                    and c["_evidence_negative"] == 0
--                ]
--                if not winners:
--                    winners = [c for c in ranked if c["_evidence_positive"] == best_positive]
--                winner = max(
--                    winners,
--                    key=lambda c: (
--                        -int(c.get("_evidence_negative", 0)),
--                        float(c.get("horizon_hours", 0)),
--                        -int(c.get("priority", 999999)),
--                    ),
--                )
--                channels[channel_name] = {
--                    "source": winner.get("source"),
--                    "source_id": winner.get("source_id"),
--                    "positive_observations": int(winner["_evidence_positive"]),
--                    "negative_observations": int(winner["_evidence_negative"]),
--                    "verified_at": datetime.now(timezone.utc).isoformat(),
--                    "evidence": winner.get("_evidence_detail", []),
--                }
--                _save_state(state)
--                winner["_evidence_selected"] = True
--                return winner
--
--        learned = channels.get(channel_name) if channel_name else None
--        if isinstance(learned, dict):
-+        if observations:
-+            ranked = []
-+            for c in valid:
-+                pos, neg, detail = _candidate_evidence(c, observations)
-+                c["_evidence_positive"] = pos
-+                c["_evidence_negative"] = neg
-+                c["_evidence_detail"] = detail
-+                ranked.append(c)
-+
-+            # Timestamped live evidence is authoritative. A donor contradicted
-+            # by any observation must not win because of policy order or a long
-+            # horizon.
++            # Timestamped live observations are authoritative. A candidate
++            # contradicted by any observation cannot win on policy order or
++            # horizon alone.
 +            clean = [c for c in ranked if c["_evidence_negative"] == 0]
 +            best_positive = max(
 +                (c["_evidence_positive"] for c in clean),
 +                default=0,
 +            )
-+            if best_positive > 0:
-+                winners = [
+             if best_positive > 0:
+                 winners = [
+-                    c for c in ranked
 +                    c for c in clean
-+                    if c["_evidence_positive"] == best_positive
-+                ]
-+                winner = max(
-+                    winners,
-+                    key=lambda c: (
-+                        float(c.get("horizon_hours", 0)),
-+                        -int(c.get("priority", 999999)),
-+                    ),
-+                )
-+                channels[channel_name] = {
-+                    "source": winner.get("source"),
-+                    "source_id": winner.get("source_id"),
-+                    "positive_observations": int(winner["_evidence_positive"]),
+                     if c["_evidence_positive"] == best_positive
+-                    and c["_evidence_negative"] == 0
+                 ]
+-                if not winners:
+-                    winners = [c for c in ranked if c["_evidence_positive"] == best_positive]
+                 winner = max(
+                     winners,
+                     key=lambda c: (
+-                        -int(c.get("_evidence_negative", 0)),
+                         float(c.get("horizon_hours", 0)),
+                         -int(c.get("priority", 999999)),
+                     ),
+@@ -214,7 +221,7 @@ def install(source_reselector_module):
+                     "source": winner.get("source"),
+                     "source_id": winner.get("source_id"),
+                     "positive_observations": int(winner["_evidence_positive"]),
+-                    "negative_observations": int(winner["_evidence_negative"]),
 +                    "negative_observations": 0,
-+                    "verified_at": datetime.now(timezone.utc).isoformat(),
-+                    "evidence": winner.get("_evidence_detail", []),
-+                }
-+                _save_state(state)
-+                winner["_evidence_selected"] = True
-+                return winner
-+
-+            # Fail closed. Once real observations exist, policy order/horizon
-+            # alone are not sufficient proof of identity. This also prevents a
-+            # previously learned winner from returning after new contradictory
-+            # evidence appears.
+                     "verified_at": datetime.now(timezone.utc).isoformat(),
+                     "evidence": winner.get("_evidence_detail", []),
+                 }
+@@ -222,8 +229,35 @@ def install(source_reselector_module):
+                 winner["_evidence_selected"] = True
+                 return winner
+
++            # Once live evidence exists, do not silently fall back to a
++            # contradicted learned winner or to policy order. Mark a learned
++            # winner conflicted when current observations disprove it.
 +            learned = channels.get(channel_name)
 +            if isinstance(learned, dict):
 +                learned_candidate = next(
@@ -109,28 +69,26 @@
 +                    _save_state(state)
 +            return None
 +
-+        learned = channels.get(channel_name) if channel_name else None
+         learned = channels.get(channel_name) if channel_name else None
+-        if isinstance(learned, dict):
 +        if isinstance(learned, dict) and learned.get("status") != "conflict":
              for c in valid:
                  if (
                      c.get("source") == learned.get("source")
-@@
-         return original_choose(candidates, target_hours)
+diff --git a/tests/test_v1518_source_evidence.py b/tests/test_v1518_source_evidence.py
 --- a/tests/test_v1518_source_evidence.py
 +++ b/tests/test_v1518_source_evidence.py
-@@
- def test_install_appends_evidence_candidates(monkeypatch,tmp_path):
-@@
+@@ -26,3 +26,127 @@ def test_install_appends_evidence_candidates(monkeypatch,tmp_path):
+     rows=mod._read_policy()
      assert rows[0]["playlist_name"]=="BCU VHS HD"
      assert rows[0]["source"]=="a"
-+
 +
 +def _install_for_choice(monkeypatch, tmp_path, observation_title):
 +    t = datetime(2026, 9, 5, 2, 10, tzinfo=timezone.utc)
 +    obs = tmp_path / "obs.csv"
 +    obs.write_text(
-+        "enabled,playlist_name,observed_at,observed_title,notes\\n"
-+        f"1,BCU VHS HD,{t.isoformat()},{observation_title},test\\n",
++        "enabled,playlist_name,observed_at,observed_title,notes\n"
++        f"1,BCU VHS HD,{t.isoformat()},{observation_title},test\n",
 +        encoding="utf-8",
 +    )
 +    state = tmp_path / "state.json"
@@ -144,9 +102,10 @@
 +    ev.install(mod)
 +    return mod, t, state
 +
-+
 +def test_evidence_beats_policy_order_and_longer_horizon(monkeypatch, tmp_path):
-+    mod, t, _ = _install_for_choice(monkeypatch, tmp_path, "Адвокат дьявола")
++    mod, t, _ = _install_for_choice(
++        monkeypatch, tmp_path, "Адвокат дьявола"
++    )
 +    candidates = [
 +        {
 +            "playlist_name": "BCU VHS HD",
@@ -183,12 +142,23 @@
 +    assert winner["_evidence_positive"] == 1
 +    assert winner["_evidence_negative"] == 0
 +
-+
 +def test_contradictory_observation_blocks_learned_winner(monkeypatch, tmp_path):
-+    mod, t, state = _install_for_choice(monkeypatch, tmp_path, "Адвокат дьявола")
++    mod, t, state = _install_for_choice(
++        monkeypatch, tmp_path, "Адвокат дьявола"
++    )
 +    state.write_text(
-+        '{"channels":{"BCU VHS HD":{"source":"old-learned","source_id":"old",'
-+        '"positive_observations":1,"negative_observations":0}}}',
++        """
++{
++  "channels": {
++    "BCU VHS HD": {
++      "source": "old-learned",
++      "source_id": "old",
++      "positive_observations": 1,
++      "negative_observations": 0
++    }
++  }
++}
++""".strip(),
 +        encoding="utf-8",
 +    )
 +    candidates = [
@@ -202,26 +172,43 @@
 +            "programmes": [
 +                _p("Водный мир", t-timedelta(hours=1), t+timedelta(hours=1))
 +            ],
-+        }
++        },
++        {
++            "playlist_name": "BCU VHS HD",
++            "source": "unknown",
++            "source_id": "unknown",
++            "priority": 1,
++            "usable": 20,
++            "horizon_hours": 240.0,
++            "programmes": [],
++        },
 +    ]
 +
 +    assert mod.choose_candidate(candidates, 6.0) is None
 +
-+    import json
-+    saved = json.loads(state.read_text(encoding="utf-8"))
++    saved = __import__("json").loads(state.read_text(encoding="utf-8"))
 +    assert saved["channels"]["BCU VHS HD"]["status"] == "conflict"
 +
-+
-+def test_learned_winner_is_reused_without_new_observations(monkeypatch, tmp_path):
++def test_learned_winner_is_reused_when_there_are_no_observations(monkeypatch, tmp_path):
 +    obs = tmp_path / "obs.csv"
 +    obs.write_text(
-+        "enabled,playlist_name,observed_at,observed_title,notes\\n",
++        "enabled,playlist_name,observed_at,observed_title,notes\n",
 +        encoding="utf-8",
 +    )
 +    state = tmp_path / "state.json"
 +    state.write_text(
-+        '{"channels":{"BCU VHS HD":{"source":"learned","source_id":"right",'
-+        '"positive_observations":2,"negative_observations":0}}}',
++        """
++{
++  "channels": {
++    "BCU VHS HD": {
++      "source": "learned",
++      "source_id": "right",
++      "positive_observations": 2,
++      "negative_observations": 0
++    }
++  }
++}
++""".strip(),
 +        encoding="utf-8",
 +    )
 +    monkeypatch.setattr(ev, "OBS_PATH", obs)
