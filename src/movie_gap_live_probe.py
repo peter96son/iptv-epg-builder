@@ -12,10 +12,10 @@ TARGET_GROUPS={"Кино","USSR","Кинозалы","Кино 4K"}
 GAPS=OUTPUT/"movie-epg-gaps.csv"
 RESULT=OUTPUT/"movie-gap-live-probe.json"
 PROFILES=OUTPUT/"movie-gap-ocr-profiles.json"
-FRAME_SECONDS=(4,10)
+FRAME_SECONDS=(2,8)
 OCR_LANG=os.environ.get("STREAM_OCR_LANG","rus+eng")
 MAX_CHANNELS=max(0,int(os.environ.get("GAP_PROBE_MAX_CHANNELS","0")))
-MAX_WORKERS=max(1,min(8,int(os.environ.get("GAP_PROBE_WORKERS","6"))))
+MAX_WORKERS=max(1,min(10,int(os.environ.get("GAP_PROBE_WORKERS","8"))))
 _PADDLE=None
 _PADDLE_ERROR=None
 _PADDLE_INIT_LOCK=threading.Lock()
@@ -188,12 +188,6 @@ def _tesseract(path,psm):
     return _clean_lines(p.stdout.splitlines()) if p.returncode==0 else []
 
 def _ocr_frame(frame,workdir,channel_name="",profile=None,provider_name=""):
-    """Read title text without letting one garbage OCR hit hide better zones.
-
-    The previously successful zone is tried first. A zone is remembered only
-    when a plausible movie title is selected; otherwise the scan expands to
-    full-width top/bottom bands.
-    """
     lines=[];candidates=[];processed={}
     profile=profile or {}
     learned=profile.get("preferred_zone","")
@@ -207,7 +201,6 @@ def _ocr_frame(frame,workdir,channel_name="",profile=None,provider_name=""):
     else:
         primary_tight,primary_wide,opposite_tight=_variant_plan(channel_name)
         plan=[primary_tight,primary_wide,opposite_tight,"top_band","bottom_band"]
-
     plan=list(dict.fromkeys(x for x in plan if x in OCR_VARIANTS))
 
     def make(variant):
@@ -226,16 +219,21 @@ def _ocr_frame(frame,workdir,channel_name="",profile=None,provider_name=""):
 
     for variant in plan:
         img=make(variant)
-        if not img:
-            continue
-
-        add("paddleocr",variant,_paddle_ocr(img))
+        if not img: continue
         add("tesseract",variant,_tesseract(img,11),11)
         chosen=_pick_title(candidates,channel_name,provider_name,profile)
-        if not (chosen and chosen.get("confidence")=="high"):
-            add("tesseract",variant,_tesseract(img,6),6)
-            chosen=_pick_title(candidates,channel_name,provider_name,profile)
+        if chosen and chosen.get("confidence")=="high":
+            return lines,candidates
+        add("tesseract",variant,_tesseract(img,6),6)
+        chosen=_pick_title(candidates,channel_name,provider_name,profile)
+        if chosen and chosen.get("confidence")=="high":
+            return lines,candidates
 
+    for variant in plan:
+        img=make(variant)
+        if not img: continue
+        add("paddleocr",variant,_paddle_ocr(img))
+        chosen=_pick_title(candidates,channel_name,provider_name,profile)
         if chosen and chosen.get("confidence")=="high":
             break
 

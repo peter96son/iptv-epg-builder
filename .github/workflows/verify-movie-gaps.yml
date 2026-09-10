@@ -10,7 +10,7 @@ permissions:
 
 concurrency:
   group: epg-metadata
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   verify:
@@ -43,7 +43,7 @@ jobs:
         env:
           PLAYLIST_URL: ${{ secrets.PLAYLIST_URL }}
           STREAM_OCR_LANG: rus+eng
-          GAP_PROBE_WORKERS: "6"
+          GAP_PROBE_WORKERS: "8"
         run: python -m src.movie_epg_recovery observe
 
       - name: Evidence recorder — persist proven live titles
