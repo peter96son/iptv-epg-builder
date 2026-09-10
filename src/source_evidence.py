@@ -217,13 +217,17 @@ def install(source_reselector_module):
                 ranked.append(c)
 
             clean = [c for c in ranked if c["_evidence_negative"] == 0]
+            eligible = [
+                c for c in clean
+                if c["_evidence_positive"] >= int(c.get("min_evidence", 1) or 1)
+            ]
             best_positive = max(
-                (c["_evidence_positive"] for c in clean),
+                (c["_evidence_positive"] for c in eligible),
                 default=0,
             )
             if best_positive > 0:
                 winners = [
-                    c for c in clean
+                    c for c in eligible
                     if c["_evidence_positive"] == best_positive
                 ]
                 winner = max(

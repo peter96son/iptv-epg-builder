@@ -49,6 +49,11 @@ jobs:
       - name: Evidence recorder — persist proven live titles
         run: python -m src.movie_epg_recovery record
 
+      - name: Candidate finder — search all movie EPG sources
+        env:
+          EPG_DISCOVERY_TIMEOUT_CAP: "60"
+        run: python -m src.movie_epg_recovery discover
+
       - name: Judge — select only evidence-matching EPG donors
         env:
           PLAYLIST_URL: ${{ secrets.PLAYLIST_URL }}
@@ -62,4 +67,4 @@ jobs:
       - name: Publish evidence and proven donor results
         shell: bash
         run: |
-          bash .github/scripts/safe-publish.sh "Recover movie EPG from live evidence"             data/live_epg_observations_v1518.csv             output/movie-gap-live-probe.json             output/movie-gap-ocr-profiles.json             output/movie-epg-recovery.json             output/source-selection-v15.json             output/mapping.csv             output/epg.xml.gz             output/uhf-mapping.json             output/movie-epg-audit.csv             output/movie-epg-audit.json             output/movie-epg-gaps.csv
+          bash .github/scripts/safe-publish.sh "Recover movie EPG from live evidence"             data/live_epg_observations_v1518.csv             data/live_source_candidates_v1518.csv             data/source_evidence_state.json             output/movie-gap-live-probe.json             output/movie-gap-ocr-profiles.json             output/movie-epg-recovery.json             output/source-selection-v15.json             output/mapping.csv             output/epg.xml.gz             output/uhf-mapping.json             output/movie-epg-audit.csv             output/movie-epg-audit.json             output/movie-epg-gaps.csv

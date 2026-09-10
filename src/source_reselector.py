@@ -286,6 +286,7 @@ def reselect_policy_sources(target_hours: float | None = None) -> dict:
                 "programmes":programmes,
                 "source_obj":src,
                 "evidence_required":_requires_evidence(rows),
+                "min_evidence":2 if "auto-discovered from live title" in (row.get("notes") or "") else 1,
             }
             candidates.append(c)
             diagnostics.append({
