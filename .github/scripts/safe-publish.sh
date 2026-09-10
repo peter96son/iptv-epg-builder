@@ -19,13 +19,16 @@ for attempt in 1 2 3 4 5; do
   git fetch origin main
   git reset --hard origin/main
   git clean -fd
+  restored=()
   for path in "${FILES[@]}"; do
     if [[ -f "$SNAPSHOT/$path" ]]; then
       mkdir -p "$(dirname "$path")"
       cp -p "$SNAPSHOT/$path" "$path"
+      restored+=("$path")
     fi
   done
-  git add -- "${FILES[@]}"
+  [[ "${#restored[@]}" -gt 0 ]] || { echo "No generated files after restore"; exit 0; }
+  git add -- "${restored[@]}"
   git diff --cached --quiet && { echo "No generated output changes"; exit 0; }
   git commit -m "$MESSAGE"
   git push origin HEAD:main && exit 0
