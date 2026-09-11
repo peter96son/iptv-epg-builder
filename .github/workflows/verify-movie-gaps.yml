@@ -24,15 +24,11 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-          cache: pip
-          cache-dependency-path: requirements-ocr.txt
 
       - name: Install OCR tools
         run: |
           sudo apt-get update
           sudo apt-get install -y ffmpeg tesseract-ocr tesseract-ocr-rus
-          python -m pip install --upgrade pip
-          python -m pip install -r requirements-ocr.txt
 
       - name: Dispatcher — identify movie EPG gaps
         env:
@@ -45,6 +41,7 @@ jobs:
           STREAM_OCR_LANG: rus+eng
           GAP_PROBE_WORKERS: "8"
           GAP_PROBE_PADDLE: "0"
+          GAP_PROBE_FFPROBE: "0"
         run: python -m src.movie_epg_recovery observe
 
       - name: Evidence recorder — persist proven live titles
@@ -52,14 +49,16 @@ jobs:
 
       - name: Candidate finder — search all movie EPG sources
         env:
-          EPG_DISCOVERY_TIMEOUT_CAP: "25"
-          EPG_DISCOVERY_WORKERS: "4"
+          EPG_DISCOVERY_TIMEOUT_CAP: "15"
+          EPG_DISCOVERY_WORKERS: "6"
+          EPG_RECOVERY_SOURCE_CACHE: ".cache/movie-recovery-sources"
         run: python -m src.movie_epg_recovery discover
 
       - name: Judge — select only evidence-matching EPG donors
         env:
           PLAYLIST_URL: ${{ secrets.PLAYLIST_URL }}
-          EPG_SOURCE_TIMEOUT_CAP: "25"
+          EPG_SOURCE_TIMEOUT_CAP: "15"
+          EPG_RECOVERY_SOURCE_CACHE: ".cache/movie-recovery-sources"
           EPG_SOURCE_RETRIES_CAP: "1"
           RESELECT_SKIP_METADATA_ENRICH: "1"
         run: python -m src.movie_epg_recovery select

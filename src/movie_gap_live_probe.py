@@ -17,6 +17,7 @@ OCR_LANG=os.environ.get("STREAM_OCR_LANG","rus+eng")
 MAX_CHANNELS=max(0,int(os.environ.get("GAP_PROBE_MAX_CHANNELS","0")))
 MAX_WORKERS=max(1,min(10,int(os.environ.get("GAP_PROBE_WORKERS","8"))))
 USE_PADDLE=str(os.environ.get("GAP_PROBE_PADDLE","0")).strip().lower() in {"1","true","yes","on"}
+USE_FFPROBE=str(os.environ.get("GAP_PROBE_FFPROBE","0")).strip().lower() in {"1","true","yes","on"}
 _PADDLE=None
 _PADDLE_ERROR=None
 _PADDLE_INIT_LOCK=threading.Lock()
@@ -85,8 +86,8 @@ def _ffprobe(url):
 
 def _capture_frame(url,directory,second,index):
     out=directory/f"frame-{index:02d}.png"
-    cmd=["ffmpeg","-hide_banner","-loglevel","error","-rw_timeout","8000000","-i",url,"-ss",str(second),"-frames:v","1","-y",str(out)]
-    try:p=subprocess.run(cmd,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL,timeout=max(18,second+12))
+    cmd=["ffmpeg","-hide_banner","-loglevel","error","-rw_timeout","5000000","-i",url,"-ss",str(second),"-frames:v","1","-y",str(out)]
+    try:p=subprocess.run(cmd,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL,timeout=max(12,second+8))
     except subprocess.TimeoutExpired:return None
     return out if p.returncode==0 and out.exists() and out.stat().st_size>0 else None
 
@@ -107,7 +108,7 @@ def _variant_plan(channel_name):
 
 
 def _preprocess(frame,out,flt):
-    try:p=subprocess.run(["ffmpeg","-hide_banner","-loglevel","error","-i",str(frame),"-frames:v","1","-vf",flt,"-y",str(out)],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL,timeout=10)
+    try:p=subprocess.run(["ffmpeg","-hide_banner","-loglevel","error","-i",str(frame),"-frames:v","1","-vf",flt,"-y",str(out)],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL,timeout=5)
     except subprocess.TimeoutExpired:return False
     return p.returncode==0 and out.exists() and out.stat().st_size>0
 
@@ -184,7 +185,7 @@ def _paddle_ocr(path):
         return []
 
 def _tesseract(path,psm):
-    try:p=subprocess.run(["tesseract",str(path),"stdout","-l",OCR_LANG,"--psm",str(psm)],capture_output=True,text=True,timeout=10)
+    try:p=subprocess.run(["tesseract",str(path),"stdout","-l",OCR_LANG,"--psm",str(psm)],capture_output=True,text=True,timeout=5)
     except subprocess.TimeoutExpired:return []
     return _clean_lines(p.stdout.splitlines()) if p.returncode==0 else []
 
@@ -193,16 +194,12 @@ def _ocr_frame(frame,workdir,channel_name="",profile=None,provider_name=""):
     profile=profile or {}
     learned=profile.get("preferred_zone","")
 
+    primary_tight,_,_=_variant_plan(channel_name)
     if learned in OCR_VARIANTS:
-        plan=[learned]
-        if learned.startswith("top"):
-            plan += ["top_left_tight","top_left","top_band","left_bottom_tight","bottom_band"]
-        else:
-            plan += ["left_bottom_tight","left_bottom","bottom_band","top_left_tight","top_band"]
+        plan=[learned,"top_band","bottom_band"]
     else:
-        primary_tight,primary_wide,opposite_tight=_variant_plan(channel_name)
-        plan=[primary_tight,primary_wide,opposite_tight,"top_band","bottom_band"]
-    plan=list(dict.fromkeys(x for x in plan if x in OCR_VARIANTS))
+        plan=[primary_tight,"top_band","bottom_band"]
+    plan=list(dict.fromkeys(x for x in plan if x in OCR_VARIANTS))[:3]
 
     def make(variant):
         if variant in processed:return processed[variant]
@@ -221,14 +218,16 @@ def _ocr_frame(frame,workdir,channel_name="",profile=None,provider_name=""):
     for variant in plan:
         img=make(variant)
         if not img: continue
-        add("tesseract",variant,_tesseract(img,11),11)
+        found=_tesseract(img,11)
+        add("tesseract",variant,found,11)
         chosen=_pick_title(candidates,channel_name,provider_name,profile)
         if chosen and chosen.get("confidence")=="high":
             return lines,candidates
-        add("tesseract",variant,_tesseract(img,6),6)
-        chosen=_pick_title(candidates,channel_name,provider_name,profile)
-        if chosen and chosen.get("confidence")=="high":
-            return lines,candidates
+        if found:
+            add("tesseract",variant,_tesseract(img,6),6)
+            chosen=_pick_title(candidates,channel_name,provider_name,profile)
+            if chosen and chosen.get("confidence")=="high":
+                return lines,candidates
 
     if USE_PADDLE:
         for variant in plan:
@@ -478,6 +477,8 @@ def _probe(channel,gap,profile):
             fp=_capture_frame(channel["url"],td,second,i+1)
             if fp is None:
                 frames.append({"approx_second":second,"captured":False})
+                if i == 0:
+                    break
                 continue
             ocr,candidates=_ocr_frame(fp,td,display_name,profile,provider_name)
             all_candidates.extend(candidates)
@@ -504,10 +505,10 @@ def _probe(channel,gap,profile):
     if chosen is None or chosen.get("confidence")!="high":
         chosen=_pick_title(all_candidates,display_name,provider_name,profile)
 
-    if not chosen or chosen.get("confidence")!="high":
+    if USE_FFPROBE and (not chosen or chosen.get("confidence")!="high"):
         meta=_ffprobe(channel["url"])
     else:
-        meta={"ok":True,"skipped":"high-confidence-ocr"}
+        meta={"ok":True,"skipped":"hourly-fast-path"}
 
     _update_profile(profile,chosen,all_candidates,display_name,provider_name)
 

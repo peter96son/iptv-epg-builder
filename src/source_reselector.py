@@ -7,6 +7,7 @@ import os
 import tempfile
 import xml.etree.ElementTree as ET
 from collections import defaultdict
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from copy import deepcopy
 from datetime import datetime, timezone
 from pathlib import Path
@@ -119,36 +120,46 @@ def _download_policy_sources(policy_rows: list[dict]) -> dict[str, XMLTVSource]:
         if name and name not in wanted:
             wanted.append(name)
 
-    loaded={}
-    timeout_cap=max(5, int(os.environ.get("EPG_SOURCE_TIMEOUT_CAP","90") or 90))
-    retries_cap=max(1, int(os.environ.get("EPG_SOURCE_RETRIES_CAP","2") or 2))
+    timeout_cap=max(5,int(os.environ.get("EPG_SOURCE_TIMEOUT_CAP","90") or 90))
+    retries_cap=max(1,int(os.environ.get("EPG_SOURCE_RETRIES_CAP","2") or 2))
+    workers=max(1,min(8,int(os.environ.get("EPG_SOURCE_WORKERS","6") or 6)))
+    cache_dir_raw=os.environ.get("EPG_RECOVERY_SOURCE_CACHE","").strip()
+    cache_dir=ROOT/cache_dir_raw if cache_dir_raw and not Path(cache_dir_raw).is_absolute() else (Path(cache_dir_raw) if cache_dir_raw else None)
 
-    for name in wanted:
+    def load_one(spec):
+        order,name=spec
         cfg=configs.get(name)
         if not cfg:
-            print(f"[v15.1-selector] source not configured: {name}", flush=True)
-            continue
+            return order,name,None,f"source not configured: {name}"
         url=_source_url(cfg)
         if not url:
-            continue
+            return order,name,None,"missing URL"
         try:
-            cache_path=None
-            if cfg.get("cache_fallback"):
-                cache_path=ROOT/".cache"/"epg"/f"{name}.bin"
-            data=fetch_bytes(
-                url,
-                timeout=min(int(cfg.get("timeout",180) or 180), timeout_cap),
-                retries=min(int(cfg.get("retries",2) or 2), retries_cap),
-                cache_bust_on_retry=bool(cfg.get("cache_bust_on_retry",False)),
-                cache_path=cache_path,
-                stale_if_error_seconds=int(cfg.get("stale_if_error_seconds",0) or 0),
-            )
-            loaded[name]=XMLTVSource(name,data).index()
-            print(f"[v15.1-selector] loaded {name}", flush=True)
+            data=None
+            if cache_dir is not None:
+                cache_file=cache_dir/f"{name}.bin"
+                if cache_file.exists() and cache_file.stat().st_size>0:
+                    data=cache_file.read_bytes()
+            if data is None:
+                cache_path=None
+                if cfg.get("cache_fallback"):
+                    cache_path=ROOT/".cache"/"epg"/f"{name}.bin"
+                data=fetch_bytes(url,timeout=min(int(cfg.get("timeout",180) or 180),timeout_cap),retries=min(int(cfg.get("retries",2) or 2),retries_cap),cache_bust_on_retry=bool(cfg.get("cache_bust_on_retry",False)),cache_path=cache_path,stale_if_error_seconds=int(cfg.get("stale_if_error_seconds",0) or 0))
+            return order,name,XMLTVSource(name,data).index(),None
         except Exception as exc:
-            print(f"[v15.1-selector] FAILED {name}: {exc}", flush=True)
-    return loaded
+            return order,name,None,str(exc)
 
+    loaded={}
+    with ThreadPoolExecutor(max_workers=min(workers,max(1,len(wanted)))) as pool:
+        futures=[pool.submit(load_one,(i,name)) for i,name in enumerate(wanted)]
+        results=[f.result() for f in as_completed(futures)]
+    for _,name,src,error in sorted(results,key=lambda x:x[0]):
+        if src is not None:
+            loaded[name]=src
+            print(f"[v15.1-selector] loaded {name}",flush=True)
+        else:
+            print(f"[v15.1-selector] FAILED {name}: {error}",flush=True)
+    return loaded
 
 def _load_mapping_rows(path: Path) -> list[dict]:
     if not path.exists():
@@ -231,6 +242,14 @@ def reselect_policy_sources(target_hours: float | None = None) -> dict:
         else os.environ.get("EPG_POLICY_TARGET_HOURS",DEFAULT_TARGET_HORIZON_HOURS)
     )
     policy=_read_policy()
+    only_raw=os.environ.get("RESELECT_ONLY_CHANNELS_JSON","").strip()
+    if only_raw:
+        try:
+            only=set(json.loads(only_raw))
+        except Exception:
+            only=set()
+        if only:
+            policy=[r for r in policy if (r.get("playlist_name") or "").strip() in only]
     if not policy:
         return {"changed":0,"selected":0,"reason":"no-policy"}
 

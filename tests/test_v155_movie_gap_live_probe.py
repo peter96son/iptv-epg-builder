@@ -86,5 +86,5 @@ def test_fast_ocr_has_no_full_variant_loop():
 
 def test_ffprobe_is_not_on_high_confidence_ocr_path():
     source=inspect.getsource(m._probe)
-    assert 'skipped":"high-confidence-ocr"' in source
+    assert 'skipped":"hourly-fast-path"' in source
     assert 'meta=_ffprobe(channel["url"])' in source

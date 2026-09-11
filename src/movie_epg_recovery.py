@@ -27,6 +27,7 @@ PROBE = OUTPUT / "movie-gap-live-probe.json"
 OBSERVATIONS = DATA / "live_epg_observations_v1518.csv"
 CANDIDATES = DATA / "live_source_candidates_v1518.csv"
 RECOVERY_REPORT = OUTPUT / "movie-epg-recovery.json"
+SOURCE_CACHE = ROOT / ".cache" / "movie-recovery-sources"
 TARGET_GROUPS = {"Кино", "USSR", "Кинозалы", "Кино 4K"}
 OBS_FIELDS = ["enabled","observed_at","playlist_name","observed_title","origin","notes"]
 
@@ -186,8 +187,8 @@ def discover_candidates():
 
     added, scanned, failed = [], [], []
     if observations:
-        timeout_cap=max(8,int(os.environ.get("EPG_DISCOVERY_TIMEOUT_CAP","25") or 25))
-        workers=max(1,min(6,int(os.environ.get("EPG_DISCOVERY_WORKERS","4") or 4)))
+        timeout_cap=max(8,int(os.environ.get("EPG_DISCOVERY_TIMEOUT_CAP","15") or 25))
+        workers=max(1,min(6,int(os.environ.get("EPG_DISCOVERY_WORKERS","6") or 4)))
         configs=[]
         for i,cfg in enumerate(load_sources()):
             if cfg.get("enabled",True) is False: continue
@@ -200,7 +201,12 @@ def discover_candidates():
         def scan_source(spec):
             i,source_name,url,cfg=spec; src=None; matches=[]
             try:
+                cache_dir=Path(os.environ.get("EPG_RECOVERY_SOURCE_CACHE","") or SOURCE_CACHE)
+                cache_dir.mkdir(parents=True,exist_ok=True)
+                cache_file=cache_dir/f"{source_name}.bin"
                 data=fetch_bytes(url,timeout=min(int(cfg.get("timeout",180) or 180),timeout_cap),retries=1,cache_bust_on_retry=False,cache_path=None,stale_if_error_seconds=0)
+                try: cache_file.write_bytes(data)
+                except Exception: pass
                 src=XMLTVSource(source_name,data).index(); wanted=set(src.channels)
                 for programme in src.fresh_programmes(wanted,past_days=1,future_days=1):
                     start_dt,stop_dt=_programme_window(programme)
@@ -257,7 +263,23 @@ def discover_candidates():
     return result
 
 def select_donors():
-    # ROLE 3/4: matcher + judge. Evidence layer must approve the donor.
+    # ROLE 3/4: only channels observed with high confidence in this run can change.
+    probe=_load_json(PROBE,{})
+    affected=[]
+    for row in (probe.get("channels",{}) or {}).values():
+        if not isinstance(row,dict) or row.get("group") not in TARGET_GROUPS:
+            continue
+        chosen=row.get("recognized_title")
+        name=(row.get("playlist_name") or row.get("provider_name") or "").strip()
+        if name and isinstance(chosen,dict) and chosen.get("confidence")=="high" and chosen.get("title"):
+            affected.append(name)
+    affected=sorted(set(affected))
+    if not affected:
+        payload={"selector":{"changed":0,"selected":0,"reason":"no-high-confidence-observations"},"selected_count":0,"quarantined_count":0,"selected":{},"quarantined":{}}
+        _write_report("judge",payload)
+        print("[movie-recovery:judge] "+json.dumps(payload,ensure_ascii=False),flush=True)
+        return payload
+    os.environ["RESELECT_ONLY_CHANNELS_JSON"]=json.dumps(affected,ensure_ascii=False)
     install_source_evidence(source_reselector)
     result = source_reselector.reselect_policy_sources()
     report = _load_json(OUTPUT / "source-selection-v15.json", {})
