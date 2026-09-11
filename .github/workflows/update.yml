@@ -26,14 +26,6 @@ jobs:
           python-version: "3.12"
       - name: Install test dependencies
         run: python -m pip install -r requirements.txt
-      - name: Restore EPG and metadata cache
-        id: epg-cache-restore
-        uses: actions/cache/restore@v4
-        with:
-          path: .cache
-          key: epg-cache-${{ runner.os }}-${{ github.run_id }}
-          restore-keys: |
-            epg-cache-${{ runner.os }}-
       - name: Restore durable metadata snapshot
         run: python -m src.metadata_snapshot restore
       - name: Run tests
@@ -66,12 +58,6 @@ jobs:
         run: python -m src.epg_horizon_audit
       - name: Live EPG binding and NOW NEXT audit
         run: python -m src.epg_live_audit
-      - name: Save EPG and metadata cache
-        if: always()
-        uses: actions/cache/save@v4
-        with:
-          path: .cache
-          key: epg-cache-${{ runner.os }}-${{ github.run_id }}
       - name: Save durable metadata snapshot
         run: python -m src.metadata_snapshot save
       - name: Commit updated EPG output
