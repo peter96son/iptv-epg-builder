@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-11T22:19:43.691249+00:00",
+  "updated_at": "2026-09-11T23:20:45.149491+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-11T22:19:41.984433+00:00",
+      "checked_at_utc": "2026-09-11T23:20:43.499560+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 488,
-      "ok": 401,
-      "gaps": 87,
+      "ok": 393,
+      "gaps": 95,
       "issue_counts": {
-        "NO_MAPPING": 46,
-        "NO_CURRENT_PROGRAMME": 39,
-        "NO_NEXT_PROGRAMME": 41
+        "NO_MAPPING": 47,
+        "NO_CURRENT_PROGRAMME": 40,
+        "NO_NEXT_PROGRAMME": 48
       },
       "group_counts": {
         "USSR": {
@@ -25,8 +25,8 @@
         },
         "Кино": {
           "channels": 168,
-          "ok": 140,
-          "gaps": 28
+          "ok": 134,
+          "gaps": 34
         },
         "Кино 4K": {
           "channels": 63,
@@ -35,53 +35,53 @@
         },
         "Кинозалы": {
           "channels": 239,
-          "ok": 185,
-          "gaps": 54
+          "ok": 183,
+          "gaps": 56
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 87,
+      "channels_considered": 91,
       "high_confidence_observations": 2,
       "recognized": [
         {
-          "playlist_name": "Звёздные войны",
-          "provider_name": "Звёздные войны",
-          "title": "[СЕЛЕНИУ",
-          "score": 21.75,
-          "zone": "top_band",
+          "playlist_name": "Thriller HD",
+          "provider_name": "Thriller HD",
+          "title": "НЕ ГОВОРИ НИКОМУ",
+          "score": 23.5,
+          "zone": "top_left",
           "engine": "tesseract"
         },
         {
-          "playlist_name": "Premiere HD 2",
-          "provider_name": "Premiere HD 2",
-          "title": "Моана",
-          "score": 21.25,
-          "zone": "top_left_tight",
+          "playlist_name": "MM Ужастик HD",
+          "provider_name": "MM Ужастик HD",
+          "title": "Мурашки | 3-17",
+          "score": 12.75,
+          "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
       "added": 2,
-      "rejected": 85,
+      "rejected": 89,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-11T22:05:23.072192+00:00",
-          "playlist_name": "Звёздные войны",
-          "observed_title": "[СЕЛЕНИУ",
+          "observed_at": "2026-09-11T23:06:00.312935+00:00",
+          "playlist_name": "Thriller HD",
+          "observed_title": "НЕ ГОВОРИ НИКОМУ",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=21.75"
+          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=23.5"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-09-11T22:05:23.072192+00:00",
-          "playlist_name": "Premiere HD 2",
-          "observed_title": "Моана",
+          "observed_at": "2026-09-11T23:06:00.312935+00:00",
+          "playlist_name": "MM Ужастик HD",
+          "observed_title": "Мурашки | 3-17",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=21.25"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=12.75"
         }
       ]
     },
@@ -96,9 +96,9 @@
       "quarantined_count": 1,
       "selected": {},
       "quarantined": {
-        "Premiere HD 2": {
+        "MM Ужастик HD": {
           "reason": "EVIDENCE_REQUIRED_NO_PROVEN_DONOR",
-          "previous_output_tvg_id": "Xpremierehd2"
+          "previous_output_tvg_id": "Xminimax-ujastik"
         }
       }
     },
@@ -123,35 +123,42 @@
           "error": "RuntimeError"
         }
       ],
-      "candidates_added": 4,
+      "candidates_added": 5,
       "added": [
         {
           "enabled": "1",
-          "playlist_name": "Premiere HD 2",
-          "source": "gabbarit-current",
-          "source_id": "Premiere HD 2",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Моана; candidate=Моана (2026).; requires two positive observations before selection"
+          "playlist_name": "MM Ужастик HD",
+          "source": "iptv-online-primary",
+          "source_id": "Xminimax-ujastik",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Мурашки | 3-17; candidate=х/ф Мурашки-3-17; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "Premiere HD 2",
-          "source": "gabbarit-primary",
-          "source_id": "Premiere HD 2",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Моана; candidate=Моана (2026).; requires two positive observations before selection"
+          "playlist_name": "MM Ужастик HD",
+          "source": "iptvx-noarch",
+          "source_id": "minimax-ujastik",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Мурашки | 3-17; candidate=х/ф Мурашки-3-17; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "Premiere HD 2",
-          "source": "gabbarit-mirror",
-          "source_id": "Premiere HD 2",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Моана; candidate=Моана (2026).; requires two positive observations before selection"
+          "playlist_name": "MM Ужастик HD",
+          "source": "minimax-mm-dedicated",
+          "source_id": "ujastik-mm",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Мурашки | 3-17; candidate=Мурашки-3-17; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "Premiere HD 2",
+          "playlist_name": "MM Ужастик HD",
+          "source": "tvteam",
+          "source_id": "ch1264",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Мурашки | 3-17; candidate=Мурашки-3-17; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Ужастик HD",
           "source": "epgone-full-movie-rescue",
-          "source_id": "1122",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Моана; candidate=Моана; requires two positive observations before selection"
+          "source_id": "5172",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Мурашки | 3-17; candidate=Мурашки-3-17; requires two positive observations before selection"
         }
       ]
     }
