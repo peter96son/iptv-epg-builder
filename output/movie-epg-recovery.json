@@ -1,19 +1,19 @@
 {
-  "updated_at": "2026-09-11T14:47:57.469185+00:00",
+  "updated_at": "2026-09-11T19:43:42.117490+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-11T14:47:56.540192+00:00",
+      "checked_at_utc": "2026-09-11T19:43:41.185116+00:00",
       "groups": [
         "USSR",
         "Кино",
         "Кино 4K",
         "Кинозалы"
       ],
-      "channels": 504,
-      "ok": 424,
-      "gaps": 80,
+      "channels": 488,
+      "ok": 405,
+      "gaps": 83,
       "issue_counts": {
-        "NO_MAPPING": 42,
+        "NO_MAPPING": 45,
         "NO_CURRENT_PROGRAMME": 38,
         "NO_NEXT_PROGRAMME": 38
       },
@@ -30,149 +30,84 @@
         },
         "Кино 4K": {
           "channels": 63,
-          "ok": 62,
-          "gaps": 1
+          "ok": 61,
+          "gaps": 2
         },
         "Кинозалы": {
-          "channels": 255,
-          "ok": 206,
-          "gaps": 49
+          "channels": 239,
+          "ok": 188,
+          "gaps": 51
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 80,
-      "high_confidence_observations": 1,
+      "channels_considered": 83,
+      "high_confidence_observations": 2,
       "recognized": [
         {
-          "playlist_name": "YOSSO-4K",
-          "provider_name": "YOSSO-4K",
-          "title": "Фуоззовк",
-          "score": 22.0,
-          "zone": "top_band",
+          "playlist_name": "VeleS Наше Кино",
+          "provider_name": "VeleS Наше Кино",
+          "title": "Спутник (2020)",
+          "score": 16.75,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "BCU Праздники HDR",
+          "provider_name": "BCU Праздники HDR",
+          "title": "Праздники - 3 сезон, 16 серия",
+          "score": 15.75,
+          "zone": "top_left_tight",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 79,
+      "added": 2,
+      "rejected": 81,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-11T14:30:41.154026+00:00",
-          "playlist_name": "YOSSO-4K",
-          "observed_title": "Фуоззовк",
+          "observed_at": "2026-09-11T19:32:51.150592+00:00",
+          "playlist_name": "VeleS Наше Кино",
+          "observed_title": "Спутник (2020)",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=22.0"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=16.75"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-11T19:32:51.150592+00:00",
+          "playlist_name": "BCU Праздники HDR",
+          "observed_title": "Праздники - 3 сезон, 16 серия",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=15.75"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 12,
-        "selected": 10,
+        "changed": 2,
+        "selected": 0,
         "quarantined": 2,
         "target_hours": 6.0
       },
-      "selected_count": 10,
+      "selected_count": 0,
       "quarantined_count": 2,
-      "selected": {
-        "Premium HD": {
-          "source": "gabbarit-current",
-          "source_id": "Premium HD",
-          "output_tvg_id": "premium-hd",
-          "horizon_hours": 53.6,
-          "current": true,
-          "usable": 29
-        },
-        "Premiere HD": {
-          "source": "gabbarit-current",
-          "source_id": "Premiere HD",
-          "output_tvg_id": "Xpremiere-hd",
-          "horizon_hours": 54.27,
-          "current": true,
-          "usable": 34
-        },
-        "USSR HD": {
-          "source": "gabbarit-current",
-          "source_id": "USSR HD",
-          "output_tvg_id": "Xussr-premieregroup",
-          "horizon_hours": 54.06,
-          "current": true,
-          "usable": 32
-        },
-        "Paradise HD": {
-          "source": "gabbarit-current",
-          "source_id": "Paradise HD",
-          "output_tvg_id": "Xparadise-hd",
-          "horizon_hours": 54.79,
-          "current": true,
-          "usable": 35
-        },
-        "Paradox HD": {
-          "source": "gabbarit-current",
-          "source_id": "Paradox HD",
-          "output_tvg_id": "Xparadox-hd",
-          "horizon_hours": 54.29,
-          "current": true,
-          "usable": 28
-        },
-        "4ever Cinema HD": {
-          "source": "gabbarit-current",
-          "source_id": "4 ever Cinema",
-          "output_tvg_id": "X4ever-cinema",
-          "horizon_hours": 223.3,
-          "current": true,
-          "usable": 19
-        },
-        "4ever Drama HD": {
-          "source": "gabbarit-current",
-          "source_id": "4ever Drama",
-          "output_tvg_id": "X4ever-drama",
-          "horizon_hours": 223.29,
-          "current": true,
-          "usable": 19
-        },
-        "4ever Theater HD": {
-          "source": "iptvx-noarch",
-          "source_id": "4ever-theater",
-          "output_tvg_id": "X4ever-theater",
-          "horizon_hours": 6.14,
-          "current": true,
-          "usable": 8
-        },
-        "4ever Music HD": {
-          "source": "iptvx-noarch",
-          "source_id": "4ever-music",
-          "output_tvg_id": "X4ever-music",
-          "horizon_hours": 65.29,
-          "current": true,
-          "usable": 28
-        },
-        "MM Фантастика HD": {
-          "source": "minimax-mm-dedicated",
-          "source_id": "fantastika-mm",
-          "output_tvg_id": "Xminimax-fantastika",
-          "horizon_hours": 479.25,
-          "current": true,
-          "usable": 32
-        }
-      },
+      "selected": {},
       "quarantined": {
-        "BCU VHS HD": {
+        "BCU Праздники HDR": {
           "reason": "EVIDENCE_REQUIRED_NO_PROVEN_DONOR",
           "previous_output_tvg_id": ""
         },
-        "BOX Oscar HD": {
+        "VeleS Наше Кино": {
           "reason": "EVIDENCE_REQUIRED_NO_PROVEN_DONOR",
-          "previous_output_tvg_id": ""
+          "previous_output_tvg_id": "veles-our-cinema"
         }
       }
     },
     "candidate_discovery": {
-      "live_observations": 1,
+      "live_observations": 2,
       "sources_scanned": 27,
       "sources_failed": [
         {
@@ -184,12 +119,76 @@
           "error": "RuntimeError"
         },
         {
-          "source": "teleguide-ru",
+          "source": "teleguide-rescue",
           "error": "RuntimeError"
         }
       ],
-      "candidates_added": 0,
-      "added": []
+      "candidates_added": 9,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "BCU Праздники HDR",
+          "source": "openbox-tsd",
+          "source_id": "bcu-prazdniki",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Праздники - 3 сезон, 16 серия; candidate=Т/с Праздники - 3 сезон, 16 серия.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "BCU Праздники HDR",
+          "source": "bcumedia-dedicated",
+          "source_id": "BCU Праздники HDR",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Праздники - 3 сезон, 16 серия; candidate=Праздники - 3 сезон, 16 серия; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "VeleS Наше Кино",
+          "source": "tvteam",
+          "source_id": "ch2802",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Спутник (2020); candidate=Спутник (2020).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "BCU Праздники HDR",
+          "source": "gabbarit-current",
+          "source_id": "BCU Сваты 4K",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Праздники - 3 сезон, 16 серия; candidate=Праздники - 3 сезон, 16 серия.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "VeleS Наше Кино",
+          "source": "gabbarit-current",
+          "source_id": "VeleS Наше Кино",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Спутник (2020); candidate=Спутник (2020).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "BCU Праздники HDR",
+          "source": "gabbarit-primary",
+          "source_id": "BCU Сваты 4K",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Праздники - 3 сезон, 16 серия; candidate=Праздники - 3 сезон, 16 серия.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "VeleS Наше Кино",
+          "source": "gabbarit-primary",
+          "source_id": "VeleS Наше Кино",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Спутник (2020); candidate=Спутник (2020).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "BCU Праздники HDR",
+          "source": "gabbarit-mirror",
+          "source_id": "BCU Сваты 4K",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Праздники - 3 сезон, 16 серия; candidate=Праздники - 3 сезон, 16 серия.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "VeleS Наше Кино",
+          "source": "gabbarit-mirror",
+          "source_id": "VeleS Наше Кино",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Спутник (2020); candidate=Спутник (2020).; requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
