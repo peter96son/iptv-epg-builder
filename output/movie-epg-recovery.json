@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-11T03:43:39.523457+00:00",
+  "updated_at": "2026-09-11T12:51:40.789720+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-11T03:43:37.871314+00:00",
+      "checked_at_utc": "2026-09-11T12:51:39.721526+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 504,
-      "ok": 431,
-      "gaps": 73,
+      "ok": 424,
+      "gaps": 80,
       "issue_counts": {
         "NO_MAPPING": 42,
-        "NO_CURRENT_PROGRAMME": 29,
-        "NO_NEXT_PROGRAMME": 31
+        "NO_CURRENT_PROGRAMME": 36,
+        "NO_NEXT_PROGRAMME": 38
       },
       "group_counts": {
         "USSR": {
@@ -25,8 +25,8 @@
         },
         "Кино": {
           "channels": 168,
-          "ok": 143,
-          "gaps": 25
+          "ok": 142,
+          "gaps": 26
         },
         "Кино 4K": {
           "channels": 63,
@@ -35,21 +35,55 @@
         },
         "Кинозалы": {
           "channels": 255,
-          "ok": 212,
-          "gaps": 43
+          "ok": 206,
+          "gaps": 49
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 71,
-      "high_confidence_observations": 0,
-      "recognized": []
+      "channels_considered": 78,
+      "high_confidence_observations": 2,
+      "recognized": [
+        {
+          "playlist_name": "Insomnia HD",
+          "provider_name": "Insomnia HD",
+          "title": "И ГАСНЕТ СВЕТ...",
+          "score": 22.75,
+          "zone": "top_left",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "MM Ужасы HD",
+          "provider_name": "MM Ужасы HD",
+          "title": "Земля против паука (2001)",
+          "score": 15.0,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        }
+      ]
     },
     "evidence_recorder": {
-      "added": 0,
-      "rejected": 71,
-      "observations": []
+      "added": 2,
+      "rejected": 76,
+      "observations": [
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-11T12:30:49.704790+00:00",
+          "playlist_name": "Insomnia HD",
+          "observed_title": "И ГАСНЕТ СВЕТ...",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=22.75"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-11T12:30:49.704790+00:00",
+          "playlist_name": "MM Ужасы HD",
+          "observed_title": "Земля против паука (2001)",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=15.0"
+        }
+      ]
     },
     "judge": {
       "selector": {
@@ -65,31 +99,31 @@
           "source": "gabbarit-current",
           "source_id": "Premium HD",
           "output_tvg_id": "premium-hd",
-          "horizon_hours": 64.72,
+          "horizon_hours": 55.55,
           "current": true,
-          "usable": 30
+          "usable": 29
         },
         "Premiere HD": {
           "source": "gabbarit-current",
           "source_id": "Premiere HD",
           "output_tvg_id": "Xpremiere-hd",
-          "horizon_hours": 65.39,
+          "horizon_hours": 56.22,
           "current": true,
-          "usable": 33
+          "usable": 34
         },
         "USSR HD": {
           "source": "gabbarit-current",
           "source_id": "USSR HD",
           "output_tvg_id": "Xussr-premieregroup",
-          "horizon_hours": 65.18,
+          "horizon_hours": 56.01,
           "current": true,
-          "usable": 30
+          "usable": 32
         },
         "Paradise HD": {
           "source": "gabbarit-current",
           "source_id": "Paradise HD",
           "output_tvg_id": "Xparadise-hd",
-          "horizon_hours": 65.91,
+          "horizon_hours": 56.74,
           "current": true,
           "usable": 34
         },
@@ -97,39 +131,39 @@
           "source": "gabbarit-current",
           "source_id": "Paradox HD",
           "output_tvg_id": "Xparadox-hd",
-          "horizon_hours": 65.4,
+          "horizon_hours": 56.24,
           "current": true,
           "usable": 29
         },
         "4ever Cinema HD": {
-          "source": "gabbarit-current",
-          "source_id": "4 ever Cinema",
+          "source": "iptvx-noarch",
+          "source_id": "4ever-cinema",
           "output_tvg_id": "X4ever-cinema",
-          "horizon_hours": 234.42,
+          "horizon_hours": 7.57,
           "current": true,
-          "usable": 19
+          "usable": 9
         },
         "4ever Drama HD": {
-          "source": "gabbarit-current",
-          "source_id": "4ever Drama",
+          "source": "iptvx-noarch",
+          "source_id": "4ever-drama",
           "output_tvg_id": "X4ever-drama",
-          "horizon_hours": 234.41,
+          "horizon_hours": 7.71,
           "current": true,
-          "usable": 19
+          "usable": 8
         },
         "4ever Theater HD": {
-          "source": "gabbarit-current",
-          "source_id": "4ever Theater",
+          "source": "iptvx-noarch",
+          "source_id": "4ever-theater",
           "output_tvg_id": "X4ever-theater",
-          "horizon_hours": 234.4,
+          "horizon_hours": 8.09,
           "current": true,
-          "usable": 19
+          "usable": 9
         },
         "4ever Music HD": {
           "source": "iptvx-noarch",
           "source_id": "4ever-music",
           "output_tvg_id": "X4ever-music",
-          "horizon_hours": 75.4,
+          "horizon_hours": 67.23,
           "current": true,
           "usable": 28
         },
@@ -137,7 +171,7 @@
           "source": "minimax-mm-dedicated",
           "source_id": "fantastika-mm",
           "output_tvg_id": "Xminimax-fantastika",
-          "horizon_hours": 490.35,
+          "horizon_hours": 481.2,
           "current": true,
           "usable": 33
         }
@@ -154,9 +188,18 @@
       }
     },
     "candidate_discovery": {
-      "live_observations": 0,
-      "sources_scanned": 0,
-      "sources_failed": [],
+      "live_observations": 2,
+      "sources_scanned": 28,
+      "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        }
+      ],
       "candidates_added": 0,
       "added": []
     }
