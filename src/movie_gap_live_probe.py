@@ -16,6 +16,7 @@ FRAME_SECONDS=(2,8)
 OCR_LANG=os.environ.get("STREAM_OCR_LANG","rus+eng")
 MAX_CHANNELS=max(0,int(os.environ.get("GAP_PROBE_MAX_CHANNELS","0")))
 MAX_WORKERS=max(1,min(10,int(os.environ.get("GAP_PROBE_WORKERS","8"))))
+USE_PADDLE=str(os.environ.get("GAP_PROBE_PADDLE","0")).strip().lower() in {"1","true","yes","on"}
 _PADDLE=None
 _PADDLE_ERROR=None
 _PADDLE_INIT_LOCK=threading.Lock()
@@ -229,13 +230,14 @@ def _ocr_frame(frame,workdir,channel_name="",profile=None,provider_name=""):
         if chosen and chosen.get("confidence")=="high":
             return lines,candidates
 
-    for variant in plan:
-        img=make(variant)
-        if not img: continue
-        add("paddleocr",variant,_paddle_ocr(img))
-        chosen=_pick_title(candidates,channel_name,provider_name,profile)
-        if chosen and chosen.get("confidence")=="high":
-            break
+    if USE_PADDLE:
+        for variant in plan:
+            img=make(variant)
+            if not img: continue
+            add("paddleocr",variant,_paddle_ocr(img))
+            chosen=_pick_title(candidates,channel_name,provider_name,profile)
+            if chosen and chosen.get("confidence")=="high":
+                break
 
     return lines,candidates
 
@@ -466,7 +468,7 @@ def _update_profile(profile,chosen,all_candidates,channel_name,provider_name):
     return profile
 
 def _probe(channel,gap,profile):
-    meta=_ffprobe(channel["url"])
+    meta=None
     frames=[];all_lines=[];all_candidates=[];chosen=None
     provider_name=gap.get("provider_name") or channel.get("name","")
     display_name=gap.get("playlist_name") or channel.get("name","")
@@ -501,6 +503,12 @@ def _probe(channel,gap,profile):
 
     if chosen is None or chosen.get("confidence")!="high":
         chosen=_pick_title(all_candidates,display_name,provider_name,profile)
+
+    if not chosen or chosen.get("confidence")!="high":
+        meta=_ffprobe(channel["url"])
+    else:
+        meta={"ok":True,"skipped":"high-confidence-ocr"}
+
     _update_profile(profile,chosen,all_candidates,display_name,provider_name)
 
     return {
@@ -530,8 +538,9 @@ def _probe(channel,gap,profile):
 def main():
     playlist_url=os.environ.get("PLAYLIST_URL","").strip()
     if not playlist_url:raise SystemExit("PLAYLIST_URL missing")
-    # Initialize Paddle once before worker threads.
-    _get_paddle()
+    # Paddle is expensive; initialize it only when explicitly enabled.
+    if USE_PADDLE:
+        _get_paddle()
     gaps=_load_gaps()
     if MAX_CHANNELS:gaps=gaps[:MAX_CHANNELS]
     playlist=_parse_m3u(_download_playlist(playlist_url));results={};jobs={};profiles=_load_profiles()

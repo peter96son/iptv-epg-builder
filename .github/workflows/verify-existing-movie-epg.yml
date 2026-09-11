@@ -9,8 +9,8 @@ permissions:
   contents: write
 
 concurrency:
-  group: epg-metadata
-  cancel-in-progress: false
+  group: movie-existing-verifier
+  cancel-in-progress: true
 
 jobs:
   verify-existing:
@@ -41,12 +41,10 @@ jobs:
           LIVE_EPG_VERIFY_MAX: "250"
           LIVE_EPG_VERIFY_WORKERS: "12"
           LIVE_EPG_MISMATCH_CONFIRM: "2"
+          GAP_PROBE_PADDLE: "0"
         run: python -m src.live_epg_verifier
-
-      - name: Apply confirmed live mismatches to OCR state
-        run: python -m src.live_ocr_epg_overlay
 
       - name: Commit verification evidence
         shell: bash
         run: |
-          bash .github/scripts/safe-publish.sh "Verify existing movie EPG against live stream"             output/live-epg-verification.json             output/live-epg-verification-state.json             output/live-ocr-epg-state.json             output/epg.xml.gz             output/uhf-mapping.json             data/live_epg_observations_v1518.csv
+          bash .github/scripts/safe-publish.sh "Verify existing movie EPG against live stream"             output/live-epg-verification.json             output/live-epg-verification-state.json             data/live_epg_observations_v1518.csv

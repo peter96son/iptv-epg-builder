@@ -1,7 +1,7 @@
 import src.movie_gap_live_probe as m
 
 def test_frame_spacing():
-    assert m.FRAME_SECONDS==(5,25,45)
+    assert m.FRAME_SECONDS==(2,8)
 
 def test_both_corner_families():
     assert "top_left" in m.OCR_VARIANTS
@@ -32,3 +32,10 @@ def test_paddle_inference_has_lock():
     import inspect
     source=inspect.getsource(m._paddle_ocr)
     assert "_PADDLE_RUN_LOCK" in source
+
+
+def test_paddle_disabled_does_not_initialize_in_main():
+    import inspect
+    source=inspect.getsource(m.main)
+    assert "if USE_PADDLE:" in source
+    assert "_get_paddle()" in source

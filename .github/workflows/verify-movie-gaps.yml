@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: epg-metadata
+  group: movie-gap-recovery
   cancel-in-progress: true
 
 jobs:
@@ -44,6 +44,7 @@ jobs:
           PLAYLIST_URL: ${{ secrets.PLAYLIST_URL }}
           STREAM_OCR_LANG: rus+eng
           GAP_PROBE_WORKERS: "8"
+          GAP_PROBE_PADDLE: "0"
         run: python -m src.movie_epg_recovery observe
 
       - name: Evidence recorder — persist proven live titles
@@ -51,12 +52,16 @@ jobs:
 
       - name: Candidate finder — search all movie EPG sources
         env:
-          EPG_DISCOVERY_TIMEOUT_CAP: "60"
+          EPG_DISCOVERY_TIMEOUT_CAP: "25"
+          EPG_DISCOVERY_WORKERS: "4"
         run: python -m src.movie_epg_recovery discover
 
       - name: Judge — select only evidence-matching EPG donors
         env:
           PLAYLIST_URL: ${{ secrets.PLAYLIST_URL }}
+          EPG_SOURCE_TIMEOUT_CAP: "25"
+          EPG_SOURCE_RETRIES_CAP: "1"
+          RESELECT_SKIP_METADATA_ENRICH: "1"
         run: python -m src.movie_epg_recovery select
 
       - name: Auditor — measure movie EPG after donor selection

@@ -22,5 +22,6 @@ def test_workflow_in_memory_pipeline():
     assert "python -m src.metadata_backfill" not in workflow
     assert "python -m src.apply_metadata_to_epg" not in workflow
     assert "backfill_tree(" in builder
-    assert "actions/cache/restore@v4" in workflow
-    assert "actions/cache/save@v4" in workflow
+    assert "epg-cache-${{ runner.os }}-${{ github.run_id }}" not in workflow
+    assert "python -m src.metadata_snapshot restore" in workflow
+    assert "actions/cache/save@v4" not in workflow

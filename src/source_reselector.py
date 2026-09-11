@@ -395,21 +395,22 @@ def reselect_policy_sources(target_hours: float | None = None) -> dict:
 
     _write_mapping_rows(mapping_path,mapping_rows)
 
-    # Re-apply local SQLite metadata to newly inserted programmes.
-    old_env={k:os.environ.get(k) for k in (
-        "METADATA_MAX_TITLES","METADATA_MAX_HTTP_REQUESTS","METADATA_MULTI_FALLBACK"
-    )}
-    try:
-        os.environ["METADATA_MAX_TITLES"]="0"
-        os.environ["METADATA_MAX_HTTP_REQUESTS"]="0"
-        os.environ["METADATA_MULTI_FALLBACK"]="0"
-        enrich_metadata(tv,mapping_rows,ROOT,OUTPUT)
-    finally:
-        for k,v in old_env.items():
-            if v is None:
-                os.environ.pop(k,None)
-            else:
-                os.environ[k]=v
+    # Full metadata enrichment belongs to the regular Update EPG run.
+    if not _enabled(os.environ.get("RESELECT_SKIP_METADATA_ENRICH", "0")):
+        old_env={k:os.environ.get(k) for k in (
+            "METADATA_MAX_TITLES","METADATA_MAX_HTTP_REQUESTS","METADATA_MULTI_FALLBACK"
+        )}
+        try:
+            os.environ["METADATA_MAX_TITLES"]="0"
+            os.environ["METADATA_MAX_HTTP_REQUESTS"]="0"
+            os.environ["METADATA_MULTI_FALLBACK"]="0"
+            enrich_metadata(tv,mapping_rows,ROOT,OUTPUT)
+        finally:
+            for k,v in old_env.items():
+                if v is None: os.environ.pop(k,None)
+                else: os.environ[k]=v
+    else:
+        print("[v15.1-selector] metadata enrichment skipped for fast recovery", flush=True)
 
     _atomic_write_epg(epg_path,tv)
 

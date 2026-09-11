@@ -4,6 +4,7 @@ import argparse
 import csv
 import json
 import os
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -185,70 +186,53 @@ def discover_candidates():
 
     added, scanned, failed = [], [], []
     if observations:
-        timeout_cap = max(10, int(os.environ.get("EPG_DISCOVERY_TIMEOUT_CAP", "60") or 60))
-        for i, cfg in enumerate(load_sources()):
-            if cfg.get("enabled", True) is False:
-                continue
-            groups = set(cfg.get("groups") or [])
-            if groups and not (groups & TARGET_GROUPS):
-                continue
-            source_name = cfg.get("name") or cfg.get("id") or f"source-{i}"
-            url = cfg.get("url") or cfg.get("xmltv") or cfg.get("epg_url") or ""
-            if not url:
-                continue
-            src = None
+        timeout_cap=max(8,int(os.environ.get("EPG_DISCOVERY_TIMEOUT_CAP","25") or 25))
+        workers=max(1,min(6,int(os.environ.get("EPG_DISCOVERY_WORKERS","4") or 4)))
+        configs=[]
+        for i,cfg in enumerate(load_sources()):
+            if cfg.get("enabled",True) is False: continue
+            groups=set(cfg.get("groups") or [])
+            if groups and not (groups & TARGET_GROUPS): continue
+            source_name=cfg.get("name") or cfg.get("id") or f"source-{i}"
+            url=cfg.get("url") or cfg.get("xmltv") or cfg.get("epg_url") or ""
+            if url: configs.append((i,source_name,url,cfg))
+
+        def scan_source(spec):
+            i,source_name,url,cfg=spec; src=None; matches=[]
             try:
-                data = fetch_bytes(
-                    url,
-                    timeout=min(int(cfg.get("timeout", 180) or 180), timeout_cap),
-                    retries=1,
-                    cache_bust_on_retry=False,
-                    cache_path=None,
-                    stale_if_error_seconds=0,
-                )
-                src = XMLTVSource(source_name, data).index()
-                scanned.append(source_name)
-                wanted = set(src.channels)
-                for programme in src.fresh_programmes(wanted, past_days=1, future_days=1):
-                    start, stop = _programme_window(programme)
-                    if start is None:
-                        continue
-                    ptitle = programme_title(programme)
-                    sid = (programme.get("channel") or "").strip()
-                    if not ptitle or not sid:
-                        continue
+                data=fetch_bytes(url,timeout=min(int(cfg.get("timeout",180) or 180),timeout_cap),retries=1,cache_bust_on_retry=False,cache_path=None,stale_if_error_seconds=0)
+                src=XMLTVSource(source_name,data).index(); wanted=set(src.channels)
+                for programme in src.fresh_programmes(wanted,past_days=1,future_days=1):
+                    start_dt,stop_dt=_programme_window(programme)
+                    if start_dt is None: continue
+                    ptitle=programme_title(programme); sid=(programme.get("channel") or "").strip()
+                    if not ptitle or not sid: continue
                     for obs in observations:
-                        when = obs["when"]
-                        if not (start <= when and (stop is None or when < stop)):
-                            continue
-                        score = evidence_similarity(ptitle, obs["title"])
-                        if score < 0.82:
-                            continue
-                        key = (obs["playlist_name"], source_name, sid)
-                        if key in keys:
-                            continue
-                        keys.add(key)
-                        item = {
-                            "enabled": "1",
-                            "playlist_name": obs["playlist_name"],
-                            "source": source_name,
-                            "source_id": sid,
-                            "notes": (
-                                f"auto-discovered from live title; similarity={score:.3f}; "
-                                f"observed={obs['title']}; candidate={ptitle}; "
-                                "requires two positive observations before selection"
-                            ),
-                        }
-                        existing.append(item)
-                        added.append(item)
+                        when=obs["when"]
+                        if not (start_dt <= when and (stop_dt is None or when < stop_dt)): continue
+                        score=evidence_similarity(ptitle,obs["title"])
+                        if score < 0.82: continue
+                        matches.append({"enabled":"1","playlist_name":obs["playlist_name"],"source":source_name,"source_id":sid,"notes":f"auto-discovered from live title; similarity={score:.3f}; observed={obs['title']}; candidate={ptitle}; requires two positive observations before selection"})
+                return i,source_name,matches,None
             except Exception as exc:
-                failed.append({"source": source_name, "error": type(exc).__name__})
+                return i,source_name,[],type(exc).__name__
             finally:
                 if src is not None:
-                    try:
-                        src.release()
-                    except Exception:
-                        pass
+                    try: src.release()
+                    except Exception: pass
+
+        results=[]
+        with ThreadPoolExecutor(max_workers=workers) as pool:
+            futures=[pool.submit(scan_source,x) for x in configs]
+            for future in as_completed(futures): results.append(future.result())
+        for _,source_name,matches,error in sorted(results,key=lambda x:x[0]):
+            if error:
+                failed.append({"source":source_name,"error":error}); continue
+            scanned.append(source_name)
+            for item in matches:
+                key=(item["playlist_name"],item["source"],item["source_id"])
+                if key in keys: continue
+                keys.add(key); existing.append(item); added.append(item)
 
     CANDIDATES.parent.mkdir(parents=True, exist_ok=True)
     with CANDIDATES.open("w", encoding="utf-8", newline="") as f:

@@ -31,14 +31,10 @@ http://secret/bcu
     assert _find_exact(rows,"VHS HD")["tvg_id"]=="Xvhshd"
 
 
-def test_capture_is_single_connection_with_spaced_frames():
-    source=inspect.getsource(m._capture_frames)
-    assert '"-t","49"' in source
-    assert '"-frames:v","3"' in source
-    assert "timeout=65" in source
-    assert "fps=fps=1/20:start_time=5" in source
-    assert m.FRAME_SECONDS==(5,25,45)
-
+def test_capture_is_adaptive_and_second_frame_is_optional():
+    source=inspect.getsource(m._probe)
+    assert "_capture_frame(" in source
+    assert "break" in source
 
 def test_all_non_ok_movie_audit_statuses_are_monitored(tmp_path):
     p=tmp_path/"gaps.csv"
@@ -66,15 +62,17 @@ def test_url_metadata_is_redacted():
 
 def test_unlimited_gap_mode_is_default():
     assert m.MAX_CHANNELS==0
-    assert m.MAX_WORKERS==4
+    assert m.MAX_WORKERS==8
 
 
-def test_paddle_and_corner_ocr_are_enabled():
+def test_tesseract_first_and_optional_paddle_fallback():
     assert "top_left" in m.OCR_VARIANTS
     assert "left_bottom" in m.OCR_VARIANTS
     source=inspect.getsource(m._ocr_frame)
+    assert "_tesseract(img,11)" in source
+    assert "_tesseract(img,6)" in source
+    assert "if USE_PADDLE:" in source
     assert "_paddle_ocr(img)" in source
-    assert "_tesseract(best,11)" in source
 
 def test_adaptive_ocr_prefers_correct_corner():
     assert m._variant_plan("Insomnia HD")[0]=="top_left_tight"
@@ -84,3 +82,9 @@ def test_adaptive_ocr_prefers_correct_corner():
 def test_fast_ocr_has_no_full_variant_loop():
     source=inspect.getsource(m._ocr_frame)
     assert "for variant,flt in OCR_VARIANTS.items()" not in source
+
+
+def test_ffprobe_is_not_on_high_confidence_ocr_path():
+    source=inspect.getsource(m._probe)
+    assert 'skipped":"high-confidence-ocr"' in source
+    assert 'meta=_ffprobe(channel["url"])' in source
