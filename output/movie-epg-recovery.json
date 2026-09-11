@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-11T21:20:40.659713+00:00",
+  "updated_at": "2026-09-11T22:19:43.691249+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-11T21:20:38.985140+00:00",
+      "checked_at_utc": "2026-09-11T22:19:41.984433+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 488,
-      "ok": 403,
-      "gaps": 85,
+      "ok": 401,
+      "gaps": 87,
       "issue_counts": {
-        "NO_MAPPING": 45,
-        "NO_CURRENT_PROGRAMME": 38,
-        "NO_NEXT_PROGRAMME": 40
+        "NO_MAPPING": 46,
+        "NO_CURRENT_PROGRAMME": 39,
+        "NO_NEXT_PROGRAMME": 41
       },
       "group_counts": {
         "USSR": {
@@ -35,76 +35,72 @@
         },
         "Кинозалы": {
           "channels": 239,
-          "ok": 187,
-          "gaps": 52
+          "ok": 185,
+          "gaps": 54
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 85,
+      "channels_considered": 87,
       "high_confidence_observations": 2,
       "recognized": [
         {
-          "playlist_name": "BCU Праздники HDR",
-          "provider_name": "BCU Праздники HDR",
-          "title": "Праздники : 1 сезон, 1 серия",
-          "score": 24.75,
-          "zone": "top_left_tight",
+          "playlist_name": "Звёздные войны",
+          "provider_name": "Звёздные войны",
+          "title": "[СЕЛЕНИУ",
+          "score": 21.75,
+          "zone": "top_band",
           "engine": "tesseract"
         },
         {
-          "playlist_name": "YOSSO-4K",
-          "provider_name": "YOSSO-4K",
-          "title": "{_ линии",
+          "playlist_name": "Premiere HD 2",
+          "provider_name": "Premiere HD 2",
+          "title": "Моана",
           "score": 21.25,
-          "zone": "top_band",
+          "zone": "top_left_tight",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
       "added": 2,
-      "rejected": 83,
+      "rejected": 85,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-11T21:05:23.464869+00:00",
-          "playlist_name": "BCU Праздники HDR",
-          "observed_title": "Праздники : 1 сезон, 1 серия",
+          "observed_at": "2026-09-11T22:05:23.072192+00:00",
+          "playlist_name": "Звёздные войны",
+          "observed_title": "[СЕЛЕНИУ",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=24.75"
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=21.75"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-09-11T21:05:23.464869+00:00",
-          "playlist_name": "YOSSO-4K",
-          "observed_title": "{_ линии",
+          "observed_at": "2026-09-11T22:05:23.072192+00:00",
+          "playlist_name": "Premiere HD 2",
+          "observed_title": "Моана",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=21.25"
+          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=21.25"
         }
       ]
     },
     "judge": {
       "selector": {
         "changed": 1,
-        "selected": 1,
-        "quarantined": 0,
+        "selected": 0,
+        "quarantined": 1,
         "target_hours": 6.0
       },
-      "selected_count": 1,
-      "quarantined_count": 0,
-      "selected": {
-        "BCU Праздники HDR": {
-          "source": "bcumedia-dedicated",
-          "source_id": "BCU Праздники HDR",
-          "output_tvg_id": "bcu-prazdniki",
-          "horizon_hours": 191.55,
-          "current": true,
-          "usable": 144
+      "selected_count": 0,
+      "quarantined_count": 1,
+      "selected": {},
+      "quarantined": {
+        "Premiere HD 2": {
+          "reason": "EVIDENCE_REQUIRED_NO_PROVEN_DONOR",
+          "previous_output_tvg_id": "Xpremierehd2"
         }
-      },
-      "quarantined": {}
+      }
     },
     "candidate_discovery": {
       "live_observations": 2,
@@ -127,8 +123,37 @@
           "error": "RuntimeError"
         }
       ],
-      "candidates_added": 0,
-      "added": []
+      "candidates_added": 4,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "Premiere HD 2",
+          "source": "gabbarit-current",
+          "source_id": "Premiere HD 2",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Моана; candidate=Моана (2026).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Premiere HD 2",
+          "source": "gabbarit-primary",
+          "source_id": "Premiere HD 2",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Моана; candidate=Моана (2026).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Premiere HD 2",
+          "source": "gabbarit-mirror",
+          "source_id": "Premiere HD 2",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Моана; candidate=Моана (2026).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Premiere HD 2",
+          "source": "epgone-full-movie-rescue",
+          "source_id": "1122",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Моана; candidate=Моана; requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
