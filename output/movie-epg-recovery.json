@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-11T20:22:15.548533+00:00",
+  "updated_at": "2026-09-11T21:20:40.659713+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-11T20:22:13.903876+00:00",
+      "checked_at_utc": "2026-09-11T21:20:38.985140+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 488,
-      "ok": 404,
-      "gaps": 84,
+      "ok": 403,
+      "gaps": 85,
       "issue_counts": {
-        "NO_MAPPING": 46,
-        "NO_CURRENT_PROGRAMME": 37,
-        "NO_NEXT_PROGRAMME": 38
+        "NO_MAPPING": 45,
+        "NO_CURRENT_PROGRAMME": 38,
+        "NO_NEXT_PROGRAMME": 40
       },
       "group_counts": {
         "USSR": {
@@ -25,90 +25,90 @@
         },
         "Кино": {
           "channels": 168,
-          "ok": 141,
-          "gaps": 27
+          "ok": 140,
+          "gaps": 28
         },
         "Кино 4K": {
           "channels": 63,
-          "ok": 61,
-          "gaps": 2
+          "ok": 62,
+          "gaps": 1
         },
         "Кинозалы": {
           "channels": 239,
-          "ok": 188,
-          "gaps": 51
+          "ok": 187,
+          "gaps": 52
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 84,
+      "channels_considered": 85,
       "high_confidence_observations": 2,
       "recognized": [
         {
-          "playlist_name": "VeleS Наше Кино",
-          "provider_name": "VeleS Наше Кино",
-          "title": "Спутник (2020)",
-          "score": 21.75,
-          "zone": "bottom_band",
+          "playlist_name": "BCU Праздники HDR",
+          "provider_name": "BCU Праздники HDR",
+          "title": "Праздники : 1 сезон, 1 серия",
+          "score": 24.75,
+          "zone": "top_left_tight",
           "engine": "tesseract"
         },
         {
-          "playlist_name": "VeleS 60FPS",
-          "provider_name": "VeleS 60FPS",
-          "title": "Король Лев (2019)",
-          "score": 17.25,
-          "zone": "bottom_band",
+          "playlist_name": "YOSSO-4K",
+          "provider_name": "YOSSO-4K",
+          "title": "{_ линии",
+          "score": 21.25,
+          "zone": "top_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
       "added": 2,
-      "rejected": 82,
+      "rejected": 83,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-11T20:05:29.863304+00:00",
-          "playlist_name": "VeleS Наше Кино",
-          "observed_title": "Спутник (2020)",
+          "observed_at": "2026-09-11T21:05:23.464869+00:00",
+          "playlist_name": "BCU Праздники HDR",
+          "observed_title": "Праздники : 1 сезон, 1 серия",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=21.75"
+          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=24.75"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-09-11T20:05:29.863304+00:00",
-          "playlist_name": "VeleS 60FPS",
-          "observed_title": "Король Лев (2019)",
+          "observed_at": "2026-09-11T21:05:23.464869+00:00",
+          "playlist_name": "YOSSO-4K",
+          "observed_title": "{_ линии",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=17.25"
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=21.25"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 2,
-        "selected": 0,
-        "quarantined": 2,
+        "changed": 1,
+        "selected": 1,
+        "quarantined": 0,
         "target_hours": 6.0
       },
-      "selected_count": 0,
-      "quarantined_count": 2,
-      "selected": {},
-      "quarantined": {
-        "VeleS Наше Кино": {
-          "reason": "EVIDENCE_REQUIRED_NO_PROVEN_DONOR",
-          "previous_output_tvg_id": ""
-        },
-        "VeleS 60FPS": {
-          "reason": "EVIDENCE_REQUIRED_NO_PROVEN_DONOR",
-          "previous_output_tvg_id": "Xveles-60fps"
+      "selected_count": 1,
+      "quarantined_count": 0,
+      "selected": {
+        "BCU Праздники HDR": {
+          "source": "bcumedia-dedicated",
+          "source_id": "BCU Праздники HDR",
+          "output_tvg_id": "bcu-prazdniki",
+          "horizon_hours": 191.55,
+          "current": true,
+          "usable": 144
         }
-      }
+      },
+      "quarantined": {}
     },
     "candidate_discovery": {
       "live_observations": 2,
-      "sources_scanned": 28,
+      "sources_scanned": 26,
       "sources_failed": [
         {
           "source": "klimedia-dedicated",
@@ -117,74 +117,18 @@
         {
           "source": "sharavoz-guide",
           "error": "RuntimeError"
+        },
+        {
+          "source": "epgpw-sreda",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "epgpw-chestny-detektiv",
+          "error": "RuntimeError"
         }
       ],
-      "candidates_added": 9,
-      "added": [
-        {
-          "enabled": "1",
-          "playlist_name": "VeleS 60FPS",
-          "source": "iptv-online-primary",
-          "source_id": "Xveles-60fps",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Король Лев (2019); candidate=х/ф Король Лев (2019); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "VeleS 60FPS",
-          "source": "iptvx-noarch",
-          "source_id": "veles-60fps",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Король Лев (2019); candidate=х/ф Король Лев (2019); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "VeleS 60FPS",
-          "source": "openbox-tsd",
-          "source_id": "veles-60fps",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Король Лев (2019); candidate=X/ф Король Лев.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "VeleS 60FPS",
-          "source": "tvteam",
-          "source_id": "ch2591",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Король Лев (2019); candidate=Король Лев (2019).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "VeleS 60FPS",
-          "source": "epgone-ru2",
-          "source_id": "8760",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Король Лев (2019); candidate=Король Лев (2019).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "VeleS 60FPS",
-          "source": "gabbarit-current",
-          "source_id": "VeleS 60FPS",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Король Лев (2019); candidate=Король Лев (2019).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "VeleS 60FPS",
-          "source": "gabbarit-primary",
-          "source_id": "VeleS 60FPS",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Король Лев (2019); candidate=Король Лев (2019).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "VeleS 60FPS",
-          "source": "gabbarit-mirror",
-          "source_id": "VeleS 60FPS",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Король Лев (2019); candidate=Король Лев (2019).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "VeleS 60FPS",
-          "source": "epgone-full-movie-rescue",
-          "source_id": "8760",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Король Лев (2019); candidate=Король Лев (2019).; requires two positive observations before selection"
-        }
-      ]
+      "candidates_added": 0,
+      "added": []
     }
   }
 }
