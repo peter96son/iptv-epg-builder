@@ -39,14 +39,6 @@ jobs:
       - name: Install dependencies
         run: python -m pip install -r requirements.txt
 
-      - name: Restore EPG and metadata cache
-        uses: actions/cache/restore@v4
-        with:
-          path: .cache
-          key: epg-cache-${{ runner.os }}-${{ github.run_id }}
-          restore-keys: |
-            epg-cache-${{ runner.os }}-
-
       - name: Restore durable metadata snapshot
         run: python -m src.metadata_snapshot restore
 
@@ -72,13 +64,6 @@ jobs:
       - name: Save durable metadata snapshot
         if: ${{ github.event_name != 'workflow_dispatch' || inputs.dry_run == false }}
         run: python -m src.metadata_snapshot save
-
-      - name: Save EPG and metadata cache
-        if: always()
-        uses: actions/cache/save@v4
-        with:
-          path: .cache
-          key: epg-cache-${{ runner.os }}-${{ github.run_id }}
 
       - name: Commit and publish backfill
         if: ${{ github.event_name != 'workflow_dispatch' || inputs.dry_run == false }}
