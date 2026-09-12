@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-12T08:14:53.982205+00:00",
+  "updated_at": "2026-09-12T09:19:38.426282+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-12T08:14:52.655450+00:00",
+      "checked_at_utc": "2026-09-12T09:19:36.756218+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 488,
-      "ok": 386,
-      "gaps": 102,
+      "ok": 385,
+      "gaps": 103,
       "issue_counts": {
         "NO_MAPPING": 45,
-        "NO_NEXT_PROGRAMME": 57,
-        "NO_CURRENT_PROGRAMME": 53
+        "NO_CURRENT_PROGRAMME": 57,
+        "NO_NEXT_PROGRAMME": 58
       },
       "group_counts": {
         "USSR": {
@@ -35,69 +35,37 @@
         },
         "Кинозалы": {
           "channels": 239,
-          "ok": 176,
-          "gaps": 63
+          "ok": 175,
+          "gaps": 64
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 102,
-      "high_confidence_observations": 3,
+      "channels_considered": 103,
+      "high_confidence_observations": 1,
       "recognized": [
-        {
-          "playlist_name": "РуКино HD",
-          "provider_name": "РуКино HD",
-          "title": "БЕЗ МЕНЯ",
-          "score": 21.75,
-          "zone": "top_left_tight",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "TVPlay DC Comics HD",
-          "provider_name": "TVPlay DC Comics HD",
-          "title": "ЧУДО-ЖЕНЩИНА 1984 2020",
-          "score": 22.75,
-          "zone": "left_bottom_tight",
-          "engine": "tesseract"
-        },
         {
           "playlist_name": "YOSSO-4K",
           "provider_name": "YOSSO-4K",
-          "title": "@уоззок",
-          "score": 21.5,
+          "title": "@лозко",
+          "score": 21.25,
           "zone": "top_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 3,
-      "rejected": 99,
+      "added": 1,
+      "rejected": 102,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-12T08:05:25.982847+00:00",
-          "playlist_name": "РуКино HD",
-          "observed_title": "БЕЗ МЕНЯ",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=21.75"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-12T08:05:25.982847+00:00",
-          "playlist_name": "TVPlay DC Comics HD",
-          "observed_title": "ЧУДО-ЖЕНЩИНА 1984 2020",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=22.75"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-12T08:05:25.982847+00:00",
+          "observed_at": "2026-09-12T09:06:40.313404+00:00",
           "playlist_name": "YOSSO-4K",
-          "observed_title": "@уоззок",
+          "observed_title": "@лозко",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=21.5"
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=21.25"
         }
       ]
     },
@@ -107,14 +75,8 @@
         "selected": 0,
         "reason": "no-policy"
       },
-      "pending_count": 1,
-      "pending": {
-        "TVPlay DC Comics HD": {
-          "observations": 1,
-          "distinct_titles": 1,
-          "status": "PENDING_DISTINCT_SECOND_TITLE"
-        }
-      },
+      "pending_count": 0,
+      "pending": {},
       "selected_count": 0,
       "quarantined_count": 1,
       "selected": {},
@@ -126,8 +88,8 @@
       }
     },
     "candidate_discovery": {
-      "live_observations": 3,
-      "sources_scanned": 28,
+      "live_observations": 1,
+      "sources_scanned": 26,
       "sources_failed": [
         {
           "source": "klimedia-dedicated",
@@ -136,32 +98,18 @@
         {
           "source": "sharavoz-guide",
           "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-ru",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-rescue",
+          "error": "RuntimeError"
         }
       ],
-      "candidates_added": 3,
-      "added": [
-        {
-          "enabled": "1",
-          "playlist_name": "TVPlay DC Comics HD",
-          "source": "iptv-online-primary",
-          "source_id": "X000226_KinoRhythm",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=ЧУДО-ЖЕНЩИНА 1984 2020; candidate=Чудо-женщина - 1984 (2020); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "TVPlay DC Comics HD",
-          "source": "iptvx-noarch",
-          "source_id": "bear-tv-kinoritm-ru-uhd",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=ЧУДО-ЖЕНЩИНА 1984 2020; candidate=Чудо-женщина – 1984 (2020); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "TVPlay DC Comics HD",
-          "source": "iptvx-noarch",
-          "source_id": "tvplay-dccomics",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=ЧУДО-ЖЕНЩИНА 1984 2020; candidate=х/ф Чудо-женщина 1984 2020; requires two positive observations before selection"
-        }
-      ]
+      "candidates_added": 0,
+      "added": []
     }
   }
 }
