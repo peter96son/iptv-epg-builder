@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-11T23:20:45.149491+00:00",
+  "updated_at": "2026-09-12T00:22:32.075804+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-11T23:20:43.499560+00:00",
+      "checked_at_utc": "2026-09-12T00:22:30.652440+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 488,
-      "ok": 393,
-      "gaps": 95,
+      "ok": 387,
+      "gaps": 101,
       "issue_counts": {
-        "NO_MAPPING": 47,
-        "NO_CURRENT_PROGRAMME": 40,
-        "NO_NEXT_PROGRAMME": 48
+        "NO_MAPPING": 48,
+        "NO_CURRENT_PROGRAMME": 47,
+        "NO_NEXT_PROGRAMME": 53
       },
       "group_counts": {
         "USSR": {
@@ -35,53 +35,69 @@
         },
         "Кинозалы": {
           "channels": 239,
-          "ok": 183,
-          "gaps": 56
+          "ok": 177,
+          "gaps": 62
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 91,
-      "high_confidence_observations": 2,
+      "channels_considered": 101,
+      "high_confidence_observations": 3,
       "recognized": [
         {
-          "playlist_name": "Thriller HD",
-          "provider_name": "Thriller HD",
-          "title": "НЕ ГОВОРИ НИКОМУ",
-          "score": 23.5,
-          "zone": "top_left",
+          "playlist_name": "MM Скорость HD",
+          "provider_name": "MM Скорость HD",
+          "title": "Форсаж 5 (2011)",
+          "score": 12.5,
+          "zone": "bottom_band",
           "engine": "tesseract"
         },
         {
-          "playlist_name": "MM Ужастик HD",
-          "provider_name": "MM Ужастик HD",
-          "title": "Мурашки | 3-17",
-          "score": 12.75,
-          "zone": "bottom_band",
+          "playlist_name": "YOSSO-4K",
+          "provider_name": "YOSSO-4K",
+          "title": "Фуоззок",
+          "score": 21.75,
+          "zone": "top_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "CPS Western",
+          "provider_name": "CPS Western",
+          "title": "TRANSPORTATION CO-CAPTAIN TODD NOBLES Цены",
+          "score": 13.0,
+          "zone": "top_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 2,
-      "rejected": 89,
+      "added": 3,
+      "rejected": 98,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-11T23:06:00.312935+00:00",
-          "playlist_name": "Thriller HD",
-          "observed_title": "НЕ ГОВОРИ НИКОМУ",
+          "observed_at": "2026-09-12T00:06:46.763372+00:00",
+          "playlist_name": "MM Скорость HD",
+          "observed_title": "Форсаж 5 (2011)",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=23.5"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=12.5"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-09-11T23:06:00.312935+00:00",
-          "playlist_name": "MM Ужастик HD",
-          "observed_title": "Мурашки | 3-17",
+          "observed_at": "2026-09-12T00:06:46.763372+00:00",
+          "playlist_name": "YOSSO-4K",
+          "observed_title": "Фуоззок",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=12.75"
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=21.75"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-12T00:06:46.763372+00:00",
+          "playlist_name": "CPS Western",
+          "observed_title": "TRANSPORTATION CO-CAPTAIN TODD NOBLES Цены",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=13.0"
         }
       ]
     },
@@ -96,15 +112,15 @@
       "quarantined_count": 1,
       "selected": {},
       "quarantined": {
-        "MM Ужастик HD": {
+        "MM Скорость HD": {
           "reason": "EVIDENCE_REQUIRED_NO_PROVEN_DONOR",
-          "previous_output_tvg_id": "Xminimax-ujastik"
+          "previous_output_tvg_id": "Xminimax-skorost"
         }
       }
     },
     "candidate_discovery": {
-      "live_observations": 2,
-      "sources_scanned": 26,
+      "live_observations": 3,
+      "sources_scanned": 28,
       "sources_failed": [
         {
           "source": "klimedia-dedicated",
@@ -113,52 +129,65 @@
         {
           "source": "sharavoz-guide",
           "error": "RuntimeError"
-        },
-        {
-          "source": "epgpw-sreda",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "epgpw-chestny-detektiv",
-          "error": "RuntimeError"
         }
       ],
-      "candidates_added": 5,
+      "candidates_added": 8,
       "added": [
         {
           "enabled": "1",
-          "playlist_name": "MM Ужастик HD",
+          "playlist_name": "MM Скорость HD",
           "source": "iptv-online-primary",
-          "source_id": "Xminimax-ujastik",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Мурашки | 3-17; candidate=х/ф Мурашки-3-17; requires two positive observations before selection"
+          "source_id": "X000139_FilmGalaxy",
+          "notes": "auto-discovered from live title; similarity=0.875; observed=Форсаж 5 (2011); candidate=Форсаж 9 (2021); requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "MM Ужастик HD",
+          "playlist_name": "MM Скорость HD",
           "source": "iptvx-noarch",
-          "source_id": "minimax-ujastik",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Мурашки | 3-17; candidate=х/ф Мурашки-3-17; requires two positive observations before selection"
+          "source_id": "bear-tv-galaktika-kino-ru-uhd",
+          "notes": "auto-discovered from live title; similarity=0.875; observed=Форсаж 5 (2011); candidate=Форсаж 9 (2021); requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "MM Ужастик HD",
+          "playlist_name": "MM Скорость HD",
           "source": "minimax-mm-dedicated",
-          "source_id": "ujastik-mm",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Мурашки | 3-17; candidate=Мурашки-3-17; requires two positive observations before selection"
+          "source_id": "skorost-mm",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Форсаж 5 (2011); candidate=Форсаж 5; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "MM Ужастик HD",
+          "playlist_name": "MM Скорость HD",
           "source": "tvteam",
-          "source_id": "ch1264",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Мурашки | 3-17; candidate=Мурашки-3-17; requires two positive observations before selection"
+          "source_id": "ch1258",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Форсаж 5 (2011); candidate=Форсаж 5; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "MM Ужастик HD",
+          "playlist_name": "MM Скорость HD",
+          "source": "gabbarit-current",
+          "source_id": "минимакс-скорость HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Форсаж 5 (2011); candidate=Форсаж 5 (2011).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Скорость HD",
+          "source": "gabbarit-primary",
+          "source_id": "минимакс-скорость HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Форсаж 5 (2011); candidate=Форсаж 5 (2011).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Скорость HD",
+          "source": "gabbarit-mirror",
+          "source_id": "минимакс-скорость HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Форсаж 5 (2011); candidate=Форсаж 5 (2011).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Скорость HD",
           "source": "epgone-full-movie-rescue",
-          "source_id": "5172",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Мурашки | 3-17; candidate=Мурашки-3-17; requires two positive observations before selection"
+          "source_id": "5166",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Форсаж 5 (2011); candidate=Форсаж 5; requires two positive observations before selection"
         }
       ]
     }
