@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-12T17:34:31.625314+00:00",
+  "updated_at": "2026-09-12T18:19:46.304674+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-12T17:34:29.928692+00:00",
+      "checked_at_utc": "2026-09-12T18:19:44.629245+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 488,
-      "ok": 382,
-      "gaps": 106,
+      "ok": 383,
+      "gaps": 105,
       "issue_counts": {
         "NO_MAPPING": 40,
-        "NO_CURRENT_PROGRAMME": 64,
-        "NO_NEXT_PROGRAMME": 66
+        "NO_CURRENT_PROGRAMME": 65,
+        "NO_NEXT_PROGRAMME": 65
       },
       "group_counts": {
         "USSR": {
@@ -35,69 +35,37 @@
         },
         "Кинозалы": {
           "channels": 239,
-          "ok": 171,
-          "gaps": 68
+          "ok": 172,
+          "gaps": 67
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 108,
-      "high_confidence_observations": 3,
+      "channels_considered": 106,
+      "high_confidence_observations": 1,
       "recognized": [
         {
-          "playlist_name": "Premiere HD 2",
-          "provider_name": "Premiere HD 2",
-          "title": "РЕЕМТЕВЕ [1",
-          "score": 17.0,
-          "zone": "top_band",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "Premiere HD 3",
-          "provider_name": "Premiere HD 3",
-          "title": "Всего одна ночь",
-          "score": 18.25,
-          "zone": "top_band",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "YOSSO-4K",
-          "provider_name": "YOSSO-4K",
-          "title": "@уоззок",
-          "score": 21.5,
-          "zone": "top_band",
+          "playlist_name": "CPS Western",
+          "provider_name": "CPS Western",
+          "title": "WHITE MOUNTAIN APACHE TRIBE",
+          "score": 20.0,
+          "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 3,
+      "added": 1,
       "rejected": 105,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-12T17:19:20.042537+00:00",
-          "playlist_name": "Premiere HD 2",
-          "observed_title": "РЕЕМТЕВЕ [1",
+          "observed_at": "2026-09-12T18:06:29.715722+00:00",
+          "playlist_name": "CPS Western",
+          "observed_title": "WHITE MOUNTAIN APACHE TRIBE",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=17.0"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-12T17:19:20.042537+00:00",
-          "playlist_name": "Premiere HD 3",
-          "observed_title": "Всего одна ночь",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=18.25"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-12T17:19:20.042537+00:00",
-          "playlist_name": "YOSSO-4K",
-          "observed_title": "@уоззок",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=21.5"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=20.0"
         }
       ]
     },
@@ -105,25 +73,18 @@
       "selector": {
         "changed": 0,
         "selected": 0,
-        "quarantined": 0,
-        "reason": "no-live-candidates"
+        "reason": "no-policy"
       },
-      "pending_count": 1,
-      "pending": {
-        "Premiere HD 3": {
-          "observations": 2,
-          "distinct_titles": 1,
-          "status": "PENDING_DISTINCT_SECOND_TITLE"
-        }
-      },
+      "pending_count": 0,
+      "pending": {},
       "selected_count": 0,
       "quarantined_count": 0,
       "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 3,
-      "sources_scanned": 26,
+      "live_observations": 1,
+      "sources_scanned": 24,
       "sources_failed": [
         {
           "source": "klimedia-dedicated",
@@ -140,25 +101,18 @@
         {
           "source": "epgpw-chestny-detektiv",
           "error": "RuntimeError"
-        }
-      ],
-      "candidates_added": 2,
-      "added": [
-        {
-          "enabled": "1",
-          "playlist_name": "Premiere HD 3",
-          "source": "iptv-online-primary",
-          "source_id": "Xpremierehd3",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Всего одна ночь; candidate=х/ф Всего одна ночь (2026); requires two positive observations before selection"
         },
         {
-          "enabled": "1",
-          "playlist_name": "Premiere HD 3",
-          "source": "openbox-tsd",
-          "source_id": "premiere-hd-3",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Всего одна ночь; candidate=Х/ф Всего одна ночь 2026.; requires two positive observations before selection"
+          "source": "teleguide-ru",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-rescue",
+          "error": "RuntimeError"
         }
-      ]
+      ],
+      "candidates_added": 0,
+      "added": []
     }
   }
 }
