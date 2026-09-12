@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-12T07:16:43.035222+00:00",
+  "updated_at": "2026-09-12T08:14:53.982205+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-12T07:16:41.896474+00:00",
+      "checked_at_utc": "2026-09-12T08:14:52.655450+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -13,9 +13,9 @@
       "ok": 386,
       "gaps": 102,
       "issue_counts": {
-        "NO_MAPPING": 47,
-        "NO_CURRENT_PROGRAMME": 54,
-        "NO_NEXT_PROGRAMME": 55
+        "NO_MAPPING": 45,
+        "NO_NEXT_PROGRAMME": 57,
+        "NO_CURRENT_PROGRAMME": 53
       },
       "group_counts": {
         "USSR": {
@@ -43,29 +43,61 @@
     "observer": {
       "return_code": 0,
       "channels_considered": 102,
-      "high_confidence_observations": 1,
+      "high_confidence_observations": 3,
       "recognized": [
         {
-          "playlist_name": "Premiere HD 3",
-          "provider_name": "Premiere HD 3",
-          "title": "Всего одна ночь",
-          "score": 23.25,
+          "playlist_name": "РуКино HD",
+          "provider_name": "РуКино HD",
+          "title": "БЕЗ МЕНЯ",
+          "score": 21.75,
           "zone": "top_left_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "TVPlay DC Comics HD",
+          "provider_name": "TVPlay DC Comics HD",
+          "title": "ЧУДО-ЖЕНЩИНА 1984 2020",
+          "score": 22.75,
+          "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "YOSSO-4K",
+          "provider_name": "YOSSO-4K",
+          "title": "@уоззок",
+          "score": 21.5,
+          "zone": "top_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 101,
+      "added": 3,
+      "rejected": 99,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-12T07:06:55.479795+00:00",
-          "playlist_name": "Premiere HD 3",
-          "observed_title": "Всего одна ночь",
+          "observed_at": "2026-09-12T08:05:25.982847+00:00",
+          "playlist_name": "РуКино HD",
+          "observed_title": "БЕЗ МЕНЯ",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=23.25"
+          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=21.75"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-12T08:05:25.982847+00:00",
+          "playlist_name": "TVPlay DC Comics HD",
+          "observed_title": "ЧУДО-ЖЕНЩИНА 1984 2020",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=22.75"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-12T08:05:25.982847+00:00",
+          "playlist_name": "YOSSO-4K",
+          "observed_title": "@уоззок",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=21.5"
         }
       ]
     },
@@ -73,23 +105,28 @@
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "waiting-for-distinct-second-title"
+        "reason": "no-policy"
       },
       "pending_count": 1,
       "pending": {
-        "Premiere HD 3": {
+        "TVPlay DC Comics HD": {
           "observations": 1,
           "distinct_titles": 1,
           "status": "PENDING_DISTINCT_SECOND_TITLE"
         }
       },
       "selected_count": 0,
-      "quarantined_count": 0,
+      "quarantined_count": 1,
       "selected": {},
-      "quarantined": {}
+      "quarantined": {
+        "MM Ужасы HD": {
+          "reason": "EVIDENCE_REQUIRED_NO_PROVEN_DONOR",
+          "previous_output_tvg_id": "Xminimax-ujasi"
+        }
+      }
     },
     "candidate_discovery": {
-      "live_observations": 1,
+      "live_observations": 3,
       "sources_scanned": 28,
       "sources_failed": [
         {
@@ -101,140 +138,28 @@
           "error": "RuntimeError"
         }
       ],
-      "candidates_added": 19,
+      "candidates_added": 3,
       "added": [
         {
           "enabled": "1",
-          "playlist_name": "Premiere HD 3",
+          "playlist_name": "TVPlay DC Comics HD",
           "source": "iptv-online-primary",
-          "source_id": "Xretro-tv",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Всего одна ночь; candidate=х/ф Всего одна ночь; requires two positive observations before selection"
+          "source_id": "X000226_KinoRhythm",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=ЧУДО-ЖЕНЩИНА 1984 2020; candidate=Чудо-женщина - 1984 (2020); requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "Premiere HD 3",
+          "playlist_name": "TVPlay DC Comics HD",
           "source": "iptvx-noarch",
-          "source_id": "premierehd3",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Всего одна ночь; candidate=х/ф Всего одна ночь (2026); requires two positive observations before selection"
+          "source_id": "bear-tv-kinoritm-ru-uhd",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=ЧУДО-ЖЕНЩИНА 1984 2020; candidate=Чудо-женщина – 1984 (2020); requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "Premiere HD 3",
+          "playlist_name": "TVPlay DC Comics HD",
           "source": "iptvx-noarch",
-          "source_id": "retro-tv",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Всего одна ночь; candidate=х/ф Всего одна ночь; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Premiere HD 3",
-          "source": "runigma-iptv",
-          "source_id": "retro",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Всего одна ночь; candidate=х/ф Всего одна ночь.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Premiere HD 3",
-          "source": "openbox-tsd",
-          "source_id": "retro-tv",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Всего одна ночь; candidate=Х/ф Всего одна ночь.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Premiere HD 3",
-          "source": "bcumedia-dedicated",
-          "source_id": "Ретро",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Всего одна ночь; candidate=х/ф Всего одна ночь.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Premiere HD 3",
-          "source": "tvteam",
-          "source_id": "ch508",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Всего одна ночь; candidate=х/ф Всего одна ночь; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Premiere HD 3",
-          "source": "epgone-ru2",
-          "source_id": "2402",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Всего одна ночь; candidate=Всего одна ночь; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Premiere HD 3",
-          "source": "anzo-top",
-          "source_id": "7934",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Всего одна ночь; candidate=Х/ф Всего одна ночь.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Premiere HD 3",
-          "source": "teleguide-ru",
-          "source_id": "329",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Всего одна ночь; candidate=Всего одна ночь (12+); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Premiere HD 3",
-          "source": "gabbarit-current",
-          "source_id": "Premiere HD 3",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Всего одна ночь; candidate=Всего одна ночь (2026).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Premiere HD 3",
-          "source": "gabbarit-current",
-          "source_id": "Ретро ТВ",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Всего одна ночь; candidate=Всего одна ночь.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Premiere HD 3",
-          "source": "teleguide-rescue",
-          "source_id": "329",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Всего одна ночь; candidate=Всего одна ночь (12+); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Premiere HD 3",
-          "source": "gabbarit-primary",
-          "source_id": "Premiere HD 3",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Всего одна ночь; candidate=Всего одна ночь (2026).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Premiere HD 3",
-          "source": "gabbarit-primary",
-          "source_id": "Ретро ТВ",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Всего одна ночь; candidate=Всего одна ночь.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Premiere HD 3",
-          "source": "gabbarit-mirror",
-          "source_id": "Premiere HD 3",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Всего одна ночь; candidate=Всего одна ночь (2026).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Premiere HD 3",
-          "source": "gabbarit-mirror",
-          "source_id": "Ретро ТВ",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Всего одна ночь; candidate=Всего одна ночь.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Premiere HD 3",
-          "source": "epgone-full-movie-rescue",
-          "source_id": "1123",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Всего одна ночь; candidate=Всего одна ночь; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Premiere HD 3",
-          "source": "epgone-full-movie-rescue",
-          "source_id": "2402",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Всего одна ночь; candidate=Всего одна ночь; requires two positive observations before selection"
+          "source_id": "tvplay-dccomics",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=ЧУДО-ЖЕНЩИНА 1984 2020; candidate=х/ф Чудо-женщина 1984 2020; requires two positive observations before selection"
         }
       ]
     }
