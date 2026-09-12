@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-12T14:20:10.994019+00:00",
+  "updated_at": "2026-09-12T15:19:40.134549+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-12T14:20:09.334218+00:00",
+      "checked_at_utc": "2026-09-12T15:19:38.448856+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -14,7 +14,7 @@
       "gaps": 106,
       "issue_counts": {
         "NO_MAPPING": 41,
-        "NO_CURRENT_PROGRAMME": 62,
+        "NO_CURRENT_PROGRAMME": 64,
         "NO_NEXT_PROGRAMME": 65
       },
       "group_counts": {
@@ -43,45 +43,29 @@
     "observer": {
       "return_code": 0,
       "channels_considered": 106,
-      "high_confidence_observations": 2,
+      "high_confidence_observations": 1,
       "recognized": [
         {
-          "playlist_name": "MM USSR 1941-1945 HD",
-          "provider_name": "MM USSR 1941-1945 HD",
-          "title": "Время выбрало нас | 1979",
-          "score": 14.75,
-          "zone": "bottom_band",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "BOX Relax 4K",
-          "provider_name": "BOX Relax 4K",
-          "title": "разн",
-          "score": 18.0,
-          "zone": "bottom_band",
+          "playlist_name": "YOSSO-4K",
+          "provider_name": "YOSSO-4K",
+          "title": "Фуоззовк",
+          "score": 22.0,
+          "zone": "top_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 2,
-      "rejected": 104,
+      "added": 1,
+      "rejected": 105,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-12T14:07:05.349149+00:00",
-          "playlist_name": "MM USSR 1941-1945 HD",
-          "observed_title": "Время выбрало нас | 1979",
+          "observed_at": "2026-09-12T15:06:41.493031+00:00",
+          "playlist_name": "YOSSO-4K",
+          "observed_title": "Фуоззовк",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=14.75"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-12T14:07:05.349149+00:00",
-          "playlist_name": "BOX Relax 4K",
-          "observed_title": "разн",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.0"
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=22.0"
         }
       ]
     },
@@ -89,29 +73,27 @@
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "waiting-for-distinct-second-title"
+        "reason": "no-policy"
       },
-      "pending_count": 2,
-      "pending": {
-        "BOX Relax 4K": {
-          "observations": 1,
-          "distinct_titles": 1,
-          "status": "PENDING_DISTINCT_SECOND_TITLE"
-        },
-        "MM USSR 1941-1945 HD": {
-          "observations": 1,
-          "distinct_titles": 1,
-          "status": "PENDING_DISTINCT_SECOND_TITLE"
+      "pending_count": 0,
+      "pending": {},
+      "selected_count": 1,
+      "quarantined_count": 0,
+      "selected": {
+        "MM Супергерои HD": {
+          "source": "minimax-mm-dedicated",
+          "source_id": "supergeroi-mm",
+          "output_tvg_id": "Xminimax-supergeroi",
+          "horizon_hours": 273.42,
+          "current": true,
+          "usable": 29
         }
       },
-      "selected_count": 0,
-      "quarantined_count": 0,
-      "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 2,
-      "sources_scanned": 28,
+      "live_observations": 1,
+      "sources_scanned": 24,
       "sources_failed": [
         {
           "source": "klimedia-dedicated",
@@ -120,53 +102,26 @@
         {
           "source": "sharavoz-guide",
           "error": "RuntimeError"
+        },
+        {
+          "source": "epgpw-sreda",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "epgpw-chestny-detektiv",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-ru",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-rescue",
+          "error": "RuntimeError"
         }
       ],
-      "candidates_added": 6,
-      "added": [
-        {
-          "enabled": "1",
-          "playlist_name": "MM USSR 1941-1945 HD",
-          "source": "iptv-online-primary",
-          "source_id": "Xminimax-ussr-1941-1945",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Время выбрало нас | 1979; candidate=х/ф Время выбрало нас; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM USSR 1941-1945 HD",
-          "source": "iptvx-noarch",
-          "source_id": "minimax-ussr-1941-1945",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Время выбрало нас | 1979; candidate=х/ф Время выбрало нас; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM USSR 1941-1945 HD",
-          "source": "openbox-tsd",
-          "source_id": "mm-ussr-1941-1945",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Время выбрало нас | 1979; candidate=Х/ф Время выбрало нас.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM USSR 1941-1945 HD",
-          "source": "minimax-mm-dedicated",
-          "source_id": "ussr-1941-1945-mm",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Время выбрало нас | 1979; candidate=Время выбрало нас; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM USSR 1941-1945 HD",
-          "source": "tvteam",
-          "source_id": "ch1223",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Время выбрало нас | 1979; candidate=Время выбрало нас; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM USSR 1941-1945 HD",
-          "source": "epgone-full-movie-rescue",
-          "source_id": "5131",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Время выбрало нас | 1979; candidate=Время выбрало нас; requires two positive observations before selection"
-        }
-      ]
+      "candidates_added": 0,
+      "added": []
     }
   }
 }
