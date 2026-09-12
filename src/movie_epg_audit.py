@@ -81,6 +81,7 @@ def run(strict: bool=False):
                 current.append(p)
             if st and st > now:
                 future.append(p)
+        live_ocr_current=any(p.get("x-live-ocr")=="1" for p in current)
         issues=[]
         if not cid:
             issues.append("NO_MAPPING")
@@ -90,7 +91,7 @@ def run(strict: bool=False):
             issues.append("NO_PROGRAMMES")
         elif not current:
             issues.append("NO_CURRENT_PROGRAMME")
-        if cid and arr and not future:
+        if cid and arr and not future and not live_ocr_current:
             issues.append("NO_NEXT_PROGRAMME")
         rows.append({
             "group":final_group,
@@ -101,12 +102,13 @@ def run(strict: bool=False):
             "programme_count":len(arr),
             "current_count":len(current),
             "future_count":len(future),
+            "current_mode":"LIVE_OCR" if live_ocr_current else ("EPG" if current else ""),
             "status":"OK" if not issues else ";".join(issues),
         })
 
     gaps=[r for r in rows if r["status"]!="OK"]
     fields=["group","playlist_name","provider_name","provider_tvg_id","output_tvg_id",
-            "programme_count","current_count","future_count","status"]
+            "programme_count","current_count","future_count","current_mode","status"]
     for fn,data in (("movie-epg-audit.csv",rows),("movie-epg-gaps.csv",gaps)):
         with (OUTPUT/fn).open("w",encoding="utf-8",newline="") as f:
             w=csv.DictWriter(f,fieldnames=fields); w.writeheader(); w.writerows(data)
