@@ -125,6 +125,14 @@ def _save_state(state):
     )
 
 
+def _distinct_matched_titles(matches: list[dict]) -> int:
+    return len({
+        _norm(m.get("observed_title",""))
+        for m in matches
+        if m.get("matched") and _norm(m.get("observed_title",""))
+    })
+
+
 def _candidate_evidence(candidate: dict, observations: list[dict]):
     matches = []
     for obs in observations:
@@ -214,12 +222,14 @@ def install(source_reselector_module):
                 c["_evidence_positive"] = pos
                 c["_evidence_negative"] = neg
                 c["_evidence_detail"] = detail
+                c["_evidence_distinct_positive_titles"] = _distinct_matched_titles(detail)
                 ranked.append(c)
 
             clean = [c for c in ranked if c["_evidence_negative"] == 0]
             eligible = [
                 c for c in clean
                 if c["_evidence_positive"] >= int(c.get("min_evidence", 1) or 1)
+                and c["_evidence_distinct_positive_titles"] >= int(c.get("min_distinct_evidence", 1) or 1)
             ]
             best_positive = max(
                 (c["_evidence_positive"] for c in eligible),

@@ -189,12 +189,35 @@ def discover_candidates():
     if observations:
         timeout_cap=max(8,int(os.environ.get("EPG_DISCOVERY_TIMEOUT_CAP","15") or 25))
         workers=max(1,min(6,int(os.environ.get("EPG_DISCOVERY_WORKERS","6") or 4)))
+
+        # Accumulative recovery: once candidate donors are known for every
+        # currently observed channel, re-check those sources first instead of
+        # rescanning the whole source universe.
+        candidate_sources_by_channel={}
+        for row in existing:
+            name=(row.get("playlist_name") or "").strip()
+            source=(row.get("source") or "").strip()
+            if name and source:
+                candidate_sources_by_channel.setdefault(name,set()).add(source)
+
+        observed_names={obs["playlist_name"] for obs in observations}
+        focused_sources=set()
+        needs_discovery=False
+        for name in observed_names:
+            known=candidate_sources_by_channel.get(name,set())
+            if known:
+                focused_sources.update(known)
+            else:
+                needs_discovery=True
+
         configs=[]
         for i,cfg in enumerate(load_sources()):
             if cfg.get("enabled",True) is False: continue
             groups=set(cfg.get("groups") or [])
             if groups and not (groups & TARGET_GROUPS): continue
             source_name=cfg.get("name") or cfg.get("id") or f"source-{i}"
+            if not needs_discovery and focused_sources and source_name not in focused_sources:
+                continue
             url=cfg.get("url") or cfg.get("xmltv") or cfg.get("epg_url") or ""
             if url: configs.append((i,source_name,url,cfg))
 
@@ -263,19 +286,60 @@ def discover_candidates():
     return result
 
 def select_donors():
-    # ROLE 3/4: only channels observed with high confidence in this run can change.
+    # ROLE 3/4: accumulate proof across runs.
+    # Repeated sightings of the SAME film are useful history but are not
+    # independent proof. Automatic donor replacement starts only after two
+    # distinct observed titles for the channel.
     probe=_load_json(PROBE,{})
-    affected=[]
+    observed_now=[]
     for row in (probe.get("channels",{}) or {}).values():
         if not isinstance(row,dict) or row.get("group") not in TARGET_GROUPS:
             continue
         chosen=row.get("recognized_title")
         name=(row.get("playlist_name") or row.get("provider_name") or "").strip()
         if name and isinstance(chosen,dict) and chosen.get("confidence")=="high" and chosen.get("title"):
-            affected.append(name)
-    affected=sorted(set(affected))
+            observed_now.append(name)
+    observed_now=sorted(set(observed_now))
+
+    evidence_times={}
+    evidence_titles={}
+    if OBSERVATIONS.exists():
+        with OBSERVATIONS.open(encoding="utf-8-sig",newline="") as f:
+            for row in csv.DictReader(f):
+                if str(row.get("enabled","1")).strip().lower() in {"0","false","no","off"}:
+                    continue
+                name=(row.get("playlist_name") or "").strip()
+                when=(row.get("observed_at") or "").strip()
+                title=(row.get("observed_title") or "").strip()
+                if not name or not when or not title:
+                    continue
+                evidence_times.setdefault(name,set()).add(when)
+                evidence_titles.setdefault(name,set()).add(_norm(title))
+
+    affected=sorted(
+        name for name in observed_now
+        if len(evidence_titles.get(name,set())) >= 2
+    )
+    pending={
+        name:{
+            "observations":len(evidence_times.get(name,set())),
+            "distinct_titles":len(evidence_titles.get(name,set())),
+            "status":"PENDING_DISTINCT_SECOND_TITLE",
+        }
+        for name in observed_now
+        if name not in affected
+    }
+
     if not affected:
-        payload={"selector":{"changed":0,"selected":0,"reason":"no-high-confidence-observations"},"selected_count":0,"quarantined_count":0,"selected":{},"quarantined":{}}
+        payload={
+            "selector":{"changed":0,"selected":0,"reason":"waiting-for-distinct-second-title"},
+            "pending_count":len(pending),
+            "pending":pending,
+            "selected_count":0,
+            "quarantined_count":0,
+            "selected":{},
+            "quarantined":{},
+        }
         _write_report("judge",payload)
         print("[movie-recovery:judge] "+json.dumps(payload,ensure_ascii=False),flush=True)
         return payload
@@ -287,6 +351,8 @@ def select_donors():
     quarantined = report.get("quarantined", {}) if isinstance(report, dict) else {}
     payload = {
         "selector":result,
+        "pending_count":len(pending),
+        "pending":pending,
         "selected_count":len(selected),
         "quarantined_count":len(quarantined),
         "selected":selected,

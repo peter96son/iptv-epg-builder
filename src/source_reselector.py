@@ -191,6 +191,22 @@ def _requires_evidence(policy_rows: list[dict]) -> bool:
     return any(_enabled(row.get("evidence_required", "0")) for row in policy_rows)
 
 
+def _existing_donor_contradicted(existing: dict, candidates: list[dict]) -> bool:
+    # Quarantine is allowed only when the donor currently used by mapping has
+    # explicit negative live evidence.
+    source=(existing.get("source") or "").strip()
+    source_id=(existing.get("source_id") or "").strip()
+    if not source or not source_id:
+        return False
+    for candidate in candidates:
+        if (
+            (candidate.get("source") or "").strip()==source
+            and (candidate.get("source_id") or "").strip()==source_id
+        ):
+            return int(candidate.get("_evidence_negative",0) or 0) > 0
+    return False
+
+
 def _orphaned_quarantine_ids(quarantined: dict[str, str], mapping_rows: list[dict]) -> set[str]:
     active_ids = {
         (row.get("output_tvg_id") or "").strip()
@@ -306,6 +322,7 @@ def reselect_policy_sources(target_hours: float | None = None) -> dict:
                 "source_obj":src,
                 "evidence_required":_requires_evidence(rows),
                 "min_evidence":2 if "auto-discovered from live title" in (row.get("notes") or "") else 1,
+                "min_distinct_evidence":2 if "auto-discovered from live title" in (row.get("notes") or "") else 1,
             }
             candidates.append(c)
             diagnostics.append({
@@ -327,12 +344,19 @@ def reselect_policy_sources(target_hours: float | None = None) -> dict:
                 selected[channel_name]=winner
         elif _requires_evidence(rows):
             existing=mapping_by_name.get(channel_name) or {}
-            quarantined[channel_name]=(existing.get("output_tvg_id") or "").strip()
-            diagnostics.append({
-                "playlist_name":channel_name,
-                "status":"EVIDENCE_REQUIRED_NO_PROVEN_DONOR",
-                "output_tvg_id":quarantined[channel_name],
-            })
+            if _existing_donor_contradicted(existing,candidates):
+                quarantined[channel_name]=(existing.get("output_tvg_id") or "").strip()
+                diagnostics.append({
+                    "playlist_name":channel_name,
+                    "status":"PROVEN_EXISTING_DONOR_CONFLICT",
+                    "output_tvg_id":quarantined[channel_name],
+                })
+            else:
+                diagnostics.append({
+                    "playlist_name":channel_name,
+                    "status":"EVIDENCE_PENDING_KEEP_EXISTING",
+                    "output_tvg_id":(existing.get("output_tvg_id") or "").strip(),
+                })
 
     if not selected and not quarantined:
         (OUTPUT/"source-selection-v15.json").write_text(
