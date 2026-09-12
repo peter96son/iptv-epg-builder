@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-12T00:22:32.075804+00:00",
+  "updated_at": "2026-09-12T00:56:15.612402+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-12T00:22:30.652440+00:00",
+      "checked_at_utc": "2026-09-12T00:56:13.949267+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,11 +10,11 @@
         "Кинозалы"
       ],
       "channels": 488,
-      "ok": 387,
-      "gaps": 101,
+      "ok": 388,
+      "gaps": 100,
       "issue_counts": {
-        "NO_MAPPING": 48,
-        "NO_CURRENT_PROGRAMME": 47,
+        "NO_MAPPING": 47,
+        "NO_CURRENT_PROGRAMME": 52,
         "NO_NEXT_PROGRAMME": 53
       },
       "group_counts": {
@@ -35,92 +35,82 @@
         },
         "Кинозалы": {
           "channels": 239,
-          "ok": 177,
-          "gaps": 62
+          "ok": 178,
+          "gaps": 61
         }
       }
     },
     "observer": {
       "return_code": 0,
       "channels_considered": 101,
-      "high_confidence_observations": 3,
+      "high_confidence_observations": 2,
       "recognized": [
         {
-          "playlist_name": "MM Скорость HD",
-          "provider_name": "MM Скорость HD",
-          "title": "Форсаж 5 (2011)",
-          "score": 12.5,
+          "playlist_name": "MM Ужастик HD",
+          "provider_name": "MM Ужастик HD",
+          "title": "Сказки темной стороны | 2-5",
+          "score": 24.75,
           "zone": "bottom_band",
           "engine": "tesseract"
         },
         {
-          "playlist_name": "YOSSO-4K",
-          "provider_name": "YOSSO-4K",
-          "title": "Фуоззок",
-          "score": 21.75,
-          "zone": "top_band",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "CPS Western",
-          "provider_name": "CPS Western",
-          "title": "TRANSPORTATION CO-CAPTAIN TODD NOBLES Цены",
-          "score": 13.0,
-          "zone": "top_band",
+          "playlist_name": "MM Ужасы HD",
+          "provider_name": "MM Ужасы HD",
+          "title": "Перерожденные (2024)",
+          "score": 23.25,
+          "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 3,
-      "rejected": 98,
+      "added": 2,
+      "rejected": 99,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-12T00:06:46.763372+00:00",
-          "playlist_name": "MM Скорость HD",
-          "observed_title": "Форсаж 5 (2011)",
+          "observed_at": "2026-09-12T00:41:12.444387+00:00",
+          "playlist_name": "MM Ужастик HD",
+          "observed_title": "Сказки темной стороны | 2-5",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=12.5"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=24.75"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-09-12T00:06:46.763372+00:00",
-          "playlist_name": "YOSSO-4K",
-          "observed_title": "Фуоззок",
+          "observed_at": "2026-09-12T00:41:12.444387+00:00",
+          "playlist_name": "MM Ужасы HD",
+          "observed_title": "Перерожденные (2024)",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=21.75"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-12T00:06:46.763372+00:00",
-          "playlist_name": "CPS Western",
-          "observed_title": "TRANSPORTATION CO-CAPTAIN TODD NOBLES Цены",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=13.0"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=23.25"
         }
       ]
     },
     "judge": {
       "selector": {
         "changed": 1,
-        "selected": 0,
-        "quarantined": 1,
+        "selected": 1,
+        "quarantined": 0,
         "target_hours": 6.0
       },
-      "selected_count": 0,
-      "quarantined_count": 1,
-      "selected": {},
-      "quarantined": {
-        "MM Скорость HD": {
-          "reason": "EVIDENCE_REQUIRED_NO_PROVEN_DONOR",
-          "previous_output_tvg_id": "Xminimax-skorost"
+      "pending_count": 0,
+      "pending": {},
+      "selected_count": 1,
+      "quarantined_count": 0,
+      "selected": {
+        "MM Ужастик HD": {
+          "source": "minimax-mm-dedicated",
+          "source_id": "ujastik-mm",
+          "output_tvg_id": "Xminimax-ujastik",
+          "horizon_hours": 524.42,
+          "current": true,
+          "usable": 64
         }
-      }
+      },
+      "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 3,
-      "sources_scanned": 28,
+      "live_observations": 2,
+      "sources_scanned": 26,
       "sources_failed": [
         {
           "source": "klimedia-dedicated",
@@ -129,67 +119,18 @@
         {
           "source": "sharavoz-guide",
           "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-ru",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-rescue",
+          "error": "RuntimeError"
         }
       ],
-      "candidates_added": 8,
-      "added": [
-        {
-          "enabled": "1",
-          "playlist_name": "MM Скорость HD",
-          "source": "iptv-online-primary",
-          "source_id": "X000139_FilmGalaxy",
-          "notes": "auto-discovered from live title; similarity=0.875; observed=Форсаж 5 (2011); candidate=Форсаж 9 (2021); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Скорость HD",
-          "source": "iptvx-noarch",
-          "source_id": "bear-tv-galaktika-kino-ru-uhd",
-          "notes": "auto-discovered from live title; similarity=0.875; observed=Форсаж 5 (2011); candidate=Форсаж 9 (2021); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Скорость HD",
-          "source": "minimax-mm-dedicated",
-          "source_id": "skorost-mm",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Форсаж 5 (2011); candidate=Форсаж 5; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Скорость HD",
-          "source": "tvteam",
-          "source_id": "ch1258",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Форсаж 5 (2011); candidate=Форсаж 5; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Скорость HD",
-          "source": "gabbarit-current",
-          "source_id": "минимакс-скорость HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Форсаж 5 (2011); candidate=Форсаж 5 (2011).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Скорость HD",
-          "source": "gabbarit-primary",
-          "source_id": "минимакс-скорость HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Форсаж 5 (2011); candidate=Форсаж 5 (2011).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Скорость HD",
-          "source": "gabbarit-mirror",
-          "source_id": "минимакс-скорость HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Форсаж 5 (2011); candidate=Форсаж 5 (2011).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Скорость HD",
-          "source": "epgone-full-movie-rescue",
-          "source_id": "5166",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Форсаж 5 (2011); candidate=Форсаж 5; requires two positive observations before selection"
-        }
-      ]
+      "candidates_added": 0,
+      "added": []
     }
   }
 }
