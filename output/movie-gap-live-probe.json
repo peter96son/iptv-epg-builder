@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-12T02:21:00.643764+00:00",
+  "generated_at": "2026-09-12T03:06:24.580816+00:00",
   "source_gap_file": "output/movie-epg-gaps.csv",
   "target_groups": [
     "USSR",
@@ -7,7 +7,7 @@
     "Кино 4K",
     "Кинозалы"
   ],
-  "channels_considered": 101,
+  "channels_considered": 102,
   "method": "learned-zone-first OCR with full-width top/bottom fallback; second frame only when needed",
   "privacy": "stream URLs and video frames are never persisted",
   "frame_seconds": [
@@ -65,14 +65,14 @@
       "gap_status": "NO_CURRENT_PROGRAMME;NO_NEXT_PROGRAMME",
       "found_in_playlist": false
     },
-    "Гарри Поттер": {
+    "Твой кинотеатр": {
       "group": "Кино",
-      "playlist_name": "Гарри Поттер",
-      "provider_name": "Гарри Поттер",
+      "playlist_name": "Твой кинотеатр",
+      "provider_name": "Твой кинотеатр",
       "provider_tvg_id": "",
       "gap_status": "NO_MAPPING",
       "found_in_playlist": true,
-      "live_playlist_name": "Гарри Поттер",
+      "live_playlist_name": "Твой кинотеатр",
       "live_tvg_id": "",
       "stream_metadata": {
         "ok": true,
@@ -80,12 +80,15 @@
       },
       "recognized_title": null,
       "profile_used": {
-        "preferred_zone": "top_left_tight",
+        "preferred_zone": "left_bottom_tight",
         "preferred_engine": "tesseract",
         "static_text": [],
-        "last_title": "THROUGHOUT THE WORLD. ALL RIGHTS RESERVED. CO"
+        "last_title": "соот"
       },
-      "ocr_lines": [],
+      "ocr_lines": [
+        "ТВОЙ",
+        "КИНОТЕАТР"
+      ],
       "stable_ocr_lines": [],
       "unique_frame_hashes": 2,
       "captured_frames": 2,
@@ -93,16 +96,29 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "6973365aef01956238e3eb551f953030e6214bb784649037c9e8c68b0a25b7e3",
+          "sha256": "0400222bc75466b645bb3232af17ba28319bb6db451fa4c3d140c265307c2954",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "1cdb0f7117769cb19953a20bf5326ff3cea43e9fdd896ab18690d44d2cddfe4c",
-          "ocr_lines": [],
-          "ocr_candidates": []
+          "sha256": "28cd3e3eeb05d097674cc75a9ff09615895d019daf8a4eeee0c63aa18872f63b",
+          "ocr_lines": [
+            "ТВОЙ",
+            "КИНОТЕАТР"
+          ],
+          "ocr_candidates": [
+            {
+              "engine": "tesseract",
+              "variant": "top_band",
+              "lines": [
+                "ТВОЙ",
+                "КИНОТЕАТР"
+              ],
+              "psm": 11
+            }
+          ]
         }
       ]
     },
@@ -134,68 +150,27 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "1a6bb65823d8346f4433d10007237c13a1cdf56e239e43b7fb3b648a01c266ee",
+          "sha256": "ed9e405b0b757e4b16c6a047b26643718aba6d14752ae19686d9673a52b95bb0",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "de2594b2b66ed8eb6d5c3b724a5c449f581cb14e339c09741ef22ebcb5b8513f",
+          "sha256": "2dc3efdce1057a44ffb4fadfae4c383dc575ca429881fc3c82839480c75db67c",
           "ocr_lines": [],
           "ocr_candidates": []
         }
       ]
     },
-    "Thriller HD": {
+    "Вселенная Marvel": {
       "group": "Кино",
-      "playlist_name": "Thriller HD",
-      "provider_name": "Thriller HD",
-      "provider_tvg_id": "Xthriller-hd",
-      "gap_status": "NO_MAPPING",
-      "found_in_playlist": true,
-      "live_playlist_name": "Thriller HD",
-      "live_tvg_id": "Xthriller-hd",
-      "stream_metadata": {
-        "ok": true,
-        "skipped": "hourly-fast-path"
-      },
-      "recognized_title": null,
-      "profile_used": {
-        "preferred_zone": "top_left",
-        "preferred_engine": "tesseract",
-        "static_text": [],
-        "last_title": "НЕ ГОВОРИ НИКОМУ"
-      },
-      "ocr_lines": [],
-      "stable_ocr_lines": [],
-      "unique_frame_hashes": 2,
-      "captured_frames": 2,
-      "frames": [
-        {
-          "approx_second": 2,
-          "captured": true,
-          "sha256": "1b4335b601122761ede8902c6771d1eb105d2916d693ddb0b422ae3b1683cc70",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        },
-        {
-          "approx_second": 8,
-          "captured": true,
-          "sha256": "2d894632904140d8b190dd5deff2a1e21cd86f74fec20343c687e4c8dcbd586d",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        }
-      ]
-    },
-    "Твой кинотеатр": {
-      "group": "Кино",
-      "playlist_name": "Твой кинотеатр",
-      "provider_name": "Твой кинотеатр",
+      "playlist_name": "Вселенная Marvel",
+      "provider_name": "Вселенная Marvel",
       "provider_tvg_id": "",
       "gap_status": "NO_MAPPING",
       "found_in_playlist": true,
-      "live_playlist_name": "Твой кинотеатр",
+      "live_playlist_name": "Вселенная Marvel",
       "live_tvg_id": "",
       "stream_metadata": {
         "ok": true,
@@ -203,10 +178,10 @@
       },
       "recognized_title": null,
       "profile_used": {
-        "preferred_zone": "left_bottom_tight",
+        "preferred_zone": "top_left_tight",
         "preferred_engine": "tesseract",
         "static_text": [],
-        "last_title": "соот"
+        "last_title": "Use ооо 4” > Maawmdainaiaw"
       },
       "ocr_lines": [],
       "stable_ocr_lines": [],
@@ -216,14 +191,55 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "74696a9837fc7ae48507ab98ee73eae5ec90676cba87d85212915d057464f6e9",
+          "sha256": "bb3071ca3c2e796e2bf592bd694651ffd5dfcd5f541a909724ceb1b61871324c",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "b6b5e6110103af7ef2aadd3c307a6cdabc45608daac7b37b90758eb55ef21987",
+          "sha256": "a50ba030f74290fe01384de72a7a92f259f3c0149d597becf8237eb7842568d0",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        }
+      ]
+    },
+    "РуКино HD": {
+      "group": "Кино",
+      "playlist_name": "РуКино HD",
+      "provider_name": "РуКино HD",
+      "provider_tvg_id": "Xrukino-hd",
+      "gap_status": "NO_MAPPING",
+      "found_in_playlist": true,
+      "live_playlist_name": "РуКино HD",
+      "live_tvg_id": "Xrukino-hd",
+      "stream_metadata": {
+        "ok": true,
+        "skipped": "hourly-fast-path"
+      },
+      "recognized_title": null,
+      "profile_used": {
+        "preferred_zone": "top_left_tight",
+        "preferred_engine": "tesseract",
+        "static_text": [],
+        "last_title": "АВАНПОСТ"
+      },
+      "ocr_lines": [],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
+      "frames": [
+        {
+          "approx_second": 2,
+          "captured": true,
+          "sha256": "b207acb297d612197250cf0fe4e5d2b7e8dff85de03ae88bab755f92ecc5db0c",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        },
+        {
+          "approx_second": 8,
+          "captured": true,
+          "sha256": "5d0ed237455305fe73ed266a000eb8925e0f1970fb580d411d709dc8db275ff0",
           "ocr_lines": [],
           "ocr_candidates": []
         }
@@ -293,28 +309,28 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "7fe92b7a24ac198928435262a6a0417d927382c9ed956ad816ac7318c2341e0c",
+          "sha256": "c466a6cf24847daf4a6f20cc7f90f4ca25bd7939fa345ac34ada19a507bccc31",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "aa52457777af28037cdf5918d4f6f20ee14cebd8e6dd7c2637c76b9cc4be7793",
+          "sha256": "0d614cdbb9e51b4077375ebd274d4354225febac3cdadedaad2bd97253e6b9f9",
           "ocr_lines": [],
           "ocr_candidates": []
         }
       ]
     },
-    "РуКино HD": {
+    "Гарри Поттер": {
       "group": "Кино",
-      "playlist_name": "РуКино HD",
-      "provider_name": "РуКино HD",
-      "provider_tvg_id": "Xrukino-hd",
+      "playlist_name": "Гарри Поттер",
+      "provider_name": "Гарри Поттер",
+      "provider_tvg_id": "",
       "gap_status": "NO_MAPPING",
       "found_in_playlist": true,
-      "live_playlist_name": "РуКино HD",
-      "live_tvg_id": "Xrukino-hd",
+      "live_playlist_name": "Гарри Поттер",
+      "live_tvg_id": "",
       "stream_metadata": {
         "ok": true,
         "skipped": "hourly-fast-path"
@@ -324,7 +340,7 @@
         "preferred_zone": "top_left_tight",
         "preferred_engine": "tesseract",
         "static_text": [],
-        "last_title": "АВАНПОСТ"
+        "last_title": "THROUGHOUT THE WORLD. ALL RIGHTS RESERVED. CO"
       },
       "ocr_lines": [],
       "stable_ocr_lines": [],
@@ -334,14 +350,55 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "fa6401640c5b0eecd63d02f61d50011b14634271b6dd17a466469db26c154986",
+          "sha256": "1635811ac225ef671c806d4b662065ec6c75e3c3a37e65312ae6f0cca31a3ab7",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "cb9f834cebfe930d183aced97f225a55d32b315b1df8a977fb918e9cb6038705",
+          "sha256": "ffcdc5c774d546e6ed8702f26ae26ac32f77b43895cd05bed43c6613e8ca129b",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        }
+      ]
+    },
+    "Thriller HD": {
+      "group": "Кино",
+      "playlist_name": "Thriller HD",
+      "provider_name": "Thriller HD",
+      "provider_tvg_id": "Xthriller-hd",
+      "gap_status": "NO_MAPPING",
+      "found_in_playlist": true,
+      "live_playlist_name": "Thriller HD",
+      "live_tvg_id": "Xthriller-hd",
+      "stream_metadata": {
+        "ok": true,
+        "skipped": "hourly-fast-path"
+      },
+      "recognized_title": null,
+      "profile_used": {
+        "preferred_zone": "top_left",
+        "preferred_engine": "tesseract",
+        "static_text": [],
+        "last_title": "НЕ ГОВОРИ НИКОМУ"
+      },
+      "ocr_lines": [],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
+      "frames": [
+        {
+          "approx_second": 2,
+          "captured": true,
+          "sha256": "7d02d63dcf14502ebf117cbfdc7add786c5a407c79e60d309fa87b92f55f03ba",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        },
+        {
+          "approx_second": 8,
+          "captured": true,
+          "sha256": "0254a1bd71aa31f8629cb7d483d341a0c742d9a8cb3f39efa7503911b20b5e9b",
           "ocr_lines": [],
           "ocr_candidates": []
         }
@@ -385,47 +442,6 @@
         }
       ]
     },
-    "Вселенная Marvel": {
-      "group": "Кино",
-      "playlist_name": "Вселенная Marvel",
-      "provider_name": "Вселенная Marvel",
-      "provider_tvg_id": "",
-      "gap_status": "NO_MAPPING",
-      "found_in_playlist": true,
-      "live_playlist_name": "Вселенная Marvel",
-      "live_tvg_id": "",
-      "stream_metadata": {
-        "ok": true,
-        "skipped": "hourly-fast-path"
-      },
-      "recognized_title": null,
-      "profile_used": {
-        "preferred_zone": "top_left_tight",
-        "preferred_engine": "tesseract",
-        "static_text": [],
-        "last_title": "Use ооо 4” > Maawmdainaiaw"
-      },
-      "ocr_lines": [],
-      "stable_ocr_lines": [],
-      "unique_frame_hashes": 2,
-      "captured_frames": 2,
-      "frames": [
-        {
-          "approx_second": 2,
-          "captured": true,
-          "sha256": "deb819fec9b6544b1cec842645a3db84eedefd359b3b984bbf22395f8ad38a06",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        },
-        {
-          "approx_second": 8,
-          "captured": true,
-          "sha256": "5f0045240e02eee39f4d0749e5cb9b0171f1dec989030996be608d1448a9c59d",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        }
-      ]
-    },
     "VHS HD": {
       "group": "Кино",
       "playlist_name": "VHS HD",
@@ -448,7 +464,9 @@
         ],
         "last_title": "СХВАТКА"
       },
-      "ocr_lines": [],
+      "ocr_lines": [
+        "a \"и"
+      ],
       "stable_ocr_lines": [],
       "unique_frame_hashes": 2,
       "captured_frames": 2,
@@ -456,55 +474,25 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "07ee85dd75ce75bbc8c1316568150b6b0301f63e69b2ca32caed12bd60e40b29",
-          "ocr_lines": [],
-          "ocr_candidates": []
+          "sha256": "b6de09c06c2e1615c7cfe8a5f63d9126533e3775cde34c2a3a57cccee1d28a8a",
+          "ocr_lines": [
+            "a \"и"
+          ],
+          "ocr_candidates": [
+            {
+              "engine": "tesseract",
+              "variant": "bottom_band",
+              "lines": [
+                "a \"и"
+              ],
+              "psm": 11
+            }
+          ]
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "b64b9199116b955af74dacc24d36d824411086e678965ad488e851aed1be127e",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        }
-      ]
-    },
-    "НТВ Сериал Балабол": {
-      "group": "Кино",
-      "playlist_name": "НТВ Сериал Балабол",
-      "provider_name": "НТВ Сериал Балабол",
-      "provider_tvg_id": "no_epg_cinema",
-      "gap_status": "NO_MAPPING",
-      "found_in_playlist": true,
-      "live_playlist_name": "НТВ Сериал Балабол",
-      "live_tvg_id": "no_epg_cinema",
-      "stream_metadata": {
-        "ok": true,
-        "skipped": "hourly-fast-path"
-      },
-      "recognized_title": null,
-      "profile_used": {
-        "preferred_zone": "",
-        "preferred_engine": "",
-        "static_text": [],
-        "last_title": ""
-      },
-      "ocr_lines": [],
-      "stable_ocr_lines": [],
-      "unique_frame_hashes": 2,
-      "captured_frames": 2,
-      "frames": [
-        {
-          "approx_second": 2,
-          "captured": true,
-          "sha256": "9b24b8191bad2eb86597243bc81cc9cff55b7181e2085a6ad525fe3129e5fb67",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        },
-        {
-          "approx_second": 8,
-          "captured": true,
-          "sha256": "101b769ff99632902ceb3dcf090cb550f3662886f3dde4c5793f10fae3880fae",
+          "sha256": "fb668d7b75310f4f7075d9171e3c5877637f1b88d62d97505fe484188136efb9",
           "ocr_lines": [],
           "ocr_candidates": []
         }
@@ -538,137 +526,14 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "3a94e7e05f841ec629f40f892abdcc7aa464c2f537a18bda978e6bca433fd936",
+          "sha256": "af2c5d0ded181a339fd57b407459031699b3b65c90af3b35c4907d4c1c731703",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "07700034ddf422b951d551baec16aa7460487439308c22adedd37b94ff0a644f",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        }
-      ]
-    },
-    "Premiere HD 3": {
-      "group": "Кино",
-      "playlist_name": "Premiere HD 3",
-      "provider_name": "Premiere HD 3",
-      "provider_tvg_id": "Xpremierehd3",
-      "gap_status": "NO_CURRENT_PROGRAMME;NO_NEXT_PROGRAMME",
-      "found_in_playlist": true,
-      "live_playlist_name": "Premiere HD 3",
-      "live_tvg_id": "Xpremierehd3",
-      "stream_metadata": {
-        "ok": true,
-        "skipped": "hourly-fast-path"
-      },
-      "recognized_title": null,
-      "profile_used": {
-        "preferred_zone": "top_left_tight",
-        "preferred_engine": "tesseract",
-        "static_text": [],
-        "last_title": "На грани войны"
-      },
-      "ocr_lines": [],
-      "stable_ocr_lines": [],
-      "unique_frame_hashes": 2,
-      "captured_frames": 2,
-      "frames": [
-        {
-          "approx_second": 2,
-          "captured": true,
-          "sha256": "bfb6fe0e7c1bc067ea216f2656ddc97e7e5746aa2cdddbd38a0d53edc6eea328",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        },
-        {
-          "approx_second": 8,
-          "captured": true,
-          "sha256": "5e6fe4f2925b2e6df648ed956757adfbaa509cba5f6a31e21cfa80e469207fa5",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        }
-      ]
-    },
-    "4ever Theater HD": {
-      "group": "Кино",
-      "playlist_name": "4ever Theater HD",
-      "provider_name": "4ever Theater HD",
-      "provider_tvg_id": "X4ever-theater",
-      "gap_status": "NO_CURRENT_PROGRAMME;NO_NEXT_PROGRAMME",
-      "found_in_playlist": true,
-      "live_playlist_name": "4ever Theater HD",
-      "live_tvg_id": "X4ever-theater",
-      "stream_metadata": {
-        "ok": true,
-        "skipped": "hourly-fast-path"
-      },
-      "recognized_title": null,
-      "profile_used": {
-        "preferred_zone": "",
-        "preferred_engine": "",
-        "static_text": [],
-        "last_title": ""
-      },
-      "ocr_lines": [],
-      "stable_ocr_lines": [],
-      "unique_frame_hashes": 2,
-      "captured_frames": 2,
-      "frames": [
-        {
-          "approx_second": 2,
-          "captured": true,
-          "sha256": "eb28644ef51798bf3512a984ddb50370a81016eb82c685f52026c525b25bb3ed",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        },
-        {
-          "approx_second": 8,
-          "captured": true,
-          "sha256": "42add7ec60ac4415d15bd02bae753418c54b7dfe9a5f4178fb773f1111c3d27c",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        }
-      ]
-    },
-    "Детское Кино International": {
-      "group": "Кино",
-      "playlist_name": "Детское Кино International",
-      "provider_name": "Детское Кино International",
-      "provider_tvg_id": "",
-      "gap_status": "NO_CURRENT_PROGRAMME;NO_NEXT_PROGRAMME",
-      "found_in_playlist": true,
-      "live_playlist_name": "Детское Кино International",
-      "live_tvg_id": "",
-      "stream_metadata": {
-        "ok": true,
-        "skipped": "hourly-fast-path"
-      },
-      "recognized_title": null,
-      "profile_used": {
-        "preferred_zone": "",
-        "preferred_engine": "",
-        "static_text": [],
-        "last_title": ""
-      },
-      "ocr_lines": [],
-      "stable_ocr_lines": [],
-      "unique_frame_hashes": 2,
-      "captured_frames": 2,
-      "frames": [
-        {
-          "approx_second": 2,
-          "captured": true,
-          "sha256": "9f3fe92710ddc903353ae2e6c7e1ebf52d8976685e0ed169b64d9374515191a2",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        },
-        {
-          "approx_second": 8,
-          "captured": true,
-          "sha256": "eaa139318ae298f55b80cc1359bbabad0a1ea1731f7e5afeeac307c12438e711",
+          "sha256": "541b93fe81da7275eeb68e588118f0afaa97e29fd733ac6e49b013150e145698",
           "ocr_lines": [],
           "ocr_candidates": []
         }
@@ -702,55 +567,55 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "a9ff8abac353120fda6ea4f270408740eed0fd38b7c6d64f0af208d550113780",
+          "sha256": "41e935bd551d30473bc00e8d3a44011266effbe62f24c95410f1891ac044c219",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "69a26f1cb880983d1e863b8b88467703e7597e8eef0f5ab2ec85304bfc92e7ae",
+          "sha256": "4bf3bb4cbfd399c59aed38669d22f607183f12b5d394c3db6ea0315a5090651a",
           "ocr_lines": [],
           "ocr_candidates": []
         }
       ]
     },
-    "Тех Лет ТВ": {
+    "Premiere HD 3": {
       "group": "Кино",
-      "playlist_name": "Тех Лет ТВ",
-      "provider_name": "Тех Лет ТВ",
-      "provider_tvg_id": "",
+      "playlist_name": "Premiere HD 3",
+      "provider_name": "Premiere HD 3",
+      "provider_tvg_id": "Xpremierehd3",
       "gap_status": "NO_CURRENT_PROGRAMME;NO_NEXT_PROGRAMME",
       "found_in_playlist": true,
-      "live_playlist_name": "Тех Лет ТВ",
-      "live_tvg_id": "",
+      "live_playlist_name": "Premiere HD 3",
+      "live_tvg_id": "Xpremierehd3",
       "stream_metadata": {
         "ok": true,
         "skipped": "hourly-fast-path"
       },
       "recognized_title": null,
       "profile_used": {
-        "preferred_zone": "",
-        "preferred_engine": "",
+        "preferred_zone": "top_left_tight",
+        "preferred_engine": "tesseract",
         "static_text": [],
-        "last_title": ""
+        "last_title": "На грани войны"
       },
       "ocr_lines": [],
       "stable_ocr_lines": [],
-      "unique_frame_hashes": 1,
+      "unique_frame_hashes": 2,
       "captured_frames": 2,
       "frames": [
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "8fe67cc91c0fe125eadc98fa492f9374520a85c1c1a835f590ecd4484f5d3ba4",
+          "sha256": "62a6c64b8400576ef37f58bcac793473af3804249bc310fb5ff2934defc3317e",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "8fe67cc91c0fe125eadc98fa492f9374520a85c1c1a835f590ecd4484f5d3ba4",
+          "sha256": "7a9fc4959922db2e995666da62d7c44aea31c5faafa23d7ba0855226da1083f2",
           "ocr_lines": [],
           "ocr_candidates": []
         }
@@ -784,74 +649,221 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "9cb7840c8b6d50580e8159553a6f2c297ec6a6fa0effb9944ac7c01aaac3944d",
+          "sha256": "9898997e9d9b5c8fece526b651b7758c3a2d1c4133d9aa85ac2df41f45bae714",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "ddd5a788154282720b0f046ca95acbfed5f4127609879eb3ef9445ebba4578f1",
+          "sha256": "79dcd413aedfb35eef9d9c39146b539706dcfb14f088ba96771b75d4615ca59d",
           "ocr_lines": [],
           "ocr_candidates": []
         }
       ]
     },
-    "Кино и Жизнь": {
+    "4ever Theater HD": {
       "group": "Кино",
-      "playlist_name": "Кино и Жизнь",
-      "provider_name": "Кино и Жизнь",
+      "playlist_name": "4ever Theater HD",
+      "provider_name": "4ever Theater HD",
+      "provider_tvg_id": "X4ever-theater",
+      "gap_status": "NO_CURRENT_PROGRAMME;NO_NEXT_PROGRAMME",
+      "found_in_playlist": true,
+      "live_playlist_name": "4ever Theater HD",
+      "live_tvg_id": "X4ever-theater",
+      "stream_metadata": {
+        "ok": true,
+        "skipped": "hourly-fast-path"
+      },
+      "recognized_title": null,
+      "profile_used": {
+        "preferred_zone": "",
+        "preferred_engine": "",
+        "static_text": [],
+        "last_title": ""
+      },
+      "ocr_lines": [],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
+      "frames": [
+        {
+          "approx_second": 2,
+          "captured": true,
+          "sha256": "92cc246f6e185d2d92eddfd96bf69042f58c4dfa923bdf7119fcaa524dbec3d8",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        },
+        {
+          "approx_second": 8,
+          "captured": true,
+          "sha256": "cdba2a4fe1f27b6f16cdf0f83cd4d22a37c520947817f269276f1897ba62f2fd",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        }
+      ]
+    },
+    "Детское Кино International": {
+      "group": "Кино",
+      "playlist_name": "Детское Кино International",
+      "provider_name": "Детское Кино International",
       "provider_tvg_id": "",
       "gap_status": "NO_CURRENT_PROGRAMME;NO_NEXT_PROGRAMME",
       "found_in_playlist": true,
-      "live_playlist_name": "Кино и Жизнь",
+      "live_playlist_name": "Детское Кино International",
       "live_tvg_id": "",
       "stream_metadata": {
         "ok": true,
         "skipped": "hourly-fast-path"
       },
-      "recognized_title": {
-        "title": "Грязные деньги",
-        "score": 14.25,
-        "confidence": "high",
-        "engine": "tesseract",
-        "zone": "top_left_tight"
-      },
+      "recognized_title": null,
       "profile_used": {
-        "preferred_zone": "top_left_tight",
-        "preferred_engine": "tesseract",
+        "preferred_zone": "",
+        "preferred_engine": "",
         "static_text": [],
-        "last_title": "Грязные деньги"
+        "last_title": ""
       },
-      "ocr_lines": [
-        "Грязные деньги"
-      ],
+      "ocr_lines": [],
       "stable_ocr_lines": [],
-      "unique_frame_hashes": 1,
-      "captured_frames": 1,
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
       "frames": [
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "17e682f8360fc5065feb51cf97fe9a1a1b2ee248fc51b8d9b5cb0e3f086a5cab",
-          "ocr_lines": [
-            "Грязные деньги"
-          ],
-          "ocr_candidates": [
-            {
-              "engine": "tesseract",
-              "variant": "top_left_tight",
-              "lines": [
-                "Грязные деньги"
-              ],
-              "psm": 11
-            }
-          ]
+          "sha256": "fbec98926b4825f84b17d297ba8e5288956f7e1097f647892304c77a97bc2e65",
+          "ocr_lines": [],
+          "ocr_candidates": []
         },
         {
           "approx_second": 8,
-          "captured": false,
-          "skipped_after_high_confidence": true
+          "captured": true,
+          "sha256": "3dd3d7fc7c0cc42b3740f7a2bc3b2e0218edc19b72f5887279c520772bd2f5c8",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        }
+      ]
+    },
+    "Тех Лет ТВ": {
+      "group": "Кино",
+      "playlist_name": "Тех Лет ТВ",
+      "provider_name": "Тех Лет ТВ",
+      "provider_tvg_id": "",
+      "gap_status": "NO_CURRENT_PROGRAMME;NO_NEXT_PROGRAMME",
+      "found_in_playlist": true,
+      "live_playlist_name": "Тех Лет ТВ",
+      "live_tvg_id": "",
+      "stream_metadata": {
+        "ok": true,
+        "skipped": "hourly-fast-path"
+      },
+      "recognized_title": null,
+      "profile_used": {
+        "preferred_zone": "",
+        "preferred_engine": "",
+        "static_text": [],
+        "last_title": ""
+      },
+      "ocr_lines": [],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
+      "frames": [
+        {
+          "approx_second": 2,
+          "captured": true,
+          "sha256": "8fe67cc91c0fe125eadc98fa492f9374520a85c1c1a835f590ecd4484f5d3ba4",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        },
+        {
+          "approx_second": 8,
+          "captured": true,
+          "sha256": "40ec1082395bd5617aeb166bbef45aeee555001aa4aebaed4591dce6a5ae905a",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        }
+      ]
+    },
+    "НТВ Сериал Балабол": {
+      "group": "Кино",
+      "playlist_name": "НТВ Сериал Балабол",
+      "provider_name": "НТВ Сериал Балабол",
+      "provider_tvg_id": "no_epg_cinema",
+      "gap_status": "NO_MAPPING",
+      "found_in_playlist": true,
+      "live_playlist_name": "НТВ Сериал Балабол",
+      "live_tvg_id": "no_epg_cinema",
+      "stream_metadata": {
+        "ok": true,
+        "skipped": "hourly-fast-path"
+      },
+      "recognized_title": null,
+      "profile_used": {
+        "preferred_zone": "",
+        "preferred_engine": "",
+        "static_text": [],
+        "last_title": ""
+      },
+      "ocr_lines": [],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
+      "frames": [
+        {
+          "approx_second": 2,
+          "captured": true,
+          "sha256": "dc79f3c64952b189c284bf5961cf8c767d8d6d62fc4fd4d64f1c913d8cad66f3",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        },
+        {
+          "approx_second": 8,
+          "captured": true,
+          "sha256": "585b2a585c724cf26082227f445d1141da087c94bc567a62b3b64b2bae15cd5c",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        }
+      ]
+    },
+    "Лента Кино": {
+      "group": "Кино",
+      "playlist_name": "Лента Кино",
+      "provider_name": "Лента Кино",
+      "provider_tvg_id": "",
+      "gap_status": "NO_MAPPING",
+      "found_in_playlist": true,
+      "live_playlist_name": "Лента Кино",
+      "live_tvg_id": "",
+      "stream_metadata": {
+        "ok": true,
+        "skipped": "hourly-fast-path"
+      },
+      "recognized_title": null,
+      "profile_used": {
+        "preferred_zone": "left_bottom_tight",
+        "preferred_engine": "tesseract",
+        "static_text": [],
+        "last_title": "enter"
+      },
+      "ocr_lines": [],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
+      "frames": [
+        {
+          "approx_second": 2,
+          "captured": true,
+          "sha256": "17fb89ccabff17ecacd7a4089b12e5aefb26ec9ac93cd344b93d0659743922d5",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        },
+        {
+          "approx_second": 8,
+          "captured": true,
+          "sha256": "c61bb0a5bc3311c7b16e10e285d5f3aa633b0604d1fd55dc9d713371b614ee4e",
+          "ocr_lines": [],
+          "ocr_candidates": []
         }
       ]
     },
@@ -919,14 +931,14 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "42cf6eb60b3140e9deea3176934c5d62fe2135ae5bd92b41963431f30a0e9f61",
+          "sha256": "628c61d8ec1ddc18ba6b104aa14bafd372c363f09be4c376812c3de7e7111ad4",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "ee3d23d81a5e8f81386cca671166b5be818b0dbc20424ed6f05edc703c1fcd04",
+          "sha256": "8564b7d05a859e15bc843419e4fed1ab849ace5a5c1ea201c0286db90a395a93",
           "ocr_lines": [],
           "ocr_candidates": []
         }
@@ -960,55 +972,14 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "c11206993c8fe3381321c53bdf8b654f43661be811f65320f3808bcf576c85b4",
+          "sha256": "2119865c8e705c8d53e60f9d23f370e113198ad63b5ec85335233abbcba32166",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "0833d025f7a03474427c9f2d3d91f1347e4c79bbb6ba4b75377ee5140aba7156",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        }
-      ]
-    },
-    "Лента Кино": {
-      "group": "Кино",
-      "playlist_name": "Лента Кино",
-      "provider_name": "Лента Кино",
-      "provider_tvg_id": "",
-      "gap_status": "NO_MAPPING",
-      "found_in_playlist": true,
-      "live_playlist_name": "Лента Кино",
-      "live_tvg_id": "",
-      "stream_metadata": {
-        "ok": true,
-        "skipped": "hourly-fast-path"
-      },
-      "recognized_title": null,
-      "profile_used": {
-        "preferred_zone": "left_bottom_tight",
-        "preferred_engine": "tesseract",
-        "static_text": [],
-        "last_title": "enter"
-      },
-      "ocr_lines": [],
-      "stable_ocr_lines": [],
-      "unique_frame_hashes": 2,
-      "captured_frames": 2,
-      "frames": [
-        {
-          "approx_second": 2,
-          "captured": true,
-          "sha256": "d3481811fab39b01595ba2a3295be2bd22a114dc6834e93521ed6c073e1e162b",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        },
-        {
-          "approx_second": 8,
-          "captured": true,
-          "sha256": "03cbd838dcc28429e1a61c1f0f4487f445f104b09138ebb7b8ccced0e1587518",
+          "sha256": "a00cf50fc285f3cc208a54c7918748570088a8cfb77e3dd5836c5bc59a67f079",
           "ocr_lines": [],
           "ocr_candidates": []
         }
@@ -1046,14 +1017,14 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "a89d05dd3c9be27b0b8482fc797e66d35b1a3c66e3523851f265c6d7ebf7b5c6",
+          "sha256": "f9c205035060de0a3cede15d596ffd58300ab27daf692752b65ea25de512c731",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "d3d736089832eb4798580af4e3a551a589969b2e3a851b05940f981cecc72296",
+          "sha256": "6957093410a3cd7c2f57c430d58099305c9e4559237323c5bb308d5ed3bae5af",
           "ocr_lines": [],
           "ocr_candidates": []
         }
@@ -1087,14 +1058,55 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "2d23f7a074ebec2384dda9f433f9642a2f424ee955f36bca76a4a50ef1b7b630",
+          "sha256": "c7b890b2619bed47fd3ec6e5305060230d9f2d4142a92a1b89e29d05b4a54d51",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "60d23759c57a116e50688a08597fd82a7180d53ded065386b0226d319ce9ba38",
+          "sha256": "3894530c0c242515d4351726d41eddba7e86b272cd5f00a2abc21ccddcfb9813",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        }
+      ]
+    },
+    "Кино и Жизнь": {
+      "group": "Кино",
+      "playlist_name": "Кино и Жизнь",
+      "provider_name": "Кино и Жизнь",
+      "provider_tvg_id": "",
+      "gap_status": "NO_NEXT_PROGRAMME",
+      "found_in_playlist": true,
+      "live_playlist_name": "Кино и Жизнь",
+      "live_tvg_id": "",
+      "stream_metadata": {
+        "ok": true,
+        "skipped": "hourly-fast-path"
+      },
+      "recognized_title": null,
+      "profile_used": {
+        "preferred_zone": "top_left_tight",
+        "preferred_engine": "tesseract",
+        "static_text": [],
+        "last_title": "Грязные деньги"
+      },
+      "ocr_lines": [],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
+      "frames": [
+        {
+          "approx_second": 2,
+          "captured": true,
+          "sha256": "3de52270ce40b7d778110638f8453669f4fdee674a56257b8bacc486c97a33bb",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        },
+        {
+          "approx_second": 8,
+          "captured": true,
+          "sha256": "487685411af1934ee834a3d9c1a0873927ee7e360c9c0dcfb65a30f103dea6d1",
           "ocr_lines": [],
           "ocr_candidates": []
         }
@@ -1131,14 +1143,14 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "2f8db0cd91576a5cf7bc8226fe6e665598e1abc9f87fefa90eb877f6b90dd973",
+          "sha256": "5304d95da603881342e10d4e502e9b19ba0be1235303611a7e255d1921cbbcb6",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "4afcb8011fd92c247589da668b0c1f25afc71492fd92c914bb3746ab2074f8d2",
+          "sha256": "f86a1d13c115ebaacb525933f5fe7cea8471956e52189a1973a25609f9dcd727",
           "ocr_lines": [],
           "ocr_candidates": []
         }
@@ -1172,14 +1184,14 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "0212979468dcdefb85c7d518f81896c2e4af5bae30f74f9eaa0aadafc4bcd7c8",
+          "sha256": "be66ebfe573cf28f92abcbb931305316565d2c99eaca3c02464435287c06dd01",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "f36935f47b2db631cd35624ee0ac9232cd328865741b8a7392ba930182088c5e",
+          "sha256": "75a80b330aade91e1a44e4d2c6c221aef8acd3a49deb7cdd02c0da82bb22e099",
           "ocr_lines": [],
           "ocr_candidates": []
         }
@@ -1213,14 +1225,14 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "ec439593b49d0e1cb7adfdfcbd5b67445f73d7197aaa8a5ae5c1eb6eadd3e87d",
+          "sha256": "d9cccf6b934edfd43379d3857459dc853f6544a80c159717b0716159975abcca",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "0a046e4613d6510d220e603b786cb0717e83b1ac54cc1ccae9189e97eedf4b09",
+          "sha256": "61d7bef648d56af7af9a90791834bce9bbc8126db3af5e3a81df2838df3e53aa",
           "ocr_lines": [],
           "ocr_candidates": []
         }
@@ -1254,14 +1266,14 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "db84db77ebe9780d4248f7a4422ddc13e7cab1e2a566b95b687a5d28f6c82c11",
+          "sha256": "58066ef64f45c14ca8d16ab112d7d8f7b6dfc089ceaa8e441710896bfdffdf7d",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "ddca00c5534e1e8dd6cf7c22e060da322e0555fec7f09dcb42d953ed2aee14f6",
+          "sha256": "4c7c70d5f7fadc3224b0b39c88bb585abf771124494079ed3b9210898f4d82cc",
           "ocr_lines": [],
           "ocr_candidates": []
         }
@@ -1295,55 +1307,14 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "8e41b4ecf05f20f003ddaa0a131ba593b9ebf928415fe8c3e066e6818fc6798c",
+          "sha256": "b7ea48ca55a1322a97eb7d141a5b6ef12bd68d130ed0d4ba03762ab5e646bbf4",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "180959f7619877837cb61f5a53e45d40800925fc495a6ccf76c0a73e945f152f",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        }
-      ]
-    },
-    "BCU Family HDR": {
-      "group": "Кинозалы",
-      "playlist_name": "BCU Family HDR",
-      "provider_name": "BCU Family HDR",
-      "provider_tvg_id": "Xbcu-cosmo",
-      "gap_status": "NO_MAPPING",
-      "found_in_playlist": true,
-      "live_playlist_name": "BCU Family HDR",
-      "live_tvg_id": "Xbcu-cosmo",
-      "stream_metadata": {
-        "ok": true,
-        "skipped": "hourly-fast-path"
-      },
-      "recognized_title": null,
-      "profile_used": {
-        "preferred_zone": "",
-        "preferred_engine": "",
-        "static_text": [],
-        "last_title": ""
-      },
-      "ocr_lines": [],
-      "stable_ocr_lines": [],
-      "unique_frame_hashes": 2,
-      "captured_frames": 2,
-      "frames": [
-        {
-          "approx_second": 2,
-          "captured": true,
-          "sha256": "61acfcbe2cfa9d428c05b8ceacd022e3b56ab59bf5bc49de2613a9ec67c9c2e7",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        },
-        {
-          "approx_second": 8,
-          "captured": true,
-          "sha256": "2ee2bc05fd4dc1a4d6f30e1dad88bad76f5ed21445dafa2e68c07acb6453dc86",
+          "sha256": "60b375a7ad028715379f1a75dbffcdd1f88e9e408244cf3d958d8fe730eb66a2",
           "ocr_lines": [],
           "ocr_candidates": []
         }
@@ -1377,14 +1348,96 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "784b315dd4080418d43d770d87e9deb36fc51d072f09c2e53c745a736a279013",
+          "sha256": "89645626ee3b3fa4d786b13dae72679cccf22bf18e9e96f73d309b1612e46442",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "de7e84564d5b810e2d0f690f145172155178f210910d2a5b533142dbafed9238",
+          "sha256": "4dfaec23ef83e3564897752b24770034b44ec83b4b8fc61c568071ec52dd2ad8",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        }
+      ]
+    },
+    "BCU Family HDR": {
+      "group": "Кинозалы",
+      "playlist_name": "BCU Family HDR",
+      "provider_name": "BCU Family HDR",
+      "provider_tvg_id": "Xbcu-cosmo",
+      "gap_status": "NO_MAPPING",
+      "found_in_playlist": true,
+      "live_playlist_name": "BCU Family HDR",
+      "live_tvg_id": "Xbcu-cosmo",
+      "stream_metadata": {
+        "ok": true,
+        "skipped": "hourly-fast-path"
+      },
+      "recognized_title": null,
+      "profile_used": {
+        "preferred_zone": "",
+        "preferred_engine": "",
+        "static_text": [],
+        "last_title": ""
+      },
+      "ocr_lines": [],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
+      "frames": [
+        {
+          "approx_second": 2,
+          "captured": true,
+          "sha256": "12587e9d7075a5f1370dd45d1d3ef5391f3ac9c9aeebfd286df418fef19c6d1d",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        },
+        {
+          "approx_second": 8,
+          "captured": true,
+          "sha256": "cfeab3052e03ff09bd6d2ca8facd9baa548c194ebe05af40481ffaaa9fc98a43",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        }
+      ]
+    },
+    "VeleS Криминальный": {
+      "group": "Кинозалы",
+      "playlist_name": "VeleS Криминальный",
+      "provider_name": "VeleS Криминальный",
+      "provider_tvg_id": "veles-criminal",
+      "gap_status": "NO_CURRENT_PROGRAMME;NO_NEXT_PROGRAMME",
+      "found_in_playlist": true,
+      "live_playlist_name": "VeleS Криминальный",
+      "live_tvg_id": "veles-criminal",
+      "stream_metadata": {
+        "ok": true,
+        "skipped": "hourly-fast-path"
+      },
+      "recognized_title": null,
+      "profile_used": {
+        "preferred_zone": "left_bottom_tight",
+        "preferred_engine": "tesseract",
+        "static_text": [],
+        "last_title": "Город Бога (2002)"
+      },
+      "ocr_lines": [],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
+      "frames": [
+        {
+          "approx_second": 2,
+          "captured": true,
+          "sha256": "da3961df9644a86569b0818931c7da5582d28346903653fdc70d5d759a79b9c1",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        },
+        {
+          "approx_second": 8,
+          "captured": true,
+          "sha256": "3ac07970f5f1e28b4e97d4532c0431361e9aef7e20e5f72438b3b58b0ece5696",
           "ocr_lines": [],
           "ocr_candidates": []
         }
@@ -1418,68 +1471,14 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "e27dd4e8de2303bf28348750b79a40aa068c496bca875bd7c4686a4d69475484",
+          "sha256": "81a7a580a7841613fe90d16a8e713864788589aaa96b7c9232fdf892c772c51b",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "2ddbf859dc2ee51d27be42f243057a93e8bdfa55604b68b0684d1034fee91b23",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        }
-      ]
-    },
-    "VeleS Криминальный": {
-      "group": "Кинозалы",
-      "playlist_name": "VeleS Криминальный",
-      "provider_name": "VeleS Криминальный",
-      "provider_tvg_id": "veles-criminal",
-      "gap_status": "NO_CURRENT_PROGRAMME;NO_NEXT_PROGRAMME",
-      "found_in_playlist": true,
-      "live_playlist_name": "VeleS Криминальный",
-      "live_tvg_id": "veles-criminal",
-      "stream_metadata": {
-        "ok": true,
-        "skipped": "hourly-fast-path"
-      },
-      "recognized_title": null,
-      "profile_used": {
-        "preferred_zone": "left_bottom_tight",
-        "preferred_engine": "tesseract",
-        "static_text": [],
-        "last_title": "Город Бога (2002)"
-      },
-      "ocr_lines": [
-        "aoe"
-      ],
-      "stable_ocr_lines": [],
-      "unique_frame_hashes": 2,
-      "captured_frames": 2,
-      "frames": [
-        {
-          "approx_second": 2,
-          "captured": true,
-          "sha256": "e752f623141d02263dde85855bdf88ddbfcd9009a54badd7f2d014923091db56",
-          "ocr_lines": [
-            "aoe"
-          ],
-          "ocr_candidates": [
-            {
-              "engine": "tesseract",
-              "variant": "left_bottom_tight",
-              "lines": [
-                "aoe"
-              ],
-              "psm": 11
-            }
-          ]
-        },
-        {
-          "approx_second": 8,
-          "captured": true,
-          "sha256": "afa0646a80ba969b47106299584635a5e8508d86061f4faad72c11043962a20e",
+          "sha256": "96034b3f6d1dd70900a41164cdacf11a6a2a00af5464404f86d989f0193be638",
           "ocr_lines": [],
           "ocr_candidates": []
         }
@@ -1513,14 +1512,14 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "bb551441f98644a7ee6aaa495d5513f60d7f85bf890736a694933fbc444ad352",
+          "sha256": "1a4fa7ff578270280fdcca07b57e21d558da0624fb068176205a5d245a7b91f3",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "cc1dad283b0197f21ef3bedc1d89517e57174deb915cf872d9c5b1d9b6cbfa7d",
+          "sha256": "923934022e76e6cdc861f051f5db475eded3f45f7b9a76204f5bf80bf58101aa",
           "ocr_lines": [],
           "ocr_candidates": []
         }
@@ -1554,55 +1553,14 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "f2fdf1f8857c9e82cdf61ddaf194c7c3be62576b3b44e890d17b27da07814db8",
+          "sha256": "cc3314ac99c100d505f64d8c656f0e39e83d73502e1f98c3fc80a012ee2fa1e1",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "0d53359515700b7f49ec12fe74616170e0c636ee0c7ad388f5af6e17870800ca",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        }
-      ]
-    },
-    "VeleS Аниме": {
-      "group": "Кинозалы",
-      "playlist_name": "VeleS Аниме",
-      "provider_name": "VeleS Аниме",
-      "provider_tvg_id": "veles-anime",
-      "gap_status": "NO_MAPPING",
-      "found_in_playlist": true,
-      "live_playlist_name": "VeleS Аниме",
-      "live_tvg_id": "veles-anime",
-      "stream_metadata": {
-        "ok": true,
-        "skipped": "hourly-fast-path"
-      },
-      "recognized_title": null,
-      "profile_used": {
-        "preferred_zone": "left_bottom_tight",
-        "preferred_engine": "tesseract",
-        "static_text": [],
-        "last_title": "Покер"
-      },
-      "ocr_lines": [],
-      "stable_ocr_lines": [],
-      "unique_frame_hashes": 2,
-      "captured_frames": 2,
-      "frames": [
-        {
-          "approx_second": 2,
-          "captured": true,
-          "sha256": "aaa4b3938e9f3f5f8e7e47cba65282aa42e5c4444cb3996ab66eb365bf8749b1",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        },
-        {
-          "approx_second": 8,
-          "captured": true,
-          "sha256": "83211ba3b8de9c1b7556767d9ce0b50b2ea96a05698443ec3203100395c271f3",
+          "sha256": "e3fd84dd5c9e49723fdf870ad2080732893d67703f73a700f14c35bce8151ef3",
           "ocr_lines": [],
           "ocr_candidates": []
         }
@@ -1636,14 +1594,55 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "66d4911eee3cbb8db5100f2ea44f94effad94785f0afb5d7aed6f8f618c31149",
+          "sha256": "72fdcbbd2da941862d8c4f971bef233df1b9333accb8752ac6a0b2c8544f3ae8",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "91319099793514d78d8c46e56e6e0005d329e4d0e2be272d8e6b9e3a619357a2",
+          "sha256": "2cb41a80ab3b930a0e968de74c0d671669e6d74f0104a7b7cf4a5daf394b78e9",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        }
+      ]
+    },
+    "VeleS Аниме": {
+      "group": "Кинозалы",
+      "playlist_name": "VeleS Аниме",
+      "provider_name": "VeleS Аниме",
+      "provider_tvg_id": "veles-anime",
+      "gap_status": "NO_MAPPING",
+      "found_in_playlist": true,
+      "live_playlist_name": "VeleS Аниме",
+      "live_tvg_id": "veles-anime",
+      "stream_metadata": {
+        "ok": true,
+        "skipped": "hourly-fast-path"
+      },
+      "recognized_title": null,
+      "profile_used": {
+        "preferred_zone": "left_bottom_tight",
+        "preferred_engine": "tesseract",
+        "static_text": [],
+        "last_title": "Покер"
+      },
+      "ocr_lines": [],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
+      "frames": [
+        {
+          "approx_second": 2,
+          "captured": true,
+          "sha256": "d8067f513d7337c2b21fa191f60b08ffac457f33af14ad368fde64793c003e48",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        },
+        {
+          "approx_second": 8,
+          "captured": true,
+          "sha256": "a175a86f0b9cda68a1c570b81c778e9c52362216773ef5dcc1ffda0a015e28b5",
           "ocr_lines": [],
           "ocr_candidates": []
         }
@@ -1677,14 +1676,14 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "46018aaf7886b64189b29d908963ce00d8b65a9bfd3362dadf9af2cd500e2e9e",
+          "sha256": "0667ac1730dbf80fb01414b87fd02d2e767f69ce7a9f973f82fdd86417b3a26b",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "29bd5cb591c956bb36a178cf3c93ec84b06860eb27077726af93b6ef66943b6a",
+          "sha256": "4a7ea02cab45d9507f053bb17c259c1c83c72b566a3460230d358a8a7d3e95d6",
           "ocr_lines": [],
           "ocr_candidates": []
         }
@@ -1718,14 +1717,14 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "77f2f72b749a294674e3b1baed75dabf664d7bbac19041fadc4f68fad924f1d7",
+          "sha256": "b4661dffbbdfe0ab612376a329329bfd849b2e9efabeed0bac24b9eb1029072f",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "53d72cbed009d2a9529521dd31ad2f1767e880dcf5dfa57837d31edbd4faf068",
+          "sha256": "4825b0c863e925a99b62a5f06dd00933dda78e7aa82e00262a5618afe474af57",
           "ocr_lines": [],
           "ocr_candidates": []
         }
@@ -1759,14 +1758,137 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "cf8abf1ac0bec1eb11308d93e69ea50fafc34ceef1bcb7f3c98aec874e12d516",
+          "sha256": "de060e96e528c5babde06ca836fb416dc169239aa50dbe5bb2e45b58aec10364",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "0b324b78b7fac2e5815fbd1ffe8e685049168a2eb4635fe303be0201994918d0",
+          "sha256": "3d393547ae8b1e849a40a0058a140d1c443ae67e460c09b15c22f3086f1dae66",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        }
+      ]
+    },
+    "VeleS Movie Hits": {
+      "group": "Кинозалы",
+      "playlist_name": "VeleS Movie Hits",
+      "provider_name": "VeleS Movie Hits",
+      "provider_tvg_id": "veles-movie-hits",
+      "gap_status": "NO_CURRENT_PROGRAMME;NO_NEXT_PROGRAMME",
+      "found_in_playlist": true,
+      "live_playlist_name": "VeleS Movie Hits",
+      "live_tvg_id": "veles-movie-hits",
+      "stream_metadata": {
+        "ok": true,
+        "skipped": "hourly-fast-path"
+      },
+      "recognized_title": null,
+      "profile_used": {
+        "preferred_zone": "left_bottom_tight",
+        "preferred_engine": "tesseract",
+        "static_text": [],
+        "last_title": "Бегущий в лабиринте Испытание огнм (2015)"
+      },
+      "ocr_lines": [],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
+      "frames": [
+        {
+          "approx_second": 2,
+          "captured": true,
+          "sha256": "7ff55fc73390fc263e3d65df39cbe310ebbdf16009aaf64a26dfabd5e84d1c98",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        },
+        {
+          "approx_second": 8,
+          "captured": true,
+          "sha256": "62e2e421449a48a806cb247a5d5a90c926f03fbc006442ea79a94be6de90ef01",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        }
+      ]
+    },
+    "VeleS СССР": {
+      "group": "USSR",
+      "playlist_name": "VeleS СССР",
+      "provider_name": "VeleS СССР",
+      "provider_tvg_id": "veles-ussr",
+      "gap_status": "NO_CURRENT_PROGRAMME;NO_NEXT_PROGRAMME",
+      "found_in_playlist": true,
+      "live_playlist_name": "VeleS СССР",
+      "live_tvg_id": "veles-ussr",
+      "stream_metadata": {
+        "ok": true,
+        "skipped": "hourly-fast-path"
+      },
+      "recognized_title": null,
+      "profile_used": {
+        "preferred_zone": "left_bottom_tight",
+        "preferred_engine": "tesseract",
+        "static_text": [],
+        "last_title": "мгновений весны 5 серия ) РР"
+      },
+      "ocr_lines": [],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
+      "frames": [
+        {
+          "approx_second": 2,
+          "captured": true,
+          "sha256": "d13fdabbba0ceee8f575e447351e564b558f0d7c5b56960062396cf762fb7a45",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        },
+        {
+          "approx_second": 8,
+          "captured": true,
+          "sha256": "bfe206fac7749aba39a6971334e6b235e4a890132ee4bd220fb5cece45f2b547",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        }
+      ]
+    },
+    "TvBoom.ViP": {
+      "group": "Кинозалы",
+      "playlist_name": "TvBoom.ViP",
+      "provider_name": "TvBoom.ViP",
+      "provider_tvg_id": "",
+      "gap_status": "NO_CURRENT_PROGRAMME;NO_NEXT_PROGRAMME",
+      "found_in_playlist": true,
+      "live_playlist_name": "TvBoom.ViP",
+      "live_tvg_id": "",
+      "stream_metadata": {
+        "ok": true,
+        "skipped": "hourly-fast-path"
+      },
+      "recognized_title": null,
+      "profile_used": {
+        "preferred_zone": "left_bottom_tight",
+        "preferred_engine": "tesseract",
+        "static_text": [],
+        "last_title": "\\ Гренландия 2020 (00:46)"
+      },
+      "ocr_lines": [],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
+      "frames": [
+        {
+          "approx_second": 2,
+          "captured": true,
+          "sha256": "7d399c7092898bdebd27c1a8a37928b188c3b48fb36fd6d7c902949b2edcdb03",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        },
+        {
+          "approx_second": 8,
+          "captured": true,
+          "sha256": "9d16325fdc61bfbd8025957b58fc2908d61eed34f0c4154d79f310d52c1e6365",
           "ocr_lines": [],
           "ocr_candidates": []
         }
@@ -1802,219 +1924,14 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "244c298a057c992afab0aef9843d25416f7f6813dd5cae7c176c831e1d37df5f",
+          "sha256": "cb88071bb09f875d93d82215e025075856c8885547442d16f75afed252cedbab",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "36b993f4ae7fd39aa779bf3b97fd52d955a811bcc4de80bee37b041c0786aee1",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        }
-      ]
-    },
-    "VeleS СССР": {
-      "group": "USSR",
-      "playlist_name": "VeleS СССР",
-      "provider_name": "VeleS СССР",
-      "provider_tvg_id": "veles-ussr",
-      "gap_status": "NO_CURRENT_PROGRAMME;NO_NEXT_PROGRAMME",
-      "found_in_playlist": true,
-      "live_playlist_name": "VeleS СССР",
-      "live_tvg_id": "veles-ussr",
-      "stream_metadata": {
-        "ok": true,
-        "skipped": "hourly-fast-path"
-      },
-      "recognized_title": null,
-      "profile_used": {
-        "preferred_zone": "left_bottom_tight",
-        "preferred_engine": "tesseract",
-        "static_text": [],
-        "last_title": "мгновений весны 5 серия ) РР"
-      },
-      "ocr_lines": [],
-      "stable_ocr_lines": [],
-      "unique_frame_hashes": 2,
-      "captured_frames": 2,
-      "frames": [
-        {
-          "approx_second": 2,
-          "captured": true,
-          "sha256": "d3572407e33b2c9785368742952c5d894ac44f2a95834c022cc32ab32ed484d1",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        },
-        {
-          "approx_second": 8,
-          "captured": true,
-          "sha256": "ab9b7392c89acd3495641f5af7d32c6a9934b9b25f041e94c105b8e6601172a8",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        }
-      ]
-    },
-    "VeleS Movie Hits": {
-      "group": "Кинозалы",
-      "playlist_name": "VeleS Movie Hits",
-      "provider_name": "VeleS Movie Hits",
-      "provider_tvg_id": "veles-movie-hits",
-      "gap_status": "NO_CURRENT_PROGRAMME;NO_NEXT_PROGRAMME",
-      "found_in_playlist": true,
-      "live_playlist_name": "VeleS Movie Hits",
-      "live_tvg_id": "veles-movie-hits",
-      "stream_metadata": {
-        "ok": true,
-        "skipped": "hourly-fast-path"
-      },
-      "recognized_title": null,
-      "profile_used": {
-        "preferred_zone": "left_bottom_tight",
-        "preferred_engine": "tesseract",
-        "static_text": [],
-        "last_title": "Бегущий в лабиринте Испытание огнм (2015)"
-      },
-      "ocr_lines": [],
-      "stable_ocr_lines": [],
-      "unique_frame_hashes": 2,
-      "captured_frames": 2,
-      "frames": [
-        {
-          "approx_second": 2,
-          "captured": true,
-          "sha256": "f504c27c75efba3bb13dab2f07381655ad3cde1f4c72db983b14326ee5e84a7d",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        },
-        {
-          "approx_second": 8,
-          "captured": true,
-          "sha256": "7cab5fb2e317ff7216bb1b260d6bc3b0ffadc0f4050017920ac898e452122f2f",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        }
-      ]
-    },
-    "Tricolor Cinema 1": {
-      "group": "Кинозалы",
-      "playlist_name": "Tricolor Cinema 1",
-      "provider_name": "Tricolor Cinema 1",
-      "provider_tvg_id": "Xzal-01-tricolor",
-      "gap_status": "NO_CURRENT_PROGRAMME;NO_NEXT_PROGRAMME",
-      "found_in_playlist": true,
-      "live_playlist_name": "Tricolor Cinema 1",
-      "live_tvg_id": "Xzal-01-tricolor",
-      "stream_metadata": {
-        "ok": true,
-        "skipped": "hourly-fast-path"
-      },
-      "recognized_title": null,
-      "profile_used": {
-        "preferred_zone": "top_left_tight",
-        "preferred_engine": "tesseract",
-        "static_text": [],
-        "last_title": "Фоты,"
-      },
-      "ocr_lines": [],
-      "stable_ocr_lines": [],
-      "unique_frame_hashes": 2,
-      "captured_frames": 2,
-      "frames": [
-        {
-          "approx_second": 2,
-          "captured": true,
-          "sha256": "0bf64c8f7b1d58b7ea1fea74a6239e4b4fdc0fa4c4a1673e75da609c2cae8f48",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        },
-        {
-          "approx_second": 8,
-          "captured": true,
-          "sha256": "96157a545fdfb8e3aa7145ff192f02351f344b406dda22f98881be06ed37ed33",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        }
-      ]
-    },
-    "TvBoom.ViP": {
-      "group": "Кинозалы",
-      "playlist_name": "TvBoom.ViP",
-      "provider_name": "TvBoom.ViP",
-      "provider_tvg_id": "",
-      "gap_status": "NO_CURRENT_PROGRAMME;NO_NEXT_PROGRAMME",
-      "found_in_playlist": true,
-      "live_playlist_name": "TvBoom.ViP",
-      "live_tvg_id": "",
-      "stream_metadata": {
-        "ok": true,
-        "skipped": "hourly-fast-path"
-      },
-      "recognized_title": null,
-      "profile_used": {
-        "preferred_zone": "left_bottom_tight",
-        "preferred_engine": "tesseract",
-        "static_text": [],
-        "last_title": "\\ Гренландия 2020 (00:46)"
-      },
-      "ocr_lines": [],
-      "stable_ocr_lines": [],
-      "unique_frame_hashes": 2,
-      "captured_frames": 2,
-      "frames": [
-        {
-          "approx_second": 2,
-          "captured": true,
-          "sha256": "b0f2082ac0bccbfd6c29193a97f55cf6df706240afed8f3f5ae2fba2a07cd2c4",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        },
-        {
-          "approx_second": 8,
-          "captured": true,
-          "sha256": "8d541fed8ec46dcf7f05d3c1f91ac18d8f3d6b62638ee6efb9f83793aab688fc",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        }
-      ]
-    },
-    "Tricolor Cinema 2": {
-      "group": "Кинозалы",
-      "playlist_name": "Tricolor Cinema 2",
-      "provider_name": "Tricolor Cinema 2",
-      "provider_tvg_id": "Xzal-02-tricolor",
-      "gap_status": "NO_CURRENT_PROGRAMME;NO_NEXT_PROGRAMME",
-      "found_in_playlist": true,
-      "live_playlist_name": "Tricolor Cinema 2",
-      "live_tvg_id": "Xzal-02-tricolor",
-      "stream_metadata": {
-        "ok": true,
-        "skipped": "hourly-fast-path"
-      },
-      "recognized_title": null,
-      "profile_used": {
-        "preferred_zone": "left_bottom_tight",
-        "preferred_engine": "tesseract",
-        "static_text": [],
-        "last_title": "ДИКИЙ"
-      },
-      "ocr_lines": [],
-      "stable_ocr_lines": [],
-      "unique_frame_hashes": 2,
-      "captured_frames": 2,
-      "frames": [
-        {
-          "approx_second": 2,
-          "captured": true,
-          "sha256": "0542f3b8da2532e34714ab9ae804238259152814e3b56c5a2dcf75c958b30f86",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        },
-        {
-          "approx_second": 8,
-          "captured": true,
-          "sha256": "625b2978640cb3b24a984a07f36b348949a80eb15a3a1ede5e14188f126557b9",
+          "sha256": "0bb595344f0f8c5cce19e52ad6624ad06de6bdd5b7cc17dd1554fe2803171d67",
           "ocr_lines": [],
           "ocr_candidates": []
         }
@@ -2050,14 +1967,96 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "22fd65c818b44c56defd7af5d2db06c8d92fca654b1d6e512f3c47132ea270f6",
+          "sha256": "ac126e75501cd25d047d737f97afebb51aa99cbd31bcc6adf13635c3f45526b2",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "44498073879783583dcd5eca3e148889a8ff594269f2fe90fca58f4d3158320a",
+          "sha256": "ba90c32f146be9a883a9db99f5d30d0407225c322e9786dbdafc021fc39fa480",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        }
+      ]
+    },
+    "Tricolor Cinema 1": {
+      "group": "Кинозалы",
+      "playlist_name": "Tricolor Cinema 1",
+      "provider_name": "Tricolor Cinema 1",
+      "provider_tvg_id": "Xzal-01-tricolor",
+      "gap_status": "NO_CURRENT_PROGRAMME;NO_NEXT_PROGRAMME",
+      "found_in_playlist": true,
+      "live_playlist_name": "Tricolor Cinema 1",
+      "live_tvg_id": "Xzal-01-tricolor",
+      "stream_metadata": {
+        "ok": true,
+        "skipped": "hourly-fast-path"
+      },
+      "recognized_title": null,
+      "profile_used": {
+        "preferred_zone": "top_left_tight",
+        "preferred_engine": "tesseract",
+        "static_text": [],
+        "last_title": "Фоты,"
+      },
+      "ocr_lines": [],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
+      "frames": [
+        {
+          "approx_second": 2,
+          "captured": true,
+          "sha256": "7f2af92c5d49748091c269ee1fb5ea4feb4c2bd765db9d5470dfbc735faa026c",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        },
+        {
+          "approx_second": 8,
+          "captured": true,
+          "sha256": "386ec8a6f3db3a497b1f5a99f5b7896be7b2c51937a086669c838cda5d9e7df6",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        }
+      ]
+    },
+    "Tricolor Cinema 2": {
+      "group": "Кинозалы",
+      "playlist_name": "Tricolor Cinema 2",
+      "provider_name": "Tricolor Cinema 2",
+      "provider_tvg_id": "Xzal-02-tricolor",
+      "gap_status": "NO_CURRENT_PROGRAMME;NO_NEXT_PROGRAMME",
+      "found_in_playlist": true,
+      "live_playlist_name": "Tricolor Cinema 2",
+      "live_tvg_id": "Xzal-02-tricolor",
+      "stream_metadata": {
+        "ok": true,
+        "skipped": "hourly-fast-path"
+      },
+      "recognized_title": null,
+      "profile_used": {
+        "preferred_zone": "left_bottom_tight",
+        "preferred_engine": "tesseract",
+        "static_text": [],
+        "last_title": "ДИКИЙ"
+      },
+      "ocr_lines": [],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
+      "frames": [
+        {
+          "approx_second": 2,
+          "captured": true,
+          "sha256": "cb48ddcfab3b610d21c79e0a0ee0b4813a6609c74d33236717a4b2b66be7287f",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        },
+        {
+          "approx_second": 8,
+          "captured": true,
+          "sha256": "afb08632704878278d19645de07a8c68301468bfffc700d185cf7bbbdc16e4be",
           "ocr_lines": [],
           "ocr_candidates": []
         }
@@ -2091,14 +2090,137 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "812effd37947a599d21c0f994d3cbc6f92f9781ef235883dea01a568b23da6a0",
+          "sha256": "3a25596bb6d8a902dca5c1ffaf79c97ed55509845b985fc6c44d7f3bd323b8a2",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "3dbdad91789c88c0b9bb4a9de215ba1d541d660032f7f42e26e3e4e522738647",
+          "sha256": "a988882586a5793214c8cd2ba31cab985a109ac4f9ddc97776215b57e7a62dee",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        }
+      ]
+    },
+    "Tricolor Cinema 9": {
+      "group": "Кинозалы",
+      "playlist_name": "Tricolor Cinema 9",
+      "provider_name": "Tricolor Cinema 9",
+      "provider_tvg_id": "Xzal-09-tricolor",
+      "gap_status": "NO_CURRENT_PROGRAMME;NO_NEXT_PROGRAMME",
+      "found_in_playlist": true,
+      "live_playlist_name": "Tricolor Cinema 9",
+      "live_tvg_id": "Xzal-09-tricolor",
+      "stream_metadata": {
+        "ok": true,
+        "skipped": "hourly-fast-path"
+      },
+      "recognized_title": null,
+      "profile_used": {
+        "preferred_zone": "top_left_tight",
+        "preferred_engine": "tesseract",
+        "static_text": [],
+        "last_title": "Frey. read"
+      },
+      "ocr_lines": [],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
+      "frames": [
+        {
+          "approx_second": 2,
+          "captured": true,
+          "sha256": "8215f82c889ef9bd9943118323f16ec0d08889726108c19fb53f8b6da70085cf",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        },
+        {
+          "approx_second": 8,
+          "captured": true,
+          "sha256": "614c0840f838638032e1b09ac2f863ab8a5db4079e2c8aa58f95b2aeeebb2263",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        }
+      ]
+    },
+    "Tricolor Cinema 7": {
+      "group": "Кинозалы",
+      "playlist_name": "Tricolor Cinema 7",
+      "provider_name": "Tricolor Cinema 7",
+      "provider_tvg_id": "Xzal-07-tricolor",
+      "gap_status": "NO_CURRENT_PROGRAMME;NO_NEXT_PROGRAMME",
+      "found_in_playlist": true,
+      "live_playlist_name": "Tricolor Cinema 7",
+      "live_tvg_id": "Xzal-07-tricolor",
+      "stream_metadata": {
+        "ok": true,
+        "skipped": "hourly-fast-path"
+      },
+      "recognized_title": null,
+      "profile_used": {
+        "preferred_zone": "left_bottom_tight",
+        "preferred_engine": "tesseract",
+        "static_text": [],
+        "last_title": "Стражи Галактики. Праздничный спецвыпуск (2022)"
+      },
+      "ocr_lines": [],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
+      "frames": [
+        {
+          "approx_second": 2,
+          "captured": true,
+          "sha256": "c262597252aadf64da8daf85cd3979f5fa08fc274680206185d39d769f8ae1f4",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        },
+        {
+          "approx_second": 8,
+          "captured": true,
+          "sha256": "3a9d89bafe1b8ba4af81fa639808f567d6512ff7c74a084216fc7d59782cef6e",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        }
+      ]
+    },
+    "Tricolor Cinema 11": {
+      "group": "Кинозалы",
+      "playlist_name": "Tricolor Cinema 11",
+      "provider_name": "Tricolor Cinema 11",
+      "provider_tvg_id": "Xzal-11-tricolor",
+      "gap_status": "NO_CURRENT_PROGRAMME;NO_NEXT_PROGRAMME",
+      "found_in_playlist": true,
+      "live_playlist_name": "Tricolor Cinema 11",
+      "live_tvg_id": "Xzal-11-tricolor",
+      "stream_metadata": {
+        "ok": true,
+        "skipped": "hourly-fast-path"
+      },
+      "recognized_title": null,
+      "profile_used": {
+        "preferred_zone": "left_bottom_tight",
+        "preferred_engine": "tesseract",
+        "static_text": [],
+        "last_title": "КУРЕНИЕ ВРЕДИТ ВАШЕМУ ЗДОР"
+      },
+      "ocr_lines": [],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
+      "frames": [
+        {
+          "approx_second": 2,
+          "captured": true,
+          "sha256": "7bb9f8d5965a609332815f4dc6a53e03007138a2b99c5f4a6cf9f645a70dd66a",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        },
+        {
+          "approx_second": 8,
+          "captured": true,
+          "sha256": "5b3651b33a63f848ad27c228ddfa24f6ebf42b5dee048c35748bf0557f5aad69",
           "ocr_lines": [],
           "ocr_candidates": []
         }
@@ -2134,14 +2256,14 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "3aaf7123cfe7f51d8d39dec8d64bd341a0ad87e2c9a5fa1c404cab329cd72496",
+          "sha256": "99e400cebdd9e3a80c2524033c801c05862054cb9d3ac2de2cceeb2da448ba3c",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "ae63ad96e510a53c095d4b3d210c3d184e778550766d980f57968fbd0715aba0",
+          "sha256": "f710a3293ad45d4400a10e31d3bcfe28830b13b5f91497e8426476fb2e0b1d24",
           "ocr_lines": [],
           "ocr_candidates": []
         }
@@ -2175,137 +2297,14 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "ea989d76608288e2a0e57c511049bddad34747ee12bfffceba2ef2196828f649",
+          "sha256": "a94a7cc4da9de65d09c4f8eca28f4b7e67cad6bf6d50ce14f398059984b056e6",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "cc51b04443346a30e534653dd1c28c1376f7af969de60f375895acd5974cd61f",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        }
-      ]
-    },
-    "Tricolor Cinema 7": {
-      "group": "Кинозалы",
-      "playlist_name": "Tricolor Cinema 7",
-      "provider_name": "Tricolor Cinema 7",
-      "provider_tvg_id": "Xzal-07-tricolor",
-      "gap_status": "NO_CURRENT_PROGRAMME;NO_NEXT_PROGRAMME",
-      "found_in_playlist": true,
-      "live_playlist_name": "Tricolor Cinema 7",
-      "live_tvg_id": "Xzal-07-tricolor",
-      "stream_metadata": {
-        "ok": true,
-        "skipped": "hourly-fast-path"
-      },
-      "recognized_title": null,
-      "profile_used": {
-        "preferred_zone": "left_bottom_tight",
-        "preferred_engine": "tesseract",
-        "static_text": [],
-        "last_title": "Стражи Галактики. Праздничный спецвыпуск (2022)"
-      },
-      "ocr_lines": [],
-      "stable_ocr_lines": [],
-      "unique_frame_hashes": 2,
-      "captured_frames": 2,
-      "frames": [
-        {
-          "approx_second": 2,
-          "captured": true,
-          "sha256": "493609a871a193018da2a7c4ec4d153e526e58727e96cdf30a1a89636a31cf6f",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        },
-        {
-          "approx_second": 8,
-          "captured": true,
-          "sha256": "368a8da5a3b7e6ebbd23552a5d0bf75ab3c66367b038f56a77984afa410b77a0",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        }
-      ]
-    },
-    "Tricolor Cinema 9": {
-      "group": "Кинозалы",
-      "playlist_name": "Tricolor Cinema 9",
-      "provider_name": "Tricolor Cinema 9",
-      "provider_tvg_id": "Xzal-09-tricolor",
-      "gap_status": "NO_CURRENT_PROGRAMME;NO_NEXT_PROGRAMME",
-      "found_in_playlist": true,
-      "live_playlist_name": "Tricolor Cinema 9",
-      "live_tvg_id": "Xzal-09-tricolor",
-      "stream_metadata": {
-        "ok": true,
-        "skipped": "hourly-fast-path"
-      },
-      "recognized_title": null,
-      "profile_used": {
-        "preferred_zone": "top_left_tight",
-        "preferred_engine": "tesseract",
-        "static_text": [],
-        "last_title": "Frey. read"
-      },
-      "ocr_lines": [],
-      "stable_ocr_lines": [],
-      "unique_frame_hashes": 2,
-      "captured_frames": 2,
-      "frames": [
-        {
-          "approx_second": 2,
-          "captured": true,
-          "sha256": "f226dcc712cab78f3a0726c51e59cfa5c84662c60c40e6673d1be1ba1956bc8d",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        },
-        {
-          "approx_second": 8,
-          "captured": true,
-          "sha256": "aaa7b543ceb89fb30600bfaddec1e7128ef61399e47f18ed635d9da1ad04eca0",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        }
-      ]
-    },
-    "Tricolor Cinema 11": {
-      "group": "Кинозалы",
-      "playlist_name": "Tricolor Cinema 11",
-      "provider_name": "Tricolor Cinema 11",
-      "provider_tvg_id": "Xzal-11-tricolor",
-      "gap_status": "NO_CURRENT_PROGRAMME;NO_NEXT_PROGRAMME",
-      "found_in_playlist": true,
-      "live_playlist_name": "Tricolor Cinema 11",
-      "live_tvg_id": "Xzal-11-tricolor",
-      "stream_metadata": {
-        "ok": true,
-        "skipped": "hourly-fast-path"
-      },
-      "recognized_title": null,
-      "profile_used": {
-        "preferred_zone": "left_bottom_tight",
-        "preferred_engine": "tesseract",
-        "static_text": [],
-        "last_title": "КУРЕНИЕ ВРЕДИТ ВАШЕМУ ЗДОР"
-      },
-      "ocr_lines": [],
-      "stable_ocr_lines": [],
-      "unique_frame_hashes": 2,
-      "captured_frames": 2,
-      "frames": [
-        {
-          "approx_second": 2,
-          "captured": true,
-          "sha256": "5ef415b8aed057715a07a13184ca4fe0a5148b91778d4af289ee1e9d38cb18ab",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        },
-        {
-          "approx_second": 8,
-          "captured": true,
-          "sha256": "cb3eca8bcbbcb83a85977f0b96df18b2f5acbabc81ce1a707e6cfbad25f496bd",
+          "sha256": "a39eeced0ccd66e91147d87a95c08ea97307d2580313018cc92b3386011e45d6",
           "ocr_lines": [],
           "ocr_candidates": []
         }
@@ -2331,63 +2330,6 @@
         "static_text": [],
         "last_title": ""
       },
-      "ocr_lines": [
-        "® gow 705$0 TV",
-        "th ie"
-      ],
-      "stable_ocr_lines": [],
-      "unique_frame_hashes": 2,
-      "captured_frames": 2,
-      "frames": [
-        {
-          "approx_second": 2,
-          "captured": true,
-          "sha256": "967f4d4c28a2310551ec79acfc1f6d64eea5d444befba2de2fb64c54e22674e3",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        },
-        {
-          "approx_second": 8,
-          "captured": true,
-          "sha256": "abe98fc09030d03941947874e12d3193681dabab9e58dd326ae2b5b28129cf0c",
-          "ocr_lines": [
-            "® gow 705$0 TV",
-            "th ie"
-          ],
-          "ocr_candidates": [
-            {
-              "engine": "tesseract",
-              "variant": "top_band",
-              "lines": [
-                "® gow 705$0 TV",
-                "th ie"
-              ],
-              "psm": 11
-            }
-          ]
-        }
-      ]
-    },
-    "YOSSO TV Русские фильмы": {
-      "group": "Кинозалы",
-      "playlist_name": "YOSSO TV Русские фильмы",
-      "provider_name": "YOSSO TV Русские фильмы",
-      "provider_tvg_id": "Xyosso-rusfilm",
-      "gap_status": "NO_CURRENT_PROGRAMME;NO_NEXT_PROGRAMME",
-      "found_in_playlist": true,
-      "live_playlist_name": "YOSSO TV Русские фильмы",
-      "live_tvg_id": "Xyosso-rusfilm",
-      "stream_metadata": {
-        "ok": true,
-        "skipped": "hourly-fast-path"
-      },
-      "recognized_title": null,
-      "profile_used": {
-        "preferred_zone": "top_left_tight",
-        "preferred_engine": "tesseract",
-        "static_text": [],
-        "last_title": "Чистка реплик и монтаж фонограмм!"
-      },
       "ocr_lines": [],
       "stable_ocr_lines": [],
       "unique_frame_hashes": 2,
@@ -2396,96 +2338,14 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "42bc595c9ec1181c7a1fa8fce1d5fc054f33b01ac28ec5d0c16930337f78eeae",
+          "sha256": "07f14fa3ff45dd206fdc17ce5ba0095b89c700e92be8ec54eca5120de00a3333",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "fe8c2c76db2e4a62ab4d7a4eda0c60be8001032fcf4313d0c296574ed6ceca14",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        }
-      ]
-    },
-    "YOSSO TV Трагичное": {
-      "group": "Кинозалы",
-      "playlist_name": "YOSSO TV Трагичное",
-      "provider_name": "YOSSO TV Трагичное",
-      "provider_tvg_id": "Xyosso-tragic",
-      "gap_status": "NO_CURRENT_PROGRAMME;NO_NEXT_PROGRAMME",
-      "found_in_playlist": true,
-      "live_playlist_name": "YOSSO TV Трагичное",
-      "live_tvg_id": "Xyosso-tragic",
-      "stream_metadata": {
-        "ok": true,
-        "skipped": "hourly-fast-path"
-      },
-      "recognized_title": null,
-      "profile_used": {
-        "preferred_zone": "",
-        "preferred_engine": "",
-        "static_text": [],
-        "last_title": ""
-      },
-      "ocr_lines": [],
-      "stable_ocr_lines": [],
-      "unique_frame_hashes": 2,
-      "captured_frames": 2,
-      "frames": [
-        {
-          "approx_second": 2,
-          "captured": true,
-          "sha256": "725a3c70bbcd309b137e38dbe637d552ce38997dc52d7425ca4d722f094898ca",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        },
-        {
-          "approx_second": 8,
-          "captured": true,
-          "sha256": "d06933e61f189334c2b7b9e6d8960a3ff2e59066d569483b0a58d30c08716b95",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        }
-      ]
-    },
-    "YOSSO TV New Кино": {
-      "group": "Кинозалы",
-      "playlist_name": "YOSSO TV New Кино",
-      "provider_name": "YOSSO TV New Кино",
-      "provider_tvg_id": "Xyosso-newkino",
-      "gap_status": "NO_CURRENT_PROGRAMME;NO_NEXT_PROGRAMME",
-      "found_in_playlist": true,
-      "live_playlist_name": "YOSSO TV New Кино",
-      "live_tvg_id": "Xyosso-newkino",
-      "stream_metadata": {
-        "ok": true,
-        "skipped": "hourly-fast-path"
-      },
-      "recognized_title": null,
-      "profile_used": {
-        "preferred_zone": "",
-        "preferred_engine": "",
-        "static_text": [],
-        "last_title": ""
-      },
-      "ocr_lines": [],
-      "stable_ocr_lines": [],
-      "unique_frame_hashes": 2,
-      "captured_frames": 2,
-      "frames": [
-        {
-          "approx_second": 2,
-          "captured": true,
-          "sha256": "b118d9170a386202b695b7e36c4e496a11ef930ef65a3d2dfd1445eb5e1fe53f",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        },
-        {
-          "approx_second": 8,
-          "captured": true,
-          "sha256": "945b58ee9d719ecbb2b797da184c9c36558214892c7f2a976fd20c4a809ad282",
+          "sha256": "450d09edd26317d5bd4bbdfb166051333169ae16b791efd1bd9924621d8cc59e",
           "ocr_lines": [],
           "ocr_candidates": []
         }
@@ -2519,28 +2379,28 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "e9d5c7852d1cdb31484776486916183a993041d79895e9955d6eedced8f88558",
+          "sha256": "cbe0bdb3beb398076252f34c5debdad46782fb12a0219f26d8b97f631db69aa8",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "24c7303a9637790fd89d1d5bcded41facfbf5f4372794c39af529d2d98326be1",
+          "sha256": "1a63dc609904a8a0ddde1448d2b51100e642aabaeff7c2656df5c5a57fdbe493",
           "ocr_lines": [],
           "ocr_candidates": []
         }
       ]
     },
-    "YOSSO TV BEST": {
+    "YOSSO TV Русские фильмы": {
       "group": "Кинозалы",
-      "playlist_name": "YOSSO TV BEST",
-      "provider_name": "YOSSO TV BEST",
-      "provider_tvg_id": "Xyosso-best",
+      "playlist_name": "YOSSO TV Русские фильмы",
+      "provider_name": "YOSSO TV Русские фильмы",
+      "provider_tvg_id": "Xyosso-rusfilm",
       "gap_status": "NO_CURRENT_PROGRAMME;NO_NEXT_PROGRAMME",
       "found_in_playlist": true,
-      "live_playlist_name": "YOSSO TV BEST",
-      "live_tvg_id": "Xyosso-best",
+      "live_playlist_name": "YOSSO TV Русские фильмы",
+      "live_tvg_id": "Xyosso-rusfilm",
       "stream_metadata": {
         "ok": true,
         "skipped": "hourly-fast-path"
@@ -2550,7 +2410,7 @@
         "preferred_zone": "top_left_tight",
         "preferred_engine": "tesseract",
         "static_text": [],
-        "last_title": "Production Suppo"
+        "last_title": "Чистка реплик и монтаж фонограмм!"
       },
       "ocr_lines": [],
       "stable_ocr_lines": [],
@@ -2560,14 +2420,96 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "a65f1bb9e74bab89fde30a238e6a1773edf3b6816180e7adeaaa9f39b9814814",
+          "sha256": "892ad9bcfa6a45faba55d2957a853bd37c7ed47e3be5dce2eb86891ea6aff2ef",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "8ae66ef60380966f2c5dc0c7176a61a469a5d7460e75ddb064e60e3b3b19e0f8",
+          "sha256": "6f644311f3a292e72bc50524a84604e667cc900aa5572320435d440e9222d2cd",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        }
+      ]
+    },
+    "YOSSO TV New Кино": {
+      "group": "Кинозалы",
+      "playlist_name": "YOSSO TV New Кино",
+      "provider_name": "YOSSO TV New Кино",
+      "provider_tvg_id": "Xyosso-newkino",
+      "gap_status": "NO_CURRENT_PROGRAMME;NO_NEXT_PROGRAMME",
+      "found_in_playlist": true,
+      "live_playlist_name": "YOSSO TV New Кино",
+      "live_tvg_id": "Xyosso-newkino",
+      "stream_metadata": {
+        "ok": true,
+        "skipped": "hourly-fast-path"
+      },
+      "recognized_title": null,
+      "profile_used": {
+        "preferred_zone": "",
+        "preferred_engine": "",
+        "static_text": [],
+        "last_title": ""
+      },
+      "ocr_lines": [],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
+      "frames": [
+        {
+          "approx_second": 2,
+          "captured": true,
+          "sha256": "5b4b974b60fa5457d86a91b90e6c28a00c229e718fb1086f251b224047763be8",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        },
+        {
+          "approx_second": 8,
+          "captured": true,
+          "sha256": "bfc6a310417da88fe4ebb040bd183ddf2579cf20942a8f985c1939b7cd63c2a7",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        }
+      ]
+    },
+    "YOSSO TV Трагичное": {
+      "group": "Кинозалы",
+      "playlist_name": "YOSSO TV Трагичное",
+      "provider_name": "YOSSO TV Трагичное",
+      "provider_tvg_id": "Xyosso-tragic",
+      "gap_status": "NO_CURRENT_PROGRAMME;NO_NEXT_PROGRAMME",
+      "found_in_playlist": true,
+      "live_playlist_name": "YOSSO TV Трагичное",
+      "live_tvg_id": "Xyosso-tragic",
+      "stream_metadata": {
+        "ok": true,
+        "skipped": "hourly-fast-path"
+      },
+      "recognized_title": null,
+      "profile_used": {
+        "preferred_zone": "",
+        "preferred_engine": "",
+        "static_text": [],
+        "last_title": ""
+      },
+      "ocr_lines": [],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
+      "frames": [
+        {
+          "approx_second": 2,
+          "captured": true,
+          "sha256": "f27724372dd14ae024665e3fed9becbde84dbaa74175ed75e207b392ce7a8b2d",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        },
+        {
+          "approx_second": 8,
+          "captured": true,
+          "sha256": "e1afcbefd5dd757f02e8a4c1fcb797dccfc890d3d6f1cd11a558bdda2f751044",
           "ocr_lines": [],
           "ocr_candidates": []
         }
@@ -2601,38 +2543,38 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "c2e3b5db6aeaf2019336a633a0dfdd7a4d48b949697799824437c89b919d823d",
+          "sha256": "ef7efc327f9db5ef20f10249bdc1e946bb2bf168658cefa14b831ea625fa02dd",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "549bb6dd47c745d9b9ca33c9133967215efa7c7857b91a738949499f61a3c50c",
+          "sha256": "62502f66deb5be44eacb4c094b424e15a0d4b1a095198520aa990af8fff78d48",
           "ocr_lines": [],
           "ocr_candidates": []
         }
       ]
     },
-    "YOSSO BEST 60fps": {
+    "YOSSO TV BEST": {
       "group": "Кинозалы",
-      "playlist_name": "YOSSO BEST 60fps",
-      "provider_name": "YOSSO BEST 60fps",
-      "provider_tvg_id": "Xyosso-best60fps",
+      "playlist_name": "YOSSO TV BEST",
+      "provider_name": "YOSSO TV BEST",
+      "provider_tvg_id": "Xyosso-best",
       "gap_status": "NO_CURRENT_PROGRAMME;NO_NEXT_PROGRAMME",
       "found_in_playlist": true,
-      "live_playlist_name": "YOSSO BEST 60fps",
-      "live_tvg_id": "Xyosso-best60fps",
+      "live_playlist_name": "YOSSO TV BEST",
+      "live_tvg_id": "Xyosso-best",
       "stream_metadata": {
         "ok": true,
         "skipped": "hourly-fast-path"
       },
       "recognized_title": null,
       "profile_used": {
-        "preferred_zone": "",
-        "preferred_engine": "",
+        "preferred_zone": "top_left_tight",
+        "preferred_engine": "tesseract",
         "static_text": [],
-        "last_title": ""
+        "last_title": "Production Suppo"
       },
       "ocr_lines": [],
       "stable_ocr_lines": [],
@@ -2642,14 +2584,14 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "d0782210ba8c78806bc11d483e952f512894be7ec30ffdb922bf02fadba049ce",
+          "sha256": "47e71cd6ccf276eac6fa0867ef3f3e16a91028516246c7a4fbc2ece1ea525490",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "4082cae323f3830d8c888956f7e0036d8a8f13c4a3c06eb1d053920f13b46158",
+          "sha256": "40030e86350fe2e08387c0c888f9f360933848d95b43cac211ab57fbae51db6e",
           "ocr_lines": [],
           "ocr_candidates": []
         }
@@ -2683,14 +2625,14 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "ee36e8379ecd6ce0566a6fbf4096cc517ac57ff3da1c0e238619cd90dbe83b0b",
+          "sha256": "6f7b267ec66457b668a50723907df6f2b6f0710f25a5f4852d452ee6b2126011",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "a17cede0ec75343e02d05ab7317c795428e5899d0f37d7f1ac8ebd016f2fc2c5",
+          "sha256": "28dec7f334c814bee3e35b44036437aa81f2d0bb6084385b7603e3c056552ba5",
           "ocr_lines": [],
           "ocr_candidates": []
         }
@@ -2724,14 +2666,55 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "a7cf3714f9aa7787cf0b3d35e7be1a8a72ffba91380f751b68a5b38a1aa05cb7",
+          "sha256": "b8c52d9cf0d49afa03bb534aecfe33b9c13624416979eee505f28ed34f491c35",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "f3e535ee88c28524d0fa0e9022d1b8433477aaf8369195c41d4559345bb70366",
+          "sha256": "f07fd7bde2bf8e27359b43e0faf859b0c7a5f791790df279240aa131a4f5d780",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        }
+      ]
+    },
+    "YOSSO BEST 60fps": {
+      "group": "Кинозалы",
+      "playlist_name": "YOSSO BEST 60fps",
+      "provider_name": "YOSSO BEST 60fps",
+      "provider_tvg_id": "Xyosso-best60fps",
+      "gap_status": "NO_CURRENT_PROGRAMME;NO_NEXT_PROGRAMME",
+      "found_in_playlist": true,
+      "live_playlist_name": "YOSSO BEST 60fps",
+      "live_tvg_id": "Xyosso-best60fps",
+      "stream_metadata": {
+        "ok": true,
+        "skipped": "hourly-fast-path"
+      },
+      "recognized_title": null,
+      "profile_used": {
+        "preferred_zone": "",
+        "preferred_engine": "",
+        "static_text": [],
+        "last_title": ""
+      },
+      "ocr_lines": [],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
+      "frames": [
+        {
+          "approx_second": 2,
+          "captured": true,
+          "sha256": "a79ab6362698cc652f1636d1663d8dc939a0b9ac581c025eee57f56e310f8a90",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        },
+        {
+          "approx_second": 8,
+          "captured": true,
+          "sha256": "5484ef6733ff6c775369b0a8fbf213f057831029697cb25ec9720f40097448bc",
           "ocr_lines": [],
           "ocr_candidates": []
         }
@@ -2765,14 +2748,14 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "85fb6553aeabe8e3d4ce6384ac29c4a15488d26226db4018d2a392ecd9d5fb72",
+          "sha256": "bf61a052a960bbde7bcc0cca4f64b870edaf3fdcfd15bde171b1591b517cfa16",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "c5b05eb370b3eab9ca9d72c9120e9970c0185e469a9f6d19361a2ef564ee9d4f",
+          "sha256": "700b820eeb3d477cf26e6ea3492898f472f77b3b7b2430b008080e2cfc670ec1",
           "ocr_lines": [],
           "ocr_candidates": []
         }
@@ -2806,14 +2789,55 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "ba2a056333e63dab4a406a19ff70ffc950d4ba5479675e5c7ce07e13d7a892c8",
+          "sha256": "75283110cf352b6a86d04dd6fc1a2ac62ed32c250b75f76d1308ee87fb12ef83",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "586f170b22a887264169f957afd2a9e452f99bf4d4bfc6a0401dc98974fd2776",
+          "sha256": "8f461fbf3c3e2b6993fcdfda4e4cc0b56d9f7e2d9b51fca2e35603f4af3dfd21",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        }
+      ]
+    },
+    "YOSSO-C-INQUEST": {
+      "group": "Кинозалы",
+      "playlist_name": "YOSSO-C-INQUEST",
+      "provider_name": "YOSSO-C-INQUEST",
+      "provider_tvg_id": "Xc-inquest-yosso",
+      "gap_status": "NO_CURRENT_PROGRAMME;NO_NEXT_PROGRAMME",
+      "found_in_playlist": true,
+      "live_playlist_name": "YOSSO-C-INQUEST",
+      "live_tvg_id": "Xc-inquest-yosso",
+      "stream_metadata": {
+        "ok": true,
+        "skipped": "hourly-fast-path"
+      },
+      "recognized_title": null,
+      "profile_used": {
+        "preferred_zone": "",
+        "preferred_engine": "",
+        "static_text": [],
+        "last_title": ""
+      },
+      "ocr_lines": [],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
+      "frames": [
+        {
+          "approx_second": 2,
+          "captured": true,
+          "sha256": "c98678675f2f84c0786462d9b3ad61624c81702503451b1cd7088fb303638f1f",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        },
+        {
+          "approx_second": 8,
+          "captured": true,
+          "sha256": "70fd3a940efc0dbf9f48b48399fde7287a5b9e4dc491eb74cedcb718dad9262a",
           "ocr_lines": [],
           "ocr_candidates": []
         }
@@ -2849,55 +2873,14 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "a8a8ad2c314c9b6e5da1f629bb7b72ca21abc45f6cf9494231f603b8f452b835",
+          "sha256": "15744e948580cf17056e38fb7ce50d3cd0deaaf90b93e3a9a0d42babed72a2ac",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "ef95e0a67df0b9d8defc582367f411295aa170cbbed8f2f12284dce840639939",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        }
-      ]
-    },
-    "YOSSO-C-INQUEST": {
-      "group": "Кинозалы",
-      "playlist_name": "YOSSO-C-INQUEST",
-      "provider_name": "YOSSO-C-INQUEST",
-      "provider_tvg_id": "Xc-inquest-yosso",
-      "gap_status": "NO_CURRENT_PROGRAMME;NO_NEXT_PROGRAMME",
-      "found_in_playlist": true,
-      "live_playlist_name": "YOSSO-C-INQUEST",
-      "live_tvg_id": "Xc-inquest-yosso",
-      "stream_metadata": {
-        "ok": true,
-        "skipped": "hourly-fast-path"
-      },
-      "recognized_title": null,
-      "profile_used": {
-        "preferred_zone": "",
-        "preferred_engine": "",
-        "static_text": [],
-        "last_title": ""
-      },
-      "ocr_lines": [],
-      "stable_ocr_lines": [],
-      "unique_frame_hashes": 2,
-      "captured_frames": 2,
-      "frames": [
-        {
-          "approx_second": 2,
-          "captured": true,
-          "sha256": "ee4190facdcde876934d714bf39e50e6fd2f4ffc8d3ef02373c7c92dc0f9d238",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        },
-        {
-          "approx_second": 8,
-          "captured": true,
-          "sha256": "8764f09a98b168e2de0b7c5ea1f4b87c78da33cb768ae0f1bef47b7e0e803afd",
+          "sha256": "29d24fd9a59a98654f5e00a449591228423be34806dcff4b0597e4d336665d36",
           "ocr_lines": [],
           "ocr_candidates": []
         }
@@ -2933,14 +2916,14 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "76d716c7c54e360538f384646ccd1e85554d15bb4b6f62db47504b676e83fd4e",
+          "sha256": "6f5665cdaaefa36d5a4588dfd6db3b986b1bbd01ba8aba5ef03f66c5a0ac6e2e",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "6341687314892efd4ff977ded214bc6a274e886dfb1ef744a871d7885d7b1b2a",
+          "sha256": "93b21588358e3d85256acb926caeeb26c42dcd9e5bdf286c659df1dcb39d7de6",
           "ocr_lines": [],
           "ocr_candidates": []
         }
@@ -2974,55 +2957,14 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "b38a807a4c33e9356f5cba06e12efeda3f290d231668eb4dda07fe4e4e3fe785",
+          "sha256": "9de787b86fc381fffbf0bb3c542a5b259351b58a49a5ed62c3f109760c2efaff",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "1c8223279a82a8fea8986dfb82ac7ab65d13ea24a9f14cff629f180a46950048",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        }
-      ]
-    },
-    "TVPlay DC Comics HD": {
-      "group": "Кинозалы",
-      "playlist_name": "TVPlay DC Comics HD",
-      "provider_name": "TVPlay DC Comics HD",
-      "provider_tvg_id": "",
-      "gap_status": "NO_MAPPING",
-      "found_in_playlist": true,
-      "live_playlist_name": "TVPlay DC Comics HD",
-      "live_tvg_id": "",
-      "stream_metadata": {
-        "ok": true,
-        "skipped": "hourly-fast-path"
-      },
-      "recognized_title": null,
-      "profile_used": {
-        "preferred_zone": "left_bottom_tight",
-        "preferred_engine": "tesseract",
-        "static_text": [],
-        "last_title": "ЧУДО-ЖЕНЩИНА 2017"
-      },
-      "ocr_lines": [],
-      "stable_ocr_lines": [],
-      "unique_frame_hashes": 2,
-      "captured_frames": 2,
-      "frames": [
-        {
-          "approx_second": 2,
-          "captured": true,
-          "sha256": "49ff2b5202898b34775f1f7959e3100957b3049fcaaae92f24d2721b883872ba",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        },
-        {
-          "approx_second": 8,
-          "captured": true,
-          "sha256": "b4c710c982a1409ca748d59c3b4f8f9b8255ad9e6c528a91b6b4cd1472938649",
+          "sha256": "f8bc521183557989f1c483c01c1f19d1700bbdc9274fa92fa14eab0282dd9e31",
           "ocr_lines": [],
           "ocr_candidates": []
         }
@@ -3056,68 +2998,27 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "c575ac634704ae33b2d1a798c29c29b9362bee54e15d9bdb1c592830d9baf498",
+          "sha256": "a25b2291373bd56a667a9704d055c294ee1938b0de53552d7f9f26267d0b1bae",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "ec96bedbf3532f3aea1d6f139fbe6447da499b74012b763a8ad1ae9ce956a212",
+          "sha256": "1ff49591dc1908b99b9ada1b9cc6c38eea40b3f55f804c02c163067a6b85f2bb",
           "ocr_lines": [],
           "ocr_candidates": []
         }
       ]
     },
-    "DITV ГАРИ ПОТЕР": {
+    "TVPlay DC Comics HD": {
       "group": "Кинозалы",
-      "playlist_name": "DITV ГАРИ ПОТЕР",
-      "provider_name": "DITV ГАРИ ПОТЕР",
-      "provider_tvg_id": "no_epg_cinema",
+      "playlist_name": "TVPlay DC Comics HD",
+      "provider_name": "TVPlay DC Comics HD",
+      "provider_tvg_id": "",
       "gap_status": "NO_MAPPING",
       "found_in_playlist": true,
-      "live_playlist_name": "DITV ГАРИ ПОТЕР",
-      "live_tvg_id": "no_epg_cinema",
-      "stream_metadata": {
-        "ok": true,
-        "skipped": "hourly-fast-path"
-      },
-      "recognized_title": null,
-      "profile_used": {
-        "preferred_zone": "top_band",
-        "preferred_engine": "tesseract",
-        "static_text": [],
-        "last_title": "Sound Mixers TIMOTHY BLACKHAM"
-      },
-      "ocr_lines": [],
-      "stable_ocr_lines": [],
-      "unique_frame_hashes": 2,
-      "captured_frames": 2,
-      "frames": [
-        {
-          "approx_second": 2,
-          "captured": true,
-          "sha256": "c750769e1c34be6deaef3dbabcb73705e690ed8486d0fe5b2bdd40667030ad16",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        },
-        {
-          "approx_second": 8,
-          "captured": true,
-          "sha256": "30ade563256a210c1f9d8c814bc5ca16515c987c61aa142c130920957bd0d0bd",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        }
-      ]
-    },
-    "TVPlay Космический": {
-      "group": "Кинозалы",
-      "playlist_name": "TVPlay Космический",
-      "provider_name": "TVPlay Космический",
-      "provider_tvg_id": "",
-      "gap_status": "NO_CURRENT_PROGRAMME;NO_NEXT_PROGRAMME",
-      "found_in_playlist": true,
-      "live_playlist_name": "TVPlay Космический",
+      "live_playlist_name": "TVPlay DC Comics HD",
       "live_tvg_id": "",
       "stream_metadata": {
         "ok": true,
@@ -3128,7 +3029,7 @@
         "preferred_zone": "left_bottom_tight",
         "preferred_engine": "tesseract",
         "static_text": [],
-        "last_title": "ВСПОДНИТЬ ВСЁ 1990"
+        "last_title": "ЧУДО-ЖЕНЩИНА 2017"
       },
       "ocr_lines": [],
       "stable_ocr_lines": [],
@@ -3138,55 +3039,14 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "63ce91a96a30b8c406ce47ae4728d8e5e48b5472b9a2550d1ac01299a9f8523f",
+          "sha256": "b5c4805555da1f932b386d10bd61c4145ebc67dc5a8264e1188ac6db0f46f261",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "f89f3db9b21897bcc684e5f68f0451b76191376051633301d6306ba840325a1d",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        }
-      ]
-    },
-    "DITV ФИЛЬМЫ УЖАСОВ 80-х": {
-      "group": "Кинозалы",
-      "playlist_name": "DITV ФИЛЬМЫ УЖАСОВ 80-х",
-      "provider_name": "DITV ФИЛЬМЫ УЖАСОВ 80-х",
-      "provider_tvg_id": "no_epg_cinema",
-      "gap_status": "NO_MAPPING",
-      "found_in_playlist": true,
-      "live_playlist_name": "DITV ФИЛЬМЫ УЖАСОВ 80-х",
-      "live_tvg_id": "no_epg_cinema",
-      "stream_metadata": {
-        "ok": true,
-        "skipped": "hourly-fast-path"
-      },
-      "recognized_title": null,
-      "profile_used": {
-        "preferred_zone": "left_bottom",
-        "preferred_engine": "tesseract",
-        "static_text": [],
-        "last_title": "Нечто (1982)"
-      },
-      "ocr_lines": [],
-      "stable_ocr_lines": [],
-      "unique_frame_hashes": 2,
-      "captured_frames": 2,
-      "frames": [
-        {
-          "approx_second": 2,
-          "captured": true,
-          "sha256": "e6ca2ab8c423df005e2b3f30a1ff330fcff9e1c60622d1bdd34749c0e656de0a",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        },
-        {
-          "approx_second": 8,
-          "captured": true,
-          "sha256": "b9a1139c854e383683bff4b32d956150270bceed2e403544945a8696cbb2a642",
+          "sha256": "c0db96eaad1de1eef36e6f8a49ead6bec560f42928d998c8243be80b01fdaac5",
           "ocr_lines": [],
           "ocr_candidates": []
         }
@@ -3220,14 +3080,178 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "1f9733416a67805646541f7a0b86efb4a5b7504e6656f99a635f737d9562dd7d",
+          "sha256": "46fcd6ad4fc0aab65ec4afa27fa68443d5954bff3e372efa9a07a3289eeab2d9",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "4bb9dd7b87e0300b73284bc1052c86a27566aca1b81bdf53b29efecf5269b02b",
+          "sha256": "71e9b87452055f2c913071f855563080c595e52cc31c7fa1132e8b390f93a0cf",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        }
+      ]
+    },
+    "TVPlay Космический": {
+      "group": "Кинозалы",
+      "playlist_name": "TVPlay Космический",
+      "provider_name": "TVPlay Космический",
+      "provider_tvg_id": "",
+      "gap_status": "NO_CURRENT_PROGRAMME;NO_NEXT_PROGRAMME",
+      "found_in_playlist": true,
+      "live_playlist_name": "TVPlay Космический",
+      "live_tvg_id": "",
+      "stream_metadata": {
+        "ok": true,
+        "skipped": "hourly-fast-path"
+      },
+      "recognized_title": null,
+      "profile_used": {
+        "preferred_zone": "left_bottom_tight",
+        "preferred_engine": "tesseract",
+        "static_text": [],
+        "last_title": "ВСПОДНИТЬ ВСЁ 1990"
+      },
+      "ocr_lines": [],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
+      "frames": [
+        {
+          "approx_second": 2,
+          "captured": true,
+          "sha256": "9da2c43d1267989a89ab124af8413009bd5f3ff715005c0c08d96e9823c05eb6",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        },
+        {
+          "approx_second": 8,
+          "captured": true,
+          "sha256": "ba780e73073b4d98da2f2a201ef447796afc63ca1690cbf56fe153f3d6a134a1",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        }
+      ]
+    },
+    "DITV ФИЛЬМЫ УЖАСОВ 80-х": {
+      "group": "Кинозалы",
+      "playlist_name": "DITV ФИЛЬМЫ УЖАСОВ 80-х",
+      "provider_name": "DITV ФИЛЬМЫ УЖАСОВ 80-х",
+      "provider_tvg_id": "no_epg_cinema",
+      "gap_status": "NO_MAPPING",
+      "found_in_playlist": true,
+      "live_playlist_name": "DITV ФИЛЬМЫ УЖАСОВ 80-х",
+      "live_tvg_id": "no_epg_cinema",
+      "stream_metadata": {
+        "ok": true,
+        "skipped": "hourly-fast-path"
+      },
+      "recognized_title": null,
+      "profile_used": {
+        "preferred_zone": "left_bottom",
+        "preferred_engine": "tesseract",
+        "static_text": [],
+        "last_title": "Нечто (1982)"
+      },
+      "ocr_lines": [],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
+      "frames": [
+        {
+          "approx_second": 2,
+          "captured": true,
+          "sha256": "bf2d32eec3db0e9875fc454e1e1c6f429e5eddcf06a58dfafafa2d69a074b20e",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        },
+        {
+          "approx_second": 8,
+          "captured": true,
+          "sha256": "038bfc39aa4b00054f93e7a64ee66a0c0e401eeeab6843f9dee79782bd8887b0",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        }
+      ]
+    },
+    "DITV Американские комедии 80-90-х": {
+      "group": "Кинозалы",
+      "playlist_name": "DITV Американские комедии 80-90-х",
+      "provider_name": "DITV Американские комедии 80-90-х",
+      "provider_tvg_id": "no_epg_cinema",
+      "gap_status": "NO_MAPPING",
+      "found_in_playlist": true,
+      "live_playlist_name": "DITV Американские комедии 80-90-х",
+      "live_tvg_id": "no_epg_cinema",
+      "stream_metadata": {
+        "ok": true,
+        "skipped": "hourly-fast-path"
+      },
+      "recognized_title": null,
+      "profile_used": {
+        "preferred_zone": "left_bottom_tight",
+        "preferred_engine": "tesseract",
+        "static_text": [],
+        "last_title": "Поменяться местами"
+      },
+      "ocr_lines": [],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
+      "frames": [
+        {
+          "approx_second": 2,
+          "captured": true,
+          "sha256": "3a882142cf3d3ccd957fb68dccaf83f4024113259b979758dedf365f5e672c5b",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        },
+        {
+          "approx_second": 8,
+          "captured": true,
+          "sha256": "ddb8f2cfeb67a0f50c3b8d834ead1813be43e8775bbf4cde2b3db9a84373ec5d",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        }
+      ]
+    },
+    "DITV ГАРИ ПОТЕР": {
+      "group": "Кинозалы",
+      "playlist_name": "DITV ГАРИ ПОТЕР",
+      "provider_name": "DITV ГАРИ ПОТЕР",
+      "provider_tvg_id": "no_epg_cinema",
+      "gap_status": "NO_MAPPING",
+      "found_in_playlist": true,
+      "live_playlist_name": "DITV ГАРИ ПОТЕР",
+      "live_tvg_id": "no_epg_cinema",
+      "stream_metadata": {
+        "ok": true,
+        "skipped": "hourly-fast-path"
+      },
+      "recognized_title": null,
+      "profile_used": {
+        "preferred_zone": "top_band",
+        "preferred_engine": "tesseract",
+        "static_text": [],
+        "last_title": "Sound Mixers TIMOTHY BLACKHAM"
+      },
+      "ocr_lines": [],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
+      "frames": [
+        {
+          "approx_second": 2,
+          "captured": true,
+          "sha256": "954a9428c091070815c9fb039d3411d1a207ff396da45a0c5cabb32fc00101c1",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        },
+        {
+          "approx_second": 8,
+          "captured": true,
+          "sha256": "1a07eac80535d214e2854aca03ca0870f5cac5a17724067f6fec7946cb0976ec",
           "ocr_lines": [],
           "ocr_candidates": []
         }
@@ -3269,14 +3293,14 @@
         }
       ]
     },
-    "DITV Американские комедии 80-90-х": {
+    "DITV Concert": {
       "group": "Кинозалы",
-      "playlist_name": "DITV Американские комедии 80-90-х",
-      "provider_name": "DITV Американские комедии 80-90-х",
+      "playlist_name": "DITV Concert",
+      "provider_name": "DITV Concert",
       "provider_tvg_id": "no_epg_cinema",
       "gap_status": "NO_MAPPING",
       "found_in_playlist": true,
-      "live_playlist_name": "DITV Американские комедии 80-90-х",
+      "live_playlist_name": "DITV Concert",
       "live_tvg_id": "no_epg_cinema",
       "stream_metadata": {
         "ok": true,
@@ -3287,108 +3311,21 @@
         "preferred_zone": "left_bottom_tight",
         "preferred_engine": "tesseract",
         "static_text": [],
-        "last_title": "Поменяться местами"
+        "last_title": "a2zé€hda"
       },
       "ocr_lines": [],
       "stable_ocr_lines": [],
-      "unique_frame_hashes": 2,
-      "captured_frames": 2,
+      "unique_frame_hashes": 0,
+      "captured_frames": 0,
       "frames": [
         {
           "approx_second": 2,
-          "captured": true,
-          "sha256": "62b4d39ca2c517d806f0d29c76ce9993c1f8024c341f67a81a00d22b7f9b87ad",
-          "ocr_lines": [],
-          "ocr_candidates": []
+          "captured": false
         },
         {
           "approx_second": 8,
-          "captured": true,
-          "sha256": "ca274209bec4d31b8af7d4da08d0f9b8f93176d425b295dc5b1125628a90b2f7",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        }
-      ]
-    },
-    "DITV Про вампиров": {
-      "group": "Кинозалы",
-      "playlist_name": "DITV Про вампиров",
-      "provider_name": "DITV Про вампиров",
-      "provider_tvg_id": "no_epg_cinema",
-      "gap_status": "NO_MAPPING",
-      "found_in_playlist": true,
-      "live_playlist_name": "DITV Про вампиров",
-      "live_tvg_id": "no_epg_cinema",
-      "stream_metadata": {
-        "ok": true,
-        "skipped": "hourly-fast-path"
-      },
-      "recognized_title": null,
-      "profile_used": {
-        "preferred_zone": "bottom_band",
-        "preferred_engine": "tesseract",
-        "static_text": [],
-        "last_title": "Почти стемнело"
-      },
-      "ocr_lines": [],
-      "stable_ocr_lines": [],
-      "unique_frame_hashes": 2,
-      "captured_frames": 2,
-      "frames": [
-        {
-          "approx_second": 2,
-          "captured": true,
-          "sha256": "ef0b2e3e635ab1fc02e042701bd92a6f9b09ee401b060cd4e31580222568eb44",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        },
-        {
-          "approx_second": 8,
-          "captured": true,
-          "sha256": "761c79bc32d6151b5a73addfee62349a694fef26ca7a0c51ca5ae4a237a80c76",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        }
-      ]
-    },
-    "DITV Про акул": {
-      "group": "Кинозалы",
-      "playlist_name": "DITV Про акул",
-      "provider_name": "DITV Про акул",
-      "provider_tvg_id": "no_epg_cinema",
-      "gap_status": "NO_MAPPING",
-      "found_in_playlist": true,
-      "live_playlist_name": "DITV Про акул",
-      "live_tvg_id": "no_epg_cinema",
-      "stream_metadata": {
-        "ok": true,
-        "skipped": "hourly-fast-path"
-      },
-      "recognized_title": null,
-      "profile_used": {
-        "preferred_zone": "left_bottom",
-        "preferred_engine": "tesseract",
-        "static_text": [],
-        "last_title": "Акулий торнадо"
-      },
-      "ocr_lines": [],
-      "stable_ocr_lines": [],
-      "unique_frame_hashes": 2,
-      "captured_frames": 2,
-      "frames": [
-        {
-          "approx_second": 2,
-          "captured": true,
-          "sha256": "e6cd9881f154e2982d1bc7e3d053973e0a0fca1eaed09a03204712f0177f5dc6",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        },
-        {
-          "approx_second": 8,
-          "captured": true,
-          "sha256": "62bc789283cfc4135f093b2729a6ed3ccc587061a26914bcb075c1400f414970",
-          "ocr_lines": [],
-          "ocr_candidates": []
+          "captured": false,
+          "skipped_after_high_confidence": true
         }
       ]
     },
@@ -3458,14 +3395,96 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "b68a711b3b3b9fe2ea990f0db37c595f321ff00ddc7e6e1268f6262ba6af0cb0",
+          "sha256": "3db741712b644a8f7e16eb3b0369be5576794486291ec1e99fd1127b821b2e55",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "f30b30c34dbc88fc960fed2e496b26c9dd555d17d0e33cef248477ce577bd661",
+          "sha256": "3144bffba67ecafcc302f85ff6e4940c375b12130b6287b98d747247aff81543",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        }
+      ]
+    },
+    "DITV Про вампиров": {
+      "group": "Кинозалы",
+      "playlist_name": "DITV Про вампиров",
+      "provider_name": "DITV Про вампиров",
+      "provider_tvg_id": "no_epg_cinema",
+      "gap_status": "NO_MAPPING",
+      "found_in_playlist": true,
+      "live_playlist_name": "DITV Про вампиров",
+      "live_tvg_id": "no_epg_cinema",
+      "stream_metadata": {
+        "ok": true,
+        "skipped": "hourly-fast-path"
+      },
+      "recognized_title": null,
+      "profile_used": {
+        "preferred_zone": "bottom_band",
+        "preferred_engine": "tesseract",
+        "static_text": [],
+        "last_title": "Почти стемнело"
+      },
+      "ocr_lines": [],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
+      "frames": [
+        {
+          "approx_second": 2,
+          "captured": true,
+          "sha256": "5ece66e65a79cc3a6e9f38cdaa31999ead39a24a437913a12f78609aa3824c2c",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        },
+        {
+          "approx_second": 8,
+          "captured": true,
+          "sha256": "2868c6696e120781045c622348fb54247d8719d7e82f3c71618da7bbe0d31bb5",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        }
+      ]
+    },
+    "DITV Про акул": {
+      "group": "Кинозалы",
+      "playlist_name": "DITV Про акул",
+      "provider_name": "DITV Про акул",
+      "provider_tvg_id": "no_epg_cinema",
+      "gap_status": "NO_MAPPING",
+      "found_in_playlist": true,
+      "live_playlist_name": "DITV Про акул",
+      "live_tvg_id": "no_epg_cinema",
+      "stream_metadata": {
+        "ok": true,
+        "skipped": "hourly-fast-path"
+      },
+      "recognized_title": null,
+      "profile_used": {
+        "preferred_zone": "left_bottom",
+        "preferred_engine": "tesseract",
+        "static_text": [],
+        "last_title": "Акулий торнадо"
+      },
+      "ocr_lines": [],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
+      "frames": [
+        {
+          "approx_second": 2,
+          "captured": true,
+          "sha256": "fd9f68e57dc3c3b5acc8abeb4ef54607ddcb307a679a36a79a10d507aac6c131",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        },
+        {
+          "approx_second": 8,
+          "captured": true,
+          "sha256": "e3d0bf17012ef007b9869ebcbabe8c76ddcb20df9f05c8e68f4a21768bfe28a5",
           "ocr_lines": [],
           "ocr_candidates": []
         }
@@ -3499,14 +3518,14 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "3bb15b0002d677cd4a7924e62a78becd3cb689e3709fa89f3aa8bb88d66b6a85",
+          "sha256": "3a1ab2f2847b128a839670290ce7263731b94cf0032aa25bba62b8fa78406133",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "c92ee6f401f51bc1b3af0cd5f731938a28634fb9d5489cf923a9afab24e21008",
+          "sha256": "924cb0c4256cf787eb52e29cb58cd273cc24d35b88163bef0c539a70a368f918",
           "ocr_lines": [],
           "ocr_candidates": []
         }
@@ -3540,14 +3559,14 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "ef3f6934365bc4303e163754b5706ed1e1f849cf2a5198cf292a8abb43065aa7",
+          "sha256": "f9d217bd5b61d6a0dbe03bd360a2a7bedbfb116fe023111b4e3caff21efcc21c",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "871a1ed435e16660729e665a1d4cc8fb4338d1905a2fa25872ac3b30ff6d2265",
+          "sha256": "45688a7f6f3e96b24def961f0e46d9e87c772ebc46375597ce93da5b5e2a7a2e",
           "ocr_lines": [],
           "ocr_candidates": []
         }
@@ -3581,14 +3600,14 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "262a19a87e77cfd86f3659e2c3c7a5d26a88ab2cf463385b1229fa2b52795556",
+          "sha256": "8159541982f44f16d1a18a5ae98cb92f92f20fa10633a7b52f1ba1a7ec919d4a",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "cc9faae032f96f441bf3866f1a45d022fecde30a25441daa1de11f55cab54f98",
+          "sha256": "f1f67a10b5307cc1788c0299d5e32132ce0efa9a864ecfba795a9f0f6527bb90",
           "ocr_lines": [],
           "ocr_candidates": []
         }
@@ -3624,81 +3643,49 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "b0e8449dbde0c12db403a4abe8533754f24ebfb94668afa7712a1ca6bf1f1d55",
+          "sha256": "c57b2c0c9727fd5a4b0ade482e77044c9177ef8f228bfd9f1080bb9b44509207",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "b2757fa872cbd8535189fd88df2909fc31965166adc8f54af4d88594f49151f8",
+          "sha256": "7a3cf9cfe1aa504cb38ce880d1346740aa287d11fb680d8741d5843c4dbac014",
           "ocr_lines": [],
           "ocr_candidates": []
         }
       ]
     },
-    "DITV Concert": {
+    "MM NewFilm RU HD": {
       "group": "Кинозалы",
-      "playlist_name": "DITV Concert",
-      "provider_name": "DITV Concert",
-      "provider_tvg_id": "no_epg_cinema",
-      "gap_status": "NO_MAPPING",
-      "found_in_playlist": true,
-      "live_playlist_name": "DITV Concert",
-      "live_tvg_id": "no_epg_cinema",
-      "stream_metadata": {
-        "ok": true,
-        "skipped": "hourly-fast-path"
-      },
-      "recognized_title": null,
-      "profile_used": {
-        "preferred_zone": "left_bottom_tight",
-        "preferred_engine": "tesseract",
-        "static_text": [],
-        "last_title": "a2zé€hda"
-      },
-      "ocr_lines": [],
-      "stable_ocr_lines": [],
-      "unique_frame_hashes": 2,
-      "captured_frames": 2,
-      "frames": [
-        {
-          "approx_second": 2,
-          "captured": true,
-          "sha256": "ad98a003776e029d6c52bec47f0922387f71e8b22cdee559e2003f637eb2e372",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        },
-        {
-          "approx_second": 8,
-          "captured": true,
-          "sha256": "2332a574c0857d2ed1ec6b7ca181ddd3abdb79ca586d87f1326cdf97bb18a5d3",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        }
-      ]
-    },
-    "MM 007 HD": {
-      "group": "Кинозалы",
-      "playlist_name": "MM 007 HD",
-      "provider_name": "MM 007 HD",
-      "provider_tvg_id": "Xminimax-007",
+      "playlist_name": "MM NewFilm RU HD",
+      "provider_name": "MM NewFilm RU HD",
+      "provider_tvg_id": "Xminimax-newfilmru",
       "gap_status": "NO_CURRENT_PROGRAMME;NO_NEXT_PROGRAMME",
       "found_in_playlist": true,
-      "live_playlist_name": "MM 007 HD",
-      "live_tvg_id": "Xminimax-007",
+      "live_playlist_name": "MM NewFilm RU HD",
+      "live_tvg_id": "Xminimax-newfilmru",
       "stream_metadata": {
         "ok": true,
         "skipped": "hourly-fast-path"
       },
-      "recognized_title": null,
+      "recognized_title": {
+        "title": "Пропасть (2026)",
+        "score": 22.0,
+        "confidence": "high",
+        "engine": "tesseract",
+        "zone": "left_bottom_tight"
+      },
       "profile_used": {
         "preferred_zone": "left_bottom_tight",
         "preferred_engine": "tesseract",
         "static_text": [],
-        "last_title": "Мюнхен (2005)"
+        "last_title": "Пропасть (2026)"
       },
-      "ocr_lines": [],
+      "ocr_lines": [
+        "Пропасть (2026)",
+        "00:50 из 01:19"
+      ],
       "stable_ocr_lines": [],
       "unique_frame_hashes": 2,
       "captured_frames": 2,
@@ -3706,57 +3693,29 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "eecd5e7d22a7b45d2581f9ead07be41fa600a443c76986c9a842657fc101302d",
+          "sha256": "085745b9302e90d504d02d0d536f1b491295018c02216d7fd6a460f38bf2a560",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "8641fe32396b522e5527b2fe3709528740a9c557557d435ab70033fdea908f9e",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        }
-      ]
-    },
-    "MM Скорость HD": {
-      "group": "Кинозалы",
-      "playlist_name": "MM Скорость HD",
-      "provider_name": "MM Скорость HD",
-      "provider_tvg_id": "Xminimax-skorost",
-      "gap_status": "NO_MAPPING",
-      "found_in_playlist": true,
-      "live_playlist_name": "MM Скорость HD",
-      "live_tvg_id": "Xminimax-skorost",
-      "stream_metadata": {
-        "ok": true,
-        "skipped": "hourly-fast-path"
-      },
-      "recognized_title": null,
-      "profile_used": {
-        "preferred_zone": "bottom_band",
-        "preferred_engine": "tesseract",
-        "static_text": [],
-        "last_title": "Форсаж 5 (2011)"
-      },
-      "ocr_lines": [],
-      "stable_ocr_lines": [],
-      "unique_frame_hashes": 2,
-      "captured_frames": 2,
-      "frames": [
-        {
-          "approx_second": 2,
-          "captured": true,
-          "sha256": "caf7b09ef9baaa4b269f3f9e3dda46b0247f6b6973293ab2001db1d1afe91617",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        },
-        {
-          "approx_second": 8,
-          "captured": true,
-          "sha256": "6c52ce35264981919f7d9cf47affc4f2afa5b07b2e0355bf496559aebb1d7e20",
-          "ocr_lines": [],
-          "ocr_candidates": []
+          "sha256": "0174d0b6bca6e0ac11882560f567c0fd9636f64792a956083b5e428d1d64c77d",
+          "ocr_lines": [
+            "Пропасть (2026)",
+            "00:50 из 01:19"
+          ],
+          "ocr_candidates": [
+            {
+              "engine": "tesseract",
+              "variant": "left_bottom_tight",
+              "lines": [
+                "Пропасть (2026)",
+                "00:50 из 01:19"
+              ],
+              "psm": 11
+            }
+          ]
         }
       ]
     },
@@ -3790,96 +3749,14 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "14745390e6421a56a2cc61ed2aa2c26bd037afaaf79f76367587ecffd555b260",
+          "sha256": "9948b18de29e33268034bd324171922588f108c9756175bfdc484cb026e2bcb9",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "001281570a37b21d6107513f80160bd786ea96b52f667cd463daa7e2504d60af",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        }
-      ]
-    },
-    "MM Honey HD": {
-      "group": "Кинозалы",
-      "playlist_name": "MM Honey HD",
-      "provider_name": "MM Honey HD",
-      "provider_tvg_id": "Xminimax-honey",
-      "gap_status": "NO_MAPPING",
-      "found_in_playlist": true,
-      "live_playlist_name": "MM Honey HD",
-      "live_tvg_id": "Xminimax-honey",
-      "stream_metadata": {
-        "ok": true,
-        "skipped": "hourly-fast-path"
-      },
-      "recognized_title": null,
-      "profile_used": {
-        "preferred_zone": "left_bottom",
-        "preferred_engine": "tesseract",
-        "static_text": [],
-        "last_title": "Щенячий патруль: Сезон 1 | 4-6"
-      },
-      "ocr_lines": [],
-      "stable_ocr_lines": [],
-      "unique_frame_hashes": 2,
-      "captured_frames": 2,
-      "frames": [
-        {
-          "approx_second": 2,
-          "captured": true,
-          "sha256": "bcb3c5ecf80517883d5134dfc1293a5090bb4ed0b31f2523da0a244bfb710c26",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        },
-        {
-          "approx_second": 8,
-          "captured": true,
-          "sha256": "00fb9edb73845d67745f6f0c2908d47fc64fa435bfde2ffa2a38392e10d17280",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        }
-      ]
-    },
-    "MM NewFilm RU HD": {
-      "group": "Кинозалы",
-      "playlist_name": "MM NewFilm RU HD",
-      "provider_name": "MM NewFilm RU HD",
-      "provider_tvg_id": "Xminimax-newfilmru",
-      "gap_status": "NO_CURRENT_PROGRAMME;NO_NEXT_PROGRAMME",
-      "found_in_playlist": true,
-      "live_playlist_name": "MM NewFilm RU HD",
-      "live_tvg_id": "Xminimax-newfilmru",
-      "stream_metadata": {
-        "ok": true,
-        "skipped": "hourly-fast-path"
-      },
-      "recognized_title": null,
-      "profile_used": {
-        "preferred_zone": "left_bottom_tight",
-        "preferred_engine": "tesseract",
-        "static_text": [],
-        "last_title": "Дом, в котором люди не живут (2026)"
-      },
-      "ocr_lines": [],
-      "stable_ocr_lines": [],
-      "unique_frame_hashes": 2,
-      "captured_frames": 2,
-      "frames": [
-        {
-          "approx_second": 2,
-          "captured": true,
-          "sha256": "e3b97c5097b5317bcd650ea95ec2d1cc91211141b7849fc29b2a81ffc22f8b13",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        },
-        {
-          "approx_second": 8,
-          "captured": true,
-          "sha256": "d33ba56f008082019fee1a2a7657e036647dbae64d6095c9936b5816df2aaae4",
+          "sha256": "c191bb6e520ddd488805bda1ad418af55114aa852626723c68489f1b7e255a94",
           "ocr_lines": [],
           "ocr_candidates": []
         }
@@ -3913,16 +3790,197 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "c04ac4326bff8a4e21780ee028c3dd38eacd8b1d21a5ca8c5f81c0d7174fa68a",
+          "sha256": "3e033ee06295f062c1c3c7e04df8767d2d21f489e0b7c21d7c971a17c15d573f",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "260b16ebbcca882f2507f730798426873752302f25096e8d4d02276b7ec6f06f",
+          "sha256": "fc46750e2f3c9aa6d7f55142d6d2a20f374fbb0f7f10c56825407d4580c95305",
           "ocr_lines": [],
           "ocr_candidates": []
+        }
+      ]
+    },
+    "MM 007 HD": {
+      "group": "Кинозалы",
+      "playlist_name": "MM 007 HD",
+      "provider_name": "MM 007 HD",
+      "provider_tvg_id": "Xminimax-007",
+      "gap_status": "NO_CURRENT_PROGRAMME;NO_NEXT_PROGRAMME",
+      "found_in_playlist": true,
+      "live_playlist_name": "MM 007 HD",
+      "live_tvg_id": "Xminimax-007",
+      "stream_metadata": {
+        "ok": true,
+        "skipped": "hourly-fast-path"
+      },
+      "recognized_title": null,
+      "profile_used": {
+        "preferred_zone": "left_bottom_tight",
+        "preferred_engine": "tesseract",
+        "static_text": [],
+        "last_title": "Мюнхен (2005)"
+      },
+      "ocr_lines": [],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
+      "frames": [
+        {
+          "approx_second": 2,
+          "captured": true,
+          "sha256": "b67b25755dcadb5f50d06a559888c38a2f78b58f579aa984818a73df35f9d734",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        },
+        {
+          "approx_second": 8,
+          "captured": true,
+          "sha256": "9b082cfc822f0d4ae814e6908e0f2d3c7949ac9c25a5fd0b896a554968df7826",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        }
+      ]
+    },
+    "MM Honey HD": {
+      "group": "Кинозалы",
+      "playlist_name": "MM Honey HD",
+      "provider_name": "MM Honey HD",
+      "provider_tvg_id": "Xminimax-honey",
+      "gap_status": "NO_MAPPING",
+      "found_in_playlist": true,
+      "live_playlist_name": "MM Honey HD",
+      "live_tvg_id": "Xminimax-honey",
+      "stream_metadata": {
+        "ok": true,
+        "skipped": "hourly-fast-path"
+      },
+      "recognized_title": null,
+      "profile_used": {
+        "preferred_zone": "left_bottom",
+        "preferred_engine": "tesseract",
+        "static_text": [],
+        "last_title": "Щенячий патруль: Сезон 1 | 4-6"
+      },
+      "ocr_lines": [],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
+      "frames": [
+        {
+          "approx_second": 2,
+          "captured": true,
+          "sha256": "899a40ec7701ef2516187aa59d65977b3607867f8b425542376a260a4991ce60",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        },
+        {
+          "approx_second": 8,
+          "captured": true,
+          "sha256": "56971856232d2eab1814f6587a8872f4c6a1c6907c98044f1445c56823d561a9",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        }
+      ]
+    },
+    "MM Скорость HD": {
+      "group": "Кинозалы",
+      "playlist_name": "MM Скорость HD",
+      "provider_name": "MM Скорость HD",
+      "provider_tvg_id": "Xminimax-skorost",
+      "gap_status": "NO_MAPPING",
+      "found_in_playlist": true,
+      "live_playlist_name": "MM Скорость HD",
+      "live_tvg_id": "Xminimax-skorost",
+      "stream_metadata": {
+        "ok": true,
+        "skipped": "hourly-fast-path"
+      },
+      "recognized_title": null,
+      "profile_used": {
+        "preferred_zone": "bottom_band",
+        "preferred_engine": "tesseract",
+        "static_text": [],
+        "last_title": "Форсаж 5 (2011)"
+      },
+      "ocr_lines": [],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
+      "frames": [
+        {
+          "approx_second": 2,
+          "captured": true,
+          "sha256": "f0434a564d5881a303f06b5acfa5328ecefef3ed550f40ff95dadf67cb1cd076",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        },
+        {
+          "approx_second": 8,
+          "captured": true,
+          "sha256": "f25ea789b5b2db6667537520d20629ce424f9f569d3c86ae874fcc7a3e9701bb",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        }
+      ]
+    },
+    "YOSSO-4K": {
+      "group": "Кино 4K",
+      "playlist_name": "YOSSO-4K",
+      "provider_name": "YOSSO-4K",
+      "provider_tvg_id": "Xyosso-4k",
+      "gap_status": "NO_CURRENT_PROGRAMME;NO_NEXT_PROGRAMME",
+      "found_in_playlist": true,
+      "live_playlist_name": "YOSSO-4K",
+      "live_tvg_id": "Xyosso-4k",
+      "stream_metadata": {
+        "ok": true,
+        "skipped": "hourly-fast-path"
+      },
+      "recognized_title": {
+        "title": "Фуоззовк",
+        "score": 22.0,
+        "confidence": "high",
+        "engine": "tesseract",
+        "zone": "top_band"
+      },
+      "profile_used": {
+        "preferred_zone": "top_band",
+        "preferred_engine": "tesseract",
+        "static_text": [],
+        "last_title": "Фуоззовк"
+      },
+      "ocr_lines": [
+        "Фуоззовк"
+      ],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 1,
+      "captured_frames": 1,
+      "frames": [
+        {
+          "approx_second": 2,
+          "captured": true,
+          "sha256": "9d32c626084f281e1315efb40911ac707cfa591a2801ffac912dab5f2eb87f80",
+          "ocr_lines": [
+            "Фуоззовк"
+          ],
+          "ocr_candidates": [
+            {
+              "engine": "tesseract",
+              "variant": "top_band",
+              "lines": [
+                "Фуоззовк"
+              ],
+              "psm": 11
+            }
+          ]
+        },
+        {
+          "approx_second": 8,
+          "captured": false,
+          "skipped_after_high_confidence": true
         }
       ]
     },
@@ -3949,9 +4007,60 @@
         ],
         "last_title": "Feber att EN Eins 2:"
       },
+      "ocr_lines": [],
+      "stable_ocr_lines": [],
+      "unique_frame_hashes": 2,
+      "captured_frames": 2,
+      "frames": [
+        {
+          "approx_second": 2,
+          "captured": true,
+          "sha256": "411a8a5107fbb8e02cd7f73d00d76c29855cb18d215b733dea592bbb66db1dc9",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        },
+        {
+          "approx_second": 8,
+          "captured": true,
+          "sha256": "ca9ccfd0019a93bc5fd4650b29b89f059bfd2dc00cc828056f9df2ebaacc2d77",
+          "ocr_lines": [],
+          "ocr_candidates": []
+        }
+      ]
+    },
+    "MM Стивен Кинг HD": {
+      "group": "Кинозалы",
+      "playlist_name": "MM Стивен Кинг HD",
+      "provider_name": "MM Стивен Кинг HD",
+      "provider_tvg_id": "Xminimax-st-king",
+      "gap_status": "NO_NEXT_PROGRAMME",
+      "found_in_playlist": true,
+      "live_playlist_name": "MM Стивен Кинг HD",
+      "live_tvg_id": "Xminimax-st-king",
+      "stream_metadata": {
+        "ok": true,
+        "skipped": "hourly-fast-path"
+      },
+      "recognized_title": {
+        "title": "Игра Джералда (2017)",
+        "score": 14.0,
+        "confidence": "high",
+        "engine": "tesseract",
+        "zone": "bottom_band"
+      },
+      "profile_used": {
+        "preferred_zone": "bottom_band",
+        "preferred_engine": "tesseract",
+        "static_text": [
+          "ТИВЕН КИНГ"
+        ],
+        "last_title": "Игра Джералда (2017)"
+      },
       "ocr_lines": [
-        "Os)",
-        "e ww т веть"
+        "ТИВЕН КИНГ",
+        "a rey",
+        "Игра Джералда (2017)",
+        "00:06:43 из 01:38:40"
       ],
       "stable_ocr_lines": [],
       "unique_frame_hashes": 2,
@@ -3960,34 +4069,38 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "7ef359d2285417d3bd96f8fb3c774529512119b76fdc40ce0f73fbff0e23027e",
+          "sha256": "f12bf6323904417060114cd64badd9631a995d2d5b2d8fea8d43736f7394e5fb",
           "ocr_lines": [],
           "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "735b9b866cbaf9368459c4464d6c0000b2f386695ea993ffa603cbc753f2e4b9",
+          "sha256": "7dff127596fd992b678b7a280f3246385ca0809520c2e61a56ed35604bf14271",
           "ocr_lines": [
-            "Os)",
-            "e ww т веть"
+            "ТИВЕН КИНГ",
+            "a rey",
+            "Игра Джералда (2017)",
+            "00:06:43 из 01:38:40"
           ],
           "ocr_candidates": [
             {
               "engine": "tesseract",
               "variant": "top_band",
               "lines": [
-                "Os)"
+                "ТИВЕН КИНГ",
+                "a rey"
               ],
               "psm": 11
             },
             {
               "engine": "tesseract",
-              "variant": "top_band",
+              "variant": "bottom_band",
               "lines": [
-                "e ww т веть"
+                "Игра Джералда (2017)",
+                "00:06:43 из 01:38:40"
               ],
-              "psm": 6
+              "psm": 11
             }
           ]
         }
@@ -3998,7 +4111,7 @@
       "playlist_name": "CPS Fresh",
       "provider_name": "CPS Fresh",
       "provider_tvg_id": "",
-      "gap_status": "NO_NEXT_PROGRAMME",
+      "gap_status": "NO_CURRENT_PROGRAMME;NO_NEXT_PROGRAMME",
       "found_in_playlist": true,
       "live_playlist_name": "CPS Fresh",
       "live_tvg_id": "",
@@ -4013,59 +4126,8 @@
         "static_text": [],
         "last_title": ""
       },
-      "ocr_lines": [],
-      "stable_ocr_lines": [],
-      "unique_frame_hashes": 2,
-      "captured_frames": 2,
-      "frames": [
-        {
-          "approx_second": 2,
-          "captured": true,
-          "sha256": "a3514b0cc475f80469b7a2381e098e5794e647f4deba5821f905783b0d8705d1",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        },
-        {
-          "approx_second": 8,
-          "captured": true,
-          "sha256": "a7116282bdc60697c033e0a0e6921f18326a55c60f434fa0793021cdbeab75f0",
-          "ocr_lines": [],
-          "ocr_candidates": []
-        }
-      ]
-    },
-    "YOSSO-4K": {
-      "group": "Кино 4K",
-      "playlist_name": "YOSSO-4K",
-      "provider_name": "YOSSO-4K",
-      "provider_tvg_id": "Xyosso-4k",
-      "gap_status": "NO_CURRENT_PROGRAMME;NO_NEXT_PROGRAMME",
-      "found_in_playlist": true,
-      "live_playlist_name": "YOSSO-4K",
-      "live_tvg_id": "Xyosso-4k",
-      "stream_metadata": {
-        "ok": true,
-        "skipped": "hourly-fast-path"
-      },
-      "recognized_title": null,
-      "profile_used": {
-        "preferred_zone": "top_band",
-        "preferred_engine": "tesseract",
-        "static_text": [],
-        "last_title": "Фуоззок"
-      },
       "ocr_lines": [
-        "aah",
-        "ee,",
-        "Vi AN a jos : = ee",
-        "yy <<) my Ss =. g }",
-        "N a a 3 An",
-        ". pa | > aa’",
-        "Е : - NN",
-        "GS) 0ss0c01",
-        "GS) 0s8008",
-        "We ae",
-        "ыы | 4 а еек, и"
+        "ANN"
       ],
       "stable_ocr_lines": [],
       "unique_frame_hashes": 2,
@@ -4074,82 +4136,25 @@
         {
           "approx_second": 2,
           "captured": true,
-          "sha256": "27aea95bd61e0961bfee55917af67bf86f445c0554c377a4129fc24b3fcb9a73",
-          "ocr_lines": [
-            "aah",
-            "ee,",
-            "Vi AN a jos : = ee",
-            "yy <<) my Ss =. g }",
-            "N a a 3 An",
-            ". pa | > aa’",
-            "Е : - NN"
-          ],
-          "ocr_candidates": [
-            {
-              "engine": "tesseract",
-              "variant": "bottom_band",
-              "lines": [
-                "aah",
-                "ee,"
-              ],
-              "psm": 11
-            },
-            {
-              "engine": "tesseract",
-              "variant": "bottom_band",
-              "lines": [
-                "Vi AN a jos : = ee",
-                "yy <<) my Ss =. g }",
-                "N a a 3 An",
-                ". pa | > aa’",
-                "Е : - NN"
-              ],
-              "psm": 6
-            }
-          ]
+          "sha256": "ea0d03567f417c41148bcaa6ecfaa6a0a0837c4ec5ab9ad8e007c0875f98e575",
+          "ocr_lines": [],
+          "ocr_candidates": []
         },
         {
           "approx_second": 8,
           "captured": true,
-          "sha256": "0561f882a3f1268a3f4373d5f1cc1c3f526c09e2a39341561b3ae46e84d325eb",
+          "sha256": "8c5b961fbe89db32b58515bf0b19fd77e4673a45219bff333484cfddf1ae3c2c",
           "ocr_lines": [
-            "GS) 0ss0c01",
-            "GS) 0s8008",
-            "We ae",
-            "ыы | 4 а еек, и"
+            "ANN"
           ],
           "ocr_candidates": [
             {
               "engine": "tesseract",
               "variant": "top_band",
               "lines": [
-                "GS) 0ss0c01"
+                "ANN"
               ],
               "psm": 11
-            },
-            {
-              "engine": "tesseract",
-              "variant": "top_band",
-              "lines": [
-                "GS) 0s8008"
-              ],
-              "psm": 6
-            },
-            {
-              "engine": "tesseract",
-              "variant": "bottom_band",
-              "lines": [
-                "We ae"
-              ],
-              "psm": 11
-            },
-            {
-              "engine": "tesseract",
-              "variant": "bottom_band",
-              "lines": [
-                "ыы | 4 а еек, и"
-              ],
-              "psm": 6
             }
           ]
         }
