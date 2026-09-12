@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-12T12:06:17.441356+00:00",
+  "updated_at": "2026-09-12T13:21:10.651039+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-12T12:06:16.511272+00:00",
+      "checked_at_utc": "2026-09-12T13:21:09.282905+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 488,
-      "ok": 384,
-      "gaps": 104,
+      "ok": 383,
+      "gaps": 105,
       "issue_counts": {
-        "NO_MAPPING": 43,
+        "NO_MAPPING": 41,
         "NO_CURRENT_PROGRAMME": 59,
-        "NO_NEXT_PROGRAMME": 61
+        "NO_NEXT_PROGRAMME": 64
       },
       "group_counts": {
         "USSR": {
@@ -30,8 +30,8 @@
         },
         "Кино 4K": {
           "channels": 63,
-          "ok": 62,
-          "gaps": 1
+          "ok": 61,
+          "gaps": 2
         },
         "Кинозалы": {
           "channels": 239,
@@ -42,34 +42,272 @@
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 104,
-      "high_confidence_observations": 0,
-      "recognized": []
+      "channels_considered": 106,
+      "high_confidence_observations": 4,
+      "recognized": [
+        {
+          "playlist_name": "Кино Топ",
+          "provider_name": "Кино Топ",
+          "title": "прое",
+          "score": 13.0,
+          "zone": "top_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "MM 007 HD",
+          "provider_name": "MM 007 HD",
+          "title": "Живи и дай умереть (1973)",
+          "score": 23.75,
+          "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "MM Honey HD",
+          "provider_name": "MM Honey HD",
+          "title": "Маша и Медве",
+          "score": 22.5,
+          "zone": "left_bottom",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "MM Супергерои HD",
+          "provider_name": "MM Супергерои HD",
+          "title": "Супергёрл (2026)",
+          "score": 17.25,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        }
+      ]
     },
     "evidence_recorder": {
-      "added": 0,
-      "rejected": 104,
-      "observations": []
+      "added": 4,
+      "rejected": 102,
+      "observations": [
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-12T13:07:10.274292+00:00",
+          "playlist_name": "Кино Топ",
+          "observed_title": "прое",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=13.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-12T13:07:10.274292+00:00",
+          "playlist_name": "MM 007 HD",
+          "observed_title": "Живи и дай умереть (1973)",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=23.75"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-12T13:07:10.274292+00:00",
+          "playlist_name": "MM Honey HD",
+          "observed_title": "Маша и Медве",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom; engine=tesseract; score=22.5"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-12T13:07:10.274292+00:00",
+          "playlist_name": "MM Супергерои HD",
+          "observed_title": "Супергёрл (2026)",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=17.25"
+        }
+      ]
     },
     "judge": {
       "selector": {
-        "changed": 0,
-        "selected": 0,
-        "reason": "waiting-for-distinct-second-title"
+        "changed": 1,
+        "selected": 1,
+        "quarantined": 0,
+        "target_hours": 6.0
       },
-      "pending_count": 0,
-      "pending": {},
-      "selected_count": 0,
+      "pending_count": 2,
+      "pending": {
+        "MM 007 HD": {
+          "observations": 1,
+          "distinct_titles": 1,
+          "status": "PENDING_DISTINCT_SECOND_TITLE"
+        },
+        "Кино Топ": {
+          "observations": 1,
+          "distinct_titles": 1,
+          "status": "PENDING_DISTINCT_SECOND_TITLE"
+        }
+      },
+      "selected_count": 1,
       "quarantined_count": 0,
-      "selected": {},
+      "selected": {
+        "MM Супергерои HD": {
+          "source": "minimax-mm-dedicated",
+          "source_id": "supergeroi-mm",
+          "output_tvg_id": "Xminimax-supergeroi",
+          "horizon_hours": 273.42,
+          "current": true,
+          "usable": 29
+        }
+      },
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 0,
-      "sources_scanned": 0,
-      "sources_failed": [],
-      "candidates_added": 0,
-      "added": []
+      "live_observations": 4,
+      "sources_scanned": 26,
+      "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-ru",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-rescue",
+          "error": "RuntimeError"
+        }
+      ],
+      "candidates_added": 19,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "MM 007 HD",
+          "source": "iptv-online-primary",
+          "source_id": "Xminimax-007",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Живи и дай умереть (1973); candidate=х/ф Живи и дай умереть; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Супергерои HD",
+          "source": "iptv-online-primary",
+          "source_id": "X000143_KinoDrive",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Супергёрл (2026); candidate=Супергёрл (2026); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Супергерои HD",
+          "source": "iptvx-noarch",
+          "source_id": "bear-tv-kinodrajv-ru-uhd",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Супергёрл (2026); candidate=Супергёрл (2026); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM 007 HD",
+          "source": "iptvx-noarch",
+          "source_id": "minimax-007",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Живи и дай умереть (1973); candidate=х/ф Живи и дай умереть; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Honey HD",
+          "source": "runigma-iptv",
+          "source_id": "mult",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Маша и Медве; candidate=Маша и Медведь.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM 007 HD",
+          "source": "openbox-tsd",
+          "source_id": "mm-007",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Живи и дай умереть (1973); candidate=Х/ф Живи и дай умереть.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Honey HD",
+          "source": "bcumedia-dedicated",
+          "source_id": "Мульт",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Маша и Медве; candidate=Маша и Медведь.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Honey HD",
+          "source": "bcumedia-dedicated",
+          "source_id": "Мульт HD",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Маша и Медве; candidate=Маша и Медведь.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM 007 HD",
+          "source": "minimax-mm-dedicated",
+          "source_id": "007-mm",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Живи и дай умереть (1973); candidate=Живи и дай умереть; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM 007 HD",
+          "source": "tvteam",
+          "source_id": "ch1214",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Живи и дай умереть (1973); candidate=Живи и дай умереть; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Honey HD",
+          "source": "tvteam",
+          "source_id": "ch045",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Маша и Медве; candidate=Маша и Медведь; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Honey HD",
+          "source": "tvteam",
+          "source_id": "ch1779",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Маша и Медве; candidate=Маша и Медведь; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Honey HD",
+          "source": "epgone-ru2",
+          "source_id": "1332",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Маша и Медве; candidate=Маша и Медведь; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Honey HD",
+          "source": "gabbarit-current",
+          "source_id": "Мульт HD",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Маша и Медве; candidate=Маша и Медведь.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Honey HD",
+          "source": "gabbarit-primary",
+          "source_id": "Мульт HD",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Маша и Медве; candidate=Маша и Медведь.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Honey HD",
+          "source": "gabbarit-mirror",
+          "source_id": "Мульт HD",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Маша и Медве; candidate=Маша и Медведь.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Honey HD",
+          "source": "epgone-full-movie-rescue",
+          "source_id": "1332",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Маша и Медве; candidate=Маша и Медведь; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM 007 HD",
+          "source": "epgone-full-movie-rescue",
+          "source_id": "5122",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Живи и дай умереть (1973); candidate=Живи и дай умереть; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Honey HD",
+          "source": "epgone-full-movie-rescue",
+          "source_id": "6729",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Маша и Медве; candidate=Маша и Медведь; requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
