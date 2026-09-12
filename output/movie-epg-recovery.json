@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-12T04:19:11.241577+00:00",
+  "updated_at": "2026-09-12T05:15:13.471889+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-12T04:19:09.568020+00:00",
+      "checked_at_utc": "2026-09-12T05:15:12.171945+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -13,9 +13,9 @@
       "ok": 386,
       "gaps": 102,
       "issue_counts": {
-        "NO_MAPPING": 48,
-        "NO_CURRENT_PROGRAMME": 54,
-        "NO_NEXT_PROGRAMME": 54
+        "NO_MAPPING": 47,
+        "NO_NEXT_PROGRAMME": 55,
+        "NO_CURRENT_PROGRAMME": 53
       },
       "group_counts": {
         "USSR": {
@@ -43,29 +43,45 @@
     "observer": {
       "return_code": 0,
       "channels_considered": 102,
-      "high_confidence_observations": 1,
+      "high_confidence_observations": 2,
       "recognized": [
+        {
+          "playlist_name": "Insomnia HD",
+          "provider_name": "Insomnia HD",
+          "title": "БАБАДУК",
+          "score": 21.75,
+          "zone": "top_left",
+          "engine": "tesseract"
+        },
         {
           "playlist_name": "YOSSO-4K",
           "provider_name": "YOSSO-4K",
-          "title": "(@лозойк",
-          "score": 21.5,
-          "zone": "top_band",
+          "title": "‘ Fee ana RNR i G \\ \\ moe NG",
+          "score": 14.0,
+          "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 101,
+      "added": 2,
+      "rejected": 100,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-12T04:06:04.299474+00:00",
-          "playlist_name": "YOSSO-4K",
-          "observed_title": "(@лозойк",
+          "observed_at": "2026-09-12T05:05:44.486618+00:00",
+          "playlist_name": "Insomnia HD",
+          "observed_title": "БАБАДУК",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=21.5"
+          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=21.75"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-12T05:05:44.486618+00:00",
+          "playlist_name": "YOSSO-4K",
+          "observed_title": "‘ Fee ana RNR i G \\ \\ moe NG",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=14.0"
         }
       ]
     },
@@ -88,8 +104,8 @@
       }
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 27,
+      "live_observations": 2,
+      "sources_scanned": 28,
       "sources_failed": [
         {
           "source": "klimedia-dedicated",
@@ -98,10 +114,6 @@
         {
           "source": "sharavoz-guide",
           "error": "RuntimeError"
-        },
-        {
-          "source": "skyhigh-fhd",
-          "error": "ParseError"
         }
       ],
       "candidates_added": 0,
