@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-12T09:19:38.426282+00:00",
+  "updated_at": "2026-09-12T10:18:51.359173+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-12T09:19:36.756218+00:00",
+      "checked_at_utc": "2026-09-12T10:18:50.048318+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -13,9 +13,9 @@
       "ok": 385,
       "gaps": 103,
       "issue_counts": {
-        "NO_MAPPING": 45,
-        "NO_CURRENT_PROGRAMME": 57,
-        "NO_NEXT_PROGRAMME": 58
+        "NO_MAPPING": 43,
+        "NO_NEXT_PROGRAMME": 60,
+        "NO_CURRENT_PROGRAMME": 55
       },
       "group_counts": {
         "USSR": {
@@ -42,54 +42,134 @@
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 103,
-      "high_confidence_observations": 1,
+      "channels_considered": 104,
+      "high_confidence_observations": 5,
       "recognized": [
         {
-          "playlist_name": "YOSSO-4K",
-          "provider_name": "YOSSO-4K",
-          "title": "@лозко",
-          "score": 21.25,
-          "zone": "top_band",
+          "playlist_name": "Thriller HD",
+          "provider_name": "Thriller HD",
+          "title": "BEN LeDOUX",
+          "score": 17.25,
+          "zone": "top_left",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "VeleS Movie Hits",
+          "provider_name": "VeleS Movie Hits",
+          "title": "Бойцовский клуб",
+          "score": 18.5,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "MM Ужасы HD",
+          "provider_name": "MM Ужасы HD",
+          "title": "Роковой выбор (2007)",
+          "score": 23.0,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "MM Супергерои HD",
+          "provider_name": "MM Супергерои HD",
+          "title": "Супермен (2025)",
+          "score": 22.0,
+          "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "MM Стивен Кинг HD",
+          "provider_name": "MM Стивен Кинг HD",
+          "title": "Институт | 1-3",
+          "score": 22.0,
+          "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 102,
+      "added": 5,
+      "rejected": 99,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-12T09:06:40.313404+00:00",
-          "playlist_name": "YOSSO-4K",
-          "observed_title": "@лозко",
+          "observed_at": "2026-09-12T10:06:19.942795+00:00",
+          "playlist_name": "Thriller HD",
+          "observed_title": "BEN LeDOUX",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=21.25"
+          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=17.25"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-12T10:06:19.942795+00:00",
+          "playlist_name": "VeleS Movie Hits",
+          "observed_title": "Бойцовский клуб",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.5"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-12T10:06:19.942795+00:00",
+          "playlist_name": "MM Ужасы HD",
+          "observed_title": "Роковой выбор (2007)",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=23.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-12T10:06:19.942795+00:00",
+          "playlist_name": "MM Супергерои HD",
+          "observed_title": "Супермен (2025)",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=22.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-12T10:06:19.942795+00:00",
+          "playlist_name": "MM Стивен Кинг HD",
+          "observed_title": "Институт | 1-3",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=22.0"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 0,
-        "selected": 0,
-        "reason": "no-policy"
+        "changed": 1,
+        "selected": 1,
+        "quarantined": 0,
+        "target_hours": 6.0
       },
-      "pending_count": 0,
-      "pending": {},
-      "selected_count": 0,
-      "quarantined_count": 1,
-      "selected": {},
-      "quarantined": {
-        "MM Ужасы HD": {
-          "reason": "EVIDENCE_REQUIRED_NO_PROVEN_DONOR",
-          "previous_output_tvg_id": "Xminimax-ujasi"
+      "pending_count": 2,
+      "pending": {
+        "MM Супергерои HD": {
+          "observations": 1,
+          "distinct_titles": 1,
+          "status": "PENDING_DISTINCT_SECOND_TITLE"
+        },
+        "VeleS Movie Hits": {
+          "observations": 1,
+          "distinct_titles": 1,
+          "status": "PENDING_DISTINCT_SECOND_TITLE"
         }
-      }
+      },
+      "selected_count": 1,
+      "quarantined_count": 0,
+      "selected": {
+        "MM Стивен Кинг HD": {
+          "source": "minimax-mm-dedicated",
+          "source_id": "st-king-mm",
+          "output_tvg_id": "Xminimax-st-king",
+          "horizon_hours": 415.65,
+          "current": true,
+          "usable": 54
+        }
+      },
+      "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 26,
+      "live_observations": 5,
+      "sources_scanned": 28,
       "sources_failed": [
         {
           "source": "klimedia-dedicated",
@@ -98,18 +178,102 @@
         {
           "source": "sharavoz-guide",
           "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-ru",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-rescue",
-          "error": "RuntimeError"
         }
       ],
-      "candidates_added": 0,
-      "added": []
+      "candidates_added": 13,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "VeleS Movie Hits",
+          "source": "iptvx-noarch",
+          "source_id": "veles-mh",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Бойцовский клуб; candidate=х/ф Бойцовский клуб (1999); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "VeleS Movie Hits",
+          "source": "openbox-tsd",
+          "source_id": "veles-movies-hits",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Бойцовский клуб; candidate=X/ф Бойцовский клуб.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Супергерои HD",
+          "source": "minimax-mm-dedicated",
+          "source_id": "supergeroi-mm",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Супермен (2025); candidate=Супермен; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Супергерои HD",
+          "source": "tvteam",
+          "source_id": "ch1261",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Супермен (2025); candidate=Супермен; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "VeleS Movie Hits",
+          "source": "tvteam",
+          "source_id": "ch2598",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Бойцовский клуб; candidate=Бойцовский клуб (1999).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "VeleS Movie Hits",
+          "source": "epgpw-RU",
+          "source_id": "564933",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Бойцовский клуб; candidate=Бойцовский клуб; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "VeleS Movie Hits",
+          "source": "epgone-ru2",
+          "source_id": "8766",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Бойцовский клуб; candidate=Бойцовский клуб (1999).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Супергерои HD",
+          "source": "skyhigh-hdr",
+          "source_id": "SKYHIGHDC4KHDR",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Супермен (2025); candidate=Супермен 3; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Супергерои HD",
+          "source": "gabbarit-current",
+          "source_id": "SKY HIGH DC 4K HDR",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Супермен (2025); candidate=Супермен 3 (1983).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Супергерои HD",
+          "source": "gabbarit-primary",
+          "source_id": "SKY HIGH DC 4K HDR",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Супермен (2025); candidate=Супермен 3 (1983).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Супергерои HD",
+          "source": "gabbarit-mirror",
+          "source_id": "SKY HIGH DC 4K HDR",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Супермен (2025); candidate=Супермен 3 (1983).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "VeleS Movie Hits",
+          "source": "epgone-full-movie-rescue",
+          "source_id": "8766",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Бойцовский клуб; candidate=Бойцовский клуб (1999).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Супергерои HD",
+          "source": "epgone-full-movie-rescue",
+          "source_id": "5169",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Супермен (2025); candidate=Супермен; requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
