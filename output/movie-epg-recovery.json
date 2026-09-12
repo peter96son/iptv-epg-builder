@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-12T20:06:58.006011+00:00",
+  "updated_at": "2026-09-12T21:20:20.319846+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-12T20:06:57.064119+00:00",
+      "checked_at_utc": "2026-09-12T21:20:19.003574+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 488,
-      "ok": 381,
-      "gaps": 107,
+      "ok": 379,
+      "gaps": 109,
       "issue_counts": {
         "NO_MAPPING": 40,
-        "NO_CURRENT_PROGRAMME": 66,
-        "NO_NEXT_PROGRAMME": 67
+        "NO_CURRENT_PROGRAMME": 68,
+        "NO_NEXT_PROGRAMME": 69
       },
       "group_counts": {
         "USSR": {
@@ -25,37 +25,72 @@
         },
         "Кино": {
           "channels": 168,
-          "ok": 135,
-          "gaps": 33
+          "ok": 134,
+          "gaps": 34
         },
         "Кино 4K": {
           "channels": 63,
-          "ok": 61,
-          "gaps": 2
+          "ok": 62,
+          "gaps": 1
         },
         "Кинозалы": {
           "channels": 239,
-          "ok": 172,
-          "gaps": 67
+          "ok": 170,
+          "gaps": 69
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 106,
-      "high_confidence_observations": 0,
-      "recognized": []
+      "channels_considered": 110,
+      "high_confidence_observations": 2,
+      "recognized": [
+        {
+          "playlist_name": "Thriller HD",
+          "provider_name": "Thriller HD",
+          "title": "ОСНОВНОЙ ИНСТИНКТ",
+          "score": 24.0,
+          "zone": "top_left",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "BOX Relax 4K",
+          "provider_name": "BOX Relax 4K",
+          "title": "реке",
+          "score": 18.0,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        }
+      ]
     },
     "evidence_recorder": {
-      "added": 0,
-      "rejected": 106,
-      "observations": []
+      "added": 2,
+      "rejected": 108,
+      "observations": [
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-12T21:07:49.075750+00:00",
+          "playlist_name": "Thriller HD",
+          "observed_title": "ОСНОВНОЙ ИНСТИНКТ",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=24.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-12T21:07:49.075750+00:00",
+          "playlist_name": "BOX Relax 4K",
+          "observed_title": "реке",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.0"
+        }
+      ]
     },
     "judge": {
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "waiting-for-distinct-second-title"
+        "quarantined": 0,
+        "reason": "no-live-candidates"
       },
       "pending_count": 0,
       "pending": {},
@@ -65,11 +100,114 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 0,
-      "sources_scanned": 0,
-      "sources_failed": [],
-      "candidates_added": 0,
-      "added": []
+      "live_observations": 2,
+      "sources_scanned": 24,
+      "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "epgpw-sreda",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "epgpw-chestny-detektiv",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-ru",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-rescue",
+          "error": "RuntimeError"
+        }
+      ],
+      "candidates_added": 11,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "Thriller HD",
+          "source": "iptv-online-primary",
+          "source_id": "Xvhs-ka",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=ОСНОВНОЙ ИНСТИНКТ; candidate=х/ф Основной инстинкт; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Thriller HD",
+          "source": "iptvx-noarch",
+          "source_id": "vhs-ka",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=ОСНОВНОЙ ИНСТИНКТ; candidate=х/ф Основной инстинкт; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Thriller HD",
+          "source": "openbox-tsd",
+          "source_id": "vhs-ka",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=ОСНОВНОЙ ИНСТИНКТ; candidate=Х/ф Основной инстинкт.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Thriller HD",
+          "source": "bcumedia-dedicated",
+          "source_id": "VHS-ка HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=ОСНОВНОЙ ИНСТИНКТ; candidate=Основной инстинкт.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Thriller HD",
+          "source": "tvteam",
+          "source_id": "ch383",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=ОСНОВНОЙ ИНСТИНКТ; candidate=х/ф Основной инстинкт; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Thriller HD",
+          "source": "epgone-ru2",
+          "source_id": "9065",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=ОСНОВНОЙ ИНСТИНКТ; candidate=Основной инстинкт; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Thriller HD",
+          "source": "anzo-top",
+          "source_id": "9684",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=ОСНОВНОЙ ИНСТИНКТ; candidate=Х/ф Основной инстинкт.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Thriller HD",
+          "source": "gabbarit-current",
+          "source_id": "VHS-ка",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=ОСНОВНОЙ ИНСТИНКТ; candidate=Основной инстинкт.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Thriller HD",
+          "source": "gabbarit-primary",
+          "source_id": "VHS-ка",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=ОСНОВНОЙ ИНСТИНКТ; candidate=Основной инстинкт.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Thriller HD",
+          "source": "gabbarit-mirror",
+          "source_id": "VHS-ка",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=ОСНОВНОЙ ИНСТИНКТ; candidate=Основной инстинкт.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Thriller HD",
+          "source": "epgone-full-movie-rescue",
+          "source_id": "9065",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=ОСНОВНОЙ ИНСТИНКТ; candidate=Основной инстинкт; requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
