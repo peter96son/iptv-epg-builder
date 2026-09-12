@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-12T03:19:57.171828+00:00",
+  "updated_at": "2026-09-12T04:19:11.241577+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-12T03:19:55.522398+00:00",
+      "checked_at_utc": "2026-09-12T04:19:09.568020+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -14,7 +14,7 @@
       "gaps": 102,
       "issue_counts": {
         "NO_MAPPING": 48,
-        "NO_CURRENT_PROGRAMME": 50,
+        "NO_CURRENT_PROGRAMME": 54,
         "NO_NEXT_PROGRAMME": 54
       },
       "group_counts": {
@@ -43,61 +43,29 @@
     "observer": {
       "return_code": 0,
       "channels_considered": 102,
-      "high_confidence_observations": 3,
+      "high_confidence_observations": 1,
       "recognized": [
-        {
-          "playlist_name": "MM NewFilm RU HD",
-          "provider_name": "MM NewFilm RU HD",
-          "title": "Пропасть (2026)",
-          "score": 22.0,
-          "zone": "left_bottom_tight",
-          "engine": "tesseract"
-        },
         {
           "playlist_name": "YOSSO-4K",
           "provider_name": "YOSSO-4K",
-          "title": "Фуоззовк",
-          "score": 22.0,
+          "title": "(@лозойк",
+          "score": 21.5,
           "zone": "top_band",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "MM Стивен Кинг HD",
-          "provider_name": "MM Стивен Кинг HD",
-          "title": "Игра Джералда (2017)",
-          "score": 14.0,
-          "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 3,
-      "rejected": 99,
+      "added": 1,
+      "rejected": 101,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-12T03:06:24.580816+00:00",
-          "playlist_name": "MM NewFilm RU HD",
-          "observed_title": "Пропасть (2026)",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=22.0"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-12T03:06:24.580816+00:00",
+          "observed_at": "2026-09-12T04:06:04.299474+00:00",
           "playlist_name": "YOSSO-4K",
-          "observed_title": "Фуоззовк",
+          "observed_title": "(@лозойк",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=22.0"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-12T03:06:24.580816+00:00",
-          "playlist_name": "MM Стивен Кинг HD",
-          "observed_title": "Игра Джералда (2017)",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=14.0"
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=21.5"
         }
       ]
     },
@@ -107,19 +75,8 @@
         "selected": 0,
         "reason": "no-policy"
       },
-      "pending_count": 2,
-      "pending": {
-        "MM NewFilm RU HD": {
-          "observations": 1,
-          "distinct_titles": 1,
-          "status": "PENDING_DISTINCT_SECOND_TITLE"
-        },
-        "MM Стивен Кинг HD": {
-          "observations": 1,
-          "distinct_titles": 1,
-          "status": "PENDING_DISTINCT_SECOND_TITLE"
-        }
-      },
+      "pending_count": 0,
+      "pending": {},
       "selected_count": 0,
       "quarantined_count": 1,
       "selected": {},
@@ -131,8 +88,8 @@
       }
     },
     "candidate_discovery": {
-      "live_observations": 3,
-      "sources_scanned": 28,
+      "live_observations": 1,
+      "sources_scanned": 27,
       "sources_failed": [
         {
           "source": "klimedia-dedicated",
@@ -141,116 +98,14 @@
         {
           "source": "sharavoz-guide",
           "error": "RuntimeError"
+        },
+        {
+          "source": "skyhigh-fhd",
+          "error": "ParseError"
         }
       ],
-      "candidates_added": 15,
-      "added": [
-        {
-          "enabled": "1",
-          "playlist_name": "MM Стивен Кинг HD",
-          "source": "iptv-online-primary",
-          "source_id": "Xminimax-st-king",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Игра Джералда (2017); candidate=х/ф Игра Джералда; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Стивен Кинг HD",
-          "source": "iptvx-noarch",
-          "source_id": "minimax-st-king",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Игра Джералда (2017); candidate=х/ф Игра Джералда; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Стивен Кинг HD",
-          "source": "openbox-tsd",
-          "source_id": "mm-stiven-king",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Игра Джералда (2017); candidate=Х/ф Игра Джералда.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Стивен Кинг HD",
-          "source": "minimax-mm-dedicated",
-          "source_id": "st-king-mm",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Игра Джералда (2017); candidate=Игра Джералда; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM NewFilm RU HD",
-          "source": "minimax-mm-dedicated",
-          "source_id": "newfilmru-mm",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Пропасть (2026); candidate=Пропасть; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM NewFilm RU HD",
-          "source": "tvteam",
-          "source_id": "ch1219",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Пропасть (2026); candidate=Пропасть; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Стивен Кинг HD",
-          "source": "tvteam",
-          "source_id": "ch1260",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Игра Джералда (2017); candidate=Игра Джералда; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM NewFilm RU HD",
-          "source": "gabbarit-current",
-          "source_id": "минимакс-newfilm.ru HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Пропасть (2026); candidate=Пропасть (2026).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Стивен Кинг HD",
-          "source": "gabbarit-current",
-          "source_id": "минимакс-Стивен Кинг HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Игра Джералда (2017); candidate=Игра Джералда  (2017).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM NewFilm RU HD",
-          "source": "gabbarit-primary",
-          "source_id": "минимакс-newfilm.ru HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Пропасть (2026); candidate=Пропасть (2026).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Стивен Кинг HD",
-          "source": "gabbarit-primary",
-          "source_id": "минимакс-Стивен Кинг HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Игра Джералда (2017); candidate=Игра Джералда  (2017).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM NewFilm RU HD",
-          "source": "gabbarit-mirror",
-          "source_id": "минимакс-newfilm.ru HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Пропасть (2026); candidate=Пропасть (2026).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Стивен Кинг HD",
-          "source": "gabbarit-mirror",
-          "source_id": "минимакс-Стивен Кинг HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Игра Джералда (2017); candidate=Игра Джералда  (2017).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM NewFilm RU HD",
-          "source": "epgone-full-movie-rescue",
-          "source_id": "5127",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Пропасть (2026); candidate=Пропасть; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Стивен Кинг HD",
-          "source": "epgone-full-movie-rescue",
-          "source_id": "5168",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Игра Джералда (2017); candidate=Игра Джералда; requires two positive observations before selection"
-        }
-      ]
+      "candidates_added": 0,
+      "added": []
     }
   }
 }
