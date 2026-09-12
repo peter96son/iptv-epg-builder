@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-12T18:19:46.304674+00:00",
+  "updated_at": "2026-09-12T19:15:57.704108+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-12T18:19:44.629245+00:00",
+      "checked_at_utc": "2026-09-12T19:15:56.770754+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -30,42 +30,74 @@
         },
         "Кино 4K": {
           "channels": 63,
-          "ok": 62,
-          "gaps": 1
+          "ok": 61,
+          "gaps": 2
         },
         "Кинозалы": {
           "channels": 239,
-          "ok": 172,
-          "gaps": 67
+          "ok": 173,
+          "gaps": 66
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 106,
-      "high_confidence_observations": 1,
+      "channels_considered": 108,
+      "high_confidence_observations": 3,
       "recognized": [
         {
-          "playlist_name": "CPS Western",
-          "provider_name": "CPS Western",
-          "title": "WHITE MOUNTAIN APACHE TRIBE",
-          "score": 20.0,
+          "playlist_name": "Premiere HD 2",
+          "provider_name": "Premiere HD 2",
+          "title": "Моана",
+          "score": 21.25,
+          "zone": "top_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "РуКино HD",
+          "provider_name": "РуКино HD",
+          "title": "МЕСТО!",
+          "score": 21.25,
+          "zone": "top_left_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "MM Триллер HD",
+          "provider_name": "MM Триллер HD",
+          "title": "Закат убийцы (2025)",
+          "score": 13.75,
           "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
+      "added": 3,
       "rejected": 105,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-12T18:06:29.715722+00:00",
-          "playlist_name": "CPS Western",
-          "observed_title": "WHITE MOUNTAIN APACHE TRIBE",
+          "observed_at": "2026-09-12T19:06:12.160490+00:00",
+          "playlist_name": "Premiere HD 2",
+          "observed_title": "Моана",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=20.0"
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=21.25"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-12T19:06:12.160490+00:00",
+          "playlist_name": "РуКино HD",
+          "observed_title": "МЕСТО!",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=21.25"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-12T19:06:12.160490+00:00",
+          "playlist_name": "MM Триллер HD",
+          "observed_title": "Закат убийцы (2025)",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=13.75"
         }
       ]
     },
@@ -73,18 +105,25 @@
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "no-policy"
+        "quarantined": 0,
+        "reason": "no-live-candidates"
       },
-      "pending_count": 0,
-      "pending": {},
+      "pending_count": 1,
+      "pending": {
+        "MM Триллер HD": {
+          "observations": 1,
+          "distinct_titles": 1,
+          "status": "PENDING_DISTINCT_SECOND_TITLE"
+        }
+      },
       "selected_count": 0,
       "quarantined_count": 0,
       "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 24,
+      "live_observations": 3,
+      "sources_scanned": 25,
       "sources_failed": [
         {
           "source": "klimedia-dedicated",
@@ -99,20 +138,38 @@
           "error": "RuntimeError"
         },
         {
-          "source": "epgpw-chestny-detektiv",
+          "source": "skyhigh-fhd",
           "error": "RuntimeError"
         },
         {
-          "source": "teleguide-ru",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-rescue",
+          "source": "skyhigh-hdr",
           "error": "RuntimeError"
         }
       ],
-      "candidates_added": 0,
-      "added": []
+      "candidates_added": 3,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "MM Триллер HD",
+          "source": "minimax-mm-dedicated",
+          "source_id": "triller-mm",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Закат убийцы (2025); candidate=Закат убийцы; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Триллер HD",
+          "source": "tvteam",
+          "source_id": "ch1263",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Закат убийцы (2025); candidate=Закат убийцы; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Триллер HD",
+          "source": "epgone-full-movie-rescue",
+          "source_id": "5171",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Закат убийцы (2025); candidate=Закат убийцы; requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
