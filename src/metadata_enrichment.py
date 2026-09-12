@@ -403,7 +403,15 @@ def _add_metadata(
 
     title_elem = programme.find("title")
     current_title = (title_elem.text or "").strip() if title_elem is not None else ""
-    compact_title = _compact_uhf_title(display_title or current_title, year, rating)
+    base_title = display_title or current_title
+    # Repair repeated suffixes from previous hourly passes and make this pass idempotent.
+    suffix = re.compile(r"\s*\(\s*(?:19\d{2}|20\d{2})\s*\)\s*·\s*IMDb\s*(?:[0-9](?:[.,][0-9])?|10(?:[.,]0)?)\s*$", re.I)
+    while True:
+        cleaned = suffix.sub("", base_title).strip()
+        if cleaned == base_title:
+            break
+        base_title = cleaned
+    compact_title = _compact_uhf_title(base_title, year, rating)
     if title_elem is not None and compact_title and current_title != compact_title:
         title_elem.text = compact_title
         changed = True
