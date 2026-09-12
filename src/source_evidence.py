@@ -28,6 +28,12 @@ def _enabled(value) -> bool:
 def _norm(value: str) -> str:
     s = unicodedata.normalize("NFKC", str(value or "")).casefold()
     s = s.replace("ё", "е")
+    s = re.sub(
+        r"^\s*(?:х\s*/\s*ф|т\s*/\s*с|м\s*/\s*ф|д\s*/\s*ф|д\s*/\s*с|фильм|кино|сериал)\s*[:.\-–—]?\s*",
+        "",
+        s,
+        flags=re.I,
+    )
     s = re.sub(r"\b(19|20)\d{2}\b", " ", s)
     s = re.sub(r"[^0-9a-zа-я]+", " ", s, flags=re.I)
     return " ".join(s.split())

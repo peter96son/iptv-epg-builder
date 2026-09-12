@@ -194,12 +194,12 @@ def _ocr_frame(frame,workdir,channel_name="",profile=None,provider_name=""):
     profile=profile or {}
     learned=profile.get("preferred_zone","")
 
-    primary_tight,_,_=_variant_plan(channel_name)
+    channel_plan=list(_variant_plan(channel_name))
     if learned in OCR_VARIANTS:
-        plan=[learned,"top_band","bottom_band"]
+        plan=[learned,*channel_plan,"top_band","bottom_band"]
     else:
-        plan=[primary_tight,"top_band","bottom_band"]
-    plan=list(dict.fromkeys(x for x in plan if x in OCR_VARIANTS))[:3]
+        plan=[*channel_plan,"top_band","bottom_band"]
+    plan=list(dict.fromkeys(x for x in plan if x in OCR_VARIANTS))[:5]
 
     def make(variant):
         if variant in processed:return processed[variant]
