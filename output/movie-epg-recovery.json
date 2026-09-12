@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-12T21:20:20.319846+00:00",
+  "updated_at": "2026-09-12T22:16:32.077753+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-12T21:20:19.003574+00:00",
+      "checked_at_utc": "2026-09-12T22:16:30.894444+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 488,
-      "ok": 379,
-      "gaps": 109,
+      "ok": 378,
+      "gaps": 110,
       "issue_counts": {
         "NO_MAPPING": 40,
-        "NO_CURRENT_PROGRAMME": 68,
-        "NO_NEXT_PROGRAMME": 69
+        "NO_CURRENT_PROGRAMME": 67,
+        "NO_NEXT_PROGRAMME": 70
       },
       "group_counts": {
         "USSR": {
@@ -35,8 +35,8 @@
         },
         "Кинозалы": {
           "channels": 239,
-          "ok": 170,
-          "gaps": 69
+          "ok": 169,
+          "gaps": 70
         }
       }
     },
@@ -46,19 +46,19 @@
       "high_confidence_observations": 2,
       "recognized": [
         {
-          "playlist_name": "Thriller HD",
-          "provider_name": "Thriller HD",
-          "title": "ОСНОВНОЙ ИНСТИНКТ",
-          "score": 24.0,
-          "zone": "top_left",
+          "playlist_name": "VeleS Криминальный",
+          "provider_name": "VeleS Криминальный",
+          "title": "Убийца (2023)",
+          "score": 16.5,
+          "zone": "bottom_band",
           "engine": "tesseract"
         },
         {
-          "playlist_name": "BOX Relax 4K",
-          "provider_name": "BOX Relax 4K",
-          "title": "реке",
+          "playlist_name": "YOSSO-4K",
+          "provider_name": "YOSSO-4K",
+          "title": "Bash aces PIES ERAS SPO SORT HAT = EE",
           "score": 18.0,
-          "zone": "bottom_band",
+          "zone": "top_band",
           "engine": "tesseract"
         }
       ]
@@ -69,19 +69,19 @@
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-12T21:07:49.075750+00:00",
-          "playlist_name": "Thriller HD",
-          "observed_title": "ОСНОВНОЙ ИНСТИНКТ",
+          "observed_at": "2026-09-12T22:06:29.296985+00:00",
+          "playlist_name": "VeleS Криминальный",
+          "observed_title": "Убийца (2023)",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=24.0"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=16.5"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-09-12T21:07:49.075750+00:00",
-          "playlist_name": "BOX Relax 4K",
-          "observed_title": "реке",
+          "observed_at": "2026-09-12T22:06:29.296985+00:00",
+          "playlist_name": "YOSSO-4K",
+          "observed_title": "Bash aces PIES ERAS SPO SORT HAT = EE",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.0"
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=18.0"
         }
       ]
     },
@@ -89,11 +89,16 @@
       "selector": {
         "changed": 0,
         "selected": 0,
-        "quarantined": 0,
-        "reason": "no-live-candidates"
+        "reason": "no-policy"
       },
-      "pending_count": 0,
-      "pending": {},
+      "pending_count": 1,
+      "pending": {
+        "VeleS Криминальный": {
+          "observations": 1,
+          "distinct_titles": 1,
+          "status": "PENDING_DISTINCT_SECOND_TITLE"
+        }
+      },
       "selected_count": 0,
       "quarantined_count": 0,
       "selected": {},
@@ -101,7 +106,7 @@
     },
     "candidate_discovery": {
       "live_observations": 2,
-      "sources_scanned": 24,
+      "sources_scanned": 28,
       "sources_failed": [
         {
           "source": "klimedia-dedicated",
@@ -110,102 +115,72 @@
         {
           "source": "sharavoz-guide",
           "error": "RuntimeError"
-        },
-        {
-          "source": "epgpw-sreda",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "epgpw-chestny-detektiv",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-ru",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-rescue",
-          "error": "RuntimeError"
         }
       ],
-      "candidates_added": 11,
+      "candidates_added": 9,
       "added": [
         {
           "enabled": "1",
-          "playlist_name": "Thriller HD",
-          "source": "iptv-online-primary",
-          "source_id": "Xvhs-ka",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=ОСНОВНОЙ ИНСТИНКТ; candidate=х/ф Основной инстинкт; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Thriller HD",
-          "source": "iptvx-noarch",
-          "source_id": "vhs-ka",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=ОСНОВНОЙ ИНСТИНКТ; candidate=х/ф Основной инстинкт; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Thriller HD",
-          "source": "openbox-tsd",
-          "source_id": "vhs-ka",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=ОСНОВНОЙ ИНСТИНКТ; candidate=Х/ф Основной инстинкт.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Thriller HD",
-          "source": "bcumedia-dedicated",
-          "source_id": "VHS-ка HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=ОСНОВНОЙ ИНСТИНКТ; candidate=Основной инстинкт.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Thriller HD",
+          "playlist_name": "VeleS Криминальный",
           "source": "tvteam",
-          "source_id": "ch383",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=ОСНОВНОЙ ИНСТИНКТ; candidate=х/ф Основной инстинкт; requires two positive observations before selection"
+          "source_id": "ch1973",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Убийца (2023); candidate=Убийца; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "Thriller HD",
-          "source": "epgone-ru2",
-          "source_id": "9065",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=ОСНОВНОЙ ИНСТИНКТ; candidate=Основной инстинкт; requires two positive observations before selection"
+          "playlist_name": "VeleS Криминальный",
+          "source": "tvteam",
+          "source_id": "ch2696",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Убийца (2023); candidate=Убийца (2023).; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "Thriller HD",
-          "source": "anzo-top",
-          "source_id": "9684",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=ОСНОВНОЙ ИНСТИНКТ; candidate=Х/ф Основной инстинкт.; requires two positive observations before selection"
+          "playlist_name": "VeleS Криминальный",
+          "source": "skyhigh-fhd",
+          "source_id": "SKYHIGHGUNRUSHFHD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Убийца (2023); candidate=Убийца; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "Thriller HD",
+          "playlist_name": "VeleS Криминальный",
           "source": "gabbarit-current",
-          "source_id": "VHS-ка",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=ОСНОВНОЙ ИНСТИНКТ; candidate=Основной инстинкт.; requires two positive observations before selection"
+          "source_id": "SKY HIGH GUNRUSH FHD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Убийца (2023); candidate=Убийца (2023).; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "Thriller HD",
+          "playlist_name": "VeleS Криминальный",
+          "source": "gabbarit-current",
+          "source_id": "VeleS Криминальный",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Убийца (2023); candidate=Убийца (2023).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "VeleS Криминальный",
           "source": "gabbarit-primary",
-          "source_id": "VHS-ка",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=ОСНОВНОЙ ИНСТИНКТ; candidate=Основной инстинкт.; requires two positive observations before selection"
+          "source_id": "SKY HIGH GUNRUSH FHD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Убийца (2023); candidate=Убийца (2023).; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "Thriller HD",
+          "playlist_name": "VeleS Криминальный",
+          "source": "gabbarit-primary",
+          "source_id": "VeleS Криминальный",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Убийца (2023); candidate=Убийца (2023).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "VeleS Криминальный",
           "source": "gabbarit-mirror",
-          "source_id": "VHS-ка",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=ОСНОВНОЙ ИНСТИНКТ; candidate=Основной инстинкт.; requires two positive observations before selection"
+          "source_id": "SKY HIGH GUNRUSH FHD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Убийца (2023); candidate=Убийца (2023).; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "Thriller HD",
-          "source": "epgone-full-movie-rescue",
-          "source_id": "9065",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=ОСНОВНОЙ ИНСТИНКТ; candidate=Основной инстинкт; requires two positive observations before selection"
+          "playlist_name": "VeleS Криминальный",
+          "source": "gabbarit-mirror",
+          "source_id": "VeleS Криминальный",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Убийца (2023); candidate=Убийца (2023).; requires two positive observations before selection"
         }
       ]
     }
