@@ -63,7 +63,7 @@ jobs:
           RESELECT_SKIP_METADATA_ENRICH: "1"
         run: python -m src.movie_epg_recovery select
 
-      - name: 3A — write proven on-screen title into current EPG
+      - name: 3A — write proven on-screen title only when EPG is absent
         run: python -m src.live_ocr_current_epg
 
       - name: Auditor — measure movie EPG after donor selection

@@ -34,6 +34,19 @@ def _parse_dt(value: str) -> datetime:
     return dt if dt.tzinfo else dt.replace(tzinfo=timezone.utc)
 
 
+def _parse_xmltv(value: str) -> datetime | None:
+    value = (value or "").strip()
+    if not value:
+        return None
+    for fmt in ("%Y%m%d%H%M%S %z", "%Y%m%d%H%M %z", "%Y%m%d%H%M%S", "%Y%m%d%H%M"):
+        try:
+            dt = datetime.strptime(value, fmt)
+            return dt if dt.tzinfo else dt.replace(tzinfo=timezone.utc)
+        except ValueError:
+            pass
+    return None
+
+
 def _xmltv_dt(dt: datetime) -> str:
     return dt.astimezone(timezone.utc).strftime("%Y%m%d%H%M%S +0000")
 
@@ -84,6 +97,21 @@ def _save_xml(tree):
     tmp.replace(EPG)
 
 
+def _has_real_current_programme(root: ET.Element, channel_id: str, at: datetime) -> bool:
+    if not channel_id:
+        return False
+    for programme in root.findall("programme"):
+        if programme.get("channel") != channel_id:
+            continue
+        if programme.get("x-live-ocr") == "1":
+            continue
+        start = _parse_xmltv(programme.get("start", ""))
+        stop = _parse_xmltv(programme.get("stop", ""))
+        if start and stop and start <= at < stop:
+            return True
+    return False
+
+
 def main() -> int:
     if not PROBE.exists() or not EPG.exists():
         print(json.dumps({"applied": 0, "reason": "probe-or-epg-missing"}))
@@ -99,10 +127,12 @@ def main() -> int:
     root = tree.getroot()
     channel_ids = {c.get("id", "") for c in root.findall("channel")}
     selected = []
+    skipped_existing_programme = []
 
     for item in (probe.get("channels") or {}).values():
         if not isinstance(item, dict):
             continue
+
         title_info = item.get("recognized_title") or {}
         if title_info.get("confidence") != "high":
             continue
@@ -117,7 +147,15 @@ def main() -> int:
             continue
 
         row = by_name.get(name)
-        tvg_id = (row or {}).get("output_tvg_id", "").strip() or _live_id(name)
+        existing_tvg_id = (row or {}).get("output_tvg_id", "").strip()
+
+        # Strict 3A rule: if a real current programme already exists, do nothing.
+        # Wrong-programme channels belong to category 2 and are handled elsewhere.
+        if existing_tvg_id and _has_real_current_programme(root, existing_tvg_id, observed_at):
+            skipped_existing_programme.append(name)
+            continue
+
+        tvg_id = existing_tvg_id or _live_id(name)
 
         prev = state.get(name) if isinstance(state.get(name), dict) else {}
         same = _norm(prev.get("title", "")) == _norm(title)
@@ -128,7 +166,6 @@ def main() -> int:
         else:
             start = observed_at
 
-        # Current-title overlay is deliberately short-lived. It is refreshed hourly.
         stop = observed_at + timedelta(minutes=70)
 
         if row is None:
@@ -145,7 +182,7 @@ def main() -> int:
             })
             mappings.append(row)
             by_name[name] = row
-        elif not (row.get("output_tvg_id") or "").strip():
+        elif not existing_tvg_id:
             row["output_tvg_id"] = tvg_id
 
         if tvg_id not in channel_ids:
@@ -155,7 +192,6 @@ def main() -> int:
             root.insert(0, ch)
             channel_ids.add(tvg_id)
 
-        # Remove only our previous synthetic entries for this channel.
         for programme in list(root.findall("programme")):
             if programme.get("channel") == tvg_id and programme.get("x-live-ocr") == "1":
                 root.remove(programme)
@@ -206,7 +242,11 @@ def main() -> int:
         STATE.parent.mkdir(exist_ok=True)
         STATE.write_text(json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8")
 
-    print(json.dumps({"applied": len(selected), "channels": selected}, ensure_ascii=False))
+    print(json.dumps({
+        "applied": len(selected),
+        "channels": selected,
+        "skipped_existing_programme": skipped_existing_programme,
+    }, ensure_ascii=False))
     return 0
 
 
