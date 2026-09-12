@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-12T19:15:57.704108+00:00",
+  "updated_at": "2026-09-12T20:06:58.006011+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-12T19:15:56.770754+00:00",
+      "checked_at_utc": "2026-09-12T20:06:57.064119+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 488,
-      "ok": 383,
-      "gaps": 105,
+      "ok": 381,
+      "gaps": 107,
       "issue_counts": {
         "NO_MAPPING": 40,
-        "NO_CURRENT_PROGRAMME": 65,
-        "NO_NEXT_PROGRAMME": 65
+        "NO_CURRENT_PROGRAMME": 66,
+        "NO_NEXT_PROGRAMME": 67
       },
       "group_counts": {
         "USSR": {
@@ -25,8 +25,8 @@
         },
         "Кино": {
           "channels": 168,
-          "ok": 136,
-          "gaps": 32
+          "ok": 135,
+          "gaps": 33
         },
         "Кино 4K": {
           "channels": 63,
@@ -35,141 +35,41 @@
         },
         "Кинозалы": {
           "channels": 239,
-          "ok": 173,
-          "gaps": 66
+          "ok": 172,
+          "gaps": 67
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 108,
-      "high_confidence_observations": 3,
-      "recognized": [
-        {
-          "playlist_name": "Premiere HD 2",
-          "provider_name": "Premiere HD 2",
-          "title": "Моана",
-          "score": 21.25,
-          "zone": "top_band",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "РуКино HD",
-          "provider_name": "РуКино HD",
-          "title": "МЕСТО!",
-          "score": 21.25,
-          "zone": "top_left_tight",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "MM Триллер HD",
-          "provider_name": "MM Триллер HD",
-          "title": "Закат убийцы (2025)",
-          "score": 13.75,
-          "zone": "bottom_band",
-          "engine": "tesseract"
-        }
-      ]
+      "channels_considered": 106,
+      "high_confidence_observations": 0,
+      "recognized": []
     },
     "evidence_recorder": {
-      "added": 3,
-      "rejected": 105,
-      "observations": [
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-12T19:06:12.160490+00:00",
-          "playlist_name": "Premiere HD 2",
-          "observed_title": "Моана",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=21.25"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-12T19:06:12.160490+00:00",
-          "playlist_name": "РуКино HD",
-          "observed_title": "МЕСТО!",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=21.25"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-12T19:06:12.160490+00:00",
-          "playlist_name": "MM Триллер HD",
-          "observed_title": "Закат убийцы (2025)",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=13.75"
-        }
-      ]
+      "added": 0,
+      "rejected": 106,
+      "observations": []
     },
     "judge": {
       "selector": {
         "changed": 0,
         "selected": 0,
-        "quarantined": 0,
-        "reason": "no-live-candidates"
+        "reason": "waiting-for-distinct-second-title"
       },
-      "pending_count": 1,
-      "pending": {
-        "MM Триллер HD": {
-          "observations": 1,
-          "distinct_titles": 1,
-          "status": "PENDING_DISTINCT_SECOND_TITLE"
-        }
-      },
+      "pending_count": 0,
+      "pending": {},
       "selected_count": 0,
       "quarantined_count": 0,
       "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 3,
-      "sources_scanned": 25,
-      "sources_failed": [
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "epgpw-sreda",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "skyhigh-fhd",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "skyhigh-hdr",
-          "error": "RuntimeError"
-        }
-      ],
-      "candidates_added": 3,
-      "added": [
-        {
-          "enabled": "1",
-          "playlist_name": "MM Триллер HD",
-          "source": "minimax-mm-dedicated",
-          "source_id": "triller-mm",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Закат убийцы (2025); candidate=Закат убийцы; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Триллер HD",
-          "source": "tvteam",
-          "source_id": "ch1263",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Закат убийцы (2025); candidate=Закат убийцы; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Триллер HD",
-          "source": "epgone-full-movie-rescue",
-          "source_id": "5171",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Закат убийцы (2025); candidate=Закат убийцы; requires two positive observations before selection"
-        }
-      ]
+      "live_observations": 0,
+      "sources_scanned": 0,
+      "sources_failed": [],
+      "candidates_added": 0,
+      "added": []
     }
   }
 }
