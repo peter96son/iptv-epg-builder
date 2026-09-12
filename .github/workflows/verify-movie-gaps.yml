@@ -63,6 +63,9 @@ jobs:
           RESELECT_SKIP_METADATA_ENRICH: "1"
         run: python -m src.movie_epg_recovery select
 
+      - name: 3A — write proven on-screen title into current EPG
+        run: python -m src.live_ocr_current_epg
+
       - name: Auditor — measure movie EPG after donor selection
         env:
           PLAYLIST_URL: ${{ secrets.PLAYLIST_URL }}
@@ -71,4 +74,4 @@ jobs:
       - name: Publish evidence and proven donor results
         shell: bash
         run: |
-          bash .github/scripts/safe-publish.sh "Recover movie EPG from live evidence"             data/live_epg_observations_v1518.csv             data/live_source_candidates_v1518.csv             data/source_evidence_state.json             output/movie-gap-live-probe.json             output/movie-gap-ocr-profiles.json             output/movie-epg-recovery.json             output/source-selection-v15.json             output/mapping.csv             output/epg.xml.gz             output/uhf-mapping.json             output/movie-epg-audit.csv             output/movie-epg-audit.json             output/movie-epg-gaps.csv
+          bash .github/scripts/safe-publish.sh "Recover movie EPG from live evidence"             data/live_epg_observations_v1518.csv             data/live_source_candidates_v1518.csv             data/source_evidence_state.json             data/live_ocr_epg_state.json             output/movie-gap-live-probe.json             output/movie-gap-ocr-profiles.json             output/movie-epg-recovery.json             output/source-selection-v15.json             output/mapping.csv             output/epg.xml.gz             output/uhf-mapping.json             output/movie-epg-audit.csv             output/movie-epg-audit.json             output/movie-epg-gaps.csv
