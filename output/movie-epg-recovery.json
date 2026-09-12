@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-12T06:06:20.528974+00:00",
+  "updated_at": "2026-09-12T07:16:43.035222+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-12T06:06:19.219117+00:00",
+      "checked_at_utc": "2026-09-12T07:16:41.896474+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -14,8 +14,8 @@
       "gaps": 102,
       "issue_counts": {
         "NO_MAPPING": 47,
-        "NO_NEXT_PROGRAMME": 55,
-        "NO_CURRENT_PROGRAMME": 53
+        "NO_CURRENT_PROGRAMME": 54,
+        "NO_NEXT_PROGRAMME": 55
       },
       "group_counts": {
         "USSR": {
@@ -43,13 +43,31 @@
     "observer": {
       "return_code": 0,
       "channels_considered": 102,
-      "high_confidence_observations": 0,
-      "recognized": []
+      "high_confidence_observations": 1,
+      "recognized": [
+        {
+          "playlist_name": "Premiere HD 3",
+          "provider_name": "Premiere HD 3",
+          "title": "Всего одна ночь",
+          "score": 23.25,
+          "zone": "top_left_tight",
+          "engine": "tesseract"
+        }
+      ]
     },
     "evidence_recorder": {
-      "added": 0,
-      "rejected": 102,
-      "observations": []
+      "added": 1,
+      "rejected": 101,
+      "observations": [
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-12T07:06:55.479795+00:00",
+          "playlist_name": "Premiere HD 3",
+          "observed_title": "Всего одна ночь",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=23.25"
+        }
+      ]
     },
     "judge": {
       "selector": {
@@ -57,19 +75,168 @@
         "selected": 0,
         "reason": "waiting-for-distinct-second-title"
       },
-      "pending_count": 0,
-      "pending": {},
+      "pending_count": 1,
+      "pending": {
+        "Premiere HD 3": {
+          "observations": 1,
+          "distinct_titles": 1,
+          "status": "PENDING_DISTINCT_SECOND_TITLE"
+        }
+      },
       "selected_count": 0,
       "quarantined_count": 0,
       "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 0,
-      "sources_scanned": 0,
-      "sources_failed": [],
-      "candidates_added": 0,
-      "added": []
+      "live_observations": 1,
+      "sources_scanned": 28,
+      "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        }
+      ],
+      "candidates_added": 19,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "Premiere HD 3",
+          "source": "iptv-online-primary",
+          "source_id": "Xretro-tv",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Всего одна ночь; candidate=х/ф Всего одна ночь; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Premiere HD 3",
+          "source": "iptvx-noarch",
+          "source_id": "premierehd3",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Всего одна ночь; candidate=х/ф Всего одна ночь (2026); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Premiere HD 3",
+          "source": "iptvx-noarch",
+          "source_id": "retro-tv",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Всего одна ночь; candidate=х/ф Всего одна ночь; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Premiere HD 3",
+          "source": "runigma-iptv",
+          "source_id": "retro",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Всего одна ночь; candidate=х/ф Всего одна ночь.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Premiere HD 3",
+          "source": "openbox-tsd",
+          "source_id": "retro-tv",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Всего одна ночь; candidate=Х/ф Всего одна ночь.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Premiere HD 3",
+          "source": "bcumedia-dedicated",
+          "source_id": "Ретро",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Всего одна ночь; candidate=х/ф Всего одна ночь.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Premiere HD 3",
+          "source": "tvteam",
+          "source_id": "ch508",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Всего одна ночь; candidate=х/ф Всего одна ночь; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Premiere HD 3",
+          "source": "epgone-ru2",
+          "source_id": "2402",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Всего одна ночь; candidate=Всего одна ночь; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Premiere HD 3",
+          "source": "anzo-top",
+          "source_id": "7934",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Всего одна ночь; candidate=Х/ф Всего одна ночь.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Premiere HD 3",
+          "source": "teleguide-ru",
+          "source_id": "329",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Всего одна ночь; candidate=Всего одна ночь (12+); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Premiere HD 3",
+          "source": "gabbarit-current",
+          "source_id": "Premiere HD 3",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Всего одна ночь; candidate=Всего одна ночь (2026).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Premiere HD 3",
+          "source": "gabbarit-current",
+          "source_id": "Ретро ТВ",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Всего одна ночь; candidate=Всего одна ночь.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Premiere HD 3",
+          "source": "teleguide-rescue",
+          "source_id": "329",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Всего одна ночь; candidate=Всего одна ночь (12+); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Premiere HD 3",
+          "source": "gabbarit-primary",
+          "source_id": "Premiere HD 3",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Всего одна ночь; candidate=Всего одна ночь (2026).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Premiere HD 3",
+          "source": "gabbarit-primary",
+          "source_id": "Ретро ТВ",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Всего одна ночь; candidate=Всего одна ночь.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Premiere HD 3",
+          "source": "gabbarit-mirror",
+          "source_id": "Premiere HD 3",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Всего одна ночь; candidate=Всего одна ночь (2026).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Premiere HD 3",
+          "source": "gabbarit-mirror",
+          "source_id": "Ретро ТВ",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Всего одна ночь; candidate=Всего одна ночь.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Premiere HD 3",
+          "source": "epgone-full-movie-rescue",
+          "source_id": "1123",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Всего одна ночь; candidate=Всего одна ночь; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Premiere HD 3",
+          "source": "epgone-full-movie-rescue",
+          "source_id": "2402",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Всего одна ночь; candidate=Всего одна ночь; requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
