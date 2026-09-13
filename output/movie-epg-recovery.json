@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-13T16:15:38.363265+00:00",
+  "updated_at": "2026-09-13T17:13:12.522159+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-13T16:15:37.045218+00:00",
+      "checked_at_utc": "2026-09-13T17:13:11.662607+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,23 +10,22 @@
         "Кинозалы"
       ],
       "channels": 488,
-      "ok": 452,
-      "gaps": 36,
+      "ok": 444,
+      "gaps": 44,
       "issue_counts": {
-        "NO_MAPPING": 29,
-        "NO_CURRENT_PROGRAMME": 5,
-        "NO_NEXT_PROGRAMME": 7
+        "NO_MAPPING": 36,
+        "NO_NEXT_PROGRAMME": 8
       },
       "group_counts": {
         "USSR": {
           "channels": 18,
-          "ok": 17,
-          "gaps": 1
+          "ok": 16,
+          "gaps": 2
         },
         "Кино": {
           "channels": 168,
-          "ok": 144,
-          "gaps": 24
+          "ok": 145,
+          "gaps": 23
         },
         "Кино 4K": {
           "channels": 63,
@@ -35,69 +34,53 @@
         },
         "Кинозалы": {
           "channels": 239,
-          "ok": 228,
-          "gaps": 11
+          "ok": 220,
+          "gaps": 19
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 32,
-      "high_confidence_observations": 3,
+      "channels_considered": 42,
+      "high_confidence_observations": 2,
       "recognized": [
         {
-          "playlist_name": "DITV КОМЕДИИ 90-х",
-          "provider_name": "DITV КОМЕДИИ 90-х",
-          "title": "Убрать перископ (1996)",
-          "score": 18.5,
-          "zone": "left_bottom_tight",
+          "playlist_name": "Thriller HD",
+          "provider_name": "Thriller HD",
+          "title": "BD PREMIERE GROUP",
+          "score": 13.75,
+          "zone": "top_band",
           "engine": "tesseract"
         },
         {
-          "playlist_name": "DITV КОМЕДИИ СССР",
-          "provider_name": "DITV КОМЕДИИ СССР",
-          "title": "Три плюс два (1963)",
-          "score": 17.5,
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "provider_name": "DITV ФИЛЬМЫ",
+          "title": "БРАТ (1997)",
+          "score": 13.0,
           "zone": "left_bottom",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "DITV Walt Disney",
-          "provider_name": "DITV Walt Disney",
-          "title": "Рева 1",
-          "score": 18.0,
-          "zone": "top_left_tight",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 3,
-      "rejected": 29,
+      "added": 2,
+      "rejected": 40,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-13T16:01:41.067884+00:00",
-          "playlist_name": "DITV КОМЕДИИ 90-х",
-          "observed_title": "Убрать перископ (1996)",
+          "observed_at": "2026-09-13T17:02:55.211998+00:00",
+          "playlist_name": "Thriller HD",
+          "observed_title": "BD PREMIERE GROUP",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=18.5"
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=13.75"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-09-13T16:01:41.067884+00:00",
-          "playlist_name": "DITV КОМЕДИИ СССР",
-          "observed_title": "Три плюс два (1963)",
+          "observed_at": "2026-09-13T17:02:55.211998+00:00",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "observed_title": "БРАТ (1997)",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom; engine=tesseract; score=17.5"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-13T16:01:41.067884+00:00",
-          "playlist_name": "DITV Walt Disney",
-          "observed_title": "Рева 1",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=18.0"
+          "notes": "high-confidence OCR; zone=left_bottom; engine=tesseract; score=13.0"
         }
       ]
     },
@@ -108,21 +91,15 @@
         "quarantined": 0,
         "reason": "no-live-candidates"
       },
-      "pending_count": 1,
-      "pending": {
-        "DITV Walt Disney": {
-          "observations": 1,
-          "distinct_titles": 1,
-          "status": "PENDING_DISTINCT_SECOND_TITLE"
-        }
-      },
+      "pending_count": 0,
+      "pending": {},
       "selected_count": 0,
       "quarantined_count": 0,
       "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 3,
+      "live_observations": 2,
       "sources_scanned": 28,
       "sources_failed": [
         {
@@ -134,21 +111,112 @@
           "error": "RuntimeError"
         }
       ],
-      "candidates_added": 2,
+      "candidates_added": 15,
       "added": [
         {
           "enabled": "1",
-          "playlist_name": "DITV КОМЕДИИ СССР",
-          "source": "iptvx-noarch",
-          "source_id": "oasis-sovietcomedy",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Три плюс два (1963); candidate=Три плюс два (1963); requires two positive observations before selection"
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "source": "iptv-online-primary",
+          "source_id": "Xkinojam1",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=БРАТ (1997); candidate=х/ф Брат; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "DITV КОМЕДИИ СССР",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "source": "iptv-online-primary",
+          "source_id": "Xnext-spark",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=БРАТ (1997); candidate=х/ф Брат (2006); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "source": "iptvx-noarch",
+          "source_id": "kinojam1",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=БРАТ (1997); candidate=х/ф Брат; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "source": "iptvx-noarch",
+          "source_id": "olsib-stb",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=БРАТ (1997); candidate=х/ф Брат (1997); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "source": "openbox-tsd",
+          "source_id": "kinojam-1",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=БРАТ (1997); candidate=Х/ф Брат.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "source": "next-dedicated",
+          "source_id": "NEXTSpark",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=БРАТ (1997); candidate=Брат (2006); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "source": "bcumedia-dedicated",
+          "source_id": "KinoJam 1 HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=БРАТ (1997); candidate=х/ф Брат.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "source": "bcumedia-dedicated",
+          "source_id": "KinoJam 1",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=БРАТ (1997); candidate=х/ф Брат.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV ФИЛЬМЫ",
           "source": "tvteam",
-          "source_id": "ch2688",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Три плюс два (1963); candidate=Три плюс два (1963); requires two positive observations before selection"
+          "source_id": "ch542",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=БРАТ (1997); candidate=х/ф Брат; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "source": "epgone-ru2",
+          "source_id": "4466",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=БРАТ (1997); candidate=Брат; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "source": "anzo-top",
+          "source_id": "9689",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=БРАТ (1997); candidate=Х/ф Брат.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "source": "gabbarit-current",
+          "source_id": "Киноджем 1 HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=БРАТ (1997); candidate=Брат.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "source": "gabbarit-primary",
+          "source_id": "Киноджем 1 HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=БРАТ (1997); candidate=Брат.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "source": "gabbarit-mirror",
+          "source_id": "Киноджем 1 HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=БРАТ (1997); candidate=Брат.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "source": "epgone-full-movie-rescue",
+          "source_id": "4466",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=БРАТ (1997); candidate=Брат; requires two positive observations before selection"
         }
       ]
     }
