@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-13T04:24:00.034011+00:00",
+  "updated_at": "2026-09-13T05:16:57.342170+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-13T04:23:58.300918+00:00",
+      "checked_at_utc": "2026-09-13T05:16:55.965296+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,78 +10,61 @@
         "Кинозалы"
       ],
       "channels": 488,
-      "ok": 322,
-      "gaps": 166,
+      "ok": 444,
+      "gaps": 44,
       "issue_counts": {
-        "NO_MAPPING": 39,
-        "NO_CURRENT_PROGRAMME": 127,
-        "NO_NEXT_PROGRAMME": 127
+        "NO_MAPPING": 43,
+        "NO_NEXT_PROGRAMME": 1
       },
       "group_counts": {
         "USSR": {
           "channels": 18,
-          "ok": 12,
-          "gaps": 6
+          "ok": 16,
+          "gaps": 2
         },
         "Кино": {
           "channels": 168,
-          "ok": 131,
-          "gaps": 37
+          "ok": 139,
+          "gaps": 29
         },
         "Кино 4K": {
           "channels": 63,
-          "ok": 57,
-          "gaps": 6
+          "ok": 63,
+          "gaps": 0
         },
         "Кинозалы": {
           "channels": 239,
-          "ok": 122,
-          "gaps": 117
+          "ok": 226,
+          "gaps": 13
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 130,
-      "high_confidence_observations": 2,
+      "channels_considered": 44,
+      "high_confidence_observations": 1,
       "recognized": [
         {
-          "playlist_name": "Premiere HD 2",
-          "provider_name": "Premiere HD 2",
-          "title": "Моана",
-          "score": 16.25,
-          "zone": "top_left_tight",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "VeleS 60FPS",
-          "provider_name": "VeleS 60FPS",
-          "title": "Начало (2010)",
-          "score": 21.5,
-          "zone": "bottom_band",
+          "playlist_name": "DITV Concert",
+          "provider_name": "DITV Concert",
+          "title": "обла",
+          "score": 13.0,
+          "zone": "top_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 2,
-      "rejected": 127,
+      "added": 1,
+      "rejected": 43,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-13T04:14:09.284212+00:00",
-          "playlist_name": "Premiere HD 2",
-          "observed_title": "Моана",
+          "observed_at": "2026-09-13T05:04:20.643105+00:00",
+          "playlist_name": "DITV Concert",
+          "observed_title": "обла",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=16.25"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-13T04:14:09.284212+00:00",
-          "playlist_name": "VeleS 60FPS",
-          "observed_title": "Начало (2010)",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=21.5"
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=13.0"
         }
       ]
     },
@@ -89,51 +72,44 @@
       "selector": {
         "changed": 0,
         "selected": 0,
-        "quarantined": 0,
-        "reason": "no-live-candidates"
+        "reason": "waiting-for-distinct-second-title"
       },
-      "pending_count": 0,
-      "pending": {},
+      "pending_count": 1,
+      "pending": {
+        "DITV Concert": {
+          "observations": 1,
+          "distinct_titles": 1,
+          "status": "PENDING_DISTINCT_SECOND_TITLE"
+        }
+      },
       "selected_count": 0,
       "quarantined_count": 0,
       "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 2,
-      "sources_scanned": 9,
-      "sources_failed": [],
-      "candidates_added": 4,
-      "added": [
+      "live_observations": 1,
+      "sources_scanned": 26,
+      "sources_failed": [
         {
-          "enabled": "1",
-          "playlist_name": "Premiere HD 2",
-          "source": "iptv-online-primary",
-          "source_id": "Xpremierehd2",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Моана; candidate=х/ф Моана (2026); requires two positive observations before selection"
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
         },
         {
-          "enabled": "1",
-          "playlist_name": "Premiere HD 2",
-          "source": "iptvx-noarch",
-          "source_id": "premierehd2",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Моана; candidate=х/ф Моана (2026); requires two positive observations before selection"
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
         },
         {
-          "enabled": "1",
-          "playlist_name": "Premiere HD 2",
-          "source": "openbox-tsd",
-          "source_id": "premiere-hd-2",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Моана; candidate=Х/ф Моана 2026.; requires two positive observations before selection"
+          "source": "teleguide-ru",
+          "error": "RuntimeError"
         },
         {
-          "enabled": "1",
-          "playlist_name": "Premiere HD 2",
-          "source": "epgone-full-movie-rescue",
-          "source_id": "1110",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Моана; candidate=«Моана»; requires two positive observations before selection"
+          "source": "teleguide-rescue",
+          "error": "RuntimeError"
         }
-      ]
+      ],
+      "candidates_added": 0,
+      "added": []
     }
   }
 }
