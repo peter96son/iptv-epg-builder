@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-13T20:25:49.364274+00:00",
+  "updated_at": "2026-09-13T21:21:58.434844+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-13T20:25:48.051109+00:00",
+      "checked_at_utc": "2026-09-13T21:21:57.383678+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 488,
-      "ok": 414,
-      "gaps": 74,
+      "ok": 392,
+      "gaps": 96,
       "issue_counts": {
-        "NO_MAPPING": 48,
-        "NO_NEXT_PROGRAMME": 26,
-        "NO_CURRENT_PROGRAMME": 8
+        "NO_MAPPING": 47,
+        "NO_NEXT_PROGRAMME": 49,
+        "NO_CURRENT_PROGRAMME": 26
       },
       "group_counts": {
         "USSR": {
@@ -25,8 +25,8 @@
         },
         "Кино": {
           "channels": 168,
-          "ok": 138,
-          "gaps": 30
+          "ok": 128,
+          "gaps": 40
         },
         "Кино 4K": {
           "channels": 63,
@@ -35,37 +35,37 @@
         },
         "Кинозалы": {
           "channels": 239,
-          "ok": 200,
-          "gaps": 39
+          "ok": 188,
+          "gaps": 51
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 64,
+      "channels_considered": 79,
       "high_confidence_observations": 3,
       "recognized": [
         {
-          "playlist_name": "Premiere HD 2",
-          "provider_name": "Premiere HD 2",
-          "title": "Моана",
-          "score": 21.25,
-          "zone": "top_left_tight",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "provider_name": "DITV ФИЛЬМЫ",
+          "title": "Жених (2016)",
+          "score": 16.25,
+          "zone": "bottom_band",
           "engine": "tesseract"
         },
         {
-          "playlist_name": "DITV КОМЕДИИ",
-          "provider_name": "DITV КОМЕДИИ",
-          "title": "комедий",
-          "score": 16.75,
-          "zone": "top_band",
+          "playlist_name": "MM Катастрофа HD",
+          "provider_name": "MM Катастрофа HD",
+          "title": "Пылающее море (2021)",
+          "score": 18.0,
+          "zone": "bottom_band",
           "engine": "tesseract"
         },
         {
-          "playlist_name": "MM Погружение HD",
-          "provider_name": "MM Погружение HD",
-          "title": "Заклинательница акул (2012)",
-          "score": 19.75,
+          "playlist_name": "MM Flip UHD",
+          "provider_name": "MM Flip UHD",
+          "title": "Зараза | 2025",
+          "score": 21.5,
           "zone": "left_bottom_tight",
           "engine": "tesseract"
         }
@@ -73,55 +73,57 @@
     },
     "evidence_recorder": {
       "added": 3,
-      "rejected": 61,
+      "rejected": 76,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-13T20:06:24.713157+00:00",
-          "playlist_name": "Premiere HD 2",
-          "observed_title": "Моана",
+          "observed_at": "2026-09-13T21:07:37.627035+00:00",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "observed_title": "Жених (2016)",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=21.25"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=16.25"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-09-13T20:06:24.713157+00:00",
-          "playlist_name": "DITV КОМЕДИИ",
-          "observed_title": "комедий",
+          "observed_at": "2026-09-13T21:07:37.627035+00:00",
+          "playlist_name": "MM Катастрофа HD",
+          "observed_title": "Пылающее море (2021)",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=16.75"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.0"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-09-13T20:06:24.713157+00:00",
-          "playlist_name": "MM Погружение HD",
-          "observed_title": "Заклинательница акул (2012)",
+          "observed_at": "2026-09-13T21:07:37.627035+00:00",
+          "playlist_name": "MM Flip UHD",
+          "observed_title": "Зараза | 2025",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=19.75"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=21.5"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 1,
-        "selected": 1,
+        "changed": 0,
+        "selected": 0,
         "quarantined": 0,
-        "target_hours": 6.0
+        "reason": "no-live-candidates"
       },
-      "pending_count": 0,
-      "pending": {},
-      "selected_count": 1,
-      "quarantined_count": 0,
-      "selected": {
-        "MM Погружение HD": {
-          "source": "minimax-mm-dedicated",
-          "source_id": "pogrujenie-mm",
-          "output_tvg_id": "Xminimax-pogrujenie",
-          "horizon_hours": 148.35,
-          "current": true,
-          "usable": 35
+      "pending_count": 2,
+      "pending": {
+        "MM Flip UHD": {
+          "observations": 1,
+          "distinct_titles": 1,
+          "status": "PENDING_DISTINCT_SECOND_TITLE"
+        },
+        "MM Катастрофа HD": {
+          "observations": 1,
+          "distinct_titles": 1,
+          "status": "PENDING_DISTINCT_SECOND_TITLE"
         }
       },
+      "selected_count": 0,
+      "quarantined_count": 0,
+      "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
@@ -137,35 +139,182 @@
           "error": "RuntimeError"
         }
       ],
-      "candidates_added": 4,
+      "candidates_added": 25,
       "added": [
         {
           "enabled": "1",
-          "playlist_name": "DITV КОМЕДИИ",
-          "source": "runigma-iptv",
-          "source_id": "komediynoye",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=комедий; candidate=Комедийное.; requires two positive observations before selection"
+          "playlist_name": "MM Flip UHD",
+          "source": "iptv-online-primary",
+          "source_id": "Xminimax-flip",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Зараза | 2025; candidate=х/ф Зараза; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "DITV КОМЕДИИ",
-          "source": "epgpw-RU",
-          "source_id": "6860",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=комедий; candidate=Комедийное; requires two positive observations before selection"
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "source": "iptv-online-primary",
+          "source_id": "Xstart-air",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Жених (2016); candidate=х/ф Жених; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "DITV КОМЕДИИ",
-          "source": "epgpw-RU",
-          "source_id": "7213",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=комедий; candidate=Комедийное; requires two positive observations before selection"
+          "playlist_name": "MM Flip UHD",
+          "source": "iptvx-noarch",
+          "source_id": "minimax-flip",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Зараза | 2025; candidate=х/ф Зараза; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "Premiere HD 2",
-          "source": "epgpw-RU",
-          "source_id": "453656",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Моана; candidate=х/ф Моана (2026); requires two positive observations before selection"
+          "playlist_name": "MM Катастрофа HD",
+          "source": "iptvx-noarch",
+          "source_id": "minimax-katastrofa",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Пылающее море (2021); candidate=х/ф Пылающее море; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "source": "iptvx-noarch",
+          "source_id": "start-air",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Жених (2016); candidate=х/ф Жених; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Flip UHD",
+          "source": "openbox-tsd",
+          "source_id": "mm-flip-uhd",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Зараза | 2025; candidate=Х/ф Зараза.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "source": "openbox-tsd",
+          "source_id": "start-air",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Жених (2016); candidate=Х/ф Жених.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "source": "bcumedia-dedicated",
+          "source_id": "START Air HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Жених (2016); candidate=Жених.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "source": "bcumedia-dedicated",
+          "source_id": "START Air",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Жених (2016); candidate=Жених.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Катастрофа HD",
+          "source": "minimax-mm-dedicated",
+          "source_id": "katastrofa-mm",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Пылающее море (2021); candidate=Пылающее море; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Flip UHD",
+          "source": "minimax-mm-dedicated",
+          "source_id": "flip-mm",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Зараза | 2025; candidate=Зараза; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Катастрофа HD",
+          "source": "tvteam",
+          "source_id": "ch1239",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Пылающее море (2021); candidate=Пылающее море; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Flip UHD",
+          "source": "tvteam",
+          "source_id": "ch1262",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Зараза | 2025; candidate=Зараза; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "source": "tvteam",
+          "source_id": "ch506",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Жених (2016); candidate=х/ф Жених; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "source": "epgone-ru2",
+          "source_id": "6241",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Жених (2016); candidate=Жених; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "source": "anzo-top",
+          "source_id": "11095",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Жених (2016); candidate=Х/ф Жених.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "source": "gabbarit-current",
+          "source_id": "START Air",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Жених (2016); candidate=Жених.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Flip UHD",
+          "source": "gabbarit-current",
+          "source_id": "минимакс-flip UHD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Зараза | 2025; candidate=Зараза (2026).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "source": "gabbarit-primary",
+          "source_id": "START Air",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Жених (2016); candidate=Жених.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Flip UHD",
+          "source": "gabbarit-primary",
+          "source_id": "минимакс-flip UHD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Зараза | 2025; candidate=Зараза (2026).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "source": "gabbarit-mirror",
+          "source_id": "START Air",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Жених (2016); candidate=Жених.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Flip UHD",
+          "source": "gabbarit-mirror",
+          "source_id": "минимакс-flip UHD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Зараза | 2025; candidate=Зараза (2026).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Flip UHD",
+          "source": "epgone-full-movie-rescue",
+          "source_id": "5170",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Зараза | 2025; candidate=Зараза; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Катастрофа HD",
+          "source": "epgone-full-movie-rescue",
+          "source_id": "5147",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Пылающее море (2021); candidate=Пылающее море; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "source": "epgone-full-movie-rescue",
+          "source_id": "6241",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Жених (2016); candidate=Жених; requires two positive observations before selection"
         }
       ]
     }
