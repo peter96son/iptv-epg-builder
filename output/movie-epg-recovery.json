@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-13T08:17:43.529375+00:00",
+  "updated_at": "2026-09-13T09:24:45.338753+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-13T08:17:42.490473+00:00",
+      "checked_at_utc": "2026-09-13T09:24:44.266581+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,11 +10,12 @@
         "Кинозалы"
       ],
       "channels": 488,
-      "ok": 446,
-      "gaps": 42,
+      "ok": 440,
+      "gaps": 48,
       "issue_counts": {
         "NO_MAPPING": 40,
-        "NO_NEXT_PROGRAMME": 2
+        "NO_CURRENT_PROGRAMME": 4,
+        "NO_NEXT_PROGRAMME": 8
       },
       "group_counts": {
         "USSR": {
@@ -24,8 +25,8 @@
         },
         "Кино": {
           "channels": 168,
-          "ok": 140,
-          "gaps": 28
+          "ok": 138,
+          "gaps": 30
         },
         "Кино 4K": {
           "channels": 63,
@@ -34,172 +35,41 @@
         },
         "Кинозалы": {
           "channels": 239,
-          "ok": 227,
-          "gaps": 12
+          "ok": 223,
+          "gaps": 16
         }
       }
     },
     "observer": {
       "return_code": 0,
       "channels_considered": 41,
-      "high_confidence_observations": 5,
-      "recognized": [
-        {
-          "playlist_name": "Insomnia HD",
-          "provider_name": "Insomnia HD",
-          "title": "ЛИМБ",
-          "score": 18.0,
-          "zone": "top_left",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "РуКино HD",
-          "provider_name": "РуКино HD",
-          "title": "ДЕВЯТАЯ",
-          "score": 21.75,
-          "zone": "top_left_tight",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "DITV Американские комедии 80-90-х",
-          "provider_name": "DITV Американские комедии 80-90-х",
-          "title": "мерику",
-          "score": 16.5,
-          "zone": "left_bottom",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
-          "provider_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
-          "title": "Танцор Диско (1",
-          "score": 17.75,
-          "zone": "left_bottom_tight",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "MM Ужасы HD",
-          "provider_name": "MM Ужасы HD",
-          "title": "Рога (2013)",
-          "score": 18.0,
-          "zone": "bottom_band",
-          "engine": "tesseract"
-        }
-      ]
+      "high_confidence_observations": 0,
+      "recognized": []
     },
     "evidence_recorder": {
-      "added": 5,
-      "rejected": 36,
-      "observations": [
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-13T08:03:24.124982+00:00",
-          "playlist_name": "Insomnia HD",
-          "observed_title": "ЛИМБ",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=18.0"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-13T08:03:24.124982+00:00",
-          "playlist_name": "РуКино HD",
-          "observed_title": "ДЕВЯТАЯ",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=21.75"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-13T08:03:24.124982+00:00",
-          "playlist_name": "DITV Американские комедии 80-90-х",
-          "observed_title": "мерику",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom; engine=tesseract; score=16.5"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-13T08:03:24.124982+00:00",
-          "playlist_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
-          "observed_title": "Танцор Диско (1",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=17.75"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-13T08:03:24.124982+00:00",
-          "playlist_name": "MM Ужасы HD",
-          "observed_title": "Рога (2013)",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.0"
-        }
-      ]
+      "added": 0,
+      "rejected": 41,
+      "observations": []
     },
     "judge": {
       "selector": {
-        "changed": 1,
-        "selected": 1,
-        "quarantined": 0,
-        "target_hours": 6.0
+        "changed": 0,
+        "selected": 0,
+        "reason": "waiting-for-distinct-second-title"
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 1,
+      "selected_count": 0,
       "quarantined_count": 0,
-      "selected": {
-        "MM Ужасы HD": {
-          "source": "tvteam",
-          "source_id": "ch1276",
-          "output_tvg_id": "Xminimax-ujasi",
-          "horizon_hours": 20.66,
-          "current": true,
-          "usable": 16
-        }
-      },
+      "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 5,
-      "sources_scanned": 26,
-      "sources_failed": [
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-ru",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-rescue",
-          "error": "RuntimeError"
-        }
-      ],
-      "candidates_added": 3,
-      "added": [
-        {
-          "enabled": "1",
-          "playlist_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
-          "source": "epgpw-RU",
-          "source_id": "6046",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Танцор Диско (1; candidate=х/ф Танцор Диско; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "РуКино HD",
-          "source": "epgpw-RU",
-          "source_id": "7511",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=ДЕВЯТАЯ; candidate=х/ф Девятая; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
-          "source": "epgpw-RU",
-          "source_id": "475481",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Танцор Диско (1; candidate=х/ф Танцор диско 1982; requires two positive observations before selection"
-        }
-      ]
+      "live_observations": 0,
+      "sources_scanned": 0,
+      "sources_failed": [],
+      "candidates_added": 0,
+      "added": []
     }
   }
 }
