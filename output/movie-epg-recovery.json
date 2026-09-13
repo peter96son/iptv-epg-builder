@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-13T01:23:55.058093+00:00",
+  "updated_at": "2026-09-13T02:32:19.478387+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-13T01:23:54.073402+00:00",
+      "checked_at_utc": "2026-09-13T02:32:17.811678+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -25,47 +25,63 @@
         },
         "Кино": {
           "channels": 168,
-          "ok": 131,
-          "gaps": 37
+          "ok": 130,
+          "gaps": 38
         },
         "Кино 4K": {
           "channels": 63,
-          "ok": 58,
-          "gaps": 5
+          "ok": 56,
+          "gaps": 7
         },
         "Кинозалы": {
           "channels": 239,
-          "ok": 120,
-          "gaps": 119
+          "ok": 123,
+          "gaps": 116
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 168,
-      "high_confidence_observations": 1,
+      "channels_considered": 169,
+      "high_confidence_observations": 2,
       "recognized": [
         {
-          "playlist_name": "Premiere HD 2",
-          "provider_name": "Premiere HD 2",
-          "title": "Моана",
-          "score": 16.25,
-          "zone": "top_left",
+          "playlist_name": "BCU FilMystic HD",
+          "provider_name": "BCU FilMystic HD",
+          "title": "Поворот нет",
+          "score": 13.5,
+          "zone": "top_left_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "BCU Russian HD",
+          "provider_name": "BCU Russian HD",
+          "title": "22 минут",
+          "score": 21.25,
+          "zone": "top_left_tight",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
+      "added": 2,
       "rejected": 166,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-13T01:20:30.527563+00:00",
-          "playlist_name": "Premiere HD 2",
-          "observed_title": "Моана",
+          "observed_at": "2026-09-13T02:19:22.088144+00:00",
+          "playlist_name": "BCU FilMystic HD",
+          "observed_title": "Поворот нет",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=16.25"
+          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=13.5"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-13T02:19:22.088144+00:00",
+          "playlist_name": "BCU Russian HD",
+          "observed_title": "22 минут",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=21.25"
         }
       ]
     },
@@ -73,22 +89,120 @@
       "selector": {
         "changed": 0,
         "selected": 0,
-        "quarantined": 0,
-        "reason": "no-live-candidates"
+        "reason": "waiting-for-distinct-second-title"
       },
-      "pending_count": 0,
-      "pending": {},
+      "pending_count": 2,
+      "pending": {
+        "BCU FilMystic HD": {
+          "observations": 1,
+          "distinct_titles": 1,
+          "status": "PENDING_DISTINCT_SECOND_TITLE"
+        },
+        "BCU Russian HD": {
+          "observations": 1,
+          "distinct_titles": 1,
+          "status": "PENDING_DISTINCT_SECOND_TITLE"
+        }
+      },
       "selected_count": 0,
       "quarantined_count": 0,
       "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 4,
-      "sources_failed": [],
-      "candidates_added": 0,
-      "added": []
+      "live_observations": 2,
+      "sources_scanned": 26,
+      "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-ru",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-rescue",
+          "error": "RuntimeError"
+        }
+      ],
+      "candidates_added": 10,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "BCU Russian HD",
+          "source": "iptv-online-primary",
+          "source_id": "Xbcu-russian",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=22 минут; candidate=х/ф 22 минуты (2014); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "BCU Russian HD",
+          "source": "iptvx-noarch",
+          "source_id": "bcu-russian",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=22 минут; candidate=х/ф 22 минуты (2014); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "BCU Russian HD",
+          "source": "runigma-iptv",
+          "source_id": "bcu-russian-HD",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=22 минут; candidate=22 минуты (2014).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "BCU Russian HD",
+          "source": "bcumedia-dedicated",
+          "source_id": "BCU Russian HD",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=22 минут; candidate=22 минуты (2014); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "BCU Russian HD",
+          "source": "tvteam",
+          "source_id": "ch780",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=22 минут; candidate=22 минуты (2014); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "BCU Russian HD",
+          "source": "gabbarit-current",
+          "source_id": "BCU Russian",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=22 минут; candidate=22 минуты (2014).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "BCU Russian HD",
+          "source": "m3u-edit-all-rescue",
+          "source_id": "TV1000.Russkoe.Kino.lu",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=22 минут; candidate=22 минуты; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "BCU Russian HD",
+          "source": "gabbarit-primary",
+          "source_id": "BCU Russian",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=22 минут; candidate=22 минуты (2014).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "BCU Russian HD",
+          "source": "gabbarit-mirror",
+          "source_id": "BCU Russian",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=22 минут; candidate=22 минуты (2014).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "BCU Russian HD",
+          "source": "epgone-full-movie-rescue",
+          "source_id": "4762",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=22 минут; candidate=22 минуты (2014); requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
