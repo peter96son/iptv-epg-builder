@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-13T18:19:02.689493+00:00",
+  "updated_at": "2026-09-13T19:05:21.892823+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-13T18:19:01.557605+00:00",
+      "checked_at_utc": "2026-09-13T19:05:20.549530+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 488,
-      "ok": 436,
-      "gaps": 52,
+      "ok": 433,
+      "gaps": 55,
       "issue_counts": {
-        "NO_MAPPING": 35,
-        "NO_CURRENT_PROGRAMME": 8,
-        "NO_NEXT_PROGRAMME": 17
+        "NO_MAPPING": 34,
+        "NO_CURRENT_PROGRAMME": 16,
+        "NO_NEXT_PROGRAMME": 21
       },
       "group_counts": {
         "USSR": {
@@ -35,148 +35,66 @@
         },
         "Кинозалы": {
           "channels": 239,
-          "ok": 214,
-          "gaps": 25
+          "ok": 211,
+          "gaps": 28
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 47,
-      "high_confidence_observations": 2,
+      "channels_considered": 49,
+      "high_confidence_observations": 1,
       "recognized": [
         {
-          "playlist_name": "MM Ужасы HD",
-          "provider_name": "MM Ужасы HD",
-          "title": "Дом ада. Спуск к дьяволу (2025)",
-          "score": 19.75,
-          "zone": "left_bottom_tight",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "MM Погружение HD",
-          "provider_name": "MM Погружение HD",
-          "title": "Кит-убийца (2026)",
-          "score": 17.25,
-          "zone": "bottom_band",
+          "playlist_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
+          "provider_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
+          "title": "Танцор диско (1982)",
+          "score": 17.75,
+          "zone": "left_bottom",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 2,
-      "rejected": 45,
+      "added": 1,
+      "rejected": 48,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-13T18:03:21.393898+00:00",
-          "playlist_name": "MM Ужасы HD",
-          "observed_title": "Дом ада. Спуск к дьяволу (2025)",
+          "observed_at": "2026-09-13T19:04:38.969867+00:00",
+          "playlist_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
+          "observed_title": "Танцор диско (1982)",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=19.75"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-13T18:03:21.393898+00:00",
-          "playlist_name": "MM Погружение HD",
-          "observed_title": "Кит-убийца (2026)",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=17.25"
+          "notes": "high-confidence OCR; zone=left_bottom; engine=tesseract; score=17.75"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 1,
-        "selected": 1,
+        "changed": 0,
+        "selected": 0,
         "quarantined": 0,
-        "target_hours": 6.0
+        "reason": "no-live-candidates"
       },
-      "pending_count": 1,
-      "pending": {
-        "MM Погружение HD": {
-          "observations": 1,
-          "distinct_titles": 1,
-          "status": "PENDING_DISTINCT_SECOND_TITLE"
-        }
-      },
-      "selected_count": 1,
+      "pending_count": 0,
+      "pending": {},
+      "selected_count": 0,
       "quarantined_count": 0,
-      "selected": {
-        "MM Ужасы HD": {
-          "source": "tvteam",
-          "source_id": "ch1276",
-          "output_tvg_id": "Xminimax-ujasi",
-          "horizon_hours": 21.73,
-          "current": true,
-          "usable": 17
-        }
-      },
+      "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 2,
-      "sources_scanned": 28,
-      "sources_failed": [
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        }
-      ],
-      "candidates_added": 7,
+      "live_observations": 1,
+      "sources_scanned": 1,
+      "sources_failed": [],
+      "candidates_added": 1,
       "added": [
         {
           "enabled": "1",
-          "playlist_name": "MM Погружение HD",
-          "source": "iptvx-noarch",
-          "source_id": "minimax-pogrujenie",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Кит-убийца (2026); candidate=х/ф Кит-убийца; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Погружение HD",
-          "source": "minimax-mm-dedicated",
-          "source_id": "pogrujenie-mm",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Кит-убийца (2026); candidate=Кит-убийца; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Погружение HD",
-          "source": "tvteam",
-          "source_id": "ch1252",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Кит-убийца (2026); candidate=Кит-убийца; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Погружение HD",
-          "source": "gabbarit-current",
-          "source_id": "минимакс-погружение HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Кит-убийца (2026); candidate=Кит-убийца  (2026).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Погружение HD",
-          "source": "gabbarit-primary",
-          "source_id": "минимакс-погружение HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Кит-убийца (2026); candidate=Кит-убийца  (2026).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Погружение HD",
-          "source": "gabbarit-mirror",
-          "source_id": "минимакс-погружение HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Кит-убийца (2026); candidate=Кит-убийца  (2026).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Погружение HD",
-          "source": "epgone-full-movie-rescue",
-          "source_id": "5160",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Кит-убийца (2026); candidate=Кит-убийца; requires two positive observations before selection"
+          "playlist_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
+          "source": "epgpw-RU",
+          "source_id": "7307",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Танцор диско (1982); candidate=х/ф Танцор диско; requires two positive observations before selection"
         }
       ]
     }
