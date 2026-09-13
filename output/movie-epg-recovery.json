@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-13T19:05:21.892823+00:00",
+  "updated_at": "2026-09-13T20:25:49.364274+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-13T19:05:20.549530+00:00",
+      "checked_at_utc": "2026-09-13T20:25:48.051109+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,91 +10,162 @@
         "Кинозалы"
       ],
       "channels": 488,
-      "ok": 433,
-      "gaps": 55,
+      "ok": 414,
+      "gaps": 74,
       "issue_counts": {
-        "NO_MAPPING": 34,
-        "NO_CURRENT_PROGRAMME": 16,
-        "NO_NEXT_PROGRAMME": 21
+        "NO_MAPPING": 48,
+        "NO_NEXT_PROGRAMME": 26,
+        "NO_CURRENT_PROGRAMME": 8
       },
       "group_counts": {
         "USSR": {
           "channels": 18,
-          "ok": 15,
-          "gaps": 3
+          "ok": 14,
+          "gaps": 4
         },
         "Кино": {
           "channels": 168,
-          "ok": 144,
-          "gaps": 24
+          "ok": 138,
+          "gaps": 30
         },
         "Кино 4K": {
           "channels": 63,
-          "ok": 63,
-          "gaps": 0
+          "ok": 62,
+          "gaps": 1
         },
         "Кинозалы": {
           "channels": 239,
-          "ok": 211,
-          "gaps": 28
+          "ok": 200,
+          "gaps": 39
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 49,
-      "high_confidence_observations": 1,
+      "channels_considered": 64,
+      "high_confidence_observations": 3,
       "recognized": [
         {
-          "playlist_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
-          "provider_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
-          "title": "Танцор диско (1982)",
-          "score": 17.75,
-          "zone": "left_bottom",
+          "playlist_name": "Premiere HD 2",
+          "provider_name": "Premiere HD 2",
+          "title": "Моана",
+          "score": 21.25,
+          "zone": "top_left_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "DITV КОМЕДИИ",
+          "provider_name": "DITV КОМЕДИИ",
+          "title": "комедий",
+          "score": 16.75,
+          "zone": "top_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "MM Погружение HD",
+          "provider_name": "MM Погружение HD",
+          "title": "Заклинательница акул (2012)",
+          "score": 19.75,
+          "zone": "left_bottom_tight",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 48,
+      "added": 3,
+      "rejected": 61,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-13T19:04:38.969867+00:00",
-          "playlist_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
-          "observed_title": "Танцор диско (1982)",
+          "observed_at": "2026-09-13T20:06:24.713157+00:00",
+          "playlist_name": "Premiere HD 2",
+          "observed_title": "Моана",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom; engine=tesseract; score=17.75"
+          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=21.25"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-13T20:06:24.713157+00:00",
+          "playlist_name": "DITV КОМЕДИИ",
+          "observed_title": "комедий",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=16.75"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-13T20:06:24.713157+00:00",
+          "playlist_name": "MM Погружение HD",
+          "observed_title": "Заклинательница акул (2012)",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=19.75"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 0,
-        "selected": 0,
+        "changed": 1,
+        "selected": 1,
         "quarantined": 0,
-        "reason": "no-live-candidates"
+        "target_hours": 6.0
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 0,
+      "selected_count": 1,
       "quarantined_count": 0,
-      "selected": {},
+      "selected": {
+        "MM Погружение HD": {
+          "source": "minimax-mm-dedicated",
+          "source_id": "pogrujenie-mm",
+          "output_tvg_id": "Xminimax-pogrujenie",
+          "horizon_hours": 148.35,
+          "current": true,
+          "usable": 35
+        }
+      },
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 1,
-      "sources_failed": [],
-      "candidates_added": 1,
+      "live_observations": 3,
+      "sources_scanned": 28,
+      "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        }
+      ],
+      "candidates_added": 4,
       "added": [
         {
           "enabled": "1",
-          "playlist_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
+          "playlist_name": "DITV КОМЕДИИ",
+          "source": "runigma-iptv",
+          "source_id": "komediynoye",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=комедий; candidate=Комедийное.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV КОМЕДИИ",
           "source": "epgpw-RU",
-          "source_id": "7307",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Танцор диско (1982); candidate=х/ф Танцор диско; requires two positive observations before selection"
+          "source_id": "6860",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=комедий; candidate=Комедийное; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV КОМЕДИИ",
+          "source": "epgpw-RU",
+          "source_id": "7213",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=комедий; candidate=Комедийное; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Premiere HD 2",
+          "source": "epgpw-RU",
+          "source_id": "453656",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Моана; candidate=х/ф Моана (2026); requires two positive observations before selection"
         }
       ]
     }
