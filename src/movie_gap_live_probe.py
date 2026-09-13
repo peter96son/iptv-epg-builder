@@ -439,6 +439,8 @@ def _update_profile(profile,chosen,all_candidates,channel_name,provider_name):
         profile["last_title"]=title
         profile["preferred_zone"]=chosen["zone"]
         profile["preferred_engine"]=chosen["engine"]
+        profile["onscreen_title_capable"]=True
+        profile["probe_disabled_no_title"]=False
 
         hist=profile["title_history"]
         if not hist or _norm(hist[-1])!=_norm(title):
@@ -461,6 +463,11 @@ def _update_profile(profile,chosen,all_candidates,channel_name,provider_name):
                     del ctx[:-8]
                 if len(set(ctx))>=3 and line not in profile["static_text"]:
                     profile["static_text"].append(line)
+
+    if not chosen and not profile.get("title_history") and not profile.get("last_title"):
+        profile["onscreen_title_capable"]=False
+        profile["probe_disabled_no_title"]=True
+        profile["disabled_reason"]="NO_ONSCREEN_TITLE_EVER_DETECTED"
 
     profile["updated_at"]=datetime.now(timezone.utc).isoformat()
     profile["static_text"]=profile["static_text"][-30:]
@@ -543,8 +550,26 @@ def main():
     if USE_PADDLE:
         _get_paddle()
     gaps=_load_gaps()
-    if MAX_CHANNELS:gaps=gaps[:MAX_CHANNELS]
     playlist=_parse_m3u(_download_playlist(playlist_url));results={};jobs={};profiles=_load_profiles()
+
+    eligible=[]
+    skipped_no_title=[]
+    for gap in gaps:
+        display=(gap.get("playlist_name") or "").strip()
+        provider_name=(gap.get("provider_name") or display).strip()
+        profile=profiles.get(provider_name or display,{})
+        if profile.get("probe_disabled_no_title") is True:
+            skipped_no_title.append({
+                "playlist_name":display,
+                "provider_name":provider_name,
+                "reason":"NO_ONSCREEN_TITLE_EVER_DETECTED",
+            })
+            continue
+        eligible.append(gap)
+
+    gaps=eligible
+    if MAX_CHANNELS:gaps=gaps[:MAX_CHANNELS]
+
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as pool:
         for gap in gaps:
             display=(gap.get("playlist_name") or "").strip()
@@ -563,7 +588,7 @@ def main():
                 results[key]=future.result()
             except Exception as exc:
                 results[key]={"playlist_name":key,"found_in_playlist":True,"error":type(exc).__name__}
-    payload={"generated_at":datetime.now(timezone.utc).isoformat(),"source_gap_file":"output/movie-epg-gaps.csv","target_groups":sorted(TARGET_GROUPS),"channels_considered":len(gaps),"method":"learned-zone-first OCR with full-width top/bottom fallback; second frame only when needed","privacy":"stream URLs and video frames are never persisted","frame_seconds":list(FRAME_SECONDS),"ocr_variants":list(OCR_VARIANTS),"paddle_available":_PADDLE is not None,"paddle_error":_PADDLE_ERROR,"channels":results}
+    payload={"generated_at":datetime.now(timezone.utc).isoformat(),"source_gap_file":"output/movie-epg-gaps.csv","target_groups":sorted(TARGET_GROUPS),"channels_considered":len(gaps),"channels_skipped_no_onscreen_title":len(skipped_no_title),"skipped_no_onscreen_title":skipped_no_title,"method":"recurring OCR only for channels that have demonstrated an on-screen programme title; channels with no title ever detected are retired from the OCR queue","privacy":"stream URLs and video frames are never persisted","frame_seconds":list(FRAME_SECONDS),"ocr_variants":list(OCR_VARIANTS),"paddle_available":_PADDLE is not None,"paddle_error":_PADDLE_ERROR,"channels":results}
     OUTPUT.mkdir(exist_ok=True);_save_profiles(profiles);RESULT.write_text(json.dumps(payload,ensure_ascii=False,indent=2),encoding="utf-8")
     return 0
 
