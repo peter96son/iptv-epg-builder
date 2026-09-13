@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-13T06:03:00.036006+00:00",
+  "updated_at": "2026-09-13T07:17:56.361430+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-13T06:02:59.091909+00:00",
+      "checked_at_utc": "2026-09-13T07:17:54.996150+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -13,8 +13,9 @@
       "ok": 444,
       "gaps": 44,
       "issue_counts": {
-        "NO_MAPPING": 43,
-        "NO_NEXT_PROGRAMME": 1
+        "NO_MAPPING": 42,
+        "NO_NEXT_PROGRAMME": 2,
+        "NO_CURRENT_PROGRAMME": 1
       },
       "group_counts": {
         "USSR": {
@@ -41,32 +42,164 @@
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 38,
-      "high_confidence_observations": 0,
-      "recognized": []
+      "channels_considered": 39,
+      "high_confidence_observations": 1,
+      "recognized": [
+        {
+          "playlist_name": "DITV КОМЕДИИ 90-х",
+          "provider_name": "DITV КОМЕДИИ 90-х",
+          "title": "Джуманджи (1995)",
+          "score": 17.25,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        }
+      ]
     },
     "evidence_recorder": {
-      "added": 0,
+      "added": 1,
       "rejected": 38,
-      "observations": []
+      "observations": [
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-13T07:04:55.402161+00:00",
+          "playlist_name": "DITV КОМЕДИИ 90-х",
+          "observed_title": "Джуманджи (1995)",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=17.25"
+        }
+      ]
     },
     "judge": {
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "waiting-for-distinct-second-title"
+        "reason": "no-policy"
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 0,
+      "selected_count": 13,
       "quarantined_count": 0,
-      "selected": {},
+      "selected": {
+        "Premium HD": {
+          "source": "gabbarit-current",
+          "source_id": "Premium HD",
+          "output_tvg_id": "premium-hd",
+          "horizon_hours": 16.29,
+          "current": true,
+          "usable": 12
+        },
+        "Premiere HD": {
+          "source": "gabbarit-current",
+          "source_id": "Premiere HD",
+          "output_tvg_id": "Xpremiere-hd",
+          "horizon_hours": 16.95,
+          "current": true,
+          "usable": 15
+        },
+        "Paradise HD": {
+          "source": "gabbarit-current",
+          "source_id": "Paradise HD",
+          "output_tvg_id": "Xparadise-hd",
+          "horizon_hours": 17.48,
+          "current": true,
+          "usable": 15
+        },
+        "Paradox HD": {
+          "source": "gabbarit-current",
+          "source_id": "Paradox HD",
+          "output_tvg_id": "Xparadox-hd",
+          "horizon_hours": 16.97,
+          "current": true,
+          "usable": 14
+        },
+        "4ever Cinema HD": {
+          "source": "iptvx-noarch",
+          "source_id": "4ever-cinema",
+          "output_tvg_id": "X4ever-cinema",
+          "horizon_hours": 16.17,
+          "current": true,
+          "usable": 14
+        },
+        "4ever Drama HD": {
+          "source": "iptvx-noarch",
+          "source_id": "4ever-drama",
+          "output_tvg_id": "X4ever-drama",
+          "horizon_hours": 16.56,
+          "current": true,
+          "usable": 14
+        },
+        "4ever Theater HD": {
+          "source": "iptvx-noarch",
+          "source_id": "4ever-theater",
+          "output_tvg_id": "X4ever-theater",
+          "horizon_hours": 16.33,
+          "current": true,
+          "usable": 14
+        },
+        "4ever Music HD": {
+          "source": "iptvx-noarch",
+          "source_id": "4ever-music",
+          "output_tvg_id": "X4ever-music",
+          "horizon_hours": 27.96,
+          "current": true,
+          "usable": 18
+        },
+        "MM Ужастик HD": {
+          "source": "minimax-mm-dedicated",
+          "source_id": "ujastik-mm",
+          "output_tvg_id": "Xminimax-ujastik",
+          "horizon_hours": 507.86,
+          "current": true,
+          "usable": 64
+        },
+        "MM Ужасы HD": {
+          "source": "tvteam",
+          "source_id": "ch1276",
+          "output_tvg_id": "Xminimax-ujasi",
+          "horizon_hours": 19.28,
+          "current": true,
+          "usable": 16
+        },
+        "Кино и Жизнь": {
+          "source": "iptvx-noarch",
+          "source_id": "kino-i-zhizn",
+          "output_tvg_id": "kino-i-zhizn",
+          "horizon_hours": 32.69,
+          "current": true,
+          "usable": 39
+        },
+        "MM Стивен Кинг HD": {
+          "source": "minimax-mm-dedicated",
+          "source_id": "st-king-mm",
+          "output_tvg_id": "Xminimax-st-king",
+          "horizon_hours": 397.74,
+          "current": true,
+          "usable": 56
+        },
+        "MM Супергерои HD": {
+          "source": "minimax-mm-dedicated",
+          "source_id": "supergeroi-mm",
+          "output_tvg_id": "Xminimax-supergeroi",
+          "horizon_hours": 258.47,
+          "current": true,
+          "usable": 28
+        }
+      },
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 0,
-      "sources_scanned": 0,
-      "sources_failed": [],
+      "live_observations": 1,
+      "sources_scanned": 28,
+      "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        }
+      ],
       "candidates_added": 0,
       "added": []
     }
