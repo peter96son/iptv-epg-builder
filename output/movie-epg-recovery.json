@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-13T17:13:12.522159+00:00",
+  "updated_at": "2026-09-13T18:19:02.689493+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-13T17:13:11.662607+00:00",
+      "checked_at_utc": "2026-09-13T18:19:01.557605+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,22 +10,23 @@
         "Кинозалы"
       ],
       "channels": 488,
-      "ok": 444,
-      "gaps": 44,
+      "ok": 436,
+      "gaps": 52,
       "issue_counts": {
-        "NO_MAPPING": 36,
-        "NO_NEXT_PROGRAMME": 8
+        "NO_MAPPING": 35,
+        "NO_CURRENT_PROGRAMME": 8,
+        "NO_NEXT_PROGRAMME": 17
       },
       "group_counts": {
         "USSR": {
           "channels": 18,
-          "ok": 16,
-          "gaps": 2
+          "ok": 15,
+          "gaps": 3
         },
         "Кино": {
           "channels": 168,
-          "ok": 145,
-          "gaps": 23
+          "ok": 144,
+          "gaps": 24
         },
         "Кино 4K": {
           "channels": 63,
@@ -34,68 +35,83 @@
         },
         "Кинозалы": {
           "channels": 239,
-          "ok": 220,
-          "gaps": 19
+          "ok": 214,
+          "gaps": 25
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 42,
+      "channels_considered": 47,
       "high_confidence_observations": 2,
       "recognized": [
         {
-          "playlist_name": "Thriller HD",
-          "provider_name": "Thriller HD",
-          "title": "BD PREMIERE GROUP",
-          "score": 13.75,
-          "zone": "top_band",
+          "playlist_name": "MM Ужасы HD",
+          "provider_name": "MM Ужасы HD",
+          "title": "Дом ада. Спуск к дьяволу (2025)",
+          "score": 19.75,
+          "zone": "left_bottom_tight",
           "engine": "tesseract"
         },
         {
-          "playlist_name": "DITV ФИЛЬМЫ",
-          "provider_name": "DITV ФИЛЬМЫ",
-          "title": "БРАТ (1997)",
-          "score": 13.0,
-          "zone": "left_bottom",
+          "playlist_name": "MM Погружение HD",
+          "provider_name": "MM Погружение HD",
+          "title": "Кит-убийца (2026)",
+          "score": 17.25,
+          "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
       "added": 2,
-      "rejected": 40,
+      "rejected": 45,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-13T17:02:55.211998+00:00",
-          "playlist_name": "Thriller HD",
-          "observed_title": "BD PREMIERE GROUP",
+          "observed_at": "2026-09-13T18:03:21.393898+00:00",
+          "playlist_name": "MM Ужасы HD",
+          "observed_title": "Дом ада. Спуск к дьяволу (2025)",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=13.75"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=19.75"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-09-13T17:02:55.211998+00:00",
-          "playlist_name": "DITV ФИЛЬМЫ",
-          "observed_title": "БРАТ (1997)",
+          "observed_at": "2026-09-13T18:03:21.393898+00:00",
+          "playlist_name": "MM Погружение HD",
+          "observed_title": "Кит-убийца (2026)",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom; engine=tesseract; score=13.0"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=17.25"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 0,
-        "selected": 0,
+        "changed": 1,
+        "selected": 1,
         "quarantined": 0,
-        "reason": "no-live-candidates"
+        "target_hours": 6.0
       },
-      "pending_count": 0,
-      "pending": {},
-      "selected_count": 0,
+      "pending_count": 1,
+      "pending": {
+        "MM Погружение HD": {
+          "observations": 1,
+          "distinct_titles": 1,
+          "status": "PENDING_DISTINCT_SECOND_TITLE"
+        }
+      },
+      "selected_count": 1,
       "quarantined_count": 0,
-      "selected": {},
+      "selected": {
+        "MM Ужасы HD": {
+          "source": "tvteam",
+          "source_id": "ch1276",
+          "output_tvg_id": "Xminimax-ujasi",
+          "horizon_hours": 21.73,
+          "current": true,
+          "usable": 17
+        }
+      },
       "quarantined": {}
     },
     "candidate_discovery": {
@@ -111,112 +127,56 @@
           "error": "RuntimeError"
         }
       ],
-      "candidates_added": 15,
+      "candidates_added": 7,
       "added": [
         {
           "enabled": "1",
-          "playlist_name": "DITV ФИЛЬМЫ",
-          "source": "iptv-online-primary",
-          "source_id": "Xkinojam1",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=БРАТ (1997); candidate=х/ф Брат; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "DITV ФИЛЬМЫ",
-          "source": "iptv-online-primary",
-          "source_id": "Xnext-spark",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=БРАТ (1997); candidate=х/ф Брат (2006); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "DITV ФИЛЬМЫ",
+          "playlist_name": "MM Погружение HD",
           "source": "iptvx-noarch",
-          "source_id": "kinojam1",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=БРАТ (1997); candidate=х/ф Брат; requires two positive observations before selection"
+          "source_id": "minimax-pogrujenie",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Кит-убийца (2026); candidate=х/ф Кит-убийца; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "DITV ФИЛЬМЫ",
-          "source": "iptvx-noarch",
-          "source_id": "olsib-stb",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=БРАТ (1997); candidate=х/ф Брат (1997); requires two positive observations before selection"
+          "playlist_name": "MM Погружение HD",
+          "source": "minimax-mm-dedicated",
+          "source_id": "pogrujenie-mm",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Кит-убийца (2026); candidate=Кит-убийца; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "DITV ФИЛЬМЫ",
-          "source": "openbox-tsd",
-          "source_id": "kinojam-1",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=БРАТ (1997); candidate=Х/ф Брат.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "DITV ФИЛЬМЫ",
-          "source": "next-dedicated",
-          "source_id": "NEXTSpark",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=БРАТ (1997); candidate=Брат (2006); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "DITV ФИЛЬМЫ",
-          "source": "bcumedia-dedicated",
-          "source_id": "KinoJam 1 HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=БРАТ (1997); candidate=х/ф Брат.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "DITV ФИЛЬМЫ",
-          "source": "bcumedia-dedicated",
-          "source_id": "KinoJam 1",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=БРАТ (1997); candidate=х/ф Брат.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "DITV ФИЛЬМЫ",
+          "playlist_name": "MM Погружение HD",
           "source": "tvteam",
-          "source_id": "ch542",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=БРАТ (1997); candidate=х/ф Брат; requires two positive observations before selection"
+          "source_id": "ch1252",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Кит-убийца (2026); candidate=Кит-убийца; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "DITV ФИЛЬМЫ",
-          "source": "epgone-ru2",
-          "source_id": "4466",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=БРАТ (1997); candidate=Брат; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "DITV ФИЛЬМЫ",
-          "source": "anzo-top",
-          "source_id": "9689",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=БРАТ (1997); candidate=Х/ф Брат.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "DITV ФИЛЬМЫ",
+          "playlist_name": "MM Погружение HD",
           "source": "gabbarit-current",
-          "source_id": "Киноджем 1 HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=БРАТ (1997); candidate=Брат.; requires two positive observations before selection"
+          "source_id": "минимакс-погружение HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Кит-убийца (2026); candidate=Кит-убийца  (2026).; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "DITV ФИЛЬМЫ",
+          "playlist_name": "MM Погружение HD",
           "source": "gabbarit-primary",
-          "source_id": "Киноджем 1 HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=БРАТ (1997); candidate=Брат.; requires two positive observations before selection"
+          "source_id": "минимакс-погружение HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Кит-убийца (2026); candidate=Кит-убийца  (2026).; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "DITV ФИЛЬМЫ",
+          "playlist_name": "MM Погружение HD",
           "source": "gabbarit-mirror",
-          "source_id": "Киноджем 1 HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=БРАТ (1997); candidate=Брат.; requires two positive observations before selection"
+          "source_id": "минимакс-погружение HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Кит-убийца (2026); candidate=Кит-убийца  (2026).; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "DITV ФИЛЬМЫ",
+          "playlist_name": "MM Погружение HD",
           "source": "epgone-full-movie-rescue",
-          "source_id": "4466",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=БРАТ (1997); candidate=Брат; requires two positive observations before selection"
+          "source_id": "5160",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Кит-убийца (2026); candidate=Кит-убийца; requires two positive observations before selection"
         }
       ]
     }
