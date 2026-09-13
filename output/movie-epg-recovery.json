@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-13T15:11:46.171187+00:00",
+  "updated_at": "2026-09-13T16:15:38.363265+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-13T15:11:45.136302+00:00",
+      "checked_at_utc": "2026-09-13T16:15:37.045218+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,22 +10,23 @@
         "Кинозалы"
       ],
       "channels": 488,
-      "ok": 454,
-      "gaps": 34,
+      "ok": 452,
+      "gaps": 36,
       "issue_counts": {
-        "NO_MAPPING": 32,
-        "NO_NEXT_PROGRAMME": 2
+        "NO_MAPPING": 29,
+        "NO_CURRENT_PROGRAMME": 5,
+        "NO_NEXT_PROGRAMME": 7
       },
       "group_counts": {
         "USSR": {
           "channels": 18,
-          "ok": 16,
-          "gaps": 2
+          "ok": 17,
+          "gaps": 1
         },
         "Кино": {
           "channels": 168,
-          "ok": 146,
-          "gaps": 22
+          "ok": 144,
+          "gaps": 24
         },
         "Кино 4K": {
           "channels": 63,
@@ -34,85 +35,69 @@
         },
         "Кинозалы": {
           "channels": 239,
-          "ok": 229,
-          "gaps": 10
+          "ok": 228,
+          "gaps": 11
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 35,
-      "high_confidence_observations": 4,
+      "channels_considered": 32,
+      "high_confidence_observations": 3,
       "recognized": [
         {
-          "playlist_name": "VHS HD",
-          "provider_name": "VHS HD",
-          "title": "НАЗАД В БУДУЩЕЕ 3",
-          "score": 23.25,
+          "playlist_name": "DITV КОМЕДИИ 90-х",
+          "provider_name": "DITV КОМЕДИИ 90-х",
+          "title": "Убрать перископ (1996)",
+          "score": 18.5,
+          "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "DITV КОМЕДИИ СССР",
+          "provider_name": "DITV КОМЕДИИ СССР",
+          "title": "Три плюс два (1963)",
+          "score": 17.5,
+          "zone": "left_bottom",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "DITV Walt Disney",
+          "provider_name": "DITV Walt Disney",
+          "title": "Рева 1",
+          "score": 18.0,
           "zone": "top_left_tight",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "РуКино HD",
-          "provider_name": "РуКино HD",
-          "title": "ВТОРЖЕНИЕ",
-          "score": 22.25,
-          "zone": "top_left_tight",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "DITV Про акул",
-          "provider_name": "DITV Про акул",
-          "title": "Крейсер",
-          "score": 16.75,
-          "zone": "bottom_band",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "DITV КОМЕДИИ",
-          "provider_name": "DITV КОМЕДИИ",
-          "title": "Чудо в камере № 7",
-          "score": 17.75,
-          "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 4,
-      "rejected": 31,
+      "added": 3,
+      "rejected": 29,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-13T15:02:05.440084+00:00",
-          "playlist_name": "VHS HD",
-          "observed_title": "НАЗАД В БУДУЩЕЕ 3",
+          "observed_at": "2026-09-13T16:01:41.067884+00:00",
+          "playlist_name": "DITV КОМЕДИИ 90-х",
+          "observed_title": "Убрать перископ (1996)",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=23.25"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=18.5"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-09-13T15:02:05.440084+00:00",
-          "playlist_name": "РуКино HD",
-          "observed_title": "ВТОРЖЕНИЕ",
+          "observed_at": "2026-09-13T16:01:41.067884+00:00",
+          "playlist_name": "DITV КОМЕДИИ СССР",
+          "observed_title": "Три плюс два (1963)",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=22.25"
+          "notes": "high-confidence OCR; zone=left_bottom; engine=tesseract; score=17.5"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-09-13T15:02:05.440084+00:00",
-          "playlist_name": "DITV Про акул",
-          "observed_title": "Крейсер",
+          "observed_at": "2026-09-13T16:01:41.067884+00:00",
+          "playlist_name": "DITV Walt Disney",
+          "observed_title": "Рева 1",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=16.75"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-13T15:02:05.440084+00:00",
-          "playlist_name": "DITV КОМЕДИИ",
-          "observed_title": "Чудо в камере № 7",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=17.75"
+          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=18.0"
         }
       ]
     },
@@ -125,7 +110,7 @@
       },
       "pending_count": 1,
       "pending": {
-        "VHS HD": {
+        "DITV Walt Disney": {
           "observations": 1,
           "distinct_titles": 1,
           "status": "PENDING_DISTINCT_SECOND_TITLE"
@@ -137,7 +122,7 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 4,
+      "live_observations": 3,
       "sources_scanned": 28,
       "sources_failed": [
         {
@@ -149,8 +134,23 @@
           "error": "RuntimeError"
         }
       ],
-      "candidates_added": 0,
-      "added": []
+      "candidates_added": 2,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "DITV КОМЕДИИ СССР",
+          "source": "iptvx-noarch",
+          "source_id": "oasis-sovietcomedy",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Три плюс два (1963); candidate=Три плюс два (1963); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV КОМЕДИИ СССР",
+          "source": "tvteam",
+          "source_id": "ch2688",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Три плюс два (1963); candidate=Три плюс два (1963); requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
