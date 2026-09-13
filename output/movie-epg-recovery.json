@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-13T14:01:48.768991+00:00",
+  "updated_at": "2026-09-13T15:11:46.171187+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-13T14:01:47.426033+00:00",
+      "checked_at_utc": "2026-09-13T15:11:45.136302+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,11 +10,11 @@
         "Кинозалы"
       ],
       "channels": 488,
-      "ok": 451,
-      "gaps": 37,
+      "ok": 454,
+      "gaps": 34,
       "issue_counts": {
-        "NO_MAPPING": 36,
-        "NO_NEXT_PROGRAMME": 1
+        "NO_MAPPING": 32,
+        "NO_NEXT_PROGRAMME": 2
       },
       "group_counts": {
         "USSR": {
@@ -24,8 +24,8 @@
         },
         "Кино": {
           "channels": 168,
-          "ok": 145,
-          "gaps": 23
+          "ok": 146,
+          "gaps": 22
         },
         "Кино 4K": {
           "channels": 63,
@@ -34,39 +34,121 @@
         },
         "Кинозалы": {
           "channels": 239,
-          "ok": 227,
-          "gaps": 12
+          "ok": 229,
+          "gaps": 10
         }
       }
     },
     "observer": {
       "return_code": 0,
       "channels_considered": 35,
-      "high_confidence_observations": 0,
-      "recognized": []
+      "high_confidence_observations": 4,
+      "recognized": [
+        {
+          "playlist_name": "VHS HD",
+          "provider_name": "VHS HD",
+          "title": "НАЗАД В БУДУЩЕЕ 3",
+          "score": 23.25,
+          "zone": "top_left_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "РуКино HD",
+          "provider_name": "РуКино HD",
+          "title": "ВТОРЖЕНИЕ",
+          "score": 22.25,
+          "zone": "top_left_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "DITV Про акул",
+          "provider_name": "DITV Про акул",
+          "title": "Крейсер",
+          "score": 16.75,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "DITV КОМЕДИИ",
+          "provider_name": "DITV КОМЕДИИ",
+          "title": "Чудо в камере № 7",
+          "score": 17.75,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        }
+      ]
     },
     "evidence_recorder": {
-      "added": 0,
-      "rejected": 35,
-      "observations": []
+      "added": 4,
+      "rejected": 31,
+      "observations": [
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-13T15:02:05.440084+00:00",
+          "playlist_name": "VHS HD",
+          "observed_title": "НАЗАД В БУДУЩЕЕ 3",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=23.25"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-13T15:02:05.440084+00:00",
+          "playlist_name": "РуКино HD",
+          "observed_title": "ВТОРЖЕНИЕ",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=22.25"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-13T15:02:05.440084+00:00",
+          "playlist_name": "DITV Про акул",
+          "observed_title": "Крейсер",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=16.75"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-13T15:02:05.440084+00:00",
+          "playlist_name": "DITV КОМЕДИИ",
+          "observed_title": "Чудо в камере № 7",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=17.75"
+        }
+      ]
     },
     "judge": {
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "waiting-for-distinct-second-title"
+        "quarantined": 0,
+        "reason": "no-live-candidates"
       },
-      "pending_count": 0,
-      "pending": {},
+      "pending_count": 1,
+      "pending": {
+        "VHS HD": {
+          "observations": 1,
+          "distinct_titles": 1,
+          "status": "PENDING_DISTINCT_SECOND_TITLE"
+        }
+      },
       "selected_count": 0,
       "quarantined_count": 0,
       "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 0,
-      "sources_scanned": 0,
-      "sources_failed": [],
+      "live_observations": 4,
+      "sources_scanned": 28,
+      "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        }
+      ],
       "candidates_added": 0,
       "added": []
     }
