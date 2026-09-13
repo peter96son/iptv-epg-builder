@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-13T11:02:13.831610+00:00",
+  "updated_at": "2026-09-13T12:10:54.958944+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-13T11:02:12.491597+00:00",
+      "checked_at_utc": "2026-09-13T12:10:53.621042+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,17 +10,17 @@
         "Кинозалы"
       ],
       "channels": 488,
-      "ok": 451,
-      "gaps": 37,
+      "ok": 453,
+      "gaps": 35,
       "issue_counts": {
-        "NO_MAPPING": 36,
+        "NO_MAPPING": 34,
         "NO_NEXT_PROGRAMME": 1
       },
       "group_counts": {
         "USSR": {
           "channels": 18,
-          "ok": 16,
-          "gaps": 2
+          "ok": 17,
+          "gaps": 1
         },
         "Кино": {
           "channels": 168,
@@ -34,39 +34,204 @@
         },
         "Кинозалы": {
           "channels": 239,
-          "ok": 227,
-          "gaps": 12
+          "ok": 228,
+          "gaps": 11
         }
       }
     },
     "observer": {
       "return_code": 0,
       "channels_considered": 35,
-      "high_confidence_observations": 0,
-      "recognized": []
+      "high_confidence_observations": 2,
+      "recognized": [
+        {
+          "playlist_name": "DITV КОМЕДИИ",
+          "provider_name": "DITV КОМЕДИИ",
+          "title": "Амели (2001)",
+          "score": 16.25,
+          "zone": "left_bottom",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "DITV СССР 4К",
+          "provider_name": "DITV СССР 4К",
+          "title": "Собачье сердце (1988)",
+          "score": 18.25,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        }
+      ]
     },
     "evidence_recorder": {
-      "added": 0,
-      "rejected": 35,
-      "observations": []
+      "added": 2,
+      "rejected": 33,
+      "observations": [
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-13T12:02:34.606177+00:00",
+          "playlist_name": "DITV КОМЕДИИ",
+          "observed_title": "Амели (2001)",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom; engine=tesseract; score=16.25"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-13T12:02:34.606177+00:00",
+          "playlist_name": "DITV СССР 4К",
+          "observed_title": "Собачье сердце (1988)",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.25"
+        }
+      ]
     },
     "judge": {
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "waiting-for-distinct-second-title"
+        "reason": "no-policy"
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 0,
-      "quarantined_count": 0,
-      "selected": {},
-      "quarantined": {}
+      "selected_count": 14,
+      "quarantined_count": 1,
+      "selected": {
+        "Premium HD": {
+          "source": "gabbarit-current",
+          "source_id": "Premium HD",
+          "output_tvg_id": "premium-hd",
+          "horizon_hours": 10.11,
+          "current": true,
+          "usable": 9
+        },
+        "Premiere HD": {
+          "source": "gabbarit-current",
+          "source_id": "Premiere HD",
+          "output_tvg_id": "Xpremiere-hd",
+          "horizon_hours": 10.77,
+          "current": true,
+          "usable": 11
+        },
+        "Paradise HD": {
+          "source": "gabbarit-current",
+          "source_id": "Paradise HD",
+          "output_tvg_id": "Xparadise-hd",
+          "horizon_hours": 11.3,
+          "current": true,
+          "usable": 12
+        },
+        "Paradox HD": {
+          "source": "gabbarit-current",
+          "source_id": "Paradox HD",
+          "output_tvg_id": "Xparadox-hd",
+          "horizon_hours": 10.79,
+          "current": true,
+          "usable": 11
+        },
+        "4ever Cinema HD": {
+          "source": "iptvx-noarch",
+          "source_id": "4ever-cinema",
+          "output_tvg_id": "X4ever-cinema",
+          "horizon_hours": 9.99,
+          "current": true,
+          "usable": 10
+        },
+        "4ever Drama HD": {
+          "source": "iptvx-noarch",
+          "source_id": "4ever-drama",
+          "output_tvg_id": "X4ever-drama",
+          "horizon_hours": 10.38,
+          "current": true,
+          "usable": 10
+        },
+        "4ever Theater HD": {
+          "source": "iptvx-noarch",
+          "source_id": "4ever-theater",
+          "output_tvg_id": "X4ever-theater",
+          "horizon_hours": 10.16,
+          "current": true,
+          "usable": 9
+        },
+        "4ever Music HD": {
+          "source": "iptvx-noarch",
+          "source_id": "4ever-music",
+          "output_tvg_id": "X4ever-music",
+          "horizon_hours": 21.79,
+          "current": true,
+          "usable": 15
+        },
+        "MM Ужастик HD": {
+          "source": "minimax-mm-dedicated",
+          "source_id": "ujastik-mm",
+          "output_tvg_id": "Xminimax-ujastik",
+          "horizon_hours": 501.71,
+          "current": true,
+          "usable": 59
+        },
+        "MM Ужасы HD": {
+          "source": "tvteam",
+          "source_id": "ch1276",
+          "output_tvg_id": "Xminimax-ujasi",
+          "horizon_hours": 23.72,
+          "current": true,
+          "usable": 18
+        },
+        "Кино и Жизнь": {
+          "source": "iptvx-noarch",
+          "source_id": "kino-i-zhizn",
+          "output_tvg_id": "kino-i-zhizn",
+          "horizon_hours": 30.25,
+          "current": true,
+          "usable": 38
+        },
+        "MM Стивен Кинг HD": {
+          "source": "minimax-mm-dedicated",
+          "source_id": "st-king-mm",
+          "output_tvg_id": "Xminimax-st-king",
+          "horizon_hours": 391.61,
+          "current": true,
+          "usable": 58
+        },
+        "TVPlay DC Comics HD": {
+          "source": "iptvx-noarch",
+          "source_id": "tvplay-dccomics",
+          "output_tvg_id": "ch3754",
+          "horizon_hours": 16.88,
+          "current": true,
+          "usable": 17
+        },
+        "MM Супергерои HD": {
+          "source": "minimax-mm-dedicated",
+          "source_id": "supergeroi-mm",
+          "output_tvg_id": "Xminimax-supergeroi",
+          "horizon_hours": 252.34,
+          "current": true,
+          "usable": 28
+        }
+      },
+      "quarantined": {
+        "Premiere HD 2": {
+          "reason": "EVIDENCE_REQUIRED_NO_PROVEN_DONOR",
+          "previous_output_tvg_id": "Xpremierehd2"
+        }
+      }
     },
     "candidate_discovery": {
-      "live_observations": 0,
-      "sources_scanned": 0,
-      "sources_failed": [],
+      "live_observations": 2,
+      "sources_scanned": 27,
+      "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "m3u-edit-all-rescue",
+          "error": "RuntimeError"
+        }
+      ],
       "candidates_added": 0,
       "added": []
     }
