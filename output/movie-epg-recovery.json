@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-13T22:16:50.149151+00:00",
+  "updated_at": "2026-09-13T23:22:30.073965+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-13T22:16:48.856892+00:00",
+      "checked_at_utc": "2026-09-13T23:22:28.756292+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 488,
-      "ok": 392,
-      "gaps": 96,
+      "ok": 384,
+      "gaps": 104,
       "issue_counts": {
-        "NO_MAPPING": 47,
-        "NO_CURRENT_PROGRAMME": 45,
-        "NO_NEXT_PROGRAMME": 49
+        "NO_MAPPING": 45,
+        "NO_CURRENT_PROGRAMME": 50,
+        "NO_NEXT_PROGRAMME": 59
       },
       "group_counts": {
         "USSR": {
@@ -25,8 +25,8 @@
         },
         "Кино": {
           "channels": 168,
-          "ok": 126,
-          "gaps": 42
+          "ok": 119,
+          "gaps": 49
         },
         "Кино 4K": {
           "channels": 63,
@@ -35,85 +35,117 @@
         },
         "Кинозалы": {
           "channels": 239,
-          "ok": 190,
-          "gaps": 49
+          "ok": 189,
+          "gaps": 50
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 79,
-      "high_confidence_observations": 2,
+      "channels_considered": 82,
+      "high_confidence_observations": 3,
       "recognized": [
         {
-          "playlist_name": "MM Катастрофа HD",
-          "provider_name": "MM Катастрофа HD",
-          "title": "тоста",
-          "score": 16.25,
-          "zone": "top_band",
+          "playlist_name": "DITV Про акул",
+          "provider_name": "DITV Про акул",
+          "title": "Отмель",
+          "score": 21.5,
+          "zone": "bottom_band",
           "engine": "tesseract"
         },
         {
-          "playlist_name": "MM Flip UHD",
-          "provider_name": "MM Flip UHD",
-          "title": "Балерина | 2025",
-          "score": 22.0,
-          "zone": "left_bottom_tight",
+          "playlist_name": "DITV КОМЕДИИ 90-х",
+          "provider_name": "DITV КОМЕДИИ 90-х",
+          "title": "Голый пистолет 2 1/2: Запах en oe",
+          "score": 18.0,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "DITV КОМЕДИИ",
+          "provider_name": "DITV КОМЕДИИ",
+          "title": "Достать коротышку",
+          "score": 19.0,
+          "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 2,
-      "rejected": 77,
+      "added": 3,
+      "rejected": 79,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-13T22:07:54.518249+00:00",
-          "playlist_name": "MM Катастрофа HD",
-          "observed_title": "тоста",
+          "observed_at": "2026-09-13T23:08:10.070283+00:00",
+          "playlist_name": "DITV Про акул",
+          "observed_title": "Отмель",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=16.25"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=21.5"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-09-13T22:07:54.518249+00:00",
-          "playlist_name": "MM Flip UHD",
-          "observed_title": "Балерина | 2025",
+          "observed_at": "2026-09-13T23:08:10.070283+00:00",
+          "playlist_name": "DITV КОМЕДИИ 90-х",
+          "observed_title": "Голый пистолет 2 1/2: Запах en oe",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=22.0"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-13T23:08:10.070283+00:00",
+          "playlist_name": "DITV КОМЕДИИ",
+          "observed_title": "Достать коротышку",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=19.0"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 1,
-        "selected": 1,
+        "changed": 0,
+        "selected": 0,
         "quarantined": 0,
-        "target_hours": 6.0
+        "reason": "no-live-candidates"
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 1,
+      "selected_count": 0,
       "quarantined_count": 0,
-      "selected": {
-        "MM Flip UHD": {
-          "source": "minimax-mm-dedicated",
-          "source_id": "flip-mm",
-          "output_tvg_id": "Xminimax-flip",
-          "horizon_hours": 127.17,
-          "current": true,
-          "usable": 30
-        }
-      },
+      "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 2,
-      "sources_scanned": 9,
-      "sources_failed": [],
-      "candidates_added": 0,
-      "added": []
+      "live_observations": 3,
+      "sources_scanned": 26,
+      "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "epgpw-sreda",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-ru",
+          "error": "RuntimeError"
+        }
+      ],
+      "candidates_added": 1,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "DITV Про акул",
+          "source": "epgpw-RU",
+          "source_id": "72868",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Отмель; candidate=х/ф Отмель; requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
