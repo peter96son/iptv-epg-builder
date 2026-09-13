@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-13T00:37:11.314287+00:00",
+  "updated_at": "2026-09-13T01:23:55.058093+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-13T00:37:09.571519+00:00",
+      "checked_at_utc": "2026-09-13T01:23:54.073402+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 488,
-      "ok": 320,
-      "gaps": 168,
+      "ok": 321,
+      "gaps": 167,
       "issue_counts": {
         "NO_MAPPING": 40,
-        "NO_CURRENT_PROGRAMME": 112,
-        "NO_NEXT_PROGRAMME": 128
+        "NO_CURRENT_PROGRAMME": 127,
+        "NO_NEXT_PROGRAMME": 127
       },
       "group_counts": {
         "USSR": {
@@ -25,8 +25,8 @@
         },
         "Кино": {
           "channels": 168,
-          "ok": 130,
-          "gaps": 38
+          "ok": 131,
+          "gaps": 37
         },
         "Кино 4K": {
           "channels": 63,
@@ -43,229 +43,52 @@
     "observer": {
       "return_code": 0,
       "channels_considered": 168,
-      "high_confidence_observations": 3,
+      "high_confidence_observations": 1,
       "recognized": [
         {
-          "playlist_name": "Кино и Жизнь",
-          "provider_name": "Кино и Жизнь",
-          "title": "Молодой Шерлок",
-          "score": 23.25,
-          "zone": "top_left_tight",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "YOSSO-4K",
-          "provider_name": "YOSSO-4K",
-          "title": "Фуоззок",
-          "score": 21.75,
-          "zone": "top_band",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "BOX Serial 4K",
-          "provider_name": "BOX Serial 4K",
-          "title": "Рынок - 1 сезон, 3 серия",
-          "score": 14.75,
-          "zone": "top_band",
+          "playlist_name": "Premiere HD 2",
+          "provider_name": "Premiere HD 2",
+          "title": "Моана",
+          "score": 16.25,
+          "zone": "top_left",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 3,
-      "rejected": 164,
+      "added": 1,
+      "rejected": 166,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-13T00:19:55.806502+00:00",
-          "playlist_name": "Кино и Жизнь",
-          "observed_title": "Молодой Шерлок",
+          "observed_at": "2026-09-13T01:20:30.527563+00:00",
+          "playlist_name": "Premiere HD 2",
+          "observed_title": "Моана",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=23.25"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-13T00:19:55.806502+00:00",
-          "playlist_name": "YOSSO-4K",
-          "observed_title": "Фуоззок",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=21.75"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-13T00:19:55.806502+00:00",
-          "playlist_name": "BOX Serial 4K",
-          "observed_title": "Рынок - 1 сезон, 3 серия",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=14.75"
+          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=16.25"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 1,
-        "selected": 1,
+        "changed": 0,
+        "selected": 0,
         "quarantined": 0,
-        "target_hours": 6.0
+        "reason": "no-live-candidates"
       },
-      "pending_count": 1,
-      "pending": {
-        "BOX Serial 4K": {
-          "observations": 1,
-          "distinct_titles": 1,
-          "status": "PENDING_DISTINCT_SECOND_TITLE"
-        }
-      },
-      "selected_count": 1,
+      "pending_count": 0,
+      "pending": {},
+      "selected_count": 0,
       "quarantined_count": 0,
-      "selected": {
-        "Кино и Жизнь": {
-          "source": "iptvx-noarch",
-          "source_id": "kino-i-zhizn",
-          "output_tvg_id": "kino-i-zhizn",
-          "horizon_hours": 36.3,
-          "current": true,
-          "usable": 41
-        }
-      },
+      "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 3,
-      "sources_scanned": 26,
-      "sources_failed": [
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-ru",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-rescue",
-          "error": "RuntimeError"
-        }
-      ],
-      "candidates_added": 16,
-      "added": [
-        {
-          "enabled": "1",
-          "playlist_name": "Кино и Жизнь",
-          "source": "iptvx-noarch",
-          "source_id": "oasis-ruscomedy",
-          "notes": "auto-discovered from live title; similarity=0.828; observed=Молодой Шерлок; candidate=Молодой человек (2022); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Кино и Жизнь",
-          "source": "iptvx-noarch",
-          "source_id": "veles-komed",
-          "notes": "auto-discovered from live title; similarity=0.828; observed=Молодой Шерлок; candidate=х/ф Молодой человек (2022); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "BOX Serial 4K",
-          "source": "runigma-iptv",
-          "source_id": "box-serial-4k",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Рынок - 1 сезон, 3 серия; candidate=Рынок - 1 сезон, 3 серия.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "BOX Serial 4K",
-          "source": "openbox-tsd",
-          "source_id": "box-serial-4k",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Рынок - 1 сезон, 3 серия; candidate=Т/с Рынок - 1 сезон, 3 серия.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "BOX Serial 4K",
-          "source": "bcumedia-dedicated",
-          "source_id": "BOX Serial 4K",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Рынок - 1 сезон, 3 серия; candidate=Рынок - 1 сезон, 3 серия; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "BOX Serial 4K",
-          "source": "tvteam",
-          "source_id": "ch2300",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Рынок - 1 сезон, 3 серия; candidate=Рынок - 1 сезон, 3 серия.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Кино и Жизнь",
-          "source": "tvteam",
-          "source_id": "ch2681",
-          "notes": "auto-discovered from live title; similarity=0.828; observed=Молодой Шерлок; candidate=Молодой человек (2022); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Кино и Жизнь",
-          "source": "tvteam",
-          "source_id": "ch2314",
-          "notes": "auto-discovered from live title; similarity=0.828; observed=Молодой Шерлок; candidate=Молодой человек (2022).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "BOX Serial 4K",
-          "source": "epgone-ru2",
-          "source_id": "8923",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Рынок - 1 сезон, 3 серия; candidate=Рынок - 1 сезон, 3 серия.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "BOX Serial 4K",
-          "source": "gabbarit-current",
-          "source_id": "BOX Serial 4K",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Рынок - 1 сезон, 3 серия; candidate=Рынок - 1 сезон, 3 серия.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Кино и Жизнь",
-          "source": "gabbarit-current",
-          "source_id": "VeleS Комедия",
-          "notes": "auto-discovered from live title; similarity=0.828; observed=Молодой Шерлок; candidate=Молодой человек (2022).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "BOX Serial 4K",
-          "source": "gabbarit-primary",
-          "source_id": "BOX Serial 4K",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Рынок - 1 сезон, 3 серия; candidate=Рынок - 1 сезон, 3 серия.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Кино и Жизнь",
-          "source": "gabbarit-primary",
-          "source_id": "VeleS Комедия",
-          "notes": "auto-discovered from live title; similarity=0.828; observed=Молодой Шерлок; candidate=Молодой человек (2022).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "BOX Serial 4K",
-          "source": "gabbarit-mirror",
-          "source_id": "BOX Serial 4K",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Рынок - 1 сезон, 3 серия; candidate=Рынок - 1 сезон, 3 серия.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Кино и Жизнь",
-          "source": "gabbarit-mirror",
-          "source_id": "VeleS Комедия",
-          "notes": "auto-discovered from live title; similarity=0.828; observed=Молодой Шерлок; candidate=Молодой человек (2022).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "BOX Serial 4K",
-          "source": "epgone-full-movie-rescue",
-          "source_id": "8923",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Рынок - 1 сезон, 3 серия; candidate=Рынок - 1 сезон, 3 серия.; requires two positive observations before selection"
-        }
-      ]
+      "live_observations": 1,
+      "sources_scanned": 4,
+      "sources_failed": [],
+      "candidates_added": 0,
+      "added": []
     }
   }
 }
