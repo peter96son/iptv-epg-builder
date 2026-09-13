@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-13T02:32:19.478387+00:00",
+  "updated_at": "2026-09-13T03:30:20.319195+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-13T02:32:17.811678+00:00",
+      "checked_at_utc": "2026-09-13T03:30:18.613740+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 488,
-      "ok": 321,
-      "gaps": 167,
+      "ok": 320,
+      "gaps": 168,
       "issue_counts": {
         "NO_MAPPING": 40,
-        "NO_CURRENT_PROGRAMME": 127,
-        "NO_NEXT_PROGRAMME": 127
+        "NO_CURRENT_PROGRAMME": 128,
+        "NO_NEXT_PROGRAMME": 128
       },
       "group_counts": {
         "USSR": {
@@ -30,88 +30,87 @@
         },
         "Кино 4K": {
           "channels": 63,
-          "ok": 56,
-          "gaps": 7
+          "ok": 57,
+          "gaps": 6
         },
         "Кинозалы": {
           "channels": 239,
-          "ok": 123,
-          "gaps": 116
+          "ok": 121,
+          "gaps": 118
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 169,
+      "channels_considered": 130,
       "high_confidence_observations": 2,
       "recognized": [
         {
-          "playlist_name": "BCU FilMystic HD",
-          "provider_name": "BCU FilMystic HD",
-          "title": "Поворот нет",
-          "score": 13.5,
-          "zone": "top_left_tight",
+          "playlist_name": "TVPlay DC Comics HD",
+          "provider_name": "TVPlay DC Comics HD",
+          "title": "АКВАМЕН 2018",
+          "score": 21.75,
+          "zone": "left_bottom_tight",
           "engine": "tesseract"
         },
         {
-          "playlist_name": "BCU Russian HD",
-          "provider_name": "BCU Russian HD",
-          "title": "22 минут",
-          "score": 21.25,
-          "zone": "top_left_tight",
+          "playlist_name": "BOX Relax 4K",
+          "provider_name": "BOX Relax 4K",
+          "title": "RELAXATION FILM",
+          "score": 13.5,
+          "zone": "left_bottom_tight",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
       "added": 2,
-      "rejected": 166,
+      "rejected": 127,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-13T02:19:22.088144+00:00",
-          "playlist_name": "BCU FilMystic HD",
-          "observed_title": "Поворот нет",
+          "observed_at": "2026-09-13T03:14:36.896280+00:00",
+          "playlist_name": "TVPlay DC Comics HD",
+          "observed_title": "АКВАМЕН 2018",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=13.5"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=21.75"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-09-13T02:19:22.088144+00:00",
-          "playlist_name": "BCU Russian HD",
-          "observed_title": "22 минут",
+          "observed_at": "2026-09-13T03:14:36.896280+00:00",
+          "playlist_name": "BOX Relax 4K",
+          "observed_title": "RELAXATION FILM",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=21.25"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=13.5"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 0,
-        "selected": 0,
-        "reason": "waiting-for-distinct-second-title"
+        "changed": 1,
+        "selected": 1,
+        "quarantined": 0,
+        "target_hours": 6.0
       },
-      "pending_count": 2,
-      "pending": {
-        "BCU FilMystic HD": {
-          "observations": 1,
-          "distinct_titles": 1,
-          "status": "PENDING_DISTINCT_SECOND_TITLE"
-        },
-        "BCU Russian HD": {
-          "observations": 1,
-          "distinct_titles": 1,
-          "status": "PENDING_DISTINCT_SECOND_TITLE"
+      "pending_count": 0,
+      "pending": {},
+      "selected_count": 1,
+      "quarantined_count": 0,
+      "selected": {
+        "TVPlay DC Comics HD": {
+          "source": "iptvx-noarch",
+          "source_id": "tvplay-dccomics",
+          "output_tvg_id": "ch3754",
+          "horizon_hours": 23.78,
+          "current": true,
+          "usable": 19
         }
       },
-      "selected_count": 0,
-      "quarantined_count": 0,
-      "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
       "live_observations": 2,
-      "sources_scanned": 26,
+      "sources_scanned": 28,
       "sources_failed": [
         {
           "source": "klimedia-dedicated",
@@ -120,87 +119,37 @@
         {
           "source": "sharavoz-guide",
           "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-ru",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-rescue",
-          "error": "RuntimeError"
         }
       ],
-      "candidates_added": 10,
+      "candidates_added": 4,
       "added": [
         {
           "enabled": "1",
-          "playlist_name": "BCU Russian HD",
-          "source": "iptv-online-primary",
-          "source_id": "Xbcu-russian",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=22 минут; candidate=х/ф 22 минуты (2014); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "BCU Russian HD",
-          "source": "iptvx-noarch",
-          "source_id": "bcu-russian",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=22 минут; candidate=х/ф 22 минуты (2014); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "BCU Russian HD",
-          "source": "runigma-iptv",
-          "source_id": "bcu-russian-HD",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=22 минут; candidate=22 минуты (2014).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "BCU Russian HD",
-          "source": "bcumedia-dedicated",
-          "source_id": "BCU Russian HD",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=22 минут; candidate=22 минуты (2014); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "BCU Russian HD",
+          "playlist_name": "TVPlay DC Comics HD",
           "source": "tvteam",
-          "source_id": "ch780",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=22 минут; candidate=22 минуты (2014); requires two positive observations before selection"
+          "source_id": "ch3754",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=АКВАМЕН 2018; candidate=Аквамен 2018; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "BCU Russian HD",
+          "playlist_name": "TVPlay DC Comics HD",
           "source": "gabbarit-current",
-          "source_id": "BCU Russian",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=22 минут; candidate=22 минуты (2014).; requires two positive observations before selection"
+          "source_id": "TVPlay DC Comics HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=АКВАМЕН 2018; candidate=Аквамен 2018.; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "BCU Russian HD",
-          "source": "m3u-edit-all-rescue",
-          "source_id": "TV1000.Russkoe.Kino.lu",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=22 минут; candidate=22 минуты; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "BCU Russian HD",
+          "playlist_name": "TVPlay DC Comics HD",
           "source": "gabbarit-primary",
-          "source_id": "BCU Russian",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=22 минут; candidate=22 минуты (2014).; requires two positive observations before selection"
+          "source_id": "TVPlay DC Comics HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=АКВАМЕН 2018; candidate=Аквамен 2018.; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "BCU Russian HD",
+          "playlist_name": "TVPlay DC Comics HD",
           "source": "gabbarit-mirror",
-          "source_id": "BCU Russian",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=22 минут; candidate=22 минуты (2014).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "BCU Russian HD",
-          "source": "epgone-full-movie-rescue",
-          "source_id": "4762",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=22 минут; candidate=22 минуты (2014); requires two positive observations before selection"
+          "source_id": "TVPlay DC Comics HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=АКВАМЕН 2018; candidate=Аквамен 2018.; requires two positive observations before selection"
         }
       ]
     }
