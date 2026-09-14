@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-14T17:03:48.275325+00:00",
+  "updated_at": "2026-09-14T18:09:32.790220+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-14T17:03:46.592016+00:00",
+      "checked_at_utc": "2026-09-14T18:09:31.855680+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,10 +10,10 @@
         "Кинозалы"
       ],
       "channels": 488,
-      "ok": 449,
-      "gaps": 39,
+      "ok": 450,
+      "gaps": 38,
       "issue_counts": {
-        "NO_MAPPING": 39
+        "NO_MAPPING": 38
       },
       "group_counts": {
         "USSR": {
@@ -33,39 +33,131 @@
         },
         "Кинозалы": {
           "channels": 239,
-          "ok": 228,
-          "gaps": 11
+          "ok": 229,
+          "gaps": 10
         }
       }
     },
     "observer": {
       "return_code": 0,
       "channels_considered": 33,
-      "high_confidence_observations": 0,
-      "recognized": []
+      "high_confidence_observations": 1,
+      "recognized": [
+        {
+          "playlist_name": "DITV Concert",
+          "provider_name": "DITV Concert",
+          "title": "САДКО",
+          "score": 21.25,
+          "zone": "top_band",
+          "engine": "tesseract"
+        }
+      ]
     },
     "evidence_recorder": {
-      "added": 0,
-      "rejected": 33,
-      "observations": []
+      "added": 1,
+      "rejected": 32,
+      "observations": [
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-14T18:02:22.394177+00:00",
+          "playlist_name": "DITV Concert",
+          "observed_title": "САДКО",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=21.25"
+        }
+      ]
     },
     "judge": {
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "waiting-for-distinct-second-title"
+        "reason": "no-policy"
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 0,
+      "selected_count": 7,
       "quarantined_count": 0,
-      "selected": {},
+      "selected": {
+        "4ever Cinema HD": {
+          "source": "gabbarit-current",
+          "source_id": "4 ever Cinema",
+          "output_tvg_id": "X4ever-cinema",
+          "horizon_hours": 318.11,
+          "current": true,
+          "usable": 19
+        },
+        "4ever Drama HD": {
+          "source": "gabbarit-current",
+          "source_id": "4ever Drama",
+          "output_tvg_id": "X4ever-drama",
+          "horizon_hours": 318.1,
+          "current": true,
+          "usable": 19
+        },
+        "4ever Theater HD": {
+          "source": "gabbarit-current",
+          "source_id": "4ever Theater",
+          "output_tvg_id": "X4ever-theater",
+          "horizon_hours": 318.09,
+          "current": true,
+          "usable": 19
+        },
+        "4ever Music HD": {
+          "source": "iptvx-noarch",
+          "source_id": "4ever-music",
+          "output_tvg_id": "X4ever-music",
+          "horizon_hours": 154.09,
+          "current": true,
+          "usable": 28
+        },
+        "MM Ужасы HD": {
+          "source": "minimax-mm-dedicated",
+          "source_id": "ujasi-mm",
+          "output_tvg_id": "Xminimax-ujasi",
+          "horizon_hours": 509.17,
+          "current": true,
+          "usable": 35
+        },
+        "MM Погружение HD": {
+          "source": "minimax-mm-dedicated",
+          "source_id": "pogrujenie-mm",
+          "output_tvg_id": "Xminimax-pogrujenie",
+          "horizon_hours": 128.52,
+          "current": true,
+          "usable": 34
+        },
+        "MM Flip UHD": {
+          "source": "minimax-mm-dedicated",
+          "source_id": "flip-mm",
+          "output_tvg_id": "Xminimax-flip",
+          "horizon_hours": 109.18,
+          "current": true,
+          "usable": 29
+        }
+      },
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 0,
-      "sources_scanned": 0,
-      "sources_failed": [],
+      "live_observations": 1,
+      "sources_scanned": 26,
+      "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-ru",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-rescue",
+          "error": "RuntimeError"
+        }
+      ],
       "candidates_added": 0,
       "added": []
     }
