@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-14T00:23:07.811298+00:00",
+  "updated_at": "2026-09-14T01:19:35.896740+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-14T00:23:06.474739+00:00",
+      "checked_at_utc": "2026-09-14T01:19:35.167812+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 488,
-      "ok": 381,
-      "gaps": 107,
+      "ok": 370,
+      "gaps": 118,
       "issue_counts": {
         "NO_MAPPING": 43,
-        "NO_NEXT_PROGRAMME": 64,
-        "NO_CURRENT_PROGRAMME": 61
+        "NO_CURRENT_PROGRAMME": 64,
+        "NO_NEXT_PROGRAMME": 75
       },
       "group_counts": {
         "USSR": {
@@ -25,79 +25,63 @@
         },
         "Кино": {
           "channels": 168,
-          "ok": 117,
-          "gaps": 51
+          "ok": 110,
+          "gaps": 58
         },
         "Кино 4K": {
           "channels": 63,
-          "ok": 62,
-          "gaps": 1
+          "ok": 60,
+          "gaps": 3
         },
         "Кинозалы": {
           "channels": 239,
-          "ok": 188,
-          "gaps": 51
+          "ok": 186,
+          "gaps": 53
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 84,
-      "high_confidence_observations": 3,
+      "channels_considered": 89,
+      "high_confidence_observations": 2,
       "recognized": [
         {
-          "playlist_name": "РуКино HD",
-          "provider_name": "РуКино HD",
-          "title": "ДВОЕ",
-          "score": 18.0,
-          "zone": "top_left_tight",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "DITV ФИЛЬМЫ УЖАСОВ 80-х",
-          "provider_name": "DITV ФИЛЬМЫ УЖАСОВ 80-х",
-          "title": "Нечто (1982)",
+          "playlist_name": "Premiere HD 2",
+          "provider_name": "Premiere HD 2",
+          "title": "Моана",
           "score": 16.25,
-          "zone": "left_bottom_tight",
+          "zone": "top_left",
           "engine": "tesseract"
         },
         {
-          "playlist_name": "MM Катастрофа HD",
-          "provider_name": "MM Катастрофа HD",
-          "title": "ожае",
-          "score": 18.0,
-          "zone": "top_band",
+          "playlist_name": "VeleS С Новым годом!",
+          "provider_name": "VeleS С Новым годом!",
+          "title": "Елки новые (2017)",
+          "score": 22.25,
+          "zone": "left_bottom_tight",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 3,
-      "rejected": 81,
+      "added": 2,
+      "rejected": 87,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-14T00:08:07.696240+00:00",
-          "playlist_name": "РуКино HD",
-          "observed_title": "ДВОЕ",
+          "observed_at": "2026-09-14T01:10:56.580344+00:00",
+          "playlist_name": "Premiere HD 2",
+          "observed_title": "Моана",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=18.0"
+          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=16.25"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-09-14T00:08:07.696240+00:00",
-          "playlist_name": "DITV ФИЛЬМЫ УЖАСОВ 80-х",
-          "observed_title": "Нечто (1982)",
+          "observed_at": "2026-09-14T01:10:56.580344+00:00",
+          "playlist_name": "VeleS С Новым годом!",
+          "observed_title": "Елки новые (2017)",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=16.25"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-14T00:08:07.696240+00:00",
-          "playlist_name": "MM Катастрофа HD",
-          "observed_title": "ожае",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=18.0"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=22.25"
         }
       ]
     },
@@ -108,16 +92,22 @@
         "quarantined": 0,
         "reason": "no-live-candidates"
       },
-      "pending_count": 0,
-      "pending": {},
+      "pending_count": 1,
+      "pending": {
+        "VeleS С Новым годом!": {
+          "observations": 1,
+          "distinct_titles": 1,
+          "status": "PENDING_DISTINCT_SECOND_TITLE"
+        }
+      },
       "selected_count": 0,
       "quarantined_count": 0,
       "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 3,
-      "sources_scanned": 26,
+      "live_observations": 2,
+      "sources_scanned": 27,
       "sources_failed": [
         {
           "source": "klimedia-dedicated",
@@ -128,24 +118,12 @@
           "error": "RuntimeError"
         },
         {
-          "source": "teleguide-ru",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-rescue",
+          "source": "epgpw-chestny-detektiv",
           "error": "RuntimeError"
         }
       ],
-      "candidates_added": 1,
-      "added": [
-        {
-          "enabled": "1",
-          "playlist_name": "DITV ФИЛЬМЫ УЖАСОВ 80-х",
-          "source": "epgone-full-movie-rescue",
-          "source_id": "6255",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Нечто (1982); candidate=Нечто (2011); requires two positive observations before selection"
-        }
-      ]
+      "candidates_added": 0,
+      "added": []
     }
   }
 }
