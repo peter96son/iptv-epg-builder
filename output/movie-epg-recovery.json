@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-14T13:06:51.140135+00:00",
+  "updated_at": "2026-09-14T14:05:11.267359+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-14T13:06:49.521199+00:00",
+      "checked_at_utc": "2026-09-14T14:05:09.671003+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -41,20 +41,39 @@
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 34,
-      "high_confidence_observations": 0,
-      "recognized": []
+      "channels_considered": 35,
+      "high_confidence_observations": 1,
+      "recognized": [
+        {
+          "playlist_name": "DITV КОМЕДИИ",
+          "provider_name": "DITV КОМЕДИИ",
+          "title": "Чудо в камере № 7",
+          "score": 17.75,
+          "zone": "left_bottom",
+          "engine": "tesseract"
+        }
+      ]
     },
     "evidence_recorder": {
-      "added": 0,
+      "added": 1,
       "rejected": 34,
-      "observations": []
+      "observations": [
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-14T14:03:54.035486+00:00",
+          "playlist_name": "DITV КОМЕДИИ",
+          "observed_title": "Чудо в камере № 7",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom; engine=tesseract; score=17.75"
+        }
+      ]
     },
     "judge": {
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "waiting-for-distinct-second-title"
+        "quarantined": 0,
+        "reason": "no-live-candidates"
       },
       "pending_count": 0,
       "pending": {},
@@ -64,8 +83,8 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 0,
-      "sources_scanned": 0,
+      "live_observations": 1,
+      "sources_scanned": 2,
       "sources_failed": [],
       "candidates_added": 0,
       "added": []
