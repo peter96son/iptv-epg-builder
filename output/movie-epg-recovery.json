@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-14T07:30:17.939336+00:00",
+  "updated_at": "2026-09-14T08:22:40.388335+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-14T07:30:16.589978+00:00",
+      "checked_at_utc": "2026-09-14T08:22:39.183467+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,78 +10,62 @@
         "Кинозалы"
       ],
       "channels": 488,
-      "ok": 293,
-      "gaps": 195,
+      "ok": 343,
+      "gaps": 145,
       "issue_counts": {
-        "NO_MAPPING": 41,
-        "NO_CURRENT_PROGRAMME": 153,
-        "NO_NEXT_PROGRAMME": 154
+        "NO_MAPPING": 139,
+        "NO_NEXT_PROGRAMME": 6,
+        "NO_CURRENT_PROGRAMME": 1
       },
       "group_counts": {
         "USSR": {
           "channels": 18,
-          "ok": 12,
-          "gaps": 6
+          "ok": 13,
+          "gaps": 5
         },
         "Кино": {
           "channels": 168,
-          "ok": 101,
-          "gaps": 67
+          "ok": 115,
+          "gaps": 53
         },
         "Кино 4K": {
           "channels": 63,
-          "ok": 12,
-          "gaps": 51
+          "ok": 13,
+          "gaps": 50
         },
         "Кинозалы": {
           "channels": 239,
-          "ok": 168,
-          "gaps": 71
+          "ok": 202,
+          "gaps": 37
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 116,
-      "high_confidence_observations": 2,
+      "channels_considered": 79,
+      "high_confidence_observations": 1,
       "recognized": [
         {
-          "playlist_name": "Insomnia HD",
-          "provider_name": "Insomnia HD",
-          "title": "ЖАТВА",
-          "score": 16.25,
-          "zone": "top_band",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "Bear TV КиноМаяк RU UHD",
-          "provider_name": "Bear TV КиноМаяк RU UHD",
-          "title": "< С van Ц ^ “pee BEAR | 0",
-          "score": 15.0,
+          "playlist_name": "YOSSO-4K",
+          "provider_name": "YOSSO-4K",
+          "title": "Фуоззок",
+          "score": 21.75,
           "zone": "top_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 2,
-      "rejected": 114,
+      "added": 1,
+      "rejected": 78,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-14T07:16:03.062037+00:00",
-          "playlist_name": "Insomnia HD",
-          "observed_title": "ЖАТВА",
+          "observed_at": "2026-09-14T08:09:53.269289+00:00",
+          "playlist_name": "YOSSO-4K",
+          "observed_title": "Фуоззок",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=16.25"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-14T07:16:03.062037+00:00",
-          "playlist_name": "Bear TV КиноМаяк RU UHD",
-          "observed_title": "< С van Ц ^ “pee BEAR | 0",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=15.0"
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=21.75"
         }
       ]
     },
@@ -91,21 +75,77 @@
         "selected": 0,
         "reason": "no-policy"
       },
-      "pending_count": 1,
-      "pending": {
-        "Bear TV КиноМаяк RU UHD": {
-          "observations": 1,
-          "distinct_titles": 1,
-          "status": "PENDING_DISTINCT_SECOND_TITLE"
+      "pending_count": 0,
+      "pending": {},
+      "selected_count": 7,
+      "quarantined_count": 1,
+      "selected": {
+        "4ever Cinema HD": {
+          "source": "iptvx-noarch",
+          "source_id": "4ever-cinema",
+          "output_tvg_id": "X4ever-cinema",
+          "horizon_hours": 8.04,
+          "current": true,
+          "usable": 15
+        },
+        "4ever Drama HD": {
+          "source": "iptvx-noarch",
+          "source_id": "4ever-drama",
+          "output_tvg_id": "X4ever-drama",
+          "horizon_hours": 8.43,
+          "current": true,
+          "usable": 15
+        },
+        "4ever Theater HD": {
+          "source": "iptvx-noarch",
+          "source_id": "4ever-theater",
+          "output_tvg_id": "X4ever-theater",
+          "horizon_hours": 9.29,
+          "current": true,
+          "usable": 10
+        },
+        "4ever Music HD": {
+          "source": "openbox-tsd",
+          "source_id": "4ever-music",
+          "output_tvg_id": "X4ever-music",
+          "horizon_hours": 155.82,
+          "current": true,
+          "usable": 8
+        },
+        "MM Ужасы HD": {
+          "source": "minimax-mm-dedicated",
+          "source_id": "ujasi-mm",
+          "output_tvg_id": "Xminimax-ujasi",
+          "horizon_hours": 517.86,
+          "current": true,
+          "usable": 35
+        },
+        "MM Погружение HD": {
+          "source": "minimax-mm-dedicated",
+          "source_id": "pogrujenie-mm",
+          "output_tvg_id": "Xminimax-pogrujenie",
+          "horizon_hours": 137.09,
+          "current": true,
+          "usable": 33
+        },
+        "MM Flip UHD": {
+          "source": "minimax-mm-dedicated",
+          "source_id": "flip-mm",
+          "output_tvg_id": "Xminimax-flip",
+          "horizon_hours": 117.75,
+          "current": true,
+          "usable": 30
         }
       },
-      "selected_count": 0,
-      "quarantined_count": 0,
-      "selected": {},
-      "quarantined": {}
+      "quarantined": {
+        "MM Катастрофа HD": {
+          "reason": "EVIDENCE_REQUIRED_NO_PROVEN_DONOR",
+          "previous_output_tvg_id": "Xminimax-katastrofa"
+        }
+      }
     },
     "candidate_discovery": {
-      "live_observations": 2,
+      "live_observations": 1,
       "sources_scanned": 26,
       "sources_failed": [
         {
