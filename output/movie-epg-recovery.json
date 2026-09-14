@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-14T11:02:57.106166+00:00",
+  "updated_at": "2026-09-14T12:05:31.715189+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-14T11:02:55.902483+00:00",
+      "checked_at_utc": "2026-09-14T12:05:30.095120+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,10 +10,10 @@
         "Кинозалы"
       ],
       "channels": 488,
-      "ok": 447,
-      "gaps": 41,
+      "ok": 448,
+      "gaps": 40,
       "issue_counts": {
-        "NO_MAPPING": 40,
+        "NO_MAPPING": 39,
         "NO_NEXT_PROGRAMME": 1
       },
       "group_counts": {
@@ -34,27 +34,46 @@
         },
         "Кинозалы": {
           "channels": 239,
-          "ok": 227,
-          "gaps": 12
+          "ok": 228,
+          "gaps": 11
         }
       }
     },
     "observer": {
       "return_code": 0,
       "channels_considered": 35,
-      "high_confidence_observations": 0,
-      "recognized": []
+      "high_confidence_observations": 1,
+      "recognized": [
+        {
+          "playlist_name": "DITV КОМЕДИИ",
+          "provider_name": "DITV КОМЕДИИ",
+          "title": "Амели (2001)",
+          "score": 21.25,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        }
+      ]
     },
     "evidence_recorder": {
-      "added": 0,
-      "rejected": 35,
-      "observations": []
+      "added": 1,
+      "rejected": 34,
+      "observations": [
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-14T12:04:11.464422+00:00",
+          "playlist_name": "DITV КОМЕДИИ",
+          "observed_title": "Амели (2001)",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=21.25"
+        }
+      ]
     },
     "judge": {
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "waiting-for-distinct-second-title"
+        "quarantined": 0,
+        "reason": "no-live-candidates"
       },
       "pending_count": 0,
       "pending": {},
@@ -64,8 +83,8 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 0,
-      "sources_scanned": 0,
+      "live_observations": 1,
+      "sources_scanned": 2,
       "sources_failed": [],
       "candidates_added": 0,
       "added": []
