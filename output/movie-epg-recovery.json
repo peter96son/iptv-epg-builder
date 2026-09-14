@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-14T18:09:32.790220+00:00",
+  "updated_at": "2026-09-14T19:26:01.237348+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-14T18:09:31.855680+00:00",
+      "checked_at_utc": "2026-09-14T19:25:59.554202+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,10 +10,12 @@
         "Кинозалы"
       ],
       "channels": 488,
-      "ok": 450,
-      "gaps": 38,
+      "ok": 452,
+      "gaps": 36,
       "issue_counts": {
-        "NO_MAPPING": 38
+        "NO_MAPPING": 35,
+        "NO_CURRENT_PROGRAMME": 1,
+        "NO_NEXT_PROGRAMME": 1
       },
       "group_counts": {
         "USSR": {
@@ -23,8 +25,8 @@
         },
         "Кино": {
           "channels": 168,
-          "ok": 143,
-          "gaps": 25
+          "ok": 144,
+          "gaps": 24
         },
         "Кино 4K": {
           "channels": 63,
@@ -33,37 +35,69 @@
         },
         "Кинозалы": {
           "channels": 239,
-          "ok": 229,
-          "gaps": 10
+          "ok": 230,
+          "gaps": 9
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 33,
-      "high_confidence_observations": 1,
+      "channels_considered": 32,
+      "high_confidence_observations": 3,
       "recognized": [
         {
-          "playlist_name": "DITV Concert",
-          "provider_name": "DITV Concert",
-          "title": "САДКО",
-          "score": 21.25,
+          "playlist_name": "Thriller HD",
+          "provider_name": "Thriller HD",
+          "title": "СТОРОЖКА",
+          "score": 22.0,
+          "zone": "top_left_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "DITV КОМЕДИИ 90-х",
+          "provider_name": "DITV КОМЕДИИ 90-х",
+          "title": "= = KOME BUTT",
+          "score": 12.0,
+          "zone": "top_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "DITV Walt Disney",
+          "provider_name": "DITV Walt Disney",
+          "title": "бела\"",
+          "score": 13.0,
           "zone": "top_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 32,
+      "added": 3,
+      "rejected": 29,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-14T18:02:22.394177+00:00",
-          "playlist_name": "DITV Concert",
-          "observed_title": "САДКО",
+          "observed_at": "2026-09-14T19:05:09.232281+00:00",
+          "playlist_name": "Thriller HD",
+          "observed_title": "СТОРОЖКА",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=21.25"
+          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=22.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-14T19:05:09.232281+00:00",
+          "playlist_name": "DITV КОМЕДИИ 90-х",
+          "observed_title": "= = KOME BUTT",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=12.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-14T19:05:09.232281+00:00",
+          "playlist_name": "DITV Walt Disney",
+          "observed_title": "бела\"",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=13.0"
         }
       ]
     },
@@ -71,75 +105,19 @@
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "no-policy"
+        "quarantined": 0,
+        "reason": "no-live-candidates"
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 7,
+      "selected_count": 0,
       "quarantined_count": 0,
-      "selected": {
-        "4ever Cinema HD": {
-          "source": "gabbarit-current",
-          "source_id": "4 ever Cinema",
-          "output_tvg_id": "X4ever-cinema",
-          "horizon_hours": 318.11,
-          "current": true,
-          "usable": 19
-        },
-        "4ever Drama HD": {
-          "source": "gabbarit-current",
-          "source_id": "4ever Drama",
-          "output_tvg_id": "X4ever-drama",
-          "horizon_hours": 318.1,
-          "current": true,
-          "usable": 19
-        },
-        "4ever Theater HD": {
-          "source": "gabbarit-current",
-          "source_id": "4ever Theater",
-          "output_tvg_id": "X4ever-theater",
-          "horizon_hours": 318.09,
-          "current": true,
-          "usable": 19
-        },
-        "4ever Music HD": {
-          "source": "iptvx-noarch",
-          "source_id": "4ever-music",
-          "output_tvg_id": "X4ever-music",
-          "horizon_hours": 154.09,
-          "current": true,
-          "usable": 28
-        },
-        "MM Ужасы HD": {
-          "source": "minimax-mm-dedicated",
-          "source_id": "ujasi-mm",
-          "output_tvg_id": "Xminimax-ujasi",
-          "horizon_hours": 509.17,
-          "current": true,
-          "usable": 35
-        },
-        "MM Погружение HD": {
-          "source": "minimax-mm-dedicated",
-          "source_id": "pogrujenie-mm",
-          "output_tvg_id": "Xminimax-pogrujenie",
-          "horizon_hours": 128.52,
-          "current": true,
-          "usable": 34
-        },
-        "MM Flip UHD": {
-          "source": "minimax-mm-dedicated",
-          "source_id": "flip-mm",
-          "output_tvg_id": "Xminimax-flip",
-          "horizon_hours": 109.18,
-          "current": true,
-          "usable": 29
-        }
-      },
+      "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 26,
+      "live_observations": 3,
+      "sources_scanned": 28,
       "sources_failed": [
         {
           "source": "klimedia-dedicated",
@@ -147,14 +125,6 @@
         },
         {
           "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-ru",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-rescue",
           "error": "RuntimeError"
         }
       ],
