@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-14T10:24:06.383765+00:00",
+  "updated_at": "2026-09-14T11:02:57.106166+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-14T10:24:05.195487+00:00",
+      "checked_at_utc": "2026-09-14T11:02:55.902483+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,64 +10,45 @@
         "Кинозалы"
       ],
       "channels": 488,
-      "ok": 338,
-      "gaps": 150,
+      "ok": 447,
+      "gaps": 41,
       "issue_counts": {
-        "NO_MAPPING": 138,
-        "NO_NEXT_PROGRAMME": 12,
-        "NO_CURRENT_PROGRAMME": 4
+        "NO_MAPPING": 40,
+        "NO_NEXT_PROGRAMME": 1
       },
       "group_counts": {
         "USSR": {
           "channels": 18,
-          "ok": 13,
-          "gaps": 5
+          "ok": 15,
+          "gaps": 3
         },
         "Кино": {
           "channels": 168,
-          "ok": 112,
-          "gaps": 56
+          "ok": 142,
+          "gaps": 26
         },
         "Кино 4K": {
           "channels": 63,
-          "ok": 12,
-          "gaps": 51
+          "ok": 63,
+          "gaps": 0
         },
         "Кинозалы": {
           "channels": 239,
-          "ok": 201,
-          "gaps": 38
+          "ok": 227,
+          "gaps": 12
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 82,
-      "high_confidence_observations": 1,
-      "recognized": [
-        {
-          "playlist_name": "Дом Кино",
-          "provider_name": "Дом Кино",
-          "title": "Перси",
-          "score": 16.25,
-          "zone": "top_band",
-          "engine": "tesseract"
-        }
-      ]
+      "channels_considered": 35,
+      "high_confidence_observations": 0,
+      "recognized": []
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 81,
-      "observations": [
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-14T10:10:07.882969+00:00",
-          "playlist_name": "Дом Кино",
-          "observed_title": "Перси",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=16.25"
-        }
-      ]
+      "added": 0,
+      "rejected": 35,
+      "observations": []
     },
     "judge": {
       "selector": {
@@ -75,44 +56,17 @@
         "selected": 0,
         "reason": "waiting-for-distinct-second-title"
       },
-      "pending_count": 1,
-      "pending": {
-        "Дом Кино": {
-          "observations": 1,
-          "distinct_titles": 1,
-          "status": "PENDING_DISTINCT_SECOND_TITLE"
-        }
-      },
+      "pending_count": 0,
+      "pending": {},
       "selected_count": 0,
       "quarantined_count": 0,
       "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 25,
-      "sources_failed": [
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "epgpw-sreda",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-ru",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-rescue",
-          "error": "RuntimeError"
-        }
-      ],
+      "live_observations": 0,
+      "sources_scanned": 0,
+      "sources_failed": [],
       "candidates_added": 0,
       "added": []
     }
