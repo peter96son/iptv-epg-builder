@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-14T21:23:10.160694+00:00",
+  "updated_at": "2026-09-14T22:17:47.852059+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-14T21:23:08.442036+00:00",
+      "checked_at_utc": "2026-09-14T22:17:46.143856+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 488,
-      "ok": 453,
-      "gaps": 35,
+      "ok": 450,
+      "gaps": 38,
       "issue_counts": {
-        "NO_MAPPING": 31,
-        "NO_NEXT_PROGRAMME": 4,
-        "NO_CURRENT_PROGRAMME": 1
+        "NO_MAPPING": 30,
+        "NO_CURRENT_PROGRAMME": 6,
+        "NO_NEXT_PROGRAMME": 8
       },
       "group_counts": {
         "USSR": {
@@ -25,8 +25,8 @@
         },
         "Кино": {
           "channels": 168,
-          "ok": 148,
-          "gaps": 20
+          "ok": 146,
+          "gaps": 22
         },
         "Кино 4K": {
           "channels": 63,
@@ -35,53 +35,37 @@
         },
         "Кинозалы": {
           "channels": 239,
-          "ok": 226,
-          "gaps": 13
+          "ok": 225,
+          "gaps": 14
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 33,
-      "high_confidence_observations": 2,
+      "channels_considered": 35,
+      "high_confidence_observations": 1,
       "recognized": [
         {
-          "playlist_name": "VHS HD",
-          "provider_name": "VHS HD",
-          "title": "ЗЛОВЕЩИЕ МЕРТВЕЦЫ 2",
-          "score": 24.0,
-          "zone": "top_left_tight",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "Кинолаффка HD",
-          "provider_name": "Кинолаффка HD",
-          "title": "Биение серд",
-          "score": 17.5,
-          "zone": "top_band",
+          "playlist_name": "DITV Про вампиров",
+          "provider_name": "DITV Про вампиров",
+          "title": "Почти стемнело",
+          "score": 23.25,
+          "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 2,
-      "rejected": 31,
+      "added": 1,
+      "rejected": 34,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-14T21:03:34.055157+00:00",
-          "playlist_name": "VHS HD",
-          "observed_title": "ЗЛОВЕЩИЕ МЕРТВЕЦЫ 2",
+          "observed_at": "2026-09-14T22:03:01.687298+00:00",
+          "playlist_name": "DITV Про вампиров",
+          "observed_title": "Почти стемнело",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=24.0"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-14T21:03:34.055157+00:00",
-          "playlist_name": "Кинолаффка HD",
-          "observed_title": "Биение серд",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=17.5"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=23.25"
         }
       ]
     },
@@ -89,8 +73,7 @@
       "selector": {
         "changed": 0,
         "selected": 0,
-        "quarantined": 0,
-        "reason": "no-live-candidates"
+        "reason": "no-policy"
       },
       "pending_count": 0,
       "pending": {},
@@ -100,8 +83,8 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 2,
-      "sources_scanned": 26,
+      "live_observations": 1,
+      "sources_scanned": 28,
       "sources_failed": [
         {
           "source": "klimedia-dedicated",
@@ -110,75 +93,10 @@
         {
           "source": "sharavoz-guide",
           "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-ru",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-rescue",
-          "error": "RuntimeError"
         }
       ],
-      "candidates_added": 8,
-      "added": [
-        {
-          "enabled": "1",
-          "playlist_name": "VHS HD",
-          "source": "iptvx-noarch",
-          "source_id": "team-newmovie",
-          "notes": "auto-discovered from live title; similarity=0.857; observed=ЗЛОВЕЩИЕ МЕРТВЕЦЫ 2; candidate=х/ф Зловещие мертвецы: Пекло (2026); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "VHS HD",
-          "source": "tvteam",
-          "source_id": "ch3433",
-          "notes": "auto-discovered from live title; similarity=0.857; observed=ЗЛОВЕЩИЕ МЕРТВЕЦЫ 2; candidate=Зловещие мертвецы: Пекло (2026); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "VHS HD",
-          "source": "gabbarit-current",
-          "source_id": "Clarity4K Ужасы VHS (siries)",
-          "notes": "auto-discovered from live title; similarity=0.947; observed=ЗЛОВЕЩИЕ МЕРТВЕЦЫ 2; candidate=Зловещие мертвецы 3.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "VHS HD",
-          "source": "gabbarit-current",
-          "source_id": "KBC-Newfilm HD",
-          "notes": "auto-discovered from live title; similarity=0.857; observed=ЗЛОВЕЩИЕ МЕРТВЕЦЫ 2; candidate=Зловещие мертвецы Пекло 2026.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "VHS HD",
-          "source": "gabbarit-primary",
-          "source_id": "Clarity4K Ужасы VHS (siries)",
-          "notes": "auto-discovered from live title; similarity=0.947; observed=ЗЛОВЕЩИЕ МЕРТВЕЦЫ 2; candidate=Зловещие мертвецы 3.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "VHS HD",
-          "source": "gabbarit-primary",
-          "source_id": "KBC-Newfilm HD",
-          "notes": "auto-discovered from live title; similarity=0.857; observed=ЗЛОВЕЩИЕ МЕРТВЕЦЫ 2; candidate=Зловещие мертвецы Пекло 2026.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "VHS HD",
-          "source": "gabbarit-mirror",
-          "source_id": "Clarity4K Ужасы VHS (siries)",
-          "notes": "auto-discovered from live title; similarity=0.947; observed=ЗЛОВЕЩИЕ МЕРТВЕЦЫ 2; candidate=Зловещие мертвецы 3.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "VHS HD",
-          "source": "gabbarit-mirror",
-          "source_id": "KBC-Newfilm HD",
-          "notes": "auto-discovered from live title; similarity=0.857; observed=ЗЛОВЕЩИЕ МЕРТВЕЦЫ 2; candidate=Зловещие мертвецы Пекло 2026.; requires two positive observations before selection"
-        }
-      ]
+      "candidates_added": 0,
+      "added": []
     }
   }
 }
