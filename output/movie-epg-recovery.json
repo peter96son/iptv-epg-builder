@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-14T05:13:39.479836+00:00",
+  "updated_at": "2026-09-14T06:23:06.323446+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-14T05:13:38.351790+00:00",
+      "checked_at_utc": "2026-09-14T06:23:05.539921+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 488,
-      "ok": 292,
-      "gaps": 196,
+      "ok": 294,
+      "gaps": 194,
       "issue_counts": {
         "NO_MAPPING": 42,
-        "NO_CURRENT_PROGRAMME": 130,
-        "NO_NEXT_PROGRAMME": 154
+        "NO_CURRENT_PROGRAMME": 151,
+        "NO_NEXT_PROGRAMME": 152
       },
       "group_counts": {
         "USSR": {
@@ -25,8 +25,8 @@
         },
         "Кино": {
           "channels": 168,
-          "ok": 100,
-          "gaps": 68
+          "ok": 101,
+          "gaps": 67
         },
         "Кино 4K": {
           "channels": 63,
@@ -35,41 +35,212 @@
         },
         "Кинозалы": {
           "channels": 239,
-          "ok": 169,
-          "gaps": 70
+          "ok": 170,
+          "gaps": 69
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 115,
-      "high_confidence_observations": 0,
-      "recognized": []
+      "channels_considered": 117,
+      "high_confidence_observations": 2,
+      "recognized": [
+        {
+          "playlist_name": "Premiere HD 2",
+          "provider_name": "Premiere HD 2",
+          "title": "Моана",
+          "score": 21.25,
+          "zone": "top_left",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "BCU Kinorating HD",
+          "provider_name": "BCU Kinorating HD",
+          "title": "Таксист (2017)",
+          "score": 16.75,
+          "zone": "top_left",
+          "engine": "tesseract"
+        }
+      ]
     },
     "evidence_recorder": {
-      "added": 0,
+      "added": 2,
       "rejected": 115,
-      "observations": []
+      "observations": [
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-14T06:12:30.904072+00:00",
+          "playlist_name": "Premiere HD 2",
+          "observed_title": "Моана",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=21.25"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-14T06:12:30.904072+00:00",
+          "playlist_name": "BCU Kinorating HD",
+          "observed_title": "Таксист (2017)",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=16.75"
+        }
+      ]
     },
     "judge": {
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "waiting-for-distinct-second-title"
+        "quarantined": 0,
+        "reason": "no-live-candidates"
       },
-      "pending_count": 0,
-      "pending": {},
+      "pending_count": 1,
+      "pending": {
+        "BCU Kinorating HD": {
+          "observations": 1,
+          "distinct_titles": 1,
+          "status": "PENDING_DISTINCT_SECOND_TITLE"
+        }
+      },
       "selected_count": 0,
       "quarantined_count": 0,
       "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 0,
-      "sources_scanned": 0,
-      "sources_failed": [],
-      "candidates_added": 0,
-      "added": []
+      "live_observations": 2,
+      "sources_scanned": 26,
+      "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "epgpw-sreda",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "epgpw-chestny-detektiv",
+          "error": "RuntimeError"
+        }
+      ],
+      "candidates_added": 16,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "BCU Kinorating HD",
+          "source": "iptv-online-primary",
+          "source_id": "Xbcu-vhs",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Таксист (2017); candidate=х/ф Таксист (1976); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "BCU Kinorating HD",
+          "source": "iptvx-noarch",
+          "source_id": "bcu-vhs",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Таксист (2017); candidate=х/ф Таксист (1976); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "BCU Kinorating HD",
+          "source": "runigma-iptv",
+          "source_id": "bcu-VHS-HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Таксист (2017); candidate=Таксист (1976).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Premiere HD 2",
+          "source": "openbox-tsd",
+          "source_id": "cps-cartoon",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Моана; candidate=М/ф Моана 2016.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "BCU Kinorating HD",
+          "source": "bcumedia-dedicated",
+          "source_id": "BCU Kinorating HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Таксист (2017); candidate=Таксист (2017); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "BCU Kinorating HD",
+          "source": "bcumedia-dedicated",
+          "source_id": "BCU VHS HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Таксист (2017); candidate=Таксист (1976); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "BCU Kinorating HD",
+          "source": "tvteam",
+          "source_id": "ch776",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Таксист (2017); candidate=Таксист (2017); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "BCU Kinorating HD",
+          "source": "tvteam",
+          "source_id": "ch781",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Таксист (2017); candidate=Таксист (1976).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "BCU Kinorating HD",
+          "source": "gabbarit-current",
+          "source_id": "BCU VHS HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Таксист (2017); candidate=Таксист (1976).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Premiere HD 2",
+          "source": "gabbarit-current",
+          "source_id": "CPS Cartoon HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Моана; candidate=Моана (2016).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "BCU Kinorating HD",
+          "source": "gabbarit-primary",
+          "source_id": "BCU VHS HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Таксист (2017); candidate=Таксист (1976).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Premiere HD 2",
+          "source": "gabbarit-primary",
+          "source_id": "CPS Cartoon HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Моана; candidate=Моана (2016).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "BCU Kinorating HD",
+          "source": "gabbarit-mirror",
+          "source_id": "BCU VHS HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Таксист (2017); candidate=Таксист (1976).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Premiere HD 2",
+          "source": "gabbarit-mirror",
+          "source_id": "CPS Cartoon HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Моана; candidate=Моана (2016).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "BCU Kinorating HD",
+          "source": "epgone-full-movie-rescue",
+          "source_id": "4758",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Таксист (2017); candidate=Таксист (2017); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "BCU Kinorating HD",
+          "source": "epgone-full-movie-rescue",
+          "source_id": "4763",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Таксист (2017); candidate=Таксист (1976).; requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
