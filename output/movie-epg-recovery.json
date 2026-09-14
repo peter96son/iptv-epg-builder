@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-14T15:06:34.892216+00:00",
+  "updated_at": "2026-09-14T16:04:22.571968+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-14T15:06:33.590300+00:00",
+      "checked_at_utc": "2026-09-14T16:04:21.274819+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,10 +10,10 @@
         "Кинозалы"
       ],
       "channels": 488,
-      "ok": 448,
-      "gaps": 40,
+      "ok": 449,
+      "gaps": 39,
       "issue_counts": {
-        "NO_MAPPING": 39,
+        "NO_MAPPING": 38,
         "NO_NEXT_PROGRAMME": 1
       },
       "group_counts": {
@@ -34,27 +34,62 @@
         },
         "Кинозалы": {
           "channels": 239,
-          "ok": 228,
-          "gaps": 11
+          "ok": 229,
+          "gaps": 10
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 34,
-      "high_confidence_observations": 0,
-      "recognized": []
+      "channels_considered": 35,
+      "high_confidence_observations": 2,
+      "recognized": [
+        {
+          "playlist_name": "DITV КОМЕДИИ",
+          "provider_name": "DITV КОМЕДИИ",
+          "title": "Друзья: Воссоединени",
+          "score": 19.5,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
+          "provider_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
+          "title": "moserbacy",
+          "score": 12.25,
+          "zone": "top_left_tight",
+          "engine": "tesseract"
+        }
+      ]
     },
     "evidence_recorder": {
-      "added": 0,
-      "rejected": 34,
-      "observations": []
+      "added": 2,
+      "rejected": 33,
+      "observations": [
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-14T16:03:16.593886+00:00",
+          "playlist_name": "DITV КОМЕДИИ",
+          "observed_title": "Друзья: Воссоединени",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=19.5"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-14T16:03:16.593886+00:00",
+          "playlist_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
+          "observed_title": "moserbacy",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=12.25"
+        }
+      ]
     },
     "judge": {
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "waiting-for-distinct-second-title"
+        "quarantined": 0,
+        "reason": "no-live-candidates"
       },
       "pending_count": 0,
       "pending": {},
@@ -64,8 +99,8 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 0,
-      "sources_scanned": 0,
+      "live_observations": 2,
+      "sources_scanned": 2,
       "sources_failed": [],
       "candidates_added": 0,
       "added": []
