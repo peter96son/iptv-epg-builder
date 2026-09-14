@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-14T22:17:47.852059+00:00",
+  "updated_at": "2026-09-14T23:16:32.620327+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-14T22:17:46.143856+00:00",
+      "checked_at_utc": "2026-09-14T23:16:30.953373+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -13,9 +13,8 @@
       "ok": 450,
       "gaps": 38,
       "issue_counts": {
-        "NO_MAPPING": 30,
-        "NO_CURRENT_PROGRAMME": 6,
-        "NO_NEXT_PROGRAMME": 8
+        "NO_MAPPING": 37,
+        "NO_NEXT_PROGRAMME": 1
       },
       "group_counts": {
         "USSR": {
@@ -25,8 +24,8 @@
         },
         "Кино": {
           "channels": 168,
-          "ok": 146,
-          "gaps": 22
+          "ok": 147,
+          "gaps": 21
         },
         "Кино 4K": {
           "channels": 63,
@@ -35,37 +34,53 @@
         },
         "Кинозалы": {
           "channels": 239,
-          "ok": 225,
-          "gaps": 14
+          "ok": 224,
+          "gaps": 15
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 35,
-      "high_confidence_observations": 1,
+      "channels_considered": 38,
+      "high_confidence_observations": 2,
       "recognized": [
         {
-          "playlist_name": "DITV Про вампиров",
-          "provider_name": "DITV Про вампиров",
-          "title": "Почти стемнело",
-          "score": 23.25,
-          "zone": "bottom_band",
+          "playlist_name": "Thriller HD",
+          "provider_name": "Thriller HD",
+          "title": "ЗАПАДНЯ ДЛЯ ДБЯВОЛА",
+          "score": 24.25,
+          "zone": "top_left_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
+          "provider_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
+          "title": "Танцор. диске (15",
+          "score": 17.75,
+          "zone": "left_bottom",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 34,
+      "added": 2,
+      "rejected": 36,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-14T22:03:01.687298+00:00",
-          "playlist_name": "DITV Про вампиров",
-          "observed_title": "Почти стемнело",
+          "observed_at": "2026-09-14T23:02:58.535529+00:00",
+          "playlist_name": "Thriller HD",
+          "observed_title": "ЗАПАДНЯ ДЛЯ ДБЯВОЛА",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=23.25"
+          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=24.25"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-14T23:02:58.535529+00:00",
+          "playlist_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
+          "observed_title": "Танцор. диске (15",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom; engine=tesseract; score=17.75"
         }
       ]
     },
@@ -73,7 +88,8 @@
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "no-policy"
+        "quarantined": 0,
+        "reason": "no-live-candidates"
       },
       "pending_count": 0,
       "pending": {},
@@ -83,18 +99,9 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 28,
-      "sources_failed": [
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        }
-      ],
+      "live_observations": 2,
+      "sources_scanned": 12,
+      "sources_failed": [],
       "candidates_added": 0,
       "added": []
     }
