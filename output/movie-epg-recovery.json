@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-14T03:34:38.181846+00:00",
+  "updated_at": "2026-09-14T04:14:44.147113+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-14T03:34:36.859648+00:00",
+      "checked_at_utc": "2026-09-14T04:14:42.836740+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 488,
-      "ok": 316,
-      "gaps": 172,
+      "ok": 304,
+      "gaps": 184,
       "issue_counts": {
         "NO_MAPPING": 42,
-        "NO_CURRENT_PROGRAMME": 80,
-        "NO_NEXT_PROGRAMME": 130
+        "NO_CURRENT_PROGRAMME": 92,
+        "NO_NEXT_PROGRAMME": 142
       },
       "group_counts": {
         "USSR": {
@@ -30,180 +30,46 @@
         },
         "Кино 4K": {
           "channels": 63,
-          "ok": 18,
-          "gaps": 45
+          "ok": 11,
+          "gaps": 52
         },
         "Кинозалы": {
           "channels": 239,
-          "ok": 184,
-          "gaps": 55
+          "ok": 179,
+          "gaps": 60
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 124,
-      "high_confidence_observations": 3,
-      "recognized": [
-        {
-          "playlist_name": "Thriller HD",
-          "provider_name": "Thriller HD",
-          "title": "УМЕРЕТЬ ЗАНОВО",
-          "score": 18.25,
-          "zone": "top_left_tight",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "BCU Action HD",
-          "provider_name": "BCU Action HD",
-          "title": "Рейс навылет (2024)",
-          "score": 17.75,
-          "zone": "top_left",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "MM Катастрофа HD",
-          "provider_name": "MM Катастрофа HD",
-          "title": "Зверест (2015)",
-          "score": 16.75,
-          "zone": "bottom_band",
-          "engine": "tesseract"
-        }
-      ]
+      "channels_considered": 129,
+      "high_confidence_observations": 0,
+      "recognized": []
     },
     "evidence_recorder": {
-      "added": 3,
-      "rejected": 121,
-      "observations": [
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-14T03:14:33.084145+00:00",
-          "playlist_name": "Thriller HD",
-          "observed_title": "УМЕРЕТЬ ЗАНОВО",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=18.25"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-14T03:14:33.084145+00:00",
-          "playlist_name": "BCU Action HD",
-          "observed_title": "Рейс навылет (2024)",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=17.75"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-14T03:14:33.084145+00:00",
-          "playlist_name": "MM Катастрофа HD",
-          "observed_title": "Зверест (2015)",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=16.75"
-        }
-      ]
+      "added": 0,
+      "rejected": 129,
+      "observations": []
     },
     "judge": {
       "selector": {
         "changed": 0,
         "selected": 0,
-        "quarantined": 0,
-        "reason": "no-live-candidates"
+        "reason": "waiting-for-distinct-second-title"
       },
-      "pending_count": 1,
-      "pending": {
-        "BCU Action HD": {
-          "observations": 1,
-          "distinct_titles": 1,
-          "status": "PENDING_DISTINCT_SECOND_TITLE"
-        }
-      },
+      "pending_count": 0,
+      "pending": {},
       "selected_count": 0,
       "quarantined_count": 0,
       "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 3,
-      "sources_scanned": 27,
-      "sources_failed": [
-        {
-          "source": "premiere-group-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        }
-      ],
-      "candidates_added": 9,
-      "added": [
-        {
-          "enabled": "1",
-          "playlist_name": "MM Катастрофа HD",
-          "source": "iptvx-noarch",
-          "source_id": "goldline-motivation",
-          "notes": "auto-discovered from live title; similarity=0.857; observed=Зверест (2015); candidate=х/ф Эверест; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Катастрофа HD",
-          "source": "tvteam",
-          "source_id": "ch2857",
-          "notes": "auto-discovered from live title; similarity=0.857; observed=Зверест (2015); candidate=Эверест; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "BCU Action HD",
-          "source": "gabbarit-current",
-          "source_id": "CPU Кіно Премєра 1 HD",
-          "notes": "auto-discovered from live title; similarity=0.833; observed=Рейс навылет (2024); candidate=Рейс навиліт.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Катастрофа HD",
-          "source": "gabbarit-current",
-          "source_id": "GL Motivation",
-          "notes": "auto-discovered from live title; similarity=0.857; observed=Зверест (2015); candidate=Эверест (2015).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "BCU Action HD",
-          "source": "gabbarit-primary",
-          "source_id": "CPU Кіно Премєра 1 HD",
-          "notes": "auto-discovered from live title; similarity=0.833; observed=Рейс навылет (2024); candidate=Рейс навиліт.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Катастрофа HD",
-          "source": "gabbarit-primary",
-          "source_id": "GL Motivation",
-          "notes": "auto-discovered from live title; similarity=0.857; observed=Зверест (2015); candidate=Эверест (2015).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "BCU Action HD",
-          "source": "gabbarit-mirror",
-          "source_id": "CPU Кіно Премєра 1 HD",
-          "notes": "auto-discovered from live title; similarity=0.833; observed=Рейс навылет (2024); candidate=Рейс навиліт.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Катастрофа HD",
-          "source": "gabbarit-mirror",
-          "source_id": "GL Motivation",
-          "notes": "auto-discovered from live title; similarity=0.857; observed=Зверест (2015); candidate=Эверест (2015).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Катастрофа HD",
-          "source": "gabbarit-mirror",
-          "source_id": "минимакс-катастрофа HD",
-          "notes": "auto-discovered from live title; similarity=0.857; observed=Зверест (2015); candidate=Эверест (2015).; requires two positive observations before selection"
-        }
-      ]
+      "live_observations": 0,
+      "sources_scanned": 0,
+      "sources_failed": [],
+      "candidates_added": 0,
+      "added": []
     }
   }
 }
