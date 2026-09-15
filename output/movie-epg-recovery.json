@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-15T19:04:23.173675+00:00",
+  "updated_at": "2026-09-15T20:14:52.524266+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-15T19:04:21.325553+00:00",
+      "checked_at_utc": "2026-09-15T20:14:50.644978+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -13,9 +13,7 @@
       "ok": 451,
       "gaps": 36,
       "issue_counts": {
-        "NO_MAPPING": 33,
-        "NO_CURRENT_PROGRAMME": 2,
-        "NO_NEXT_PROGRAMME": 3
+        "NO_MAPPING": 36
       },
       "group_counts": {
         "USSR": {
@@ -42,20 +40,39 @@
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 35,
-      "high_confidence_observations": 0,
-      "recognized": []
+      "channels_considered": 36,
+      "high_confidence_observations": 1,
+      "recognized": [
+        {
+          "playlist_name": "MM Семейный 1 HD",
+          "provider_name": "MM Семейный 1 HD",
+          "title": "Лабиринт (1986)",
+          "score": 22.0,
+          "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        }
+      ]
     },
     "evidence_recorder": {
-      "added": 0,
+      "added": 1,
       "rejected": 35,
-      "observations": []
+      "observations": [
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-15T20:02:50.202891+00:00",
+          "playlist_name": "MM Семейный 1 HD",
+          "observed_title": "Лабиринт (1986)",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=22.0"
+        }
+      ]
     },
     "judge": {
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "waiting-for-distinct-second-title"
+        "quarantined": 0,
+        "reason": "no-live-candidates"
       },
       "pending_count": 0,
       "pending": {},
@@ -65,8 +82,8 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 0,
-      "sources_scanned": 0,
+      "live_observations": 1,
+      "sources_scanned": 10,
       "sources_failed": [],
       "candidates_added": 0,
       "added": []
