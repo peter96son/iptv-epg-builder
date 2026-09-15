@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-15T17:10:04.673285+00:00",
+  "updated_at": "2026-09-15T18:03:33.054993+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-15T17:10:03.228920+00:00",
+      "checked_at_utc": "2026-09-15T18:03:31.588714+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -41,46 +41,30 @@
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 34,
-      "high_confidence_observations": 2,
+      "channels_considered": 33,
+      "high_confidence_observations": 1,
       "recognized": [
-        {
-          "playlist_name": "Star Family HD",
-          "provider_name": "Star Family HD",
-          "title": "verti",
-          "score": 16.25,
-          "zone": "top_left_tight",
-          "engine": "tesseract"
-        },
         {
           "playlist_name": "MM Семейный 1 HD",
           "provider_name": "MM Семейный 1 HD",
           "title": "Зубная фея 2 (2012)",
-          "score": 13.25,
+          "score": 22.25,
           "zone": "left_bottom_tight",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 2,
+      "added": 1,
       "rejected": 32,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-15T16:59:17.743891+00:00",
-          "playlist_name": "Star Family HD",
-          "observed_title": "verti",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=16.25"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-15T16:59:17.743891+00:00",
+          "observed_at": "2026-09-15T17:58:24.559632+00:00",
           "playlist_name": "MM Семейный 1 HD",
           "observed_title": "Зубная фея 2 (2012)",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=13.25"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=22.25"
         }
       ]
     },
@@ -88,180 +72,27 @@
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "no-policy"
+        "reason": "waiting-for-distinct-second-title"
       },
       "pending_count": 1,
       "pending": {
         "MM Семейный 1 HD": {
-          "observations": 1,
+          "observations": 2,
           "distinct_titles": 1,
           "status": "PENDING_DISTINCT_SECOND_TITLE"
         }
       },
-      "selected_count": 9,
+      "selected_count": 0,
       "quarantined_count": 0,
-      "selected": {
-        "Premium HD": {
-          "source": "gabbarit-current",
-          "source_id": "Premium HD",
-          "output_tvg_id": "premium-hd",
-          "horizon_hours": 173.6,
-          "current": true,
-          "usable": 27
-        },
-        "Premiere HD": {
-          "source": "gabbarit-current",
-          "source_id": "Premiere HD",
-          "output_tvg_id": "Xpremiere-hd",
-          "horizon_hours": 173.47,
-          "current": true,
-          "usable": 32
-        },
-        "Paradise HD": {
-          "source": "gabbarit-current",
-          "source_id": "Paradise HD",
-          "output_tvg_id": "Xparadise-hd",
-          "horizon_hours": 173.89,
-          "current": true,
-          "usable": 33
-        },
-        "Paradox HD": {
-          "source": "gabbarit-current",
-          "source_id": "Paradox HD",
-          "output_tvg_id": "Xparadox-hd",
-          "horizon_hours": 173.74,
-          "current": true,
-          "usable": 33
-        },
-        "4ever Cinema HD": {
-          "source": "gabbarit-current",
-          "source_id": "4 ever Cinema",
-          "output_tvg_id": "X4ever-cinema",
-          "horizon_hours": 293.94,
-          "current": true,
-          "usable": 19
-        },
-        "4ever Drama HD": {
-          "source": "gabbarit-current",
-          "source_id": "4ever Drama",
-          "output_tvg_id": "X4ever-drama",
-          "horizon_hours": 293.93,
-          "current": true,
-          "usable": 19
-        },
-        "4ever Theater HD": {
-          "source": "gabbarit-current",
-          "source_id": "4ever Theater",
-          "output_tvg_id": "X4ever-theater",
-          "horizon_hours": 293.92,
-          "current": true,
-          "usable": 19
-        },
-        "4ever Music HD": {
-          "source": "iptvx-noarch",
-          "source_id": "4ever-music",
-          "output_tvg_id": "X4ever-music",
-          "horizon_hours": 129.91,
-          "current": true,
-          "usable": 28
-        },
-        "TVPlay Авторский перевод HD": {
-          "source": "iptvx-noarch",
-          "source_id": "tvplay-avtorskiyperevod",
-          "output_tvg_id": "tvplay-avtorskiyperevod",
-          "horizon_hours": 65.71,
-          "current": true,
-          "usable": 31
-        }
-      },
+      "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 2,
-      "sources_scanned": 28,
-      "sources_failed": [
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        }
-      ],
-      "candidates_added": 10,
-      "added": [
-        {
-          "enabled": "1",
-          "playlist_name": "MM Семейный 1 HD",
-          "source": "iptv-online-primary",
-          "source_id": "Xminimax-family1",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Зубная фея 2 (2012); candidate=Зубная фея 2; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Семейный 1 HD",
-          "source": "iptvx-noarch",
-          "source_id": "minimax-family1",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Зубная фея 2 (2012); candidate=Зубная фея 2; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Семейный 1 HD",
-          "source": "runigma-iptv",
-          "source_id": "minimax-family-1-hd",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Зубная фея 2 (2012); candidate=Зубная фея 2.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Семейный 1 HD",
-          "source": "openbox-tsd",
-          "source_id": "mm-semeyniy-1",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Зубная фея 2 (2012); candidate=Х/ф Зубная фея 2.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Семейный 1 HD",
-          "source": "minimax-mm-dedicated",
-          "source_id": "family_1-mm",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Зубная фея 2 (2012); candidate=Зубная фея 2; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Семейный 1 HD",
-          "source": "tvteam",
-          "source_id": "ch1274",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Зубная фея 2 (2012); candidate=Зубная фея 2; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Семейный 1 HD",
-          "source": "gabbarit-current",
-          "source_id": "минимакс-семейный 1 HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Зубная фея 2 (2012); candidate=Зубная фея 2 (2012).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Семейный 1 HD",
-          "source": "gabbarit-primary",
-          "source_id": "минимакс-семейный 1 HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Зубная фея 2 (2012); candidate=Зубная фея 2 (2012).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Семейный 1 HD",
-          "source": "gabbarit-mirror",
-          "source_id": "минимакс-семейный 1 HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Зубная фея 2 (2012); candidate=Зубная фея 2 (2012).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Семейный 1 HD",
-          "source": "epgone-full-movie-rescue",
-          "source_id": "5210",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Зубная фея 2 (2012); candidate=Зубная фея 2; requires two positive observations before selection"
-        }
-      ]
+      "live_observations": 1,
+      "sources_scanned": 10,
+      "sources_failed": [],
+      "candidates_added": 0,
+      "added": []
     }
   }
 }
