@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-15T09:19:14.328659+00:00",
+  "updated_at": "2026-09-15T11:16:26.849106+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-15T09:19:12.731880+00:00",
+      "checked_at_utc": "2026-09-15T11:16:24.990340+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,10 @@
         "Кинозалы"
       ],
       "channels": 487,
-      "ok": 445,
-      "gaps": 42,
+      "ok": 454,
+      "gaps": 33,
       "issue_counts": {
-        "NO_MAPPING": 40,
-        "NO_CURRENT_PROGRAMME": 1,
-        "NO_NEXT_PROGRAMME": 2
+        "NO_MAPPING": 33
       },
       "group_counts": {
         "USSR": {
@@ -25,8 +23,8 @@
         },
         "Кино": {
           "channels": 167,
-          "ok": 140,
-          "gaps": 27
+          "ok": 148,
+          "gaps": 19
         },
         "Кино 4K": {
           "channels": 63,
@@ -35,95 +33,142 @@
         },
         "Кинозалы": {
           "channels": 239,
-          "ok": 226,
-          "gaps": 13
+          "ok": 227,
+          "gaps": 12
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 35,
-      "high_confidence_observations": 3,
+      "channels_considered": 33,
+      "high_confidence_observations": 2,
       "recognized": [
         {
-          "playlist_name": "TVPlay Indian Cinema",
-          "provider_name": "TVPlay Indian Cinema",
-          "title": "пру=оворённыц 1939",
-          "score": 18.0,
-          "zone": "left_bottom_tight",
+          "playlist_name": "Amazon Prime Romance",
+          "provider_name": "Amazon Prime Romance",
+          "title": "атагоп",
+          "score": 16.5,
+          "zone": "top_band",
           "engine": "tesseract"
         },
         {
           "playlist_name": "Star Family HD",
           "provider_name": "Star Family HD",
-          "title": "БИЗНЕСОВ",
-          "score": 17.0,
-          "zone": "top_left_tight",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "TVPlay Авторский перевод HD",
-          "provider_name": "TVPlay Авторский перевод HD",
-          "title": "Дракула Брэма Стокера 1998 Ужасы",
-          "score": 20.0,
-          "zone": "left_bottom_tight",
+          "title": "КУЛИН",
+          "score": 16.25,
+          "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 3,
-      "rejected": 32,
+      "added": 2,
+      "rejected": 31,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-15T09:04:13.184670+00:00",
-          "playlist_name": "TVPlay Indian Cinema",
-          "observed_title": "пру=оворённыц 1939",
+          "observed_at": "2026-09-15T11:02:27.580291+00:00",
+          "playlist_name": "Amazon Prime Romance",
+          "observed_title": "атагоп",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=18.0"
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=16.5"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-09-15T09:04:13.184670+00:00",
+          "observed_at": "2026-09-15T11:02:27.580291+00:00",
           "playlist_name": "Star Family HD",
-          "observed_title": "БИЗНЕСОВ",
+          "observed_title": "КУЛИН",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=17.0"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-15T09:04:13.184670+00:00",
-          "playlist_name": "TVPlay Авторский перевод HD",
-          "observed_title": "Дракула Брэма Стокера 1998 Ужасы",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=20.0"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=16.25"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 1,
-        "selected": 1,
-        "quarantined": 0,
-        "target_hours": 6.0
+        "changed": 0,
+        "selected": 0,
+        "reason": "no-policy"
       },
       "pending_count": 1,
       "pending": {
-        "Star Family HD": {
+        "Amazon Prime Romance": {
           "observations": 1,
           "distinct_titles": 1,
           "status": "PENDING_DISTINCT_SECOND_TITLE"
         }
       },
-      "selected_count": 1,
+      "selected_count": 9,
       "quarantined_count": 0,
       "selected": {
+        "Premium HD": {
+          "source": "gabbarit-current",
+          "source_id": "Premium HD",
+          "output_tvg_id": "premium-hd",
+          "horizon_hours": 179.59,
+          "current": true,
+          "usable": 27
+        },
+        "Premiere HD": {
+          "source": "gabbarit-current",
+          "source_id": "Premiere HD",
+          "output_tvg_id": "Xpremiere-hd",
+          "horizon_hours": 179.47,
+          "current": true,
+          "usable": 32
+        },
+        "Paradise HD": {
+          "source": "gabbarit-current",
+          "source_id": "Paradise HD",
+          "output_tvg_id": "Xparadise-hd",
+          "horizon_hours": 179.89,
+          "current": true,
+          "usable": 33
+        },
+        "Paradox HD": {
+          "source": "gabbarit-current",
+          "source_id": "Paradox HD",
+          "output_tvg_id": "Xparadox-hd",
+          "horizon_hours": 179.74,
+          "current": true,
+          "usable": 33
+        },
+        "4ever Cinema HD": {
+          "source": "iptvx-noarch",
+          "source_id": "4ever-cinema",
+          "output_tvg_id": "X4ever-cinema",
+          "horizon_hours": 10.13,
+          "current": true,
+          "usable": 8
+        },
+        "4ever Drama HD": {
+          "source": "iptvx-noarch",
+          "source_id": "4ever-drama",
+          "output_tvg_id": "X4ever-drama",
+          "horizon_hours": 10.41,
+          "current": true,
+          "usable": 9
+        },
+        "4ever Theater HD": {
+          "source": "iptvx-noarch",
+          "source_id": "4ever-theater",
+          "output_tvg_id": "X4ever-theater",
+          "horizon_hours": 10.22,
+          "current": true,
+          "usable": 8
+        },
+        "4ever Music HD": {
+          "source": "iptvx-noarch",
+          "source_id": "4ever-music",
+          "output_tvg_id": "X4ever-music",
+          "horizon_hours": 135.93,
+          "current": true,
+          "usable": 28
+        },
         "TVPlay Авторский перевод HD": {
           "source": "iptvx-noarch",
           "source_id": "tvplay-avtorskiyperevod",
-          "output_tvg_id": "475473",
-          "horizon_hours": 73.12,
+          "output_tvg_id": "tvplay-avtorskiyperevod",
+          "horizon_hours": 71.94,
           "current": true,
           "usable": 31
         }
@@ -131,8 +176,8 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 3,
-      "sources_scanned": 26,
+      "live_observations": 2,
+      "sources_scanned": 28,
       "sources_failed": [
         {
           "source": "klimedia-dedicated",
@@ -140,14 +185,6 @@
         },
         {
           "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "epgpw-sreda",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "epgpw-chestny-detektiv",
           "error": "RuntimeError"
         }
       ],
