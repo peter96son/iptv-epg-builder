@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-15T07:08:43.417660+00:00",
+  "updated_at": "2026-09-15T08:14:57.738782+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-15T07:08:41.812787+00:00",
+      "checked_at_utc": "2026-09-15T08:14:56.617664+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,11 @@
         "Кинозалы"
       ],
       "channels": 488,
-      "ok": 443,
-      "gaps": 45,
+      "ok": 445,
+      "gaps": 43,
       "issue_counts": {
-        "NO_MAPPING": 42,
-        "NO_NEXT_PROGRAMME": 3,
-        "NO_CURRENT_PROGRAMME": 1
+        "NO_MAPPING": 41,
+        "NO_NEXT_PROGRAMME": 2
       },
       "group_counts": {
         "USSR": {
@@ -25,8 +24,8 @@
         },
         "Кино": {
           "channels": 168,
-          "ok": 139,
-          "gaps": 29
+          "ok": 141,
+          "gaps": 27
         },
         "Кино 4K": {
           "channels": 63,
@@ -42,30 +41,62 @@
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 38,
-      "high_confidence_observations": 1,
+      "channels_considered": 36,
+      "high_confidence_observations": 3,
       "recognized": [
         {
-          "playlist_name": "DITV Про акул",
-          "provider_name": "DITV Про акул",
-          "title": "Заклинательница акул",
-          "score": 19.75,
-          "zone": "left_bottom_tight",
+          "playlist_name": "TVPlay Indian Cinema",
+          "provider_name": "TVPlay Indian Cinema",
+          "title": "чанони 1989 мелодрама",
+          "score": 18.75,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "TVPlay Авторский перевод HD",
+          "provider_name": "TVPlay Авторский перевод HD",
+          "title": "Дракула Брэма Стокера Т992 Ужасы",
+          "score": 20.0,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "Новый Русский HD",
+          "provider_name": "Новый Русский HD",
+          "title": "= « Bay: к eae > ENB yee <a I",
+          "score": 15.75,
+          "zone": "top_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 37,
+      "added": 3,
+      "rejected": 33,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-15T07:07:27.614276+00:00",
-          "playlist_name": "DITV Про акул",
-          "observed_title": "Заклинательница акул",
+          "observed_at": "2026-09-15T08:03:28.106386+00:00",
+          "playlist_name": "TVPlay Indian Cinema",
+          "observed_title": "чанони 1989 мелодрама",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=19.75"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.75"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-15T08:03:28.106386+00:00",
+          "playlist_name": "TVPlay Авторский перевод HD",
+          "observed_title": "Дракула Брэма Стокера Т992 Ужасы",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=20.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-15T08:03:28.106386+00:00",
+          "playlist_name": "Новый Русский HD",
+          "observed_title": "= « Bay: к eae > ENB yee <a I",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=15.75"
         }
       ]
     },
@@ -73,22 +104,68 @@
       "selector": {
         "changed": 0,
         "selected": 0,
-        "quarantined": 0,
-        "reason": "no-live-candidates"
+        "reason": "waiting-for-distinct-second-title"
       },
-      "pending_count": 0,
-      "pending": {},
+      "pending_count": 3,
+      "pending": {
+        "TVPlay Indian Cinema": {
+          "observations": 1,
+          "distinct_titles": 1,
+          "status": "PENDING_DISTINCT_SECOND_TITLE"
+        },
+        "TVPlay Авторский перевод HD": {
+          "observations": 1,
+          "distinct_titles": 1,
+          "status": "PENDING_DISTINCT_SECOND_TITLE"
+        },
+        "Новый Русский HD": {
+          "observations": 1,
+          "distinct_titles": 1,
+          "status": "PENDING_DISTINCT_SECOND_TITLE"
+        }
+      },
       "selected_count": 0,
       "quarantined_count": 0,
       "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 1,
-      "sources_failed": [],
-      "candidates_added": 0,
-      "added": []
+      "live_observations": 3,
+      "sources_scanned": 28,
+      "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        }
+      ],
+      "candidates_added": 3,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "TVPlay Авторский перевод HD",
+          "source": "iptvx-noarch",
+          "source_id": "tvplay-avtorskiyperevod",
+          "notes": "auto-discovered from live title; similarity=0.915; observed=Дракула Брэма Стокера Т992 Ужасы; candidate=х/ф Дракула Брэма Стокера 1992 Ужасы; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "TVPlay Авторский перевод HD",
+          "source": "tvteam",
+          "source_id": "ch3738",
+          "notes": "auto-discovered from live title; similarity=0.915; observed=Дракула Брэма Стокера Т992 Ужасы; candidate=Дракула Брэма Стокера 1992 Ужасы; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "TVPlay Indian Cinema",
+          "source": "tvteam",
+          "source_id": "ch3739",
+          "notes": "auto-discovered from live title; similarity=0.938; observed=чанони 1989 мелодрама; candidate=Чандни 1989 Мелодрама; requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
