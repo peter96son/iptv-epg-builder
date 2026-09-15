@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-15T04:20:53.052936+00:00",
+  "updated_at": "2026-09-15T05:20:17.057488+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-15T04:20:51.420481+00:00",
+      "checked_at_utc": "2026-09-15T05:20:15.401666+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,11 @@
         "Кинозалы"
       ],
       "channels": 488,
-      "ok": 443,
-      "gaps": 45,
+      "ok": 442,
+      "gaps": 46,
       "issue_counts": {
-        "NO_MAPPING": 41,
-        "NO_CURRENT_PROGRAMME": 4,
-        "NO_NEXT_PROGRAMME": 4
+        "NO_MAPPING": 45,
+        "NO_NEXT_PROGRAMME": 1
       },
       "group_counts": {
         "USSR": {
@@ -35,53 +34,37 @@
         },
         "Кинозалы": {
           "channels": 239,
-          "ok": 225,
-          "gaps": 14
+          "ok": 224,
+          "gaps": 15
         }
       }
     },
     "observer": {
       "return_code": 0,
       "channels_considered": 39,
-      "high_confidence_observations": 2,
+      "high_confidence_observations": 1,
       "recognized": [
         {
-          "playlist_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
-          "provider_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
-          "title": "Танцор диско (19",
-          "score": 17.75,
-          "zone": "left_bottom",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "DITV Concert",
-          "provider_name": "DITV Concert",
-          "title": "1 ВИРТ",
+          "playlist_name": "DITV Про вампиров",
+          "provider_name": "DITV Про вампиров",
+          "title": "полн",
           "score": 13.0,
-          "zone": "top_left_tight",
+          "zone": "left_bottom",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 2,
-      "rejected": 37,
+      "added": 1,
+      "rejected": 38,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-15T04:04:46.470447+00:00",
-          "playlist_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
-          "observed_title": "Танцор диско (19",
+          "observed_at": "2026-09-15T05:05:15.237571+00:00",
+          "playlist_name": "DITV Про вампиров",
+          "observed_title": "полн",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom; engine=tesseract; score=17.75"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-15T04:04:46.470447+00:00",
-          "playlist_name": "DITV Concert",
-          "observed_title": "1 ВИРТ",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=13.0"
+          "notes": "high-confidence OCR; zone=left_bottom; engine=tesseract; score=13.0"
         }
       ]
     },
@@ -89,18 +72,82 @@
       "selector": {
         "changed": 0,
         "selected": 0,
-        "quarantined": 0,
-        "reason": "no-live-candidates"
+        "reason": "no-policy"
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 0,
+      "selected_count": 8,
       "quarantined_count": 0,
-      "selected": {},
+      "selected": {
+        "Premium HD": {
+          "source": "gabbarit-current",
+          "source_id": "Premium HD",
+          "output_tvg_id": "premium-hd",
+          "horizon_hours": 185.68,
+          "current": true,
+          "usable": 27
+        },
+        "Premiere HD": {
+          "source": "gabbarit-current",
+          "source_id": "Premiere HD",
+          "output_tvg_id": "Xpremiere-hd",
+          "horizon_hours": 185.56,
+          "current": true,
+          "usable": 32
+        },
+        "Paradise HD": {
+          "source": "gabbarit-current",
+          "source_id": "Paradise HD",
+          "output_tvg_id": "Xparadise-hd",
+          "horizon_hours": 185.98,
+          "current": true,
+          "usable": 34
+        },
+        "Paradox HD": {
+          "source": "gabbarit-current",
+          "source_id": "Paradox HD",
+          "output_tvg_id": "Xparadox-hd",
+          "horizon_hours": 185.82,
+          "current": true,
+          "usable": 32
+        },
+        "4ever Cinema HD": {
+          "source": "gabbarit-current",
+          "source_id": "4 ever Cinema",
+          "output_tvg_id": "X4ever-cinema",
+          "horizon_hours": 306.04,
+          "current": true,
+          "usable": 19
+        },
+        "4ever Drama HD": {
+          "source": "gabbarit-current",
+          "source_id": "4ever Drama",
+          "output_tvg_id": "X4ever-drama",
+          "horizon_hours": 306.03,
+          "current": true,
+          "usable": 19
+        },
+        "4ever Theater HD": {
+          "source": "gabbarit-current",
+          "source_id": "4ever Theater",
+          "output_tvg_id": "X4ever-theater",
+          "horizon_hours": 306.03,
+          "current": true,
+          "usable": 19
+        },
+        "4ever Music HD": {
+          "source": "iptvx-noarch",
+          "source_id": "4ever-music",
+          "output_tvg_id": "X4ever-music",
+          "horizon_hours": 142.02,
+          "current": true,
+          "usable": 28
+        }
+      },
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 2,
+      "live_observations": 1,
       "sources_scanned": 28,
       "sources_failed": [
         {
@@ -112,16 +159,8 @@
           "error": "RuntimeError"
         }
       ],
-      "candidates_added": 1,
-      "added": [
-        {
-          "enabled": "1",
-          "playlist_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
-          "source": "epgpw-RU",
-          "source_id": "7025",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Танцор диско (19; candidate=Танцор диско; requires two positive observations before selection"
-        }
-      ]
+      "candidates_added": 0,
+      "added": []
     }
   }
 }
