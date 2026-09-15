@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-15T20:14:52.524266+00:00",
+  "updated_at": "2026-09-15T21:18:24.948859+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-15T20:14:50.644978+00:00",
+      "checked_at_utc": "2026-09-15T21:18:23.081605+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,10 +10,12 @@
         "Кинозалы"
       ],
       "channels": 487,
-      "ok": 451,
-      "gaps": 36,
+      "ok": 449,
+      "gaps": 38,
       "issue_counts": {
-        "NO_MAPPING": 36
+        "NO_MAPPING": 35,
+        "NO_NEXT_PROGRAMME": 3,
+        "NO_CURRENT_PROGRAMME": 2
       },
       "group_counts": {
         "USSR": {
@@ -23,8 +25,8 @@
         },
         "Кино": {
           "channels": 167,
-          "ok": 146,
-          "gaps": 21
+          "ok": 144,
+          "gaps": 23
         },
         "Кино 4K": {
           "channels": 63,
@@ -40,30 +42,30 @@
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 36,
+      "channels_considered": 37,
       "high_confidence_observations": 1,
       "recognized": [
         {
-          "playlist_name": "MM Семейный 1 HD",
-          "provider_name": "MM Семейный 1 HD",
-          "title": "Лабиринт (1986)",
-          "score": 22.0,
-          "zone": "left_bottom_tight",
+          "playlist_name": "DITV Concert",
+          "provider_name": "DITV Concert",
+          "title": "Силу",
+          "score": 13.0,
+          "zone": "top_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
       "added": 1,
-      "rejected": 35,
+      "rejected": 36,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-15T20:02:50.202891+00:00",
-          "playlist_name": "MM Семейный 1 HD",
-          "observed_title": "Лабиринт (1986)",
+          "observed_at": "2026-09-15T21:02:54.412206+00:00",
+          "playlist_name": "DITV Concert",
+          "observed_title": "Силу",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=22.0"
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=13.0"
         }
       ]
     },
@@ -71,8 +73,7 @@
       "selector": {
         "changed": 0,
         "selected": 0,
-        "quarantined": 0,
-        "reason": "no-live-candidates"
+        "reason": "no-policy"
       },
       "pending_count": 0,
       "pending": {},
@@ -83,8 +84,17 @@
     },
     "candidate_discovery": {
       "live_observations": 1,
-      "sources_scanned": 10,
-      "sources_failed": [],
+      "sources_scanned": 28,
+      "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        }
+      ],
       "candidates_added": 0,
       "added": []
     }
