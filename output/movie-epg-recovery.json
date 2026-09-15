@@ -1,19 +1,20 @@
 {
-  "updated_at": "2026-09-15T08:14:57.738782+00:00",
+  "updated_at": "2026-09-15T09:19:14.328659+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-15T08:14:56.617664+00:00",
+      "checked_at_utc": "2026-09-15T09:19:12.731880+00:00",
       "groups": [
         "USSR",
         "Кино",
         "Кино 4K",
         "Кинозалы"
       ],
-      "channels": 488,
+      "channels": 487,
       "ok": 445,
-      "gaps": 43,
+      "gaps": 42,
       "issue_counts": {
-        "NO_MAPPING": 41,
+        "NO_MAPPING": 40,
+        "NO_CURRENT_PROGRAMME": 1,
         "NO_NEXT_PROGRAMME": 2
       },
       "group_counts": {
@@ -23,8 +24,8 @@
           "gaps": 2
         },
         "Кино": {
-          "channels": 168,
-          "ok": 141,
+          "channels": 167,
+          "ok": 140,
           "gaps": 27
         },
         "Кино 4K": {
@@ -34,104 +35,104 @@
         },
         "Кинозалы": {
           "channels": 239,
-          "ok": 225,
-          "gaps": 14
+          "ok": 226,
+          "gaps": 13
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 36,
+      "channels_considered": 35,
       "high_confidence_observations": 3,
       "recognized": [
         {
           "playlist_name": "TVPlay Indian Cinema",
           "provider_name": "TVPlay Indian Cinema",
-          "title": "чанони 1989 мелодрама",
-          "score": 18.75,
-          "zone": "bottom_band",
+          "title": "пру=оворённыц 1939",
+          "score": 18.0,
+          "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "Star Family HD",
+          "provider_name": "Star Family HD",
+          "title": "БИЗНЕСОВ",
+          "score": 17.0,
+          "zone": "top_left_tight",
           "engine": "tesseract"
         },
         {
           "playlist_name": "TVPlay Авторский перевод HD",
           "provider_name": "TVPlay Авторский перевод HD",
-          "title": "Дракула Брэма Стокера Т992 Ужасы",
+          "title": "Дракула Брэма Стокера 1998 Ужасы",
           "score": 20.0,
-          "zone": "bottom_band",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "Новый Русский HD",
-          "provider_name": "Новый Русский HD",
-          "title": "= « Bay: к eae > ENB yee <a I",
-          "score": 15.75,
-          "zone": "top_band",
+          "zone": "left_bottom_tight",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
       "added": 3,
-      "rejected": 33,
+      "rejected": 32,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-15T08:03:28.106386+00:00",
+          "observed_at": "2026-09-15T09:04:13.184670+00:00",
           "playlist_name": "TVPlay Indian Cinema",
-          "observed_title": "чанони 1989 мелодрама",
+          "observed_title": "пру=оворённыц 1939",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.75"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=18.0"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-09-15T08:03:28.106386+00:00",
+          "observed_at": "2026-09-15T09:04:13.184670+00:00",
+          "playlist_name": "Star Family HD",
+          "observed_title": "БИЗНЕСОВ",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=17.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-15T09:04:13.184670+00:00",
           "playlist_name": "TVPlay Авторский перевод HD",
-          "observed_title": "Дракула Брэма Стокера Т992 Ужасы",
+          "observed_title": "Дракула Брэма Стокера 1998 Ужасы",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=20.0"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-15T08:03:28.106386+00:00",
-          "playlist_name": "Новый Русский HD",
-          "observed_title": "= « Bay: к eae > ENB yee <a I",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=15.75"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=20.0"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 0,
-        "selected": 0,
-        "reason": "waiting-for-distinct-second-title"
+        "changed": 1,
+        "selected": 1,
+        "quarantined": 0,
+        "target_hours": 6.0
       },
-      "pending_count": 3,
+      "pending_count": 1,
       "pending": {
-        "TVPlay Indian Cinema": {
-          "observations": 1,
-          "distinct_titles": 1,
-          "status": "PENDING_DISTINCT_SECOND_TITLE"
-        },
-        "TVPlay Авторский перевод HD": {
-          "observations": 1,
-          "distinct_titles": 1,
-          "status": "PENDING_DISTINCT_SECOND_TITLE"
-        },
-        "Новый Русский HD": {
+        "Star Family HD": {
           "observations": 1,
           "distinct_titles": 1,
           "status": "PENDING_DISTINCT_SECOND_TITLE"
         }
       },
-      "selected_count": 0,
+      "selected_count": 1,
       "quarantined_count": 0,
-      "selected": {},
+      "selected": {
+        "TVPlay Авторский перевод HD": {
+          "source": "iptvx-noarch",
+          "source_id": "tvplay-avtorskiyperevod",
+          "output_tvg_id": "475473",
+          "horizon_hours": 73.12,
+          "current": true,
+          "usable": 31
+        }
+      },
       "quarantined": {}
     },
     "candidate_discovery": {
       "live_observations": 3,
-      "sources_scanned": 28,
+      "sources_scanned": 26,
       "sources_failed": [
         {
           "source": "klimedia-dedicated",
@@ -140,32 +141,18 @@
         {
           "source": "sharavoz-guide",
           "error": "RuntimeError"
+        },
+        {
+          "source": "epgpw-sreda",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "epgpw-chestny-detektiv",
+          "error": "RuntimeError"
         }
       ],
-      "candidates_added": 3,
-      "added": [
-        {
-          "enabled": "1",
-          "playlist_name": "TVPlay Авторский перевод HD",
-          "source": "iptvx-noarch",
-          "source_id": "tvplay-avtorskiyperevod",
-          "notes": "auto-discovered from live title; similarity=0.915; observed=Дракула Брэма Стокера Т992 Ужасы; candidate=х/ф Дракула Брэма Стокера 1992 Ужасы; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "TVPlay Авторский перевод HD",
-          "source": "tvteam",
-          "source_id": "ch3738",
-          "notes": "auto-discovered from live title; similarity=0.915; observed=Дракула Брэма Стокера Т992 Ужасы; candidate=Дракула Брэма Стокера 1992 Ужасы; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "TVPlay Indian Cinema",
-          "source": "tvteam",
-          "source_id": "ch3739",
-          "notes": "auto-discovered from live title; similarity=0.938; observed=чанони 1989 мелодрама; candidate=Чандни 1989 Мелодрама; requires two positive observations before selection"
-        }
-      ]
+      "candidates_added": 0,
+      "added": []
     }
   }
 }
