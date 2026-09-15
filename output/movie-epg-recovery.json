@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-15T03:05:14.649155+00:00",
+  "updated_at": "2026-09-15T04:20:53.052936+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-15T03:05:13.049454+00:00",
+      "checked_at_utc": "2026-09-15T04:20:51.420481+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,10 +10,10 @@
         "Кинозалы"
       ],
       "channels": 488,
-      "ok": 442,
-      "gaps": 46,
+      "ok": 443,
+      "gaps": 45,
       "issue_counts": {
-        "NO_MAPPING": 42,
+        "NO_MAPPING": 41,
         "NO_CURRENT_PROGRAMME": 4,
         "NO_NEXT_PROGRAMME": 4
       },
@@ -35,27 +35,62 @@
         },
         "Кинозалы": {
           "channels": 239,
-          "ok": 224,
-          "gaps": 15
+          "ok": 225,
+          "gaps": 14
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 38,
-      "high_confidence_observations": 0,
-      "recognized": []
+      "channels_considered": 39,
+      "high_confidence_observations": 2,
+      "recognized": [
+        {
+          "playlist_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
+          "provider_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
+          "title": "Танцор диско (19",
+          "score": 17.75,
+          "zone": "left_bottom",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "DITV Concert",
+          "provider_name": "DITV Concert",
+          "title": "1 ВИРТ",
+          "score": 13.0,
+          "zone": "top_left_tight",
+          "engine": "tesseract"
+        }
+      ]
     },
     "evidence_recorder": {
-      "added": 0,
-      "rejected": 38,
-      "observations": []
+      "added": 2,
+      "rejected": 37,
+      "observations": [
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-15T04:04:46.470447+00:00",
+          "playlist_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
+          "observed_title": "Танцор диско (19",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom; engine=tesseract; score=17.75"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-15T04:04:46.470447+00:00",
+          "playlist_name": "DITV Concert",
+          "observed_title": "1 ВИРТ",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=13.0"
+        }
+      ]
     },
     "judge": {
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "waiting-for-distinct-second-title"
+        "quarantined": 0,
+        "reason": "no-live-candidates"
       },
       "pending_count": 0,
       "pending": {},
@@ -65,11 +100,28 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 0,
-      "sources_scanned": 0,
-      "sources_failed": [],
-      "candidates_added": 0,
-      "added": []
+      "live_observations": 2,
+      "sources_scanned": 28,
+      "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        }
+      ],
+      "candidates_added": 1,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
+          "source": "epgpw-RU",
+          "source_id": "7025",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Танцор диско (19; candidate=Танцор диско; requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
