@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-15T18:03:33.054993+00:00",
+  "updated_at": "2026-09-15T19:04:23.173675+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-15T18:03:31.588714+00:00",
+      "checked_at_utc": "2026-09-15T19:04:21.325553+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,11 +10,12 @@
         "Кинозалы"
       ],
       "channels": 487,
-      "ok": 453,
-      "gaps": 34,
+      "ok": 451,
+      "gaps": 36,
       "issue_counts": {
         "NO_MAPPING": 33,
-        "NO_NEXT_PROGRAMME": 1
+        "NO_CURRENT_PROGRAMME": 2,
+        "NO_NEXT_PROGRAMME": 3
       },
       "group_counts": {
         "USSR": {
@@ -24,8 +25,8 @@
         },
         "Кино": {
           "channels": 167,
-          "ok": 147,
-          "gaps": 20
+          "ok": 146,
+          "gaps": 21
         },
         "Кино 4K": {
           "channels": 63,
@@ -34,39 +35,21 @@
         },
         "Кинозалы": {
           "channels": 239,
-          "ok": 227,
-          "gaps": 12
+          "ok": 226,
+          "gaps": 13
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 33,
-      "high_confidence_observations": 1,
-      "recognized": [
-        {
-          "playlist_name": "MM Семейный 1 HD",
-          "provider_name": "MM Семейный 1 HD",
-          "title": "Зубная фея 2 (2012)",
-          "score": 22.25,
-          "zone": "left_bottom_tight",
-          "engine": "tesseract"
-        }
-      ]
+      "channels_considered": 35,
+      "high_confidence_observations": 0,
+      "recognized": []
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 32,
-      "observations": [
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-15T17:58:24.559632+00:00",
-          "playlist_name": "MM Семейный 1 HD",
-          "observed_title": "Зубная фея 2 (2012)",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=22.25"
-        }
-      ]
+      "added": 0,
+      "rejected": 35,
+      "observations": []
     },
     "judge": {
       "selector": {
@@ -74,22 +57,16 @@
         "selected": 0,
         "reason": "waiting-for-distinct-second-title"
       },
-      "pending_count": 1,
-      "pending": {
-        "MM Семейный 1 HD": {
-          "observations": 2,
-          "distinct_titles": 1,
-          "status": "PENDING_DISTINCT_SECOND_TITLE"
-        }
-      },
+      "pending_count": 0,
+      "pending": {},
       "selected_count": 0,
       "quarantined_count": 0,
       "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 10,
+      "live_observations": 0,
+      "sources_scanned": 0,
       "sources_failed": [],
       "candidates_added": 0,
       "added": []
