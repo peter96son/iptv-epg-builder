@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-15T23:51:54.419223+00:00",
+  "updated_at": "2026-09-16T02:11:19.730240+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-15T23:51:52.581858+00:00",
+      "checked_at_utc": "2026-09-16T02:11:17.956058+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,11 +10,12 @@
         "Кинозалы"
       ],
       "channels": 487,
-      "ok": 447,
-      "gaps": 40,
+      "ok": 440,
+      "gaps": 47,
       "issue_counts": {
         "NO_MAPPING": 39,
-        "NO_NEXT_PROGRAMME": 1
+        "NO_CURRENT_PROGRAMME": 4,
+        "NO_NEXT_PROGRAMME": 8
       },
       "group_counts": {
         "USSR": {
@@ -24,8 +25,8 @@
         },
         "Кино": {
           "channels": 167,
-          "ok": 143,
-          "gaps": 24
+          "ok": 138,
+          "gaps": 29
         },
         "Кино 4K": {
           "channels": 63,
@@ -34,41 +35,218 @@
         },
         "Кинозалы": {
           "channels": 239,
-          "ok": 225,
-          "gaps": 14
+          "ok": 223,
+          "gaps": 16
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 39,
-      "high_confidence_observations": 0,
-      "recognized": []
+      "channels_considered": 41,
+      "high_confidence_observations": 2,
+      "recognized": [
+        {
+          "playlist_name": "РуКино HD",
+          "provider_name": "РуКино HD",
+          "title": "ЗАТМЕНИЕ",
+          "score": 17.0,
+          "zone": "top_left_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "MM NewFilm 2 HD",
+          "provider_name": "MM NewFilm 2 HD",
+          "title": "Мир в огне (2025)",
+          "score": 13.0,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        }
+      ]
     },
     "evidence_recorder": {
-      "added": 0,
+      "added": 2,
       "rejected": 39,
-      "observations": []
+      "observations": [
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-16T01:51:54.918762+00:00",
+          "playlist_name": "РуКино HD",
+          "observed_title": "ЗАТМЕНИЕ",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=17.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-16T01:51:54.918762+00:00",
+          "playlist_name": "MM NewFilm 2 HD",
+          "observed_title": "Мир в огне (2025)",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=13.0"
+        }
+      ]
     },
     "judge": {
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "waiting-for-distinct-second-title"
+        "quarantined": 0,
+        "reason": "no-live-candidates"
       },
-      "pending_count": 0,
-      "pending": {},
+      "pending_count": 1,
+      "pending": {
+        "MM NewFilm 2 HD": {
+          "observations": 1,
+          "distinct_titles": 1,
+          "status": "PENDING_DISTINCT_SECOND_TITLE"
+        }
+      },
       "selected_count": 0,
       "quarantined_count": 0,
       "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 0,
-      "sources_scanned": 0,
-      "sources_failed": [],
-      "candidates_added": 0,
-      "added": []
+      "live_observations": 2,
+      "sources_scanned": 28,
+      "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        }
+      ],
+      "candidates_added": 18,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "MM NewFilm 2 HD",
+          "source": "iptv-online-primary",
+          "source_id": "Xminimax-newfilm2",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Мир в огне (2025); candidate=х/ф Мир в огне; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM NewFilm 2 HD",
+          "source": "iptvx-noarch",
+          "source_id": "minimax-newfilm2",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Мир в огне (2025); candidate=х/ф Мир в огне; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "РуКино HD",
+          "source": "iptvx-noarch",
+          "source_id": "sky-high-mono-fhd",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=ЗАТМЕНИЕ; candidate=х/ф Затмение (2015); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM NewFilm 2 HD",
+          "source": "openbox-tsd",
+          "source_id": "mm-newfilm-2",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Мир в огне (2025); candidate=Х/ф Мир в огне.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "РуКино HD",
+          "source": "openbox-tsd",
+          "source_id": "sky-high-mono-fhd",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=ЗАТМЕНИЕ; candidate=Х/ф Затмение.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM NewFilm 2 HD",
+          "source": "minimax-mm-dedicated",
+          "source_id": "newfilm2-mm",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Мир в огне (2025); candidate=Мир в огне; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM NewFilm 2 HD",
+          "source": "tvteam",
+          "source_id": "ch1217",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Мир в огне (2025); candidate=Мир в огне; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "РуКино HD",
+          "source": "tvteam",
+          "source_id": "ch3711",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=ЗАТМЕНИЕ; candidate=Затмение; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM NewFilm 2 HD",
+          "source": "epgpw-RU",
+          "source_id": "7018",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Мир в огне (2025); candidate=х/ф Мир в огне; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM NewFilm 2 HD",
+          "source": "epgpw-RU",
+          "source_id": "565039",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Мир в огне (2025); candidate=Мир в огне (2025); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "РуКино HD",
+          "source": "skyhigh-fhd",
+          "source_id": "SKYHIGHMONOFHD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=ЗАТМЕНИЕ; candidate=Затмение; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "РуКино HD",
+          "source": "gabbarit-current",
+          "source_id": "SKY HIGH MONO FHD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=ЗАТМЕНИЕ; candidate=Затмение (2015).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM NewFilm 2 HD",
+          "source": "gabbarit-current",
+          "source_id": "минимакс-newfilm 2 HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Мир в огне (2025); candidate=Мир в огне (2025).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "РуКино HD",
+          "source": "gabbarit-primary",
+          "source_id": "SKY HIGH MONO FHD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=ЗАТМЕНИЕ; candidate=Затмение (2015).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM NewFilm 2 HD",
+          "source": "gabbarit-primary",
+          "source_id": "минимакс-newfilm 2 HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Мир в огне (2025); candidate=Мир в огне (2025).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "РуКино HD",
+          "source": "gabbarit-mirror",
+          "source_id": "SKY HIGH MONO FHD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=ЗАТМЕНИЕ; candidate=Затмение (2015).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM NewFilm 2 HD",
+          "source": "gabbarit-mirror",
+          "source_id": "минимакс-newfilm 2 HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Мир в огне (2025); candidate=Мир в огне (2025).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM NewFilm 2 HD",
+          "source": "epgone-full-movie-rescue",
+          "source_id": "5125",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Мир в огне (2025); candidate=Мир в огне; requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
