@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-16T07:12:50.943013+00:00",
+  "updated_at": "2026-09-16T12:37:07.982241+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-16T07:12:49.135423+00:00",
+      "checked_at_utc": "2026-09-16T12:37:06.308024+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,10 @@
         "Кинозалы"
       ],
       "channels": 487,
-      "ok": 439,
-      "gaps": 48,
+      "ok": 403,
+      "gaps": 84,
       "issue_counts": {
-        "NO_MAPPING": 38,
-        "NO_CURRENT_PROGRAMME": 10,
-        "NO_NEXT_PROGRAMME": 10
+        "NO_MAPPING": 84
       },
       "group_counts": {
         "USSR": {
@@ -25,93 +23,173 @@
         },
         "Кино": {
           "channels": 167,
-          "ok": 137,
-          "gaps": 30
+          "ok": 146,
+          "gaps": 21
         },
         "Кино 4K": {
           "channels": 63,
-          "ok": 63,
-          "gaps": 0
+          "ok": 13,
+          "gaps": 50
         },
         "Кинозалы": {
           "channels": 239,
-          "ok": 223,
-          "gaps": 16
+          "ok": 228,
+          "gaps": 11
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 43,
-      "high_confidence_observations": 2,
+      "channels_considered": 84,
+      "high_confidence_observations": 1,
       "recognized": [
         {
-          "playlist_name": "MM NewFilm 2 HD",
-          "provider_name": "MM NewFilm 2 HD",
-          "title": "Сыграть в ящик (2026)",
-          "score": 18.0,
-          "zone": "left_bottom_tight",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "MM Семейный 1 HD",
-          "provider_name": "MM Семейный 1 HD",
-          "title": "Повелитель стихий (2010)",
-          "score": 24.0,
-          "zone": "left_bottom_tight",
+          "playlist_name": "DITV Американские комедии 80-90-х",
+          "provider_name": "DITV Американские комедии 80-90-х",
+          "title": "Тупой и еще тупее",
+          "score": 18.5,
+          "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 2,
-      "rejected": 41,
+      "added": 1,
+      "rejected": 83,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-16T06:58:40.354939+00:00",
-          "playlist_name": "MM NewFilm 2 HD",
-          "observed_title": "Сыграть в ящик (2026)",
+          "observed_at": "2026-09-16T12:22:11.666118+00:00",
+          "playlist_name": "DITV Американские комедии 80-90-х",
+          "observed_title": "Тупой и еще тупее",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=18.0"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-16T06:58:40.354939+00:00",
-          "playlist_name": "MM Семейный 1 HD",
-          "observed_title": "Повелитель стихий (2010)",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=24.0"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.5"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 1,
-        "selected": 1,
-        "quarantined": 0,
-        "target_hours": 6.0
+        "changed": 0,
+        "selected": 0,
+        "reason": "no-policy"
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 1,
+      "selected_count": 11,
       "quarantined_count": 0,
       "selected": {
+        "Premium HD": {
+          "source": "gabbarit-current",
+          "source_id": "Premium HD",
+          "output_tvg_id": "premium-hd",
+          "horizon_hours": 156.64,
+          "current": true,
+          "usable": 28
+        },
+        "Premiere HD": {
+          "source": "gabbarit-current",
+          "source_id": "Premiere HD",
+          "output_tvg_id": "Xpremiere-hd",
+          "horizon_hours": 156.52,
+          "current": true,
+          "usable": 32
+        },
+        "Paradise HD": {
+          "source": "gabbarit-current",
+          "source_id": "Paradise HD",
+          "output_tvg_id": "Xparadise-hd",
+          "horizon_hours": 156.94,
+          "current": true,
+          "usable": 34
+        },
+        "Paradox HD": {
+          "source": "gabbarit-current",
+          "source_id": "Paradox HD",
+          "output_tvg_id": "Xparadox-hd",
+          "horizon_hours": 156.79,
+          "current": true,
+          "usable": 32
+        },
+        "4ever Cinema HD": {
+          "source": "iptvx-noarch",
+          "source_id": "4ever-cinema",
+          "output_tvg_id": "X4ever-cinema",
+          "horizon_hours": 10.82,
+          "current": true,
+          "usable": 9
+        },
+        "4ever Drama HD": {
+          "source": "iptvx-noarch",
+          "source_id": "4ever-drama",
+          "output_tvg_id": "X4ever-drama",
+          "horizon_hours": 11.39,
+          "current": true,
+          "usable": 9
+        },
+        "4ever Theater HD": {
+          "source": "iptvx-noarch",
+          "source_id": "4ever-theater",
+          "output_tvg_id": "X4ever-theater",
+          "horizon_hours": 10.97,
+          "current": true,
+          "usable": 9
+        },
+        "4ever Music HD": {
+          "source": "iptvx-noarch",
+          "source_id": "4ever-music",
+          "output_tvg_id": "X4ever-music",
+          "horizon_hours": 115.98,
+          "current": true,
+          "usable": 28
+        },
+        "TVPlay Авторский перевод HD": {
+          "source": "iptvx-noarch",
+          "source_id": "tvplay-avtorskiyperevod",
+          "output_tvg_id": "tvplay-avtorskiyperevod",
+          "horizon_hours": 49.01,
+          "current": true,
+          "usable": 30
+        },
+        "MM Семейный 1 HD": {
+          "source": "iptv-online-primary",
+          "source_id": "Xminimax-family1",
+          "output_tvg_id": "Xminimax-family1",
+          "horizon_hours": 115.34,
+          "current": true,
+          "usable": 37
+        },
         "MM NewFilm 2 HD": {
           "source": "minimax-mm-dedicated",
           "source_id": "newfilm2-mm",
           "output_tvg_id": "Xminimax-newfilm2",
-          "horizon_hours": 164.67,
+          "horizon_hours": 162.43,
           "current": true,
-          "usable": 34
+          "usable": 33
         }
       },
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 2,
-      "sources_scanned": 11,
-      "sources_failed": [],
+      "live_observations": 1,
+      "sources_scanned": 26,
+      "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-ru",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-rescue",
+          "error": "RuntimeError"
+        }
+      ],
       "candidates_added": 0,
       "added": []
     }
