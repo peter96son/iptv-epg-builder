@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-18T12:14:00.944325+00:00",
+  "updated_at": "2026-09-18T15:31:05.683614+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-18T12:13:59.422852+00:00",
+      "checked_at_utc": "2026-09-18T15:31:04.705994+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,23 +10,23 @@
         "Кинозалы"
       ],
       "channels": 492,
-      "ok": 388,
-      "gaps": 104,
+      "ok": 397,
+      "gaps": 95,
       "issue_counts": {
-        "NO_MAPPING": 96,
-        "NO_CURRENT_PROGRAMME": 8,
-        "NO_NEXT_PROGRAMME": 8
+        "NO_MAPPING": 94,
+        "NO_CURRENT_PROGRAMME": 1,
+        "NO_NEXT_PROGRAMME": 1
       },
       "group_counts": {
         "USSR": {
-          "channels": 19,
+          "channels": 18,
           "ok": 16,
-          "gaps": 3
+          "gaps": 2
         },
         "Кино": {
-          "channels": 171,
-          "ok": 138,
-          "gaps": 33
+          "channels": 172,
+          "ok": 146,
+          "gaps": 26
         },
         "Кино 4K": {
           "channels": 63,
@@ -35,21 +35,21 @@
         },
         "Кинозалы": {
           "channels": 239,
-          "ok": 220,
-          "gaps": 19
+          "ok": 221,
+          "gaps": 18
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 44,
+      "channels_considered": 43,
       "high_confidence_observations": 1,
       "recognized": [
         {
           "playlist_name": "Bear TV КиноРитм UHD",
           "provider_name": "Bear TV КиноРитм UHD",
-          "title": "bb. Rie Betsy. .",
-          "score": 12.5,
+          "title": "воля +1",
+          "score": 18.0,
           "zone": "bottom_band",
           "engine": "tesseract"
         }
@@ -57,15 +57,15 @@
     },
     "evidence_recorder": {
       "added": 1,
-      "rejected": 43,
+      "rejected": 42,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-18T11:59:35.749343+00:00",
+          "observed_at": "2026-09-18T15:21:23.497467+00:00",
           "playlist_name": "Bear TV КиноРитм UHD",
-          "observed_title": "bb. Rie Betsy. .",
+          "observed_title": "воля +1",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=12.5"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.0"
         }
       ]
     },
@@ -73,31 +73,98 @@
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "waiting-for-distinct-second-title"
+        "reason": "no-policy"
       },
-      "pending_count": 1,
-      "pending": {
-        "Bear TV КиноРитм UHD": {
-          "observations": 1,
-          "distinct_titles": 1,
-          "status": "PENDING_DISTINCT_SECOND_TITLE"
+      "pending_count": 0,
+      "pending": {},
+      "selected_count": 8,
+      "quarantined_count": 0,
+      "selected": {
+        "Premium HD": {
+          "source": "gabbarit-current",
+          "source_id": "Premium HD",
+          "output_tvg_id": "premium-hd",
+          "horizon_hours": 105.87,
+          "current": true,
+          "usable": 27
+        },
+        "Premiere HD": {
+          "source": "gabbarit-current",
+          "source_id": "Premiere HD",
+          "output_tvg_id": "Xpremiere-hd",
+          "horizon_hours": 105.75,
+          "current": true,
+          "usable": 34
+        },
+        "Paradise HD": {
+          "source": "gabbarit-current",
+          "source_id": "Paradise HD",
+          "output_tvg_id": "Xparadise-hd",
+          "horizon_hours": 106.17,
+          "current": true,
+          "usable": 32
+        },
+        "Paradox HD": {
+          "source": "gabbarit-current",
+          "source_id": "Paradox HD",
+          "output_tvg_id": "Xparadox-hd",
+          "horizon_hours": 106.02,
+          "current": true,
+          "usable": 32
+        },
+        "4ever Cinema HD": {
+          "source": "openbox-tsd",
+          "source_id": "4ever-cinema",
+          "output_tvg_id": "X4ever-cinema",
+          "horizon_hours": 8.81,
+          "current": true,
+          "usable": 9
+        },
+        "4ever Drama HD": {
+          "source": "openbox-tsd",
+          "source_id": "4ever-drama",
+          "output_tvg_id": "X4ever-drama",
+          "horizon_hours": 8.74,
+          "current": true,
+          "usable": 9
+        },
+        "4ever Theater HD": {
+          "source": "openbox-tsd",
+          "source_id": "4ever-theater",
+          "output_tvg_id": "X4ever-theater",
+          "horizon_hours": 8.33,
+          "current": true,
+          "usable": 9
+        },
+        "4ever Music HD": {
+          "source": "iptvx-noarch",
+          "source_id": "4ever-music",
+          "output_tvg_id": "X4ever-music",
+          "horizon_hours": 68.2,
+          "current": true,
+          "usable": 28
         }
       },
-      "selected_count": 0,
-      "quarantined_count": 0,
-      "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
       "live_observations": 1,
-      "sources_scanned": 28,
+      "sources_scanned": 26,
       "sources_failed": [
+        {
+          "source": "iptv-online-primary",
+          "error": "RuntimeError"
+        },
         {
           "source": "klimedia-dedicated",
           "error": "RuntimeError"
         },
         {
           "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-ru",
           "error": "RuntimeError"
         }
       ],
