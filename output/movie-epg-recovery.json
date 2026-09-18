@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-18T15:31:05.683614+00:00",
+  "updated_at": "2026-09-18T18:50:58.027764+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-18T15:31:04.705994+00:00",
+      "checked_at_utc": "2026-09-18T18:50:56.811231+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,10 @@
         "Кинозалы"
       ],
       "channels": 492,
-      "ok": 397,
-      "gaps": 95,
+      "ok": 408,
+      "gaps": 84,
       "issue_counts": {
-        "NO_MAPPING": 94,
-        "NO_CURRENT_PROGRAMME": 1,
-        "NO_NEXT_PROGRAMME": 1
+        "NO_MAPPING": 84
       },
       "group_counts": {
         "USSR": {
@@ -25,47 +23,63 @@
         },
         "Кино": {
           "channels": 172,
-          "ok": 146,
-          "gaps": 26
+          "ok": 152,
+          "gaps": 20
         },
         "Кино 4K": {
           "channels": 63,
-          "ok": 14,
-          "gaps": 49
+          "ok": 13,
+          "gaps": 50
         },
         "Кинозалы": {
           "channels": 239,
-          "ok": 221,
-          "gaps": 18
+          "ok": 227,
+          "gaps": 12
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 43,
-      "high_confidence_observations": 1,
+      "channels_considered": 35,
+      "high_confidence_observations": 2,
       "recognized": [
         {
-          "playlist_name": "Bear TV КиноРитм UHD",
-          "provider_name": "Bear TV КиноРитм UHD",
-          "title": "воля +1",
-          "score": 18.0,
-          "zone": "bottom_band",
+          "playlist_name": "РуКино HD",
+          "provider_name": "РуКино HD",
+          "title": "ФАГОТ",
+          "score": 16.25,
+          "zone": "top_left",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
+          "provider_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
+          "title": "Танцор диско (1982)",
+          "score": 17.75,
+          "zone": "left_bottom_tight",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 42,
+      "added": 2,
+      "rejected": 33,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-18T15:21:23.497467+00:00",
-          "playlist_name": "Bear TV КиноРитм UHD",
-          "observed_title": "воля +1",
+          "observed_at": "2026-09-18T18:44:18.484470+00:00",
+          "playlist_name": "РуКино HD",
+          "observed_title": "ФАГОТ",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.0"
+          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=16.25"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-18T18:44:18.484470+00:00",
+          "playlist_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
+          "observed_title": "Танцор диско (1982)",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=17.75"
         }
       ]
     },
@@ -73,101 +87,20 @@
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "no-policy"
+        "quarantined": 0,
+        "reason": "no-live-candidates"
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 8,
+      "selected_count": 0,
       "quarantined_count": 0,
-      "selected": {
-        "Premium HD": {
-          "source": "gabbarit-current",
-          "source_id": "Premium HD",
-          "output_tvg_id": "premium-hd",
-          "horizon_hours": 105.87,
-          "current": true,
-          "usable": 27
-        },
-        "Premiere HD": {
-          "source": "gabbarit-current",
-          "source_id": "Premiere HD",
-          "output_tvg_id": "Xpremiere-hd",
-          "horizon_hours": 105.75,
-          "current": true,
-          "usable": 34
-        },
-        "Paradise HD": {
-          "source": "gabbarit-current",
-          "source_id": "Paradise HD",
-          "output_tvg_id": "Xparadise-hd",
-          "horizon_hours": 106.17,
-          "current": true,
-          "usable": 32
-        },
-        "Paradox HD": {
-          "source": "gabbarit-current",
-          "source_id": "Paradox HD",
-          "output_tvg_id": "Xparadox-hd",
-          "horizon_hours": 106.02,
-          "current": true,
-          "usable": 32
-        },
-        "4ever Cinema HD": {
-          "source": "openbox-tsd",
-          "source_id": "4ever-cinema",
-          "output_tvg_id": "X4ever-cinema",
-          "horizon_hours": 8.81,
-          "current": true,
-          "usable": 9
-        },
-        "4ever Drama HD": {
-          "source": "openbox-tsd",
-          "source_id": "4ever-drama",
-          "output_tvg_id": "X4ever-drama",
-          "horizon_hours": 8.74,
-          "current": true,
-          "usable": 9
-        },
-        "4ever Theater HD": {
-          "source": "openbox-tsd",
-          "source_id": "4ever-theater",
-          "output_tvg_id": "X4ever-theater",
-          "horizon_hours": 8.33,
-          "current": true,
-          "usable": 9
-        },
-        "4ever Music HD": {
-          "source": "iptvx-noarch",
-          "source_id": "4ever-music",
-          "output_tvg_id": "X4ever-music",
-          "horizon_hours": 68.2,
-          "current": true,
-          "usable": 28
-        }
-      },
+      "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 26,
-      "sources_failed": [
-        {
-          "source": "iptv-online-primary",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-ru",
-          "error": "RuntimeError"
-        }
-      ],
+      "live_observations": 2,
+      "sources_scanned": 8,
+      "sources_failed": [],
       "candidates_added": 0,
       "added": []
     }
