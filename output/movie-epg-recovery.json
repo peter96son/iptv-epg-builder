@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-18T18:50:58.027764+00:00",
+  "updated_at": "2026-09-18T21:31:12.990459+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-18T18:50:56.811231+00:00",
+      "checked_at_utc": "2026-09-18T21:31:12.059395+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,10 +10,12 @@
         "Кинозалы"
       ],
       "channels": 492,
-      "ok": 408,
-      "gaps": 84,
+      "ok": 402,
+      "gaps": 90,
       "issue_counts": {
-        "NO_MAPPING": 84
+        "NO_MAPPING": 83,
+        "NO_CURRENT_PROGRAMME": 4,
+        "NO_NEXT_PROGRAMME": 7
       },
       "group_counts": {
         "USSR": {
@@ -23,63 +25,47 @@
         },
         "Кино": {
           "channels": 172,
-          "ok": 152,
-          "gaps": 20
+          "ok": 148,
+          "gaps": 24
         },
         "Кино 4K": {
           "channels": 63,
-          "ok": 13,
-          "gaps": 50
+          "ok": 14,
+          "gaps": 49
         },
         "Кинозалы": {
           "channels": 239,
-          "ok": 227,
-          "gaps": 12
+          "ok": 224,
+          "gaps": 15
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 35,
-      "high_confidence_observations": 2,
+      "channels_considered": 38,
+      "high_confidence_observations": 1,
       "recognized": [
         {
-          "playlist_name": "РуКино HD",
-          "provider_name": "РуКино HD",
-          "title": "ФАГОТ",
-          "score": 16.25,
-          "zone": "top_left",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
-          "provider_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
-          "title": "Танцор диско (1982)",
-          "score": 17.75,
-          "zone": "left_bottom_tight",
+          "playlist_name": "Bear TV КиноРитм UHD",
+          "provider_name": "Bear TV КиноРитм UHD",
+          "title": "BEAR I Wun}",
+          "score": 12.0,
+          "zone": "top_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 2,
-      "rejected": 33,
+      "added": 1,
+      "rejected": 37,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-18T18:44:18.484470+00:00",
-          "playlist_name": "РуКино HD",
-          "observed_title": "ФАГОТ",
+          "observed_at": "2026-09-18T21:22:39.954291+00:00",
+          "playlist_name": "Bear TV КиноРитм UHD",
+          "observed_title": "BEAR I Wun}",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=16.25"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-18T18:44:18.484470+00:00",
-          "playlist_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
-          "observed_title": "Танцор диско (1982)",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=17.75"
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=12.0"
         }
       ]
     },
@@ -87,8 +73,7 @@
       "selector": {
         "changed": 0,
         "selected": 0,
-        "quarantined": 0,
-        "reason": "no-live-candidates"
+        "reason": "no-policy"
       },
       "pending_count": 0,
       "pending": {},
@@ -98,9 +83,34 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 2,
-      "sources_scanned": 8,
-      "sources_failed": [],
+      "live_observations": 1,
+      "sources_scanned": 24,
+      "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "epgpw-sreda",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "epgpw-chestny-detektiv",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-ru",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-rescue",
+          "error": "RuntimeError"
+        }
+      ],
       "candidates_added": 0,
       "added": []
     }
