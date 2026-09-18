@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-17T23:14:56.476022+00:00",
+  "updated_at": "2026-09-18T01:55:49.763351+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-17T23:14:55.091038+00:00",
+      "checked_at_utc": "2026-09-18T01:55:48.229993+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,11 +10,12 @@
         "Кинозалы"
       ],
       "channels": 487,
-      "ok": 395,
-      "gaps": 92,
+      "ok": 388,
+      "gaps": 99,
       "issue_counts": {
-        "NO_MAPPING": 91,
-        "NO_NEXT_PROGRAMME": 1
+        "NO_MAPPING": 90,
+        "NO_CURRENT_PROGRAMME": 6,
+        "NO_NEXT_PROGRAMME": 9
       },
       "group_counts": {
         "USSR": {
@@ -24,8 +25,8 @@
         },
         "Кино": {
           "channels": 167,
-          "ok": 144,
-          "gaps": 23
+          "ok": 136,
+          "gaps": 31
         },
         "Кино 4K": {
           "channels": 63,
@@ -34,39 +35,143 @@
         },
         "Кинозалы": {
           "channels": 239,
-          "ok": 222,
-          "gaps": 17
+          "ok": 223,
+          "gaps": 16
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 42,
-      "high_confidence_observations": 0,
-      "recognized": []
+      "channels_considered": 43,
+      "high_confidence_observations": 1,
+      "recognized": [
+        {
+          "playlist_name": "DITV КОМЕДИИ 90-х",
+          "provider_name": "DITV КОМЕДИИ 90-х",
+          "title": "Маска (1994)",
+          "score": 16.25,
+          "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        }
+      ]
     },
     "evidence_recorder": {
-      "added": 0,
+      "added": 1,
       "rejected": 42,
-      "observations": []
+      "observations": [
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-18T01:42:49.579532+00:00",
+          "playlist_name": "DITV КОМЕДИИ 90-х",
+          "observed_title": "Маска (1994)",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=16.25"
+        }
+      ]
     },
     "judge": {
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "waiting-for-distinct-second-title"
+        "reason": "no-policy"
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 0,
+      "selected_count": 9,
       "quarantined_count": 0,
-      "selected": {},
+      "selected": {
+        "Premium HD": {
+          "source": "gabbarit-current",
+          "source_id": "Premium HD",
+          "output_tvg_id": "premium-hd",
+          "horizon_hours": 119.63,
+          "current": true,
+          "usable": 27
+        },
+        "Premiere HD": {
+          "source": "gabbarit-current",
+          "source_id": "Premiere HD",
+          "output_tvg_id": "Xpremiere-hd",
+          "horizon_hours": 119.51,
+          "current": true,
+          "usable": 35
+        },
+        "Paradise HD": {
+          "source": "gabbarit-current",
+          "source_id": "Paradise HD",
+          "output_tvg_id": "Xparadise-hd",
+          "horizon_hours": 119.93,
+          "current": true,
+          "usable": 32
+        },
+        "Paradox HD": {
+          "source": "gabbarit-current",
+          "source_id": "Paradox HD",
+          "output_tvg_id": "Xparadox-hd",
+          "horizon_hours": 119.77,
+          "current": true,
+          "usable": 31
+        },
+        "4ever Cinema HD": {
+          "source": "gabbarit-current",
+          "source_id": "4 ever Cinema",
+          "output_tvg_id": "X4ever-cinema",
+          "horizon_hours": 239.98,
+          "current": true,
+          "usable": 19
+        },
+        "4ever Drama HD": {
+          "source": "gabbarit-current",
+          "source_id": "4ever Drama",
+          "output_tvg_id": "X4ever-drama",
+          "horizon_hours": 239.97,
+          "current": true,
+          "usable": 19
+        },
+        "4ever Theater HD": {
+          "source": "gabbarit-current",
+          "source_id": "4ever Theater",
+          "output_tvg_id": "X4ever-theater",
+          "horizon_hours": 239.96,
+          "current": true,
+          "usable": 19
+        },
+        "4ever Music HD": {
+          "source": "iptvx-noarch",
+          "source_id": "4ever-music",
+          "output_tvg_id": "X4ever-music",
+          "horizon_hours": 80.95,
+          "current": true,
+          "usable": 28
+        },
+        "MM NewFilm 2 HD": {
+          "source": "epgone-full-movie-rescue",
+          "source_id": "5125",
+          "output_tvg_id": "Xminimax-newfilm2",
+          "horizon_hours": 166.29,
+          "current": true,
+          "usable": 33
+        }
+      },
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 0,
-      "sources_scanned": 0,
-      "sources_failed": [],
+      "live_observations": 1,
+      "sources_scanned": 27,
+      "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "epgpw-sreda",
+          "error": "RuntimeError"
+        }
+      ],
       "candidates_added": 0,
       "added": []
     }
