@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-19T19:59:06.994194+00:00",
+  "updated_at": "2026-09-19T22:05:58.512749+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-19T19:59:05.531481+00:00",
+      "checked_at_utc": "2026-09-19T22:05:57.068976+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 508,
-      "ok": 424,
-      "gaps": 84,
+      "ok": 420,
+      "gaps": 88,
       "issue_counts": {
         "NO_MAPPING": 82,
-        "NO_CURRENT_PROGRAMME": 2,
-        "NO_NEXT_PROGRAMME": 1
+        "NO_CURRENT_PROGRAMME": 5,
+        "NO_NEXT_PROGRAMME": 5
       },
       "group_counts": {
         "USSR": {
@@ -35,69 +35,37 @@
         },
         "Кинозалы": {
           "channels": 252,
-          "ok": 242,
-          "gaps": 10
+          "ok": 238,
+          "gaps": 14
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 35,
-      "high_confidence_observations": 3,
+      "channels_considered": 36,
+      "high_confidence_observations": 1,
       "recognized": [
         {
-          "playlist_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
-          "provider_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
-          "title": "Танцор диско (1982)",
-          "score": 22.75,
-          "zone": "bottom_band",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "MM NewFilm 1 HD",
-          "provider_name": "MM NewFilm 1 HD",
-          "title": "Бессмертная гвардия 2 (2025)",
-          "score": 19.5,
-          "zone": "bottom_band",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "DITV Concert",
-          "provider_name": "DITV Concert",
-          "title": "Wain | fl dee",
-          "score": 12.25,
-          "zone": "bottom_band",
+          "playlist_name": "MM Киберпанк HD",
+          "provider_name": "MM Киберпанк HD",
+          "title": "Пришелец (2001)",
+          "score": 22.0,
+          "zone": "left_bottom_tight",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 3,
-      "rejected": 32,
+      "added": 1,
+      "rejected": 35,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-19T19:41:47.718838+00:00",
-          "playlist_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
-          "observed_title": "Танцор диско (1982)",
+          "observed_at": "2026-09-19T21:53:11.009466+00:00",
+          "playlist_name": "MM Киберпанк HD",
+          "observed_title": "Пришелец (2001)",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=22.75"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-19T19:41:47.718838+00:00",
-          "playlist_name": "MM NewFilm 1 HD",
-          "observed_title": "Бессмертная гвардия 2 (2025)",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=19.5"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-19T19:41:47.718838+00:00",
-          "playlist_name": "DITV Concert",
-          "observed_title": "Wain | fl dee",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=12.25"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=22.0"
         }
       ]
     },
@@ -105,12 +73,11 @@
       "selector": {
         "changed": 0,
         "selected": 0,
-        "quarantined": 0,
-        "reason": "no-live-candidates"
+        "reason": "waiting-for-distinct-second-title"
       },
       "pending_count": 1,
       "pending": {
-        "MM NewFilm 1 HD": {
+        "MM Киберпанк HD": {
           "observations": 1,
           "distinct_titles": 1,
           "status": "PENDING_DISTINCT_SECOND_TITLE"
@@ -122,8 +89,8 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 3,
-      "sources_scanned": 26,
+      "live_observations": 1,
+      "sources_scanned": 28,
       "sources_failed": [
         {
           "source": "klimedia-dedicated",
@@ -132,157 +99,72 @@
         {
           "source": "sharavoz-guide",
           "error": "RuntimeError"
-        },
-        {
-          "source": "epgpw-sreda",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "epgpw-chestny-detektiv",
-          "error": "RuntimeError"
         }
       ],
-      "candidates_added": 20,
+      "candidates_added": 9,
       "added": [
         {
           "enabled": "1",
-          "playlist_name": "MM NewFilm 1 HD",
+          "playlist_name": "MM Киберпанк HD",
           "source": "iptv-online-primary",
-          "source_id": "Xbcu-ultra4k",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Бессмертная гвардия 2 (2025); candidate=х/ф Бессмертная гвардия; requires two positive observations before selection"
+          "source_id": "Xminimax-kiberpunk",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Пришелец (2001); candidate=х/ф Пришелец; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
-          "source": "iptv-online-primary",
-          "source_id": "Xzal-04-tricolor",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Танцор диско (1982); candidate=Танцор диско; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM NewFilm 1 HD",
+          "playlist_name": "MM Киберпанк HD",
           "source": "iptvx-noarch",
-          "source_id": "bcu-ultra4k",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Бессмертная гвардия 2 (2025); candidate=х/ф Бессмертная гвардия; requires two positive observations before selection"
+          "source_id": "minimax-kiberpunk",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Пришелец (2001); candidate=х/ф Пришелец; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
-          "source": "iptvx-noarch",
-          "source_id": "zal-04-tricolor",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Танцор диско (1982); candidate=Танцор диско; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM NewFilm 1 HD",
+          "playlist_name": "MM Киберпанк HD",
           "source": "openbox-tsd",
-          "source_id": "bcu-ultra-4k",
-          "notes": "auto-discovered from live title; similarity=0.864; observed=Бессмертная гвардия 2 (2025); candidate=X/ф Бессмертная гвардия.; requires two positive observations before selection"
+          "source_id": "mm-kiberpank",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Пришелец (2001); candidate=Х/ф Пришелец.; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
-          "source": "openbox-tsd",
-          "source_id": "zal-4",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Танцор диско (1982); candidate=Х/ф Танцор Диско.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM NewFilm 1 HD",
-          "source": "bcumedia-dedicated",
-          "source_id": "BCU Ultra 4K",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Бессмертная гвардия 2 (2025); candidate=Бессмертная гвардия; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM NewFilm 1 HD",
+          "playlist_name": "MM Киберпанк HD",
           "source": "minimax-mm-dedicated",
-          "source_id": "newfilm1-mm",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Бессмертная гвардия 2 (2025); candidate=Бессмертная гвардия 2; requires two positive observations before selection"
+          "source_id": "kiberpunk-mm",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Пришелец (2001); candidate=Пришелец; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "MM NewFilm 1 HD",
+          "playlist_name": "MM Киберпанк HD",
           "source": "tvteam",
-          "source_id": "ch849",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Бессмертная гвардия 2 (2025); candidate=Бессмертная гвардия.; requires two positive observations before selection"
+          "source_id": "ch1241",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Пришелец (2001); candidate=Пришелец; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "MM NewFilm 1 HD",
-          "source": "tvteam",
-          "source_id": "ch1216",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Бессмертная гвардия 2 (2025); candidate=Бессмертная гвардия 2; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
-          "source": "epgone-ru2",
-          "source_id": "6356",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Танцор диско (1982); candidate=Танцор диско; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM NewFilm 1 HD",
+          "playlist_name": "MM Киберпанк HD",
           "source": "gabbarit-current",
-          "source_id": "BCU Ultra 4K",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Бессмертная гвардия 2 (2025); candidate=Бессмертная гвардия.; requires two positive observations before selection"
+          "source_id": "минимакс-киберпанк HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Пришелец (2001); candidate=Пришелец (2001).; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
-          "source": "gabbarit-current",
-          "source_id": "zal-04",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Танцор диско (1982); candidate=Танцор Диско.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM NewFilm 1 HD",
+          "playlist_name": "MM Киберпанк HD",
           "source": "gabbarit-primary",
-          "source_id": "BCU Ultra 4K",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Бессмертная гвардия 2 (2025); candidate=Бессмертная гвардия.; requires two positive observations before selection"
+          "source_id": "минимакс-киберпанк HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Пришелец (2001); candidate=Пришелец (2001).; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
-          "source": "gabbarit-primary",
-          "source_id": "zal-04",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Танцор диско (1982); candidate=Танцор Диско.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM NewFilm 1 HD",
+          "playlist_name": "MM Киберпанк HD",
           "source": "gabbarit-mirror",
-          "source_id": "BCU Ultra 4K",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Бессмертная гвардия 2 (2025); candidate=Бессмертная гвардия.; requires two positive observations before selection"
+          "source_id": "минимакс-киберпанк HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Пришелец (2001); candidate=Пришелец (2001).; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
-          "source": "gabbarit-mirror",
-          "source_id": "zal-04",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Танцор диско (1982); candidate=Танцор Диско.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM NewFilm 1 HD",
+          "playlist_name": "MM Киберпанк HD",
           "source": "epgone-full-movie-rescue",
-          "source_id": "4766",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Бессмертная гвардия 2 (2025); candidate=Бессмертная гвардия.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM NewFilm 1 HD",
-          "source": "epgone-full-movie-rescue",
-          "source_id": "5124",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Бессмертная гвардия 2 (2025); candidate=Бессмертная гвардия 2; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "DITV КЛАССИКА ИНДИЙСКОГО КИНО",
-          "source": "epgone-full-movie-rescue",
-          "source_id": "6356",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Танцор диско (1982); candidate=Танцор диско; requires two positive observations before selection"
+          "source_id": "5149",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Пришелец (2001); candidate=Пришелец; requires two positive observations before selection"
         }
       ]
     }
