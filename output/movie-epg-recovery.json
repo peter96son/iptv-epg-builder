@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-19T22:05:58.512749+00:00",
+  "updated_at": "2026-09-19T23:51:15.450252+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-19T22:05:57.068976+00:00",
+      "checked_at_utc": "2026-09-19T23:51:14.632412+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -13,9 +13,9 @@
       "ok": 420,
       "gaps": 88,
       "issue_counts": {
-        "NO_MAPPING": 82,
-        "NO_CURRENT_PROGRAMME": 5,
-        "NO_NEXT_PROGRAMME": 5
+        "NO_MAPPING": 81,
+        "NO_NEXT_PROGRAMME": 7,
+        "NO_CURRENT_PROGRAMME": 5
       },
       "group_counts": {
         "USSR": {
@@ -25,8 +25,8 @@
         },
         "Кино": {
           "channels": 174,
-          "ok": 152,
-          "gaps": 22
+          "ok": 153,
+          "gaps": 21
         },
         "Кино 4K": {
           "channels": 63,
@@ -35,136 +35,114 @@
         },
         "Кинозалы": {
           "channels": 252,
-          "ok": 238,
-          "gaps": 14
+          "ok": 237,
+          "gaps": 15
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 36,
-      "high_confidence_observations": 1,
+      "channels_considered": 39,
+      "high_confidence_observations": 3,
       "recognized": [
+        {
+          "playlist_name": "Thriller HD",
+          "provider_name": "Thriller HD",
+          "title": "ЛОГАН",
+          "score": 16.25,
+          "zone": "top_left",
+          "engine": "tesseract"
+        },
         {
           "playlist_name": "MM Киберпанк HD",
           "provider_name": "MM Киберпанк HD",
-          "title": "Пришелец (2001)",
-          "score": 22.0,
+          "title": "Потрошители (2010)",
+          "score": 22.75,
           "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "MM Погружение HD",
+          "provider_name": "MM Погружение HD",
+          "title": "Открытое море: Монстр глубины (2022)",
+          "score": 20.0,
+          "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 35,
+      "added": 3,
+      "rejected": 36,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-19T21:53:11.009466+00:00",
-          "playlist_name": "MM Киберпанк HD",
-          "observed_title": "Пришелец (2001)",
+          "observed_at": "2026-09-19T23:44:36.769198+00:00",
+          "playlist_name": "Thriller HD",
+          "observed_title": "ЛОГАН",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=22.0"
+          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=16.25"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-19T23:44:36.769198+00:00",
+          "playlist_name": "MM Киберпанк HD",
+          "observed_title": "Потрошители (2010)",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=22.75"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-19T23:44:36.769198+00:00",
+          "playlist_name": "MM Погружение HD",
+          "observed_title": "Открытое море: Монстр глубины (2022)",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=20.0"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 0,
-        "selected": 0,
-        "reason": "waiting-for-distinct-second-title"
+        "changed": 1,
+        "selected": 1,
+        "quarantined": 0,
+        "target_hours": 6.0
       },
-      "pending_count": 1,
-      "pending": {
+      "pending_count": 0,
+      "pending": {},
+      "selected_count": 1,
+      "quarantined_count": 0,
+      "selected": {
         "MM Киберпанк HD": {
-          "observations": 1,
-          "distinct_titles": 1,
-          "status": "PENDING_DISTINCT_SECOND_TITLE"
+          "source": "minimax-mm-dedicated",
+          "source_id": "kiberpunk-mm",
+          "output_tvg_id": "Xminimax-kiberpunk",
+          "horizon_hours": 240.37,
+          "current": true,
+          "usable": 31
         }
       },
-      "selected_count": 0,
-      "quarantined_count": 0,
-      "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 28,
-      "sources_failed": [
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        }
-      ],
-      "candidates_added": 9,
+      "live_observations": 3,
+      "sources_scanned": 12,
+      "sources_failed": [],
+      "candidates_added": 2,
       "added": [
         {
           "enabled": "1",
-          "playlist_name": "MM Киберпанк HD",
+          "playlist_name": "MM Погружение HD",
           "source": "iptv-online-primary",
-          "source_id": "Xminimax-kiberpunk",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Пришелец (2001); candidate=х/ф Пришелец; requires two positive observations before selection"
+          "source_id": "Xminimax-pogrujenie",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Открытое море: Монстр глубины (2022); candidate=х/ф Открытое море: Монстр глубины; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "MM Киберпанк HD",
-          "source": "iptvx-noarch",
-          "source_id": "minimax-kiberpunk",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Пришелец (2001); candidate=х/ф Пришелец; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Киберпанк HD",
+          "playlist_name": "MM Погружение HD",
           "source": "openbox-tsd",
-          "source_id": "mm-kiberpank",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Пришелец (2001); candidate=Х/ф Пришелец.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Киберпанк HD",
-          "source": "minimax-mm-dedicated",
-          "source_id": "kiberpunk-mm",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Пришелец (2001); candidate=Пришелец; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Киберпанк HD",
-          "source": "tvteam",
-          "source_id": "ch1241",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Пришелец (2001); candidate=Пришелец; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Киберпанк HD",
-          "source": "gabbarit-current",
-          "source_id": "минимакс-киберпанк HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Пришелец (2001); candidate=Пришелец (2001).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Киберпанк HD",
-          "source": "gabbarit-primary",
-          "source_id": "минимакс-киберпанк HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Пришелец (2001); candidate=Пришелец (2001).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Киберпанк HD",
-          "source": "gabbarit-mirror",
-          "source_id": "минимакс-киберпанк HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Пришелец (2001); candidate=Пришелец (2001).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Киберпанк HD",
-          "source": "epgone-full-movie-rescue",
-          "source_id": "5149",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Пришелец (2001); candidate=Пришелец; requires two positive observations before selection"
+          "source_id": "mm-pogruzhenie",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Открытое море: Монстр глубины (2022); candidate=Х/ф Открытое море: Монстр глубины.; requires two positive observations before selection"
         }
       ]
     }
