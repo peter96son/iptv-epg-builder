@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-19T23:51:15.450252+00:00",
+  "updated_at": "2026-09-20T01:56:17.516045+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-19T23:51:14.632412+00:00",
+      "checked_at_utc": "2026-09-20T01:56:16.321407+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,28 +10,28 @@
         "Кинозалы"
       ],
       "channels": 508,
-      "ok": 420,
-      "gaps": 88,
+      "ok": 465,
+      "gaps": 43,
       "issue_counts": {
-        "NO_MAPPING": 81,
-        "NO_NEXT_PROGRAMME": 7,
-        "NO_CURRENT_PROGRAMME": 5
+        "NO_MAPPING": 37,
+        "NO_CURRENT_PROGRAMME": 3,
+        "NO_NEXT_PROGRAMME": 6
       },
       "group_counts": {
         "USSR": {
           "channels": 19,
-          "ok": 17,
-          "gaps": 2
+          "ok": 18,
+          "gaps": 1
         },
         "Кино": {
           "channels": 174,
-          "ok": 153,
-          "gaps": 21
+          "ok": 147,
+          "gaps": 27
         },
         "Кино 4K": {
           "channels": 63,
-          "ok": 13,
-          "gaps": 50
+          "ok": 63,
+          "gaps": 0
         },
         "Кинозалы": {
           "channels": 252,
@@ -46,26 +46,26 @@
       "high_confidence_observations": 3,
       "recognized": [
         {
-          "playlist_name": "Thriller HD",
-          "provider_name": "Thriller HD",
-          "title": "ЛОГАН",
-          "score": 16.25,
-          "zone": "top_left",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "MM Киберпанк HD",
-          "provider_name": "MM Киберпанк HD",
-          "title": "Потрошители (2010)",
-          "score": 22.75,
-          "zone": "left_bottom_tight",
+          "playlist_name": "DITV КОМЕДИИ СССР",
+          "provider_name": "DITV КОМЕДИИ СССР",
+          "title": "Служебный роман (1977",
+          "score": 23.5,
+          "zone": "left_bottom",
           "engine": "tesseract"
         },
         {
           "playlist_name": "MM Погружение HD",
           "provider_name": "MM Погружение HD",
-          "title": "Открытое море: Монстр глубины (2022)",
-          "score": 20.0,
+          "title": "Во власти страха (2026)",
+          "score": 23.5,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "MM Киберпанк HD",
+          "provider_name": "MM Киберпанк HD",
+          "title": "Хакеры (1995)",
+          "score": 16.5,
           "zone": "bottom_band",
           "engine": "tesseract"
         }
@@ -77,27 +77,27 @@
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-19T23:44:36.769198+00:00",
-          "playlist_name": "Thriller HD",
-          "observed_title": "ЛОГАН",
+          "observed_at": "2026-09-20T01:48:31.022234+00:00",
+          "playlist_name": "DITV КОМЕДИИ СССР",
+          "observed_title": "Служебный роман (1977",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=16.25"
+          "notes": "high-confidence OCR; zone=left_bottom; engine=tesseract; score=23.5"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-09-19T23:44:36.769198+00:00",
-          "playlist_name": "MM Киберпанк HD",
-          "observed_title": "Потрошители (2010)",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=22.75"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-19T23:44:36.769198+00:00",
+          "observed_at": "2026-09-20T01:48:31.022234+00:00",
           "playlist_name": "MM Погружение HD",
-          "observed_title": "Открытое море: Монстр глубины (2022)",
+          "observed_title": "Во власти страха (2026)",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=20.0"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=23.5"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-20T01:48:31.022234+00:00",
+          "playlist_name": "MM Киберпанк HD",
+          "observed_title": "Хакеры (1995)",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=16.5"
         }
       ]
     },
@@ -117,32 +117,88 @@
           "source": "minimax-mm-dedicated",
           "source_id": "kiberpunk-mm",
           "output_tvg_id": "Xminimax-kiberpunk",
-          "horizon_hours": 240.37,
+          "horizon_hours": 238.29,
           "current": true,
-          "usable": 31
+          "usable": 32
         }
       },
       "quarantined": {}
     },
     "candidate_discovery": {
       "live_observations": 3,
-      "sources_scanned": 12,
+      "sources_scanned": 9,
       "sources_failed": [],
-      "candidates_added": 2,
+      "candidates_added": 10,
       "added": [
         {
           "enabled": "1",
           "playlist_name": "MM Погружение HD",
           "source": "iptv-online-primary",
-          "source_id": "Xminimax-pogrujenie",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Открытое море: Монстр глубины (2022); candidate=х/ф Открытое море: Монстр глубины; requires two positive observations before selection"
+          "source_id": "Xpremierehd2",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Во власти страха (2026); candidate=х/ф Во власти страха (2026); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Киберпанк HD",
+          "source": "iptv-online-primary",
+          "source_id": "Xjk_Hemsworth",
+          "notes": "auto-discovered from live title; similarity=0.909; observed=Хакеры (1995); candidate=Хакер (2015); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Погружение HD",
+          "source": "iptvx-noarch",
+          "source_id": "premierehd2",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Во власти страха (2026); candidate=х/ф Во власти страха (2026); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Киберпанк HD",
+          "source": "openbox-tsd",
+          "source_id": "cpu-kino-kiberpank",
+          "notes": "auto-discovered from live title; similarity=0.909; observed=Хакеры (1995); candidate=Х/ф Хакер.; requires two positive observations before selection"
         },
         {
           "enabled": "1",
           "playlist_name": "MM Погружение HD",
           "source": "openbox-tsd",
-          "source_id": "mm-pogruzhenie",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Открытое море: Монстр глубины (2022); candidate=Х/ф Открытое море: Монстр глубины.; requires two positive observations before selection"
+          "source_id": "premiere-hd-2",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Во власти страха (2026); candidate=Х/ф Во власти страха 2026.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Киберпанк HD",
+          "source": "tvteam",
+          "source_id": "ch3584",
+          "notes": "auto-discovered from live title; similarity=0.909; observed=Хакеры (1995); candidate=Хакер (2015); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Погружение HD",
+          "source": "gabbarit-current",
+          "source_id": "Premiere HD 2",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Во власти страха (2026); candidate=Во власти страха (2026).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Погружение HD",
+          "source": "gabbarit-primary",
+          "source_id": "Premiere HD 2",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Во власти страха (2026); candidate=Во власти страха (2026).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Погружение HD",
+          "source": "gabbarit-mirror",
+          "source_id": "Premiere HD 2",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Во власти страха (2026); candidate=Во власти страха (2026).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Погружение HD",
+          "source": "epgone-full-movie-rescue",
+          "source_id": "1122",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Во власти страха (2026); candidate=Во власти страха (2026); requires two positive observations before selection"
         }
       ]
     }
