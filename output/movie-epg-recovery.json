@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-20T01:56:17.516045+00:00",
+  "updated_at": "2026-09-20T07:21:38.548457+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-20T01:56:16.321407+00:00",
+      "checked_at_utc": "2026-09-20T07:21:37.418444+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -13,15 +13,13 @@
       "ok": 465,
       "gaps": 43,
       "issue_counts": {
-        "NO_MAPPING": 37,
-        "NO_CURRENT_PROGRAMME": 3,
-        "NO_NEXT_PROGRAMME": 6
+        "NO_MAPPING": 43
       },
       "group_counts": {
         "USSR": {
           "channels": 19,
-          "ok": 18,
-          "gaps": 1
+          "ok": 17,
+          "gaps": 2
         },
         "Кино": {
           "channels": 174,
@@ -35,170 +33,96 @@
         },
         "Кинозалы": {
           "channels": 252,
-          "ok": 237,
-          "gaps": 15
+          "ok": 238,
+          "gaps": 14
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 39,
-      "high_confidence_observations": 3,
+      "channels_considered": 38,
+      "high_confidence_observations": 2,
       "recognized": [
         {
-          "playlist_name": "DITV КОМЕДИИ СССР",
-          "provider_name": "DITV КОМЕДИИ СССР",
-          "title": "Служебный роман (1977",
-          "score": 23.5,
-          "zone": "left_bottom",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "provider_name": "DITV ФИЛЬМЫ",
+          "title": "БРАТ (1997)",
+          "score": 18.0,
+          "zone": "bottom_band",
           "engine": "tesseract"
         },
         {
           "playlist_name": "MM Погружение HD",
           "provider_name": "MM Погружение HD",
-          "title": "Во власти страха (2026)",
-          "score": 23.5,
-          "zone": "bottom_band",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "MM Киберпанк HD",
-          "provider_name": "MM Киберпанк HD",
-          "title": "Хакеры (1995)",
-          "score": 16.5,
-          "zone": "bottom_band",
+          "title": "Наедине со смертью (2003)",
+          "score": 19.0,
+          "zone": "left_bottom_tight",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 3,
+      "added": 2,
       "rejected": 36,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-20T01:48:31.022234+00:00",
-          "playlist_name": "DITV КОМЕДИИ СССР",
-          "observed_title": "Служебный роман (1977",
+          "observed_at": "2026-09-20T07:11:19.457537+00:00",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "observed_title": "БРАТ (1997)",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom; engine=tesseract; score=23.5"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.0"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-09-20T01:48:31.022234+00:00",
+          "observed_at": "2026-09-20T07:11:19.457537+00:00",
           "playlist_name": "MM Погружение HD",
-          "observed_title": "Во власти страха (2026)",
+          "observed_title": "Наедине со смертью (2003)",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=23.5"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-20T01:48:31.022234+00:00",
-          "playlist_name": "MM Киберпанк HD",
-          "observed_title": "Хакеры (1995)",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=16.5"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=19.0"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 1,
-        "selected": 1,
+        "changed": 0,
+        "selected": 0,
         "quarantined": 0,
-        "target_hours": 6.0
+        "reason": "no-live-candidates"
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 1,
+      "selected_count": 0,
       "quarantined_count": 0,
-      "selected": {
-        "MM Киберпанк HD": {
-          "source": "minimax-mm-dedicated",
-          "source_id": "kiberpunk-mm",
-          "output_tvg_id": "Xminimax-kiberpunk",
-          "horizon_hours": 238.29,
-          "current": true,
-          "usable": 32
-        }
-      },
+      "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 3,
-      "sources_scanned": 9,
+      "live_observations": 2,
+      "sources_scanned": 13,
       "sources_failed": [],
-      "candidates_added": 10,
+      "candidates_added": 3,
       "added": [
         {
           "enabled": "1",
-          "playlist_name": "MM Погружение HD",
-          "source": "iptv-online-primary",
-          "source_id": "Xpremierehd2",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Во власти страха (2026); candidate=х/ф Во власти страха (2026); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Киберпанк HD",
-          "source": "iptv-online-primary",
-          "source_id": "Xjk_Hemsworth",
-          "notes": "auto-discovered from live title; similarity=0.909; observed=Хакеры (1995); candidate=Хакер (2015); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Погружение HD",
-          "source": "iptvx-noarch",
-          "source_id": "premierehd2",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Во власти страха (2026); candidate=х/ф Во власти страха (2026); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Киберпанк HD",
-          "source": "openbox-tsd",
-          "source_id": "cpu-kino-kiberpank",
-          "notes": "auto-discovered from live title; similarity=0.909; observed=Хакеры (1995); candidate=Х/ф Хакер.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Погружение HD",
-          "source": "openbox-tsd",
-          "source_id": "premiere-hd-2",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Во власти страха (2026); candidate=Х/ф Во власти страха 2026.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Киберпанк HD",
-          "source": "tvteam",
-          "source_id": "ch3584",
-          "notes": "auto-discovered from live title; similarity=0.909; observed=Хакеры (1995); candidate=Хакер (2015); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Погружение HD",
+          "playlist_name": "DITV ФИЛЬМЫ",
           "source": "gabbarit-current",
-          "source_id": "Premiere HD 2",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Во власти страха (2026); candidate=Во власти страха (2026).; requires two positive observations before selection"
+          "source_id": "IPTVPLAY ПАМЯТЬ",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=БРАТ (1997); candidate=Брат (1997).; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "MM Погружение HD",
+          "playlist_name": "DITV ФИЛЬМЫ",
           "source": "gabbarit-primary",
-          "source_id": "Premiere HD 2",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Во власти страха (2026); candidate=Во власти страха (2026).; requires two positive observations before selection"
+          "source_id": "IPTVPLAY ПАМЯТЬ",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=БРАТ (1997); candidate=Брат (1997).; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "MM Погружение HD",
+          "playlist_name": "DITV ФИЛЬМЫ",
           "source": "gabbarit-mirror",
-          "source_id": "Premiere HD 2",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Во власти страха (2026); candidate=Во власти страха (2026).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Погружение HD",
-          "source": "epgone-full-movie-rescue",
-          "source_id": "1122",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Во власти страха (2026); candidate=Во власти страха (2026); requires two positive observations before selection"
+          "source_id": "IPTVPLAY ПАМЯТЬ",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=БРАТ (1997); candidate=Брат (1997).; requires two positive observations before selection"
         }
       ]
     }
