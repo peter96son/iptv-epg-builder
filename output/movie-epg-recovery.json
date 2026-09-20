@@ -1,25 +1,26 @@
 {
-  "updated_at": "2026-09-20T12:51:08.269346+00:00",
+  "updated_at": "2026-09-20T16:56:29.293023+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-20T12:51:07.303670+00:00",
+      "checked_at_utc": "2026-09-20T16:56:27.870041+00:00",
       "groups": [
         "USSR",
         "Кино",
         "Кино 4K",
         "Кинозалы"
       ],
-      "channels": 507,
-      "ok": 472,
-      "gaps": 35,
+      "channels": 527,
+      "ok": 465,
+      "gaps": 62,
       "issue_counts": {
-        "NO_MAPPING": 35
+        "NO_MAPPING": 54,
+        "NO_NEXT_PROGRAMME": 8
       },
       "group_counts": {
         "USSR": {
-          "channels": 19,
+          "channels": 20,
           "ok": 17,
-          "gaps": 2
+          "gaps": 3
         },
         "Кино": {
           "channels": 174,
@@ -27,43 +28,75 @@
           "gaps": 21
         },
         "Кино 4K": {
-          "channels": 63,
+          "channels": 65,
           "ok": 63,
-          "gaps": 0
+          "gaps": 2
         },
         "Кинозалы": {
-          "channels": 251,
-          "ok": 239,
-          "gaps": 12
+          "channels": 268,
+          "ok": 232,
+          "gaps": 36
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 35,
-      "high_confidence_observations": 1,
+      "channels_considered": 40,
+      "high_confidence_observations": 3,
       "recognized": [
+        {
+          "playlist_name": "MM Катастрофа HD",
+          "provider_name": "MM Катастрофа HD",
+          "title": "Дыши во мгле (2018)",
+          "score": 17.5,
+          "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "KLI Action HD",
+          "provider_name": "KLI Action HD",
+          "title": "Грязная игра",
+          "score": 13.75,
+          "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        },
         {
           "playlist_name": "MM Погружение HD",
           "provider_name": "MM Погружение HD",
-          "title": "Осторожно, акула (2024)",
-          "score": 23.5,
-          "zone": "left_bottom_tight",
+          "title": "ty OTP REHYE",
+          "score": 12.5,
+          "zone": "top_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 34,
+      "added": 3,
+      "rejected": 37,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-20T12:43:46.987964+00:00",
-          "playlist_name": "MM Погружение HD",
-          "observed_title": "Осторожно, акула (2024)",
+          "observed_at": "2026-09-20T16:36:51.736692+00:00",
+          "playlist_name": "MM Катастрофа HD",
+          "observed_title": "Дыши во мгле (2018)",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=23.5"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=17.5"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-20T16:36:51.736692+00:00",
+          "playlist_name": "KLI Action HD",
+          "observed_title": "Грязная игра",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=13.75"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-20T16:36:51.736692+00:00",
+          "playlist_name": "MM Погружение HD",
+          "observed_title": "ty OTP REHYE",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=12.5"
         }
       ]
     },
@@ -74,19 +107,78 @@
         "quarantined": 0,
         "reason": "no-live-candidates"
       },
-      "pending_count": 0,
-      "pending": {},
+      "pending_count": 1,
+      "pending": {
+        "KLI Action HD": {
+          "observations": 1,
+          "distinct_titles": 1,
+          "status": "PENDING_DISTINCT_SECOND_TITLE"
+        }
+      },
       "selected_count": 0,
       "quarantined_count": 0,
       "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 9,
-      "sources_failed": [],
-      "candidates_added": 0,
-      "added": []
+      "live_observations": 3,
+      "sources_scanned": 26,
+      "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-ru",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-rescue",
+          "error": "RuntimeError"
+        }
+      ],
+      "candidates_added": 5,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "MM Катастрофа HD",
+          "source": "iptv-online-primary",
+          "source_id": "Xminimax-katastrofa",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Дыши во мгле (2018); candidate=х/ф Дыши во мгле; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Катастрофа HD",
+          "source": "openbox-tsd",
+          "source_id": "mm-katastrofa",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Дыши во мгле (2018); candidate=Х/ф Дыши во мгле.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Action HD",
+          "source": "tvteam",
+          "source_id": "ch4069",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Грязная игра; candidate=Грязная игра (2025); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Катастрофа HD",
+          "source": "gabbarit-current",
+          "source_id": "минимакс-катастрофа HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Дыши во мгле (2018); candidate=Дыши во мгле (2018).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Катастрофа HD",
+          "source": "gabbarit-primary",
+          "source_id": "минимакс-катастрофа HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Дыши во мгле (2018); candidate=Дыши во мгле (2018).; requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
