@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-20T19:27:42.504819+00:00",
+  "updated_at": "2026-09-20T22:20:17.774127+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-20T19:27:40.939181+00:00",
+      "checked_at_utc": "2026-09-20T22:20:16.173311+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 527,
-      "ok": 448,
-      "gaps": 79,
+      "ok": 424,
+      "gaps": 103,
       "issue_counts": {
         "NO_MAPPING": 37,
-        "NO_NEXT_PROGRAMME": 42,
-        "NO_CURRENT_PROGRAMME": 27
+        "NO_CURRENT_PROGRAMME": 64,
+        "NO_NEXT_PROGRAMME": 66
       },
       "group_counts": {
         "USSR": {
@@ -25,421 +25,95 @@
         },
         "Кино": {
           "channels": 174,
-          "ok": 148,
-          "gaps": 26
+          "ok": 143,
+          "gaps": 31
         },
         "Кино 4K": {
           "channels": 65,
-          "ok": 65,
-          "gaps": 0
+          "ok": 63,
+          "gaps": 2
         },
         "Кинозалы": {
           "channels": 268,
-          "ok": 218,
-          "gaps": 50
+          "ok": 201,
+          "gaps": 67
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 61,
-      "high_confidence_observations": 5,
+      "channels_considered": 90,
+      "high_confidence_observations": 2,
       "recognized": [
-        {
-          "playlist_name": "Кинолаффка HD",
-          "provider_name": "Кинолаффка HD",
-          "title": "Они были ведьмами",
-          "score": 23.75,
-          "zone": "top_band",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "MM Роскино HD",
-          "provider_name": "MM Роскино HD",
-          "title": "Непослушник 2 (2022)",
-          "score": 13.75,
-          "zone": "left_bottom_tight",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Мортал Комбат 2",
-          "score": 14.0,
-          "zone": "bottom_band",
-          "engine": "tesseract"
-        },
         {
           "playlist_name": "KLI Новинки HD",
           "provider_name": "KLI Новинки HD",
-          "title": "Ловуш ка для кролика",
-          "score": 15.25,
-          "zone": "left_bottom_tight",
+          "title": "Микки 17",
+          "score": 16.25,
+          "zone": "bottom_band",
           "engine": "tesseract"
         },
         {
           "playlist_name": "KLI СССР HD",
           "provider_name": "KLI СССР HD",
-          "title": "Мачеха",
-          "score": 12.5,
+          "title": "Молодая жена",
+          "score": 22.75,
           "zone": "left_bottom_tight",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 5,
-      "rejected": 56,
+      "added": 2,
+      "rejected": 88,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-20T19:14:00.498620+00:00",
-          "playlist_name": "Кинолаффка HD",
-          "observed_title": "Они были ведьмами",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=23.75"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-20T19:14:00.498620+00:00",
-          "playlist_name": "MM Роскино HD",
-          "observed_title": "Непослушник 2 (2022)",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=13.75"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-20T19:14:00.498620+00:00",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Мортал Комбат 2",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=14.0"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-20T19:14:00.498620+00:00",
+          "observed_at": "2026-09-20T22:07:25.528192+00:00",
           "playlist_name": "KLI Новинки HD",
-          "observed_title": "Ловуш ка для кролика",
+          "observed_title": "Микки 17",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=15.25"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=16.25"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-09-20T19:14:00.498620+00:00",
+          "observed_at": "2026-09-20T22:07:25.528192+00:00",
           "playlist_name": "KLI СССР HD",
-          "observed_title": "Мачеха",
+          "observed_title": "Молодая жена",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=12.5"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=22.75"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 0,
-        "selected": 0,
-        "reason": "no-policy"
+        "changed": 1,
+        "selected": 1,
+        "quarantined": 0,
+        "target_hours": 6.0
       },
-      "pending_count": 4,
-      "pending": {
-        "KLI Новинки 4K Ultra HD": {
-          "observations": 1,
-          "distinct_titles": 1,
-          "status": "PENDING_DISTINCT_SECOND_TITLE"
-        },
-        "KLI Новинки HD": {
-          "observations": 1,
-          "distinct_titles": 1,
-          "status": "PENDING_DISTINCT_SECOND_TITLE"
-        },
-        "KLI СССР HD": {
-          "observations": 1,
-          "distinct_titles": 1,
-          "status": "PENDING_DISTINCT_SECOND_TITLE"
-        },
-        "MM Роскино HD": {
-          "observations": 1,
-          "distinct_titles": 1,
-          "status": "PENDING_DISTINCT_SECOND_TITLE"
-        }
-      },
-      "selected_count": 9,
-      "quarantined_count": 1,
+      "pending_count": 0,
+      "pending": {},
+      "selected_count": 1,
+      "quarantined_count": 0,
       "selected": {
-        "Premium HD": {
-          "source": "gabbarit-current",
-          "source_id": "Premium HD",
-          "output_tvg_id": "premium-hd",
-          "horizon_hours": 52.98,
-          "current": true,
-          "usable": 27
-        },
-        "Premiere HD": {
-          "source": "gabbarit-current",
-          "source_id": "Premiere HD",
-          "output_tvg_id": "Xpremiere-hd",
-          "horizon_hours": 52.86,
-          "current": true,
-          "usable": 33
-        },
-        "Paradise HD": {
-          "source": "gabbarit-current",
-          "source_id": "Paradise HD",
-          "output_tvg_id": "Xparadise-hd",
-          "horizon_hours": 53.28,
-          "current": true,
-          "usable": 32
-        },
-        "Paradox HD": {
-          "source": "gabbarit-current",
-          "source_id": "Paradox HD",
-          "output_tvg_id": "Xparadox-hd",
-          "horizon_hours": 53.12,
-          "current": true,
-          "usable": 30
-        },
-        "4ever Cinema HD": {
-          "source": "iptvx-noarch",
-          "source_id": "4ever-cinema",
-          "output_tvg_id": "X4ever-cinema",
-          "horizon_hours": 23.25,
-          "current": true,
-          "usable": 26
-        },
-        "4ever Drama HD": {
-          "source": "iptvx-noarch",
-          "source_id": "4ever-drama",
-          "output_tvg_id": "X4ever-drama",
-          "horizon_hours": 22.44,
-          "current": true,
-          "usable": 25
-        },
-        "4ever Theater HD": {
-          "source": "iptvx-noarch",
-          "source_id": "4ever-theater",
-          "output_tvg_id": "X4ever-theater",
-          "horizon_hours": 22.31,
-          "current": true,
-          "usable": 29
-        },
-        "4ever Music HD": {
-          "source": "iptvx-noarch",
-          "source_id": "4ever-music",
-          "output_tvg_id": "X4ever-music",
-          "horizon_hours": 15.31,
-          "current": true,
-          "usable": 12
-        },
-        "MM Киберпанк HD": {
-          "source": "minimax-mm-dedicated",
-          "source_id": "kiberpunk-mm",
-          "output_tvg_id": "Xminimax-kiberpunk",
-          "horizon_hours": 222.88,
-          "current": true,
-          "usable": 33
-        }
-      },
-      "quarantined": {
-        "MM Погружение HD": {
-          "reason": "EVIDENCE_REQUIRED_NO_PROVEN_DONOR",
-          "previous_output_tvg_id": "Xminimax-pogrujenie"
-        }
-      }
-    },
-    "candidate_discovery": {
-      "live_observations": 5,
-      "sources_scanned": 27,
-      "sources_failed": [
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-ru",
-          "error": "RuntimeError"
-        }
-      ],
-      "candidates_added": 25,
-      "added": [
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "iptv-online-primary",
-          "source_id": "Xvhs-ka",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Мачеха; candidate=х/ф Мачеха; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Роскино HD",
-          "source": "iptvx-noarch",
-          "source_id": "minimax-roskino",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Непослушник 2 (2022); candidate=х/ф Непослушник 2; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Роскино HD",
-          "source": "iptvx-noarch",
-          "source_id": "nashe-novoe-kino-int",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Непослушник 2 (2022); candidate=х/ф Непослушник; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "iptvx-noarch",
-          "source_id": "vhs-ka",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Мачеха; candidate=х/ф Мачеха; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "runigma-iptv",
-          "source_id": "vhska-hd",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Мачеха; candidate=х/ф Мачеха.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Роскино HD",
-          "source": "runigma-iptv",
-          "source_id": "nashe-novoe-kino-int",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Непослушник 2 (2022); candidate=Х/ф \"Непослушник\".; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "openbox-tsd",
-          "source_id": "vhs-ka",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Мачеха; candidate=Х/ф Мачеха.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "bcumedia-dedicated",
-          "source_id": "VHS-ка HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Мачеха; candidate=Мачеха.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Роскино HD",
-          "source": "bcumedia-dedicated",
-          "source_id": "Наше новое кино Int. HD",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Непослушник 2 (2022); candidate=Х/ф \"Непослушник\".; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Роскино HD",
-          "source": "minimax-mm-dedicated",
-          "source_id": "roskino-mm",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Непослушник 2 (2022); candidate=Непослушник 2; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Роскино HD",
-          "source": "tvteam",
-          "source_id": "ch1255",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Непослушник 2 (2022); candidate=Непослушник 2; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "tvteam",
-          "source_id": "ch4089",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Мортал Комбат 2; candidate=Мортал Комбат 2 (2026); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "tvteam",
-          "source_id": "ch383",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Мачеха; candidate=х/ф Мачеха; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки HD",
+        "KLI Новинки HD": {
           "source": "tvteam",
           "source_id": "ch4088",
-          "notes": "auto-discovered from live title; similarity=0.974; observed=Ловуш ка для кролика; candidate=Ловушка для кролика (2025); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "epgpw-RU",
-          "source_id": "565022",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Мортал Комбат 2; candidate=Мортал Комбат 2 (2026); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "epgone-ru2",
-          "source_id": "9065",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Мачеха; candidate=Мачеха; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "anzo-top",
-          "source_id": "9684",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Мачеха; candidate=Х/ф Мачеха.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "gabbarit-current",
-          "source_id": "VHS-ка",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Мачеха; candidate=Мачеха.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Роскино HD",
-          "source": "gabbarit-current",
-          "source_id": "Наше новое кино (международный)",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Непослушник 2 (2022); candidate=Непослушник.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "gabbarit-primary",
-          "source_id": "VHS-ка",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Мачеха; candidate=Мачеха.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Роскино HD",
-          "source": "gabbarit-primary",
-          "source_id": "Наше новое кино (международный)",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Непослушник 2 (2022); candidate=Непослушник.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "gabbarit-mirror",
-          "source_id": "VHS-ка",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Мачеха; candidate=Мачеха.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Роскино HD",
-          "source": "gabbarit-mirror",
-          "source_id": "Наше новое кино (международный)",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Непослушник 2 (2022); candidate=Непослушник.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Роскино HD",
-          "source": "epgone-full-movie-rescue",
-          "source_id": "5163",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Непослушник 2 (2022); candidate=Непослушник 2; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "epgone-full-movie-rescue",
-          "source_id": "9065",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Мачеха; candidate=Мачеха; requires two positive observations before selection"
+          "output_tvg_id": "Xliveocr-44d592172b1eca25",
+          "horizon_hours": 23.65,
+          "current": true,
+          "usable": 17
         }
-      ]
+      },
+      "quarantined": {}
+    },
+    "candidate_discovery": {
+      "live_observations": 2,
+      "sources_scanned": 12,
+      "sources_failed": [],
+      "candidates_added": 0,
+      "added": []
     }
   }
 }
