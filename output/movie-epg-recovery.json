@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-21T19:51:19.525563+00:00",
+  "updated_at": "2026-09-21T23:09:12.831524+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-21T19:51:17.670058+00:00",
+      "checked_at_utc": "2026-09-21T23:09:11.041899+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 527,
-      "ok": 484,
-      "gaps": 43,
+      "ok": 474,
+      "gaps": 53,
       "issue_counts": {
-        "NO_MAPPING": 35,
-        "NO_NEXT_PROGRAMME": 7,
-        "NO_CURRENT_PROGRAMME": 3
+        "NO_MAPPING": 48,
+        "NO_CURRENT_PROGRAMME": 5,
+        "NO_NEXT_PROGRAMME": 4
       },
       "group_counts": {
         "USSR": {
@@ -25,51 +25,266 @@
         },
         "Кино": {
           "channels": 174,
-          "ok": 149,
-          "gaps": 25
+          "ok": 153,
+          "gaps": 21
         },
         "Кино 4K": {
           "channels": 65,
-          "ok": 64,
-          "gaps": 1
+          "ok": 53,
+          "gaps": 12
         },
         "Кинозалы": {
           "channels": 268,
-          "ok": 254,
-          "gaps": 14
+          "ok": 251,
+          "gaps": 17
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 40,
-      "high_confidence_observations": 0,
-      "recognized": []
+      "channels_considered": 39,
+      "high_confidence_observations": 2,
+      "recognized": [
+        {
+          "playlist_name": "Insomnia HD",
+          "provider_name": "Insomnia HD",
+          "title": "ФОБИЯ",
+          "score": 16.25,
+          "zone": "top_left_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "MM Драма HD",
+          "provider_name": "MM Драма HD",
+          "title": "Осенняя соната | 1978",
+          "score": 14.25,
+          "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        }
+      ]
     },
     "evidence_recorder": {
-      "added": 0,
-      "rejected": 40,
-      "observations": []
+      "added": 2,
+      "rejected": 37,
+      "observations": [
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-21T22:56:23.774514+00:00",
+          "playlist_name": "Insomnia HD",
+          "observed_title": "ФОБИЯ",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=16.25"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-21T22:56:23.774514+00:00",
+          "playlist_name": "MM Драма HD",
+          "observed_title": "Осенняя соната | 1978",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=14.25"
+        }
+      ]
     },
     "judge": {
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "waiting-for-distinct-second-title"
+        "reason": "no-policy"
       },
-      "pending_count": 0,
-      "pending": {},
-      "selected_count": 0,
-      "quarantined_count": 0,
-      "selected": {},
-      "quarantined": {}
+      "pending_count": 1,
+      "pending": {
+        "MM Драма HD": {
+          "observations": 1,
+          "distinct_titles": 1,
+          "status": "PENDING_DISTINCT_SECOND_TITLE"
+        }
+      },
+      "selected_count": 11,
+      "quarantined_count": 1,
+      "selected": {
+        "Premium HD": {
+          "source": "gabbarit-current",
+          "source_id": "Premium HD",
+          "output_tvg_id": "premium-hd",
+          "horizon_hours": 25.07,
+          "current": true,
+          "usable": 17
+        },
+        "Premiere HD": {
+          "source": "gabbarit-current",
+          "source_id": "Premiere HD",
+          "output_tvg_id": "Xpremiere-hd",
+          "horizon_hours": 24.94,
+          "current": true,
+          "usable": 20
+        },
+        "Paradise HD": {
+          "source": "gabbarit-current",
+          "source_id": "Paradise HD",
+          "output_tvg_id": "Xparadise-hd",
+          "horizon_hours": 25.36,
+          "current": true,
+          "usable": 19
+        },
+        "Paradox HD": {
+          "source": "gabbarit-current",
+          "source_id": "Paradox HD",
+          "output_tvg_id": "Xparadox-hd",
+          "horizon_hours": 25.2,
+          "current": true,
+          "usable": 16
+        },
+        "4ever Cinema HD": {
+          "source": "gabbarit-current",
+          "source_id": "4 ever Cinema",
+          "output_tvg_id": "X4ever-cinema",
+          "horizon_hours": 313.41,
+          "current": true,
+          "usable": 19
+        },
+        "4ever Drama HD": {
+          "source": "gabbarit-current",
+          "source_id": "4ever Drama",
+          "output_tvg_id": "X4ever-drama",
+          "horizon_hours": 313.4,
+          "current": true,
+          "usable": 19
+        },
+        "4ever Theater HD": {
+          "source": "gabbarit-current",
+          "source_id": "4ever Theater",
+          "output_tvg_id": "X4ever-theater",
+          "horizon_hours": 313.39,
+          "current": true,
+          "usable": 19
+        },
+        "4ever Music HD": {
+          "source": "iptvx-noarch",
+          "source_id": "4ever-music",
+          "output_tvg_id": "X4ever-music",
+          "horizon_hours": 149.38,
+          "current": true,
+          "usable": 28
+        },
+        "MM Киберпанк HD": {
+          "source": "minimax-mm-dedicated",
+          "source_id": "kiberpunk-mm",
+          "output_tvg_id": "Xminimax-kiberpunk",
+          "horizon_hours": 194.95,
+          "current": true,
+          "usable": 33
+        },
+        "KLI Новинки 4K Ultra HD": {
+          "source": "tvteam",
+          "source_id": "ch4089",
+          "output_tvg_id": "Xklinovinci4k",
+          "horizon_hours": 22.08,
+          "current": true,
+          "usable": 19
+        },
+        "KLI Новинки HD": {
+          "source": "tvteam",
+          "source_id": "ch4088",
+          "output_tvg_id": "Xklinovinci",
+          "horizon_hours": 22.39,
+          "current": true,
+          "usable": 19
+        }
+      },
+      "quarantined": {
+        "MM Погружение HD": {
+          "reason": "EVIDENCE_REQUIRED_NO_PROVEN_DONOR",
+          "previous_output_tvg_id": "Xminimax-pogrujenie"
+        }
+      }
     },
     "candidate_discovery": {
-      "live_observations": 0,
-      "sources_scanned": 0,
-      "sources_failed": [],
-      "candidates_added": 0,
-      "added": []
+      "live_observations": 2,
+      "sources_scanned": 26,
+      "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-ru",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-rescue",
+          "error": "RuntimeError"
+        }
+      ],
+      "candidates_added": 9,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "MM Драма HD",
+          "source": "iptv-online-primary",
+          "source_id": "Xminimax-drama",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Осенняя соната | 1978; candidate=х/ф Осенняя соната; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Драма HD",
+          "source": "iptvx-noarch",
+          "source_id": "minimax-drama",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Осенняя соната | 1978; candidate=х/ф Осенняя соната; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Драма HD",
+          "source": "openbox-tsd",
+          "source_id": "mm-drama",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Осенняя соната | 1978; candidate=Х/ф Осенняя соната.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Драма HD",
+          "source": "minimax-mm-dedicated",
+          "source_id": "drama-mm",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Осенняя соната | 1978; candidate=Осенняя соната; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Драма HD",
+          "source": "tvteam",
+          "source_id": "ch1324",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Осенняя соната | 1978; candidate=Осенняя соната; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Драма HD",
+          "source": "gabbarit-current",
+          "source_id": "минимакс-драма HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Осенняя соната | 1978; candidate=Осенняя соната (1978).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Драма HD",
+          "source": "gabbarit-primary",
+          "source_id": "минимакс-драма HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Осенняя соната | 1978; candidate=Осенняя соната (1978).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Драма HD",
+          "source": "gabbarit-mirror",
+          "source_id": "минимакс-драма HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Осенняя соната | 1978; candidate=Осенняя соната (1978).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Драма HD",
+          "source": "epgone-full-movie-rescue",
+          "source_id": "6065",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Осенняя соната | 1978; candidate=Осенняя соната; requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
