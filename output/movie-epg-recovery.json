@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-21T02:10:14.066685+00:00",
+  "updated_at": "2026-09-21T07:48:08.700701+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-21T02:10:12.659310+00:00",
+      "checked_at_utc": "2026-09-21T07:48:07.512903+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,18 +10,18 @@
         "Кинозалы"
       ],
       "channels": 527,
-      "ok": 401,
-      "gaps": 126,
+      "ok": 370,
+      "gaps": 157,
       "issue_counts": {
-        "NO_MAPPING": 104,
-        "NO_CURRENT_PROGRAMME": 10,
-        "NO_NEXT_PROGRAMME": 22
+        "NO_MAPPING": 146,
+        "NO_NEXT_PROGRAMME": 11,
+        "NO_CURRENT_PROGRAMME": 1
       },
       "group_counts": {
         "USSR": {
           "channels": 20,
-          "ok": 17,
-          "gaps": 3
+          "ok": 18,
+          "gaps": 2
         },
         "Кино": {
           "channels": 174,
@@ -30,90 +30,134 @@
         },
         "Кино 4K": {
           "channels": 65,
-          "ok": 58,
-          "gaps": 7
+          "ok": 16,
+          "gaps": 49
         },
         "Кинозалы": {
           "channels": 268,
-          "ok": 201,
-          "gaps": 67
+          "ok": 211,
+          "gaps": 57
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 99,
+      "channels_considered": 90,
       "high_confidence_observations": 2,
       "recognized": [
         {
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Одна миля Глава первая",
-          "score": 19.75,
+          "playlist_name": "KLI СССР HD",
+          "provider_name": "KLI СССР HD",
+          "title": "Огонь, вода и медные трубы",
+          "score": 20.0,
           "zone": "bottom_band",
           "engine": "tesseract"
         },
         {
-          "playlist_name": "KLI СССР HD",
-          "provider_name": "KLI СССР HD",
-          "title": "Москва слезам",
-          "score": 18.0,
-          "zone": "left_bottom_tight",
+          "playlist_name": "Bear TV КиноРитм UHD",
+          "provider_name": "Bear TV КиноРитм UHD",
+          "title": "val eas oe 7",
+          "score": 12.0,
+          "zone": "top_left",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
       "added": 2,
-      "rejected": 97,
+      "rejected": 88,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-21T01:57:27.927021+00:00",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Одна миля Глава первая",
+          "observed_at": "2026-09-21T07:28:14.131295+00:00",
+          "playlist_name": "KLI СССР HD",
+          "observed_title": "Огонь, вода и медные трубы",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=19.75"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=20.0"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-09-21T01:57:27.927021+00:00",
-          "playlist_name": "KLI СССР HD",
-          "observed_title": "Москва слезам",
+          "observed_at": "2026-09-21T07:28:14.131295+00:00",
+          "playlist_name": "Bear TV КиноРитм UHD",
+          "observed_title": "val eas oe 7",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=18.0"
+          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=12.0"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 1,
-        "selected": 1,
+        "changed": 0,
+        "selected": 0,
         "quarantined": 0,
-        "target_hours": 6.0
+        "reason": "no-live-candidates"
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 1,
+      "selected_count": 0,
       "quarantined_count": 0,
-      "selected": {
-        "KLI Новинки 4K Ultra HD": {
-          "source": "tvteam",
-          "source_id": "ch4089",
-          "output_tvg_id": "Xklinovinci4k",
-          "horizon_hours": 24.58,
-          "current": true,
-          "usable": 19
-        }
-      },
+      "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
       "live_observations": 2,
-      "sources_scanned": 13,
-      "sources_failed": [],
-      "candidates_added": 0,
-      "added": []
+      "sources_scanned": 26,
+      "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-ru",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-rescue",
+          "error": "RuntimeError"
+        }
+      ],
+      "candidates_added": 5,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "KLI СССР HD",
+          "source": "tvteam",
+          "source_id": "ch4083",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Огонь, вода и медные трубы; candidate=Огонь, вода и медные трубы (1968); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI СССР HD",
+          "source": "epgpw-RU",
+          "source_id": "5914",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Огонь, вода и медные трубы; candidate=х/ф Огонь, вода и медные трубы; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI СССР HD",
+          "source": "gabbarit-current",
+          "source_id": "KLI СССР",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Огонь, вода и медные трубы; candidate=Огонь, вода и медные трубы (1968).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI СССР HD",
+          "source": "gabbarit-primary",
+          "source_id": "KLI СССР",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Огонь, вода и медные трубы; candidate=Огонь, вода и медные трубы (1968).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI СССР HD",
+          "source": "gabbarit-mirror",
+          "source_id": "KLI СССР",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Огонь, вода и медные трубы; candidate=Огонь, вода и медные трубы (1968).; requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
