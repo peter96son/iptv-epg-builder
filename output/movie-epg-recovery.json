@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-21T07:48:08.700701+00:00",
+  "updated_at": "2026-09-21T14:56:56.846324+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-21T07:48:07.512903+00:00",
+      "checked_at_utc": "2026-09-21T14:56:54.973663+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 527,
-      "ok": 370,
-      "gaps": 157,
+      "ok": 491,
+      "gaps": 36,
       "issue_counts": {
-        "NO_MAPPING": 146,
-        "NO_NEXT_PROGRAMME": 11,
-        "NO_CURRENT_PROGRAMME": 1
+        "NO_MAPPING": 34,
+        "NO_CURRENT_PROGRAMME": 1,
+        "NO_NEXT_PROGRAMME": 1
       },
       "group_counts": {
         "USSR": {
@@ -25,63 +25,63 @@
         },
         "Кино": {
           "channels": 174,
-          "ok": 125,
-          "gaps": 49
+          "ok": 152,
+          "gaps": 22
         },
         "Кино 4K": {
           "channels": 65,
-          "ok": 16,
-          "gaps": 49
+          "ok": 65,
+          "gaps": 0
         },
         "Кинозалы": {
           "channels": 268,
-          "ok": 211,
-          "gaps": 57
+          "ok": 256,
+          "gaps": 12
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 90,
+      "channels_considered": 36,
       "high_confidence_observations": 2,
       "recognized": [
         {
           "playlist_name": "KLI СССР HD",
           "provider_name": "KLI СССР HD",
-          "title": "Огонь, вода и медные трубы",
+          "title": "Самая обаятельная и привлекательная",
           "score": 20.0,
-          "zone": "bottom_band",
+          "zone": "left_bottom_tight",
           "engine": "tesseract"
         },
         {
-          "playlist_name": "Bear TV КиноРитм UHD",
-          "provider_name": "Bear TV КиноРитм UHD",
-          "title": "val eas oe 7",
-          "score": 12.0,
-          "zone": "top_left",
+          "playlist_name": "MM Погружение HD",
+          "provider_name": "MM Погружение HD",
+          "title": "Челюсти 2 (1978)",
+          "score": 16.75,
+          "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
       "added": 2,
-      "rejected": 88,
+      "rejected": 34,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-21T07:28:14.131295+00:00",
+          "observed_at": "2026-09-21T14:38:51.426987+00:00",
           "playlist_name": "KLI СССР HD",
-          "observed_title": "Огонь, вода и медные трубы",
+          "observed_title": "Самая обаятельная и привлекательная",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=20.0"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=20.0"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-09-21T07:28:14.131295+00:00",
-          "playlist_name": "Bear TV КиноРитм UHD",
-          "observed_title": "val eas oe 7",
+          "observed_at": "2026-09-21T14:38:51.426987+00:00",
+          "playlist_name": "MM Погружение HD",
+          "observed_title": "Челюсти 2 (1978)",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=12.0"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=16.75"
         }
       ]
     },
@@ -101,63 +101,10 @@
     },
     "candidate_discovery": {
       "live_observations": 2,
-      "sources_scanned": 26,
-      "sources_failed": [
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-ru",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-rescue",
-          "error": "RuntimeError"
-        }
-      ],
-      "candidates_added": 5,
-      "added": [
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "tvteam",
-          "source_id": "ch4083",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Огонь, вода и медные трубы; candidate=Огонь, вода и медные трубы (1968); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "epgpw-RU",
-          "source_id": "5914",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Огонь, вода и медные трубы; candidate=х/ф Огонь, вода и медные трубы; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "gabbarit-current",
-          "source_id": "KLI СССР",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Огонь, вода и медные трубы; candidate=Огонь, вода и медные трубы (1968).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "gabbarit-primary",
-          "source_id": "KLI СССР",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Огонь, вода и медные трубы; candidate=Огонь, вода и медные трубы (1968).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "gabbarit-mirror",
-          "source_id": "KLI СССР",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Огонь, вода и медные трубы; candidate=Огонь, вода и медные трубы (1968).; requires two positive observations before selection"
-        }
-      ]
+      "sources_scanned": 14,
+      "sources_failed": [],
+      "candidates_added": 0,
+      "added": []
     }
   }
 }
