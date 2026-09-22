@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-22T01:43:18.298558+00:00",
+  "updated_at": "2026-09-22T07:13:37.470857+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-22T01:43:16.517750+00:00",
+      "checked_at_utc": "2026-09-22T07:13:36.139637+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,18 +10,18 @@
         "Кинозалы"
       ],
       "channels": 527,
-      "ok": 471,
-      "gaps": 56,
+      "ok": 434,
+      "gaps": 93,
       "issue_counts": {
-        "NO_MAPPING": 45,
-        "NO_CURRENT_PROGRAMME": 7,
-        "NO_NEXT_PROGRAMME": 11
+        "NO_MAPPING": 91,
+        "NO_CURRENT_PROGRAMME": 1,
+        "NO_NEXT_PROGRAMME": 2
       },
       "group_counts": {
         "USSR": {
           "channels": 20,
-          "ok": 18,
-          "gaps": 2
+          "ok": 17,
+          "gaps": 3
         },
         "Кино": {
           "channels": 174,
@@ -30,89 +30,98 @@
         },
         "Кино 4K": {
           "channels": 65,
-          "ok": 53,
-          "gaps": 12
+          "ok": 16,
+          "gaps": 49
         },
         "Кинозалы": {
           "channels": 268,
-          "ok": 253,
-          "gaps": 15
+          "ok": 254,
+          "gaps": 14
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 40,
+      "channels_considered": 41,
       "high_confidence_observations": 3,
       "recognized": [
         {
-          "playlist_name": "DITV Про вампиров",
-          "provider_name": "DITV Про вампиров",
-          "title": "Кровь для Дракулы",
-          "score": 18.75,
-          "zone": "bottom_band",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "DITV Concert",
-          "provider_name": "DITV Concert",
-          "title": "велгой",
-          "score": 16.5,
-          "zone": "top_band",
-          "engine": "tesseract"
-        },
-        {
           "playlist_name": "KLI СССР HD",
           "provider_name": "KLI СССР HD",
-          "title": "“Фантомас",
-          "score": 17.0,
-          "zone": "bottom_band",
+          "title": "Белое солнце nye",
+          "score": 18.5,
+          "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "provider_name": "KLI Новинки 4K Ultra HD",
+          "title": "Бессмертная гвардия 2",
+          "score": 19.5,
+          "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "Bear TV КиноРитм UHD",
+          "provider_name": "Bear TV КиноРитм UHD",
+          "title": "ам ВЕАВ ^ ‘ино",
+          "score": 17.25,
+          "zone": "top_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
       "added": 3,
-      "rejected": 37,
+      "rejected": 38,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-22T01:21:40.630430+00:00",
-          "playlist_name": "DITV Про вампиров",
-          "observed_title": "Кровь для Дракулы",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.75"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-22T01:21:40.630430+00:00",
-          "playlist_name": "DITV Concert",
-          "observed_title": "велгой",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=16.5"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-22T01:21:40.630430+00:00",
+          "observed_at": "2026-09-22T06:57:09.819930+00:00",
           "playlist_name": "KLI СССР HD",
-          "observed_title": "“Фантомас",
+          "observed_title": "Белое солнце nye",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=17.0"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=18.5"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-22T06:57:09.819930+00:00",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "observed_title": "Бессмертная гвардия 2",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=19.5"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-22T06:57:09.819930+00:00",
+          "playlist_name": "Bear TV КиноРитм UHD",
+          "observed_title": "ам ВЕАВ ^ ‘ино",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=17.25"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 0,
-        "selected": 0,
+        "changed": 1,
+        "selected": 1,
         "quarantined": 0,
-        "reason": "no-live-candidates"
+        "target_hours": 6.0
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 0,
+      "selected_count": 1,
       "quarantined_count": 0,
-      "selected": {},
+      "selected": {
+        "KLI Новинки 4K Ultra HD": {
+          "source": "gabbarit-current",
+          "source_id": "KLI Новинки 4k",
+          "output_tvg_id": "Xklinovinci4k",
+          "horizon_hours": 127.44,
+          "current": true,
+          "usable": 30
+        }
+      },
       "quarantined": {}
     },
     "candidate_discovery": {
@@ -136,8 +145,58 @@
           "error": "RuntimeError"
         }
       ],
-      "candidates_added": 0,
-      "added": []
+      "candidates_added": 7,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "source": "iptv-online-primary",
+          "source_id": "X000113_KinoHorizon",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Бессмертная гвардия 2; candidate=Бессмертная гвардия 2 (2025); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "source": "iptv-online-primary",
+          "source_id": "X000135_MovieWave",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Бессмертная гвардия 2; candidate=Бессмертная гвардия 2 (2025); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "source": "iptvx-noarch",
+          "source_id": "bear-tv-kinogorizont-ru-uhd",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Бессмертная гвардия 2; candidate=Бессмертная гвардия 2 (2025); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "source": "iptvx-noarch",
+          "source_id": "bear-tv-kinovolna-ru-uhd",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Бессмертная гвардия 2; candidate=Бессмертная гвардия 2 (2025); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "source": "gabbarit-current",
+          "source_id": "KLI Новинки 4k",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Бессмертная гвардия 2; candidate=Бессмертная гвардия 2 (2025).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "source": "gabbarit-primary",
+          "source_id": "KLI Новинки 4k",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Бессмертная гвардия 2; candidate=Бессмертная гвардия 2 (2025).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "source": "gabbarit-mirror",
+          "source_id": "KLI Новинки 4k",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Бессмертная гвардия 2; candidate=Бессмертная гвардия 2 (2025).; requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
