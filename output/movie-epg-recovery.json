@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-22T20:50:32.664634+00:00",
+  "updated_at": "2026-09-22T23:42:16.487918+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-22T20:50:30.687360+00:00",
+      "checked_at_utc": "2026-09-22T23:42:14.463933+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -13,9 +13,9 @@
       "ok": 482,
       "gaps": 45,
       "issue_counts": {
-        "NO_MAPPING": 37,
-        "NO_NEXT_PROGRAMME": 7,
-        "NO_CURRENT_PROGRAMME": 4
+        "NO_MAPPING": 35,
+        "NO_CURRENT_PROGRAMME": 8,
+        "NO_NEXT_PROGRAMME": 10
       },
       "group_counts": {
         "USSR": {
@@ -25,8 +25,8 @@
         },
         "Кино": {
           "channels": 174,
-          "ok": 148,
-          "gaps": 26
+          "ok": 147,
+          "gaps": 27
         },
         "Кино 4K": {
           "channels": 65,
@@ -35,94 +35,262 @@
         },
         "Кинозалы": {
           "channels": 268,
-          "ok": 252,
-          "gaps": 16
+          "ok": 253,
+          "gaps": 15
         }
       }
     },
     "observer": {
       "return_code": 0,
       "channels_considered": 40,
-      "high_confidence_observations": 1,
+      "high_confidence_observations": 4,
       "recognized": [
+        {
+          "playlist_name": "Insomnia HD",
+          "provider_name": "Insomnia HD",
+          "title": "ГРИБЫ",
+          "score": 16.25,
+          "zone": "top_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "KLI Новинки HD",
+          "provider_name": "KLI Новинки HD",
+          "title": "Роднина",
+          "score": 16.75,
+          "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "MM Криминал HD",
+          "provider_name": "MM Криминал HD",
+          "title": "Борсалино и компания (1974)",
+          "score": 15.5,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        },
         {
           "playlist_name": "KLI СССР HD",
           "provider_name": "KLI СССР HD",
-          "title": "Девчата",
-          "score": 16.75,
-          "zone": "bottom_band",
+          "title": "Десять негритят",
+          "score": 18.5,
+          "zone": "left_bottom_tight",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 39,
+      "added": 4,
+      "rejected": 36,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-22T20:35:42.343384+00:00",
-          "playlist_name": "KLI СССР HD",
-          "observed_title": "Девчата",
+          "observed_at": "2026-09-22T23:23:27.243351+00:00",
+          "playlist_name": "Insomnia HD",
+          "observed_title": "ГРИБЫ",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=16.75"
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=16.25"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-22T23:23:27.243351+00:00",
+          "playlist_name": "KLI Новинки HD",
+          "observed_title": "Роднина",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=16.75"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-22T23:23:27.243351+00:00",
+          "playlist_name": "MM Криминал HD",
+          "observed_title": "Борсалино и компания (1974)",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=15.5"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-22T23:23:27.243351+00:00",
+          "playlist_name": "KLI СССР HD",
+          "observed_title": "Десять негритят",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=18.5"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 0,
-        "selected": 0,
+        "changed": 1,
+        "selected": 1,
         "quarantined": 0,
-        "reason": "no-live-candidates"
+        "target_hours": 6.0
       },
-      "pending_count": 0,
-      "pending": {},
-      "selected_count": 0,
+      "pending_count": 1,
+      "pending": {
+        "MM Криминал HD": {
+          "observations": 1,
+          "distinct_titles": 1,
+          "status": "PENDING_DISTINCT_SECOND_TITLE"
+        }
+      },
+      "selected_count": 1,
       "quarantined_count": 0,
-      "selected": {},
+      "selected": {
+        "KLI Новинки HD": {
+          "source": "gabbarit-current",
+          "source_id": "KLI НОВИНКИ",
+          "output_tvg_id": "Xklinovinci",
+          "horizon_hours": 111.03,
+          "current": true,
+          "usable": 29
+        }
+      },
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 13,
-      "sources_failed": [],
-      "candidates_added": 5,
+      "live_observations": 4,
+      "sources_scanned": 25,
+      "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-ru",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-rescue",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "m3u-edit-all-rescue",
+          "error": "RuntimeError"
+        }
+      ],
+      "candidates_added": 17,
       "added": [
         {
           "enabled": "1",
-          "playlist_name": "KLI СССР HD",
+          "playlist_name": "MM Криминал HD",
+          "source": "iptv-online-primary",
+          "source_id": "Xminimax-kriminal",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Борсалино и компания (1974); candidate=х/ф Борсалино и компания; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Криминал HD",
           "source": "iptvx-noarch",
-          "source_id": "velilla-domashny",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Девчата; candidate=х/ф Девчата (1961); requires two positive observations before selection"
+          "source_id": "minimax-kriminal",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Борсалино и компания (1974); candidate=х/ф Борсалино и компания; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "KLI СССР HD",
+          "playlist_name": "MM Криминал HD",
+          "source": "openbox-tsd",
+          "source_id": "mm-kriminal",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Борсалино и компания (1974); candidate=Х/ф Борсалино и компания.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Криминал HD",
+          "source": "minimax-mm-dedicated",
+          "source_id": "kriminal-mm",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Борсалино и компания (1974); candidate=Борсалино и компания; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Криминал HD",
           "source": "tvteam",
-          "source_id": "ch3138",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Девчата; candidate=Девчата (1961); requires two positive observations before selection"
+          "source_id": "ch1244",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Борсалино и компания (1974); candidate=Борсалино и компания; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки HD",
+          "source": "tvteam",
+          "source_id": "ch3761",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Роднина; candidate=Роднина 2025; requires two positive observations before selection"
         },
         {
           "enabled": "1",
           "playlist_name": "KLI СССР HD",
+          "source": "epgpw-RU",
+          "source_id": "448979",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Десять негритят; candidate=х/ф Десять негритят (1987); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки HD",
           "source": "gabbarit-current",
-          "source_id": "Velilla TV Домашний HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Девчата; candidate=Девчата (1961).; requires two positive observations before selection"
+          "source_id": "KLI НОВИНКИ",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Роднина; candidate=Роднина (2025).; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "KLI СССР HD",
+          "playlist_name": "KLI Новинки HD",
+          "source": "gabbarit-current",
+          "source_id": "TVPlay Биографии",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Роднина; candidate=Роднина 2025.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Криминал HD",
+          "source": "gabbarit-current",
+          "source_id": "минимакс-криминал HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Борсалино и компания (1974); candidate=Борсалино и компания (1974).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки HD",
           "source": "gabbarit-primary",
-          "source_id": "Velilla TV Домашний HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Девчата; candidate=Девчата (1961).; requires two positive observations before selection"
+          "source_id": "KLI НОВИНКИ",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Роднина; candidate=Роднина (2025).; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "KLI СССР HD",
+          "playlist_name": "KLI Новинки HD",
+          "source": "gabbarit-primary",
+          "source_id": "TVPlay Биографии",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Роднина; candidate=Роднина 2025.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Криминал HD",
+          "source": "gabbarit-primary",
+          "source_id": "минимакс-криминал HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Борсалино и компания (1974); candidate=Борсалино и компания (1974).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки HD",
           "source": "gabbarit-mirror",
-          "source_id": "Velilla TV Домашний HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Девчата; candidate=Девчата (1961).; requires two positive observations before selection"
+          "source_id": "KLI НОВИНКИ",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Роднина; candidate=Роднина (2025).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки HD",
+          "source": "gabbarit-mirror",
+          "source_id": "TVPlay Биографии",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Роднина; candidate=Роднина 2025.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Криминал HD",
+          "source": "gabbarit-mirror",
+          "source_id": "минимакс-криминал HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Борсалино и компания (1974); candidate=Борсалино и компания (1974).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Криминал HD",
+          "source": "epgone-full-movie-rescue",
+          "source_id": "5152",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Борсалино и компания (1974); candidate=Борсалино и компания; requires two positive observations before selection"
         }
       ]
     }
