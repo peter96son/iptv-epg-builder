@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-22T12:22:39.106638+00:00",
+  "updated_at": "2026-09-22T20:50:32.664634+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-22T12:22:37.983398+00:00",
+      "checked_at_utc": "2026-09-22T20:50:30.687360+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,28 +10,28 @@
         "Кинозалы"
       ],
       "channels": 527,
-      "ok": 431,
-      "gaps": 96,
+      "ok": 482,
+      "gaps": 45,
       "issue_counts": {
-        "NO_MAPPING": 91,
-        "NO_CURRENT_PROGRAMME": 3,
-        "NO_NEXT_PROGRAMME": 5
+        "NO_MAPPING": 37,
+        "NO_NEXT_PROGRAMME": 7,
+        "NO_CURRENT_PROGRAMME": 4
       },
       "group_counts": {
         "USSR": {
           "channels": 20,
-          "ok": 16,
-          "gaps": 4
+          "ok": 17,
+          "gaps": 3
         },
         "Кино": {
           "channels": 174,
-          "ok": 147,
-          "gaps": 27
+          "ok": 148,
+          "gaps": 26
         },
         "Кино 4K": {
           "channels": 65,
-          "ok": 16,
-          "gaps": 49
+          "ok": 65,
+          "gaps": 0
         },
         "Кинозалы": {
           "channels": 268,
@@ -42,30 +42,30 @@
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 47,
+      "channels_considered": 40,
       "high_confidence_observations": 1,
       "recognized": [
         {
-          "playlist_name": "Bear TV Парк Кино RU UHD",
-          "provider_name": "Bear TV Парк Кино RU UHD",
-          "title": "Nicole Raven",
-          "score": 12.75,
-          "zone": "top_left",
+          "playlist_name": "KLI СССР HD",
+          "provider_name": "KLI СССР HD",
+          "title": "Девчата",
+          "score": 16.75,
+          "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
       "added": 1,
-      "rejected": 46,
+      "rejected": 39,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-22T12:12:32.288630+00:00",
-          "playlist_name": "Bear TV Парк Кино RU UHD",
-          "observed_title": "Nicole Raven",
+          "observed_at": "2026-09-22T20:35:42.343384+00:00",
+          "playlist_name": "KLI СССР HD",
+          "observed_title": "Девчата",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=12.75"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=16.75"
         }
       ]
     },
@@ -73,16 +73,11 @@
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "waiting-for-distinct-second-title"
+        "quarantined": 0,
+        "reason": "no-live-candidates"
       },
-      "pending_count": 1,
-      "pending": {
-        "Bear TV Парк Кино RU UHD": {
-          "observations": 1,
-          "distinct_titles": 1,
-          "status": "PENDING_DISTINCT_SECOND_TITLE"
-        }
-      },
+      "pending_count": 0,
+      "pending": {},
       "selected_count": 0,
       "quarantined_count": 0,
       "selected": {},
@@ -90,27 +85,46 @@
     },
     "candidate_discovery": {
       "live_observations": 1,
-      "sources_scanned": 26,
-      "sources_failed": [
+      "sources_scanned": 13,
+      "sources_failed": [],
+      "candidates_added": 5,
+      "added": [
         {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
+          "enabled": "1",
+          "playlist_name": "KLI СССР HD",
+          "source": "iptvx-noarch",
+          "source_id": "velilla-domashny",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Девчата; candidate=х/ф Девчата (1961); requires two positive observations before selection"
         },
         {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
+          "enabled": "1",
+          "playlist_name": "KLI СССР HD",
+          "source": "tvteam",
+          "source_id": "ch3138",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Девчата; candidate=Девчата (1961); requires two positive observations before selection"
         },
         {
-          "source": "teleguide-ru",
-          "error": "RuntimeError"
+          "enabled": "1",
+          "playlist_name": "KLI СССР HD",
+          "source": "gabbarit-current",
+          "source_id": "Velilla TV Домашний HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Девчата; candidate=Девчата (1961).; requires two positive observations before selection"
         },
         {
-          "source": "teleguide-rescue",
-          "error": "RuntimeError"
+          "enabled": "1",
+          "playlist_name": "KLI СССР HD",
+          "source": "gabbarit-primary",
+          "source_id": "Velilla TV Домашний HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Девчата; candidate=Девчата (1961).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI СССР HD",
+          "source": "gabbarit-mirror",
+          "source_id": "Velilla TV Домашний HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Девчата; candidate=Девчата (1961).; requires two positive observations before selection"
         }
-      ],
-      "candidates_added": 0,
-      "added": []
+      ]
     }
   }
 }
