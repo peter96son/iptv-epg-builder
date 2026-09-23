@@ -1,19 +1,21 @@
 {
-  "updated_at": "2026-09-23T07:18:19.154608+00:00",
+  "updated_at": "2026-09-23T12:43:16.677093+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-23T07:18:17.222656+00:00",
+      "checked_at_utc": "2026-09-23T12:43:14.756722+00:00",
       "groups": [
         "USSR",
         "Кино",
         "Кино 4K",
         "Кинозалы"
       ],
-      "channels": 527,
-      "ok": 479,
-      "gaps": 48,
+      "channels": 528,
+      "ok": 476,
+      "gaps": 52,
       "issue_counts": {
-        "NO_MAPPING": 48
+        "NO_MAPPING": 47,
+        "NO_CURRENT_PROGRAMME": 5,
+        "NO_NEXT_PROGRAMME": 5
       },
       "group_counts": {
         "USSR": {
@@ -22,9 +24,9 @@
           "gaps": 3
         },
         "Кино": {
-          "channels": 174,
+          "channels": 175,
           "ok": 142,
-          "gaps": 32
+          "gaps": 33
         },
         "Кино 4K": {
           "channels": 65,
@@ -33,177 +35,92 @@
         },
         "Кинозалы": {
           "channels": 268,
-          "ok": 255,
-          "gaps": 13
+          "ok": 252,
+          "gaps": 16
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 40,
-      "high_confidence_observations": 4,
+      "channels_considered": 42,
+      "high_confidence_observations": 3,
       "recognized": [
         {
-          "playlist_name": "Insomnia HD",
-          "provider_name": "Insomnia HD",
-          "title": "СВОРА",
-          "score": 16.25,
-          "zone": "top_left",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Источник вечной молодости",
-          "score": 20.0,
-          "zone": "bottom_band",
+          "playlist_name": "Thriller HD",
+          "provider_name": "Thriller HD",
+          "title": "ПРЕИСПОДНЯЯ",
+          "score": 17.75,
+          "zone": "top_left_tight",
           "engine": "tesseract"
         },
         {
           "playlist_name": "KLI СССР HD",
           "provider_name": "KLI СССР HD",
-          "title": "За двумя зайцами",
-          "score": 23.5,
-          "zone": "left_bottom_tight",
+          "title": "Ирония судьбы, и",
+          "score": 18.25,
+          "zone": "bottom_band",
           "engine": "tesseract"
         },
         {
-          "playlist_name": "KLI Новинки HD",
-          "provider_name": "KLI Новинки HD",
-          "title": "рмен",
-          "score": 13.0,
+          "playlist_name": "MM NewFilm 2 HD",
+          "provider_name": "MM NewFilm 2 HD",
+          "title": "На краю Оук-стрит (2026)",
+          "score": 18.5,
           "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 4,
-      "rejected": 36,
+      "added": 3,
+      "rejected": 39,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-23T06:52:36.106064+00:00",
-          "playlist_name": "Insomnia HD",
-          "observed_title": "СВОРА",
+          "observed_at": "2026-09-23T12:25:09.063939+00:00",
+          "playlist_name": "Thriller HD",
+          "observed_title": "ПРЕИСПОДНЯЯ",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=16.25"
+          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=17.75"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-09-23T06:52:36.106064+00:00",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Источник вечной молодости",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=20.0"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-23T06:52:36.106064+00:00",
+          "observed_at": "2026-09-23T12:25:09.063939+00:00",
           "playlist_name": "KLI СССР HD",
-          "observed_title": "За двумя зайцами",
+          "observed_title": "Ирония судьбы, и",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=23.5"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.25"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-09-23T06:52:36.106064+00:00",
-          "playlist_name": "KLI Новинки HD",
-          "observed_title": "рмен",
+          "observed_at": "2026-09-23T12:25:09.063939+00:00",
+          "playlist_name": "MM NewFilm 2 HD",
+          "observed_title": "На краю Оук-стрит (2026)",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=13.0"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.5"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 1,
-        "selected": 1,
+        "changed": 0,
+        "selected": 0,
         "quarantined": 0,
-        "target_hours": 6.0
+        "reason": "no-live-candidates"
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 1,
+      "selected_count": 0,
       "quarantined_count": 0,
-      "selected": {
-        "KLI Новинки 4K Ultra HD": {
-          "source": "gabbarit-current",
-          "source_id": "KLI Новинки 4k",
-          "output_tvg_id": "Xklinovinci4k",
-          "horizon_hours": 103.4,
-          "current": true,
-          "usable": 31
-        }
-      },
+      "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 4,
-      "sources_scanned": 26,
-      "sources_failed": [
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-ru",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-rescue",
-          "error": "RuntimeError"
-        }
-      ],
-      "candidates_added": 6,
-      "added": [
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "iptvx-noarch",
-          "source_id": "liberty-prikluchenia-4k-hdr",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Источник вечной молодости; candidate=х/ф Источник вечной молодости; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "openbox-tsd",
-          "source_id": "liberty-priklyucheniya-4k-hdr",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Источник вечной молодости; candidate=X/ф Источник вечной молодости.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "tvteam",
-          "source_id": "ch3438",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Источник вечной молодости; candidate=Источник вечной молодости; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "gabbarit-current",
-          "source_id": "Play-X Кинозал 17 HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Источник вечной молодости; candidate=Источник вечной молодости.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "gabbarit-primary",
-          "source_id": "Play-X Кинозал 17 HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Источник вечной молодости; candidate=Источник вечной молодости.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "gabbarit-mirror",
-          "source_id": "Play-X Кинозал 17 HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Источник вечной молодости; candidate=Источник вечной молодости.; requires two positive observations before selection"
-        }
-      ]
+      "live_observations": 3,
+      "sources_scanned": 14,
+      "sources_failed": [],
+      "candidates_added": 0,
+      "added": []
     }
   }
 }
