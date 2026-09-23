@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-23T12:43:16.677093+00:00",
+  "updated_at": "2026-09-23T17:52:30.686671+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-23T12:43:14.756722+00:00",
+      "checked_at_utc": "2026-09-23T17:52:29.239988+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 528,
-      "ok": 476,
-      "gaps": 52,
+      "ok": 488,
+      "gaps": 40,
       "issue_counts": {
-        "NO_MAPPING": 47,
-        "NO_CURRENT_PROGRAMME": 5,
-        "NO_NEXT_PROGRAMME": 5
+        "NO_MAPPING": 39,
+        "NO_CURRENT_PROGRAMME": 1,
+        "NO_NEXT_PROGRAMME": 1
       },
       "group_counts": {
         "USSR": {
@@ -25,8 +25,8 @@
         },
         "Кино": {
           "channels": 175,
-          "ok": 142,
-          "gaps": 33
+          "ok": 149,
+          "gaps": 26
         },
         "Кино 4K": {
           "channels": 65,
@@ -35,69 +35,69 @@
         },
         "Кинозалы": {
           "channels": 268,
-          "ok": 252,
-          "gaps": 16
+          "ok": 257,
+          "gaps": 11
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 42,
+      "channels_considered": 36,
       "high_confidence_observations": 3,
       "recognized": [
         {
-          "playlist_name": "Thriller HD",
-          "provider_name": "Thriller HD",
-          "title": "ПРЕИСПОДНЯЯ",
-          "score": 17.75,
-          "zone": "top_left_tight",
+          "playlist_name": "DITV КОМЕДИИ 90-х",
+          "provider_name": "DITV КОМЕДИИ 90-х",
+          "title": "Один дома 2",
+          "score": 22.0,
+          "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "KLI Новинки HD",
+          "provider_name": "KLI Новинки HD",
+          "title": "28 дней",
+          "score": 13.0,
+          "zone": "left_bottom_tight",
           "engine": "tesseract"
         },
         {
           "playlist_name": "KLI СССР HD",
           "provider_name": "KLI СССР HD",
-          "title": "Ирония судьбы, и",
-          "score": 18.25,
-          "zone": "bottom_band",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "MM NewFilm 2 HD",
-          "provider_name": "MM NewFilm 2 HD",
-          "title": "На краю Оук-стрит (2026)",
-          "score": 18.5,
-          "zone": "bottom_band",
+          "title": "12 стул",
+          "score": 13.0,
+          "zone": "left_bottom_tight",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
       "added": 3,
-      "rejected": 39,
+      "rejected": 33,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-23T12:25:09.063939+00:00",
-          "playlist_name": "Thriller HD",
-          "observed_title": "ПРЕИСПОДНЯЯ",
+          "observed_at": "2026-09-23T17:35:19.405349+00:00",
+          "playlist_name": "DITV КОМЕДИИ 90-х",
+          "observed_title": "Один дома 2",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=17.75"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=22.0"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-09-23T12:25:09.063939+00:00",
+          "observed_at": "2026-09-23T17:35:19.405349+00:00",
+          "playlist_name": "KLI Новинки HD",
+          "observed_title": "28 дней",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=13.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-23T17:35:19.405349+00:00",
           "playlist_name": "KLI СССР HD",
-          "observed_title": "Ирония судьбы, и",
+          "observed_title": "12 стул",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.25"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-23T12:25:09.063939+00:00",
-          "playlist_name": "MM NewFilm 2 HD",
-          "observed_title": "На краю Оук-стрит (2026)",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.5"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=13.0"
         }
       ]
     },
@@ -117,10 +117,82 @@
     },
     "candidate_discovery": {
       "live_observations": 3,
-      "sources_scanned": 14,
-      "sources_failed": [],
-      "candidates_added": 0,
-      "added": []
+      "sources_scanned": 23,
+      "sources_failed": [
+        {
+          "source": "iptv-online-primary",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "epgpw-sreda",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "epgpw-chestny-detektiv",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-ru",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-rescue",
+          "error": "RuntimeError"
+        }
+      ],
+      "candidates_added": 6,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "DITV КОМЕДИИ 90-х",
+          "source": "iptvx-noarch",
+          "source_id": "eye-frozen",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Один дома 2; candidate=х/ф Один дома (1990); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV КОМЕДИИ 90-х",
+          "source": "openbox-tsd",
+          "source_id": "eye-frozen",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Один дома 2; candidate=Х/ф Один дома 1990.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV КОМЕДИИ 90-х",
+          "source": "gabbarit-current",
+          "source_id": "Eye Frozen",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Один дома 2; candidate=Один дома (1990).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV КОМЕДИИ 90-х",
+          "source": "gabbarit-primary",
+          "source_id": "Eye Frozen",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Один дома 2; candidate=Один дома (1990).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV КОМЕДИИ 90-х",
+          "source": "gabbarit-mirror",
+          "source_id": "Eye Frozen",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Один дома 2; candidate=Один дома (1990).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV КОМЕДИИ 90-х",
+          "source": "epgone-full-movie-rescue",
+          "source_id": "6209",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Один дома 2; candidate=Один дома (1990); requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
