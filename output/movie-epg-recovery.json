@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-23T21:10:53.348327+00:00",
+  "updated_at": "2026-09-23T23:19:48.767431+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-23T21:10:51.501795+00:00",
+      "checked_at_utc": "2026-09-23T23:19:46.920273+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,21 +10,23 @@
         "Кинозалы"
       ],
       "channels": 526,
-      "ok": 486,
-      "gaps": 40,
+      "ok": 481,
+      "gaps": 45,
       "issue_counts": {
-        "NO_MAPPING": 40
+        "NO_MAPPING": 44,
+        "NO_CURRENT_PROGRAMME": 1,
+        "NO_NEXT_PROGRAMME": 1
       },
       "group_counts": {
         "USSR": {
           "channels": 20,
-          "ok": 17,
-          "gaps": 3
+          "ok": 16,
+          "gaps": 4
         },
         "Кино": {
           "channels": 175,
-          "ok": 151,
-          "gaps": 24
+          "ok": 149,
+          "gaps": 26
         },
         "Кино 4K": {
           "channels": 65,
@@ -33,78 +35,27 @@
         },
         "Кинозалы": {
           "channels": 266,
-          "ok": 253,
-          "gaps": 13
+          "ok": 251,
+          "gaps": 15
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 36,
-      "high_confidence_observations": 3,
-      "recognized": [
-        {
-          "playlist_name": "Insomnia HD",
-          "provider_name": "Insomnia HD",
-          "title": "ХИЖИНА В ЛЕСУ",
-          "score": 17.75,
-          "zone": "top_left_tight",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "Thriller HD",
-          "provider_name": "Thriller HD",
-          "title": "ВЗРЫВНАЯ БЛОНДИНКА",
-          "score": 24.25,
-          "zone": "top_left_tight",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "KLI СССР HD",
-          "provider_name": "KLI СССР HD",
-          "title": "Белые росы",
-          "score": 22.25,
-          "zone": "left_bottom_tight",
-          "engine": "tesseract"
-        }
-      ]
+      "channels_considered": 38,
+      "high_confidence_observations": 0,
+      "recognized": []
     },
     "evidence_recorder": {
-      "added": 3,
-      "rejected": 33,
-      "observations": [
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-23T20:47:43.422961+00:00",
-          "playlist_name": "Insomnia HD",
-          "observed_title": "ХИЖИНА В ЛЕСУ",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=17.75"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-23T20:47:43.422961+00:00",
-          "playlist_name": "Thriller HD",
-          "observed_title": "ВЗРЫВНАЯ БЛОНДИНКА",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=24.25"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-23T20:47:43.422961+00:00",
-          "playlist_name": "KLI СССР HD",
-          "observed_title": "Белые росы",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=22.25"
-        }
-      ]
+      "added": 0,
+      "rejected": 38,
+      "observations": []
     },
     "judge": {
       "selector": {
         "changed": 0,
         "selected": 0,
-        "quarantined": 0,
-        "reason": "no-live-candidates"
+        "reason": "waiting-for-distinct-second-title"
       },
       "pending_count": 0,
       "pending": {},
@@ -114,64 +65,11 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 3,
-      "sources_scanned": 26,
-      "sources_failed": [
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-ru",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-rescue",
-          "error": "RuntimeError"
-        }
-      ],
-      "candidates_added": 5,
-      "added": [
-        {
-          "enabled": "1",
-          "playlist_name": "Insomnia HD",
-          "source": "iptvx-noarch",
-          "source_id": "modo-zomb",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=ХИЖИНА В ЛЕСУ; candidate=х/ф Хижина в лесу; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "iptvx-noarch",
-          "source_id": "tvboomvip",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Белые росы; candidate=х/ф Белые росы 1983; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "gabbarit-current",
-          "source_id": "TvBoom.ViP",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Белые росы; candidate=Белые росы 1983.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "gabbarit-primary",
-          "source_id": "TvBoom.ViP",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Белые росы; candidate=Белые росы 1983.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "gabbarit-mirror",
-          "source_id": "TvBoom.ViP",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Белые росы; candidate=Белые росы 1983.; requires two positive observations before selection"
-        }
-      ]
+      "live_observations": 0,
+      "sources_scanned": 0,
+      "sources_failed": [],
+      "candidates_added": 0,
+      "added": []
     }
   }
 }
