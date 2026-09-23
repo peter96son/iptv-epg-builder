@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-23T02:06:55.516539+00:00",
+  "updated_at": "2026-09-23T07:18:19.154608+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-23T02:06:53.943000+00:00",
+      "checked_at_utc": "2026-09-23T07:18:17.222656+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,23 +10,21 @@
         "Кинозалы"
       ],
       "channels": 527,
-      "ok": 476,
-      "gaps": 51,
+      "ok": 479,
+      "gaps": 48,
       "issue_counts": {
-        "NO_MAPPING": 34,
-        "NO_CURRENT_PROGRAMME": 14,
-        "NO_NEXT_PROGRAMME": 17
+        "NO_MAPPING": 48
       },
       "group_counts": {
         "USSR": {
           "channels": 20,
-          "ok": 16,
-          "gaps": 4
+          "ok": 17,
+          "gaps": 3
         },
         "Кино": {
           "channels": 174,
-          "ok": 140,
-          "gaps": 34
+          "ok": 142,
+          "gaps": 32
         },
         "Кино 4K": {
           "channels": 65,
@@ -43,45 +41,77 @@
     "observer": {
       "return_code": 0,
       "channels_considered": 40,
-      "high_confidence_observations": 2,
+      "high_confidence_observations": 4,
       "recognized": [
         {
-          "playlist_name": "DITV КОМЕДИИ",
-          "provider_name": "DITV КОМЕДИИ",
-          "title": "Амели (2001)",
+          "playlist_name": "Insomnia HD",
+          "provider_name": "Insomnia HD",
+          "title": "СВОРА",
           "score": 16.25,
+          "zone": "top_left",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "provider_name": "KLI Новинки 4K Ultra HD",
+          "title": "Источник вечной молодости",
+          "score": 20.0,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "KLI СССР HD",
+          "provider_name": "KLI СССР HD",
+          "title": "За двумя зайцами",
+          "score": 23.5,
           "zone": "left_bottom_tight",
           "engine": "tesseract"
         },
         {
-          "playlist_name": "MM Криминал HD",
-          "provider_name": "MM Криминал HD",
-          "title": "Ограбление на Бейкер-Стрит (2008)",
-          "score": 20.0,
-          "zone": "left_bottom_tight",
+          "playlist_name": "KLI Новинки HD",
+          "provider_name": "KLI Новинки HD",
+          "title": "рмен",
+          "score": 13.0,
+          "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 2,
-      "rejected": 38,
+      "added": 4,
+      "rejected": 36,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-23T01:57:09.697408+00:00",
-          "playlist_name": "DITV КОМЕДИИ",
-          "observed_title": "Амели (2001)",
+          "observed_at": "2026-09-23T06:52:36.106064+00:00",
+          "playlist_name": "Insomnia HD",
+          "observed_title": "СВОРА",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=16.25"
+          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=16.25"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-09-23T01:57:09.697408+00:00",
-          "playlist_name": "MM Криминал HD",
-          "observed_title": "Ограбление на Бейкер-Стрит (2008)",
+          "observed_at": "2026-09-23T06:52:36.106064+00:00",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "observed_title": "Источник вечной молодости",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=20.0"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=20.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-23T06:52:36.106064+00:00",
+          "playlist_name": "KLI СССР HD",
+          "observed_title": "За двумя зайцами",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=23.5"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-23T06:52:36.106064+00:00",
+          "playlist_name": "KLI Новинки HD",
+          "observed_title": "рмен",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=13.0"
         }
       ]
     },
@@ -97,11 +127,11 @@
       "selected_count": 1,
       "quarantined_count": 0,
       "selected": {
-        "MM Криминал HD": {
-          "source": "minimax-mm-dedicated",
-          "source_id": "kriminal-mm",
-          "output_tvg_id": "Xminimax-kriminal",
-          "horizon_hours": 509.9,
+        "KLI Новинки 4K Ultra HD": {
+          "source": "gabbarit-current",
+          "source_id": "KLI Новинки 4k",
+          "output_tvg_id": "Xklinovinci4k",
+          "horizon_hours": 103.4,
           "current": true,
           "usable": 31
         }
@@ -109,45 +139,69 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 2,
-      "sources_scanned": 11,
-      "sources_failed": [],
-      "candidates_added": 5,
+      "live_observations": 4,
+      "sources_scanned": 26,
+      "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-ru",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-rescue",
+          "error": "RuntimeError"
+        }
+      ],
+      "candidates_added": 6,
       "added": [
         {
           "enabled": "1",
-          "playlist_name": "MM Криминал HD",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
           "source": "iptvx-noarch",
-          "source_id": "kino-tv-pl4",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Ограбление на Бейкер-Стрит (2008); candidate=х/ф Ограбление на Бейкер-стрит; requires two positive observations before selection"
+          "source_id": "liberty-prikluchenia-4k-hdr",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Источник вечной молодости; candidate=х/ф Источник вечной молодости; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "MM Криминал HD",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
           "source": "openbox-tsd",
-          "source_id": "kino-tv-plus-4",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Ограбление на Бейкер-Стрит (2008); candidate=Х/ф Ограбление на Бейкер-стрит.; requires two positive observations before selection"
+          "source_id": "liberty-priklyucheniya-4k-hdr",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Источник вечной молодости; candidate=X/ф Источник вечной молодости.; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "MM Криминал HD",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "source": "tvteam",
+          "source_id": "ch3438",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Источник вечной молодости; candidate=Источник вечной молодости; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
           "source": "gabbarit-current",
-          "source_id": "Кино ТВ HD (+4)",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Ограбление на Бейкер-Стрит (2008); candidate=Ограбление на Бейкер-стрит.; requires two positive observations before selection"
+          "source_id": "Play-X Кинозал 17 HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Источник вечной молодости; candidate=Источник вечной молодости.; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "MM Криминал HD",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
           "source": "gabbarit-primary",
-          "source_id": "Кино ТВ HD (+4)",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Ограбление на Бейкер-Стрит (2008); candidate=Ограбление на Бейкер-стрит.; requires two positive observations before selection"
+          "source_id": "Play-X Кинозал 17 HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Источник вечной молодости; candidate=Источник вечной молодости.; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "MM Криминал HD",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
           "source": "gabbarit-mirror",
-          "source_id": "Кино ТВ HD (+4)",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Ограбление на Бейкер-Стрит (2008); candidate=Ограбление на Бейкер-стрит.; requires two positive observations before selection"
+          "source_id": "Play-X Кинозал 17 HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Источник вечной молодости; candidate=Источник вечной молодости.; requires two positive observations before selection"
         }
       ]
     }
