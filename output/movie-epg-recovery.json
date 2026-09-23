@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-22T23:42:16.487918+00:00",
+  "updated_at": "2026-09-23T02:06:55.516539+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-22T23:42:14.463933+00:00",
+      "checked_at_utc": "2026-09-23T02:06:53.943000+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,23 +10,23 @@
         "Кинозалы"
       ],
       "channels": 527,
-      "ok": 482,
-      "gaps": 45,
+      "ok": 476,
+      "gaps": 51,
       "issue_counts": {
-        "NO_MAPPING": 35,
-        "NO_CURRENT_PROGRAMME": 8,
-        "NO_NEXT_PROGRAMME": 10
+        "NO_MAPPING": 34,
+        "NO_CURRENT_PROGRAMME": 14,
+        "NO_NEXT_PROGRAMME": 17
       },
       "group_counts": {
         "USSR": {
           "channels": 20,
-          "ok": 17,
-          "gaps": 3
+          "ok": 16,
+          "gaps": 4
         },
         "Кино": {
           "channels": 174,
-          "ok": 147,
-          "gaps": 27
+          "ok": 140,
+          "gaps": 34
         },
         "Кино 4K": {
           "channels": 65,
@@ -35,85 +35,53 @@
         },
         "Кинозалы": {
           "channels": 268,
-          "ok": 253,
-          "gaps": 15
+          "ok": 255,
+          "gaps": 13
         }
       }
     },
     "observer": {
       "return_code": 0,
       "channels_considered": 40,
-      "high_confidence_observations": 4,
+      "high_confidence_observations": 2,
       "recognized": [
         {
-          "playlist_name": "Insomnia HD",
-          "provider_name": "Insomnia HD",
-          "title": "ГРИБЫ",
+          "playlist_name": "DITV КОМЕДИИ",
+          "provider_name": "DITV КОМЕДИИ",
+          "title": "Амели (2001)",
           "score": 16.25,
-          "zone": "top_band",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "KLI Новинки HD",
-          "provider_name": "KLI Новинки HD",
-          "title": "Роднина",
-          "score": 16.75,
           "zone": "left_bottom_tight",
           "engine": "tesseract"
         },
         {
           "playlist_name": "MM Криминал HD",
           "provider_name": "MM Криминал HD",
-          "title": "Борсалино и компания (1974)",
-          "score": 15.5,
-          "zone": "bottom_band",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "KLI СССР HD",
-          "provider_name": "KLI СССР HD",
-          "title": "Десять негритят",
-          "score": 18.5,
+          "title": "Ограбление на Бейкер-Стрит (2008)",
+          "score": 20.0,
           "zone": "left_bottom_tight",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 4,
-      "rejected": 36,
+      "added": 2,
+      "rejected": 38,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-22T23:23:27.243351+00:00",
-          "playlist_name": "Insomnia HD",
-          "observed_title": "ГРИБЫ",
+          "observed_at": "2026-09-23T01:57:09.697408+00:00",
+          "playlist_name": "DITV КОМЕДИИ",
+          "observed_title": "Амели (2001)",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=16.25"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=16.25"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-09-22T23:23:27.243351+00:00",
-          "playlist_name": "KLI Новинки HD",
-          "observed_title": "Роднина",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=16.75"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-22T23:23:27.243351+00:00",
+          "observed_at": "2026-09-23T01:57:09.697408+00:00",
           "playlist_name": "MM Криминал HD",
-          "observed_title": "Борсалино и компания (1974)",
+          "observed_title": "Ограбление на Бейкер-Стрит (2008)",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=15.5"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-22T23:23:27.243351+00:00",
-          "playlist_name": "KLI СССР HD",
-          "observed_title": "Десять негритят",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=18.5"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=20.0"
         }
       ]
     },
@@ -124,173 +92,62 @@
         "quarantined": 0,
         "target_hours": 6.0
       },
-      "pending_count": 1,
-      "pending": {
-        "MM Криминал HD": {
-          "observations": 1,
-          "distinct_titles": 1,
-          "status": "PENDING_DISTINCT_SECOND_TITLE"
-        }
-      },
+      "pending_count": 0,
+      "pending": {},
       "selected_count": 1,
       "quarantined_count": 0,
       "selected": {
-        "KLI Новинки HD": {
-          "source": "gabbarit-current",
-          "source_id": "KLI НОВИНКИ",
-          "output_tvg_id": "Xklinovinci",
-          "horizon_hours": 111.03,
+        "MM Криминал HD": {
+          "source": "minimax-mm-dedicated",
+          "source_id": "kriminal-mm",
+          "output_tvg_id": "Xminimax-kriminal",
+          "horizon_hours": 509.9,
           "current": true,
-          "usable": 29
+          "usable": 31
         }
       },
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 4,
-      "sources_scanned": 25,
-      "sources_failed": [
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-ru",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-rescue",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "m3u-edit-all-rescue",
-          "error": "RuntimeError"
-        }
-      ],
-      "candidates_added": 17,
+      "live_observations": 2,
+      "sources_scanned": 11,
+      "sources_failed": [],
+      "candidates_added": 5,
       "added": [
         {
           "enabled": "1",
           "playlist_name": "MM Криминал HD",
-          "source": "iptv-online-primary",
-          "source_id": "Xminimax-kriminal",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Борсалино и компания (1974); candidate=х/ф Борсалино и компания; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Криминал HD",
           "source": "iptvx-noarch",
-          "source_id": "minimax-kriminal",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Борсалино и компания (1974); candidate=х/ф Борсалино и компания; requires two positive observations before selection"
+          "source_id": "kino-tv-pl4",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Ограбление на Бейкер-Стрит (2008); candidate=х/ф Ограбление на Бейкер-стрит; requires two positive observations before selection"
         },
         {
           "enabled": "1",
           "playlist_name": "MM Криминал HD",
           "source": "openbox-tsd",
-          "source_id": "mm-kriminal",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Борсалино и компания (1974); candidate=Х/ф Борсалино и компания.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Криминал HD",
-          "source": "minimax-mm-dedicated",
-          "source_id": "kriminal-mm",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Борсалино и компания (1974); candidate=Борсалино и компания; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Криминал HD",
-          "source": "tvteam",
-          "source_id": "ch1244",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Борсалино и компания (1974); candidate=Борсалино и компания; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки HD",
-          "source": "tvteam",
-          "source_id": "ch3761",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Роднина; candidate=Роднина 2025; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "epgpw-RU",
-          "source_id": "448979",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Десять негритят; candidate=х/ф Десять негритят (1987); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки HD",
-          "source": "gabbarit-current",
-          "source_id": "KLI НОВИНКИ",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Роднина; candidate=Роднина (2025).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки HD",
-          "source": "gabbarit-current",
-          "source_id": "TVPlay Биографии",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Роднина; candidate=Роднина 2025.; requires two positive observations before selection"
+          "source_id": "kino-tv-plus-4",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Ограбление на Бейкер-Стрит (2008); candidate=Х/ф Ограбление на Бейкер-стрит.; requires two positive observations before selection"
         },
         {
           "enabled": "1",
           "playlist_name": "MM Криминал HD",
           "source": "gabbarit-current",
-          "source_id": "минимакс-криминал HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Борсалино и компания (1974); candidate=Борсалино и компания (1974).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки HD",
-          "source": "gabbarit-primary",
-          "source_id": "KLI НОВИНКИ",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Роднина; candidate=Роднина (2025).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки HD",
-          "source": "gabbarit-primary",
-          "source_id": "TVPlay Биографии",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Роднина; candidate=Роднина 2025.; requires two positive observations before selection"
+          "source_id": "Кино ТВ HD (+4)",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Ограбление на Бейкер-Стрит (2008); candidate=Ограбление на Бейкер-стрит.; requires two positive observations before selection"
         },
         {
           "enabled": "1",
           "playlist_name": "MM Криминал HD",
           "source": "gabbarit-primary",
-          "source_id": "минимакс-криминал HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Борсалино и компания (1974); candidate=Борсалино и компания (1974).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки HD",
-          "source": "gabbarit-mirror",
-          "source_id": "KLI НОВИНКИ",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Роднина; candidate=Роднина (2025).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки HD",
-          "source": "gabbarit-mirror",
-          "source_id": "TVPlay Биографии",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Роднина; candidate=Роднина 2025.; requires two positive observations before selection"
+          "source_id": "Кино ТВ HD (+4)",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Ограбление на Бейкер-Стрит (2008); candidate=Ограбление на Бейкер-стрит.; requires two positive observations before selection"
         },
         {
           "enabled": "1",
           "playlist_name": "MM Криминал HD",
           "source": "gabbarit-mirror",
-          "source_id": "минимакс-криминал HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Борсалино и компания (1974); candidate=Борсалино и компания (1974).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM Криминал HD",
-          "source": "epgone-full-movie-rescue",
-          "source_id": "5152",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Борсалино и компания (1974); candidate=Борсалино и компания; requires two positive observations before selection"
+          "source_id": "Кино ТВ HD (+4)",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Ограбление на Бейкер-Стрит (2008); candidate=Ограбление на Бейкер-стрит.; requires two positive observations before selection"
         }
       ]
     }
