@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-24T12:43:57.331130+00:00",
+  "updated_at": "2026-09-24T17:55:38.541156+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-24T12:43:55.560621+00:00",
+      "checked_at_utc": "2026-09-24T17:55:36.781052+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 530,
-      "ok": 471,
-      "gaps": 59,
+      "ok": 482,
+      "gaps": 48,
       "issue_counts": {
-        "NO_MAPPING": 54,
-        "NO_CURRENT_PROGRAMME": 5,
-        "NO_NEXT_PROGRAMME": 5
+        "NO_MAPPING": 45,
+        "NO_NEXT_PROGRAMME": 3,
+        "NO_CURRENT_PROGRAMME": 2
       },
       "group_counts": {
         "USSR": {
@@ -25,79 +25,47 @@
         },
         "Кино": {
           "channels": 179,
-          "ok": 141,
-          "gaps": 38
+          "ok": 150,
+          "gaps": 29
         },
         "Кино 4K": {
           "channels": 65,
-          "ok": 65,
-          "gaps": 0
+          "ok": 64,
+          "gaps": 1
         },
         "Кинозалы": {
           "channels": 266,
-          "ok": 248,
-          "gaps": 18
+          "ok": 251,
+          "gaps": 15
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 45,
-      "high_confidence_observations": 3,
+      "channels_considered": 39,
+      "high_confidence_observations": 1,
       "recognized": [
-        {
-          "playlist_name": "MM Flip UHD",
-          "provider_name": "MM Flip UHD",
-          "title": "Зараза | 2025",
-          "score": 16.5,
-          "zone": "bottom_band",
-          "engine": "tesseract"
-        },
         {
           "playlist_name": "KLI СССР HD",
           "provider_name": "KLI СССР HD",
-          "title": "aaNet LIAN q",
-          "score": 12.5,
-          "zone": "top_left_tight",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Грешники",
-          "score": 22.0,
-          "zone": "bottom_band",
+          "title": "Женитьба Бальзаминова",
+          "score": 20.0,
+          "zone": "left_bottom_tight",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 3,
-      "rejected": 42,
+      "added": 1,
+      "rejected": 38,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-24T12:25:48.085388+00:00",
-          "playlist_name": "MM Flip UHD",
-          "observed_title": "Зараза | 2025",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=16.5"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-24T12:25:48.085388+00:00",
+          "observed_at": "2026-09-24T17:40:21.465742+00:00",
           "playlist_name": "KLI СССР HD",
-          "observed_title": "aaNet LIAN q",
+          "observed_title": "Женитьба Бальзаминова",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=12.5"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-24T12:25:48.085388+00:00",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Грешники",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=22.0"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=20.0"
         }
       ]
     },
@@ -116,17 +84,115 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 3,
-      "sources_scanned": 14,
+      "live_observations": 1,
+      "sources_scanned": 13,
       "sources_failed": [],
-      "candidates_added": 1,
+      "candidates_added": 15,
       "added": [
         {
           "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "epgpw-RU",
-          "source_id": "459933",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Грешники; candidate=х/ф Грешники; requires two positive observations before selection"
+          "playlist_name": "KLI СССР HD",
+          "source": "iptv-online-primary",
+          "source_id": "Xmosfilm",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Женитьба Бальзаминова; candidate=х/ф Женитьба Бальзаминова; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI СССР HD",
+          "source": "iptvx-noarch",
+          "source_id": "mosfilm",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Женитьба Бальзаминова; candidate=х/ф Женитьба Бальзаминова; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI СССР HD",
+          "source": "iptvx-noarch",
+          "source_id": "mosfilm-int",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Женитьба Бальзаминова; candidate=Женитьба Бальзаминова; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI СССР HD",
+          "source": "runigma-iptv",
+          "source_id": "mosfilm",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Женитьба Бальзаминова; candidate=х/ф Женитьба Бальзаминова.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI СССР HD",
+          "source": "openbox-tsd",
+          "source_id": "mosfilm",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Женитьба Бальзаминова; candidate=Х/ф Женитьба Бальзаминова.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI СССР HD",
+          "source": "openbox-tsd",
+          "source_id": "mosfilm-int",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Женитьба Бальзаминова; candidate=Х/ф Женитьба Бальзаминова.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI СССР HD",
+          "source": "bcumedia-dedicated",
+          "source_id": "Мосфильм",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Женитьба Бальзаминова; candidate=Женитьба Бальзаминова.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI СССР HD",
+          "source": "bcumedia-dedicated",
+          "source_id": "Мосфильм HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Женитьба Бальзаминова; candidate=Женитьба Бальзаминова.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI СССР HD",
+          "source": "tvteam",
+          "source_id": "ch336",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Женитьба Бальзаминова; candidate=х/ф Женитьба Бальзаминова; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI СССР HD",
+          "source": "epgone-ru2",
+          "source_id": "3357",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Женитьба Бальзаминова; candidate=Женитьба Бальзаминова; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI СССР HD",
+          "source": "anzo-top",
+          "source_id": "11134",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Женитьба Бальзаминова; candidate=Х/ф Женитьба Бальзаминова.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI СССР HD",
+          "source": "gabbarit-current",
+          "source_id": "Мосфильм. Золотая коллекция",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Женитьба Бальзаминова; candidate=Женитьба Бальзаминова.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI СССР HD",
+          "source": "gabbarit-primary",
+          "source_id": "Мосфильм. Золотая коллекция",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Женитьба Бальзаминова; candidate=Женитьба Бальзаминова.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI СССР HD",
+          "source": "gabbarit-mirror",
+          "source_id": "Мосфильм. Золотая коллекция",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Женитьба Бальзаминова; candidate=Женитьба Бальзаминова.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI СССР HD",
+          "source": "epgone-full-movie-rescue",
+          "source_id": "3357",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Женитьба Бальзаминова; candidate=Женитьба Бальзаминова; requires two positive observations before selection"
         }
       ]
     }
