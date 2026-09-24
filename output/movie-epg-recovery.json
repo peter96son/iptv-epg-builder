@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-23T23:19:48.767431+00:00",
+  "updated_at": "2026-09-24T01:59:37.682436+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-23T23:19:46.920273+00:00",
+      "checked_at_utc": "2026-09-24T01:59:36.431235+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,23 +10,23 @@
         "Кинозалы"
       ],
       "channels": 526,
-      "ok": 481,
-      "gaps": 45,
+      "ok": 475,
+      "gaps": 51,
       "issue_counts": {
-        "NO_MAPPING": 44,
-        "NO_CURRENT_PROGRAMME": 1,
-        "NO_NEXT_PROGRAMME": 1
+        "NO_MAPPING": 42,
+        "NO_CURRENT_PROGRAMME": 5,
+        "NO_NEXT_PROGRAMME": 9
       },
       "group_counts": {
         "USSR": {
           "channels": 20,
-          "ok": 16,
-          "gaps": 4
+          "ok": 17,
+          "gaps": 3
         },
         "Кино": {
           "channels": 175,
-          "ok": 149,
-          "gaps": 26
+          "ok": 141,
+          "gaps": 34
         },
         "Кино 4K": {
           "channels": 65,
@@ -35,27 +35,62 @@
         },
         "Кинозалы": {
           "channels": 266,
-          "ok": 251,
-          "gaps": 15
+          "ok": 252,
+          "gaps": 14
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 38,
-      "high_confidence_observations": 0,
-      "recognized": []
+      "channels_considered": 39,
+      "high_confidence_observations": 2,
+      "recognized": [
+        {
+          "playlist_name": "KLI Новинки HD",
+          "provider_name": "KLI Новинки HD",
+          "title": "Бабули",
+          "score": 16.5,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "KLI СССР HD",
+          "provider_name": "KLI СССР HD",
+          "title": "Улиц",
+          "score": 13.0,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        }
+      ]
     },
     "evidence_recorder": {
-      "added": 0,
-      "rejected": 38,
-      "observations": []
+      "added": 2,
+      "rejected": 37,
+      "observations": [
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-24T01:46:29.371985+00:00",
+          "playlist_name": "KLI Новинки HD",
+          "observed_title": "Бабули",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=16.5"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-24T01:46:29.371985+00:00",
+          "playlist_name": "KLI СССР HD",
+          "observed_title": "Улиц",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=13.0"
+        }
+      ]
     },
     "judge": {
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "waiting-for-distinct-second-title"
+        "quarantined": 0,
+        "reason": "no-live-candidates"
       },
       "pending_count": 0,
       "pending": {},
@@ -65,8 +100,8 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 0,
-      "sources_scanned": 0,
+      "live_observations": 2,
+      "sources_scanned": 13,
       "sources_failed": [],
       "candidates_added": 0,
       "added": []
