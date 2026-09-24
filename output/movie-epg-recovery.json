@@ -1,32 +1,32 @@
 {
-  "updated_at": "2026-09-24T07:06:10.384688+00:00",
+  "updated_at": "2026-09-24T12:43:57.331130+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-24T07:06:09.044008+00:00",
+      "checked_at_utc": "2026-09-24T12:43:55.560621+00:00",
       "groups": [
         "USSR",
         "Кино",
         "Кино 4K",
         "Кинозалы"
       ],
-      "channels": 526,
-      "ok": 474,
-      "gaps": 52,
+      "channels": 530,
+      "ok": 471,
+      "gaps": 59,
       "issue_counts": {
-        "NO_MAPPING": 51,
-        "NO_CURRENT_PROGRAMME": 1,
-        "NO_NEXT_PROGRAMME": 1
+        "NO_MAPPING": 54,
+        "NO_CURRENT_PROGRAMME": 5,
+        "NO_NEXT_PROGRAMME": 5
       },
       "group_counts": {
         "USSR": {
           "channels": 20,
-          "ok": 16,
-          "gaps": 4
+          "ok": 17,
+          "gaps": 3
         },
         "Кино": {
-          "channels": 175,
-          "ok": 142,
-          "gaps": 33
+          "channels": 179,
+          "ok": 141,
+          "gaps": 38
         },
         "Кино 4K": {
           "channels": 65,
@@ -35,53 +35,69 @@
         },
         "Кинозалы": {
           "channels": 266,
-          "ok": 251,
-          "gaps": 15
+          "ok": 248,
+          "gaps": 18
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 39,
-      "high_confidence_observations": 2,
+      "channels_considered": 45,
+      "high_confidence_observations": 3,
       "recognized": [
         {
-          "playlist_name": "Thriller HD",
-          "provider_name": "Thriller HD",
-          "title": "УРОК ОКОНЧЕН",
-          "score": 22.75,
+          "playlist_name": "MM Flip UHD",
+          "provider_name": "MM Flip UHD",
+          "title": "Зараза | 2025",
+          "score": 16.5,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "KLI СССР HD",
+          "provider_name": "KLI СССР HD",
+          "title": "aaNet LIAN q",
+          "score": 12.5,
           "zone": "top_left_tight",
           "engine": "tesseract"
         },
         {
           "playlist_name": "KLI Новинки 4K Ultra HD",
           "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "БОГЛАН ЧАПЛИНСКИИ (БОГААН И БРИГААА}",
-          "score": 25.0,
+          "title": "Грешники",
+          "score": 22.0,
           "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 2,
-      "rejected": 37,
+      "added": 3,
+      "rejected": 42,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-24T06:53:50.277609+00:00",
-          "playlist_name": "Thriller HD",
-          "observed_title": "УРОК ОКОНЧЕН",
+          "observed_at": "2026-09-24T12:25:48.085388+00:00",
+          "playlist_name": "MM Flip UHD",
+          "observed_title": "Зараза | 2025",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=22.75"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=16.5"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-09-24T06:53:50.277609+00:00",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "БОГЛАН ЧАПЛИНСКИИ (БОГААН И БРИГААА}",
+          "observed_at": "2026-09-24T12:25:48.085388+00:00",
+          "playlist_name": "KLI СССР HD",
+          "observed_title": "aaNet LIAN q",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=25.0"
+          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=12.5"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-24T12:25:48.085388+00:00",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "observed_title": "Грешники",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=22.0"
         }
       ]
     },
@@ -100,11 +116,19 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 2,
-      "sources_scanned": 12,
+      "live_observations": 3,
+      "sources_scanned": 14,
       "sources_failed": [],
-      "candidates_added": 0,
-      "added": []
+      "candidates_added": 1,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "source": "epgpw-RU",
+          "source_id": "459933",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Грешники; candidate=х/ф Грешники; requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
