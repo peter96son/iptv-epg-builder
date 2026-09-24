@@ -33,6 +33,7 @@ playlist_name,group,expected_tvg_id,actual_tvg_id,actual_tvg_name,epg_validated,
 НТВ Мир,Россия,Xntv-mir,Xntv-mir,НТВ Мир,True,1,ok
 НТВ,Россия,Xntv,Xntv,НТВ,True,1,ok
 НТВ HD,Россия,Xntv,Xntv,НТВ HD,True,1,ok
+НТВ +1,Россия,Xntv-pl1,Xntv-pl1,НТВ +1,False,1,no_validated_programme
 НТВ +2,Россия,Xntv-pl2,Xntv-pl2,НТВ +2,True,1,ok
 НТВ +4,Россия,Xntv-pl4,Xntv-pl4,НТВ +4,True,1,ok
 НТВ +7,Россия,Xntv-pl7,Xntv-pl7,НТВ +7,True,1,ok
@@ -87,6 +88,7 @@ RTVi,Россия,Xrtvi,Xrtvi,RTVi,True,1,ok
 Мир +7,Россия,Xmir-pl7,Xmir-pl7,Мир +7,True,1,ok
 Звезда HD,Россия,Xzvezda,Xzvezda,Звезда HD,True,1,ok
 Звезда,Россия,Xzvezda,Xzvezda,Звезда,True,1,ok
+Звезда Плюс HD,Россия,Xzvezda-plus,Xzvezda-plus,Звезда Плюс HD,True,1,ok
 Звезда +2,Россия,Xzvezda-pl2,Xzvezda-pl2,Звезда +2,True,1,ok
 Звезда Плюс,Россия,Xzvezda-plus,Xzvezda-plus,Звезда Плюс,True,1,ok
 Домашний,Россия,Xdomashny,Xdomashny,Домашний,True,1,ok
@@ -178,6 +180,7 @@ Shopping Live,Россия,X	shopping-live,X	shopping-live,Shopping Live,True,1,
 Витрина,Россия,,,Витрина,False,1,ok
 Самотлор (Нижневартовск),Россия,Xsamotlor-nv,Xsamotlor-nv,Самотлор (Нижневартовск),True,1,ok
 Rutube TV,Россия,,Xrutube-tv,Rutube TV,False,1,ok
+Канал 12 Череповец,Россия,Xkanal-12-cherepovec,Xkanal-12-cherepovec,Канал 12 Череповец,False,1,no_validated_programme
 Вселенная Marvel,Кино,,,,False,1,ok
 Твой кинотеатр,Кино,,,,False,1,ok
 Звёздные войны,Кино,,,,False,1,ok
@@ -260,6 +263,7 @@ Epic Drama HD,Сериалы,XEpic.Drama.HD.pl,XEpic.Drama.HD.pl,Epic Drama HD,T
 Epic Media Love,Кино,,,,False,1,ok
 Epic Media,Кино,,,,False,1,ok
 НТВ Сериал,Сериалы,Xntv-serial,Xntv-serial,НТВ Сериал,True,1,ok
+НТВ Сериал HD,Сериалы,Xntv-serial,Xntv-serial,НТВ Сериал HD,True,1,ok
 НТВ Хит,Сериалы,Xntv-xit,Xntv-xit,НТВ Хит,True,1,ok
 Кинопоказ,Кино,Xkinopokaz,Xkinopokaz,Кинопоказ,True,1,ok
 Киносат,Кино,Xkinosat,Xkinosat,Киносат,True,1,ok
@@ -284,7 +288,7 @@ BEST Films HD,Кино,Best Films,Best Films,BEST Films HD,True,1,ok
 НТВ Сериал Скорая Помощь,Сериалы,,,,False,1,ok
 НТВ Сериал Следствие Вели,Сериалы,,,,False,1,ok
 НТВ Сериал Пять Минут Тишины,Сериалы,,,,False,1,ok
-Тех Лет ТВ,Кино,,,,False,1,ok
+Тех Лет ТВ,Кино,Тех Лет ТВ,Тех Лет ТВ,Тех Лет ТВ,True,1,ok
 Муви ТВ,Кино,Xmuvitv,Xmuvitv,Муви ТВ,True,1,ok
 Новелла ТВ,Сериалы,12593,12593,Новелла ТВ,True,1,ok
 Ужасы HD,Кино,Ужасы HD,Ужасы HD,Ужасы HD,True,1,ok
@@ -302,7 +306,7 @@ Star Media,Кино,,,,False,1,ok
 VHS-ка Сериал,Сериалы,Xvhska-serial,Xvhska-serial,VHS-ка Сериал,False,1,no_validated_programme
 VHS-ка HD,Кино,Xvhs-ka,Xvhs-ka,VHS-ка HD,True,1,ok
 Amazon Prime Romance,Кино,,,,False,1,ok
-Честный Детектив,Кино,,,,False,1,ok
+Честный Детектив,Кино,Xchestny-detektiv,Xchestny-detektiv,Честный Детектив,True,1,ok
 Plan B,Кино,Xplan-b,Xplan-b,Plan B,True,1,ok
 Легенда,Кино,Xkonny-mir,Xkonny-mir,Легенда,True,1,ok
 Киноджем 1 HD,Кино,Xkinojam1,Xkinojam1,Киноджем 1 HD,True,1,ok
@@ -370,12 +374,12 @@ Russian Extreme Ultra HD,Кино,Xrussian-extreme-uhd,Xrussian-extreme-uhd,Russ
 Kino 2 HD,Кино,kino2-tviksel,kino2-tviksel,Kino 2 HD,True,1,ok
 Патриот,Кино,patriot,patriot,Патриот,True,1,ok
 Новый Русский HD,Кино,,,,False,1,ok
-Смотрим 100% Классика,Кино,,,,False,1,ok
-Смотрим 100% Любовь,Кино,,,,False,1,ok
-Смотрим 100% Факты,Кино,,,,False,1,ok
-Смотрим 100% Мужское,Кино,,,,False,1,ok
-Смотрим 100% Праздник,Кино,,,,False,1,ok
-Смотрим 100% Детское,Кино,,,,False,1,ok
+Смотрим 100% Классика,Кино,smotrim-100-klassika,smotrim-100-klassika,Смотрим 100% Классика,True,1,ok
+Смотрим 100% Любовь,Кино,smotrim-100-lubov,smotrim-100-lubov,Смотрим 100% Любовь,True,1,ok
+Смотрим 100% Факты,Кино,smotrim-100-fakty,smotrim-100-fakty,Смотрим 100% Факты,True,1,ok
+Смотрим 100% Мужское,Кино,smotrim-100-muzhskoe,smotrim-100-muzhskoe,Смотрим 100% Мужское,True,1,ok
+Смотрим 100% Праздник,Кино,smotrim-100-prazdnik,smotrim-100-prazdnik,Смотрим 100% Праздник,True,1,ok
+Смотрим 100% Детское,Кино,smotrim-100-detskoe,smotrim-100-detskoe,Смотрим 100% Детское,True,1,ok
 Военное кино,Кино,voenkino-tviksel,voenkino-tviksel,Военное кино,True,1,ok
 Мы,Кино,myy,myy,Мы,True,1,ok
 Ретро,Кино,Xretro-tv,Xretro-tv,Ретро,True,1,ok
@@ -384,11 +388,14 @@ Timeless Dizi Channel,Кино,timeless-dizi,timeless-dizi,Timeless Dizi Channel
 ТСВ,Кино,Xtcb,Xtcb,ТСВ,True,1,ok
 Vesna HD,Кино,vesna,vesna,Vesna HD,True,1,ok
 9-1-1 HD,Кино,suspense,suspense,9-1-1 HD,True,1,ok
+Apple TV Mix,Кино,,,,False,1,ok
 Apple TV+ Woman's Story,Кино,Xmovify-kino,Xmovify-kino,Apple TV+ Woman's Story,True,1,ok
 Apple TV+ Action Time,Кино,Xmovify-series,Xmovify-series,Apple TV+ Action Time,True,1,ok
 Amazon Prime Video Men's Club,Кино,Xmovify-history,Xmovify-history,Amazon Prime Video Men's Club,True,1,ok
 RED Premium HD,Кино,11043,11043,RED Premium HD,False,1,no_validated_programme
 Госфильмофонд. Машина времени HD,Кино,Xgosfilmofond-mv,Xgosfilmofond-mv,Госфильмофонд. Машина времени HD,False,1,no_validated_programme
+Кино ВК 1,Кино,,,,False,1,ok
+Кино ВК 2,Кино,,,,False,1,ok
 BCU Action HD,Кинозалы,Xbcu-action,Xbcu-action,BCU Action HD,True,1,ok
 BCU Comedy HD,Кинозалы,Xbcu-comedy,Xbcu-comedy,BCU Comedy HD,True,1,ok
 BCU Catastrophe HD,Кинозалы,Xbcu-catastrophe,Xbcu-catastrophe,BCU Catastrophe HD,True,1,ok
@@ -440,7 +447,7 @@ BCU Unity 3 HD,Кинозалы,Xbcu-unity-3,Xbcu-unity-3,BCU Unity 3 HD,True,1,
 VeleS Криминальный,Кинозалы,veles-criminal,veles-criminal,VeleS Криминальный,True,1,ok
 VeleS Наше Кино,Кинозалы,veles-our-cinema,veles-our-cinema,VeleS Наше Кино,True,1,ok
 VeleS Вестерн,Кинозалы,veles-vestern,veles-vestern,VeleS Вестерн,True,1,ok
-VeleS 60FPS,Кинозалы,,,,False,1,ok
+VeleS 60FPS,Кинозалы,Xveles-60fps,Xveles-60fps,VeleS 60FPS,True,1,ok
 VeleS С Новым годом!,Кинозалы,velesyear-new,velesyear-new,VeleS С Новым годом!,True,1,ok
 VeleS Комедия,Кинозалы,veles-comedy,veles-comedy,VeleS Комедия,True,1,ok
 VeleS Аниме,Кинозалы,veles-anime,veles-anime,VeleS Аниме,True,1,ok
@@ -448,7 +455,7 @@ VeleS Триллер,Кинозалы,veles-triller,veles-triller,VeleS Трил
 VeleS Семейный,Кинозалы,veles-family,veles-family,VeleS Семейный,True,1,ok
 VeleS Гоблин,Кинозалы,veles-goblin,veles-goblin,VeleS Гоблин,True,1,ok
 VeleS Киноплёнка,Кинозалы,veles-kinoplenka,veles-kinoplenka,VeleS Киноплёнка,True,1,ok
-VeleS Dj Set,Музыкальные,,veles-djset,VeleS Dj Set,False,1,ok
+VeleS Dj Set,Музыкальные,veles-djset,veles-djset,VeleS Dj Set,True,1,ok
 VeleS Киносерия,Сериалы,veles-kinoseries,veles-kinoseries,VeleS Киносерия,True,1,ok
 VeleS Premiere,Кинозалы,veles-premiere,veles-premiere,VeleS Premiere,True,1,ok
 VeleS Страшное,Кинозалы,veles-strashnoe,veles-strashnoe,VeleS Страшное,True,1,ok
@@ -586,9 +593,9 @@ TVPlay DC Comics HD,Кинозалы,ch3754,ch3754,TVPlay DC Comics HD,True,1,ok
 TVPlay Indian Cinema,Кинозалы,tvplay-indiancinema,tvplay-indiancinema,TVPlay Indian Cinema,True,1,ok
 TVPlay Игра Престолов HD,Сериалы,tvplay-igraprestolov,tvplay-igraprestolov,TVPlay Игра Престолов HD,True,1,ok
 TVPlay Авторский перевод HD,Кинозалы,tvplay-avtorskiyperevod,tvplay-avtorskiyperevod,TVPlay Авторский перевод HD,True,1,ok
-TVPlay АЛЬФ,Сериалы,,,TVPlay АЛЬФ,False,1,ok
+TVPlay АЛЬФ,Сериалы,tvplay-alf,tvplay-alf,TVPlay АЛЬФ,True,1,ok
 TVPlay Космический,Кинозалы,tvplay-kosmicheskiy,tvplay-kosmicheskiy,TVPlay Космический,True,1,ok
-TVPlay Лихие 90е Сериал,Сериалы,tvplay-lihie90eserial,tvplay-lihie90eserial,TVPlay Лихие 90е Сериал,True,1,ok
+TVPlay Лихие 90е Сериал,Сериалы,,,TVPlay Лихие 90е Сериал,False,1,ok
 DITV ФИЛЬМЫ УЖАСОВ 80-х,Кинозалы,,,,False,1,ok
 DITV Американские комедии 80-90-х,Кинозалы,,,,False,1,ok
 DITV ГАРИ ПОТЕР,Кинозалы,,,,False,1,ok
@@ -667,9 +674,9 @@ MM Погружение HD,Кинозалы,Xminimax-pogrujenie,Xminimax-pogruje
 MM Полицейский С Рублёвки HD,Сериалы,Xminimax-police,Xminimax-police,MM Полицейский С Рублёвки HD,True,1,ok
 MM Приключения HD,Кинозалы,Xminimax-prikluchenija,Xminimax-prikluchenija,MM Приключения HD,True,1,ok
 MM Роскино HD,Кинозалы,Xminimax-roskino,Xminimax-roskino,MM Роскино HD,True,1,ok
-MM Сваты HD,Сериалы,,Xminimax-svati,MM Сваты HD,False,1,ok
+MM Сваты HD,Сериалы,Xminimax-svati,Xminimax-svati,MM Сваты HD,True,1,ok
 MM Семейный 1 HD,Кинозалы,Xminimax-family1,Xminimax-family1,MM Семейный 1 HD,True,1,ok
-MM Семейный 2 HD,Кинозалы,,,,False,1,ok
+MM Семейный 2 HD,Кинозалы,Xminimax-family2,Xminimax-family2,MM Семейный 2 HD,True,1,ok
 MM Ситком HD,Сериалы,Xminimax-sitkom,Xminimax-sitkom,MM Ситком HD,True,1,ok
 MM Ситком 2.0 HD,Сериалы,Xminimax-sitkom20,Xminimax-sitkom20,MM Ситком 2.0 HD,True,1,ok
 MM Скорость HD,Кинозалы,Xminimax-skorost,Xminimax-skorost,MM Скорость HD,True,1,ok
@@ -1107,7 +1114,6 @@ The Explorers,Познавательные,Xthe-explorers,Xthe-explorers,The Exp
 Travel+Adventure HD,Познавательные,Xtravel-adventure,Xtravel-adventure,Travel+Adventure HD,True,1,ok
 Travel XP HD,Познавательные,Xtravel-xp-hd,Xtravel-xp-hd,Travel XP HD,True,1,ok
 Travel XP 4K,Познавательные,Xtravel-xp-hd,Xtravel-xp-hd,Travel XP 4K,True,1,ok
-Travel&Food HD,Познавательные,Xtravel-and-adventure,Xtravel-and-adventure,Travel&Food HD,False,1,no_validated_programme
 Глазами туриста HD,Познавательные,Xglazami-turista,Xglazami-turista,Глазами туриста HD,True,1,ok
 Приключения HD,Познавательные,Xprikluchenia-hd,Xprikluchenia-hd,Приключения HD,True,1,ok
 Большая Азия HD,Познавательные,Xbolshaya-azia,Xbolshaya-azia,Большая Азия HD,True,1,ok
@@ -1118,21 +1124,13 @@ Travel&Food HD,Познавательные,Xtravel-and-adventure,Xtravel-and-ad
 Рыболов,Познавательные,Xoxotnik-i-rybolov,Xoxotnik-i-rybolov,Рыболов,True,1,ok
 Охотник и рыболов HD,Познавательные,Xoxotnik-i-rybolov-hd,Xoxotnik-i-rybolov-hd,Охотник и рыболов HD,True,1,ok
 Охота и Рыбалка,Познавательные,Xoxota-i-rybalka,Xoxota-i-rybalka,Охота и Рыбалка,True,1,ok
-Рыбалка,Познавательные,Xrybalka,Xrybalka,Рыбалка,True,1,ok
-Рыбалка HD,Познавательные,Xrybalka,Xrybalka,Рыбалка HD,True,1,ok
 Диалоги о рыбалке,Познавательные,Xdialogi-o-rybalke,Xdialogi-o-rybalke,Диалоги о рыбалке,True,1,ok
 Дикая охота HD,Познавательные,Xdikaya-oxota-hd,Xdikaya-oxota-hd,Дикая охота HD,True,1,ok
 Дикая рыбалка HD,Познавательные,Xdikaya-rybalka-hd,Xdikaya-rybalka-hd,Дикая рыбалка HD,True,1,ok
 Continent E,Познавательные,Xcontinent-e,Xcontinent-e,Continent E,True,1,ok
-Трофей HD,Познавательные,Xtrofey,Xtrofey,Трофей HD,True,1,ok
 Загородная Жизнь,Познавательные,Xzagorodnaya-zhizn,Xzagorodnaya-zhizn,Загородная Жизнь,True,1,ok
 Загородный,Познавательные,Xzagorodny,Xzagorodny,Загородный,True,1,ok
 Усадьба,Познавательные,Xusadba,Xusadba,Усадьба,True,1,ok
-6 соток,Познавательные,X6sotok,X6sotok,6 соток,True,1,ok
-Дача HD,Познавательные,Xdacha,Xdacha,Дача HD,True,1,ok
-ZooSweet,Познавательные,zooswet-ua,zooswet-ua,ZooSweet,False,1,no_validated_programme
-Знаєм 24,Познавательные,znajem24,znajem24,Знаєм 24,True,1,ok
-Невигадані Історії HD,Познавательные,,,Невигадані Історії HD,False,1,ok
 Загородный International,Познавательные,Xzagorodny-int,Xzagorodny-int,Загородный International,False,1,no_validated_programme
 Дикий,Познавательные,Xdikiy,Xdikiy,Дикий,True,1,ok
 Арсенал HD,Познавательные,Xarsenaltv,Xarsenaltv,Арсенал HD,True,1,ok
@@ -1147,11 +1145,9 @@ ZooSweet,Познавательные,zooswet-ua,zooswet-ua,ZooSweet,False,1,no_
 Психология 21,Познавательные,Xpsixologia-21,Xpsixologia-21,Психология 21,True,1,ok
 Вопросы и ответы,Познавательные,Xvoprosy-i-otvety,Xvoprosy-i-otvety,Вопросы и ответы,True,1,ok
 360°,Познавательные,X360-podmoskovie,X360-podmoskovie,360°,True,1,ok
-36.6 HD,Познавательные,X36-6-tv,X36-6-tv,36.6 HD,True,1,ok
 Оружие,Познавательные,Xoruzhie,Xoruzhie,Оружие,True,1,ok
 Terra,Познавательные,Xterra-ru,Xterra-ru,Terra,True,1,ok
 Terra HD,Познавательные,Xterra-ru,Xterra-ru,Terra HD,True,1,ok
-Машина часу,Познавательные,mashina-chasu,mashina-chasu,Машина часу,True,1,ok
 Домашние Животные,Познавательные,Xdomashnie-zhivotnye,Xdomashnie-zhivotnye,Домашние Животные,True,1,ok
 Ocean TV,Познавательные,Xocean-tv,Xocean-tv,Ocean TV,True,1,ok
 Sea TV HD,Познавательные,Xsea-tv,Xsea-tv,Sea TV HD,True,1,ok
@@ -1160,18 +1156,9 @@ Galaxy,Познавательные,Xgalaxy-tv,Xgalaxy-tv,Galaxy,True,1,ok
 Телепутешествия,Познавательные,Xteleputeshestvia,Xteleputeshestvia,Телепутешествия,True,1,ok
 В мире животных HD,Познавательные,Xv-mire-zhivotnyx-hd,Xv-mire-zhivotnyx-hd,В мире животных HD,True,1,ok
 Первый Космический HD,Познавательные,Xeureka-hd,Xeureka-hd,Первый Космический HD,True,1,ok
-Quiz TV,Познавательные,Xquiz-tv,Xquiz-tv,Quiz TV,True,1,ok
-Світло HD,Познавательные,Xepoque,Xepoque,Світло HD,True,1,ok
-Наука,Познавательные,Xnauka,Xnauka,Наука,True,1,ok
-Терра,Познавательные,Xterra,Xterra,Терра,True,1,ok
-Фауна,Познавательные,Xfauna,Xfauna,Фауна,True,1,ok
-Масон ТВ,Познавательные,Xmason-tv,Xmason-tv,Масон ТВ,True,1,ok
 Терра Инкогнита HD,Познавательные,terra-inkognita,terra-inkognita,Терра Инкогнита HD,False,1,no_validated_programme
-One Planet HD,Познавательные,Xone-planet,Xone-planet,One Planet HD,True,1,ok
 Чемодан ТВ HD,Познавательные,Xchemodan,Xchemodan,Чемодан ТВ HD,True,1,ok
-UTravel,Познавательные,Xutravel,Xutravel,UTravel,True,1,ok
 Континент Е,Познавательные,,,Континент Е,False,1,ok
-Загублений світ,Познавательные,zagubleny-svit-plus-ua,zagubleny-svit-plus-ua,Загублений світ,False,1,no_validated_programme
 CGTN Русский,Познавательные,Xcctv-ru,Xcctv-ru,CGTN Русский,True,1,ok
 BOX Docu HD,Познавательные,Xbox-docu,Xbox-docu,BOX Docu HD,True,1,ok
 BOX Travel HD,Познавательные,Xbox-travel,Xbox-travel,BOX Travel HD,True,1,ok
@@ -1182,14 +1169,13 @@ Nautical Channel,Познавательные,Xnautical-channel,Xnautical-channe
 Драйв,Познавательные,Xdrive,Xdrive,Драйв,True,1,ok
 Ключ,Познавательные,Xkluch,Xkluch,Ключ,True,1,ok
 Т24,Познавательные,Xtexno-24,Xtexno-24,Т24,True,1,ok
-myZen.tv HD,Познавательные,Xmyzen-tv,Xmyzen-tv,myZen.tv HD,True,1,ok
 RTG TV,Познавательные,Xrtg-tv,Xrtg-tv,RTG TV,True,1,ok
 Зоопарк,Познавательные,Xzoopark,Xzoopark,Зоопарк,True,1,ok
 Кто Куда,Познавательные,Xmir-uvlecheniy,Xmir-uvlecheniy,Кто Куда,True,2,ok
 Пёс и Ко,Познавательные,Xpes-i-ko,Xpes-i-ko,Пёс и Ко,True,1,ok
 MM Открытия HD,Познавательные,Xminimax-otkritiya,Xminimax-otkritiya,MM Открытия HD,True,1,ok
 Museum 4K,Познавательные,Xmuseum-4k,Xmuseum-4k,Museum 4K,True,1,ok
-Глазами туриста 4K,Познавательные,,Xglazami-turista-4k,Глазами туриста 4K,False,1,ok
+Глазами туриста 4K,Познавательные,Xglazami-turista-4k,Xglazami-turista-4k,Глазами туриста 4K,True,1,ok
 Quadro 4K,Познавательные,Xquadro4k,Xquadro4k,Quadro 4K,True,1,ok
 Орел и Решка,Познавательные,,,Орел и Решка,False,1,ok
 Velilla TV CatTV 4K,Познавательные,velillatvcattv,velillatvcattv,Velilla TV CatTV 4K,True,1,ok
@@ -1205,6 +1191,29 @@ OnePlanet HD,Познавательные,,,OnePlanet HD,False,1,ok
 Вкус HD,Познавательные,Xvkus,Xvkus,Вкус HD,False,1,no_validated_programme
 Женский Журнал HD,Познавательные,womens-magazine,womens-magazine,Женский Журнал HD,False,1,no_validated_programme
 Русская История HD,Познавательные,Xrus-istoria,Xrus-istoria,Русская История HD,False,1,no_validated_programme
+Нано,Познавательные,Xnano-tv,Xnano-tv,Нано,False,1,no_validated_programme
+RT Док HD,Познавательные,2295,2295,RT Док HD,False,1,no_validated_programme
+Travel&Food HD,Познавательные UA,Xtravel-and-adventure,Xtravel-and-adventure,Travel&Food HD,False,1,no_validated_programme
+Рыбалка,Познавательные UA,Xrybalka,Xrybalka,Рыбалка,True,1,ok
+Рыбалка HD,Познавательные UA,Xrybalka,Xrybalka,Рыбалка HD,True,1,ok
+Трофей HD,Познавательные UA,Xtrofey,Xtrofey,Трофей HD,True,1,ok
+6 соток,Познавательные UA,X6sotok,X6sotok,6 соток,True,1,ok
+Дача HD,Познавательные UA,Xdacha,Xdacha,Дача HD,True,1,ok
+Знаєм 24,Познавательные UA,znajem24,znajem24,Знаєм 24,True,1,ok
+Невигадані Історії HD,Познавательные UA,,,Невигадані Історії HD,False,1,ok
+36.6 HD,Познавательные UA,X36-6-tv,X36-6-tv,36.6 HD,True,1,ok
+Машина часу,Познавательные UA,,,Машина часу,False,1,ok
+Quiz TV,Познавательные UA,Xquiz-tv,Xquiz-tv,Quiz TV,True,1,ok
+Світло HD,Познавательные UA,Xepoque,Xepoque,Світло HD,True,1,ok
+Наука,Познавательные UA,Xnauka,Xnauka,Наука,True,1,ok
+Терра,Познавательные UA,Xterra,Xterra,Терра,True,1,ok
+Фауна,Познавательные UA,Xfauna,Xfauna,Фауна,True,1,ok
+Масон ТВ,Познавательные UA,Xmason-tv,Xmason-tv,Масон ТВ,True,1,ok
+UTravel,Познавательные UA,Xutravel,Xutravel,UTravel,True,1,ok
+Загублений світ,Познавательные UA,zagubleny-svit-plus-ua,zagubleny-svit-plus-ua,Загублений світ,False,1,no_validated_programme
+One Planet + HD,Познавательные UA,one-planet,one-planet,One Planet + HD,False,1,no_validated_programme
+Трофей Premium HD,Познавательные UA,,,Трофей Premium HD,False,1,ok
+Світ навиворіт+ HD,Познавательные UA,,,Світ навиворіт+ HD,False,1,ok
 Мультфільми для малечі HD,Детские,,,Мультфільми для малечі HD,False,1,ok
 Nickelodeon HD,Детские,Xnickelodeon-ru,Xnickelodeon-ru,Nickelodeon HD,False,1,no_validated_programme
 Nick Jr.,Детские,Xnick-jr,Xnick-jr,Nick Jr.,False,1,no_validated_programme
@@ -1221,8 +1230,13 @@ NIKI Kids,Детские,Xniki-kids,Xniki-kids,NIKI Kids,True,1,ok
 NIKI Junior,Детские,Xniki-junior,Xniki-junior,NIKI Junior,True,1,ok
 Детский мир,Детские,Xdetsky-mir,Xdetsky-mir,Детский мир,True,1,ok
 Уникум,Детские,Xdetsky,Xdetsky,Уникум,True,1,ok
+Cartoonito,Детские,XCartoonito.ro,XCartoonito.ro,Cartoonito,False,1,no_validated_programme
+JTX Online,Детские,,,JTX Online,False,1,ok
 Лёва HD,Детские,Xliova,Xliova,Лёва HD,True,1,ok
 Magic Disney,Детские,Xmagic-disney,Xmagic-disney,Magic Disney,True,1,ok
+CHD-TV СоюзМультфильм,Детские,,,CHD-TV СоюзМультфильм,False,1,ok
+Мультимейшн,Детские,,,Мультимейшн,False,1,ok
+Смайлик ТВ,Детские,Xsmaylik-tv,Xsmaylik-tv,Смайлик ТВ,False,1,no_validated_programme
 Пингвин Лоло,Детские,Xpingvin-lolo,Xpingvin-lolo,Пингвин Лоло,True,1,ok
 BCU Kids HD,Детские,,Xbcu-multzal,BCU Kids HD,False,1,ok
 BCU Мультсериал,Сериалы,Xbcu-multserial,Xbcu-multserial,BCU Мультсериал,True,1,ok
@@ -1239,11 +1253,12 @@ Kids TV,Детские,Xkidstv,Xkidstv,Kids TV,True,1,ok
 Мультимания,Детские,Xmultimania,Xmultimania,Мультимания,True,1,ok
 СуперГерои,Детские,Xmalysh,Xmalysh,СуперГерои,True,1,ok
 В гостях у сказки,Детские,Xv-gostiax-u-skazki,Xv-gostiax-u-skazki,В гостях у сказки,True,1,ok
+Карусель Int,Детские,Xkarusel-int,Xkarusel-int,Карусель Int,False,1,no_validated_programme
 Пиксель HD,Детские,Xpixel,Xpixel,Пиксель HD,True,1,ok
 Пиксель,Детские,Xpixel,Xpixel,Пиксель,True,1,ok
 Плюс Плюс,Детские,Xplusplus,Xplusplus,Плюс Плюс,True,1,ok
 Da Vinci Learning,Детские,Xda-vinci,Xda-vinci,Da Vinci Learning,True,1,ok
-Sweet Мультфільми HD,Детские,,,,False,1,ok
+Sweet Мультфільми HD,Детские,sweet-multfilmi,sweet-multfilmi,Sweet Мультфільми HD,True,1,ok
 Ani,Детские,Xani,Xani,Ani,True,1,ok
 Капитан Фантастика,Детские,Xginger-hd,Xginger-hd,Капитан Фантастика,True,1,ok
 2x2,Детские,X2na2,X2na2,2x2,True,1,ok
@@ -1342,6 +1357,7 @@ Bridge TV Шлягер,Музыкальные,Xbridge-tv-shlager,Xbridge-tv-shla
 360 Tune Box HD,Музыкальные,X360-tunebox,X360-tunebox,360 Tune Box HD,True,1,ok
 InRating TV HD,Музыкальные,Xinrating,Xinrating,InRating TV HD,True,1,ok
 Muzvar HD,Музыкальные,Xmuzwar,Xmuzwar,Muzvar HD,True,1,ok
+Mooz Hits,Музыкальные,Xmooz-hits-ro,Xmooz-hits-ro,Mooz Hits,False,1,no_validated_programme
 Trace Urban HD,Музыкальные,Xtrace-urban,Xtrace-urban,Trace Urban HD,True,1,ok
 Trace Brasil HD,Музыкальные,,Xtrace-brasil,Trace Brasil HD,False,1,ok
 Trace Latina,Музыкальные,Xtrace-latina-fr,Xtrace-latina-fr,Trace Latina,True,1,ok
@@ -1452,6 +1468,8 @@ RTL 102.5 Bro&Sis,Музыкальные,,,RTL 102.5 Bro&Sis,False,1,ok
 RTL 102.5 Radio Visione,Музыкальные,,,RTL 102.5 Radio Visione,False,1,ok
 CHD-TV Rock HD,Музыкальные,CHD TV RU Rock,CHD TV RU Rock,CHD-TV Rock HD,True,1,ok
 Record Rock,Музыкальные,,,Record Rock,False,1,ok
+Record Гоп,Музыкальные,,,,False,1,ok
+Record Big Hits,Музыкальные,,,,False,1,ok
 Rock TV,Музыкальные,13533,13533,Rock TV,True,1,ok
 Music box 00s,Музыкальные,MUSIC.BOX.00s.musicbox,MUSIC.BOX.00s.musicbox,Music box 00s,True,1,ok
 МузТВ,Музыкальные,muztv,muztv,МузТВ,True,1,ok
@@ -1750,9 +1768,9 @@ One 2 HD,Израиль,X991784,X991784,One 2 HD,True,1,ok
 One Doco HD,Израиль,,XONEDoco.il,One Doco HD,False,1,ok
 Edge Sport HD,Израиль,,XEdgeSport.il,Edge Sport HD,False,1,ok
 Sport 1 HD,Израиль,X18e7a585715561d4bb2606977deb20f6,X18e7a585715561d4bb2606977deb20f6,Sport 1 HD,True,4,ok
-Sport 2 HD,Израиль,,X991796,Sport 2 HD,False,2,ok
-Sport 3 HD,Израиль,,X991788,Sport 3 HD,False,1,ok
-Sport 4 HD,Израиль,,X991783,Sport 4 HD,False,1,ok
+Sport 2 HD,Израиль,X991796,X991796,Sport 2 HD,True,2,ok
+Sport 3 HD,Израиль,X991788,X991788,Sport 3 HD,True,1,ok
+Sport 4 HD,Израиль,X991783,X991783,Sport 4 HD,True,1,ok
 Sport 5 HD,Израиль,X991606,X991606,Sport 5 HD,True,1,ok
 Sport 5 Stars HD,Израиль,X991790,X991790,Sport 5 Stars HD,True,1,ok
 Sport 5 Gold,Израиль,,X5Gold.il,Sport 5 Gold,False,1,ok
@@ -1931,7 +1949,7 @@ Eleven Sports 1 4K,Польша,Xeleven-sports-1,Xeleven-sports-1,Eleven Sports 
 Eleven Sports 1 HD,Польша,Xeleven-sports-1,Xeleven-sports-1,Eleven Sports 1 HD,True,1,ok
 Eleven Sports 2 HD,Польша,Xeleven-sports-2,Xeleven-sports-2,Eleven Sports 2 HD,True,1,ok
 Eleven Sports 3 HD,Польша,Xeleven-sports-3,Xeleven-sports-3,Eleven Sports 3 HD,True,1,ok
-Eleven Sports 4 HD,Польша,,Xeleven-sports-4,Eleven Sports 4 HD,False,1,ok
+Active Family HD,Польша,Xactive-family-pl,Xactive-family-pl,Active Family HD,False,1,no_validated_programme
 CANAL+ Sport 3 HD PL,Польша,Xcanal-pl-sport-3,Xcanal-pl-sport-3,CANAL+ Sport 3 HD PL,True,1,ok
 CANAL+ Sport 4 HD PL,Польша,Xcanal-pl-sport-4,Xcanal-pl-sport-4,CANAL+ Sport 4 HD PL,True,1,ok
 CANAL+ Sport 5 HD PL,Польша,Xcanal-pl-sport-5,Xcanal-pl-sport-5,CANAL+ Sport 5 HD PL,True,1,ok
@@ -1960,28 +1978,28 @@ Polsat Music HD,Польша,Xpolsat-music,Xpolsat-music,Polsat Music HD,True,1,
 Paramount Network,Польша,Xparamount-network-pl,Xparamount-network-pl,Paramount Network,True,1,ok
 FilmBox+ Hits,Польша,,,FilmBox+ Hits,False,1,ok
 FilmBox+ Festival,Польша,9507,9507,FilmBox+ Festival,False,1,no_validated_programme
-1 TV,Грузия,,X1TV_GE,1 TV,False,1,ok
+1 TV,Грузия,X1TV_GE,X1TV_GE,1 TV,True,1,ok
 2 TV,Грузия,,,2 TV,False,1,ok
 Imedi TV,Грузия,Ximedi,Ximedi,Imedi TV,True,1,ok
-Palitra News,Грузия,,XPalitra_news,Palitra News,False,1,ok
-GDS TV,Грузия,,XGDS,GDS TV,False,1,ok
-Adjara TV,Грузия,,XAdjara,Adjara TV,False,1,ok
+Palitra News,Грузия,XPalitra_news,XPalitra_news,Palitra News,True,1,ok
+GDS TV,Грузия,XGDS,XGDS,GDS TV,True,1,ok
+Adjara TV,Грузия,XAdjara,XAdjara,Adjara TV,True,1,ok
 Apsua TV,Грузия,,,Apsua TV,False,1,ok
 Mega TV,Грузия,,,Mega TV,False,1,ok
 Sfero TV,Грузия,,,Sfero TV,False,1,ok
 Rcheuli TV,Грузия,,,Rcheuli TV,False,1,ok
-Obiektivi TV,Грузия,,XObiektivi,Obiektivi TV,False,1,ok
+Obiektivi TV,Грузия,XObiektivi,XObiektivi,Obiektivi TV,False,1,no_validated_programme
 Konservatorebi,Грузия,,,Konservatorebi,False,1,ok
-Pirveli,Грузия,,XTVPirveli,Pirveli,False,1,ok
-Rustavi 2,Грузия,,XRustavi2,Rustavi 2,False,1,ok
-Comedy Arkhi,Грузия,,XComedyArkhi,Comedy Arkhi,False,1,ok
-Pos TV,Грузия,,XPosTV,Pos TV,False,1,ok
-Formula,Грузия,,XFormula,Formula,False,1,ok
-Marao,Грузия,,XMarao,Marao,False,1,ok
-Ertsulovneba,Грузия,,XErtsulovneba,Ertsulovneba,False,1,ok
-Marneuli TV,Грузия,,XMarneuli_TV,Marneuli TV,False,1,ok
-BMG,Грузия,,XBMG,BMG,False,1,ok
-Euronews Georgia,Грузия,,XEURONEWS_GE,Euronews Georgia,False,1,ok
+Pirveli,Грузия,XTVPirveli,XTVPirveli,Pirveli,True,1,ok
+Rustavi 2,Грузия,XRustavi2,XRustavi2,Rustavi 2,True,1,ok
+Comedy Arkhi,Грузия,XComedyArkhi,XComedyArkhi,Comedy Arkhi,True,1,ok
+Pos TV,Грузия,XPosTV,XPosTV,Pos TV,False,1,no_validated_programme
+Formula,Грузия,XFormula,XFormula,Formula,True,1,ok
+Marao,Грузия,XMarao,XMarao,Marao,True,1,ok
+Ertsulovneba,Грузия,XErtsulovneba,XErtsulovneba,Ertsulovneba,True,1,ok
+Marneuli TV,Грузия,XMarneuli_TV,XMarneuli_TV,Marneuli TV,False,1,no_validated_programme
+BMG,Грузия,XBMG,XBMG,BMG,True,1,ok
+Euronews Georgia,Грузия,XEURONEWS_GE,XEURONEWS_GE,Euronews Georgia,True,1,ok
 Silk Documentary,Грузия,XSilkDocumentary,XSilkDocumentary,Silk Documentary,False,1,no_validated_programme
 Silk kids,Грузия,XSilkKids,XSilkKids,Silk kids,False,1,no_validated_programme
 Silk Hollywood Movies,Грузия,XSilkHollywoodMovies,XSilkHollywoodMovies,Silk Hollywood Movies,False,1,no_validated_programme
@@ -1990,10 +2008,10 @@ Rioni 2,Грузия,,XRioni2,Rioni 2,False,1,ok
 Silk Universal,Грузия,XSilk_Universal,XSilk_Universal,Silk Universal,True,1,ok
 Silk Sport 1,Грузия,XSilk1,XSilk1,Silk Sport 1,False,1,no_validated_programme
 Silk Sport 2,Грузия,XSilk2,XSilk2,Silk Sport 2,False,1,no_validated_programme
-Silk Sport 3,Грузия,,XSilk3,Silk Sport 3,False,1,ok
+Silk Sport 3,Грузия,XSilk3,XSilk3,Silk Sport 3,False,1,no_validated_programme
 Setanta Sports 1,Грузия,XSetanta Sports 1,XSetanta Sports 1,Setanta Sports 1,False,1,no_validated_programme
 Setanta Sports 2,Грузия,XSetanta Sports 2,XSetanta Sports 2,Setanta Sports 2,True,1,ok
-Setanta Sports 3,Грузия,,XSetanta Sports 3,Setanta Sports 3,False,1,ok
+Setanta Sports 3,Грузия,XSetanta Sports 3,XSetanta Sports 3,Setanta Sports 3,False,1,no_validated_programme
 Moldova 1 HD,Молдова,,Xmoldova-1,Moldova 1 HD,False,1,ok
 Moldova 2 HD,Молдова,,Xmoldova-2,Moldova 2 HD,False,1,ok
 We Sport,Молдова,,,We Sport,False,1,ok
@@ -2096,7 +2114,7 @@ Nova Sport 5 HD,SkyLink,X7845ca0015c718657d785b311edf5079,X7845ca0015c718657d785
 Arena Sport 1 HD,SkyLink,X1ee5b7ce8676fe322a8bb63f097f8c9a,X1ee5b7ce8676fe322a8bb63f097f8c9a,Arena Sport 1 HD,True,1,ok
 Arena Sport 2 HD,SkyLink,X29310a006ce41c9fb5cca14f333849fb,X29310a006ce41c9fb5cca14f333849fb,Arena Sport 2 HD,True,1,ok
 Sport 1 HD,SkyLink,X18e7a585715561d4bb2606977deb20f6,X18e7a585715561d4bb2606977deb20f6,Sport 1 HD,True,4,ok
-Sport 2 HD,SkyLink,,X703d414b1e8d7eee864115685ee47e01,Sport 2 HD,False,2,ok
+Sport 2 HD,SkyLink,X991796,X991796,Sport 2 HD,True,2,ok
 RTVS SPORT HD,SkyLink,X3981fa886a1704937afd96d87ea46ef1,X3981fa886a1704937afd96d87ea46ef1,RTVS SPORT HD,True,1,ok
 JOJ Sport HD,SkyLink,Xeacbd3c220de39cfa7c855755d1291cf,Xeacbd3c220de39cfa7c855755d1291cf,JOJ Sport HD,True,1,ok
 CANAL+ Sport (CZ),SkyLink,,X6fda506ca37562e7c8a37011eecb6995,CANAL+ Sport (CZ),False,1,ok
@@ -2281,7 +2299,7 @@ Redlight HD,Для взрослых,Xredlight-hd,Xredlight-hd,Redlight HD,True,1
 Penthouse Quickies HD,Для взрослых,Xpenthouse-quickies,Xpenthouse-quickies,Penthouse Quickies HD,False,1,no_validated_programme
 ОХ-АХ HD,Для взрослых,,,,False,1,ok
 Penthouse Reality TV,Для взрослых,Xpenthouse-quickies,Xpenthouse-quickies,Penthouse Reality TV,False,1,no_validated_programme
-Penthouse Gold HD,Для взрослых,,Xpenthouse-gold,Penthouse Gold HD,False,1,ok
+Penthouse Gold HD,Для взрослых,Xpenthouse-gold,Xpenthouse-gold,Penthouse Gold HD,False,1,no_validated_programme
 OLERO Babes,Для взрослых,,,,False,1,ok
 Eromania 4K,Для взрослых,Xeromania4k,Xeromania4k,Eromania 4K,True,1,ok
 DITV XXX 18+,Для взрослых,,,,False,1,ok
@@ -2298,6 +2316,9 @@ AST TV 1 HD 18+,Для взрослых,,,AST TV 1 HD 18+,False,1,ok
 Platinum TV,Для взрослых,,,Platinum TV,False,1,ok
 Vixen 18+,Для взрослых,,,Vixen 18+,False,1,ok
 XYPlus HD 18+,Для взрослых,,,XYPlus HD 18+,False,1,ok
+Pornstar,Для взрослых,,,Pornstar,False,1,ok
+Hard-core,Для взрослых,,,Hard-core,False,1,ok
+Lesbian,Для взрослых,,,Lesbian,False,1,ok
 Star Cinema HD,,Xstar-cinema-ua,,,True,0,mapped_channel_missing_from_worker
 Star Cinema,,Xstar-cinema-ua,,,True,0,mapped_channel_missing_from_worker
 BCU Premiere 3 HDR,,Xbcu-media-3-hdr,,,True,0,mapped_channel_missing_from_worker
@@ -2305,6 +2326,5 @@ Cine+ Kids,,Xcine-plus-kids,,,True,0,mapped_channel_missing_from_worker
 EWTN Украина,,Xewtn-ua,,,True,0,mapped_channel_missing_from_worker
 M1 HD,,Xm1-ua,,,True,0,mapped_channel_missing_from_worker
 M2 HD,,Xm2-ua,,,True,0,mapped_channel_missing_from_worker
-Про Київ,,pro-kiiv,,,True,0,mapped_channel_missing_from_worker
 UA.Music HD,,ua-music,,,True,0,mapped_channel_missing_from_worker
 MusicBox UA HD,,Xmusicbox-ua-hd,,,True,0,mapped_channel_missing_from_worker
