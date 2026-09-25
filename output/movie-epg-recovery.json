@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-25T14:32:31.853342+00:00",
+  "updated_at": "2026-09-25T23:13:35.153742+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-25T14:32:30.182284+00:00",
+      "checked_at_utc": "2026-09-25T23:13:33.438547+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,10 +10,12 @@
         "Кинозалы"
       ],
       "channels": 530,
-      "ok": 490,
-      "gaps": 40,
+      "ok": 488,
+      "gaps": 42,
       "issue_counts": {
-        "NO_MAPPING": 40
+        "NO_MAPPING": 38,
+        "NO_CURRENT_PROGRAMME": 3,
+        "NO_NEXT_PROGRAMME": 4
       },
       "group_counts": {
         "USSR": {
@@ -23,8 +25,8 @@
         },
         "Кино": {
           "channels": 179,
-          "ok": 154,
-          "gaps": 25
+          "ok": 153,
+          "gaps": 26
         },
         "Кино 4K": {
           "channels": 65,
@@ -33,37 +35,53 @@
         },
         "Кинозалы": {
           "channels": 266,
-          "ok": 253,
-          "gaps": 13
+          "ok": 252,
+          "gaps": 14
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 36,
-      "high_confidence_observations": 1,
+      "channels_considered": 38,
+      "high_confidence_observations": 2,
       "recognized": [
+        {
+          "playlist_name": "VHS HD",
+          "provider_name": "VHS HD",
+          "title": "ПОБЕГ ИЗ ШОУШЕНКА",
+          "score": 23.75,
+          "zone": "top_left_tight",
+          "engine": "tesseract"
+        },
         {
           "playlist_name": "KLI СССР HD",
           "provider_name": "KLI СССР HD",
-          "title": "12 стуле",
-          "score": 16.25,
+          "title": "оре близ Диканьки",
+          "score": 23.75,
           "zone": "left_bottom_tight",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 35,
+      "added": 2,
+      "rejected": 36,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-25T14:17:05.242826+00:00",
-          "playlist_name": "KLI СССР HD",
-          "observed_title": "12 стуле",
+          "observed_at": "2026-09-25T22:56:02.883887+00:00",
+          "playlist_name": "VHS HD",
+          "observed_title": "ПОБЕГ ИЗ ШОУШЕНКА",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=16.25"
+          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=23.75"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-25T22:56:02.883887+00:00",
+          "playlist_name": "KLI СССР HD",
+          "observed_title": "оре близ Диканьки",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=23.75"
         }
       ]
     },
@@ -82,20 +100,31 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 11,
+      "live_observations": 2,
+      "sources_scanned": 12,
       "sources_failed": [
-        {
-          "source": "iptvx-noarch",
-          "error": "RuntimeError"
-        },
         {
           "source": "gabbarit-mirror",
           "error": "ParseError"
         }
       ],
-      "candidates_added": 0,
-      "added": []
+      "candidates_added": 2,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "VHS HD",
+          "source": "gabbarit-current",
+          "source_id": "KLI 4K Ultra",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=ПОБЕГ ИЗ ШОУШЕНКА; candidate=Побег из Шоушенка (1994).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "VHS HD",
+          "source": "gabbarit-primary",
+          "source_id": "KLI 4K Ultra",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=ПОБЕГ ИЗ ШОУШЕНКА; candidate=Побег из Шоушенка (1994).; requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
