@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-25T02:11:08.283422+00:00",
+  "updated_at": "2026-09-25T08:38:01.247311+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-25T02:11:07.046079+00:00",
+      "checked_at_utc": "2026-09-25T08:37:59.549142+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,85 +10,169 @@
         "Кинозалы"
       ],
       "channels": 530,
-      "ok": 468,
-      "gaps": 62,
+      "ok": 480,
+      "gaps": 50,
       "issue_counts": {
-        "NO_MAPPING": 48,
-        "NO_CURRENT_PROGRAMME": 10,
-        "NO_NEXT_PROGRAMME": 14
+        "NO_MAPPING": 49,
+        "NO_CURRENT_PROGRAMME": 1,
+        "NO_NEXT_PROGRAMME": 1
       },
       "group_counts": {
         "USSR": {
           "channels": 20,
-          "ok": 16,
-          "gaps": 4
+          "ok": 18,
+          "gaps": 2
         },
         "Кино": {
           "channels": 179,
-          "ok": 141,
-          "gaps": 38
+          "ok": 146,
+          "gaps": 33
         },
         "Кино 4K": {
           "channels": 65,
-          "ok": 64,
-          "gaps": 1
+          "ok": 65,
+          "gaps": 0
         },
         "Кинозалы": {
           "channels": 266,
-          "ok": 247,
-          "gaps": 19
+          "ok": 251,
+          "gaps": 15
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 46,
-      "high_confidence_observations": 1,
+      "channels_considered": 43,
+      "high_confidence_observations": 4,
       "recognized": [
         {
-          "playlist_name": "MM Honey HD",
-          "provider_name": "MM Honey HD",
-          "title": "Бава 2",
+          "playlist_name": "DITV Про акул",
+          "provider_name": "DITV Про акул",
+          "title": "Акулья заводь",
+          "score": 18.0,
+          "zone": "left_bottom",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "KLI Новинки HD",
+          "provider_name": "KLI Новинки HD",
+          "title": "Красный шелк",
+          "score": 17.75,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "KLI СССР HD",
+          "provider_name": "KLI СССР HD",
+          "title": "Королева бензоколонки",
+          "score": 20.0,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "provider_name": "KLI Новинки 4K Ultra HD",
+          "title": "Крик 7",
           "score": 13.0,
-          "zone": "left_bottom_tight",
+          "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 45,
+      "added": 4,
+      "rejected": 39,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-25T02:03:55.569807+00:00",
-          "playlist_name": "MM Honey HD",
-          "observed_title": "Бава 2",
+          "observed_at": "2026-09-25T08:18:36.615319+00:00",
+          "playlist_name": "DITV Про акул",
+          "observed_title": "Акулья заводь",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=13.0"
+          "notes": "high-confidence OCR; zone=left_bottom; engine=tesseract; score=18.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-25T08:18:36.615319+00:00",
+          "playlist_name": "KLI Новинки HD",
+          "observed_title": "Красный шелк",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=17.75"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-25T08:18:36.615319+00:00",
+          "playlist_name": "KLI СССР HD",
+          "observed_title": "Королева бензоколонки",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=20.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-25T08:18:36.615319+00:00",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "observed_title": "Крик 7",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=13.0"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 0,
-        "selected": 0,
+        "changed": 1,
+        "selected": 1,
         "quarantined": 0,
-        "reason": "no-live-candidates"
+        "target_hours": 6.0
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 0,
+      "selected_count": 1,
       "quarantined_count": 0,
-      "selected": {},
+      "selected": {
+        "KLI Новинки 4K Ultra HD": {
+          "source": "tvteam",
+          "source_id": "ch4089",
+          "output_tvg_id": "Xklinovinci4k",
+          "horizon_hours": 22.88,
+          "current": true,
+          "usable": 19
+        }
+      },
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 8,
-      "sources_failed": [],
-      "candidates_added": 0,
-      "added": []
+      "live_observations": 4,
+      "sources_scanned": 12,
+      "sources_failed": [
+        {
+          "source": "gabbarit-mirror",
+          "error": "ParseError"
+        }
+      ],
+      "candidates_added": 3,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "source": "epgpw-RU",
+          "source_id": "532341",
+          "notes": "auto-discovered from live title; similarity=0.833; observed=Крик 7; candidate=Крик 4 (2011); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV Про акул",
+          "source": "epgpw-RU",
+          "source_id": "5894",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Акулья заводь; candidate=х/ф Акулья заводь; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "source": "epgpw-RU",
+          "source_id": "7766",
+          "notes": "auto-discovered from live title; similarity=0.833; observed=Крик 7; candidate=Крик 3; requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
