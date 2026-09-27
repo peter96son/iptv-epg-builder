@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-27T15:41:07.554745+00:00",
+  "updated_at": "2026-09-27T19:45:39.533585+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-27T15:41:06.694918+00:00",
+      "checked_at_utc": "2026-09-27T19:45:38.178227+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,21 +10,23 @@
         "Кинозалы"
       ],
       "channels": 530,
-      "ok": 489,
-      "gaps": 41,
+      "ok": 450,
+      "gaps": 80,
       "issue_counts": {
-        "NO_MAPPING": 41
+        "NO_MAPPING": 54,
+        "NO_NEXT_PROGRAMME": 26,
+        "NO_CURRENT_PROGRAMME": 14
       },
       "group_counts": {
         "USSR": {
           "channels": 20,
-          "ok": 18,
-          "gaps": 2
+          "ok": 17,
+          "gaps": 3
         },
         "Кино": {
           "channels": 179,
-          "ok": 156,
-          "gaps": 23
+          "ok": 146,
+          "gaps": 33
         },
         "Кино 4K": {
           "channels": 65,
@@ -33,85 +35,53 @@
         },
         "Кинозалы": {
           "channels": 266,
-          "ok": 250,
-          "gaps": 16
+          "ok": 222,
+          "gaps": 44
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 40,
-      "high_confidence_observations": 4,
+      "channels_considered": 59,
+      "high_confidence_observations": 2,
       "recognized": [
         {
-          "playlist_name": "Thriller HD",
-          "provider_name": "Thriller HD",
-          "title": "007. КАЗИНО РОЯЛЬ",
-          "score": 17.75,
-          "zone": "top_left",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "Детектив HD",
-          "provider_name": "Детектив HD",
-          "title": "Система",
-          "score": 16.75,
-          "zone": "top_band",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Обезьяна",
-          "score": 17.0,
+          "playlist_name": "KLI СССР HD",
+          "provider_name": "KLI СССР HD",
+          "title": "Мужики!",
+          "score": 16.5,
           "zone": "left_bottom_tight",
           "engine": "tesseract"
         },
         {
-          "playlist_name": "KLI СССР HD",
-          "provider_name": "KLI СССР HD",
-          "title": "Mopo3ko",
-          "score": 16.5,
+          "playlist_name": "KLI Новинки HD",
+          "provider_name": "KLI Новинки HD",
+          "title": "Миссия невыполнима Финальная расплата",
+          "score": 20.0,
           "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 4,
-      "rejected": 36,
+      "added": 2,
+      "rejected": 57,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-27T15:27:48.034231+00:00",
-          "playlist_name": "Thriller HD",
-          "observed_title": "007. КАЗИНО РОЯЛЬ",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=17.75"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-27T15:27:48.034231+00:00",
-          "playlist_name": "Детектив HD",
-          "observed_title": "Система",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=16.75"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-27T15:27:48.034231+00:00",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Обезьяна",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=17.0"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-27T15:27:48.034231+00:00",
+          "observed_at": "2026-09-27T19:28:02.918605+00:00",
           "playlist_name": "KLI СССР HD",
-          "observed_title": "Mopo3ko",
+          "observed_title": "Мужики!",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=16.5"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=16.5"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-27T19:28:02.918605+00:00",
+          "playlist_name": "KLI Новинки HD",
+          "observed_title": "Миссия невыполнима Финальная расплата",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=20.0"
         }
       ]
     },
@@ -127,57 +97,43 @@
       "selected_count": 1,
       "quarantined_count": 0,
       "selected": {
-        "KLI Новинки 4K Ultra HD": {
+        "KLI Новинки HD": {
           "source": "tvteam",
-          "source_id": "ch4089",
-          "output_tvg_id": "Xklinovinci4k",
-          "horizon_hours": 23.5,
+          "source_id": "ch4088",
+          "output_tvg_id": "Xklinovinci",
+          "horizon_hours": 22.14,
           "current": true,
-          "usable": 25
+          "usable": 16
         }
       },
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 4,
-      "sources_scanned": 25,
-      "sources_failed": [
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-ru",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-rescue",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "gabbarit-mirror",
-          "error": "ParseError"
-        }
-      ],
-      "candidates_added": 2,
+      "live_observations": 2,
+      "sources_scanned": 13,
+      "sources_failed": [],
+      "candidates_added": 3,
       "added": [
         {
           "enabled": "1",
-          "playlist_name": "Детектив HD",
-          "source": "epgpw-RU",
-          "source_id": "45693",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Система; candidate=Система; requires two positive observations before selection"
+          "playlist_name": "KLI СССР HD",
+          "source": "iptvx-noarch",
+          "source_id": "team-epoxa80",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Мужики!; candidate=Мужики! (1981); requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "Детектив HD",
-          "source": "epgpw-all-lite",
-          "source_id": "45693",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Система; candidate=Система; requires two positive observations before selection"
+          "playlist_name": "KLI СССР HD",
+          "source": "tvteam",
+          "source_id": "ch3903",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Мужики!; candidate=Мужики!.. (1981); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки HD",
+          "source": "tvteam",
+          "source_id": "ch4084",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Миссия невыполнима Финальная расплата; candidate=Миссия невыполнима Финальная расплата (2025); requires two positive observations before selection"
         }
       ]
     }
