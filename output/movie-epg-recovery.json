@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-27T06:24:22.677253+00:00",
+  "updated_at": "2026-09-27T11:10:27.408228+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-27T06:24:21.411519+00:00",
+      "checked_at_utc": "2026-09-27T11:10:26.581254+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,18 +10,18 @@
         "Кинозалы"
       ],
       "channels": 530,
-      "ok": 463,
-      "gaps": 67,
+      "ok": 465,
+      "gaps": 65,
       "issue_counts": {
-        "NO_MAPPING": 64,
-        "NO_CURRENT_PROGRAMME": 3,
-        "NO_NEXT_PROGRAMME": 3
+        "NO_MAPPING": 60,
+        "NO_CURRENT_PROGRAMME": 4,
+        "NO_NEXT_PROGRAMME": 5
       },
       "group_counts": {
         "USSR": {
           "channels": 20,
-          "ok": 14,
-          "gaps": 6
+          "ok": 15,
+          "gaps": 5
         },
         "Кино": {
           "channels": 179,
@@ -30,8 +30,8 @@
         },
         "Кино 4K": {
           "channels": 65,
-          "ok": 64,
-          "gaps": 1
+          "ok": 65,
+          "gaps": 0
         },
         "Кинозалы": {
           "channels": 266,
@@ -42,30 +42,94 @@
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 56,
-      "high_confidence_observations": 1,
+      "channels_considered": 57,
+      "high_confidence_observations": 5,
       "recognized": [
+        {
+          "playlist_name": "VeleS С Новым годом!",
+          "provider_name": "VeleS С Новым годом!",
+          "title": "Одна дома (2023)",
+          "score": 22.0,
+          "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "KLI СССР HD",
+          "provider_name": "KLI СССР HD",
+          "title": "Мачеха",
+          "score": 21.5,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        },
         {
           "playlist_name": "KLI Новинки 4K Ultra HD",
           "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Майк и Ник и Ник и Элис",
-          "score": 19.25,
+          "title": "Мортал Комбат 2",
+          "score": 23.0,
           "zone": "bottom_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "KLI Новинки HD",
+          "provider_name": "KLI Новинки HD",
+          "title": "Ловушка для кролика",
+          "score": 19.25,
+          "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "YOSSO-4K",
+          "provider_name": "YOSSO-4K",
+          "title": "Адана",
+          "score": 16.25,
+          "zone": "top_left",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 55,
+      "added": 5,
+      "rejected": 52,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-27T06:00:17.198465+00:00",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Майк и Ник и Ник и Элис",
+          "observed_at": "2026-09-27T10:58:36.903643+00:00",
+          "playlist_name": "VeleS С Новым годом!",
+          "observed_title": "Одна дома (2023)",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=19.25"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=22.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-27T10:58:36.903643+00:00",
+          "playlist_name": "KLI СССР HD",
+          "observed_title": "Мачеха",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=21.5"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-27T10:58:36.903643+00:00",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "observed_title": "Мортал Комбат 2",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=23.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-27T10:58:36.903643+00:00",
+          "playlist_name": "KLI Новинки HD",
+          "observed_title": "Ловушка для кролика",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=19.25"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-27T10:58:36.903643+00:00",
+          "playlist_name": "YOSSO-4K",
+          "observed_title": "Адана",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=16.25"
         }
       ]
     },
@@ -84,16 +148,76 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 7,
+      "live_observations": 5,
+      "sources_scanned": 23,
       "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "epgone-ru2",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-ru",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-rescue",
+          "error": "RuntimeError"
+        },
         {
           "source": "gabbarit-mirror",
           "error": "ParseError"
+        },
+        {
+          "source": "epgone-full-movie-rescue",
+          "error": "RuntimeError"
         }
       ],
-      "candidates_added": 0,
-      "added": []
+      "candidates_added": 5,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "source": "iptv-online-primary",
+          "source_id": "Xbear-tv-kinofokus-ru-uhd",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Мортал Комбат 2; candidate=Мортал Комбат 2 (2026); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "source": "iptvx-noarch",
+          "source_id": "bear-tv-kinofokus-ru-uhd",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Мортал Комбат 2; candidate=Мортал Комбат 2 (2026); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "VeleS С Новым годом!",
+          "source": "iptvx-noarch",
+          "source_id": "solnce-pl7",
+          "notes": "auto-discovered from live title; similarity=0.889; observed=Одна дома (2023); candidate=т/с Одни дома; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "VeleS С Новым годом!",
+          "source": "runigma-iptv",
+          "source_id": "disney-pl7",
+          "notes": "auto-discovered from live title; similarity=0.889; observed=Одна дома (2023); candidate=т/с Одни дома.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "VeleS С Новым годом!",
+          "source": "openbox-tsd",
+          "source_id": "solnce-plus-7",
+          "notes": "auto-discovered from live title; similarity=0.889; observed=Одна дома (2023); candidate=Т/с Одни дома.; requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
