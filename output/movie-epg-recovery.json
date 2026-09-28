@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-28T08:00:58.813803+00:00",
+  "updated_at": "2026-09-28T16:22:53.125239+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-28T08:00:57.825711+00:00",
+      "checked_at_utc": "2026-09-28T16:22:51.714810+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,11 +10,11 @@
         "Кинозалы"
       ],
       "channels": 530,
-      "ok": 346,
-      "gaps": 184,
+      "ok": 486,
+      "gaps": 44,
       "issue_counts": {
-        "NO_MAPPING": 174,
-        "NO_NEXT_PROGRAMME": 10,
+        "NO_MAPPING": 41,
+        "NO_NEXT_PROGRAMME": 3,
         "NO_CURRENT_PROGRAMME": 1
       },
       "group_counts": {
@@ -25,63 +25,79 @@
         },
         "Кино": {
           "channels": 179,
-          "ok": 114,
-          "gaps": 65
+          "ok": 150,
+          "gaps": 29
         },
         "Кино 4K": {
           "channels": 65,
-          "ok": 14,
-          "gaps": 51
+          "ok": 65,
+          "gaps": 0
         },
         "Кинозалы": {
           "channels": 266,
-          "ok": 202,
-          "gaps": 64
+          "ok": 255,
+          "gaps": 11
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 116,
-      "high_confidence_observations": 2,
+      "channels_considered": 41,
+      "high_confidence_observations": 3,
       "recognized": [
         {
-          "playlist_name": "Insomnia HD",
-          "provider_name": "Insomnia HD",
-          "title": "ЛЕС САМОУБИИЦ",
-          "score": 23.0,
-          "zone": "top_left_tight",
+          "playlist_name": "DITV Про вампиров",
+          "provider_name": "DITV Про вампиров",
+          "title": "Интервью с вампиром",
+          "score": 24.25,
+          "zone": "left_bottom_tight",
           "engine": "tesseract"
         },
         {
-          "playlist_name": "DITV КОМЕДИИ",
-          "provider_name": "DITV КОМЕДИИ",
-          "title": "Амели (2001)",
+          "playlist_name": "DITV Американские комедии 80-90-х",
+          "provider_name": "DITV Американские комедии 80-90-х",
+          "title": "Маска",
           "score": 16.25,
+          "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "provider_name": "KLI Новинки 4K Ultra HD",
+          "title": "Черный чемодан - двойная игра",
+          "score": 25.0,
           "zone": "left_bottom_tight",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 2,
-      "rejected": 114,
+      "added": 3,
+      "rejected": 38,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-28T07:59:09.559596+00:00",
-          "playlist_name": "Insomnia HD",
-          "observed_title": "ЛЕС САМОУБИИЦ",
+          "observed_at": "2026-09-28T16:10:22.219666+00:00",
+          "playlist_name": "DITV Про вампиров",
+          "observed_title": "Интервью с вампиром",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=23.0"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=24.25"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-09-28T07:59:09.559596+00:00",
-          "playlist_name": "DITV КОМЕДИИ",
-          "observed_title": "Амели (2001)",
+          "observed_at": "2026-09-28T16:10:22.219666+00:00",
+          "playlist_name": "DITV Американские комедии 80-90-х",
+          "observed_title": "Маска",
           "origin": "movie-live-observer",
           "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=16.25"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-28T16:10:22.219666+00:00",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "observed_title": "Черный чемодан - двойная игра",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=25.0"
         }
       ]
     },
@@ -100,11 +116,72 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 2,
-      "sources_scanned": 3,
-      "sources_failed": [],
-      "candidates_added": 0,
-      "added": []
+      "live_observations": 3,
+      "sources_scanned": 24,
+      "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "skyhigh-hdr",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-ru",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-rescue",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "gabbarit-mirror",
+          "error": "EOFError"
+        }
+      ],
+      "candidates_added": 5,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "DITV Американские комедии 80-90-х",
+          "source": "iptvx-noarch",
+          "source_id": "clarity4k-comedya-vhs",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Маска; candidate=х/ф Маска; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV Американские комедии 80-90-х",
+          "source": "iptvx-noarch",
+          "source_id": "olsib-action-comedy",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Маска; candidate=х/ф Маска (1994); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV Американские комедии 80-90-х",
+          "source": "epgpw-RU",
+          "source_id": "449010",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Маска; candidate=х/ф Маска; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV Американские комедии 80-90-х",
+          "source": "gabbarit-current",
+          "source_id": "Clarity4K Комедия (VHS)",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Маска; candidate=Маска.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV Американские комедии 80-90-х",
+          "source": "gabbarit-primary",
+          "source_id": "Clarity4K Комедия (VHS)",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Маска; candidate=Маска.; requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
