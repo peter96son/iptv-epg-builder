@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-28T16:22:53.125239+00:00",
+  "updated_at": "2026-09-28T22:33:54.205161+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-28T16:22:51.714810+00:00",
+      "checked_at_utc": "2026-09-28T22:33:53.174221+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,23 +10,23 @@
         "Кинозалы"
       ],
       "channels": 530,
-      "ok": 486,
-      "gaps": 44,
+      "ok": 476,
+      "gaps": 54,
       "issue_counts": {
-        "NO_MAPPING": 41,
-        "NO_NEXT_PROGRAMME": 3,
-        "NO_CURRENT_PROGRAMME": 1
+        "NO_MAPPING": 40,
+        "NO_CURRENT_PROGRAMME": 12,
+        "NO_NEXT_PROGRAMME": 14
       },
       "group_counts": {
         "USSR": {
           "channels": 20,
-          "ok": 16,
-          "gaps": 4
+          "ok": 17,
+          "gaps": 3
         },
         "Кино": {
           "channels": 179,
-          "ok": 150,
-          "gaps": 29
+          "ok": 149,
+          "gaps": 30
         },
         "Кино 4K": {
           "channels": 65,
@@ -35,151 +35,152 @@
         },
         "Кинозалы": {
           "channels": 266,
-          "ok": 255,
-          "gaps": 11
+          "ok": 245,
+          "gaps": 21
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 41,
-      "high_confidence_observations": 3,
+      "channels_considered": 48,
+      "high_confidence_observations": 2,
       "recognized": [
         {
-          "playlist_name": "DITV Про вампиров",
-          "provider_name": "DITV Про вампиров",
-          "title": "Интервью с вампиром",
-          "score": 24.25,
-          "zone": "left_bottom_tight",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "DITV Американские комедии 80-90-х",
-          "provider_name": "DITV Американские комедии 80-90-х",
-          "title": "Маска",
-          "score": 16.25,
-          "zone": "left_bottom_tight",
+          "playlist_name": "KLI СССР HD",
+          "provider_name": "KLI СССР HD",
+          "title": "7 POLE ey — | MEDIA",
+          "score": 12.75,
+          "zone": "top_band",
           "engine": "tesseract"
         },
         {
           "playlist_name": "KLI Новинки 4K Ultra HD",
           "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Черный чемодан - двойная игра",
-          "score": 25.0,
+          "title": "Бессмертная гвардия 2",
+          "score": 24.5,
           "zone": "left_bottom_tight",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 3,
-      "rejected": 38,
+      "added": 2,
+      "rejected": 46,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-28T16:10:22.219666+00:00",
-          "playlist_name": "DITV Про вампиров",
-          "observed_title": "Интервью с вампиром",
+          "observed_at": "2026-09-28T22:23:24.342356+00:00",
+          "playlist_name": "KLI СССР HD",
+          "observed_title": "7 POLE ey — | MEDIA",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=24.25"
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=12.75"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-09-28T16:10:22.219666+00:00",
-          "playlist_name": "DITV Американские комедии 80-90-х",
-          "observed_title": "Маска",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=16.25"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-09-28T16:10:22.219666+00:00",
+          "observed_at": "2026-09-28T22:23:24.342356+00:00",
           "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Черный чемодан - двойная игра",
+          "observed_title": "Бессмертная гвардия 2",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=25.0"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=24.5"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 0,
-        "selected": 0,
+        "changed": 1,
+        "selected": 1,
         "quarantined": 0,
-        "reason": "no-live-candidates"
+        "target_hours": 6.0
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 0,
+      "selected_count": 1,
       "quarantined_count": 0,
-      "selected": {},
+      "selected": {
+        "KLI Новинки 4K Ultra HD": {
+          "source": "tvteam",
+          "source_id": "ch4089",
+          "output_tvg_id": "Xliveocr-0ec3bdbd60ad2705",
+          "horizon_hours": 23.75,
+          "current": true,
+          "usable": 17
+        }
+      },
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 3,
-      "sources_scanned": 24,
+      "live_observations": 2,
+      "sources_scanned": 12,
       "sources_failed": [
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "skyhigh-hdr",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-ru",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-rescue",
-          "error": "RuntimeError"
-        },
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         }
       ],
-      "candidates_added": 5,
+      "candidates_added": 9,
       "added": [
         {
           "enabled": "1",
-          "playlist_name": "DITV Американские комедии 80-90-х",
-          "source": "iptvx-noarch",
-          "source_id": "clarity4k-comedya-vhs",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Маска; candidate=х/ф Маска; requires two positive observations before selection"
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "source": "iptv-online-primary",
+          "source_id": "Xbcu-ultra4k",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Бессмертная гвардия 2; candidate=х/ф Бессмертная гвардия; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "DITV Американские комедии 80-90-х",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
           "source": "iptvx-noarch",
-          "source_id": "olsib-action-comedy",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Маска; candidate=х/ф Маска (1994); requires two positive observations before selection"
+          "source_id": "bcu-ultra4k",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Бессмертная гвардия 2; candidate=х/ф Бессмертная гвардия; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "DITV Американские комедии 80-90-х",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "source": "openbox-tsd",
+          "source_id": "bcu-ultra-4k",
+          "notes": "auto-discovered from live title; similarity=0.864; observed=Бессмертная гвардия 2; candidate=X/ф Бессмертная гвардия.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "source": "bcumedia-dedicated",
+          "source_id": "BCU Ultra 4K",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Бессмертная гвардия 2; candidate=Бессмертная гвардия; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "source": "tvteam",
+          "source_id": "ch849",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Бессмертная гвардия 2; candidate=Бессмертная гвардия.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
           "source": "epgpw-RU",
-          "source_id": "449010",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Маска; candidate=х/ф Маска; requires two positive observations before selection"
+          "source_id": "564959",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Бессмертная гвардия 2; candidate=Бессмертная гвардия 2 (2025); requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "DITV Американские комедии 80-90-х",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
           "source": "gabbarit-current",
-          "source_id": "Clarity4K Комедия (VHS)",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Маска; candidate=Маска.; requires two positive observations before selection"
+          "source_id": "BCU Ultra 4K",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Бессмертная гвардия 2; candidate=Бессмертная гвардия.; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "DITV Американские комедии 80-90-х",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
           "source": "gabbarit-primary",
-          "source_id": "Clarity4K Комедия (VHS)",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Маска; candidate=Маска.; requires two positive observations before selection"
+          "source_id": "BCU Ultra 4K",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Бессмертная гвардия 2; candidate=Бессмертная гвардия.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "source": "epgone-full-movie-rescue",
+          "source_id": "4766",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Бессмертная гвардия 2; candidate=Бессмертная гвардия.; requires two positive observations before selection"
         }
       ]
     }
