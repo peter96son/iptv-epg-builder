@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-30T13:27:02.200123+00:00",
+  "updated_at": "2026-09-30T18:44:37.821954+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-30T13:27:00.675945+00:00",
+      "checked_at_utc": "2026-09-30T18:44:35.929878+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,23 +10,23 @@
         "Кинозалы"
       ],
       "channels": 530,
-      "ok": 482,
-      "gaps": 48,
+      "ok": 488,
+      "gaps": 42,
       "issue_counts": {
-        "NO_MAPPING": 43,
-        "NO_CURRENT_PROGRAMME": 4,
-        "NO_NEXT_PROGRAMME": 5
+        "NO_MAPPING": 39,
+        "NO_NEXT_PROGRAMME": 3,
+        "NO_CURRENT_PROGRAMME": 1
       },
       "group_counts": {
         "USSR": {
           "channels": 19,
-          "ok": 17,
-          "gaps": 2
+          "ok": 16,
+          "gaps": 3
         },
         "Кино": {
           "channels": 179,
-          "ok": 152,
-          "gaps": 27
+          "ok": 155,
+          "gaps": 24
         },
         "Кино 4K": {
           "channels": 65,
@@ -35,126 +35,76 @@
         },
         "Кинозалы": {
           "channels": 267,
-          "ok": 249,
-          "gaps": 18
+          "ok": 253,
+          "gaps": 14
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 42,
+      "channels_considered": 39,
       "high_confidence_observations": 2,
       "recognized": [
         {
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Мир Юрского периода Возрождение",
-          "score": 25.0,
-          "zone": "left_bottom_tight",
+          "playlist_name": "Insomnia HD",
+          "provider_name": "Insomnia HD",
+          "title": "ПРОКЛЯТИЕ ГОРГОНЫ",
+          "score": 24.0,
+          "zone": "top_left_tight",
           "engine": "tesseract"
         },
         {
-          "playlist_name": "KLI СССР HD",
-          "provider_name": "KLI СССР HD",
-          "title": "Максим Перепелиц",
-          "score": 18.75,
-          "zone": "left_bottom_tight",
+          "playlist_name": "DITV Про акул",
+          "provider_name": "DITV Про акул",
+          "title": "Синяя бездна",
+          "score": 17.75,
+          "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
       "added": 2,
-      "rejected": 40,
+      "rejected": 37,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-30T13:10:01.459402+00:00",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Мир Юрского периода Возрождение",
+          "observed_at": "2026-09-30T18:42:10.956823+00:00",
+          "playlist_name": "Insomnia HD",
+          "observed_title": "ПРОКЛЯТИЕ ГОРГОНЫ",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=25.0"
+          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=24.0"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-09-30T13:10:01.459402+00:00",
-          "playlist_name": "KLI СССР HD",
-          "observed_title": "Максим Перепелиц",
+          "observed_at": "2026-09-30T18:42:10.956823+00:00",
+          "playlist_name": "DITV Про акул",
+          "observed_title": "Синяя бездна",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=18.75"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=17.75"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 1,
-        "selected": 1,
+        "changed": 0,
+        "selected": 0,
         "quarantined": 0,
-        "target_hours": 6.0
+        "reason": "no-live-candidates"
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 1,
+      "selected_count": 0,
       "quarantined_count": 0,
-      "selected": {
-        "KLI Новинки 4K Ultra HD": {
-          "source": "gabbarit-current",
-          "source_id": "KLI Новинки 4k",
-          "output_tvg_id": "Xklinovinci4k",
-          "horizon_hours": 144.69,
-          "current": true,
-          "usable": 31
-        }
-      },
+      "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
       "live_observations": 2,
-      "sources_scanned": 12,
-      "sources_failed": [
-        {
-          "source": "gabbarit-mirror",
-          "error": "EOFError"
-        }
-      ],
-      "candidates_added": 5,
-      "added": [
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "iptvx-noarch",
-          "source_id": "kino1int-tviksel",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Максим Перепелиц; candidate=х/ф Максим Перепелица; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "epgone-ru2",
-          "source_id": "6258",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Максим Перепелиц; candidate=Максим Перепелица.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "gabbarit-current",
-          "source_id": "Кино 1 Int.",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Максим Перепелиц; candidate=Максим Перепелица.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "gabbarit-primary",
-          "source_id": "Кино 1 Int.",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Максим Перепелиц; candidate=Максим Перепелица.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "epgone-full-movie-rescue",
-          "source_id": "6258",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Максим Перепелиц; candidate=Максим Перепелица.; requires two positive observations before selection"
-        }
-      ]
+      "sources_scanned": 2,
+      "sources_failed": [],
+      "candidates_added": 0,
+      "added": []
     }
   }
 }
