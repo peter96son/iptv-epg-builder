@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-30T01:13:52.499802+00:00",
+  "updated_at": "2026-09-30T06:17:08.675007+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-30T01:13:50.509337+00:00",
+      "checked_at_utc": "2026-09-30T06:17:06.705722+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,18 +10,18 @@
         "Кинозалы"
       ],
       "channels": 530,
-      "ok": 483,
-      "gaps": 47,
+      "ok": 482,
+      "gaps": 48,
       "issue_counts": {
-        "NO_MAPPING": 42,
-        "NO_CURRENT_PROGRAMME": 5,
-        "NO_NEXT_PROGRAMME": 5
+        "NO_MAPPING": 41,
+        "NO_CURRENT_PROGRAMME": 7,
+        "NO_NEXT_PROGRAMME": 7
       },
       "group_counts": {
         "USSR": {
           "channels": 19,
-          "ok": 17,
-          "gaps": 2
+          "ok": 16,
+          "gaps": 3
         },
         "Кино": {
           "channels": 179,
@@ -30,26 +30,26 @@
         },
         "Кино 4K": {
           "channels": 65,
-          "ok": 65,
-          "gaps": 0
+          "ok": 64,
+          "gaps": 1
         },
         "Кинозалы": {
           "channels": 267,
-          "ok": 249,
-          "gaps": 18
+          "ok": 250,
+          "gaps": 17
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 41,
+      "channels_considered": 42,
       "high_confidence_observations": 1,
       "recognized": [
         {
-          "playlist_name": "KLI СССР HD",
-          "provider_name": "KLI СССР HD",
-          "title": "Иван Васильевич меняет профессию",
-          "score": 20.0,
+          "playlist_name": "MM Стивен Кинг HD",
+          "provider_name": "MM Стивен Кинг HD",
+          "title": "Долорес Клэйборн (1995)",
+          "score": 18.75,
           "zone": "bottom_band",
           "engine": "tesseract"
         }
@@ -57,51 +57,52 @@
     },
     "evidence_recorder": {
       "added": 1,
-      "rejected": 40,
+      "rejected": 41,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-30T00:53:38.872660+00:00",
-          "playlist_name": "KLI СССР HD",
-          "observed_title": "Иван Васильевич меняет профессию",
+          "observed_at": "2026-09-30T06:08:42.390570+00:00",
+          "playlist_name": "MM Стивен Кинг HD",
+          "observed_title": "Долорес Клэйборн (1995)",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=20.0"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.75"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 0,
-        "selected": 0,
+        "changed": 1,
+        "selected": 1,
         "quarantined": 0,
-        "reason": "no-live-candidates"
+        "target_hours": 6.0
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 0,
+      "selected_count": 1,
       "quarantined_count": 0,
-      "selected": {},
+      "selected": {
+        "MM Стивен Кинг HD": {
+          "source": "minimax-mm-dedicated",
+          "source_id": "st-king-mm",
+          "output_tvg_id": "Xminimax-st-king",
+          "horizon_hours": 409.06,
+          "current": true,
+          "usable": 55
+        }
+      },
       "quarantined": {}
     },
     "candidate_discovery": {
       "live_observations": 1,
-      "sources_scanned": 12,
+      "sources_scanned": 8,
       "sources_failed": [
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         }
       ],
-      "candidates_added": 1,
-      "added": [
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "epgpw-RU",
-          "source_id": "500534",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Иван Васильевич меняет профессию; candidate=х/ф Иван Васильевич меняет профессию (1973); requires two positive observations before selection"
-        }
-      ]
+      "candidates_added": 0,
+      "added": []
     }
   }
 }
