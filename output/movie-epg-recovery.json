@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-30T06:17:08.675007+00:00",
+  "updated_at": "2026-09-30T13:27:02.200123+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-09-30T06:17:06.705722+00:00",
+      "checked_at_utc": "2026-09-30T13:27:00.675945+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -13,15 +13,15 @@
       "ok": 482,
       "gaps": 48,
       "issue_counts": {
-        "NO_MAPPING": 41,
-        "NO_CURRENT_PROGRAMME": 7,
-        "NO_NEXT_PROGRAMME": 7
+        "NO_MAPPING": 43,
+        "NO_CURRENT_PROGRAMME": 4,
+        "NO_NEXT_PROGRAMME": 5
       },
       "group_counts": {
         "USSR": {
           "channels": 19,
-          "ok": 16,
-          "gaps": 3
+          "ok": 17,
+          "gaps": 2
         },
         "Кино": {
           "channels": 179,
@@ -35,37 +35,53 @@
         },
         "Кинозалы": {
           "channels": 267,
-          "ok": 250,
-          "gaps": 17
+          "ok": 249,
+          "gaps": 18
         }
       }
     },
     "observer": {
       "return_code": 0,
       "channels_considered": 42,
-      "high_confidence_observations": 1,
+      "high_confidence_observations": 2,
       "recognized": [
         {
-          "playlist_name": "MM Стивен Кинг HD",
-          "provider_name": "MM Стивен Кинг HD",
-          "title": "Долорес Клэйборн (1995)",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "provider_name": "KLI Новинки 4K Ultra HD",
+          "title": "Мир Юрского периода Возрождение",
+          "score": 25.0,
+          "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "KLI СССР HD",
+          "provider_name": "KLI СССР HD",
+          "title": "Максим Перепелиц",
           "score": 18.75,
-          "zone": "bottom_band",
+          "zone": "left_bottom_tight",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 41,
+      "added": 2,
+      "rejected": 40,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-09-30T06:08:42.390570+00:00",
-          "playlist_name": "MM Стивен Кинг HD",
-          "observed_title": "Долорес Клэйборн (1995)",
+          "observed_at": "2026-09-30T13:10:01.459402+00:00",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "observed_title": "Мир Юрского периода Возрождение",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.75"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=25.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-09-30T13:10:01.459402+00:00",
+          "playlist_name": "KLI СССР HD",
+          "observed_title": "Максим Перепелиц",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=18.75"
         }
       ]
     },
@@ -81,28 +97,64 @@
       "selected_count": 1,
       "quarantined_count": 0,
       "selected": {
-        "MM Стивен Кинг HD": {
-          "source": "minimax-mm-dedicated",
-          "source_id": "st-king-mm",
-          "output_tvg_id": "Xminimax-st-king",
-          "horizon_hours": 409.06,
+        "KLI Новинки 4K Ultra HD": {
+          "source": "gabbarit-current",
+          "source_id": "KLI Новинки 4k",
+          "output_tvg_id": "Xklinovinci4k",
+          "horizon_hours": 144.69,
           "current": true,
-          "usable": 55
+          "usable": 31
         }
       },
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 8,
+      "live_observations": 2,
+      "sources_scanned": 12,
       "sources_failed": [
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         }
       ],
-      "candidates_added": 0,
-      "added": []
+      "candidates_added": 5,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "KLI СССР HD",
+          "source": "iptvx-noarch",
+          "source_id": "kino1int-tviksel",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Максим Перепелиц; candidate=х/ф Максим Перепелица; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI СССР HD",
+          "source": "epgone-ru2",
+          "source_id": "6258",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Максим Перепелиц; candidate=Максим Перепелица.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI СССР HD",
+          "source": "gabbarit-current",
+          "source_id": "Кино 1 Int.",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Максим Перепелиц; candidate=Максим Перепелица.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI СССР HD",
+          "source": "gabbarit-primary",
+          "source_id": "Кино 1 Int.",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Максим Перепелиц; candidate=Максим Перепелица.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI СССР HD",
+          "source": "epgone-full-movie-rescue",
+          "source_id": "6258",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Максим Перепелиц; candidate=Максим Перепелица.; requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
