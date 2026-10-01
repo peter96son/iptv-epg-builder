@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-01T02:06:38.509951+00:00",
+  "updated_at": "2026-10-01T08:27:46.463004+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-01T02:06:36.764307+00:00",
+      "checked_at_utc": "2026-10-01T08:27:44.700575+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,10 +10,12 @@
         "Кинозалы"
       ],
       "channels": 530,
-      "ok": 477,
-      "gaps": 53,
+      "ok": 479,
+      "gaps": 51,
       "issue_counts": {
-        "NO_MAPPING": 53
+        "NO_MAPPING": 50,
+        "NO_CURRENT_PROGRAMME": 1,
+        "NO_NEXT_PROGRAMME": 1
       },
       "group_counts": {
         "USSR": {
@@ -33,53 +35,101 @@
         },
         "Кинозалы": {
           "channels": 267,
-          "ok": 246,
-          "gaps": 21
+          "ok": 248,
+          "gaps": 19
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 48,
-      "high_confidence_observations": 2,
+      "channels_considered": 49,
+      "high_confidence_observations": 5,
       "recognized": [
         {
-          "playlist_name": "KLI СССР HD",
-          "provider_name": "KLI СССР HD",
-          "title": "Москва слезам не верит",
-          "score": 19.75,
+          "playlist_name": "DITV ФИЛЬМЫ УЖАСОВ 80-х",
+          "provider_name": "DITV ФИЛЬМЫ УЖАСОВ 80-х",
+          "title": "Зловещие мертвецы (1981)",
+          "score": 19.0,
           "zone": "left_bottom_tight",
           "engine": "tesseract"
         },
         {
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Присутствие",
-          "score": 17.75,
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "provider_name": "DITV ФИЛЬМЫ",
+          "title": "Горько",
+          "score": 21.5,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "KLI СССР HD",
+          "provider_name": "KLI СССР HD",
+          "title": "Операция «Ы» и другие приключения Шурика",
+          "score": 20.0,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "MM Translation HD",
+          "provider_name": "MM Translation HD",
+          "title": "Сумрики: Начало | 2024",
+          "score": 18.25,
+          "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "KLI Новинки HD",
+          "provider_name": "KLI Новинки HD",
+          "title": "Бабули",
+          "score": 16.5,
           "zone": "left_bottom_tight",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 2,
-      "rejected": 46,
+      "added": 5,
+      "rejected": 44,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-01T01:43:51.050871+00:00",
-          "playlist_name": "KLI СССР HD",
-          "observed_title": "Москва слезам не верит",
+          "observed_at": "2026-10-01T07:57:41.501327+00:00",
+          "playlist_name": "DITV ФИЛЬМЫ УЖАСОВ 80-х",
+          "observed_title": "Зловещие мертвецы (1981)",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=19.75"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=19.0"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-10-01T01:43:51.050871+00:00",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Присутствие",
+          "observed_at": "2026-10-01T07:57:41.501327+00:00",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "observed_title": "Горько",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=17.75"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=21.5"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-01T07:57:41.501327+00:00",
+          "playlist_name": "KLI СССР HD",
+          "observed_title": "Операция «Ы» и другие приключения Шурика",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=20.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-01T07:57:41.501327+00:00",
+          "playlist_name": "MM Translation HD",
+          "observed_title": "Сумрики: Начало | 2024",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=18.25"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-01T07:57:41.501327+00:00",
+          "playlist_name": "KLI Новинки HD",
+          "observed_title": "Бабули",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=16.5"
         }
       ]
     },
@@ -95,28 +145,122 @@
       "selected_count": 1,
       "quarantined_count": 0,
       "selected": {
-        "KLI Новинки 4K Ultra HD": {
+        "KLI Новинки HD": {
           "source": "gabbarit-current",
-          "source_id": "KLI Новинки 4k",
-          "output_tvg_id": "Xklinovinci4k",
-          "horizon_hours": 132.04,
+          "source_id": "KLI НОВИНКИ",
+          "output_tvg_id": "Xklinovinci",
+          "horizon_hours": 122.63,
           "current": true,
-          "usable": 31
+          "usable": 29
         }
       },
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 2,
-      "sources_scanned": 12,
+      "live_observations": 5,
+      "sources_scanned": 25,
       "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-ru",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-rescue",
+          "error": "RuntimeError"
+        },
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         }
       ],
-      "candidates_added": 0,
-      "added": []
+      "candidates_added": 11,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "KLI СССР HD",
+          "source": "runigma-iptv",
+          "source_id": "cps-ussr",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Операция «Ы» и другие приключения Шурика; candidate=Операция «Ы» и другие приключения Шурика(1965).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI СССР HD",
+          "source": "openbox-tsd",
+          "source_id": "cps-ussr",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Операция «Ы» и другие приключения Шурика; candidate=Х/ф Операция Ы и другие приключения Шурика 1965.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Translation HD",
+          "source": "openbox-tsd",
+          "source_id": "mm-translation",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Сумрики: Начало | 2024; candidate=Х/ф Сумрики: Начало 2024.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Translation HD",
+          "source": "minimax-mm-dedicated",
+          "source_id": "translation-mm",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Сумрики: Начало | 2024; candidate=Сумрики: Начало (2024); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Translation HD",
+          "source": "tvteam",
+          "source_id": "ch1621",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Сумрики: Начало | 2024; candidate=Сумрики: Начало (2024); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI СССР HD",
+          "source": "tvteam",
+          "source_id": "ch3782",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Операция «Ы» и другие приключения Шурика; candidate=1965_Операция Ы и другие приключения Шурика_Комедия; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "source": "epgpw-RU",
+          "source_id": "6813",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Горько; candidate=х/ф Горько! 2; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "source": "epgpw-all-lite",
+          "source_id": "6813",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Горько; candidate=х/ф Горько! 2; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI СССР HD",
+          "source": "gabbarit-current",
+          "source_id": "CPS USSR HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Операция «Ы» и другие приключения Шурика; candidate=Операция Ы и другие приключения Шурика(1965).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI СССР HD",
+          "source": "gabbarit-primary",
+          "source_id": "CPS USSR HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Операция «Ы» и другие приключения Шурика; candidate=Операция Ы и другие приключения Шурика(1965).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Translation HD",
+          "source": "epgone-full-movie-rescue",
+          "source_id": "6413",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Сумрики: Начало | 2024; candidate=Сумрики: Начало (2024); requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
