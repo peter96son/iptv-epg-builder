@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-02T09:24:19.240438+00:00",
+  "updated_at": "2026-10-02T16:22:46.461479+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-02T09:24:18.049555+00:00",
+      "checked_at_utc": "2026-10-02T16:22:45.197943+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,23 +10,23 @@
         "Кинозалы"
       ],
       "channels": 530,
-      "ok": 475,
-      "gaps": 55,
+      "ok": 486,
+      "gaps": 44,
       "issue_counts": {
-        "NO_MAPPING": 52,
-        "NO_CURRENT_PROGRAMME": 2,
-        "NO_NEXT_PROGRAMME": 3
+        "NO_MAPPING": 40,
+        "NO_NEXT_PROGRAMME": 4,
+        "NO_CURRENT_PROGRAMME": 3
       },
       "group_counts": {
         "USSR": {
           "channels": 19,
-          "ok": 15,
-          "gaps": 4
+          "ok": 17,
+          "gaps": 2
         },
         "Кино": {
           "channels": 179,
-          "ok": 152,
-          "gaps": 27
+          "ok": 153,
+          "gaps": 26
         },
         "Кино 4K": {
           "channels": 65,
@@ -35,37 +35,69 @@
         },
         "Кинозалы": {
           "channels": 267,
-          "ok": 243,
-          "gaps": 24
+          "ok": 251,
+          "gaps": 16
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 45,
-      "high_confidence_observations": 1,
+      "channels_considered": 39,
+      "high_confidence_observations": 3,
       "recognized": [
+        {
+          "playlist_name": "DITV Про вампиров",
+          "provider_name": "DITV Про вампиров",
+          "title": "Вампиры",
+          "score": 16.75,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "DITV КОМЕДИИ 90-х",
+          "provider_name": "DITV КОМЕДИИ 90-х",
+          "title": "Убрать перископ (1996)",
+          "score": 18.5,
+          "zone": "left_bottom",
+          "engine": "tesseract"
+        },
         {
           "playlist_name": "KLI СССР HD",
           "provider_name": "KLI СССР HD",
-          "title": "Бриллиантовая рука",
-          "score": 24.25,
-          "zone": "bottom_band",
+          "title": "Воры в законе",
+          "score": 17.75,
+          "zone": "left_bottom_tight",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 44,
+      "added": 3,
+      "rejected": 36,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-02T09:08:34.950404+00:00",
-          "playlist_name": "KLI СССР HD",
-          "observed_title": "Бриллиантовая рука",
+          "observed_at": "2026-10-02T16:04:11.204896+00:00",
+          "playlist_name": "DITV Про вампиров",
+          "observed_title": "Вампиры",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=24.25"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=16.75"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-02T16:04:11.204896+00:00",
+          "playlist_name": "DITV КОМЕДИИ 90-х",
+          "observed_title": "Убрать перископ (1996)",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom; engine=tesseract; score=18.5"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-02T16:04:11.204896+00:00",
+          "playlist_name": "KLI СССР HD",
+          "observed_title": "Воры в законе",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=17.75"
         }
       ]
     },
@@ -84,16 +116,32 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 12,
+      "live_observations": 3,
+      "sources_scanned": 27,
       "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         }
       ],
-      "candidates_added": 0,
-      "added": []
+      "candidates_added": 1,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "KLI СССР HD",
+          "source": "epgpw-RU",
+          "source_id": "453378",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Воры в законе; candidate=х/ф Воры в законе (1988); requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
