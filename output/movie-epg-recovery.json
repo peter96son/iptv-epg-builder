@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-02T16:22:46.461479+00:00",
+  "updated_at": "2026-10-02T21:34:43.930970+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-02T16:22:45.197943+00:00",
+      "checked_at_utc": "2026-10-02T21:34:42.312861+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 530,
-      "ok": 486,
-      "gaps": 44,
+      "ok": 488,
+      "gaps": 42,
       "issue_counts": {
-        "NO_MAPPING": 40,
-        "NO_NEXT_PROGRAMME": 4,
-        "NO_CURRENT_PROGRAMME": 3
+        "NO_MAPPING": 39,
+        "NO_NEXT_PROGRAMME": 3,
+        "NO_CURRENT_PROGRAMME": 1
       },
       "group_counts": {
         "USSR": {
@@ -25,8 +25,8 @@
         },
         "Кино": {
           "channels": 179,
-          "ok": 153,
-          "gaps": 26
+          "ok": 151,
+          "gaps": 28
         },
         "Кино 4K": {
           "channels": 65,
@@ -35,8 +35,8 @@
         },
         "Кинозалы": {
           "channels": 267,
-          "ok": 251,
-          "gaps": 16
+          "ok": 255,
+          "gaps": 12
         }
       }
     },
@@ -46,27 +46,27 @@
       "high_confidence_observations": 3,
       "recognized": [
         {
-          "playlist_name": "DITV Про вампиров",
-          "provider_name": "DITV Про вампиров",
-          "title": "Вампиры",
-          "score": 16.75,
-          "zone": "bottom_band",
-          "engine": "tesseract"
-        },
-        {
           "playlist_name": "DITV КОМЕДИИ 90-х",
           "provider_name": "DITV КОМЕДИИ 90-х",
-          "title": "Убрать перископ (1996)",
-          "score": 18.5,
-          "zone": "left_bottom",
+          "title": "Один дома 2",
+          "score": 17.0,
+          "zone": "left_bottom_tight",
           "engine": "tesseract"
         },
         {
           "playlist_name": "KLI СССР HD",
           "provider_name": "KLI СССР HD",
-          "title": "Воры в законе",
-          "score": 17.75,
-          "zone": "left_bottom_tight",
+          "title": "Десять негритят",
+          "score": 18.5,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "MM Нуар HD",
+          "provider_name": "MM Нуар HD",
+          "title": "Чудовище города | 1932",
+          "score": 14.5,
+          "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
@@ -77,27 +77,27 @@
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-02T16:04:11.204896+00:00",
-          "playlist_name": "DITV Про вампиров",
-          "observed_title": "Вампиры",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=16.75"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-02T16:04:11.204896+00:00",
+          "observed_at": "2026-10-02T21:08:51.851223+00:00",
           "playlist_name": "DITV КОМЕДИИ 90-х",
-          "observed_title": "Убрать перископ (1996)",
+          "observed_title": "Один дома 2",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom; engine=tesseract; score=18.5"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=17.0"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-10-02T16:04:11.204896+00:00",
+          "observed_at": "2026-10-02T21:08:51.851223+00:00",
           "playlist_name": "KLI СССР HD",
-          "observed_title": "Воры в законе",
+          "observed_title": "Десять негритят",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=17.75"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.5"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-02T21:08:51.851223+00:00",
+          "playlist_name": "MM Нуар HD",
+          "observed_title": "Чудовище города | 1932",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=14.5"
         }
       ]
     },
@@ -108,8 +108,14 @@
         "quarantined": 0,
         "reason": "no-live-candidates"
       },
-      "pending_count": 0,
-      "pending": {},
+      "pending_count": 1,
+      "pending": {
+        "MM Нуар HD": {
+          "observations": 1,
+          "distinct_titles": 1,
+          "status": "PENDING_DISTINCT_SECOND_TITLE"
+        }
+      },
       "selected_count": 0,
       "quarantined_count": 0,
       "selected": {},
@@ -117,7 +123,7 @@
     },
     "candidate_discovery": {
       "live_observations": 3,
-      "sources_scanned": 27,
+      "sources_scanned": 25,
       "sources_failed": [
         {
           "source": "klimedia-dedicated",
@@ -128,18 +134,61 @@
           "error": "RuntimeError"
         },
         {
+          "source": "teleguide-ru",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-rescue",
+          "error": "RuntimeError"
+        },
+        {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         }
       ],
-      "candidates_added": 1,
+      "candidates_added": 6,
       "added": [
         {
           "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "epgpw-RU",
-          "source_id": "453378",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Воры в законе; candidate=х/ф Воры в законе (1988); requires two positive observations before selection"
+          "playlist_name": "DITV КОМЕДИИ 90-х",
+          "source": "iptvx-noarch",
+          "source_id": "clarity4k-cinema003-hdr",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Один дома 2; candidate=х/ф Один дома (1990); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Нуар HD",
+          "source": "minimax-mm-dedicated",
+          "source_id": "nuar-mm",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Чудовище города | 1932; candidate=Чудовище города; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Нуар HD",
+          "source": "tvteam",
+          "source_id": "ch1250",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Чудовище города | 1932; candidate=Чудовище города; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Нуар HD",
+          "source": "gabbarit-current",
+          "source_id": "минимакс-нуар HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Чудовище города | 1932; candidate=Чудовище города (1932).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Нуар HD",
+          "source": "gabbarit-primary",
+          "source_id": "минимакс-нуар HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Чудовище города | 1932; candidate=Чудовище города (1932).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Нуар HD",
+          "source": "epgone-full-movie-rescue",
+          "source_id": "5158",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Чудовище города | 1932; candidate=Чудовище города; requires two positive observations before selection"
         }
       ]
     }
