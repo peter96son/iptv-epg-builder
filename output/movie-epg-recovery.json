@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-01T23:55:55.320371+00:00",
+  "updated_at": "2026-10-02T03:01:18.945800+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-01T23:55:53.635141+00:00",
+      "checked_at_utc": "2026-10-02T03:01:17.313927+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,18 +10,18 @@
         "Кинозалы"
       ],
       "channels": 530,
-      "ok": 477,
-      "gaps": 53,
+      "ok": 476,
+      "gaps": 54,
       "issue_counts": {
-        "NO_MAPPING": 38,
-        "NO_CURRENT_PROGRAMME": 12,
-        "NO_NEXT_PROGRAMME": 15
+        "NO_MAPPING": 53,
+        "NO_CURRENT_PROGRAMME": 1,
+        "NO_NEXT_PROGRAMME": 1
       },
       "group_counts": {
         "USSR": {
           "channels": 19,
-          "ok": 15,
-          "gaps": 4
+          "ok": 14,
+          "gaps": 5
         },
         "Кино": {
           "channels": 179,
@@ -42,58 +42,176 @@
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 45,
-      "high_confidence_observations": 1,
+      "channels_considered": 46,
+      "high_confidence_observations": 2,
       "recognized": [
         {
-          "playlist_name": "KLI СССР HD",
-          "provider_name": "KLI СССР HD",
-          "title": "Фантомас",
-          "score": 17.0,
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "provider_name": "KLI Новинки 4K Ultra HD",
+          "title": "Бессмертная гвардия 2",
+          "score": 24.5,
+          "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "MM Боевик Classic HD",
+          "provider_name": "MM Боевик Classic HD",
+          "title": "Игрушечные солдатики (1991)",
+          "score": 19.75,
           "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
+      "added": 2,
       "rejected": 44,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-01T23:38:11.578497+00:00",
-          "playlist_name": "KLI СССР HD",
-          "observed_title": "Фантомас",
+          "observed_at": "2026-10-02T02:43:13.495319+00:00",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "observed_title": "Бессмертная гвардия 2",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=17.0"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=24.5"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-02T02:43:13.495319+00:00",
+          "playlist_name": "MM Боевик Classic HD",
+          "observed_title": "Игрушечные солдатики (1991)",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=19.75"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 0,
-        "selected": 0,
+        "changed": 1,
+        "selected": 1,
         "quarantined": 0,
-        "reason": "no-live-candidates"
+        "target_hours": 6.0
       },
-      "pending_count": 0,
-      "pending": {},
-      "selected_count": 0,
+      "pending_count": 1,
+      "pending": {
+        "MM Боевик Classic HD": {
+          "observations": 1,
+          "distinct_titles": 1,
+          "status": "PENDING_DISTINCT_SECOND_TITLE"
+        }
+      },
+      "selected_count": 1,
       "quarantined_count": 0,
-      "selected": {},
+      "selected": {
+        "KLI Новинки 4K Ultra HD": {
+          "source": "gabbarit-current",
+          "source_id": "KLI Новинки 4k",
+          "output_tvg_id": "Xklinovinci4k",
+          "horizon_hours": 107.13,
+          "current": true,
+          "usable": 31
+        }
+      },
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 12,
+      "live_observations": 2,
+      "sources_scanned": 25,
       "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-ru",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-rescue",
+          "error": "RuntimeError"
+        },
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         }
       ],
-      "candidates_added": 0,
-      "added": []
+      "candidates_added": 10,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "MM Боевик Classic HD",
+          "source": "iptv-online-primary",
+          "source_id": "Xminimax-boevik_classic",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Игрушечные солдатики (1991); candidate=х/ф Игрушечные солдатики; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Боевик Classic HD",
+          "source": "iptvx-noarch",
+          "source_id": "minimax-boevik_classic",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Игрушечные солдатики (1991); candidate=х/ф Игрушечные солдатики; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Боевик Classic HD",
+          "source": "openbox-tsd",
+          "source_id": "mm-boevik-classic",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Игрушечные солдатики (1991); candidate=Х/ф Игрушечные солдатики.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Боевик Classic HD",
+          "source": "minimax-mm-dedicated",
+          "source_id": "boevik_classic-mm",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Игрушечные солдатики (1991); candidate=Игрушечные солдатики; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Боевик Classic HD",
+          "source": "tvteam",
+          "source_id": "ch1232",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Игрушечные солдатики (1991); candidate=Игрушечные солдатики; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "source": "gabbarit-current",
+          "source_id": "Play-X Кинозал 15 HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Бессмертная гвардия 2; candidate=Бессмертная гвардия 2.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Боевик Classic HD",
+          "source": "gabbarit-current",
+          "source_id": "минимакс-боевик classic HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Игрушечные солдатики (1991); candidate=Игрушечные солдатики (1991).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "source": "gabbarit-primary",
+          "source_id": "Play-X Кинозал 15 HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Бессмертная гвардия 2; candidate=Бессмертная гвардия 2.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Боевик Classic HD",
+          "source": "gabbarit-primary",
+          "source_id": "минимакс-боевик classic HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Игрушечные солдатики (1991); candidate=Игрушечные солдатики (1991).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Боевик Classic HD",
+          "source": "epgone-full-movie-rescue",
+          "source_id": "5140",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Игрушечные солдатики (1991); candidate=Игрушечные солдатики; requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
