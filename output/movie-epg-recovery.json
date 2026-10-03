@@ -1,21 +1,21 @@
 {
-  "updated_at": "2026-10-03T19:16:01.844791+00:00",
+  "updated_at": "2026-10-03T22:25:27.442258+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-03T19:16:00.367301+00:00",
+      "checked_at_utc": "2026-10-03T22:25:25.959926+00:00",
       "groups": [
         "USSR",
         "Кино",
         "Кино 4K",
         "Кинозалы"
       ],
-      "channels": 542,
-      "ok": 486,
-      "gaps": 56,
+      "channels": 569,
+      "ok": 476,
+      "gaps": 93,
       "issue_counts": {
-        "NO_MAPPING": 53,
-        "NO_NEXT_PROGRAMME": 3,
-        "NO_CURRENT_PROGRAMME": 1
+        "NO_MAPPING": 79,
+        "NO_CURRENT_PROGRAMME": 4,
+        "NO_NEXT_PROGRAMME": 14
       },
       "group_counts": {
         "USSR": {
@@ -25,66 +25,91 @@
         },
         "Кино": {
           "channels": 179,
-          "ok": 153,
-          "gaps": 26
+          "ok": 152,
+          "gaps": 27
         },
         "Кино 4K": {
           "channels": 65,
-          "ok": 65,
-          "gaps": 0
+          "ok": 56,
+          "gaps": 9
         },
         "Кинозалы": {
-          "channels": 279,
+          "channels": 306,
           "ok": 252,
-          "gaps": 27
+          "gaps": 54
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 39,
-      "high_confidence_observations": 1,
+      "channels_considered": 80,
+      "high_confidence_observations": 2,
       "recognized": [
         {
           "playlist_name": "KLI СССР HD",
           "provider_name": "KLI СССР HD",
-          "title": "fe oot gee",
-          "score": 12.0,
-          "zone": "top_band",
+          "title": "Мать",
+          "score": 13.0,
+          "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "KLI Новинки HD",
+          "provider_name": "KLI Новинки HD",
+          "title": "Орудия",
+          "score": 16.5,
+          "zone": "left_bottom_tight",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 38,
+      "added": 2,
+      "rejected": 78,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-03T18:56:04.554335+00:00",
+          "observed_at": "2026-10-03T22:02:52.260313+00:00",
           "playlist_name": "KLI СССР HD",
-          "observed_title": "fe oot gee",
+          "observed_title": "Мать",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=12.0"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=13.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-03T22:02:52.260313+00:00",
+          "playlist_name": "KLI Новинки HD",
+          "observed_title": "Орудия",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=16.5"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 0,
-        "selected": 0,
+        "changed": 1,
+        "selected": 1,
         "quarantined": 0,
-        "reason": "no-live-candidates"
+        "target_hours": 6.0
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 0,
+      "selected_count": 1,
       "quarantined_count": 0,
-      "selected": {},
+      "selected": {
+        "KLI Новинки HD": {
+          "source": "gabbarit-current",
+          "source_id": "KLI НОВИНКИ",
+          "output_tvg_id": "Xklinovinci",
+          "horizon_hours": 60.68,
+          "current": true,
+          "usable": 30
+        }
+      },
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
+      "live_observations": 2,
       "sources_scanned": 12,
       "sources_failed": [
         {
@@ -92,8 +117,86 @@
           "error": "EOFError"
         }
       ],
-      "candidates_added": 0,
-      "added": []
+      "candidates_added": 11,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки HD",
+          "source": "iptv-online-primary",
+          "source_id": "Xbear-tv-sjuzhet-tv-ru-uhd",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Орудия; candidate=Орудия (2025); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки HD",
+          "source": "iptv-online-primary",
+          "source_id": "Xfresh-premiere",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Орудия; candidate=х/ф Орудия; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки HD",
+          "source": "iptvx-noarch",
+          "source_id": "bear-tv-sjuzhet-tv-ru-uhd",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Орудия; candidate=Орудия (2025); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки HD",
+          "source": "iptvx-noarch",
+          "source_id": "fresh-premiere",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Орудия; candidate=х/ф Орудия; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки HD",
+          "source": "iptvx-noarch",
+          "source_id": "modo-newblood",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Орудия; candidate=х/ф Орудия; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки HD",
+          "source": "runigma-iptv",
+          "source_id": "fresh-premiere-hd",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Орудия; candidate=х/ф Орудия.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки HD",
+          "source": "openbox-tsd",
+          "source_id": "fresh-premiere",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Орудия; candidate=Х/ф Орудия.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки HD",
+          "source": "tvteam",
+          "source_id": "ch1727",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Орудия; candidate=Орудия; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки HD",
+          "source": "gabbarit-current",
+          "source_id": "Fresh Premiere HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Орудия; candidate=Орудия (2025).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки HD",
+          "source": "gabbarit-primary",
+          "source_id": "Fresh Premiere HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Орудия; candidate=Орудия (2025).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки HD",
+          "source": "epgone-full-movie-rescue",
+          "source_id": "6712",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Орудия; candidate=Орудия; requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
