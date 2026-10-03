@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-03T11:10:49.275269+00:00",
+  "updated_at": "2026-10-03T15:21:28.430004+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-03T11:10:47.726913+00:00",
+      "checked_at_utc": "2026-10-03T15:21:26.954012+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,11 @@
         "Кинозалы"
       ],
       "channels": 530,
-      "ok": 479,
-      "gaps": 51,
+      "ok": 488,
+      "gaps": 42,
       "issue_counts": {
-        "NO_MAPPING": 49,
-        "NO_NEXT_PROGRAMME": 2,
-        "NO_CURRENT_PROGRAMME": 1
+        "NO_MAPPING": 40,
+        "NO_NEXT_PROGRAMME": 2
       },
       "group_counts": {
         "USSR": {
@@ -25,8 +24,8 @@
         },
         "Кино": {
           "channels": 179,
-          "ok": 148,
-          "gaps": 31
+          "ok": 153,
+          "gaps": 26
         },
         "Кино 4K": {
           "channels": 65,
@@ -35,97 +34,56 @@
         },
         "Кинозалы": {
           "channels": 267,
-          "ok": 249,
-          "gaps": 18
+          "ok": 253,
+          "gaps": 14
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 48,
-      "high_confidence_observations": 3,
+      "channels_considered": 37,
+      "high_confidence_observations": 1,
       "recognized": [
-        {
-          "playlist_name": "KLI Новинки HD",
-          "provider_name": "KLI Новинки HD",
-          "title": "Никто не узнает",
-          "score": 18.25,
-          "zone": "bottom_band",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Контратака",
-          "score": 17.5,
-          "zone": "bottom_band",
-          "engine": "tesseract"
-        },
         {
           "playlist_name": "KLI СССР HD",
           "provider_name": "KLI СССР HD",
-          "title": "Ирония судьбы, или С легким",
-          "score": 25.0,
-          "zone": "left_bottom_tight",
+          "title": "арнавалая ночь ь",
+          "score": 18.5,
+          "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 3,
-      "rejected": 45,
+      "added": 1,
+      "rejected": 36,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-03T10:46:34.468800+00:00",
-          "playlist_name": "KLI Новинки HD",
-          "observed_title": "Никто не узнает",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.25"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-03T10:46:34.468800+00:00",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Контратака",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=17.5"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-03T10:46:34.468800+00:00",
+          "observed_at": "2026-10-03T15:01:57.619650+00:00",
           "playlist_name": "KLI СССР HD",
-          "observed_title": "Ирония судьбы, или С легким",
+          "observed_title": "арнавалая ночь ь",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=25.0"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.5"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 1,
-        "selected": 1,
+        "changed": 0,
+        "selected": 0,
         "quarantined": 0,
-        "target_hours": 6.0
+        "reason": "no-live-candidates"
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 1,
+      "selected_count": 0,
       "quarantined_count": 0,
-      "selected": {
-        "KLI Новинки 4K Ultra HD": {
-          "source": "gabbarit-current",
-          "source_id": "KLI Новинки 4k",
-          "output_tvg_id": "Xklinovinci4k",
-          "horizon_hours": 74.99,
-          "current": true,
-          "usable": 32
-        }
-      },
+      "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 3,
+      "live_observations": 1,
       "sources_scanned": 12,
       "sources_failed": [
         {
@@ -133,84 +91,42 @@
           "error": "EOFError"
         }
       ],
-      "candidates_added": 11,
+      "candidates_added": 5,
       "added": [
         {
           "enabled": "1",
           "playlist_name": "KLI СССР HD",
           "source": "iptvx-noarch",
-          "source_id": "vf-nowogodni",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Ирония судьбы, или С легким; candidate=х/ф Ирония судьбы, или С легким паром!; requires two positive observations before selection"
+          "source_id": "mosfilm-pl4",
+          "notes": "auto-discovered from live title; similarity=0.848; observed=арнавалая ночь ь; candidate=х/ф Карнавальная ночь; requires two positive observations before selection"
         },
         {
           "enabled": "1",
           "playlist_name": "KLI СССР HD",
-          "source": "iptvx-noarch",
-          "source_id": "vf-snovymgodom",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Ирония судьбы, или С легким; candidate=х/ф Ирония судьбы, или С легким паром!; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "runigma-iptv",
-          "source_id": "vf-snovimgodom",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Ирония судьбы, или С легким; candidate=«Ирония судьбы, или С легким паром!».; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "gabbarit-current",
-          "source_id": "Play-X Кинозал 16 HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Контратака; candidate=Контратака.; requires two positive observations before selection"
+          "source": "epgpw-RU",
+          "source_id": "449017",
+          "notes": "auto-discovered from live title; similarity=0.848; observed=арнавалая ночь ь; candidate=х/ф Карнавальная ночь (1956); requires two positive observations before selection"
         },
         {
           "enabled": "1",
           "playlist_name": "KLI СССР HD",
           "source": "gabbarit-current",
-          "source_id": "VF Новогодний",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Ирония судьбы, или С легким; candidate=х/ф Ирония судьбы, или С легким паром!; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "gabbarit-current",
-          "source_id": "VF С новым годом!",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Ирония судьбы, или С легким; candidate=х/ф Ирония судьбы, или С легким паром!; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "gabbarit-primary",
-          "source_id": "Play-X Кинозал 16 HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Контратака; candidate=Контратака.; requires two positive observations before selection"
+          "source_id": "Мосфильм. Золотая коллекция (+4)",
+          "notes": "auto-discovered from live title; similarity=0.848; observed=арнавалая ночь ь; candidate=Карнавальная ночь.; requires two positive observations before selection"
         },
         {
           "enabled": "1",
           "playlist_name": "KLI СССР HD",
           "source": "gabbarit-primary",
-          "source_id": "VF Новогодний",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Ирония судьбы, или С легким; candidate=х/ф Ирония судьбы, или С легким паром!; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "gabbarit-primary",
-          "source_id": "VF С новым годом!",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Ирония судьбы, или С легким; candidate=х/ф Ирония судьбы, или С легким паром!; requires two positive observations before selection"
+          "source_id": "Мосфильм. Золотая коллекция (+4)",
+          "notes": "auto-discovered from live title; similarity=0.848; observed=арнавалая ночь ь; candidate=Карнавальная ночь.; requires two positive observations before selection"
         },
         {
           "enabled": "1",
           "playlist_name": "KLI СССР HD",
           "source": "epgone-full-movie-rescue",
-          "source_id": "6163",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Ирония судьбы, или С легким; candidate=«Ирония судьбы, или С легким паром!»; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "epgone-full-movie-rescue",
-          "source_id": "5982",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Ирония судьбы, или С легким; candidate=«Ирония судьбы, или С легким паром!»; requires two positive observations before selection"
+          "source_id": "17022",
+          "notes": "auto-discovered from live title; similarity=0.848; observed=арнавалая ночь ь; candidate=Карнавальная ночь; requires two positive observations before selection"
         }
       ]
     }
