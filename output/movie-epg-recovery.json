@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-03T01:02:56.860061+00:00",
+  "updated_at": "2026-10-03T06:15:16.687600+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-03T01:02:55.946110+00:00",
+      "checked_at_utc": "2026-10-03T06:15:15.064575+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -13,9 +13,9 @@
       "ok": 475,
       "gaps": 55,
       "issue_counts": {
-        "NO_MAPPING": 45,
-        "NO_CURRENT_PROGRAMME": 9,
-        "NO_NEXT_PROGRAMME": 10
+        "NO_MAPPING": 44,
+        "NO_CURRENT_PROGRAMME": 11,
+        "NO_NEXT_PROGRAMME": 11
       },
       "group_counts": {
         "USSR": {
@@ -43,105 +43,88 @@
     "observer": {
       "return_code": 0,
       "channels_considered": 51,
-      "high_confidence_observations": 1,
+      "high_confidence_observations": 2,
       "recognized": [
         {
           "playlist_name": "KLI СССР HD",
           "provider_name": "KLI СССР HD",
-          "title": "Добро пожаловать, или Пост",
-          "score": 20.0,
+          "title": "За двумя зайцами",
+          "score": 23.5,
           "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "MM Нуар HD",
+          "provider_name": "MM Нуар HD",
+          "title": "Крест-накрест | 1949",
+          "score": 23.0,
+          "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 50,
+      "added": 2,
+      "rejected": 49,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-03T00:52:43.868915+00:00",
+          "observed_at": "2026-10-03T05:55:52.294889+00:00",
           "playlist_name": "KLI СССР HD",
-          "observed_title": "Добро пожаловать, или Пост",
+          "observed_title": "За двумя зайцами",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=20.0"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=23.5"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-03T05:55:52.294889+00:00",
+          "playlist_name": "MM Нуар HD",
+          "observed_title": "Крест-накрест | 1949",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=23.0"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 0,
-        "selected": 0,
+        "changed": 1,
+        "selected": 1,
         "quarantined": 0,
-        "reason": "no-live-candidates"
+        "target_hours": 6.0
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 0,
+      "selected_count": 1,
       "quarantined_count": 0,
-      "selected": {},
+      "selected": {
+        "MM Нуар HD": {
+          "source": "minimax-mm-dedicated",
+          "source_id": "nuar-mm",
+          "output_tvg_id": "Xminimax-nuar",
+          "horizon_hours": 450.0,
+          "current": true,
+          "usable": 38
+        }
+      },
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 12,
+      "live_observations": 2,
+      "sources_scanned": 13,
       "sources_failed": [
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         }
       ],
-      "candidates_added": 7,
+      "candidates_added": 1,
       "added": [
         {
           "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "iptv-online-primary",
-          "source_id": "Xdomashnie-zhivotnye",
-          "notes": "auto-discovered from live title; similarity=0.844; observed=Добро пожаловать, или Пост; candidate=Добро пожаловать! 8 с.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "iptvx-noarch",
-          "source_id": "domashnie-zhivotnye",
-          "notes": "auto-discovered from live title; similarity=0.844; observed=Добро пожаловать, или Пост; candidate=Добро пожаловать! 8 с.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "runigma-iptv",
-          "source_id": "domashnie-zhivotnye",
-          "notes": "auto-discovered from live title; similarity=0.826; observed=Добро пожаловать, или Пост; candidate=Добро пожаловать! 8 эп.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "bcumedia-dedicated",
-          "source_id": "Домашние животные",
-          "notes": "auto-discovered from live title; similarity=0.844; observed=Добро пожаловать, или Пост; candidate=Добро пожаловать! 8 с.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "tvteam",
-          "source_id": "ch626",
-          "notes": "auto-discovered from live title; similarity=0.844; observed=Добро пожаловать, или Пост; candidate=Добро пожаловать! 8 с.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "epgone-ru2",
-          "source_id": "520",
-          "notes": "auto-discovered from live title; similarity=0.844; observed=Добро пожаловать, или Пост; candidate=Добро пожаловать! 8 с.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "epgone-full-movie-rescue",
-          "source_id": "520",
-          "notes": "auto-discovered from live title; similarity=0.844; observed=Добро пожаловать, или Пост; candidate=Добро пожаловать! 8 с.; requires two positive observations before selection"
+          "playlist_name": "MM Нуар HD",
+          "source": "openbox-tsd",
+          "source_id": "mm-nuar",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Крест-накрест | 1949; candidate=Х/ф Крест-накрест.; requires two positive observations before selection"
         }
       ]
     }
