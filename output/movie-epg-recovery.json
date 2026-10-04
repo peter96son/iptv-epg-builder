@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-04T00:26:52.520583+00:00",
+  "updated_at": "2026-10-04T06:51:40.543885+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-04T00:26:51.044016+00:00",
+      "checked_at_utc": "2026-10-04T06:51:39.208054+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,18 +10,18 @@
         "Кинозалы"
       ],
       "channels": 569,
-      "ok": 427,
-      "gaps": 142,
+      "ok": 428,
+      "gaps": 141,
       "issue_counts": {
-        "NO_MAPPING": 79,
-        "NO_CURRENT_PROGRAMME": 44,
-        "NO_NEXT_PROGRAMME": 63
+        "NO_MAPPING": 125,
+        "NO_CURRENT_PROGRAMME": 15,
+        "NO_NEXT_PROGRAMME": 16
       },
       "group_counts": {
         "USSR": {
           "channels": 19,
-          "ok": 15,
-          "gaps": 4
+          "ok": 16,
+          "gaps": 3
         },
         "Кино": {
           "channels": 179,
@@ -42,71 +42,107 @@
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 53,
-      "high_confidence_observations": 1,
+      "channels_considered": 55,
+      "high_confidence_observations": 3,
       "recognized": [
         {
-          "playlist_name": "Честный Детектив",
-          "provider_name": "Честный Детектив",
-          "title": "МОФим",
-          "score": 16.25,
-          "zone": "top_band",
+          "playlist_name": "DITV ФИЛЬМЫ УЖАСОВ 80-х",
+          "provider_name": "DITV ФИЛЬМЫ УЖАСОВ 80-х",
+          "title": "Муха (1986)",
+          "score": 18.0,
+          "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "provider_name": "KLI Новинки 4K Ultra HD",
+          "title": "Присутствие",
+          "score": 17.75,
+          "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "KLI СССР HD",
+          "provider_name": "KLI СССР HD",
+          "title": "Морозко",
+          "score": 21.75,
+          "zone": "left_bottom_tight",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
+      "added": 3,
       "rejected": 52,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-04T00:14:59.124141+00:00",
-          "playlist_name": "Честный Детектив",
-          "observed_title": "МОФим",
+          "observed_at": "2026-10-04T06:30:06.605654+00:00",
+          "playlist_name": "DITV ФИЛЬМЫ УЖАСОВ 80-х",
+          "observed_title": "Муха (1986)",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=16.25"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=18.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-04T06:30:06.605654+00:00",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "observed_title": "Присутствие",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=17.75"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-04T06:30:06.605654+00:00",
+          "playlist_name": "KLI СССР HD",
+          "observed_title": "Морозко",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=21.75"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 0,
-        "selected": 0,
-        "reason": "waiting-for-distinct-second-title"
+        "changed": 1,
+        "selected": 1,
+        "quarantined": 0,
+        "target_hours": 6.0
       },
-      "pending_count": 1,
-      "pending": {
-        "Честный Детектив": {
-          "observations": 1,
-          "distinct_titles": 1,
-          "status": "PENDING_DISTINCT_SECOND_TITLE"
+      "pending_count": 0,
+      "pending": {},
+      "selected_count": 1,
+      "quarantined_count": 0,
+      "selected": {
+        "KLI Новинки 4K Ultra HD": {
+          "source": "gabbarit-current",
+          "source_id": "KLI Новинки 4k",
+          "output_tvg_id": "Xklinovinci4k",
+          "horizon_hours": 153.9,
+          "current": true,
+          "usable": 31
         }
       },
-      "selected_count": 0,
-      "quarantined_count": 0,
-      "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 27,
+      "live_observations": 3,
+      "sources_scanned": 12,
       "sources_failed": [
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        },
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         }
       ],
-      "candidates_added": 0,
-      "added": []
+      "candidates_added": 1,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "source": "epgpw-RU",
+          "source_id": "565034",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Присутствие; candidate=Присутствие (2025); requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
