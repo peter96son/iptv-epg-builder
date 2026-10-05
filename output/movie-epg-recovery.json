@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-04T20:46:01.946755+00:00",
+  "updated_at": "2026-10-05T00:01:16.982313+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-04T20:46:01.005272+00:00",
+      "checked_at_utc": "2026-10-05T00:01:15.742558+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 569,
-      "ok": 320,
-      "gaps": 249,
+      "ok": 297,
+      "gaps": 272,
       "issue_counts": {
-        "NO_MAPPING": 111,
-        "NO_CURRENT_PROGRAMME": 27,
-        "NO_NEXT_PROGRAMME": 138
+        "NO_MAPPING": 110,
+        "NO_CURRENT_PROGRAMME": 156,
+        "NO_NEXT_PROGRAMME": 161
       },
       "group_counts": {
         "USSR": {
@@ -25,37 +25,56 @@
         },
         "Кино": {
           "channels": 179,
-          "ok": 91,
-          "gaps": 88
+          "ok": 74,
+          "gaps": 105
         },
         "Кино 4K": {
           "channels": 65,
-          "ok": 13,
-          "gaps": 52
+          "ok": 11,
+          "gaps": 54
         },
         "Кинозалы": {
           "channels": 306,
-          "ok": 203,
-          "gaps": 103
+          "ok": 199,
+          "gaps": 107
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 116,
-      "high_confidence_observations": 0,
-      "recognized": []
+      "channels_considered": 130,
+      "high_confidence_observations": 1,
+      "recognized": [
+        {
+          "playlist_name": "DITV КОМЕДИИ 90-х",
+          "provider_name": "DITV КОМЕДИИ 90-х",
+          "title": "Маска (1994)",
+          "score": 16.25,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        }
+      ]
     },
     "evidence_recorder": {
-      "added": 0,
-      "rejected": 116,
-      "observations": []
+      "added": 1,
+      "rejected": 128,
+      "observations": [
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-04T23:55:12.857355+00:00",
+          "playlist_name": "DITV КОМЕДИИ 90-х",
+          "observed_title": "Маска (1994)",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=16.25"
+        }
+      ]
     },
     "judge": {
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "waiting-for-distinct-second-title"
+        "quarantined": 0,
+        "reason": "no-live-candidates"
       },
       "pending_count": 0,
       "pending": {},
@@ -65,11 +84,24 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 0,
-      "sources_scanned": 0,
-      "sources_failed": [],
-      "candidates_added": 0,
-      "added": []
+      "live_observations": 1,
+      "sources_scanned": 6,
+      "sources_failed": [
+        {
+          "source": "gabbarit-mirror",
+          "error": "EOFError"
+        }
+      ],
+      "candidates_added": 1,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "DITV КОМЕДИИ 90-х",
+          "source": "epgpw-RU",
+          "source_id": "455127",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Маска (1994); candidate=х/ф Маска; requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
