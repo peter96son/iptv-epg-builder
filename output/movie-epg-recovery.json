@@ -1,73 +1,54 @@
 {
-  "updated_at": "2026-10-05T02:55:27.529588+00:00",
+  "updated_at": "2026-10-05T09:51:39.978350+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-05T02:55:26.723154+00:00",
+      "checked_at_utc": "2026-10-05T09:51:39.247179+00:00",
       "groups": [
         "USSR",
         "Кино",
         "Кино 4K",
         "Кинозалы"
       ],
-      "channels": 569,
-      "ok": 256,
-      "gaps": 313,
+      "channels": 549,
+      "ok": 336,
+      "gaps": 213,
       "issue_counts": {
-        "NO_MAPPING": 270,
-        "NO_CURRENT_PROGRAMME": 33,
-        "NO_NEXT_PROGRAMME": 42
+        "NO_MAPPING": 207,
+        "NO_NEXT_PROGRAMME": 6
       },
       "group_counts": {
         "USSR": {
           "channels": 19,
-          "ok": 12,
-          "gaps": 7
+          "ok": 14,
+          "gaps": 5
         },
         "Кино": {
           "channels": 179,
-          "ok": 46,
-          "gaps": 133
+          "ok": 104,
+          "gaps": 75
         },
         "Кино 4K": {
           "channels": 65,
-          "ok": 11,
-          "gaps": 54
+          "ok": 14,
+          "gaps": 51
         },
         "Кинозалы": {
-          "channels": 306,
-          "ok": 187,
-          "gaps": 119
+          "channels": 286,
+          "ok": 204,
+          "gaps": 82
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 155,
-      "high_confidence_observations": 1,
-      "recognized": [
-        {
-          "playlist_name": "Start Air",
-          "provider_name": "Start Air",
-          "title": "РОДИТЕЛИ",
-          "score": 22.0,
-          "zone": "top_left_tight",
-          "engine": "tesseract"
-        }
-      ]
+      "channels_considered": 101,
+      "high_confidence_observations": 0,
+      "recognized": []
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 153,
-      "observations": [
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-05T02:46:41.845238+00:00",
-          "playlist_name": "Start Air",
-          "observed_title": "РОДИТЕЛИ",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=22.0"
-        }
-      ]
+      "added": 0,
+      "rejected": 101,
+      "observations": []
     },
     "judge": {
       "selector": {
@@ -75,36 +56,17 @@
         "selected": 0,
         "reason": "waiting-for-distinct-second-title"
       },
-      "pending_count": 1,
-      "pending": {
-        "Start Air": {
-          "observations": 1,
-          "distinct_titles": 1,
-          "status": "PENDING_DISTINCT_SECOND_TITLE"
-        }
-      },
+      "pending_count": 0,
+      "pending": {},
       "selected_count": 0,
       "quarantined_count": 0,
       "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 27,
-      "sources_failed": [
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "gabbarit-mirror",
-          "error": "EOFError"
-        }
-      ],
+      "live_observations": 0,
+      "sources_scanned": 0,
+      "sources_failed": [],
       "candidates_added": 0,
       "added": []
     }
