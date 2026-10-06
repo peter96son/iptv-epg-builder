@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-05T19:11:33.282997+00:00",
+  "updated_at": "2026-10-06T00:31:07.130133+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-05T19:11:31.655283+00:00",
+      "checked_at_utc": "2026-10-06T00:31:05.720558+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 549,
-      "ok": 415,
-      "gaps": 134,
+      "ok": 406,
+      "gaps": 143,
       "issue_counts": {
-        "NO_MAPPING": 133,
-        "NO_CURRENT_PROGRAMME": 1,
-        "NO_NEXT_PROGRAMME": 1
+        "NO_MAPPING": 139,
+        "NO_CURRENT_PROGRAMME": 2,
+        "NO_NEXT_PROGRAMME": 4
       },
       "group_counts": {
         "USSR": {
@@ -25,161 +25,49 @@
         },
         "Кино": {
           "channels": 179,
-          "ok": 150,
-          "gaps": 29
+          "ok": 147,
+          "gaps": 32
         },
         "Кино 4K": {
           "channels": 65,
-          "ok": 16,
-          "gaps": 49
+          "ok": 15,
+          "gaps": 50
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 233,
-          "gaps": 53
+          "ok": 228,
+          "gaps": 58
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 46,
-      "high_confidence_observations": 1,
-      "recognized": [
-        {
-          "playlist_name": "Bear TV КиноМаяк RU UHD",
-          "provider_name": "Bear TV КиноМаяк RU UHD",
-          "title": "дьяк",
-          "score": 13.0,
-          "zone": "left_bottom_tight",
-          "engine": "tesseract"
-        }
-      ]
+      "channels_considered": 50,
+      "high_confidence_observations": 0,
+      "recognized": []
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 45,
-      "observations": [
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-05T18:58:48.688837+00:00",
-          "playlist_name": "Bear TV КиноМаяк RU UHD",
-          "observed_title": "дьяк",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=13.0"
-        }
-      ]
+      "added": 0,
+      "rejected": 50,
+      "observations": []
     },
     "judge": {
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "no-policy"
+        "reason": "waiting-for-distinct-second-title"
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 9,
+      "selected_count": 0,
       "quarantined_count": 0,
-      "selected": {
-        "Premium HD": {
-          "source": "gabbarit-current",
-          "source_id": "Premium HD",
-          "output_tvg_id": "premium-hd",
-          "horizon_hours": 197.84,
-          "current": true,
-          "usable": 29
-        },
-        "Premiere HD": {
-          "source": "gabbarit-current",
-          "source_id": "Premiere HD",
-          "output_tvg_id": "Xpremiere-hd",
-          "horizon_hours": 197.61,
-          "current": true,
-          "usable": 33
-        },
-        "Paradise HD": {
-          "source": "gabbarit-current",
-          "source_id": "Paradise HD",
-          "output_tvg_id": "Xparadise-hd",
-          "horizon_hours": 197.58,
-          "current": true,
-          "usable": 32
-        },
-        "Paradox HD": {
-          "source": "gabbarit-current",
-          "source_id": "Paradox HD",
-          "output_tvg_id": "Xparadox-hd",
-          "horizon_hours": 197.93,
-          "current": true,
-          "usable": 30
-        },
-        "4ever Cinema HD": {
-          "source": "gabbarit-current",
-          "source_id": "4 ever Cinema",
-          "output_tvg_id": "X4ever-cinema",
-          "horizon_hours": 318.84,
-          "current": true,
-          "usable": 19
-        },
-        "4ever Drama HD": {
-          "source": "gabbarit-current",
-          "source_id": "4ever Drama",
-          "output_tvg_id": "X4ever-drama",
-          "horizon_hours": 318.84,
-          "current": true,
-          "usable": 19
-        },
-        "4ever Theater HD": {
-          "source": "gabbarit-current",
-          "source_id": "4ever Theater",
-          "output_tvg_id": "X4ever-theater",
-          "horizon_hours": 318.83,
-          "current": true,
-          "usable": 19
-        },
-        "4ever Music HD": {
-          "source": "iptvx-noarch",
-          "source_id": "4ever-music",
-          "output_tvg_id": "X4ever-music",
-          "horizon_hours": 154.83,
-          "current": true,
-          "usable": 28
-        },
-        "KLI Новинки 4K Ultra HD": {
-          "source": "gabbarit-current",
-          "source_id": "KLI Новинки 4k",
-          "output_tvg_id": "Xklinovinci4k",
-          "horizon_hours": 120.95,
-          "current": true,
-          "usable": 31
-        }
-      },
+      "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 25,
-      "sources_failed": [
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-ru",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-rescue",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "gabbarit-mirror",
-          "error": "EOFError"
-        }
-      ],
+      "live_observations": 0,
+      "sources_scanned": 0,
+      "sources_failed": [],
       "candidates_added": 0,
       "added": []
     }
