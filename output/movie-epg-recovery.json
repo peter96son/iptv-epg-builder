@@ -1,21 +1,21 @@
 {
-  "updated_at": "2026-10-06T07:12:39.446954+00:00",
+  "updated_at": "2026-10-06T14:10:11.262470+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-06T07:12:38.157340+00:00",
+      "checked_at_utc": "2026-10-06T14:10:09.998362+00:00",
       "groups": [
         "USSR",
         "Кино",
         "Кино 4K",
         "Кинозалы"
       ],
-      "channels": 549,
-      "ok": 389,
-      "gaps": 160,
+      "channels": 550,
+      "ok": 395,
+      "gaps": 155,
       "issue_counts": {
-        "NO_MAPPING": 138,
-        "NO_CURRENT_PROGRAMME": 22,
-        "NO_NEXT_PROGRAMME": 22
+        "NO_MAPPING": 152,
+        "NO_CURRENT_PROGRAMME": 2,
+        "NO_NEXT_PROGRAMME": 3
       },
       "group_counts": {
         "USSR": {
@@ -24,48 +24,80 @@
           "gaps": 4
         },
         "Кино": {
-          "channels": 179,
-          "ok": 132,
-          "gaps": 47
+          "channels": 180,
+          "ok": 134,
+          "gaps": 46
         },
         "Кино 4K": {
           "channels": 65,
-          "ok": 16,
-          "gaps": 49
+          "ok": 13,
+          "gaps": 52
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 226,
-          "gaps": 60
+          "ok": 233,
+          "gaps": 53
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 55,
-      "high_confidence_observations": 1,
+      "channels_considered": 54,
+      "high_confidence_observations": 3,
       "recognized": [
         {
-          "playlist_name": "Bear TV КиноМаяк RU UHD",
-          "provider_name": "Bear TV КиноМаяк RU UHD",
-          "title": "Spi, BEAR vn",
-          "score": 12.25,
-          "zone": "top_band",
+          "playlist_name": "DITV Про вампиров",
+          "provider_name": "DITV Про вампиров",
+          "title": "Почти стемнело",
+          "score": 23.25,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "DITV ФИЛЬМЫ УЖАСОВ 80-х",
+          "provider_name": "DITV ФИЛЬМЫ УЖАСОВ 80-х",
+          "title": "Сияние (1980)",
+          "score": 21.5,
+          "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "provider_name": "DITV ФИЛЬМЫ",
+          "title": "БРАТ (1997)",
+          "score": 18.0,
+          "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 54,
+      "added": 3,
+      "rejected": 51,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-06T07:02:52.051765+00:00",
-          "playlist_name": "Bear TV КиноМаяк RU UHD",
-          "observed_title": "Spi, BEAR vn",
+          "observed_at": "2026-10-06T13:54:30.040453+00:00",
+          "playlist_name": "DITV Про вампиров",
+          "observed_title": "Почти стемнело",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=12.25"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=23.25"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-06T13:54:30.040453+00:00",
+          "playlist_name": "DITV ФИЛЬМЫ УЖАСОВ 80-х",
+          "observed_title": "Сияние (1980)",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=21.5"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-06T13:54:30.040453+00:00",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "observed_title": "БРАТ (1997)",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.0"
         }
       ]
     },
@@ -73,90 +105,18 @@
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "no-policy"
+        "quarantined": 0,
+        "reason": "no-live-candidates"
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 9,
+      "selected_count": 0,
       "quarantined_count": 0,
-      "selected": {
-        "Premium HD": {
-          "source": "gabbarit-current",
-          "source_id": "Premium HD",
-          "output_tvg_id": "premium-hd",
-          "horizon_hours": 190.45,
-          "current": true,
-          "usable": 29
-        },
-        "Premiere HD": {
-          "source": "gabbarit-current",
-          "source_id": "Premiere HD",
-          "output_tvg_id": "Xpremiere-hd",
-          "horizon_hours": 190.21,
-          "current": true,
-          "usable": 34
-        },
-        "Paradise HD": {
-          "source": "gabbarit-current",
-          "source_id": "Paradise HD",
-          "output_tvg_id": "Xparadise-hd",
-          "horizon_hours": 190.19,
-          "current": true,
-          "usable": 33
-        },
-        "Paradox HD": {
-          "source": "gabbarit-current",
-          "source_id": "Paradox HD",
-          "output_tvg_id": "Xparadox-hd",
-          "horizon_hours": 190.53,
-          "current": true,
-          "usable": 29
-        },
-        "4ever Cinema HD": {
-          "source": "gabbarit-current",
-          "source_id": "4 ever Cinema",
-          "output_tvg_id": "X4ever-cinema",
-          "horizon_hours": 311.44,
-          "current": true,
-          "usable": 19
-        },
-        "4ever Drama HD": {
-          "source": "gabbarit-current",
-          "source_id": "4ever Drama",
-          "output_tvg_id": "X4ever-drama",
-          "horizon_hours": 311.43,
-          "current": true,
-          "usable": 19
-        },
-        "4ever Theater HD": {
-          "source": "gabbarit-current",
-          "source_id": "4ever Theater",
-          "output_tvg_id": "X4ever-theater",
-          "horizon_hours": 311.43,
-          "current": true,
-          "usable": 19
-        },
-        "4ever Music HD": {
-          "source": "iptvx-noarch",
-          "source_id": "4ever-music",
-          "output_tvg_id": "X4ever-music",
-          "horizon_hours": 147.42,
-          "current": true,
-          "usable": 28
-        },
-        "KLI Новинки 4K Ultra HD": {
-          "source": "gabbarit-current",
-          "source_id": "KLI Новинки 4k",
-          "output_tvg_id": "Xklinovinci4k",
-          "horizon_hours": 113.39,
-          "current": true,
-          "usable": 31
-        }
-      },
+      "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
+      "live_observations": 3,
       "sources_scanned": 27,
       "sources_failed": [
         {
@@ -172,8 +132,16 @@
           "error": "EOFError"
         }
       ],
-      "candidates_added": 0,
-      "added": []
+      "candidates_added": 1,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "source": "iptvx-noarch",
+          "source_id": "next-spark",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=БРАТ (1997); candidate=х/ф Брат (2006); requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
