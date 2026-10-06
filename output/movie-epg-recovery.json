@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-06T19:47:57.829653+00:00",
+  "updated_at": "2026-10-06T23:28:47.766463+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-06T19:47:56.068525+00:00",
+      "checked_at_utc": "2026-10-06T23:28:46.284349+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,18 +10,18 @@
         "Кинозалы"
       ],
       "channels": 550,
-      "ok": 414,
-      "gaps": 136,
+      "ok": 412,
+      "gaps": 138,
       "issue_counts": {
         "NO_MAPPING": 132,
-        "NO_NEXT_PROGRAMME": 4,
-        "NO_CURRENT_PROGRAMME": 3
+        "NO_CURRENT_PROGRAMME": 6,
+        "NO_NEXT_PROGRAMME": 6
       },
       "group_counts": {
         "USSR": {
           "channels": 19,
-          "ok": 16,
-          "gaps": 3
+          "ok": 15,
+          "gaps": 4
         },
         "Кино": {
           "channels": 180,
@@ -30,8 +30,8 @@
         },
         "Кино 4K": {
           "channels": 65,
-          "ok": 15,
-          "gaps": 50
+          "ok": 14,
+          "gaps": 51
         },
         "Кинозалы": {
           "channels": 286,
@@ -42,153 +42,34 @@
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 47,
-      "high_confidence_observations": 2,
-      "recognized": [
-        {
-          "playlist_name": "KLI СССР HD",
-          "provider_name": "KLI СССР HD",
-          "title": "Ирония судьбы, или С легким паром!",
-          "score": 20.0,
-          "zone": "bottom_band",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "Bear TV КиноПортал RU UHD",
-          "provider_name": "Bear TV КиноПортал RU UHD",
-          "title": "SOUNDTRACK_NEW_YORK",
-          "score": 14.25,
-          "zone": "bottom_band",
-          "engine": "tesseract"
-        }
-      ]
+      "channels_considered": 48,
+      "high_confidence_observations": 0,
+      "recognized": []
     },
     "evidence_recorder": {
-      "added": 2,
-      "rejected": 45,
-      "observations": [
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-06T19:14:14.020663+00:00",
-          "playlist_name": "KLI СССР HD",
-          "observed_title": "Ирония судьбы, или С легким паром!",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=20.0"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-06T19:14:14.020663+00:00",
-          "playlist_name": "Bear TV КиноПортал RU UHD",
-          "observed_title": "SOUNDTRACK_NEW_YORK",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=14.25"
-        }
-      ]
+      "added": 0,
+      "rejected": 48,
+      "observations": []
     },
     "judge": {
       "selector": {
         "changed": 0,
         "selected": 0,
-        "quarantined": 0,
-        "reason": "no-live-candidates"
+        "reason": "waiting-for-distinct-second-title"
       },
-      "pending_count": 1,
-      "pending": {
-        "Bear TV КиноПортал RU UHD": {
-          "observations": 1,
-          "distinct_titles": 1,
-          "status": "PENDING_DISTINCT_SECOND_TITLE"
-        }
-      },
+      "pending_count": 0,
+      "pending": {},
       "selected_count": 0,
       "quarantined_count": 0,
       "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 2,
-      "sources_scanned": 25,
-      "sources_failed": [
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-ru",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-rescue",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "gabbarit-mirror",
-          "error": "EOFError"
-        }
-      ],
-      "candidates_added": 8,
-      "added": [
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "iptvx-noarch",
-          "source_id": "yosso-sovfilm4k",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Ирония судьбы, или С легким паром!; candidate=х/ф Ирония судьбы, или С легким паром! (1975); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "runigma-iptv",
-          "source_id": "yosso-tv-ussr4k",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Ирония судьбы, или С легким паром!; candidate=Ирония судьбы, или С легким паром! (1975).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "openbox-tsd",
-          "source_id": "yosso-tv-sovetskie-filmi-4k",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Ирония судьбы, или С легким паром!; candidate=Х/ф Ирония судьбы, или С легким паром! 1975.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "tvteam",
-          "source_id": "ch2063",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Ирония судьбы, или С легким паром!; candidate=Ирония судьбы, или С легким паром! (1975); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "epgpw-RU",
-          "source_id": "6710",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Ирония судьбы, или С легким паром!; candidate=х/ф Ирония судьбы, или С легким паром!; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "gabbarit-current",
-          "source_id": "YOSSO TV Советские фильмы 4K",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Ирония судьбы, или С легким паром!; candidate=Ирония судьбы, или С легким паром! (1975).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "gabbarit-primary",
-          "source_id": "YOSSO TV Советские фильмы 4K",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Ирония судьбы, или С легким паром!; candidate=Ирония судьбы, или С легким паром! (1975).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "epgone-full-movie-rescue",
-          "source_id": "7158",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Ирония судьбы, или С легким паром!; candidate=Ирония судьбы, или С легким паром! (1975); requires two positive observations before selection"
-        }
-      ]
+      "live_observations": 0,
+      "sources_scanned": 0,
+      "sources_failed": [],
+      "candidates_added": 0,
+      "added": []
     }
   }
 }
