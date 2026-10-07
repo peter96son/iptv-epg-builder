@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-06T23:28:47.766463+00:00",
+  "updated_at": "2026-10-07T03:05:11.724199+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-06T23:28:46.284349+00:00",
+      "checked_at_utc": "2026-10-07T03:05:09.931964+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 550,
-      "ok": 412,
-      "gaps": 138,
+      "ok": 410,
+      "gaps": 140,
       "issue_counts": {
-        "NO_MAPPING": 132,
-        "NO_CURRENT_PROGRAMME": 6,
-        "NO_NEXT_PROGRAMME": 6
+        "NO_MAPPING": 137,
+        "NO_CURRENT_PROGRAMME": 2,
+        "NO_NEXT_PROGRAMME": 3
       },
       "group_counts": {
         "USSR": {
@@ -25,37 +25,56 @@
         },
         "Кино": {
           "channels": 180,
-          "ok": 152,
-          "gaps": 28
+          "ok": 151,
+          "gaps": 29
         },
         "Кино 4K": {
           "channels": 65,
-          "ok": 14,
-          "gaps": 51
+          "ok": 15,
+          "gaps": 50
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 231,
-          "gaps": 55
+          "ok": 229,
+          "gaps": 57
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 48,
-      "high_confidence_observations": 0,
-      "recognized": []
+      "channels_considered": 51,
+      "high_confidence_observations": 1,
+      "recognized": [
+        {
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "provider_name": "KLI Новинки 4K Ultra HD",
+          "title": "Мятеж",
+          "score": 16.25,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        }
+      ]
     },
     "evidence_recorder": {
-      "added": 0,
-      "rejected": 48,
-      "observations": []
+      "added": 1,
+      "rejected": 50,
+      "observations": [
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-07T02:51:29.642962+00:00",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "observed_title": "Мятеж",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=16.25"
+        }
+      ]
     },
     "judge": {
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "waiting-for-distinct-second-title"
+        "quarantined": 0,
+        "reason": "no-live-candidates"
       },
       "pending_count": 0,
       "pending": {},
@@ -65,9 +84,14 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 0,
-      "sources_scanned": 0,
-      "sources_failed": [],
+      "live_observations": 1,
+      "sources_scanned": 9,
+      "sources_failed": [
+        {
+          "source": "gabbarit-mirror",
+          "error": "EOFError"
+        }
+      ],
       "candidates_added": 0,
       "added": []
     }
