@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-07T10:02:02.883992+00:00",
+  "updated_at": "2026-10-07T17:17:36.361907+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-07T10:02:01.212937+00:00",
+      "checked_at_utc": "2026-10-07T17:17:35.413593+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,123 +10,112 @@
         "Кинозалы"
       ],
       "channels": 550,
-      "ok": 416,
-      "gaps": 134,
+      "ok": 461,
+      "gaps": 89,
       "issue_counts": {
-        "NO_MAPPING": 133,
-        "NO_CURRENT_PROGRAMME": 1,
-        "NO_NEXT_PROGRAMME": 1
+        "NO_MAPPING": 89
       },
       "group_counts": {
         "USSR": {
           "channels": 19,
-          "ok": 17,
-          "gaps": 2
+          "ok": 16,
+          "gaps": 3
         },
         "Кино": {
           "channels": 180,
-          "ok": 152,
-          "gaps": 28
+          "ok": 155,
+          "gaps": 25
         },
         "Кино 4K": {
           "channels": 65,
-          "ok": 15,
-          "gaps": 50
+          "ok": 16,
+          "gaps": 49
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 232,
-          "gaps": 54
+          "ok": 274,
+          "gaps": 12
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 48,
+      "channels_considered": 42,
       "high_confidence_observations": 3,
       "recognized": [
         {
-          "playlist_name": "DITV Про вампиров",
-          "provider_name": "DITV Про вампиров",
-          "title": "Дракула",
-          "score": 21.75,
-          "zone": "bottom_band",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "KLI СССР HD",
-          "provider_name": "KLI СССР HD",
-          "title": "Мачеха",
-          "score": 16.5,
+          "playlist_name": "DITV Американские комедии 80-90-х",
+          "provider_name": "DITV Американские комедии 80-90-х",
+          "title": "Без чувств",
+          "score": 17.25,
           "zone": "left_bottom_tight",
           "engine": "tesseract"
         },
         {
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Последняя капля",
-          "score": 23.5,
+          "playlist_name": "DITV Про акул",
+          "provider_name": "DITV Про акул",
+          "title": "Мегалодон",
+          "score": 22.25,
           "zone": "bottom_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "Bear TV КиноМаяк RU UHD",
+          "provider_name": "Bear TV КиноМаяк RU UHD",
+          "title": "Sper BEAR пн",
+          "score": 19.5,
+          "zone": "top_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
       "added": 3,
-      "rejected": 45,
+      "rejected": 39,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-07T09:29:18.071294+00:00",
-          "playlist_name": "DITV Про вампиров",
-          "observed_title": "Дракула",
+          "observed_at": "2026-10-07T17:08:56.067203+00:00",
+          "playlist_name": "DITV Американские комедии 80-90-х",
+          "observed_title": "Без чувств",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=21.75"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=17.25"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-10-07T09:29:18.071294+00:00",
-          "playlist_name": "KLI СССР HD",
-          "observed_title": "Мачеха",
+          "observed_at": "2026-10-07T17:08:56.067203+00:00",
+          "playlist_name": "DITV Про акул",
+          "observed_title": "Мегалодон",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=16.5"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=22.25"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-10-07T09:29:18.071294+00:00",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Последняя капля",
+          "observed_at": "2026-10-07T17:08:56.067203+00:00",
+          "playlist_name": "Bear TV КиноМаяк RU UHD",
+          "observed_title": "Sper BEAR пн",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=23.5"
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=19.5"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 1,
-        "selected": 1,
+        "changed": 0,
+        "selected": 0,
         "quarantined": 0,
-        "target_hours": 6.0
+        "reason": "no-live-candidates"
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 1,
+      "selected_count": 0,
       "quarantined_count": 0,
-      "selected": {
-        "KLI Новинки 4K Ultra HD": {
-          "source": "gabbarit-current",
-          "source_id": "KLI Новинки 4k",
-          "output_tvg_id": "Xklinovinci4k",
-          "horizon_hours": 78.75,
-          "current": true,
-          "usable": 31
-        }
-      },
+      "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
       "live_observations": 3,
-      "sources_scanned": 25,
+      "sources_scanned": 26,
       "sources_failed": [
         {
           "source": "klimedia-dedicated",
@@ -137,11 +126,7 @@
           "error": "RuntimeError"
         },
         {
-          "source": "teleguide-ru",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-rescue",
+          "source": "skyhigh-fhd",
           "error": "RuntimeError"
         },
         {
@@ -153,10 +138,10 @@
       "added": [
         {
           "enabled": "1",
-          "playlist_name": "KLI СССР HD",
+          "playlist_name": "DITV Американские комедии 80-90-х",
           "source": "epgpw-RU",
-          "source_id": "462947",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Мачеха; candidate=х/ф Мачеха (1998); requires two positive observations before selection"
+          "source_id": "551126",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Без чувств; candidate=х/ф Без чувств (1998); requires two positive observations before selection"
         }
       ]
     }
