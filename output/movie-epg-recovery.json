@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-08T17:40:28.577880+00:00",
+  "updated_at": "2026-10-08T23:00:19.376211+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-08T17:40:26.729317+00:00",
+      "checked_at_utc": "2026-10-08T23:00:17.622816+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,18 +10,18 @@
         "Кинозалы"
       ],
       "channels": 550,
-      "ok": 509,
-      "gaps": 41,
+      "ok": 503,
+      "gaps": 47,
       "issue_counts": {
-        "NO_MAPPING": 40,
-        "NO_CURRENT_PROGRAMME": 1,
-        "NO_NEXT_PROGRAMME": 1
+        "NO_MAPPING": 41,
+        "NO_NEXT_PROGRAMME": 6,
+        "NO_CURRENT_PROGRAMME": 1
       },
       "group_counts": {
         "USSR": {
           "channels": 19,
-          "ok": 18,
-          "gaps": 1
+          "ok": 16,
+          "gaps": 3
         },
         "Кино": {
           "channels": 180,
@@ -35,53 +35,37 @@
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 271,
-          "gaps": 15
+          "ok": 267,
+          "gaps": 19
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 38,
-      "high_confidence_observations": 2,
+      "channels_considered": 42,
+      "high_confidence_observations": 1,
       "recognized": [
-        {
-          "playlist_name": "DITV СССР 4К",
-          "provider_name": "DITV СССР 4К",
-          "title": "Вечера на хуторе | близ",
-          "score": 19.5,
-          "zone": "left_bottom",
-          "engine": "tesseract"
-        },
         {
           "playlist_name": "KLI СССР HD",
           "provider_name": "KLI СССР HD",
-          "title": "Чужая ‘родня — =",
-          "score": 22.5,
-          "zone": "left_bottom_tight",
+          "title": "Белые росы",
+          "score": 17.25,
+          "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 2,
-      "rejected": 36,
+      "added": 1,
+      "rejected": 41,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-08T17:05:24.887557+00:00",
-          "playlist_name": "DITV СССР 4К",
-          "observed_title": "Вечера на хуторе | близ",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom; engine=tesseract; score=19.5"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-08T17:05:24.887557+00:00",
+          "observed_at": "2026-10-08T22:36:25.701139+00:00",
           "playlist_name": "KLI СССР HD",
-          "observed_title": "Чужая ‘родня — =",
+          "observed_title": "Белые росы",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=22.5"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=17.25"
         }
       ]
     },
@@ -100,24 +84,59 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 2,
-      "sources_scanned": 27,
+      "live_observations": 1,
+      "sources_scanned": 12,
       "sources_failed": [
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        },
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         }
       ],
-      "candidates_added": 0,
-      "added": []
+      "candidates_added": 6,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "KLI СССР HD",
+          "source": "runigma-iptv",
+          "source_id": "vf-belarusfilm",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Белые росы; candidate=«Белые росы».; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI СССР HD",
+          "source": "epgone-ru2",
+          "source_id": "11600",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Белые росы; candidate=«Белые росы»; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI СССР HD",
+          "source": "gabbarit-current",
+          "source_id": "VF Беларусьфильм",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Белые росы; candidate=х/ф Белые росы.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI СССР HD",
+          "source": "gabbarit-primary",
+          "source_id": "VF Беларусьфильм",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Белые росы; candidate=х/ф Белые росы.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI СССР HD",
+          "source": "epgone-full-movie-rescue",
+          "source_id": "6329",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Белые росы; candidate=«Белые росы»; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI СССР HD",
+          "source": "epgone-full-movie-rescue",
+          "source_id": "11600",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Белые росы; candidate=«Белые росы»; requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
