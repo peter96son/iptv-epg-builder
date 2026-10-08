@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-08T02:32:17.782696+00:00",
+  "updated_at": "2026-10-08T09:58:02.567297+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-08T02:32:16.400117+00:00",
+      "checked_at_utc": "2026-10-08T09:58:01.241118+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 550,
-      "ok": 493,
-      "gaps": 57,
+      "ok": 489,
+      "gaps": 61,
       "issue_counts": {
-        "NO_MAPPING": 42,
-        "NO_CURRENT_PROGRAMME": 11,
-        "NO_NEXT_PROGRAMME": 15
+        "NO_MAPPING": 54,
+        "NO_NEXT_PROGRAMME": 7,
+        "NO_CURRENT_PROGRAMME": 5
       },
       "group_counts": {
         "USSR": {
@@ -35,53 +35,37 @@
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 263,
-          "gaps": 23
+          "ok": 259,
+          "gaps": 27
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 51,
-      "high_confidence_observations": 2,
+      "channels_considered": 54,
+      "high_confidence_observations": 1,
       "recognized": [
         {
-          "playlist_name": "DITV КОМЕДИИ 90-х",
-          "provider_name": "DITV КОМЕДИИ 90-х",
-          "title": "Няньки",
-          "score": 16.5,
-          "zone": "left_bottom",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "KLI Новинки HD",
-          "provider_name": "KLI Новинки HD",
-          "title": "Красный шелк",
-          "score": 17.75,
-          "zone": "bottom_band",
+          "playlist_name": "KLI СССР HD",
+          "provider_name": "KLI СССР HD",
+          "title": "Служебный роман",
+          "score": 23.5,
+          "zone": "left_bottom_tight",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 2,
-      "rejected": 49,
+      "added": 1,
+      "rejected": 53,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-08T02:23:55.376206+00:00",
-          "playlist_name": "DITV КОМЕДИИ 90-х",
-          "observed_title": "Няньки",
+          "observed_at": "2026-10-08T09:39:48.089758+00:00",
+          "playlist_name": "KLI СССР HD",
+          "observed_title": "Служебный роман",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom; engine=tesseract; score=16.5"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-08T02:23:55.376206+00:00",
-          "playlist_name": "KLI Новинки HD",
-          "observed_title": "Красный шелк",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=17.75"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=23.5"
         }
       ]
     },
@@ -100,16 +84,24 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 2,
-      "sources_scanned": 9,
+      "live_observations": 1,
+      "sources_scanned": 12,
       "sources_failed": [
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         }
       ],
-      "candidates_added": 0,
-      "added": []
+      "candidates_added": 1,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "KLI СССР HD",
+          "source": "epgpw-RU",
+          "source_id": "568884",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Служебный роман; candidate=х/ф Служебный роман; requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
