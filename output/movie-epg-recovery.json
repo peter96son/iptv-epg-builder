@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-07T17:17:36.361907+00:00",
+  "updated_at": "2026-10-08T02:32:17.782696+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-07T17:17:35.413593+00:00",
+      "checked_at_utc": "2026-10-08T02:32:16.400117+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,10 +10,12 @@
         "Кинозалы"
       ],
       "channels": 550,
-      "ok": 461,
-      "gaps": 89,
+      "ok": 493,
+      "gaps": 57,
       "issue_counts": {
-        "NO_MAPPING": 89
+        "NO_MAPPING": 42,
+        "NO_CURRENT_PROGRAMME": 11,
+        "NO_NEXT_PROGRAMME": 15
       },
       "group_counts": {
         "USSR": {
@@ -23,79 +25,63 @@
         },
         "Кино": {
           "channels": 180,
-          "ok": 155,
-          "gaps": 25
+          "ok": 150,
+          "gaps": 30
         },
         "Кино 4K": {
           "channels": 65,
-          "ok": 16,
-          "gaps": 49
+          "ok": 64,
+          "gaps": 1
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 274,
-          "gaps": 12
+          "ok": 263,
+          "gaps": 23
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 42,
-      "high_confidence_observations": 3,
+      "channels_considered": 51,
+      "high_confidence_observations": 2,
       "recognized": [
         {
-          "playlist_name": "DITV Американские комедии 80-90-х",
-          "provider_name": "DITV Американские комедии 80-90-х",
-          "title": "Без чувств",
-          "score": 17.25,
-          "zone": "left_bottom_tight",
+          "playlist_name": "DITV КОМЕДИИ 90-х",
+          "provider_name": "DITV КОМЕДИИ 90-х",
+          "title": "Няньки",
+          "score": 16.5,
+          "zone": "left_bottom",
           "engine": "tesseract"
         },
         {
-          "playlist_name": "DITV Про акул",
-          "provider_name": "DITV Про акул",
-          "title": "Мегалодон",
-          "score": 22.25,
+          "playlist_name": "KLI Новинки HD",
+          "provider_name": "KLI Новинки HD",
+          "title": "Красный шелк",
+          "score": 17.75,
           "zone": "bottom_band",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "Bear TV КиноМаяк RU UHD",
-          "provider_name": "Bear TV КиноМаяк RU UHD",
-          "title": "Sper BEAR пн",
-          "score": 19.5,
-          "zone": "top_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 3,
-      "rejected": 39,
+      "added": 2,
+      "rejected": 49,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-07T17:08:56.067203+00:00",
-          "playlist_name": "DITV Американские комедии 80-90-х",
-          "observed_title": "Без чувств",
+          "observed_at": "2026-10-08T02:23:55.376206+00:00",
+          "playlist_name": "DITV КОМЕДИИ 90-х",
+          "observed_title": "Няньки",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=17.25"
+          "notes": "high-confidence OCR; zone=left_bottom; engine=tesseract; score=16.5"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-10-07T17:08:56.067203+00:00",
-          "playlist_name": "DITV Про акул",
-          "observed_title": "Мегалодон",
+          "observed_at": "2026-10-08T02:23:55.376206+00:00",
+          "playlist_name": "KLI Новинки HD",
+          "observed_title": "Красный шелк",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=22.25"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-07T17:08:56.067203+00:00",
-          "playlist_name": "Bear TV КиноМаяк RU UHD",
-          "observed_title": "Sper BEAR пн",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=19.5"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=17.75"
         }
       ]
     },
@@ -114,36 +100,16 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 3,
-      "sources_scanned": 26,
+      "live_observations": 2,
+      "sources_scanned": 9,
       "sources_failed": [
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "skyhigh-fhd",
-          "error": "RuntimeError"
-        },
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         }
       ],
-      "candidates_added": 1,
-      "added": [
-        {
-          "enabled": "1",
-          "playlist_name": "DITV Американские комедии 80-90-х",
-          "source": "epgpw-RU",
-          "source_id": "551126",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Без чувств; candidate=х/ф Без чувств (1998); requires two positive observations before selection"
-        }
-      ]
+      "candidates_added": 0,
+      "added": []
     }
   }
 }
