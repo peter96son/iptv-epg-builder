@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-08T09:58:02.567297+00:00",
+  "updated_at": "2026-10-08T17:40:28.577880+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-08T09:58:01.241118+00:00",
+      "checked_at_utc": "2026-10-08T17:40:26.729317+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,62 +10,78 @@
         "Кинозалы"
       ],
       "channels": 550,
-      "ok": 489,
-      "gaps": 61,
+      "ok": 509,
+      "gaps": 41,
       "issue_counts": {
-        "NO_MAPPING": 54,
-        "NO_NEXT_PROGRAMME": 7,
-        "NO_CURRENT_PROGRAMME": 5
+        "NO_MAPPING": 40,
+        "NO_CURRENT_PROGRAMME": 1,
+        "NO_NEXT_PROGRAMME": 1
       },
       "group_counts": {
         "USSR": {
           "channels": 19,
-          "ok": 16,
-          "gaps": 3
+          "ok": 18,
+          "gaps": 1
         },
         "Кино": {
           "channels": 180,
-          "ok": 150,
-          "gaps": 30
+          "ok": 155,
+          "gaps": 25
         },
         "Кино 4K": {
           "channels": 65,
-          "ok": 64,
-          "gaps": 1
+          "ok": 65,
+          "gaps": 0
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 259,
-          "gaps": 27
+          "ok": 271,
+          "gaps": 15
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 54,
-      "high_confidence_observations": 1,
+      "channels_considered": 38,
+      "high_confidence_observations": 2,
       "recognized": [
+        {
+          "playlist_name": "DITV СССР 4К",
+          "provider_name": "DITV СССР 4К",
+          "title": "Вечера на хуторе | близ",
+          "score": 19.5,
+          "zone": "left_bottom",
+          "engine": "tesseract"
+        },
         {
           "playlist_name": "KLI СССР HD",
           "provider_name": "KLI СССР HD",
-          "title": "Служебный роман",
-          "score": 23.5,
+          "title": "Чужая ‘родня — =",
+          "score": 22.5,
           "zone": "left_bottom_tight",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 53,
+      "added": 2,
+      "rejected": 36,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-08T09:39:48.089758+00:00",
-          "playlist_name": "KLI СССР HD",
-          "observed_title": "Служебный роман",
+          "observed_at": "2026-10-08T17:05:24.887557+00:00",
+          "playlist_name": "DITV СССР 4К",
+          "observed_title": "Вечера на хуторе | близ",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=23.5"
+          "notes": "high-confidence OCR; zone=left_bottom; engine=tesseract; score=19.5"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-08T17:05:24.887557+00:00",
+          "playlist_name": "KLI СССР HD",
+          "observed_title": "Чужая ‘родня — =",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=22.5"
         }
       ]
     },
@@ -84,24 +100,24 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 12,
+      "live_observations": 2,
+      "sources_scanned": 27,
       "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         }
       ],
-      "candidates_added": 1,
-      "added": [
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "epgpw-RU",
-          "source_id": "568884",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Служебный роман; candidate=х/ф Служебный роман; requires two positive observations before selection"
-        }
-      ]
+      "candidates_added": 0,
+      "added": []
     }
   }
 }
