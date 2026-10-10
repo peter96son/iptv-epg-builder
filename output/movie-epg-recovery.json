@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-10T08:06:12.569713+00:00",
+  "updated_at": "2026-10-10T14:27:42.410582+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-10T08:06:10.976804+00:00",
+      "checked_at_utc": "2026-10-10T14:27:40.812269+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,23 +10,21 @@
         "Кинозалы"
       ],
       "channels": 550,
-      "ok": 491,
-      "gaps": 59,
+      "ok": 511,
+      "gaps": 39,
       "issue_counts": {
-        "NO_MAPPING": 55,
-        "NO_CURRENT_PROGRAMME": 4,
-        "NO_NEXT_PROGRAMME": 4
+        "NO_MAPPING": 39
       },
       "group_counts": {
         "USSR": {
           "channels": 19,
-          "ok": 16,
-          "gaps": 3
+          "ok": 17,
+          "gaps": 2
         },
         "Кино": {
           "channels": 180,
-          "ok": 150,
-          "gaps": 30
+          "ok": 155,
+          "gaps": 25
         },
         "Кино 4K": {
           "channels": 65,
@@ -35,29 +33,29 @@
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 260,
-          "gaps": 26
+          "ok": 274,
+          "gaps": 12
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 52,
+      "channels_considered": 36,
       "high_confidence_observations": 2,
       "recognized": [
         {
-          "playlist_name": "VHS HD",
-          "provider_name": "VHS HD",
-          "title": "OXOTA 3A KPACHbIM OKTABPEM",
+          "playlist_name": "KLI Новинки HD",
+          "provider_name": "KLI Новинки HD",
+          "title": "Заклятие 4 Последний обряд",
           "score": 20.0,
-          "zone": "top_left_tight",
+          "zone": "bottom_band",
           "engine": "tesseract"
         },
         {
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Зловещие мертвецы Пекло",
-          "score": 25.0,
+          "playlist_name": "KLI СССР HD",
+          "provider_name": "KLI СССР HD",
+          "title": "Ирония судьбы, или С легк",
+          "score": 20.0,
           "zone": "bottom_band",
           "engine": "tesseract"
         }
@@ -65,23 +63,23 @@
     },
     "evidence_recorder": {
       "added": 2,
-      "rejected": 50,
+      "rejected": 34,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-10T07:53:26.855645+00:00",
-          "playlist_name": "VHS HD",
-          "observed_title": "OXOTA 3A KPACHbIM OKTABPEM",
+          "observed_at": "2026-10-10T14:04:32.422230+00:00",
+          "playlist_name": "KLI Новинки HD",
+          "observed_title": "Заклятие 4 Последний обряд",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=20.0"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=20.0"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-10-10T07:53:26.855645+00:00",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Зловещие мертвецы Пекло",
+          "observed_at": "2026-10-10T14:04:32.422230+00:00",
+          "playlist_name": "KLI СССР HD",
+          "observed_title": "Ирония судьбы, или С легк",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=25.0"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=20.0"
         }
       ]
     },
@@ -97,20 +95,20 @@
       "selected_count": 1,
       "quarantined_count": 0,
       "selected": {
-        "KLI Новинки 4K Ultra HD": {
+        "KLI Новинки HD": {
           "source": "tvteam",
-          "source_id": "ch4089",
-          "output_tvg_id": "Xklinovinci4k",
-          "horizon_hours": 23.15,
+          "source_id": "ch4088",
+          "output_tvg_id": "Xklinovinci",
+          "horizon_hours": 23.61,
           "current": true,
-          "usable": 16
+          "usable": 15
         }
       },
       "quarantined": {}
     },
     "candidate_discovery": {
       "live_observations": 2,
-      "sources_scanned": 10,
+      "sources_scanned": 12,
       "sources_failed": [
         {
           "source": "gabbarit-mirror",
@@ -121,10 +119,10 @@
       "added": [
         {
           "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "playlist_name": "KLI Новинки HD",
           "source": "epgpw-RU",
-          "source_id": "532248",
-          "notes": "auto-discovered from live title; similarity=0.857; observed=Зловещие мертвецы Пекло; candidate=х/ф Зловещие мертвецы 2 (1987); requires two positive observations before selection"
+          "source_id": "378735",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Заклятие 4 Последний обряд; candidate=х/ф Заклятие 4 – Последний обряд; requires two positive observations before selection"
         }
       ]
     }
