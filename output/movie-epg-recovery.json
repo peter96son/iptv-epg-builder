@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-10T01:32:59.781706+00:00",
+  "updated_at": "2026-10-10T08:06:12.569713+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-10T01:32:58.849910+00:00",
+      "checked_at_utc": "2026-10-10T08:06:10.976804+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 550,
-      "ok": 495,
-      "gaps": 55,
+      "ok": 491,
+      "gaps": 59,
       "issue_counts": {
-        "NO_MAPPING": 38,
-        "NO_CURRENT_PROGRAMME": 17,
-        "NO_NEXT_PROGRAMME": 17
+        "NO_MAPPING": 55,
+        "NO_CURRENT_PROGRAMME": 4,
+        "NO_NEXT_PROGRAMME": 4
       },
       "group_counts": {
         "USSR": {
@@ -25,8 +25,8 @@
         },
         "Кино": {
           "channels": 180,
-          "ok": 149,
-          "gaps": 31
+          "ok": 150,
+          "gaps": 30
         },
         "Кино 4K": {
           "channels": 65,
@@ -35,29 +35,29 @@
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 265,
-          "gaps": 21
+          "ok": 260,
+          "gaps": 26
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 50,
+      "channels_considered": 52,
       "high_confidence_observations": 2,
       "recognized": [
         {
-          "playlist_name": "MM Фобия HD",
-          "provider_name": "MM Фобия HD",
-          "title": "Бабадук (2014)",
-          "score": 21.75,
-          "zone": "bottom_band",
+          "playlist_name": "VHS HD",
+          "provider_name": "VHS HD",
+          "title": "OXOTA 3A KPACHbIM OKTABPEM",
+          "score": 20.0,
+          "zone": "top_left_tight",
           "engine": "tesseract"
         },
         {
           "playlist_name": "KLI Новинки 4K Ultra HD",
           "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Грешники",
-          "score": 17.0,
+          "title": "Зловещие мертвецы Пекло",
+          "score": 25.0,
           "zone": "bottom_band",
           "engine": "tesseract"
         }
@@ -65,53 +65,45 @@
     },
     "evidence_recorder": {
       "added": 2,
-      "rejected": 48,
+      "rejected": 50,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-10T01:25:23.281429+00:00",
-          "playlist_name": "MM Фобия HD",
-          "observed_title": "Бабадук (2014)",
+          "observed_at": "2026-10-10T07:53:26.855645+00:00",
+          "playlist_name": "VHS HD",
+          "observed_title": "OXOTA 3A KPACHbIM OKTABPEM",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=21.75"
+          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=20.0"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-10-10T01:25:23.281429+00:00",
+          "observed_at": "2026-10-10T07:53:26.855645+00:00",
           "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Грешники",
+          "observed_title": "Зловещие мертвецы Пекло",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=17.0"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=25.0"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 2,
-        "selected": 2,
+        "changed": 1,
+        "selected": 1,
         "quarantined": 0,
         "target_hours": 6.0
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 2,
+      "selected_count": 1,
       "quarantined_count": 0,
       "selected": {
-        "MM Фобия HD": {
-          "source": "minimax-mm-dedicated",
-          "source_id": "fobija-mm",
-          "output_tvg_id": "Xminimax-fobija",
-          "horizon_hours": 251.78,
-          "current": true,
-          "usable": 36
-        },
         "KLI Новинки 4K Ultra HD": {
           "source": "tvteam",
           "source_id": "ch4089",
-          "output_tvg_id": "Xliveocr-0ec3bdbd60ad2705",
-          "horizon_hours": 24.14,
+          "output_tvg_id": "Xklinovinci4k",
+          "horizon_hours": 23.15,
           "current": true,
-          "usable": 17
+          "usable": 16
         }
       },
       "quarantined": {}
@@ -125,8 +117,16 @@
           "error": "EOFError"
         }
       ],
-      "candidates_added": 0,
-      "added": []
+      "candidates_added": 1,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "source": "epgpw-RU",
+          "source_id": "532248",
+          "notes": "auto-discovered from live title; similarity=0.857; observed=Зловещие мертвецы Пекло; candidate=х/ф Зловещие мертвецы 2 (1987); requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
