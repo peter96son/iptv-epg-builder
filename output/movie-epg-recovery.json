@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-10T14:27:42.410582+00:00",
+  "updated_at": "2026-10-10T19:14:56.215039+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-10T14:27:40.812269+00:00",
+      "checked_at_utc": "2026-10-10T19:14:55.228761+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,10 +10,10 @@
         "Кинозалы"
       ],
       "channels": 550,
-      "ok": 511,
-      "gaps": 39,
+      "ok": 512,
+      "gaps": 38,
       "issue_counts": {
-        "NO_MAPPING": 39
+        "NO_MAPPING": 38
       },
       "group_counts": {
         "USSR": {
@@ -33,96 +33,126 @@
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 274,
-          "gaps": 12
+          "ok": 275,
+          "gaps": 11
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 36,
-      "high_confidence_observations": 2,
+      "channels_considered": 37,
+      "high_confidence_observations": 4,
       "recognized": [
         {
-          "playlist_name": "KLI Новинки HD",
-          "provider_name": "KLI Новинки HD",
-          "title": "Заклятие 4 Последний обряд",
-          "score": 20.0,
+          "playlist_name": "Детектив HD",
+          "provider_name": "Детектив HD",
+          "title": "Побег",
+          "score": 21.25,
+          "zone": "top_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "provider_name": "DITV ФИЛЬМЫ",
+          "title": "Жмурки 2005",
+          "score": 16.5,
+          "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "MM Погружение HD",
+          "provider_name": "MM Погружение HD",
+          "title": "Челюсти 4: Месть (1987)",
+          "score": 18.0,
           "zone": "bottom_band",
           "engine": "tesseract"
         },
         {
           "playlist_name": "KLI СССР HD",
           "provider_name": "KLI СССР HD",
-          "title": "Ирония судьбы, или С легк",
-          "score": 20.0,
-          "zone": "bottom_band",
+          "title": "Карнавальная ночь",
+          "score": 19.0,
+          "zone": "left_bottom_tight",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 2,
-      "rejected": 34,
+      "added": 4,
+      "rejected": 33,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-10T14:04:32.422230+00:00",
-          "playlist_name": "KLI Новинки HD",
-          "observed_title": "Заклятие 4 Последний обряд",
+          "observed_at": "2026-10-10T19:01:15.791958+00:00",
+          "playlist_name": "Детектив HD",
+          "observed_title": "Побег",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=20.0"
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=21.25"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-10-10T14:04:32.422230+00:00",
-          "playlist_name": "KLI СССР HD",
-          "observed_title": "Ирония судьбы, или С легк",
+          "observed_at": "2026-10-10T19:01:15.791958+00:00",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "observed_title": "Жмурки 2005",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=20.0"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=16.5"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-10T19:01:15.791958+00:00",
+          "playlist_name": "MM Погружение HD",
+          "observed_title": "Челюсти 4: Месть (1987)",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-10T19:01:15.791958+00:00",
+          "playlist_name": "KLI СССР HD",
+          "observed_title": "Карнавальная ночь",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=19.0"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 1,
-        "selected": 1,
+        "changed": 0,
+        "selected": 0,
         "quarantined": 0,
-        "target_hours": 6.0
+        "reason": "no-live-candidates"
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 1,
+      "selected_count": 0,
       "quarantined_count": 0,
-      "selected": {
-        "KLI Новинки HD": {
-          "source": "tvteam",
-          "source_id": "ch4088",
-          "output_tvg_id": "Xklinovinci",
-          "horizon_hours": 23.61,
-          "current": true,
-          "usable": 15
-        }
-      },
+      "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 2,
-      "sources_scanned": 12,
+      "live_observations": 4,
+      "sources_scanned": 15,
       "sources_failed": [
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         }
       ],
-      "candidates_added": 1,
+      "candidates_added": 2,
       "added": [
         {
           "enabled": "1",
-          "playlist_name": "KLI Новинки HD",
+          "playlist_name": "KLI СССР HD",
           "source": "epgpw-RU",
-          "source_id": "378735",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Заклятие 4 Последний обряд; candidate=х/ф Заклятие 4 – Последний обряд; requires two positive observations before selection"
+          "source_id": "6873",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Карнавальная ночь; candidate=х/ф Карнавальная ночь; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI СССР HD",
+          "source": "epgpw-RU",
+          "source_id": "537445",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Карнавальная ночь; candidate=Карнавальная ночь (1956); requires two positive observations before selection"
         }
       ]
     }
