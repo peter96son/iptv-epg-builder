@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-10T19:14:56.215039+00:00",
+  "updated_at": "2026-10-10T23:31:18.078692+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-10T19:14:55.228761+00:00",
+      "checked_at_utc": "2026-10-10T23:31:16.513186+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,149 +10,142 @@
         "Кинозалы"
       ],
       "channels": 550,
-      "ok": 512,
-      "gaps": 38,
+      "ok": 443,
+      "gaps": 107,
       "issue_counts": {
-        "NO_MAPPING": 38
+        "NO_MAPPING": 38,
+        "NO_NEXT_PROGRAMME": 69,
+        "NO_CURRENT_PROGRAMME": 25
       },
       "group_counts": {
         "USSR": {
           "channels": 19,
-          "ok": 17,
-          "gaps": 2
+          "ok": 16,
+          "gaps": 3
         },
         "Кино": {
           "channels": 180,
-          "ok": 155,
-          "gaps": 25
+          "ok": 146,
+          "gaps": 34
         },
         "Кино 4K": {
           "channels": 65,
-          "ok": 65,
-          "gaps": 0
+          "ok": 59,
+          "gaps": 6
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 275,
-          "gaps": 11
+          "ok": 222,
+          "gaps": 64
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 37,
-      "high_confidence_observations": 4,
+      "channels_considered": 61,
+      "high_confidence_observations": 2,
       "recognized": [
-        {
-          "playlist_name": "Детектив HD",
-          "provider_name": "Детектив HD",
-          "title": "Побег",
-          "score": 21.25,
-          "zone": "top_band",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "DITV ФИЛЬМЫ",
-          "provider_name": "DITV ФИЛЬМЫ",
-          "title": "Жмурки 2005",
-          "score": 16.5,
-          "zone": "left_bottom_tight",
-          "engine": "tesseract"
-        },
         {
           "playlist_name": "MM Погружение HD",
           "provider_name": "MM Погружение HD",
-          "title": "Челюсти 4: Месть (1987)",
-          "score": 18.0,
-          "zone": "bottom_band",
+          "title": "SEQUENCE SUPERVISORS",
+          "score": 14.75,
+          "zone": "top_band",
           "engine": "tesseract"
         },
         {
           "playlist_name": "KLI СССР HD",
           "provider_name": "KLI СССР HD",
-          "title": "Карнавальная ночь",
-          "score": 19.0,
-          "zone": "left_bottom_tight",
+          "title": "юбовь и голуби. 7",
+          "score": 18.0,
+          "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 4,
-      "rejected": 33,
+      "added": 2,
+      "rejected": 59,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-10T19:01:15.791958+00:00",
-          "playlist_name": "Детектив HD",
-          "observed_title": "Побег",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=21.25"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-10T19:01:15.791958+00:00",
-          "playlist_name": "DITV ФИЛЬМЫ",
-          "observed_title": "Жмурки 2005",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=16.5"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-10T19:01:15.791958+00:00",
+          "observed_at": "2026-10-10T23:07:31.253451+00:00",
           "playlist_name": "MM Погружение HD",
-          "observed_title": "Челюсти 4: Месть (1987)",
+          "observed_title": "SEQUENCE SUPERVISORS",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=14.75"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-10T23:07:31.253451+00:00",
+          "playlist_name": "KLI СССР HD",
+          "observed_title": "юбовь и голуби. 7",
           "origin": "movie-live-observer",
           "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.0"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-10T19:01:15.791958+00:00",
-          "playlist_name": "KLI СССР HD",
-          "observed_title": "Карнавальная ночь",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=19.0"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 0,
-        "selected": 0,
+        "changed": 1,
+        "selected": 1,
         "quarantined": 0,
-        "reason": "no-live-candidates"
+        "target_hours": 6.0
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 0,
+      "selected_count": 1,
       "quarantined_count": 0,
-      "selected": {},
+      "selected": {
+        "KLI СССР HD": {
+          "source": "tvteam",
+          "source_id": "ch4083",
+          "output_tvg_id": "Xliveocr-25e879b896d08aa6",
+          "horizon_hours": 22.87,
+          "current": true,
+          "usable": 18
+        }
+      },
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 4,
-      "sources_scanned": 15,
+      "live_observations": 2,
+      "sources_scanned": 13,
       "sources_failed": [
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         }
       ],
-      "candidates_added": 2,
+      "candidates_added": 4,
       "added": [
         {
           "enabled": "1",
           "playlist_name": "KLI СССР HD",
-          "source": "epgpw-RU",
-          "source_id": "6873",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Карнавальная ночь; candidate=х/ф Карнавальная ночь; requires two positive observations before selection"
+          "source": "iptvx-noarch",
+          "source_id": "liberty-soyuz",
+          "notes": "auto-discovered from live title; similarity=0.903; observed=юбовь и голуби. 7; candidate=х/ф Любовь и голуби; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI СССР HD",
+          "source": "tvteam",
+          "source_id": "ch1780",
+          "notes": "auto-discovered from live title; similarity=0.903; observed=юбовь и голуби. 7; candidate=Любовь и голуби; requires two positive observations before selection"
         },
         {
           "enabled": "1",
           "playlist_name": "KLI СССР HD",
           "source": "epgpw-RU",
-          "source_id": "537445",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Карнавальная ночь; candidate=Карнавальная ночь (1956); requires two positive observations before selection"
+          "source_id": "445884",
+          "notes": "auto-discovered from live title; similarity=0.903; observed=юбовь и голуби. 7; candidate=х/ф Любовь и голуби; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI СССР HD",
+          "source": "epgone-full-movie-rescue",
+          "source_id": "6730",
+          "notes": "auto-discovered from live title; similarity=0.903; observed=юбовь и голуби. 7; candidate=Любовь и голуби; requires two positive observations before selection"
         }
       ]
     }
