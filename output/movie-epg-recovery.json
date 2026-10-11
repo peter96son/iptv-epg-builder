@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-10T23:31:18.078692+00:00",
+  "updated_at": "2026-10-11T02:30:05.252612+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-10T23:31:16.513186+00:00",
+      "checked_at_utc": "2026-10-11T02:30:03.577390+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 550,
-      "ok": 443,
-      "gaps": 107,
+      "ok": 427,
+      "gaps": 123,
       "issue_counts": {
-        "NO_MAPPING": 38,
-        "NO_NEXT_PROGRAMME": 69,
-        "NO_CURRENT_PROGRAMME": 25
+        "NO_MAPPING": 37,
+        "NO_CURRENT_PROGRAMME": 86,
+        "NO_NEXT_PROGRAMME": 86
       },
       "group_counts": {
         "USSR": {
@@ -30,124 +30,65 @@
         },
         "Кино 4K": {
           "channels": 65,
-          "ok": 59,
-          "gaps": 6
+          "ok": 58,
+          "gaps": 7
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 222,
-          "gaps": 64
+          "ok": 207,
+          "gaps": 79
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 61,
-      "high_confidence_observations": 2,
+      "channels_considered": 91,
+      "high_confidence_observations": 1,
       "recognized": [
         {
-          "playlist_name": "MM Погружение HD",
-          "provider_name": "MM Погружение HD",
-          "title": "SEQUENCE SUPERVISORS",
-          "score": 14.75,
-          "zone": "top_band",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "KLI СССР HD",
-          "provider_name": "KLI СССР HD",
-          "title": "юбовь и голуби. 7",
-          "score": 18.0,
-          "zone": "bottom_band",
+          "playlist_name": "Insomnia HD",
+          "provider_name": "Insomnia HD",
+          "title": "АПОСТОЛ",
+          "score": 16.75,
+          "zone": "top_left_tight",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 2,
-      "rejected": 59,
+      "added": 1,
+      "rejected": 89,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-10T23:07:31.253451+00:00",
-          "playlist_name": "MM Погружение HD",
-          "observed_title": "SEQUENCE SUPERVISORS",
+          "observed_at": "2026-10-11T02:28:36.211025+00:00",
+          "playlist_name": "Insomnia HD",
+          "observed_title": "АПОСТОЛ",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=14.75"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-10T23:07:31.253451+00:00",
-          "playlist_name": "KLI СССР HD",
-          "observed_title": "юбовь и голуби. 7",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.0"
+          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=16.75"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 1,
-        "selected": 1,
+        "changed": 0,
+        "selected": 0,
         "quarantined": 0,
-        "target_hours": 6.0
+        "reason": "no-live-candidates"
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 1,
+      "selected_count": 0,
       "quarantined_count": 0,
-      "selected": {
-        "KLI СССР HD": {
-          "source": "tvteam",
-          "source_id": "ch4083",
-          "output_tvg_id": "Xliveocr-25e879b896d08aa6",
-          "horizon_hours": 22.87,
-          "current": true,
-          "usable": 18
-        }
-      },
+      "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 2,
-      "sources_scanned": 13,
-      "sources_failed": [
-        {
-          "source": "gabbarit-mirror",
-          "error": "EOFError"
-        }
-      ],
-      "candidates_added": 4,
-      "added": [
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "iptvx-noarch",
-          "source_id": "liberty-soyuz",
-          "notes": "auto-discovered from live title; similarity=0.903; observed=юбовь и голуби. 7; candidate=х/ф Любовь и голуби; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "tvteam",
-          "source_id": "ch1780",
-          "notes": "auto-discovered from live title; similarity=0.903; observed=юбовь и голуби. 7; candidate=Любовь и голуби; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "epgpw-RU",
-          "source_id": "445884",
-          "notes": "auto-discovered from live title; similarity=0.903; observed=юбовь и голуби. 7; candidate=х/ф Любовь и голуби; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI СССР HD",
-          "source": "epgone-full-movie-rescue",
-          "source_id": "6730",
-          "notes": "auto-discovered from live title; similarity=0.903; observed=юбовь и голуби. 7; candidate=Любовь и голуби; requires two positive observations before selection"
-        }
-      ]
+      "live_observations": 1,
+      "sources_scanned": 1,
+      "sources_failed": [],
+      "candidates_added": 0,
+      "added": []
     }
   }
 }
