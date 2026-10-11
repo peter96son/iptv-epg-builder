@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-11T16:30:56.769147+00:00",
+  "updated_at": "2026-10-11T21:02:34.759593+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-11T16:30:55.222494+00:00",
+      "checked_at_utc": "2026-10-11T21:02:33.563340+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 550,
-      "ok": 401,
-      "gaps": 149,
+      "ok": 355,
+      "gaps": 195,
       "issue_counts": {
         "NO_MAPPING": 37,
-        "NO_CURRENT_PROGRAMME": 108,
-        "NO_NEXT_PROGRAMME": 112
+        "NO_CURRENT_PROGRAMME": 146,
+        "NO_NEXT_PROGRAMME": 158
       },
       "group_counts": {
         "USSR": {
@@ -25,47 +25,47 @@
         },
         "Кино": {
           "channels": 180,
-          "ok": 145,
-          "gaps": 35
+          "ok": 126,
+          "gaps": 54
         },
         "Кино 4K": {
           "channels": 65,
-          "ok": 57,
-          "gaps": 8
+          "ok": 58,
+          "gaps": 7
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 185,
-          "gaps": 101
+          "ok": 157,
+          "gaps": 129
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 101,
+      "channels_considered": 116,
       "high_confidence_observations": 3,
       "recognized": [
         {
-          "playlist_name": "BCU Action HD",
-          "provider_name": "BCU Action HD",
-          "title": "Зачинщики (2024)",
-          "score": 22.25,
-          "zone": "top_left",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "MM USSR Сказки HD",
-          "provider_name": "MM USSR Сказки HD",
-          "title": "Обыкновенное чудо (1978)",
-          "score": 15.0,
-          "zone": "left_bottom_tight",
+          "playlist_name": "BCU Праздники HDR",
+          "provider_name": "BCU Праздники HDR",
+          "title": "Праздники - 3 сезон, 11 серия",
+          "score": 19.75,
+          "zone": "top_band",
           "engine": "tesseract"
         },
         {
           "playlist_name": "KLI Новинки 4K Ultra HD",
           "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Сводишь с ума",
-          "score": 17.75,
+          "title": "Таинственный лес. Родовое проклятие",
+          "score": 25.0,
+          "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "MM USSR Сказки HD",
+          "provider_name": "MM USSR Сказки HD",
+          "title": "Алые паруса (1961)",
+          "score": 22.5,
           "zone": "left_bottom_tight",
           "engine": "tesseract"
         }
@@ -73,192 +73,167 @@
     },
     "evidence_recorder": {
       "added": 3,
-      "rejected": 97,
+      "rejected": 112,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-11T16:10:47.546221+00:00",
-          "playlist_name": "BCU Action HD",
-          "observed_title": "Зачинщики (2024)",
+          "observed_at": "2026-10-11T20:52:22.661619+00:00",
+          "playlist_name": "BCU Праздники HDR",
+          "observed_title": "Праздники - 3 сезон, 11 серия",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=22.25"
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=19.75"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-10-11T16:10:47.546221+00:00",
-          "playlist_name": "MM USSR Сказки HD",
-          "observed_title": "Обыкновенное чудо (1978)",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=15.0"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-11T16:10:47.546221+00:00",
+          "observed_at": "2026-10-11T20:52:22.661619+00:00",
           "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Сводишь с ума",
+          "observed_title": "Таинственный лес. Родовое проклятие",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=17.75"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=25.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-11T20:52:22.661619+00:00",
+          "playlist_name": "MM USSR Сказки HD",
+          "observed_title": "Алые паруса (1961)",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=22.5"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 0,
-        "selected": 0,
+        "changed": 3,
+        "selected": 3,
         "quarantined": 0,
-        "reason": "no-live-candidates"
+        "target_hours": 6.0
       },
-      "pending_count": 1,
-      "pending": {
+      "pending_count": 0,
+      "pending": {},
+      "selected_count": 3,
+      "quarantined_count": 0,
+      "selected": {
+        "BCU Праздники HDR": {
+          "source": "gabbarit-current",
+          "source_id": "BCU Сваты 4K",
+          "output_tvg_id": "bcu-prazdniki-hdr",
+          "horizon_hours": 192.8,
+          "current": true,
+          "usable": 143
+        },
+        "KLI Новинки 4K Ultra HD": {
+          "source": "tvteam",
+          "source_id": "ch4089",
+          "output_tvg_id": "Xklinovinci4k",
+          "horizon_hours": 24.32,
+          "current": true,
+          "usable": 18
+        },
         "MM USSR Сказки HD": {
-          "observations": 1,
-          "distinct_titles": 1,
-          "status": "PENDING_DISTINCT_SECOND_TITLE"
+          "source": "minimax-mm-dedicated",
+          "source_id": "ussr-skazki-mm",
+          "output_tvg_id": "Xminimax-ussr-skazki",
+          "horizon_hours": 160.26,
+          "current": true,
+          "usable": 38
         }
       },
-      "selected_count": 0,
-      "quarantined_count": 0,
-      "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
       "live_observations": 3,
-      "sources_scanned": 25,
+      "sources_scanned": 10,
       "sources_failed": [
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-ru",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-rescue",
-          "error": "RuntimeError"
-        },
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         }
       ],
-      "candidates_added": 16,
+      "candidates_added": 12,
       "added": [
         {
           "enabled": "1",
-          "playlist_name": "BCU Action HD",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
           "source": "iptv-online-primary",
-          "source_id": "Xbcu-action",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Зачинщики (2024); candidate=х/ф Зачинщики (2024); requires two positive observations before selection"
+          "source_id": "Xbear-tv-kinoarena-ru-uhd",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Таинственный лес. Родовое проклятие; candidate=Таинственный лес. Родовое проклятие (2025); requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "MM USSR Сказки HD",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
           "source": "iptv-online-primary",
-          "source_id": "Xminimax-ussr-skazki",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Обыкновенное чудо (1978); candidate=Обыкновенное чудо; requires two positive observations before selection"
+          "source_id": "Xminimax-newfilm2",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Таинственный лес. Родовое проклятие; candidate=х/ф Таинственный лес. Родовое проклятие; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "BCU Action HD",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
           "source": "iptvx-noarch",
-          "source_id": "bcu-action",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Зачинщики (2024); candidate=х/ф Зачинщики (2024); requires two positive observations before selection"
+          "source_id": "bear-tv-kinoarena-ru-uhd",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Таинственный лес. Родовое проклятие; candidate=Таинственный лес. Родовое проклятие (2025); requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "MM USSR Сказки HD",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
           "source": "iptvx-noarch",
-          "source_id": "minimax-ussr-skazki",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Обыкновенное чудо (1978); candidate=Обыкновенное чудо; requires two positive observations before selection"
+          "source_id": "minimax-newfilm2",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Таинственный лес. Родовое проклятие; candidate=х/ф Таинственный лес. Родовое проклятие; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "MM USSR Сказки HD",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
           "source": "openbox-tsd",
-          "source_id": "mm-ussr-ckazki",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Обыкновенное чудо (1978); candidate=Х/ф Обыкновенное чудо.; requires two positive observations before selection"
+          "source_id": "mm-newfilm-2",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Таинственный лес. Родовое проклятие; candidate=Х/ф Таинственный лес Родовое проклятие.; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "BCU Action HD",
-          "source": "bcumedia-dedicated",
-          "source_id": "BCU Action HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Зачинщики (2024); candidate=Зачинщики (2024); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "BCU Action HD",
-          "source": "bcumedia-dedicated",
-          "source_id": "BCU Action HDR",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Зачинщики (2024); candidate=Зачинщики (2024); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM USSR Сказки HD",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
           "source": "minimax-mm-dedicated",
-          "source_id": "ussr-skazki-mm",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Обыкновенное чудо (1978); candidate=Обыкновенное чудо; requires two positive observations before selection"
+          "source_id": "newfilm2-mm",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Таинственный лес. Родовое проклятие; candidate=Таинственный лес. Родовое проклятие; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "MM USSR Сказки HD",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
           "source": "tvteam",
-          "source_id": "ch1226",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Обыкновенное чудо (1978); candidate=Обыкновенное чудо; requires two positive observations before selection"
+          "source_id": "ch1217",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Таинственный лес. Родовое проклятие; candidate=Таинственный лес. Родовое проклятие; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "BCU Action HD",
-          "source": "tvteam",
-          "source_id": "ch769",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Зачинщики (2024); candidate=Зачинщики (2024); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "BCU Action HD",
+          "playlist_name": "BCU Праздники HDR",
           "source": "gabbarit-current",
-          "source_id": "BCU Action HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Зачинщики (2024); candidate=Зачинщики (2024).; requires two positive observations before selection"
+          "source_id": "Serial HD",
+          "notes": "auto-discovered from live title; similarity=0.893; observed=Праздники - 3 сезон, 11 серия; candidate=Праздники: 2-й сезон: 11-я серия (2024).; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "MM USSR Сказки HD",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
           "source": "gabbarit-current",
-          "source_id": "минимакс-ussr-сказки HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Обыкновенное чудо (1978); candidate=Обыкновенное чудо (1978).; requires two positive observations before selection"
+          "source_id": "минимакс-newfilm 2 HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Таинственный лес. Родовое проклятие; candidate=Таинственный лес. Родовое проклятие (2025).; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "BCU Action HD",
+          "playlist_name": "BCU Праздники HDR",
           "source": "gabbarit-primary",
-          "source_id": "BCU Action HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Зачинщики (2024); candidate=Зачинщики (2024).; requires two positive observations before selection"
+          "source_id": "Serial HD",
+          "notes": "auto-discovered from live title; similarity=0.893; observed=Праздники - 3 сезон, 11 серия; candidate=Праздники: 2-й сезон: 11-я серия (2024).; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "MM USSR Сказки HD",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
           "source": "gabbarit-primary",
-          "source_id": "минимакс-ussr-сказки HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Обыкновенное чудо (1978); candidate=Обыкновенное чудо (1978).; requires two positive observations before selection"
+          "source_id": "минимакс-newfilm 2 HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Таинственный лес. Родовое проклятие; candidate=Таинственный лес. Родовое проклятие (2025).; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "BCU Action HD",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
           "source": "epgone-full-movie-rescue",
-          "source_id": "4748",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Зачинщики (2024); candidate=Зачинщики (2024).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM USSR Сказки HD",
-          "source": "epgone-full-movie-rescue",
-          "source_id": "5134",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Обыкновенное чудо (1978); candidate=Обыкновенное чудо; requires two positive observations before selection"
+          "source_id": "5125",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Таинственный лес. Родовое проклятие; candidate=Таинственный лес. Родовое проклятие; requires two positive observations before selection"
         }
       ]
     }
