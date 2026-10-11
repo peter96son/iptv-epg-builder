@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-11T09:36:10.523707+00:00",
+  "updated_at": "2026-10-11T16:30:56.769147+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-11T09:36:08.959177+00:00",
+      "checked_at_utc": "2026-10-11T16:30:55.222494+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,18 +10,18 @@
         "Кинозалы"
       ],
       "channels": 550,
-      "ok": 422,
-      "gaps": 128,
+      "ok": 401,
+      "gaps": 149,
       "issue_counts": {
         "NO_MAPPING": 37,
-        "NO_CURRENT_PROGRAMME": 90,
-        "NO_NEXT_PROGRAMME": 91
+        "NO_CURRENT_PROGRAMME": 108,
+        "NO_NEXT_PROGRAMME": 112
       },
       "group_counts": {
         "USSR": {
           "channels": 19,
-          "ok": 15,
-          "gaps": 4
+          "ok": 14,
+          "gaps": 5
         },
         "Кино": {
           "channels": 180,
@@ -30,42 +30,74 @@
         },
         "Кино 4K": {
           "channels": 65,
-          "ok": 59,
-          "gaps": 6
+          "ok": 57,
+          "gaps": 8
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 203,
-          "gaps": 83
+          "ok": 185,
+          "gaps": 101
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 81,
-      "high_confidence_observations": 1,
+      "channels_considered": 101,
+      "high_confidence_observations": 3,
       "recognized": [
         {
-          "playlist_name": "BCU Праздники HDR",
-          "provider_name": "BCU Праздники HDR",
-          "title": "Праздники - 2 сезон, 3 серия",
-          "score": 19.75,
+          "playlist_name": "BCU Action HD",
+          "provider_name": "BCU Action HD",
+          "title": "Зачинщики (2024)",
+          "score": 22.25,
           "zone": "top_left",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "MM USSR Сказки HD",
+          "provider_name": "MM USSR Сказки HD",
+          "title": "Обыкновенное чудо (1978)",
+          "score": 15.0,
+          "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "provider_name": "KLI Новинки 4K Ultra HD",
+          "title": "Сводишь с ума",
+          "score": 17.75,
+          "zone": "left_bottom_tight",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 79,
+      "added": 3,
+      "rejected": 97,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-11T09:30:59.934732+00:00",
-          "playlist_name": "BCU Праздники HDR",
-          "observed_title": "Праздники - 2 сезон, 3 серия",
+          "observed_at": "2026-10-11T16:10:47.546221+00:00",
+          "playlist_name": "BCU Action HD",
+          "observed_title": "Зачинщики (2024)",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=19.75"
+          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=22.25"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-11T16:10:47.546221+00:00",
+          "playlist_name": "MM USSR Сказки HD",
+          "observed_title": "Обыкновенное чудо (1978)",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=15.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-11T16:10:47.546221+00:00",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "observed_title": "Сводишь с ума",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=17.75"
         }
       ]
     },
@@ -76,24 +108,159 @@
         "quarantined": 0,
         "reason": "no-live-candidates"
       },
-      "pending_count": 0,
-      "pending": {},
+      "pending_count": 1,
+      "pending": {
+        "MM USSR Сказки HD": {
+          "observations": 1,
+          "distinct_titles": 1,
+          "status": "PENDING_DISTINCT_SECOND_TITLE"
+        }
+      },
       "selected_count": 0,
       "quarantined_count": 0,
       "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 4,
+      "live_observations": 3,
+      "sources_scanned": 25,
       "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-ru",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-rescue",
+          "error": "RuntimeError"
+        },
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         }
       ],
-      "candidates_added": 0,
-      "added": []
+      "candidates_added": 16,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "BCU Action HD",
+          "source": "iptv-online-primary",
+          "source_id": "Xbcu-action",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Зачинщики (2024); candidate=х/ф Зачинщики (2024); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM USSR Сказки HD",
+          "source": "iptv-online-primary",
+          "source_id": "Xminimax-ussr-skazki",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Обыкновенное чудо (1978); candidate=Обыкновенное чудо; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "BCU Action HD",
+          "source": "iptvx-noarch",
+          "source_id": "bcu-action",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Зачинщики (2024); candidate=х/ф Зачинщики (2024); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM USSR Сказки HD",
+          "source": "iptvx-noarch",
+          "source_id": "minimax-ussr-skazki",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Обыкновенное чудо (1978); candidate=Обыкновенное чудо; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM USSR Сказки HD",
+          "source": "openbox-tsd",
+          "source_id": "mm-ussr-ckazki",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Обыкновенное чудо (1978); candidate=Х/ф Обыкновенное чудо.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "BCU Action HD",
+          "source": "bcumedia-dedicated",
+          "source_id": "BCU Action HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Зачинщики (2024); candidate=Зачинщики (2024); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "BCU Action HD",
+          "source": "bcumedia-dedicated",
+          "source_id": "BCU Action HDR",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Зачинщики (2024); candidate=Зачинщики (2024); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM USSR Сказки HD",
+          "source": "minimax-mm-dedicated",
+          "source_id": "ussr-skazki-mm",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Обыкновенное чудо (1978); candidate=Обыкновенное чудо; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM USSR Сказки HD",
+          "source": "tvteam",
+          "source_id": "ch1226",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Обыкновенное чудо (1978); candidate=Обыкновенное чудо; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "BCU Action HD",
+          "source": "tvteam",
+          "source_id": "ch769",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Зачинщики (2024); candidate=Зачинщики (2024); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "BCU Action HD",
+          "source": "gabbarit-current",
+          "source_id": "BCU Action HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Зачинщики (2024); candidate=Зачинщики (2024).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM USSR Сказки HD",
+          "source": "gabbarit-current",
+          "source_id": "минимакс-ussr-сказки HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Обыкновенное чудо (1978); candidate=Обыкновенное чудо (1978).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "BCU Action HD",
+          "source": "gabbarit-primary",
+          "source_id": "BCU Action HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Зачинщики (2024); candidate=Зачинщики (2024).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM USSR Сказки HD",
+          "source": "gabbarit-primary",
+          "source_id": "минимакс-ussr-сказки HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Обыкновенное чудо (1978); candidate=Обыкновенное чудо (1978).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "BCU Action HD",
+          "source": "epgone-full-movie-rescue",
+          "source_id": "4748",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Зачинщики (2024); candidate=Зачинщики (2024).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM USSR Сказки HD",
+          "source": "epgone-full-movie-rescue",
+          "source_id": "5134",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Обыкновенное чудо (1978); candidate=Обыкновенное чудо; requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
