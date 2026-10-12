@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-11T21:02:34.759593+00:00",
+  "updated_at": "2026-10-12T00:17:36.161397+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-11T21:02:33.563340+00:00",
+      "checked_at_utc": "2026-10-12T00:17:34.943223+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,23 +10,23 @@
         "Кинозалы"
       ],
       "channels": 550,
-      "ok": 355,
-      "gaps": 195,
+      "ok": 337,
+      "gaps": 213,
       "issue_counts": {
         "NO_MAPPING": 37,
-        "NO_CURRENT_PROGRAMME": 146,
-        "NO_NEXT_PROGRAMME": 158
+        "NO_NEXT_PROGRAMME": 176,
+        "NO_CURRENT_PROGRAMME": 166
       },
       "group_counts": {
         "USSR": {
           "channels": 19,
-          "ok": 14,
-          "gaps": 5
+          "ok": 13,
+          "gaps": 6
         },
         "Кино": {
           "channels": 180,
-          "ok": 126,
-          "gaps": 54
+          "ok": 113,
+          "gaps": 67
         },
         "Кино 4K": {
           "channels": 65,
@@ -35,207 +35,41 @@
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 157,
-          "gaps": 129
+          "ok": 153,
+          "gaps": 133
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 116,
-      "high_confidence_observations": 3,
-      "recognized": [
-        {
-          "playlist_name": "BCU Праздники HDR",
-          "provider_name": "BCU Праздники HDR",
-          "title": "Праздники - 3 сезон, 11 серия",
-          "score": 19.75,
-          "zone": "top_band",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Таинственный лес. Родовое проклятие",
-          "score": 25.0,
-          "zone": "left_bottom_tight",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "MM USSR Сказки HD",
-          "provider_name": "MM USSR Сказки HD",
-          "title": "Алые паруса (1961)",
-          "score": 22.5,
-          "zone": "left_bottom_tight",
-          "engine": "tesseract"
-        }
-      ]
+      "channels_considered": 128,
+      "high_confidence_observations": 0,
+      "recognized": []
     },
     "evidence_recorder": {
-      "added": 3,
-      "rejected": 112,
-      "observations": [
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-11T20:52:22.661619+00:00",
-          "playlist_name": "BCU Праздники HDR",
-          "observed_title": "Праздники - 3 сезон, 11 серия",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=19.75"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-11T20:52:22.661619+00:00",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Таинственный лес. Родовое проклятие",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=25.0"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-11T20:52:22.661619+00:00",
-          "playlist_name": "MM USSR Сказки HD",
-          "observed_title": "Алые паруса (1961)",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=22.5"
-        }
-      ]
+      "added": 0,
+      "rejected": 127,
+      "observations": []
     },
     "judge": {
       "selector": {
-        "changed": 3,
-        "selected": 3,
-        "quarantined": 0,
-        "target_hours": 6.0
+        "changed": 0,
+        "selected": 0,
+        "reason": "waiting-for-distinct-second-title"
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 3,
+      "selected_count": 0,
       "quarantined_count": 0,
-      "selected": {
-        "BCU Праздники HDR": {
-          "source": "gabbarit-current",
-          "source_id": "BCU Сваты 4K",
-          "output_tvg_id": "bcu-prazdniki-hdr",
-          "horizon_hours": 192.8,
-          "current": true,
-          "usable": 143
-        },
-        "KLI Новинки 4K Ultra HD": {
-          "source": "tvteam",
-          "source_id": "ch4089",
-          "output_tvg_id": "Xklinovinci4k",
-          "horizon_hours": 24.32,
-          "current": true,
-          "usable": 18
-        },
-        "MM USSR Сказки HD": {
-          "source": "minimax-mm-dedicated",
-          "source_id": "ussr-skazki-mm",
-          "output_tvg_id": "Xminimax-ussr-skazki",
-          "horizon_hours": 160.26,
-          "current": true,
-          "usable": 38
-        }
-      },
+      "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 3,
-      "sources_scanned": 10,
-      "sources_failed": [
-        {
-          "source": "gabbarit-mirror",
-          "error": "EOFError"
-        }
-      ],
-      "candidates_added": 12,
-      "added": [
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "iptv-online-primary",
-          "source_id": "Xbear-tv-kinoarena-ru-uhd",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Таинственный лес. Родовое проклятие; candidate=Таинственный лес. Родовое проклятие (2025); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "iptv-online-primary",
-          "source_id": "Xminimax-newfilm2",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Таинственный лес. Родовое проклятие; candidate=х/ф Таинственный лес. Родовое проклятие; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "iptvx-noarch",
-          "source_id": "bear-tv-kinoarena-ru-uhd",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Таинственный лес. Родовое проклятие; candidate=Таинственный лес. Родовое проклятие (2025); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "iptvx-noarch",
-          "source_id": "minimax-newfilm2",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Таинственный лес. Родовое проклятие; candidate=х/ф Таинственный лес. Родовое проклятие; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "openbox-tsd",
-          "source_id": "mm-newfilm-2",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Таинственный лес. Родовое проклятие; candidate=Х/ф Таинственный лес Родовое проклятие.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "minimax-mm-dedicated",
-          "source_id": "newfilm2-mm",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Таинственный лес. Родовое проклятие; candidate=Таинственный лес. Родовое проклятие; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "tvteam",
-          "source_id": "ch1217",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Таинственный лес. Родовое проклятие; candidate=Таинственный лес. Родовое проклятие; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "BCU Праздники HDR",
-          "source": "gabbarit-current",
-          "source_id": "Serial HD",
-          "notes": "auto-discovered from live title; similarity=0.893; observed=Праздники - 3 сезон, 11 серия; candidate=Праздники: 2-й сезон: 11-я серия (2024).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "gabbarit-current",
-          "source_id": "минимакс-newfilm 2 HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Таинственный лес. Родовое проклятие; candidate=Таинственный лес. Родовое проклятие (2025).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "BCU Праздники HDR",
-          "source": "gabbarit-primary",
-          "source_id": "Serial HD",
-          "notes": "auto-discovered from live title; similarity=0.893; observed=Праздники - 3 сезон, 11 серия; candidate=Праздники: 2-й сезон: 11-я серия (2024).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "gabbarit-primary",
-          "source_id": "минимакс-newfilm 2 HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Таинственный лес. Родовое проклятие; candidate=Таинственный лес. Родовое проклятие (2025).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "epgone-full-movie-rescue",
-          "source_id": "5125",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Таинственный лес. Родовое проклятие; candidate=Таинственный лес. Родовое проклятие; requires two positive observations before selection"
-        }
-      ]
+      "live_observations": 0,
+      "sources_scanned": 0,
+      "sources_failed": [],
+      "candidates_added": 0,
+      "added": []
     }
   }
 }
