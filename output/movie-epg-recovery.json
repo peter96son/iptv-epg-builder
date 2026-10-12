@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-12T00:17:36.161397+00:00",
+  "updated_at": "2026-10-12T07:03:43.114072+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-12T00:17:34.943223+00:00",
+      "checked_at_utc": "2026-10-12T07:03:42.143521+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,52 +10,87 @@
         "Кинозалы"
       ],
       "channels": 550,
-      "ok": 337,
-      "gaps": 213,
+      "ok": 375,
+      "gaps": 175,
       "issue_counts": {
-        "NO_MAPPING": 37,
-        "NO_NEXT_PROGRAMME": 176,
-        "NO_CURRENT_PROGRAMME": 166
+        "NO_MAPPING": 117,
+        "NO_CURRENT_PROGRAMME": 13,
+        "NO_NEXT_PROGRAMME": 58
       },
       "group_counts": {
         "USSR": {
           "channels": 19,
-          "ok": 13,
-          "gaps": 6
+          "ok": 15,
+          "gaps": 4
         },
         "Кино": {
           "channels": 180,
-          "ok": 113,
-          "gaps": 67
+          "ok": 125,
+          "gaps": 55
         },
         "Кино 4K": {
           "channels": 65,
-          "ok": 58,
-          "gaps": 7
+          "ok": 65,
+          "gaps": 0
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 153,
-          "gaps": 133
+          "ok": 170,
+          "gaps": 116
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 128,
-      "high_confidence_observations": 0,
-      "recognized": []
+      "channels_considered": 112,
+      "high_confidence_observations": 2,
+      "recognized": [
+        {
+          "playlist_name": "MM Приключения HD",
+          "provider_name": "MM Приключения HD",
+          "title": "Источник вечной молодости (2025)",
+          "score": 20.0,
+          "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "MM Погружение HD",
+          "provider_name": "MM Погружение HD",
+          "title": "Дагон (2001)",
+          "score": 16.25,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        }
+      ]
     },
     "evidence_recorder": {
-      "added": 0,
-      "rejected": 127,
-      "observations": []
+      "added": 2,
+      "rejected": 110,
+      "observations": [
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-12T06:51:04.316564+00:00",
+          "playlist_name": "MM Приключения HD",
+          "observed_title": "Источник вечной молодости (2025)",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=20.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-12T06:51:04.316564+00:00",
+          "playlist_name": "MM Погружение HD",
+          "observed_title": "Дагон (2001)",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=16.25"
+        }
+      ]
     },
     "judge": {
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "waiting-for-distinct-second-title"
+        "quarantined": 0,
+        "reason": "no-live-candidates"
       },
       "pending_count": 0,
       "pending": {},
@@ -65,11 +100,111 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 0,
-      "sources_scanned": 0,
-      "sources_failed": [],
-      "candidates_added": 0,
-      "added": []
+      "live_observations": 2,
+      "sources_scanned": 23,
+      "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "epgpw-sreda",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "epgpw-chestny-detektiv",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-ru",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-rescue",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "gabbarit-mirror",
+          "error": "EOFError"
+        }
+      ],
+      "candidates_added": 10,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "MM Приключения HD",
+          "source": "iptvx-noarch",
+          "source_id": "minimax-prikluchenija",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Источник вечной молодости (2025); candidate=х/ф Источник вечной молодости; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Приключения HD",
+          "source": "iptvx-noarch",
+          "source_id": "team-actrions",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Источник вечной молодости (2025); candidate=Источник вечной молодости (2025); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Приключения HD",
+          "source": "openbox-tsd",
+          "source_id": "mm-priklyucheniya",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Источник вечной молодости (2025); candidate=Х/ф Источник вечной молодости.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Приключения HD",
+          "source": "minimax-mm-dedicated",
+          "source_id": "prikluchenija-mm",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Источник вечной молодости (2025); candidate=Источник вечной молодости; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Приключения HD",
+          "source": "tvteam",
+          "source_id": "ch1254",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Источник вечной молодости (2025); candidate=Источник вечной молодости; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Приключения HD",
+          "source": "tvteam",
+          "source_id": "ch4038",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Источник вечной молодости (2025); candidate=Источник вечной молодости (2025); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Приключения HD",
+          "source": "epgpw-RU",
+          "source_id": "449021",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Источник вечной молодости (2025); candidate=х/ф Источник вечной молодости (2025); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Приключения HD",
+          "source": "gabbarit-current",
+          "source_id": "минимакс-приключения HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Источник вечной молодости (2025); candidate=Источник вечной молодости (2025).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Приключения HD",
+          "source": "gabbarit-primary",
+          "source_id": "минимакс-приключения HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Источник вечной молодости (2025); candidate=Источник вечной молодости (2025).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Приключения HD",
+          "source": "epgone-full-movie-rescue",
+          "source_id": "5161",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Источник вечной молодости (2025); candidate=Источник вечной молодости; requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
