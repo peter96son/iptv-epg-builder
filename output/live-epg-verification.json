@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-12T21:20:26.117150+00:00",
+  "generated_at": "2026-10-13T02:39:02.740856+00:00",
   "mode": "movie EPG validation plus live evidence recovery for movie gaps",
   "evidence_added": 2,
   "eligible": 548,
@@ -13,9 +13,8 @@
   "state_counts": {
     "NEW": 17,
     "NO_ONSCREEN_TITLE": 597,
-    "MISMATCH_PENDING": 1,
-    "VERIFYING": 26,
-    "OBSERVED_NO_EPG": 2
+    "OBSERVED_NO_EPG": 2,
+    "VERIFYING": 27
   },
   "results": [
     {
@@ -35,12 +34,17 @@
       "playlist_name": "BOX Relax 4K",
       "provider_name": "BOX Relax 4K",
       "output_tvg_id": "Xbox-relax",
-      "epg_title": "Relax – Music",
-      "verdict": "CAPTURE_FAILED",
-      "state_status": "MISMATCH_PENDING",
+      "epg_title": "",
+      "verdict": "OBSERVED_NO_EPG",
+      "ocr_title": "Tim nik tec",
+      "ocr_confidence": "high",
+      "ocr_score": 12.25,
+      "ocr_engine": "tesseract",
+      "ocr_zone": "top_left_tight",
+      "state_status": "OBSERVED_NO_EPG",
       "verified_streak": 0,
       "no_title_streak": 0,
-      "mismatch_streak": 1
+      "mismatch_streak": 0
     },
     {
       "group": "Кинозалы",
@@ -49,27 +53,14 @@
       "output_tvg_id": "Xno_epg_cinema",
       "epg_title": "",
       "verdict": "OBSERVED_NO_EPG",
-      "ocr_title": "СЕРИАЛ МЕЧ 1-13",
+      "ocr_title": "азиат",
       "ocr_confidence": "high",
-      "ocr_score": 13.25,
+      "ocr_score": 12.25,
       "ocr_engine": "tesseract",
-      "ocr_zone": "bottom_band",
+      "ocr_zone": "top_band",
       "state_status": "OBSERVED_NO_EPG",
       "verified_streak": 0,
       "no_title_streak": 0,
-      "mismatch_streak": 0
-    },
-    {
-      "group": "Кинозалы",
-      "playlist_name": "DIZAL КРИК",
-      "provider_name": "DIZAL КРИК",
-      "output_tvg_id": "Xno_epg_cinema",
-      "epg_title": "",
-      "verdict": "NO_CONFIDENT_OCR",
-      "ocr_lines": [],
-      "state_status": "NO_ONSCREEN_TITLE",
-      "verified_streak": 0,
-      "no_title_streak": 4,
       "mismatch_streak": 0
     },
     {
@@ -90,15 +81,27 @@
       "provider_name": "VeleS Криминальный",
       "output_tvg_id": "",
       "epg_title": "",
-      "verdict": "OBSERVED_NO_EPG",
-      "ocr_title": "tad ней ee Bris werkt xk beak а",
-      "ocr_confidence": "high",
-      "ocr_score": 15.0,
-      "ocr_engine": "tesseract",
-      "ocr_zone": "top_band",
-      "state_status": "OBSERVED_NO_EPG",
+      "verdict": "NO_CONFIDENT_OCR",
+      "ocr_lines": [
+        "КРИМИНАЛЬНЫЙ",
+        "Nea. *"
+      ],
+      "state_status": "VERIFYING",
       "verified_streak": 0,
-      "no_title_streak": 0,
+      "no_title_streak": 1,
+      "mismatch_streak": 0
+    },
+    {
+      "group": "Кино",
+      "playlist_name": "Гарри Поттер",
+      "provider_name": "Гарри Поттер",
+      "output_tvg_id": "",
+      "epg_title": "",
+      "verdict": "NO_CONFIDENT_OCR",
+      "ocr_lines": [],
+      "state_status": "NO_ONSCREEN_TITLE",
+      "verified_streak": 0,
+      "no_title_streak": 8,
       "mismatch_streak": 0
     },
     {
