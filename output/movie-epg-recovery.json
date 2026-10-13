@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-13T04:26:36.620301+00:00",
+  "updated_at": "2026-10-13T12:53:21.162085+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-13T04:26:35.675133+00:00",
+      "checked_at_utc": "2026-10-13T12:53:20.425237+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 550,
-      "ok": 58,
-      "gaps": 492,
+      "ok": 59,
+      "gaps": 491,
       "issue_counts": {
         "NO_MAPPING": 115,
         "NO_CURRENT_PROGRAMME": 376,
-        "NO_NEXT_PROGRAMME": 377
+        "NO_NEXT_PROGRAMME": 376
       },
       "group_counts": {
         "USSR": {
@@ -25,37 +25,72 @@
         },
         "Кино": {
           "channels": 180,
-          "ok": 14,
-          "gaps": 166
+          "ok": 15,
+          "gaps": 165
         },
         "Кино 4K": {
           "channels": 65,
-          "ok": 2,
-          "gaps": 63
+          "ok": 3,
+          "gaps": 62
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 38,
-          "gaps": 248
+          "ok": 37,
+          "gaps": 249
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 233,
-      "high_confidence_observations": 0,
-      "recognized": []
+      "channels_considered": 234,
+      "high_confidence_observations": 2,
+      "recognized": [
+        {
+          "playlist_name": "Premiere HD 4",
+          "provider_name": "Premiere HD 4",
+          "title": "Натиск",
+          "score": 16.5,
+          "zone": "top_left",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "Bear TV КиноМаяк RU UHD",
+          "provider_name": "Bear TV КиноМаяк RU UHD",
+          "title": "ая BEAR: Spi BEAR | wo)",
+          "score": 20.75,
+          "zone": "top_band",
+          "engine": "tesseract"
+        }
+      ]
     },
     "evidence_recorder": {
-      "added": 0,
-      "rejected": 232,
-      "observations": []
+      "added": 2,
+      "rejected": 231,
+      "observations": [
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-13T12:43:21.283950+00:00",
+          "playlist_name": "Premiere HD 4",
+          "observed_title": "Натиск",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=16.5"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-13T12:43:21.283950+00:00",
+          "playlist_name": "Bear TV КиноМаяк RU UHD",
+          "observed_title": "ая BEAR: Spi BEAR | wo)",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=20.75"
+        }
+      ]
     },
     "judge": {
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "waiting-for-distinct-second-title"
+        "quarantined": 0,
+        "reason": "no-live-candidates"
       },
       "pending_count": 0,
       "pending": {},
@@ -65,11 +100,60 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 0,
-      "sources_scanned": 0,
-      "sources_failed": [],
-      "candidates_added": 0,
-      "added": []
+      "live_observations": 2,
+      "sources_scanned": 27,
+      "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "gabbarit-mirror",
+          "error": "EOFError"
+        }
+      ],
+      "candidates_added": 5,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "Premiere HD 4",
+          "source": "iptv-online-primary",
+          "source_id": "Xpremierehd4",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Натиск; candidate=х/ф Натиск (2026); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Premiere HD 4",
+          "source": "iptvx-noarch",
+          "source_id": "premierehd4",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Натиск; candidate=х/ф Натиск (2026); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Premiere HD 4",
+          "source": "runigma-iptv",
+          "source_id": "premiere-HD4",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Натиск; candidate=х/ф Натиск (2026).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Premiere HD 4",
+          "source": "openbox-tsd",
+          "source_id": "premiere-hd-4",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Натиск; candidate=Х/ф Натиск 2026.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Premiere HD 4",
+          "source": "epgpw-RU",
+          "source_id": "558524",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Натиск; candidate=х/ф Натиск (2026); requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
