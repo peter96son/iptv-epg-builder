@@ -1,21 +1,21 @@
 {
-  "updated_at": "2026-10-14T14:56:27.233012+00:00",
+  "updated_at": "2026-10-14T19:42:47.334834+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-14T14:56:26.016374+00:00",
+      "checked_at_utc": "2026-10-14T19:42:46.104202+00:00",
       "groups": [
         "USSR",
         "Кино",
         "Кино 4K",
         "Кинозалы"
       ],
-      "channels": 550,
-      "ok": 53,
-      "gaps": 497,
+      "channels": 549,
+      "ok": 54,
+      "gaps": 495,
       "issue_counts": {
         "NO_MAPPING": 115,
-        "NO_CURRENT_PROGRAMME": 382,
-        "NO_NEXT_PROGRAMME": 382
+        "NO_CURRENT_PROGRAMME": 380,
+        "NO_NEXT_PROGRAMME": 380
       },
       "group_counts": {
         "USSR": {
@@ -24,9 +24,9 @@
           "gaps": 16
         },
         "Кино": {
-          "channels": 180,
-          "ok": 13,
-          "gaps": 167
+          "channels": 179,
+          "ok": 15,
+          "gaps": 164
         },
         "Кино 4K": {
           "channels": 65,
@@ -35,8 +35,8 @@
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 34,
-          "gaps": 252
+          "ok": 33,
+          "gaps": 253
         }
       }
     },
@@ -46,18 +46,18 @@
       "high_confidence_observations": 2,
       "recognized": [
         {
-          "playlist_name": "DITV ФИЛЬМЫ",
-          "provider_name": "DITV ФИЛЬМЫ",
-          "title": "БРАТ (1997)",
-          "score": 18.0,
-          "zone": "left_bottom_tight",
+          "playlist_name": "Viju TV1000 Action HD",
+          "provider_name": "Viju TV1000 Action HD",
+          "title": "Остров Черепа",
+          "score": 23.0,
+          "zone": "top_left_tight",
           "engine": "tesseract"
         },
         {
           "playlist_name": "BOX Remast+ 4K",
           "provider_name": "BOX Remast+ 4K",
-          "title": "BUX REMAST+ к",
-          "score": 19.5,
+          "title": "ВЕМАЗТ+ <",
+          "score": 21.5,
           "zone": "top_left_tight",
           "engine": "tesseract"
         }
@@ -69,19 +69,19 @@
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-14T14:36:47.325491+00:00",
-          "playlist_name": "DITV ФИЛЬМЫ",
-          "observed_title": "БРАТ (1997)",
+          "observed_at": "2026-10-14T19:29:28.285610+00:00",
+          "playlist_name": "Viju TV1000 Action HD",
+          "observed_title": "Остров Черепа",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=18.0"
+          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=23.0"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-10-14T14:36:47.325491+00:00",
+          "observed_at": "2026-10-14T19:29:28.285610+00:00",
           "playlist_name": "BOX Remast+ 4K",
-          "observed_title": "BUX REMAST+ к",
+          "observed_title": "ВЕМАЗТ+ <",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=19.5"
+          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=21.5"
         }
       ]
     },
@@ -89,12 +89,11 @@
       "selector": {
         "changed": 0,
         "selected": 0,
-        "quarantined": 0,
-        "reason": "no-live-candidates"
+        "reason": "no-policy"
       },
       "pending_count": 1,
       "pending": {
-        "BOX Remast+ 4K": {
+        "Viju TV1000 Action HD": {
           "observations": 1,
           "distinct_titles": 1,
           "status": "PENDING_DISTINCT_SECOND_TITLE"
@@ -130,8 +129,16 @@
           "error": "EOFError"
         }
       ],
-      "candidates_added": 0,
-      "added": []
+      "candidates_added": 1,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "Viju TV1000 Action HD",
+          "source": "epgpw-RU",
+          "source_id": "5996",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Остров Черепа; candidate=х/ф Остров Черепа; requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
