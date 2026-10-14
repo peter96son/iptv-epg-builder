@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-10-14T05:13:17.011916+00:00",
+  "generated_at": "2026-10-14T12:10:40.935884+00:00",
   "mode": "movie EPG validation plus live evidence recovery for movie gaps",
-  "evidence_added": 2,
+  "evidence_added": 1,
   "eligible": 548,
   "selected": 13,
   "max_per_run": 250,
@@ -12,9 +12,9 @@
   "no_title_after": 3,
   "state_counts": {
     "NEW": 17,
-    "NO_ONSCREEN_TITLE": 596,
-    "OBSERVED_NO_EPG": 2,
-    "VERIFYING": 28
+    "NO_ONSCREEN_TITLE": 597,
+    "VERIFYING": 28,
+    "OBSERVED_NO_EPG": 1
   },
   "results": [
     {
@@ -35,15 +35,16 @@
       "provider_name": "BOX Relax 4K",
       "output_tvg_id": "Xbox-relax",
       "epg_title": "",
-      "verdict": "OBSERVED_NO_EPG",
-      "ocr_title": "чьей",
-      "ocr_confidence": "high",
-      "ocr_score": 13.0,
-      "ocr_engine": "tesseract",
-      "ocr_zone": "top_band",
-      "state_status": "OBSERVED_NO_EPG",
+      "verdict": "NO_CONFIDENT_OCR",
+      "ocr_lines": [
+        "BOX LA)",
+        "ВХ | | у",
+        "4 `, a",
+        "on et"
+      ],
+      "state_status": "VERIFYING",
       "verified_streak": 0,
-      "no_title_streak": 0,
+      "no_title_streak": 1,
       "mismatch_streak": 0
     },
     {
@@ -52,10 +53,15 @@
       "provider_name": "DITV Меч",
       "output_tvg_id": "Xno_epg_cinema",
       "epg_title": "",
-      "verdict": "CAPTURE_FAILED",
-      "state_status": "VERIFYING",
+      "verdict": "OBSERVED_NO_EPG",
+      "ocr_title": "СЕРИА, МЕЧ 1-1",
+      "ocr_confidence": "high",
+      "ocr_score": 13.0,
+      "ocr_engine": "tesseract",
+      "ocr_zone": "bottom_band",
+      "state_status": "OBSERVED_NO_EPG",
       "verified_streak": 0,
-      "no_title_streak": 1,
+      "no_title_streak": 0,
       "mismatch_streak": 0
     },
     {
@@ -66,9 +72,9 @@
       "epg_title": "",
       "verdict": "NO_CONFIDENT_OCR",
       "ocr_lines": [],
-      "state_status": "VERIFYING",
+      "state_status": "NO_ONSCREEN_TITLE",
       "verified_streak": 0,
-      "no_title_streak": 2,
+      "no_title_streak": 3,
       "mismatch_streak": 0
     },
     {
@@ -89,15 +95,11 @@
       "provider_name": "VeleS Криминальный",
       "output_tvg_id": "",
       "epg_title": "",
-      "verdict": "OBSERVED_NO_EPG",
-      "ocr_title": "Три билборда на границе Эббинга Миссури (2017)",
-      "ocr_confidence": "high",
-      "ocr_score": 20.0,
-      "ocr_engine": "tesseract",
-      "ocr_zone": "left_bottom_tight",
-      "state_status": "OBSERVED_NO_EPG",
+      "verdict": "NO_CONFIDENT_OCR",
+      "ocr_lines": [],
+      "state_status": "VERIFYING",
       "verified_streak": 0,
-      "no_title_streak": 0,
+      "no_title_streak": 1,
       "mismatch_streak": 0
     },
     {
