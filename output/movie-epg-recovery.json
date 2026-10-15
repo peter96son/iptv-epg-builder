@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-15T17:55:13.908802+00:00",
+  "updated_at": "2026-10-15T21:17:16.598162+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-15T17:55:12.643047+00:00",
+      "checked_at_utc": "2026-10-15T21:17:15.365064+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,62 +10,94 @@
         "Кинозалы"
       ],
       "channels": 549,
-      "ok": 32,
-      "gaps": 517,
+      "ok": 34,
+      "gaps": 515,
       "issue_counts": {
         "NO_MAPPING": 113,
-        "NO_CURRENT_PROGRAMME": 404,
-        "NO_NEXT_PROGRAMME": 404
+        "NO_CURRENT_PROGRAMME": 402,
+        "NO_NEXT_PROGRAMME": 402
       },
       "group_counts": {
         "USSR": {
           "channels": 19,
-          "ok": 3,
-          "gaps": 16
+          "ok": 2,
+          "gaps": 17
         },
         "Кино": {
           "channels": 179,
-          "ok": 13,
-          "gaps": 166
+          "ok": 14,
+          "gaps": 165
         },
         "Кино 4K": {
           "channels": 65,
-          "ok": 2,
-          "gaps": 63
+          "ok": 3,
+          "gaps": 62
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 14,
-          "gaps": 272
+          "ok": 15,
+          "gaps": 271
         }
       }
     },
     "observer": {
       "return_code": 0,
       "channels_considered": 236,
-      "high_confidence_observations": 1,
+      "high_confidence_observations": 3,
       "recognized": [
         {
-          "playlist_name": "VeleS СССР",
-          "provider_name": "VeleS СССР",
-          "title": "ерия",
-          "score": 13.0,
+          "playlist_name": "TV XXI",
+          "provider_name": "TV XXI",
+          "title": "Гранит",
+          "score": 16.5,
+          "zone": "top_left",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "MM Нуар HD",
+          "provider_name": "MM Нуар HD",
+          "title": "Два Джейка | 1990",
+          "score": 17.25,
           "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "Bear TV Время Кино RU UHD",
+          "provider_name": "Bear TV Время Кино RU UHD",
+          "title": "Sep, BEAR om",
+          "score": 12.25,
+          "zone": "top_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 234,
+      "added": 3,
+      "rejected": 232,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-15T17:51:46.733239+00:00",
-          "playlist_name": "VeleS СССР",
-          "observed_title": "ерия",
+          "observed_at": "2026-10-15T21:00:57.100073+00:00",
+          "playlist_name": "TV XXI",
+          "observed_title": "Гранит",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=13.0"
+          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=16.5"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-15T21:00:57.100073+00:00",
+          "playlist_name": "MM Нуар HD",
+          "observed_title": "Два Джейка | 1990",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=17.25"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-15T21:00:57.100073+00:00",
+          "playlist_name": "Bear TV Время Кино RU UHD",
+          "observed_title": "Sep, BEAR om",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=12.25"
         }
       ]
     },
@@ -76,19 +108,159 @@
         "quarantined": 0,
         "reason": "no-live-candidates"
       },
-      "pending_count": 0,
-      "pending": {},
+      "pending_count": 1,
+      "pending": {
+        "TV XXI": {
+          "observations": 1,
+          "distinct_titles": 1,
+          "status": "PENDING_DISTINCT_SECOND_TITLE"
+        }
+      },
       "selected_count": 0,
       "quarantined_count": 0,
       "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 4,
-      "sources_failed": [],
-      "candidates_added": 0,
-      "added": []
+      "live_observations": 3,
+      "sources_scanned": 25,
+      "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "epgpw-sreda",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "epgpw-chestny-detektiv",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "gabbarit-mirror",
+          "error": "EOFError"
+        }
+      ],
+      "candidates_added": 16,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "MM Нуар HD",
+          "source": "iptv-online-primary",
+          "source_id": "Xminimax-nuar",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Два Джейка | 1990; candidate=х/ф Два Джейка; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "TV XXI",
+          "source": "iptv-online-primary",
+          "source_id": "Xtvxxi",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Гранит; candidate=х/ф Гранит; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM Нуар HD",
+          "source": "iptvx-noarch",
+          "source_id": "minimax-nuar",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Два Джейка | 1990; candidate=х/ф Два Джейка; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "TV XXI",
+          "source": "iptvx-noarch",
+          "source_id": "tv21m",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Гранит; candidate=х/ф Гранит; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "TV XXI",
+          "source": "iptvx-noarch",
+          "source_id": "tvxxi",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Гранит; candidate=х/ф Гранит; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "TV XXI",
+          "source": "runigma-iptv",
+          "source_id": "tv-xx1",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Гранит; candidate=х/ф Гранит.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "TV XXI",
+          "source": "openbox-tsd",
+          "source_id": "tv-21",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Гранит; candidate=Х/ф Гранит.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "TV XXI",
+          "source": "bcumedia-dedicated",
+          "source_id": "ТВ-21 HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Гранит; candidate=Гранит.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "TV XXI",
+          "source": "bcumedia-dedicated",
+          "source_id": "ТВ-21M",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Гранит; candidate=Гранит.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "TV XXI",
+          "source": "tvteam",
+          "source_id": "ch469",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Гранит; candidate=х/ф Гранит; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "TV XXI",
+          "source": "epgone-ru2",
+          "source_id": "309",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Гранит; candidate=Гранит; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "TV XXI",
+          "source": "anzo-top",
+          "source_id": "12676",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Гранит; candidate=Х/ф Гранит.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "TV XXI",
+          "source": "gabbarit-current",
+          "source_id": "TV XXI",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Гранит; candidate=Гранит.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "TV XXI",
+          "source": "m3u-edit-all-rescue",
+          "source_id": "ТВ-21.[EU].ua",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Гранит; candidate=Х/ф \"Гранит\"; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "TV XXI",
+          "source": "gabbarit-primary",
+          "source_id": "TV XXI",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Гранит; candidate=Гранит.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "TV XXI",
+          "source": "epgone-full-movie-rescue",
+          "source_id": "309",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Гранит; candidate=Гранит; requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
