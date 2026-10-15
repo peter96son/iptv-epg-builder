@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-14T23:11:47.586346+00:00",
+  "updated_at": "2026-10-15T01:34:05.713066+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-14T23:11:46.751757+00:00",
+      "checked_at_utc": "2026-10-15T01:34:05.026538+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 549,
-      "ok": 51,
-      "gaps": 498,
+      "ok": 55,
+      "gaps": 494,
       "issue_counts": {
         "NO_MAPPING": 115,
-        "NO_CURRENT_PROGRAMME": 383,
-        "NO_NEXT_PROGRAMME": 383
+        "NO_CURRENT_PROGRAMME": 379,
+        "NO_NEXT_PROGRAMME": 379
       },
       "group_counts": {
         "USSR": {
@@ -25,49 +25,126 @@
         },
         "Кино": {
           "channels": 179,
-          "ok": 13,
-          "gaps": 166
+          "ok": 15,
+          "gaps": 164
         },
         "Кино 4K": {
           "channels": 65,
-          "ok": 2,
-          "gaps": 63
+          "ok": 3,
+          "gaps": 62
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 33,
-          "gaps": 253
+          "ok": 34,
+          "gaps": 252
         }
       }
     },
     "observer": {
       "return_code": 0,
       "channels_considered": 235,
-      "high_confidence_observations": 0,
-      "recognized": []
+      "high_confidence_observations": 3,
+      "recognized": [
+        {
+          "playlist_name": "Start Air",
+          "provider_name": "Start Air",
+          "title": "ВСЕХ 2",
+          "score": 13.0,
+          "zone": "top_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "CineMan Marvel",
+          "provider_name": "CineMan Marvel",
+          "title": "‘SeCINEMAN",
+          "score": 17.25,
+          "zone": "top_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "Bear TV Парк Кино RU UHD",
+          "provider_name": "Bear TV Парк Кино RU UHD",
+          "title": "UNDER LICENSE FROM UNIVERSAL MUSIC ENTERPRISES",
+          "score": 15.0,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        }
+      ]
     },
     "evidence_recorder": {
-      "added": 0,
-      "rejected": 234,
-      "observations": []
+      "added": 3,
+      "rejected": 231,
+      "observations": [
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-15T01:27:19.784065+00:00",
+          "playlist_name": "Start Air",
+          "observed_title": "ВСЕХ 2",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=13.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-15T01:27:19.784065+00:00",
+          "playlist_name": "CineMan Marvel",
+          "observed_title": "‘SeCINEMAN",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=17.25"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-15T01:27:19.784065+00:00",
+          "playlist_name": "Bear TV Парк Кино RU UHD",
+          "observed_title": "UNDER LICENSE FROM UNIVERSAL MUSIC ENTERPRISES",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=15.0"
+        }
+      ]
     },
     "judge": {
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "waiting-for-distinct-second-title"
+        "reason": "no-policy"
       },
-      "pending_count": 0,
-      "pending": {},
+      "pending_count": 1,
+      "pending": {
+        "CineMan Marvel": {
+          "observations": 2,
+          "distinct_titles": 1,
+          "status": "PENDING_DISTINCT_SECOND_TITLE"
+        }
+      },
       "selected_count": 0,
       "quarantined_count": 0,
       "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 0,
-      "sources_scanned": 0,
-      "sources_failed": [],
+      "live_observations": 3,
+      "sources_scanned": 25,
+      "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "epgpw-sreda",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "epgpw-chestny-detektiv",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "gabbarit-mirror",
+          "error": "EOFError"
+        }
+      ],
       "candidates_added": 0,
       "added": []
     }
