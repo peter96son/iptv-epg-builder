@@ -431,6 +431,15 @@ class MetadataDB:
             )
             return int(cur.lastrowid)
 
+        # Prevent conflicting TMDB IDs from violating the unique index.
+        if tmdb_id is not None:
+            owner = self.conn.execute(
+                "SELECT id FROM titles WHERE tmdb_id=? AND media_type=?",
+                (tmdb_id, mt),
+            ).fetchone()
+            if owner is not None and int(owner["id"]) != existing:
+                tmdb_id = None
+
         self.conn.execute(
             """
             UPDATE titles SET

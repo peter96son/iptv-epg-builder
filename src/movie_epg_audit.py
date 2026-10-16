@@ -14,8 +14,17 @@ GROUPS = {"Кино", "USSR", "Кинозалы", "Кино 4K"}
 
 def _fetch_text(url: str) -> str:
     req=urllib.request.Request(url,headers={"User-Agent":"iptv-movie-qa/13.23"})
-    with urllib.request.urlopen(req,timeout=90) as r:
-        return r.read().decode("utf-8","replace")
+    import time
+    last_error = None
+    for attempt in range(3):
+        try:
+            with urllib.request.urlopen(req, timeout=120) as r:
+                return r.read().decode("utf-8", "replace")
+        except (TimeoutError, OSError) as exc:
+            last_error = exc
+            if attempt < 2:
+                time.sleep(2 * (attempt + 1))
+    raise last_error
 
 def _parse_ts(value: str):
     m=re.match(r"(\d{12,14})(?:\s*([+-]\d{4}))?", value or "")
