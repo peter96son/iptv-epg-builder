@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-16T17:35:54.354672+00:00",
+  "updated_at": "2026-10-16T20:50:49.396151+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-16T17:35:53.158596+00:00",
+      "checked_at_utc": "2026-10-16T20:50:48.434293+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 549,
-      "ok": 27,
-      "gaps": 522,
+      "ok": 32,
+      "gaps": 517,
       "issue_counts": {
-        "NO_CURRENT_PROGRAMME": 413,
-        "NO_NEXT_PROGRAMME": 413,
-        "NO_MAPPING": 109
+        "NO_CURRENT_PROGRAMME": 409,
+        "NO_NEXT_PROGRAMME": 409,
+        "NO_MAPPING": 108
       },
       "group_counts": {
         "USSR": {
@@ -25,47 +25,111 @@
         },
         "Кино": {
           "channels": 179,
-          "ok": 14,
-          "gaps": 165
+          "ok": 15,
+          "gaps": 164
         },
         "Кино 4K": {
           "channels": 65,
-          "ok": 2,
-          "gaps": 63
+          "ok": 3,
+          "gaps": 62
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 9,
-          "gaps": 277
+          "ok": 12,
+          "gaps": 274
         }
       }
     },
     "observer": {
       "return_code": 0,
       "channels_considered": 238,
-      "high_confidence_observations": 1,
+      "high_confidence_observations": 5,
       "recognized": [
         {
-          "playlist_name": "Premiere HD 4",
-          "provider_name": "Premiere HD 4",
-          "title": "Лёгкие деньги",
-          "score": 23.0,
+          "playlist_name": "Start World",
+          "provider_name": "Start World",
+          "title": "КОНТЕИНЕР",
+          "score": 17.25,
           "zone": "top_left",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "BCU VHS HD",
+          "provider_name": "BCU VHS HD",
+          "title": "Адвокат дьявола (1997)",
+          "score": 23.5,
+          "zone": "top_left_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "CineMan РуКино",
+          "provider_name": "CineMan РуКино",
+          "title": "28 панфиловцев",
+          "score": 17.75,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "DITV Про акул",
+          "provider_name": "DITV Про акул",
+          "title": "Челюсти",
+          "score": 21.75,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "Bear TV Время Кино RU UHD",
+          "provider_name": "Bear TV Время Кино RU UHD",
+          "title": "Graham Watkins",
+          "score": 18.25,
+          "zone": "top_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 236,
+      "added": 5,
+      "rejected": 232,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-16T17:27:47.044145+00:00",
-          "playlist_name": "Premiere HD 4",
-          "observed_title": "Лёгкие деньги",
+          "observed_at": "2026-10-16T20:36:35.112606+00:00",
+          "playlist_name": "Start World",
+          "observed_title": "КОНТЕИНЕР",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=23.0"
+          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=17.25"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-16T20:36:35.112606+00:00",
+          "playlist_name": "BCU VHS HD",
+          "observed_title": "Адвокат дьявола (1997)",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=23.5"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-16T20:36:35.112606+00:00",
+          "playlist_name": "CineMan РуКино",
+          "observed_title": "28 панфиловцев",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=17.75"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-16T20:36:35.112606+00:00",
+          "playlist_name": "DITV Про акул",
+          "observed_title": "Челюсти",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=21.75"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-16T20:36:35.112606+00:00",
+          "playlist_name": "Bear TV Время Кино RU UHD",
+          "observed_title": "Graham Watkins",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=18.25"
         }
       ]
     },
@@ -76,24 +140,254 @@
         "quarantined": 0,
         "reason": "no-live-candidates"
       },
-      "pending_count": 0,
-      "pending": {},
+      "pending_count": 2,
+      "pending": {
+        "CineMan РуКино": {
+          "observations": 1,
+          "distinct_titles": 1,
+          "status": "PENDING_DISTINCT_SECOND_TITLE"
+        },
+        "Start World": {
+          "observations": 1,
+          "distinct_titles": 1,
+          "status": "PENDING_DISTINCT_SECOND_TITLE"
+        }
+      },
       "selected_count": 0,
       "quarantined_count": 0,
       "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 8,
+      "live_observations": 5,
+      "sources_scanned": 27,
       "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         }
       ],
-      "candidates_added": 0,
-      "added": []
+      "candidates_added": 30,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "CineMan РуКино",
+          "source": "iptv-online-primary",
+          "source_id": "Xcineman-rukino",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=28 панфиловцев; candidate=х/ф 28 панфиловцев; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV Про акул",
+          "source": "iptv-online-primary",
+          "source_id": "Xminimax-pogrujenie",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Челюсти; candidate=х/ф Челюсти; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "BCU VHS HD",
+          "source": "iptv-online-primary",
+          "source_id": "Xjk_Reeves",
+          "notes": "auto-discovered from live title; similarity=0.933; observed=Адвокат дьявола (1997); candidate=Адвокат диявола (1997); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "CineMan РуКино",
+          "source": "iptvx-noarch",
+          "source_id": "bcu-premium-pobed",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=28 панфиловцев; candidate=х/ф 28 панфиловцев; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "CineMan РуКино",
+          "source": "iptvx-noarch",
+          "source_id": "cineman-rukino",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=28 панфиловцев; candidate=х/ф 28 панфиловцев; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV Про акул",
+          "source": "iptvx-noarch",
+          "source_id": "minimax-pogrujenie",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Челюсти; candidate=х/ф Челюсти; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "CineMan РуКино",
+          "source": "runigma-iptv",
+          "source_id": "cineman-rukino",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=28 панфиловцев; candidate=28 панфиловцев.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "CineMan РуКино",
+          "source": "openbox-tsd",
+          "source_id": "bcu-premium-80-let-pobedi",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=28 панфиловцев; candidate=X/ф 28 панфиловцев.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "CineMan РуКино",
+          "source": "openbox-tsd",
+          "source_id": "cineman-rukino",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=28 панфиловцев; candidate=Х/ф 28 панфиловцев.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV Про акул",
+          "source": "openbox-tsd",
+          "source_id": "mm-pogruzhenie",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Челюсти; candidate=Х/ф Челюсти.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "CineMan РуКино",
+          "source": "bcumedia-dedicated",
+          "source_id": "BCU Premium 80 Лет Победы 4K HDR",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=28 панфиловцев; candidate=28 панфиловцев; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "CineMan РуКино",
+          "source": "cineman-dedicated",
+          "source_id": "cineman-rukino",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=28 панфиловцев; candidate=28 панфиловцев; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV Про акул",
+          "source": "minimax-mm-dedicated",
+          "source_id": "pogrujenie-mm",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Челюсти; candidate=Челюсти; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "CineMan РуКино",
+          "source": "tvteam",
+          "source_id": "ch1039",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=28 панфиловцев; candidate=28 панфиловцев; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "BCU VHS HD",
+          "source": "tvteam",
+          "source_id": "ch3583",
+          "notes": "auto-discovered from live title; similarity=0.933; observed=Адвокат дьявола (1997); candidate=Адвокат диявола (1997); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV Про акул",
+          "source": "tvteam",
+          "source_id": "ch1252",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Челюсти; candidate=Челюсти; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "BCU VHS HD",
+          "source": "epgpw-RU",
+          "source_id": "568865",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Адвокат дьявола (1997); candidate=х/ф Адвокат дьявола; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "CineMan РуКино",
+          "source": "epgpw-RU",
+          "source_id": "556102",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=28 панфиловцев; candidate=х/ф 28 панфиловцев (2016); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "CineMan РуКино",
+          "source": "teleguide-ru",
+          "source_id": "2349",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=28 панфиловцев; candidate=28 панфиловцев (16+); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "CineMan РуКино",
+          "source": "gabbarit-current",
+          "source_id": "BCU Premium 80 Лет Победы 4K HDR",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=28 панфиловцев; candidate=28 панфиловцев.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "CineMan РуКино",
+          "source": "gabbarit-current",
+          "source_id": "CineMan РуКино HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=28 панфиловцев; candidate=28 панфиловцев (2016).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "BCU VHS HD",
+          "source": "gabbarit-current",
+          "source_id": "jk_Reeves",
+          "notes": "auto-discovered from live title; similarity=0.933; observed=Адвокат дьявола (1997); candidate=Адвокат диявола (1997).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV Про акул",
+          "source": "gabbarit-current",
+          "source_id": "минимакс-погружение HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Челюсти; candidate=Челюсти  (1975).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "CineMan РуКино",
+          "source": "teleguide-rescue",
+          "source_id": "2349",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=28 панфиловцев; candidate=28 панфиловцев (16+); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "CineMan РуКино",
+          "source": "gabbarit-primary",
+          "source_id": "BCU Premium 80 Лет Победы 4K HDR",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=28 панфиловцев; candidate=28 панфиловцев.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "CineMan РуКино",
+          "source": "gabbarit-primary",
+          "source_id": "CineMan РуКино HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=28 панфиловцев; candidate=28 панфиловцев (2016).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "BCU VHS HD",
+          "source": "gabbarit-primary",
+          "source_id": "jk_Reeves",
+          "notes": "auto-discovered from live title; similarity=0.933; observed=Адвокат дьявола (1997); candidate=Адвокат диявола (1997).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV Про акул",
+          "source": "gabbarit-primary",
+          "source_id": "минимакс-погружение HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Челюсти; candidate=Челюсти  (1975).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV Про акул",
+          "source": "epgone-full-movie-rescue",
+          "source_id": "5160",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Челюсти; candidate=Челюсти; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "CineMan РуКино",
+          "source": "epgone-full-movie-rescue",
+          "source_id": "4691",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=28 панфиловцев; candidate=28 панфиловцев; requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
