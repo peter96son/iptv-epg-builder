@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-17T11:39:37.630770+00:00",
+  "updated_at": "2026-10-17T14:33:39.378987+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-17T11:39:36.060392+00:00",
+      "checked_at_utc": "2026-10-17T14:33:37.785052+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,23 +10,21 @@
         "Кинозалы"
       ],
       "channels": 549,
-      "ok": 480,
-      "gaps": 69,
+      "ok": 506,
+      "gaps": 43,
       "issue_counts": {
-        "NO_MAPPING": 65,
-        "NO_CURRENT_PROGRAMME": 4,
-        "NO_NEXT_PROGRAMME": 4
+        "NO_MAPPING": 43
       },
       "group_counts": {
         "USSR": {
           "channels": 19,
-          "ok": 14,
-          "gaps": 5
+          "ok": 16,
+          "gaps": 3
         },
         "Кино": {
           "channels": 179,
-          "ok": 150,
-          "gaps": 29
+          "ok": 154,
+          "gaps": 25
         },
         "Кино 4K": {
           "channels": 65,
@@ -35,141 +33,41 @@
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 252,
-          "gaps": 34
+          "ok": 272,
+          "gaps": 14
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 58,
-      "high_confidence_observations": 2,
-      "recognized": [
-        {
-          "playlist_name": "DITV ГАРИ ПОТЕР",
-          "provider_name": "DITV ГАРИ ПОТЕР",
-          "title": "Гарри Поттер и Тайная Комната",
-          "score": 20.0,
-          "zone": "left_bottom_tight",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Мир Юрского периода Возрождение",
-          "score": 20.0,
-          "zone": "left_bottom_tight",
-          "engine": "tesseract"
-        }
-      ]
+      "channels_considered": 37,
+      "high_confidence_observations": 0,
+      "recognized": []
     },
     "evidence_recorder": {
-      "added": 2,
-      "rejected": 56,
-      "observations": [
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-17T11:20:43.435845+00:00",
-          "playlist_name": "DITV ГАРИ ПОТЕР",
-          "observed_title": "Гарри Поттер и Тайная Комната",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=20.0"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-17T11:20:43.435845+00:00",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Мир Юрского периода Возрождение",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=20.0"
-        }
-      ]
+      "added": 0,
+      "rejected": 37,
+      "observations": []
     },
     "judge": {
       "selector": {
-        "changed": 1,
-        "selected": 1,
-        "quarantined": 0,
-        "target_hours": 6.0
+        "changed": 0,
+        "selected": 0,
+        "reason": "waiting-for-distinct-second-title"
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 1,
+      "selected_count": 0,
       "quarantined_count": 0,
-      "selected": {
-        "KLI Новинки 4K Ultra HD": {
-          "source": "tvteam",
-          "source_id": "ch4089",
-          "output_tvg_id": "Xliveocr-0ec3bdbd60ad2705",
-          "horizon_hours": 165.69,
-          "current": true,
-          "usable": 30
-        }
-      },
+      "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 2,
-      "sources_scanned": 27,
-      "sources_failed": [
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "gabbarit-mirror",
-          "error": "EOFError"
-        }
-      ],
-      "candidates_added": 6,
-      "added": [
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "iptv-online-primary",
-          "source_id": "Xbear-tv-kinomir-ru-uhd",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Мир Юрского периода Возрождение; candidate=Мир Юрского периода – Возрождение (2025); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "iptvx-noarch",
-          "source_id": "bear-tv-kinomir-ru-uhd",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Мир Юрского периода Возрождение; candidate=Мир Юрского периода – Возрождение (2025); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "epgpw-RU",
-          "source_id": "544931",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Мир Юрского периода Возрождение; candidate=х/ф Мир Юрского периода: Возрождение; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "epgpw-RU",
-          "source_id": "483193",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Мир Юрского периода Возрождение; candidate=х/ф Мир Юрского периода: Возрождение; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "gabbarit-current",
-          "source_id": "Sky2000 Fantastic HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Мир Юрского периода Возрождение; candidate=Мир Юрского периода: Возрождение.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "gabbarit-primary",
-          "source_id": "Sky2000 Fantastic HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Мир Юрского периода Возрождение; candidate=Мир Юрского периода: Возрождение.; requires two positive observations before selection"
-        }
-      ]
+      "live_observations": 0,
+      "sources_scanned": 0,
+      "sources_failed": [],
+      "candidates_added": 0,
+      "added": []
     }
   }
 }
