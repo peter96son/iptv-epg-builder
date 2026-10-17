@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-17T06:34:09.653087+00:00",
+  "updated_at": "2026-10-17T11:39:37.630770+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-17T06:34:08.285583+00:00",
+      "checked_at_utc": "2026-10-17T11:39:36.060392+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -13,9 +13,9 @@
       "ok": 480,
       "gaps": 69,
       "issue_counts": {
-        "NO_MAPPING": 66,
-        "NO_CURRENT_PROGRAMME": 2,
-        "NO_NEXT_PROGRAMME": 3
+        "NO_MAPPING": 65,
+        "NO_CURRENT_PROGRAMME": 4,
+        "NO_NEXT_PROGRAMME": 4
       },
       "group_counts": {
         "USSR": {
@@ -42,78 +42,132 @@
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 57,
-      "high_confidence_observations": 1,
+      "channels_considered": 58,
+      "high_confidence_observations": 2,
       "recognized": [
+        {
+          "playlist_name": "DITV ГАРИ ПОТЕР",
+          "provider_name": "DITV ГАРИ ПОТЕР",
+          "title": "Гарри Поттер и Тайная Комната",
+          "score": 20.0,
+          "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        },
         {
           "playlist_name": "KLI Новинки 4K Ultra HD",
           "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Крик 7",
-          "score": 13.0,
-          "zone": "bottom_band",
+          "title": "Мир Юрского периода Возрождение",
+          "score": 20.0,
+          "zone": "left_bottom_tight",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
+      "added": 2,
       "rejected": 56,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-17T06:24:24.747655+00:00",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Крик 7",
+          "observed_at": "2026-10-17T11:20:43.435845+00:00",
+          "playlist_name": "DITV ГАРИ ПОТЕР",
+          "observed_title": "Гарри Поттер и Тайная Комната",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=13.0"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=20.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-17T11:20:43.435845+00:00",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "observed_title": "Мир Юрского периода Возрождение",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=20.0"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 0,
-        "selected": 0,
+        "changed": 1,
+        "selected": 1,
         "quarantined": 0,
-        "reason": "no-live-candidates"
+        "target_hours": 6.0
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 0,
+      "selected_count": 1,
       "quarantined_count": 0,
-      "selected": {},
+      "selected": {
+        "KLI Новинки 4K Ultra HD": {
+          "source": "tvteam",
+          "source_id": "ch4089",
+          "output_tvg_id": "Xliveocr-0ec3bdbd60ad2705",
+          "horizon_hours": 165.69,
+          "current": true,
+          "usable": 30
+        }
+      },
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 10,
+      "live_observations": 2,
+      "sources_scanned": 27,
       "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         }
       ],
-      "candidates_added": 3,
+      "candidates_added": 6,
       "added": [
         {
           "enabled": "1",
           "playlist_name": "KLI Новинки 4K Ultra HD",
+          "source": "iptv-online-primary",
+          "source_id": "Xbear-tv-kinomir-ru-uhd",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Мир Юрского периода Возрождение; candidate=Мир Юрского периода – Возрождение (2025); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
           "source": "iptvx-noarch",
-          "source_id": "clarity4k-uzhvhs-s",
-          "notes": "auto-discovered from live title; similarity=0.833; observed=Крик 7; candidate=х/ф Крик 2; requires two positive observations before selection"
+          "source_id": "bear-tv-kinomir-ru-uhd",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Мир Юрского периода Возрождение; candidate=Мир Юрского периода – Возрождение (2025); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "source": "epgpw-RU",
+          "source_id": "544931",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Мир Юрского периода Возрождение; candidate=х/ф Мир Юрского периода: Возрождение; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "source": "epgpw-RU",
+          "source_id": "483193",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Мир Юрского периода Возрождение; candidate=х/ф Мир Юрского периода: Возрождение; requires two positive observations before selection"
         },
         {
           "enabled": "1",
           "playlist_name": "KLI Новинки 4K Ultra HD",
           "source": "gabbarit-current",
-          "source_id": "Clarity4K Ужасы VHS (siries)",
-          "notes": "auto-discovered from live title; similarity=0.833; observed=Крик 7; candidate=Крик 2.; requires two positive observations before selection"
+          "source_id": "Sky2000 Fantastic HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Мир Юрского периода Возрождение; candidate=Мир Юрского периода: Возрождение.; requires two positive observations before selection"
         },
         {
           "enabled": "1",
           "playlist_name": "KLI Новинки 4K Ultra HD",
           "source": "gabbarit-primary",
-          "source_id": "Clarity4K Ужасы VHS (siries)",
-          "notes": "auto-discovered from live title; similarity=0.833; observed=Крик 7; candidate=Крик 2.; requires two positive observations before selection"
+          "source_id": "Sky2000 Fantastic HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Мир Юрского периода Возрождение; candidate=Мир Юрского периода: Возрождение.; requires two positive observations before selection"
         }
       ]
     }
