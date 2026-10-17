@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-17T20:17:34.030850+00:00",
+  "updated_at": "2026-10-17T21:59:55.191636+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-17T20:17:32.497428+00:00",
+      "checked_at_utc": "2026-10-17T21:59:54.363880+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,18 +10,16 @@
         "Кинозалы"
       ],
       "channels": 549,
-      "ok": 505,
-      "gaps": 44,
+      "ok": 491,
+      "gaps": 58,
       "issue_counts": {
-        "NO_MAPPING": 38,
-        "NO_CURRENT_PROGRAMME": 5,
-        "NO_NEXT_PROGRAMME": 6
+        "NO_MAPPING": 58
       },
       "group_counts": {
         "USSR": {
           "channels": 19,
-          "ok": 17,
-          "gaps": 2
+          "ok": 15,
+          "gaps": 4
         },
         "Кино": {
           "channels": 179,
@@ -30,135 +28,79 @@
         },
         "Кино 4K": {
           "channels": 65,
-          "ok": 65,
-          "gaps": 0
+          "ok": 64,
+          "gaps": 1
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 270,
-          "gaps": 16
+          "ok": 259,
+          "gaps": 27
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 39,
-      "high_confidence_observations": 3,
+      "channels_considered": 49,
+      "high_confidence_observations": 1,
       "recognized": [
         {
-          "playlist_name": "DITV Про вампиров",
-          "provider_name": "DITV Про вампиров",
-          "title": "Воины света",
-          "score": 22.5,
-          "zone": "left_bottom_tight",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "KLI Новинки HD",
-          "provider_name": "KLI Новинки HD",
-          "title": "Охота на воров 2 Пантера",
-          "score": 24.75,
-          "zone": "left_bottom_tight",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "KLI СССР HD",
-          "provider_name": "KLI СССР HD",
-          "title": "Мачеха",
-          "score": 21.5,
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "provider_name": "KLI Новинки 4K Ultra HD",
+          "title": "Последняя капля",
+          "score": 18.5,
           "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 3,
-      "rejected": 36,
+      "added": 1,
+      "rejected": 48,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-17T19:49:59.217458+00:00",
-          "playlist_name": "DITV Про вампиров",
-          "observed_title": "Воины света",
+          "observed_at": "2026-10-17T21:53:46.088954+00:00",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "observed_title": "Последняя капля",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=22.5"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-17T19:49:59.217458+00:00",
-          "playlist_name": "KLI Новинки HD",
-          "observed_title": "Охота на воров 2 Пантера",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=24.75"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-17T19:49:59.217458+00:00",
-          "playlist_name": "KLI СССР HD",
-          "observed_title": "Мачеха",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=21.5"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.5"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 2,
-        "selected": 2,
+        "changed": 1,
+        "selected": 1,
         "quarantined": 0,
         "target_hours": 6.0
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 2,
+      "selected_count": 1,
       "quarantined_count": 0,
       "selected": {
-        "KLI СССР HD": {
-          "source": "tvteam",
-          "source_id": "ch4083",
-          "output_tvg_id": "Xliveocr-25e879b896d08aa6",
-          "horizon_hours": 23.16,
-          "current": true,
-          "usable": 19
-        },
-        "KLI Новинки HD": {
+        "KLI Новинки 4K Ultra HD": {
           "source": "gabbarit-current",
-          "source_id": "KLI НОВИНКИ",
-          "output_tvg_id": "Xliveocr-44d592172b1eca25",
-          "horizon_hours": 165.87,
+          "source_id": "KLI Новинки 4k",
+          "output_tvg_id": "Xklinovinci4k",
+          "horizon_hours": 163.73,
           "current": true,
-          "usable": 30
+          "usable": 32
         }
       },
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 3,
-      "sources_scanned": 27,
+      "live_observations": 1,
+      "sources_scanned": 10,
       "sources_failed": [
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        },
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         }
       ],
-      "candidates_added": 1,
-      "added": [
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки HD",
-          "source": "iptvx-noarch",
-          "source_id": "next-horizon",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Охота на воров 2 Пантера; candidate=х/ф Охота на воров 2: Пантера (2025); requires two positive observations before selection"
-        }
-      ]
+      "candidates_added": 0,
+      "added": []
     }
   }
 }
