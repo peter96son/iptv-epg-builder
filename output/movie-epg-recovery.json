@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-17T21:59:55.191636+00:00",
+  "updated_at": "2026-10-17T23:49:23.082159+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-17T21:59:54.363880+00:00",
+      "checked_at_utc": "2026-10-17T23:49:21.574510+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,10 +10,12 @@
         "Кинозалы"
       ],
       "channels": 549,
-      "ok": 491,
-      "gaps": 58,
+      "ok": 487,
+      "gaps": 62,
       "issue_counts": {
-        "NO_MAPPING": 58
+        "NO_MAPPING": 58,
+        "NO_NEXT_PROGRAMME": 4,
+        "NO_CURRENT_PROGRAMME": 1
       },
       "group_counts": {
         "USSR": {
@@ -28,72 +30,71 @@
         },
         "Кино 4K": {
           "channels": 65,
-          "ok": 64,
-          "gaps": 1
+          "ok": 63,
+          "gaps": 2
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 259,
-          "gaps": 27
+          "ok": 256,
+          "gaps": 30
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 49,
+      "channels_considered": 51,
       "high_confidence_observations": 1,
       "recognized": [
         {
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Последняя капля",
-          "score": 18.5,
-          "zone": "bottom_band",
+          "playlist_name": "Premiere HD 3",
+          "provider_name": "Premiere HD 3",
+          "title": "Тенцинг",
+          "score": 16.75,
+          "zone": "top_left",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
       "added": 1,
-      "rejected": 48,
+      "rejected": 50,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-17T21:53:46.088954+00:00",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Последняя капля",
+          "observed_at": "2026-10-17T23:38:05.159812+00:00",
+          "playlist_name": "Premiere HD 3",
+          "observed_title": "Тенцинг",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.5"
+          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=16.75"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 1,
-        "selected": 1,
+        "changed": 0,
+        "selected": 0,
         "quarantined": 0,
-        "target_hours": 6.0
+        "reason": "no-live-candidates"
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 1,
+      "selected_count": 0,
       "quarantined_count": 0,
-      "selected": {
-        "KLI Новинки 4K Ultra HD": {
-          "source": "gabbarit-current",
-          "source_id": "KLI Новинки 4k",
-          "output_tvg_id": "Xklinovinci4k",
-          "horizon_hours": 163.73,
-          "current": true,
-          "usable": 32
-        }
-      },
+      "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
       "live_observations": 1,
-      "sources_scanned": 10,
+      "sources_scanned": 12,
       "sources_failed": [
+        {
+          "source": "teleguide-ru",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-rescue",
+          "error": "RuntimeError"
+        },
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
