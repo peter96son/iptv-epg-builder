@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-17T14:33:39.378987+00:00",
+  "updated_at": "2026-10-17T18:06:34.113656+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-17T14:33:37.785052+00:00",
+      "checked_at_utc": "2026-10-17T18:06:32.555301+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,50 +10,119 @@
         "Кинозалы"
       ],
       "channels": 549,
-      "ok": 506,
-      "gaps": 43,
+      "ok": 508,
+      "gaps": 41,
       "issue_counts": {
-        "NO_MAPPING": 43
+        "NO_MAPPING": 39,
+        "NO_NEXT_PROGRAMME": 2,
+        "NO_CURRENT_PROGRAMME": 1
       },
       "group_counts": {
         "USSR": {
           "channels": 19,
-          "ok": 16,
-          "gaps": 3
+          "ok": 18,
+          "gaps": 1
         },
         "Кино": {
           "channels": 179,
-          "ok": 154,
-          "gaps": 25
+          "ok": 155,
+          "gaps": 24
         },
         "Кино 4K": {
           "channels": 65,
-          "ok": 64,
-          "gaps": 1
+          "ok": 65,
+          "gaps": 0
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 272,
-          "gaps": 14
+          "ok": 270,
+          "gaps": 16
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 37,
-      "high_confidence_observations": 0,
-      "recognized": []
+      "channels_considered": 38,
+      "high_confidence_observations": 4,
+      "recognized": [
+        {
+          "playlist_name": "VHS HD",
+          "provider_name": "VHS HD",
+          "title": "ВОРОН",
+          "score": 21.25,
+          "zone": "top_left_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "KLI Новинки HD",
+          "provider_name": "KLI Новинки HD",
+          "title": "Острые козырьки бессмертный",
+          "score": 20.0,
+          "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "DITV СССР 4К",
+          "provider_name": "DITV СССР 4К",
+          "title": "nee tr Opa",
+          "score": 12.0,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "KLI СССР HD",
+          "provider_name": "KLI СССР HD",
+          "title": "Мать",
+          "score": 18.0,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        }
+      ]
     },
     "evidence_recorder": {
-      "added": 0,
-      "rejected": 37,
-      "observations": []
+      "added": 4,
+      "rejected": 34,
+      "observations": [
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-17T17:39:15.791986+00:00",
+          "playlist_name": "VHS HD",
+          "observed_title": "ВОРОН",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=21.25"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-17T17:39:15.791986+00:00",
+          "playlist_name": "KLI Новинки HD",
+          "observed_title": "Острые козырьки бессмертный",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=20.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-17T17:39:15.791986+00:00",
+          "playlist_name": "DITV СССР 4К",
+          "observed_title": "nee tr Opa",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=12.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-17T17:39:15.791986+00:00",
+          "playlist_name": "KLI СССР HD",
+          "observed_title": "Мать",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.0"
+        }
+      ]
     },
     "judge": {
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "waiting-for-distinct-second-title"
+        "quarantined": 0,
+        "reason": "no-live-candidates"
       },
       "pending_count": 0,
       "pending": {},
@@ -63,11 +132,43 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 0,
-      "sources_scanned": 0,
-      "sources_failed": [],
-      "candidates_added": 0,
-      "added": []
+      "live_observations": 4,
+      "sources_scanned": 26,
+      "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "skyhigh-fhd",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "gabbarit-mirror",
+          "error": "EOFError"
+        }
+      ],
+      "candidates_added": 2,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "VHS HD",
+          "source": "gabbarit-current",
+          "source_id": "VHS HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=ВОРОН; candidate=Ворон (1994).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "VHS HD",
+          "source": "gabbarit-primary",
+          "source_id": "VHS HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=ВОРОН; candidate=Ворон (1994).; requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
