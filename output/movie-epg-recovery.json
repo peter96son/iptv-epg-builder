@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-17T02:22:01.130834+00:00",
+  "updated_at": "2026-10-17T06:34:09.653087+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-17T02:21:59.852681+00:00",
+      "checked_at_utc": "2026-10-17T06:34:08.285583+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,62 +10,62 @@
         "Кинозалы"
       ],
       "channels": 549,
-      "ok": 28,
-      "gaps": 521,
+      "ok": 480,
+      "gaps": 69,
       "issue_counts": {
-        "NO_CURRENT_PROGRAMME": 414,
-        "NO_NEXT_PROGRAMME": 414,
-        "NO_MAPPING": 107
+        "NO_MAPPING": 66,
+        "NO_CURRENT_PROGRAMME": 2,
+        "NO_NEXT_PROGRAMME": 3
       },
       "group_counts": {
         "USSR": {
           "channels": 19,
-          "ok": 2,
-          "gaps": 17
+          "ok": 14,
+          "gaps": 5
         },
         "Кино": {
           "channels": 179,
-          "ok": 15,
-          "gaps": 164
+          "ok": 150,
+          "gaps": 29
         },
         "Кино 4K": {
           "channels": 65,
-          "ok": 2,
-          "gaps": 63
+          "ok": 64,
+          "gaps": 1
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 9,
-          "gaps": 277
+          "ok": 252,
+          "gaps": 34
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 238,
+      "channels_considered": 57,
       "high_confidence_observations": 1,
       "recognized": [
         {
-          "playlist_name": "Viju TV1000 HD",
-          "provider_name": "Viju TV1000 HD",
-          "title": "Паркер",
-          "score": 16.5,
-          "zone": "top_left",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "provider_name": "KLI Новинки 4K Ultra HD",
+          "title": "Крик 7",
+          "score": 13.0,
+          "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
       "added": 1,
-      "rejected": 236,
+      "rejected": 56,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-17T02:09:16.832954+00:00",
-          "playlist_name": "Viju TV1000 HD",
-          "observed_title": "Паркер",
+          "observed_at": "2026-10-17T06:24:24.747655+00:00",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "observed_title": "Крик 7",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=16.5"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=13.0"
         }
       ]
     },
@@ -73,16 +73,11 @@
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "waiting-for-distinct-second-title"
+        "quarantined": 0,
+        "reason": "no-live-candidates"
       },
-      "pending_count": 1,
-      "pending": {
-        "Viju TV1000 HD": {
-          "observations": 1,
-          "distinct_titles": 1,
-          "status": "PENDING_DISTINCT_SECOND_TITLE"
-        }
-      },
+      "pending_count": 0,
+      "pending": {},
       "selected_count": 0,
       "quarantined_count": 0,
       "selected": {},
@@ -90,134 +85,35 @@
     },
     "candidate_discovery": {
       "live_observations": 1,
-      "sources_scanned": 27,
+      "sources_scanned": 10,
       "sources_failed": [
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        },
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         }
       ],
-      "candidates_added": 16,
+      "candidates_added": 3,
       "added": [
         {
           "enabled": "1",
-          "playlist_name": "Viju TV1000 HD",
-          "source": "iptv-online-primary",
-          "source_id": "Xtv1000",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Паркер; candidate=х/ф Паркер; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Viju TV1000 HD",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
           "source": "iptvx-noarch",
-          "source_id": "tv1000",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Паркер; candidate=х/ф Паркер; requires two positive observations before selection"
+          "source_id": "clarity4k-uzhvhs-s",
+          "notes": "auto-discovered from live title; similarity=0.833; observed=Крик 7; candidate=х/ф Крик 2; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "Viju TV1000 HD",
-          "source": "runigma-iptv",
-          "source_id": "tv1000",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Паркер; candidate=Паркер.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Viju TV1000 HD",
-          "source": "bcumedia-dedicated",
-          "source_id": "TV1000",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Паркер; candidate=Паркер.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Viju TV1000 HD",
-          "source": "bcumedia-dedicated",
-          "source_id": "TV1000 HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Паркер; candidate=Паркер.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Viju TV1000 HD",
-          "source": "tvteam",
-          "source_id": "ch017",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Паркер; candidate=х/ф Паркер; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Viju TV1000 HD",
-          "source": "epgpw-RU",
-          "source_id": "6320",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Паркер; candidate=х/ф Паркер; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Viju TV1000 HD",
-          "source": "epgpw-RU",
-          "source_id": "7702",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Паркер; candidate=х/ф Паркер; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Viju TV1000 HD",
-          "source": "epgpw-RU",
-          "source_id": "401446",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Паркер; candidate=х/ф Паркер; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Viju TV1000 HD",
-          "source": "epgone-ru2",
-          "source_id": "127",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Паркер; candidate=Паркер; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Viju TV1000 HD",
-          "source": "anzo-top",
-          "source_id": "14228",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Паркер; candidate=Х/ф Паркер.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Viju TV1000 HD",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
           "source": "gabbarit-current",
-          "source_id": "viju TV1000",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Паркер; candidate=Паркер.; requires two positive observations before selection"
+          "source_id": "Clarity4K Ужасы VHS (siries)",
+          "notes": "auto-discovered from live title; similarity=0.833; observed=Крик 7; candidate=Крик 2.; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "Viju TV1000 HD",
-          "source": "m3u-edit-all-rescue",
-          "source_id": "viju.TV1000.[EU].ua",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Паркер; candidate=Х/ф \"Паркер\"; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Viju TV1000 HD",
-          "source": "m3u-edit-all-rescue",
-          "source_id": "viju.TV1000.HD.[EU].ua",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Паркер; candidate=Х/ф \"Паркер\"; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Viju TV1000 HD",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
           "source": "gabbarit-primary",
-          "source_id": "viju TV1000",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Паркер; candidate=Паркер.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Viju TV1000 HD",
-          "source": "epgone-full-movie-rescue",
-          "source_id": "127",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Паркер; candidate=Паркер; requires two positive observations before selection"
+          "source_id": "Clarity4K Ужасы VHS (siries)",
+          "notes": "auto-discovered from live title; similarity=0.833; observed=Крик 7; candidate=Крик 2.; requires two positive observations before selection"
         }
       ]
     }
