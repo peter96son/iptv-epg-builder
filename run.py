@@ -36,3 +36,14 @@ if __name__ == "__main__":
         f"[verified-metadata] changed={result.get('changed', 0)}; "
         f"normalized_titles={result.get('normalized_titles', 0)}"
     )
+    # Stage 1b: still-valid live OCR observations are applied by the single EPG
+    # publisher. Any problem here must never fail the main build.
+    try:
+        from src.live_ocr_current_epg import apply_state as apply_live_ocr_state
+        ocr = apply_live_ocr_state()
+        print(
+            f"[live-ocr] applied={ocr.get('applied', 0)}; expired={ocr.get('expired', 0)}; "
+            f"skipped_real={ocr.get('skipped_real_programme', 0)}; invalid={ocr.get('invalid', 0)}"
+        )
+    except Exception as exc:  # noqa: BLE001
+        print(f"[live-ocr] skipped after error: {exc!r}")
