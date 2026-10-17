@@ -87,6 +87,51 @@ def _candidate_programmes(source: XMLTVSource, sid: str):
     return programmes, horizon, current, usable
 
 
+def _load_movie_consensus(path: Path | None = None) -> dict[str, dict]:
+    path = path or (OUTPUT / "movie-source-consensus.json")
+    if not path.exists():
+        return {}
+    try:
+        payload=json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+    rows=payload.get("channels",{}) if isinstance(payload,dict) else {}
+    return rows if isinstance(rows,dict) else {}
+
+
+def _consensus_candidate(channel_name: str, candidates: list[dict], consensus: dict[str, dict], target_hours: float):
+    row=consensus.get(channel_name) or {}
+    if row.get("status")!="CONSENSUS":
+        return None
+
+    allowed={
+        (
+            (src.get("source") or "").strip(),
+            (src.get("source_id") or "").strip(),
+        )
+        for src in (row.get("sources") or [])
+        if (src.get("title_norm") or "").strip()
+    }
+    if not allowed:
+        return None
+
+    matched=[
+        c for c in candidates
+        if (
+            (c.get("source") or "").strip(),
+            (c.get("source_id") or "").strip(),
+        ) in allowed
+    ]
+    if not matched:
+        return None
+
+    winner=choose_candidate(matched,target_hours)
+    if winner is not None:
+        winner=dict(winner)
+        winner["_selection_reason"]="CURRENT_TITLE_CONSENSUS"
+    return winner
+
+
 def choose_candidate(candidates: list[dict], target_hours: float = DEFAULT_TARGET_HORIZON_HOURS):
     """Choose a policy source after *all* allowed sources have been evaluated.
 
@@ -289,6 +334,8 @@ def reselect_policy_sources(target_hours: float | None = None) -> dict:
     selected={}
     quarantined={}
     diagnostics=[]
+    consensus_selected=0
+    movie_consensus=_load_movie_consensus()
 
     for channel_name, rows in by_channel.items():
         channel=playlist[channel_name]
@@ -335,7 +382,18 @@ def reselect_policy_sources(target_hours: float | None = None) -> dict:
                 "usable":usable,
             })
 
-        winner=choose_candidate(candidates,target_hours)
+        winner=_consensus_candidate(channel_name,candidates,movie_consensus,target_hours)
+        if winner is not None:
+            consensus_selected += 1
+            diagnostics.append({
+                "playlist_name":channel_name,
+                "status":"SELECTED_BY_CURRENT_TITLE_CONSENSUS",
+                "source":winner.get("source",""),
+                "source_id":winner.get("source_id",""),
+            })
+        else:
+            winner=choose_candidate(candidates,target_hours)
+
         if winner:
             winner["output_tvg_id"]=_output_id(
                 channel,rows,mapping_by_name.get(channel_name)
@@ -387,7 +445,11 @@ def reselect_policy_sources(target_hours: float | None = None) -> dict:
             "region":"",
             "source":w["source"],
             "source_id":w["source_id"],
-            "method":"policy-best-source",
+            "method":(
+                "current-title-consensus"
+                if w.get("_selection_reason")=="CURRENT_TITLE_CONSENSUS"
+                else "policy-best-source"
+            ),
             "confidence":"100",
         })
 
@@ -439,7 +501,7 @@ def reselect_policy_sources(target_hours: float | None = None) -> dict:
     _write_mapping_rows(mapping_path,mapping_rows)
 
     # Full metadata enrichment belongs to the regular Update EPG run.
-    if not _enabled(os.environ.get("RESELECT_SKIP_METADATA_ENRICH", "0")):
+    if not _enabled(os.environ.get("RESELECT_SKIP_METADATA_ENRICH", "1")):
         old_env={k:os.environ.get(k) for k in (
             "METADATA_MAX_TITLES","METADATA_MAX_HTTP_REQUESTS","METADATA_MULTI_FALLBACK"
         )}
@@ -480,6 +542,7 @@ def reselect_policy_sources(target_hours: float | None = None) -> dict:
     report={
         "generated_at":datetime.now(timezone.utc).isoformat(),
         "target_hours":target_hours,
+        "consensus_selected":consensus_selected,
         "selected":{
             name:{
                 "source":w["source"],
@@ -511,7 +574,7 @@ def reselect_policy_sources(target_hours: float | None = None) -> dict:
             pass
 
     print(
-        f"[v15.1-selector] selected={len(selected)} quarantined={len(quarantined)} target={target_hours:g}h",
+        f"[v15.1-selector] selected={len(selected)} consensus_selected={consensus_selected} quarantined={len(quarantined)} target={target_hours:g}h",
         flush=True,
     )
     for name,w in selected.items():

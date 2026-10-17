@@ -399,8 +399,14 @@ def build():
 
     # v12.1: backfill and apply metadata on the current in-memory tree.
     backfill_budget=max(0,int(os.environ.get("BACKFILL_HTTP_BUDGET","5000") or 5000))
-    print(f"[builder] in-memory backfill start; http-budget={backfill_budget}",flush=True)
-    backfill_report=backfill_tree(tv,mappings,ROOT,OUTPUT,budget=backfill_budget)
+    if backfill_budget:
+        print(f"[builder] in-memory backfill start; http-budget={backfill_budget}",flush=True)
+        backfill_report=backfill_tree(tv,mappings,ROOT,OUTPUT,budget=backfill_budget)
+    else:
+        # Metadata backfill runs in its own workflow. Do not scan its queue
+        # on every regular EPG update; apply cached metadata below instead.
+        backfill_report={"http_spent":0,"remaining":None}
+        print("[builder] metadata backfill skipped (separate workflow)",flush=True)
     print(
         f"[builder] in-memory backfill complete; http_spent={backfill_report.get('http_spent',0)}; "
         f"remaining={backfill_report.get('remaining',0)}",
