@@ -1,6 +1,7 @@
 from __future__ import annotations
 import gzip, json, os, shutil, time
 import xml.etree.ElementTree as ET
+import tempfile
 from collections import defaultdict
 from copy import deepcopy
 from datetime import datetime
@@ -35,6 +36,17 @@ def _source_name(source: dict, index: int) -> str:
 def _group_allowed(channel_group: str, source: dict) -> bool:
     groups = source.get("groups") or source.get("group_scope") or []
     return not groups or channel_group in groups
+
+# Only RU/EN groups get extra EPG. Provider EPG is still used for every channel.
+FOREIGN_GROUPS = {
+    'Литва', 'Латвия', 'Эстония', 'Германия', 'Израиль',
+    'Италия', 'Испания', 'Польша', 'Грузия', 'Молдова',
+    'Болгария', 'Чехия', 'Казахстан', 'Узбекистан',
+    'BE & NL', 'SkyLink',
+}
+
+def _rescue_eligible(channel) -> bool:
+    return channel.group.strip() not in FOREIGN_GROUPS
 
 def _clone_channel(source_elem, out_id: str, display_name: str):
     elem = deepcopy(source_elem)
@@ -128,7 +140,7 @@ def build():
         if not url:
             continue
         name = _source_name(source_cfg, source_index)
-        candidates = [i for i in unresolved if _group_allowed(channels[i].group, source_cfg)]
+        candidates = [i for i in unresolved if (source_index == 0 or _rescue_eligible(channels[i])) and _group_allowed(channels[i].group, source_cfg)]
         if not candidates:
             continue
 
@@ -145,6 +157,15 @@ def build():
                 cache_path=cache_path,
                 stale_if_error_seconds=int(source_cfg.get("stale_if_error_seconds", 0)),
             )
+            # Share exactly these bytes with the second pass; never re-download.
+            shared_dir = os.environ.get('EPG_RECOVERY_SOURCE_CACHE', '').strip()
+            if shared_dir:
+                shared = Path(shared_dir)
+                shared.mkdir(parents=True, exist_ok=True)
+                with tempfile.NamedTemporaryFile(dir=shared, delete=False) as tmp:
+                    tmp.write(data)
+                    tmp_name = tmp.name
+                os.replace(tmp_name, shared / f'{name}.bin')
             source = XMLTVSource(name, data).index()
             loaded_sources.append((source_index, source_cfg, name, source))
         except Exception as exc:

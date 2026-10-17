@@ -1309,6 +1309,8 @@ def _prepare_imdb_local_db(root: Path, stats: Counter, timeout: int = 90) -> Pat
     basics_gz = cache_dir / IMDB_BASICS_GZ_FILE
     ratings_gz = cache_dir / IMDB_RATINGS_GZ_FILE
 
+    if os.environ.get('EPG_SKIP_IMDB_DATASET_REFRESH') == '1':
+        return db_path if db_path.exists() else None
     age = _dataset_db_age_hours(db_path)
     if age is not None and age < IMDB_DATASET_REFRESH_HOURS:
         stats["imdb_local_dataset_cache_hits"] += 1
@@ -1432,6 +1434,8 @@ def _prepare_imdb_ratings_db(root: Path, stats: Counter, timeout: int = 90) -> P
     cache_dir = root / ".cache" / "imdb"
     db_path = cache_dir / IMDB_RATINGS_DB_FILE
     gz_path = cache_dir / IMDB_RATINGS_GZ_FILE
+    if os.environ.get('EPG_SKIP_IMDB_DATASET_REFRESH') == '1':
+        return db_path if db_path.exists() else None
     age = _dataset_db_age_hours(db_path)
     if age is not None and age < IMDB_DATASET_REFRESH_HOURS:
         stats["imdb_dataset_cache_hits"] += 1

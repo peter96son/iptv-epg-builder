@@ -145,6 +145,14 @@ def load_sources():
             "note": "v13.23 full epg.one movie rescue; includes newly-added provider cinema families."
         })
 
+    blocked_countries = {
+        'DE', 'AT', 'BE', 'NL', 'IT', 'RO', 'BG', 'PL', 'HU',
+        'CZ', 'SK', 'GR', 'HR', 'PT', 'TR', 'LT', 'LV',
+    }
+    sources = [s for s in sources if not (
+        str(s.get('name', '')).startswith(('epgshare-', 'epgpw-'))
+        and str(s.get('name', '')).split('-', 1)[-1] in blocked_countries
+    )]
     return sources
 
 def _read_alias_csv(path: Path):

@@ -15,8 +15,13 @@ from src.source_catalog import snapshot_missing_source_catalog
 from src.verified_metadata_fixes import apply_verified_metadata_fixes
 
 if __name__ == "__main__":
-    build()
-    selection = reselect_policy_sources()
+    # Per-run cache is never reused between workflow executions.
+    import os
+    import tempfile
+    with tempfile.TemporaryDirectory(prefix='epg-source-reuse-') as shared:
+        os.environ['EPG_RECOVERY_SOURCE_CACHE'] = shared
+        build()
+        selection = reselect_policy_sources()
     print(
         f"[source-selection] selected={selection.get('selected', 0)}; "
         f"changed={selection.get('changed', 0)}"

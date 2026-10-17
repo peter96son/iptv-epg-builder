@@ -13,6 +13,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from .config import load_json, load_sources
+from .builder import _rescue_eligible
 from .metadata_enrichment import enrich_metadata
 from .playlist import parse_m3u
 from .utils import (
@@ -162,6 +163,7 @@ def _download_policy_sources(policy_rows: list[dict]) -> dict[str, XMLTVSource]:
     wanted=[]
     for row in policy_rows:
         name=(row.get("source") or "").strip()
+        name={'gabbarit-primary':'gabbarit-current', 'teleguide-rescue':'teleguide-ru'}.get(name,name)
         if name and name not in wanted:
             wanted.append(name)
 
@@ -318,12 +320,15 @@ def reselect_policy_sources(target_hours: float | None = None) -> dict:
     by_channel=defaultdict(list)
     for row in policy:
         name=(row.get("playlist_name") or "").strip()
-        if name and name in playlist:
+        if name and name in playlist and _rescue_eligible(playlist[name]):
             by_channel[name].append(row)
 
     if not by_channel:
         return {"changed":0,"selected":0,"reason":"no-policy-channels-in-playlist"}
 
+    # Avoid loading sources that cannot affect any eligible channel.
+    eligible = set(by_channel)
+    policy = [row for row in policy if (row.get('playlist_name') or '').strip() in eligible]
     sources=_download_policy_sources(policy)
     mapping_path=OUTPUT/"mapping.csv"
     epg_path=OUTPUT/"epg.xml.gz"
