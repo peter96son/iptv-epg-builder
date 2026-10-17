@@ -18,7 +18,7 @@ def test_http_budget_counts_actual_requests(monkeypatch):
 def test_workflow_in_memory_pipeline():
     workflow=Path(".github/workflows/update.yml").read_text(encoding="utf-8")
     builder=Path("src/builder.py").read_text(encoding="utf-8")
-    assert 'BACKFILL_HTTP_BUDGET: "5000"' in workflow
+    assert 'BACKFILL_HTTP_BUDGET: "0"' in workflow
     assert "python -m src.metadata_backfill" not in workflow
     assert "python -m src.apply_metadata_to_epg" not in workflow
     assert "backfill_tree(" in builder
