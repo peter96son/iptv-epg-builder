@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-17T18:06:34.113656+00:00",
+  "updated_at": "2026-10-17T20:17:34.030850+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-17T18:06:32.555301+00:00",
+      "checked_at_utc": "2026-10-17T20:17:32.497428+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,23 +10,23 @@
         "Кинозалы"
       ],
       "channels": 549,
-      "ok": 508,
-      "gaps": 41,
+      "ok": 505,
+      "gaps": 44,
       "issue_counts": {
-        "NO_MAPPING": 39,
-        "NO_NEXT_PROGRAMME": 2,
-        "NO_CURRENT_PROGRAMME": 1
+        "NO_MAPPING": 38,
+        "NO_CURRENT_PROGRAMME": 5,
+        "NO_NEXT_PROGRAMME": 6
       },
       "group_counts": {
         "USSR": {
           "channels": 19,
-          "ok": 18,
-          "gaps": 1
+          "ok": 17,
+          "gaps": 2
         },
         "Кино": {
           "channels": 179,
-          "ok": 155,
-          "gaps": 24
+          "ok": 153,
+          "gaps": 26
         },
         "Кино 4K": {
           "channels": 65,
@@ -42,98 +42,99 @@
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 38,
-      "high_confidence_observations": 4,
+      "channels_considered": 39,
+      "high_confidence_observations": 3,
       "recognized": [
         {
-          "playlist_name": "VHS HD",
-          "provider_name": "VHS HD",
-          "title": "ВОРОН",
-          "score": 21.25,
-          "zone": "top_left_tight",
+          "playlist_name": "DITV Про вампиров",
+          "provider_name": "DITV Про вампиров",
+          "title": "Воины света",
+          "score": 22.5,
+          "zone": "left_bottom_tight",
           "engine": "tesseract"
         },
         {
           "playlist_name": "KLI Новинки HD",
           "provider_name": "KLI Новинки HD",
-          "title": "Острые козырьки бессмертный",
-          "score": 20.0,
+          "title": "Охота на воров 2 Пантера",
+          "score": 24.75,
           "zone": "left_bottom_tight",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "DITV СССР 4К",
-          "provider_name": "DITV СССР 4К",
-          "title": "nee tr Opa",
-          "score": 12.0,
-          "zone": "bottom_band",
           "engine": "tesseract"
         },
         {
           "playlist_name": "KLI СССР HD",
           "provider_name": "KLI СССР HD",
-          "title": "Мать",
-          "score": 18.0,
+          "title": "Мачеха",
+          "score": 21.5,
           "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 4,
-      "rejected": 34,
+      "added": 3,
+      "rejected": 36,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-17T17:39:15.791986+00:00",
-          "playlist_name": "VHS HD",
-          "observed_title": "ВОРОН",
+          "observed_at": "2026-10-17T19:49:59.217458+00:00",
+          "playlist_name": "DITV Про вампиров",
+          "observed_title": "Воины света",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=21.25"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=22.5"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-10-17T17:39:15.791986+00:00",
+          "observed_at": "2026-10-17T19:49:59.217458+00:00",
           "playlist_name": "KLI Новинки HD",
-          "observed_title": "Острые козырьки бессмертный",
+          "observed_title": "Охота на воров 2 Пантера",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=20.0"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=24.75"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-10-17T17:39:15.791986+00:00",
-          "playlist_name": "DITV СССР 4К",
-          "observed_title": "nee tr Opa",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=12.0"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-17T17:39:15.791986+00:00",
+          "observed_at": "2026-10-17T19:49:59.217458+00:00",
           "playlist_name": "KLI СССР HD",
-          "observed_title": "Мать",
+          "observed_title": "Мачеха",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.0"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=21.5"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 0,
-        "selected": 0,
+        "changed": 2,
+        "selected": 2,
         "quarantined": 0,
-        "reason": "no-live-candidates"
+        "target_hours": 6.0
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 0,
+      "selected_count": 2,
       "quarantined_count": 0,
-      "selected": {},
+      "selected": {
+        "KLI СССР HD": {
+          "source": "tvteam",
+          "source_id": "ch4083",
+          "output_tvg_id": "Xliveocr-25e879b896d08aa6",
+          "horizon_hours": 23.16,
+          "current": true,
+          "usable": 19
+        },
+        "KLI Новинки HD": {
+          "source": "gabbarit-current",
+          "source_id": "KLI НОВИНКИ",
+          "output_tvg_id": "Xliveocr-44d592172b1eca25",
+          "horizon_hours": 165.87,
+          "current": true,
+          "usable": 30
+        }
+      },
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 4,
-      "sources_scanned": 26,
+      "live_observations": 3,
+      "sources_scanned": 27,
       "sources_failed": [
         {
           "source": "klimedia-dedicated",
@@ -144,29 +145,18 @@
           "error": "RuntimeError"
         },
         {
-          "source": "skyhigh-fhd",
-          "error": "RuntimeError"
-        },
-        {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         }
       ],
-      "candidates_added": 2,
+      "candidates_added": 1,
       "added": [
         {
           "enabled": "1",
-          "playlist_name": "VHS HD",
-          "source": "gabbarit-current",
-          "source_id": "VHS HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=ВОРОН; candidate=Ворон (1994).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "VHS HD",
-          "source": "gabbarit-primary",
-          "source_id": "VHS HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=ВОРОН; candidate=Ворон (1994).; requires two positive observations before selection"
+          "playlist_name": "KLI Новинки HD",
+          "source": "iptvx-noarch",
+          "source_id": "next-horizon",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Охота на воров 2 Пантера; candidate=х/ф Охота на воров 2: Пантера (2025); requires two positive observations before selection"
         }
       ]
     }
