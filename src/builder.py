@@ -1,4 +1,5 @@
 from __future__ import annotations
+import csv
 import gzip, json, os, shutil, time
 import xml.etree.ElementTree as ET
 import tempfile
@@ -56,6 +57,18 @@ def _clone_channel(source_elem, out_id: str, display_name: str):
     elem.insert(0, dn)
     return elem
 
+
+def _is_temporary_ocr_binding(row):
+    source = (row.get("source") or "").strip().lower()
+    source_id = (row.get("source_id") or "").strip().lower()
+    output_id = (row.get("output_tvg_id") or "").strip().lower()
+    return (
+        source == "live-ocr"
+        or source_id.startswith("xliveocr-")
+        or output_id.startswith("xliveocr-")
+    )
+
+
 def build():
     OUTPUT.mkdir(exist_ok=True)
     playlist_url = os.environ.get("PLAYLIST_URL", "").strip()
@@ -100,6 +113,20 @@ def build():
                 f"SAFETY STOP: playlist collapsed from {previous_count} to {current_count} channels."
             )
 
+    # Previous published mapping is the persistent channel -> EPG binding.
+    # Do not overwrite a binding merely because the feed is temporarily offline.
+    pinned = {}
+    pinned_path = ROOT / "data" / "epg-bindings.csv"
+    if pinned_path.exists():
+        with pinned_path.open(encoding="utf-8-sig", newline="") as f:
+            for row in csv.DictReader(f):
+                channel_name = (row.get("playlist_name") or "").strip()
+                source_name = (row.get("source") or "").strip()
+                source_id = (row.get("source_id") or "").strip()
+                if channel_name and source_name and source_id:
+                    if not _is_temporary_ocr_binding(row):
+                        pinned[channel_name] = row
+    print(f"[sticky-epg] existing bindings={len(pinned)}", flush=True)
     unresolved = set(range(len(channels)))
     tv = ET.Element("tv", {"generator-info-name": "iptv-epg-builder"})
     emitted_channel_ids = set()
@@ -140,7 +167,22 @@ def build():
         if not url:
             continue
         name = _source_name(source_cfg, source_index)
-        candidates = [i for i in unresolved if (source_index == 0 or _rescue_eligible(channels[i])) and _group_allowed(channels[i].group, source_cfg)]
+        # Existing channels only consult their pinned source; new RU/EN
+        # channels can still be discovered by the usual matcher.
+        candidates = [
+            i for i in unresolved
+            if (
+                (
+                    channels[i].name in pinned
+                    and pinned[channels[i].name]["source"] == name
+                )
+                or (
+                    channels[i].name not in pinned
+                    and (source_index == 0 or _rescue_eligible(channels[i]))
+                    and _group_allowed(channels[i].group, source_cfg)
+                )
+            )
+        ]
         if not candidates:
             continue
 
@@ -176,7 +218,16 @@ def build():
         matches = {}
         by_source_id = defaultdict(list)
         for i in candidates:
-            sid, method, confidence = matcher.match(channels[i], source, source_cfg, allow_family=False)
+            saved = pinned.get(channels[i].name)
+            if saved is not None:
+                sid = saved["source_id"] if saved["source_id"] in source.channels else None
+                method = "sticky" if sid else "sticky-missing"
+                try:
+                    confidence = int(saved.get("confidence") or 90)
+                except (ValueError, TypeError):
+                    confidence = 90
+            else:
+                sid, method, confidence = matcher.match(channels[i], source, source_cfg, allow_family=False)
             if sid:
                 matches[i] = (sid, method, confidence)
                 by_source_id[sid].append(i)
@@ -250,7 +301,10 @@ def build():
     family_recovered_total = 0
     family_recovered_by_source = defaultdict(int)
     for source_index, source_cfg, name, source in loaded_sources:
-        candidates = [i for i in unresolved if _group_allowed(channels[i].group, source_cfg)]
+        # Family matching is discovery-only; never reassign a pinned channel.
+        candidates = [i for i in unresolved if channels[i].name not in pinned
+                      and _rescue_eligible(channels[i])
+                      and _group_allowed(channels[i].group, source_cfg)]
         if not candidates:
             continue
 
@@ -700,6 +754,51 @@ def build():
     (OUTPUT / "dashboard.html").write_text(build_html(status, playlist_changes, history), encoding="utf-8")
 
     write_status(status_path, status)
+    # Persist newly discovered bindings without deleting existing ones.
+    # A temporary source failure must never erase a verified binding.
+    registry_path = ROOT / "data" / "epg-bindings.csv"
+    binding_fields = [
+        "playlist_name", "playlist_tvg_id", "output_tvg_id",
+        "group", "region", "source", "source_id",
+        "method", "confidence"
+    ]
+
+    existing_bindings = {}
+    if registry_path.exists():
+        with registry_path.open(encoding="utf-8-sig", newline="") as f:
+            for row in csv.DictReader(f):
+                key = (row.get("playlist_name") or "").strip()
+                if key and row.get("source") and row.get("source_id"):
+                    if not _is_temporary_ocr_binding(row):
+                        existing_bindings[key] = row
+
+    added_bindings = 0
+    for row in mappings:
+        key = (row.get("playlist_name") or "").strip()
+        if key and key not in existing_bindings:
+            if _is_temporary_ocr_binding(row):
+                continue
+            existing_bindings[key] = row
+            added_bindings += 1
+
+    registry_path.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.NamedTemporaryFile(
+        mode="w", encoding="utf-8", newline="",
+        dir=registry_path.parent, delete=False
+    ) as f:
+        writer = csv.DictWriter(f, fieldnames=binding_fields)
+        writer.writeheader()
+        for row in existing_bindings.values():
+            writer.writerow({k: row.get(k, "") for k in binding_fields})
+        temporary_registry = f.name
+
+    os.replace(temporary_registry, registry_path)
+    print(
+        f"[sticky-epg] retained={len(existing_bindings)} "
+        f"new={added_bindings}",
+        flush=True
+    )
+
     write_csv(OUTPUT / "mapping.csv", mappings,
               ["playlist_name", "playlist_tvg_id", "output_tvg_id", "group", "region", "source", "source_id", "method", "confidence"])
     write_csv(OUTPUT / "unmatched.csv", unmatched,

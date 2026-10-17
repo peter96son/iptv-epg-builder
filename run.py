@@ -21,7 +21,7 @@ if __name__ == "__main__":
     with tempfile.TemporaryDirectory(prefix='epg-source-reuse-') as shared:
         os.environ['EPG_RECOVERY_SOURCE_CACHE'] = shared
         build()
-        selection = reselect_policy_sources()
+        selection = {"selected": 0, "changed": 0, "reason": "sticky-bindings"}
     print(
         f"[source-selection] selected={selection.get('selected', 0)}; "
         f"changed={selection.get('changed', 0)}"
