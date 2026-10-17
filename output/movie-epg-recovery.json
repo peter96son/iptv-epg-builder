@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-16T23:44:46.962234+00:00",
+  "updated_at": "2026-10-17T02:22:01.130834+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-16T23:44:45.987115+00:00",
+      "checked_at_utc": "2026-10-17T02:21:59.852681+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -25,13 +25,13 @@
         },
         "Кино": {
           "channels": 179,
-          "ok": 14,
-          "gaps": 165
+          "ok": 15,
+          "gaps": 164
         },
         "Кино 4K": {
           "channels": 65,
-          "ok": 3,
-          "gaps": 62
+          "ok": 2,
+          "gaps": 63
         },
         "Кинозалы": {
           "channels": 286,
@@ -43,45 +43,29 @@
     "observer": {
       "return_code": 0,
       "channels_considered": 238,
-      "high_confidence_observations": 2,
+      "high_confidence_observations": 1,
       "recognized": [
         {
-          "playlist_name": "РуКино HD",
-          "provider_name": "РуКино HD",
-          "title": "СЛОН",
-          "score": 18.0,
-          "zone": "top_left_tight",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "Bear TV Время Кино RU UHD",
-          "provider_name": "Bear TV Время Кино RU UHD",
-          "title": "=». BEAR | uno)",
-          "score": 16.75,
-          "zone": "top_band",
+          "playlist_name": "Viju TV1000 HD",
+          "provider_name": "Viju TV1000 HD",
+          "title": "Паркер",
+          "score": 16.5,
+          "zone": "top_left",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 2,
-      "rejected": 235,
+      "added": 1,
+      "rejected": 236,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-16T23:33:36.247370+00:00",
-          "playlist_name": "РуКино HD",
-          "observed_title": "СЛОН",
+          "observed_at": "2026-10-17T02:09:16.832954+00:00",
+          "playlist_name": "Viju TV1000 HD",
+          "observed_title": "Паркер",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=18.0"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-16T23:33:36.247370+00:00",
-          "playlist_name": "Bear TV Время Кино RU UHD",
-          "observed_title": "=». BEAR | uno)",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=16.75"
+          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=16.5"
         }
       ]
     },
@@ -89,18 +73,23 @@
       "selector": {
         "changed": 0,
         "selected": 0,
-        "quarantined": 0,
-        "reason": "no-live-candidates"
+        "reason": "waiting-for-distinct-second-title"
       },
-      "pending_count": 0,
-      "pending": {},
+      "pending_count": 1,
+      "pending": {
+        "Viju TV1000 HD": {
+          "observations": 1,
+          "distinct_titles": 1,
+          "status": "PENDING_DISTINCT_SECOND_TITLE"
+        }
+      },
       "selected_count": 0,
       "quarantined_count": 0,
       "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 2,
+      "live_observations": 1,
       "sources_scanned": 27,
       "sources_failed": [
         {
@@ -116,21 +105,119 @@
           "error": "EOFError"
         }
       ],
-      "candidates_added": 2,
+      "candidates_added": 16,
       "added": [
         {
           "enabled": "1",
-          "playlist_name": "РуКино HD",
-          "source": "gabbarit-current",
-          "source_id": "РуКино HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=СЛОН; candidate=Слон (2022).; requires two positive observations before selection"
+          "playlist_name": "Viju TV1000 HD",
+          "source": "iptv-online-primary",
+          "source_id": "Xtv1000",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Паркер; candidate=х/ф Паркер; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "РуКино HD",
+          "playlist_name": "Viju TV1000 HD",
+          "source": "iptvx-noarch",
+          "source_id": "tv1000",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Паркер; candidate=х/ф Паркер; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Viju TV1000 HD",
+          "source": "runigma-iptv",
+          "source_id": "tv1000",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Паркер; candidate=Паркер.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Viju TV1000 HD",
+          "source": "bcumedia-dedicated",
+          "source_id": "TV1000",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Паркер; candidate=Паркер.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Viju TV1000 HD",
+          "source": "bcumedia-dedicated",
+          "source_id": "TV1000 HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Паркер; candidate=Паркер.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Viju TV1000 HD",
+          "source": "tvteam",
+          "source_id": "ch017",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Паркер; candidate=х/ф Паркер; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Viju TV1000 HD",
+          "source": "epgpw-RU",
+          "source_id": "6320",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Паркер; candidate=х/ф Паркер; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Viju TV1000 HD",
+          "source": "epgpw-RU",
+          "source_id": "7702",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Паркер; candidate=х/ф Паркер; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Viju TV1000 HD",
+          "source": "epgpw-RU",
+          "source_id": "401446",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Паркер; candidate=х/ф Паркер; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Viju TV1000 HD",
+          "source": "epgone-ru2",
+          "source_id": "127",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Паркер; candidate=Паркер; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Viju TV1000 HD",
+          "source": "anzo-top",
+          "source_id": "14228",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Паркер; candidate=Х/ф Паркер.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Viju TV1000 HD",
+          "source": "gabbarit-current",
+          "source_id": "viju TV1000",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Паркер; candidate=Паркер.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Viju TV1000 HD",
+          "source": "m3u-edit-all-rescue",
+          "source_id": "viju.TV1000.[EU].ua",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Паркер; candidate=Х/ф \"Паркер\"; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Viju TV1000 HD",
+          "source": "m3u-edit-all-rescue",
+          "source_id": "viju.TV1000.HD.[EU].ua",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Паркер; candidate=Х/ф \"Паркер\"; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Viju TV1000 HD",
           "source": "gabbarit-primary",
-          "source_id": "РуКино HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=СЛОН; candidate=Слон (2022).; requires two positive observations before selection"
+          "source_id": "viju TV1000",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Паркер; candidate=Паркер.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Viju TV1000 HD",
+          "source": "epgone-full-movie-rescue",
+          "source_id": "127",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Паркер; candidate=Паркер; requires two positive observations before selection"
         }
       ]
     }
