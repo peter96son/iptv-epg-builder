@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-18T01:53:52.313419+00:00",
+  "updated_at": "2026-10-18T07:02:02.730011+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-18T01:53:50.805213+00:00",
+      "checked_at_utc": "2026-10-18T07:02:01.617583+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,18 +10,18 @@
         "Кинозалы"
       ],
       "channels": 549,
-      "ok": 486,
-      "gaps": 63,
+      "ok": 490,
+      "gaps": 59,
       "issue_counts": {
-        "NO_MAPPING": 58,
-        "NO_CURRENT_PROGRAMME": 5,
-        "NO_NEXT_PROGRAMME": 5
+        "NO_MAPPING": 56,
+        "NO_CURRENT_PROGRAMME": 3,
+        "NO_NEXT_PROGRAMME": 3
       },
       "group_counts": {
         "USSR": {
           "channels": 19,
-          "ok": 15,
-          "gaps": 4
+          "ok": 17,
+          "gaps": 2
         },
         "Кино": {
           "channels": 179,
@@ -30,42 +30,74 @@
         },
         "Кино 4K": {
           "channels": 65,
-          "ok": 64,
-          "gaps": 1
+          "ok": 65,
+          "gaps": 0
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 255,
-          "gaps": 31
+          "ok": 256,
+          "gaps": 30
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 53,
-      "high_confidence_observations": 1,
+      "channels_considered": 52,
+      "high_confidence_observations": 3,
       "recognized": [
+        {
+          "playlist_name": "DITV Американские комедии 80-90-х",
+          "provider_name": "DITV Американские комедии 80-90-х",
+          "title": "Четыре комнаты",
+          "score": 18.25,
+          "zone": "left_bottom",
+          "engine": "tesseract"
+        },
         {
           "playlist_name": "KLI Новинки 4K Ultra HD",
           "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Сводишь с ума",
-          "score": 17.75,
+          "title": "Таинственный лес. Родовое проклятие",
+          "score": 25.0,
           "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "YOSSO-4K",
+          "provider_name": "YOSSO-4K",
+          "title": "Фуоззок",
+          "score": 16.75,
+          "zone": "top_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 52,
+      "added": 3,
+      "rejected": 49,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-18T01:42:30.663272+00:00",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Сводишь с ума",
+          "observed_at": "2026-10-18T06:45:44.187875+00:00",
+          "playlist_name": "DITV Американские комедии 80-90-х",
+          "observed_title": "Четыре комнаты",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=17.75"
+          "notes": "high-confidence OCR; zone=left_bottom; engine=tesseract; score=18.25"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-18T06:45:44.187875+00:00",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "observed_title": "Таинственный лес. Родовое проклятие",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=25.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-18T06:45:44.187875+00:00",
+          "playlist_name": "YOSSO-4K",
+          "observed_title": "Фуоззок",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=16.75"
         }
       ]
     },
@@ -85,7 +117,7 @@
           "source": "gabbarit-current",
           "source_id": "KLI Новинки 4k",
           "output_tvg_id": "Xklinovinci4k",
-          "horizon_hours": 159.86,
+          "horizon_hours": 154.73,
           "current": true,
           "usable": 31
         }
@@ -93,16 +125,32 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 10,
+      "live_observations": 3,
+      "sources_scanned": 27,
       "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         }
       ],
-      "candidates_added": 0,
-      "added": []
+      "candidates_added": 1,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "DITV Американские комедии 80-90-х",
+          "source": "epgpw-RU",
+          "source_id": "246321",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Четыре комнаты; candidate=х/ф Четыре комнаты 1995; requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
