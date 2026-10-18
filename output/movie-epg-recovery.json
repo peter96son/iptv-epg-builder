@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-18T15:09:54.038620+00:00",
+  "updated_at": "2026-10-18T17:55:01.412419+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-18T15:09:52.745450+00:00",
+      "checked_at_utc": "2026-10-18T17:54:59.908754+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,16 +10,18 @@
         "Кинозалы"
       ],
       "channels": 549,
-      "ok": 507,
-      "gaps": 42,
+      "ok": 483,
+      "gaps": 66,
       "issue_counts": {
-        "NO_MAPPING": 42
+        "NO_MAPPING": 42,
+        "NO_NEXT_PROGRAMME": 24,
+        "NO_CURRENT_PROGRAMME": 6
       },
       "group_counts": {
         "USSR": {
           "channels": 19,
-          "ok": 17,
-          "gaps": 2
+          "ok": 16,
+          "gaps": 3
         },
         "Кино": {
           "channels": 179,
@@ -33,21 +35,21 @@
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 271,
-          "gaps": 15
+          "ok": 248,
+          "gaps": 38
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 38,
+      "channels_considered": 52,
       "high_confidence_observations": 1,
       "recognized": [
         {
           "playlist_name": "KLI Новинки 4K Ultra HD",
           "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Хищник Убийца убийц",
-          "score": 19.25,
+          "title": "Царевна-лягушка",
+          "score": 23.5,
           "zone": "bottom_band",
           "engine": "tesseract"
         }
@@ -55,15 +57,15 @@
     },
     "evidence_recorder": {
       "added": 1,
-      "rejected": 37,
+      "rejected": 51,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-18T14:59:05.887253+00:00",
+          "observed_at": "2026-10-18T17:43:05.742745+00:00",
           "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Хищник Убийца убийц",
+          "observed_title": "Царевна-лягушка",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=19.25"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=23.5"
         }
       ]
     },
@@ -83,7 +85,7 @@
           "source": "gabbarit-current",
           "source_id": "KLI Новинки 4k",
           "output_tvg_id": "Xklinovinci4k",
-          "horizon_hours": 146.59,
+          "horizon_hours": 143.85,
           "current": true,
           "usable": 31
         }
@@ -99,8 +101,16 @@
           "error": "EOFError"
         }
       ],
-      "candidates_added": 0,
-      "added": []
+      "candidates_added": 1,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "source": "bcumedia-dedicated",
+          "source_id": "Радость моя",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Царевна-лягушка; candidate=Царевна-лягушка.; requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
