@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-18T17:55:01.412419+00:00",
+  "updated_at": "2026-10-18T20:02:50.959694+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-18T17:54:59.908754+00:00",
+      "checked_at_utc": "2026-10-18T20:02:49.456115+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 549,
-      "ok": 483,
-      "gaps": 66,
+      "ok": 457,
+      "gaps": 92,
       "issue_counts": {
-        "NO_MAPPING": 42,
-        "NO_NEXT_PROGRAMME": 24,
-        "NO_CURRENT_PROGRAMME": 6
+        "NO_MAPPING": 41,
+        "NO_NEXT_PROGRAMME": 51,
+        "NO_CURRENT_PROGRAMME": 29
       },
       "group_counts": {
         "USSR": {
@@ -25,47 +25,63 @@
         },
         "Кино": {
           "channels": 179,
-          "ok": 154,
-          "gaps": 25
+          "ok": 145,
+          "gaps": 34
         },
         "Кино 4K": {
           "channels": 65,
-          "ok": 65,
-          "gaps": 0
+          "ok": 64,
+          "gaps": 1
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 248,
-          "gaps": 38
+          "ok": 232,
+          "gaps": 54
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 52,
-      "high_confidence_observations": 1,
+      "channels_considered": 66,
+      "high_confidence_observations": 2,
       "recognized": [
         {
           "playlist_name": "KLI Новинки 4K Ultra HD",
           "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Царевна-лягушка",
-          "score": 23.5,
+          "title": "(Не)искусственный интеллект",
+          "score": 25.0,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "DITV СССР 4К",
+          "provider_name": "DITV СССР 4К",
+          "title": "2 тульев 197",
+          "score": 16.5,
           "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 51,
+      "added": 2,
+      "rejected": 64,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-18T17:43:05.742745+00:00",
+          "observed_at": "2026-10-18T19:51:19.911565+00:00",
           "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Царевна-лягушка",
+          "observed_title": "(Не)искусственный интеллект",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=23.5"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=25.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-18T19:51:19.911565+00:00",
+          "playlist_name": "DITV СССР 4К",
+          "observed_title": "2 тульев 197",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=16.5"
         }
       ]
     },
@@ -85,7 +101,7 @@
           "source": "gabbarit-current",
           "source_id": "KLI Новинки 4k",
           "output_tvg_id": "Xklinovinci4k",
-          "horizon_hours": 143.85,
+          "horizon_hours": 141.71,
           "current": true,
           "usable": 31
         }
@@ -93,7 +109,7 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
+      "live_observations": 2,
       "sources_scanned": 10,
       "sources_failed": [
         {
@@ -101,16 +117,8 @@
           "error": "EOFError"
         }
       ],
-      "candidates_added": 1,
-      "added": [
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "bcumedia-dedicated",
-          "source_id": "Радость моя",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Царевна-лягушка; candidate=Царевна-лягушка.; requires two positive observations before selection"
-        }
-      ]
+      "candidates_added": 0,
+      "added": []
     }
   }
 }
