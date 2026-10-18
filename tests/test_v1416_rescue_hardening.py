@@ -4,9 +4,10 @@ from src.config import _read_alias_csv, load_aliases, load_sources
 def test_kli_pin_with_note_is_not_dropped():
     rows = [r for r in load_aliases() if r.get("playlist_name") == "KLI СССР HD"]
     assert rows
-    row = next(r for r in rows if r.get("source") == "klimedia-dedicated")
+    row = next(r for r in rows if r.get("source") == "tvteam" and r.get("source_id") == "ch4083")
     assert row.get("hard_pin") == "1"
-    assert "not Runigma" in row.get("notes", "")
+    assert "Мать" in row.get("notes", "")
+    assert "Мачеха" in row.get("notes", "")
 
 
 def test_dead_v1415_rescues_removed_and_m3uedit_added():

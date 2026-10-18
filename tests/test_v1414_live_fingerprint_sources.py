@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def test_live_verified_source_pins_are_locked():
     text = (ROOT / 'data' / 'source_pins.csv').read_text(encoding='utf-8')
-    assert 'KLI СССР HD,Xkliussr,,,klimedia-dedicated,kli-sssr-hd,1' in text
+    assert 'KLI СССР HD,Xkliussr,,,tvteam,ch4083,1' in text
     assert 'Premium HD,Xpremium-hd,,,premiere-group-dedicated,premium-hd,1' in text
     assert 'BCU СССР HD,Xbcu-sssr,,,iptvx-noarch,bcu-sssr,1' in text
     assert 'BCU СССР HD,Xbcu-sssr,,,iptvx-noarch,bcu-sssr-hdr' not in text
