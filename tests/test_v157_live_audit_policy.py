@@ -14,7 +14,7 @@ def test_disabled_candidate_not_allowed(tmp_path):
 
 def test_strict_verified_preserved():
     assert a.STRICT_VERIFIED["BCU СССР HD"]["source_id"]=="bcu-sssr"
-    assert a.STRICT_VERIFIED["KLI СССР HD"]["source_id"]=="kli-sssr-hd"
+    assert a.STRICT_VERIFIED["KLI СССР HD"]["source_id"]=="ch4083"
 
 def test_legacy_verified_export_is_preserved():
     from src.epg_live_audit import VERIFIED
