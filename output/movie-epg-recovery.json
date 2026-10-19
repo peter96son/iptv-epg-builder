@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-19T00:50:59.704524+00:00",
+  "updated_at": "2026-10-19T05:48:22.966347+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-19T00:50:59.063144+00:00",
+      "checked_at_utc": "2026-10-19T05:48:22.331080+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,11 @@
         "Кинозалы"
       ],
       "channels": 549,
-      "ok": 418,
-      "gaps": 131,
+      "ok": 412,
+      "gaps": 137,
       "issue_counts": {
-        "NO_MAPPING": 122,
-        "NO_NEXT_PROGRAMME": 9,
-        "NO_CURRENT_PROGRAMME": 4
+        "NO_MAPPING": 135,
+        "NO_NEXT_PROGRAMME": 2
       },
       "group_counts": {
         "USSR": {
@@ -25,8 +24,8 @@
         },
         "Кино": {
           "channels": 179,
-          "ok": 131,
-          "gaps": 48
+          "ok": 123,
+          "gaps": 56
         },
         "Кино 4K": {
           "channels": 65,
@@ -35,37 +34,101 @@
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 207,
-          "gaps": 79
+          "ok": 209,
+          "gaps": 77
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 102,
-      "high_confidence_observations": 1,
+      "channels_considered": 113,
+      "high_confidence_observations": 5,
       "recognized": [
+        {
+          "playlist_name": "Детектив HD",
+          "provider_name": "Детектив HD",
+          "title": "Спецко",
+          "score": 21.5,
+          "zone": "top_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "DITV Про акул",
+          "provider_name": "DITV Про акул",
+          "title": "В пасти океана",
+          "score": 18.0,
+          "zone": "left_bottom",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "DITV КОМЕДИИ",
+          "provider_name": "DITV КОМЕДИИ",
+          "title": "Волк с Уолл-стрит",
+          "score": 18.5,
+          "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        },
         {
           "playlist_name": "KLI Новинки 4K Ultra HD",
           "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Бессмертная гвардия 2",
-          "score": 24.5,
-          "zone": "bottom_band",
+          "title": "Большая двадцатка",
+          "score": 19.0,
+          "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "CPS Anime",
+          "provider_name": "CPS Anime",
+          "title": "АМТМЕ",
+          "score": 16.25,
+          "zone": "top_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 101,
+      "added": 5,
+      "rejected": 108,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-19T00:45:57.287540+00:00",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Бессмертная гвардия 2",
+          "observed_at": "2026-10-19T05:37:43.736037+00:00",
+          "playlist_name": "Детектив HD",
+          "observed_title": "Спецко",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=24.5"
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=21.5"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-19T05:37:43.736037+00:00",
+          "playlist_name": "DITV Про акул",
+          "observed_title": "В пасти океана",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom; engine=tesseract; score=18.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-19T05:37:43.736037+00:00",
+          "playlist_name": "DITV КОМЕДИИ",
+          "observed_title": "Волк с Уолл-стрит",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=18.5"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-19T05:37:43.736037+00:00",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "observed_title": "Большая двадцатка",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=19.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-19T05:37:43.736037+00:00",
+          "playlist_name": "CPS Anime",
+          "observed_title": "АМТМЕ",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=16.25"
         }
       ]
     },
@@ -85,7 +148,7 @@
           "source": "gabbarit-current",
           "source_id": "KLI Новинки 4k",
           "output_tvg_id": "Xklinovinci4k",
-          "horizon_hours": 136.88,
+          "horizon_hours": 131.93,
           "current": true,
           "usable": 31
         }
@@ -93,16 +156,68 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 10,
+      "live_observations": 5,
+      "sources_scanned": 25,
       "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-ru",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-rescue",
+          "error": "RuntimeError"
+        },
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         }
       ],
-      "candidates_added": 0,
-      "added": []
+      "candidates_added": 5,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "DITV КОМЕДИИ",
+          "source": "iptvx-noarch",
+          "source_id": "bcu-premium-comedy-4k-hdr",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Волк с Уолл-стрит; candidate=х/ф Волк с Уолл-стрит; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV КОМЕДИИ",
+          "source": "openbox-tsd",
+          "source_id": "bcu-premium-comedy",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Волк с Уолл-стрит; candidate=X/ф Волк с Уолл-стрит.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV КОМЕДИИ",
+          "source": "bcumedia-dedicated",
+          "source_id": "BCU Premium Comedy 4K HDR",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Волк с Уолл-стрит; candidate=Волк с Уолл-стрит; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV КОМЕДИИ",
+          "source": "gabbarit-current",
+          "source_id": "BCU Premium Comedy 4K HDR",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Волк с Уолл-стрит; candidate=Волк с Уолл-стрит.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV КОМЕДИИ",
+          "source": "gabbarit-primary",
+          "source_id": "BCU Premium Comedy 4K HDR",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Волк с Уолл-стрит; candidate=Волк с Уолл-стрит.; requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
