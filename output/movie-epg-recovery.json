@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-19T11:52:59.337117+00:00",
+  "updated_at": "2026-10-19T18:04:28.667211+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-19T11:52:58.302158+00:00",
+      "checked_at_utc": "2026-10-19T18:04:27.299492+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,94 +10,62 @@
         "Кинозалы"
       ],
       "channels": 549,
-      "ok": 365,
-      "gaps": 184,
+      "ok": 506,
+      "gaps": 43,
       "issue_counts": {
-        "NO_MAPPING": 137,
-        "NO_NEXT_PROGRAMME": 47,
-        "NO_CURRENT_PROGRAMME": 39
+        "NO_MAPPING": 42,
+        "NO_CURRENT_PROGRAMME": 1,
+        "NO_NEXT_PROGRAMME": 1
       },
       "group_counts": {
         "USSR": {
           "channels": 19,
-          "ok": 16,
-          "gaps": 3
+          "ok": 17,
+          "gaps": 2
         },
         "Кино": {
           "channels": 179,
-          "ok": 120,
-          "gaps": 59
+          "ok": 153,
+          "gaps": 26
         },
         "Кино 4K": {
           "channels": 65,
-          "ok": 62,
-          "gaps": 3
+          "ok": 65,
+          "gaps": 0
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 167,
-          "gaps": 119
+          "ok": 271,
+          "gaps": 15
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 115,
-      "high_confidence_observations": 3,
+      "channels_considered": 39,
+      "high_confidence_observations": 1,
       "recognized": [
-        {
-          "playlist_name": ".red SD",
-          "provider_name": ".red SD",
-          "title": "ремьер",
-          "score": 16.5,
-          "zone": "bottom_band",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "DITV Про вампиров",
-          "provider_name": "DITV Про вампиров",
-          "title": "Голод",
-          "score": 16.25,
-          "zone": "left_bottom",
-          "engine": "tesseract"
-        },
         {
           "playlist_name": "KLI Новинки 4K Ultra HD",
           "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Война и музыка",
-          "score": 23.0,
-          "zone": "left_bottom_tight",
+          "title": "Долгая прогулка",
+          "score": 18.5,
+          "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 3,
-      "rejected": 112,
+      "added": 1,
+      "rejected": 38,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-19T11:33:42.887303+00:00",
-          "playlist_name": ".red SD",
-          "observed_title": "ремьер",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=16.5"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-19T11:33:42.887303+00:00",
-          "playlist_name": "DITV Про вампиров",
-          "observed_title": "Голод",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom; engine=tesseract; score=16.25"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-19T11:33:42.887303+00:00",
+          "observed_at": "2026-10-19T17:53:36.118914+00:00",
           "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Война и музыка",
+          "observed_title": "Долгая прогулка",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=23.0"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.5"
         }
       ]
     },
@@ -108,14 +76,8 @@
         "quarantined": 0,
         "target_hours": 6.0
       },
-      "pending_count": 1,
-      "pending": {
-        ".red SD": {
-          "observations": 1,
-          "distinct_titles": 1,
-          "status": "PENDING_DISTINCT_SECOND_TITLE"
-        }
-      },
+      "pending_count": 0,
+      "pending": {},
       "selected_count": 1,
       "quarantined_count": 0,
       "selected": {
@@ -123,7 +85,7 @@
           "source": "gabbarit-current",
           "source_id": "KLI Новинки 4k",
           "output_tvg_id": "Xklinovinci4k",
-          "horizon_hours": 125.88,
+          "horizon_hours": 119.69,
           "current": true,
           "usable": 31
         }
@@ -131,17 +93,9 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 3,
-      "sources_scanned": 27,
+      "live_observations": 1,
+      "sources_scanned": 10,
       "sources_failed": [
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        },
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
