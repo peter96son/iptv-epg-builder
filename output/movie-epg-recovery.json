@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-18T22:21:19.586500+00:00",
+  "updated_at": "2026-10-19T00:50:59.704524+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-18T22:21:18.201462+00:00",
+      "checked_at_utc": "2026-10-19T00:50:59.063144+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,159 +10,99 @@
         "Кинозалы"
       ],
       "channels": 549,
-      "ok": 425,
-      "gaps": 124,
+      "ok": 418,
+      "gaps": 131,
       "issue_counts": {
-        "NO_MAPPING": 92,
-        "NO_CURRENT_PROGRAMME": 30,
-        "NO_NEXT_PROGRAMME": 32
+        "NO_MAPPING": 122,
+        "NO_NEXT_PROGRAMME": 9,
+        "NO_CURRENT_PROGRAMME": 4
       },
       "group_counts": {
         "USSR": {
           "channels": 19,
-          "ok": 15,
-          "gaps": 4
+          "ok": 16,
+          "gaps": 3
         },
         "Кино": {
           "channels": 179,
-          "ok": 138,
-          "gaps": 41
+          "ok": 131,
+          "gaps": 48
         },
         "Кино 4K": {
           "channels": 65,
-          "ok": 63,
-          "gaps": 2
+          "ok": 64,
+          "gaps": 1
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 209,
-          "gaps": 77
+          "ok": 207,
+          "gaps": 79
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 98,
-      "high_confidence_observations": 2,
+      "channels_considered": 102,
+      "high_confidence_observations": 1,
       "recognized": [
         {
-          "playlist_name": "BCU Comedy HD",
-          "provider_name": "BCU Comedy HD",
-          "title": "Батя (2020)",
-          "score": 13.0,
-          "zone": "top_left",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "CPS Western",
-          "provider_name": "CPS Western",
-          "title": "ВИРТ \\",
-          "score": 13.0,
-          "zone": "top_left",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "provider_name": "KLI Новинки 4K Ultra HD",
+          "title": "Бессмертная гвардия 2",
+          "score": 24.5,
+          "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 2,
-      "rejected": 96,
+      "added": 1,
+      "rejected": 101,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-18T22:09:23.040445+00:00",
-          "playlist_name": "BCU Comedy HD",
-          "observed_title": "Батя (2020)",
+          "observed_at": "2026-10-19T00:45:57.287540+00:00",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "observed_title": "Бессмертная гвардия 2",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=13.0"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-18T22:09:23.040445+00:00",
-          "playlist_name": "CPS Western",
-          "observed_title": "ВИРТ \\",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=13.0"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=24.5"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 0,
-        "selected": 0,
-        "reason": "no-policy"
+        "changed": 1,
+        "selected": 1,
+        "quarantined": 0,
+        "target_hours": 6.0
       },
-      "pending_count": 1,
-      "pending": {
-        "BCU Comedy HD": {
-          "observations": 1,
-          "distinct_titles": 1,
-          "status": "PENDING_DISTINCT_SECOND_TITLE"
-        }
-      },
-      "selected_count": 2,
+      "pending_count": 0,
+      "pending": {},
+      "selected_count": 1,
       "quarantined_count": 0,
       "selected": {
-        "KLI СССР HD": {
-          "source": "tvteam",
-          "source_id": "ch4083",
-          "output_tvg_id": "Xliveocr-25e879b896d08aa6",
-          "horizon_hours": 23.16,
-          "current": true,
-          "usable": 19
-        },
-        "KLI Новинки HD": {
+        "KLI Новинки 4K Ultra HD": {
           "source": "gabbarit-current",
-          "source_id": "KLI НОВИНКИ",
-          "output_tvg_id": "Xliveocr-44d592172b1eca25",
-          "horizon_hours": 165.87,
+          "source_id": "KLI Новинки 4k",
+          "output_tvg_id": "Xklinovinci4k",
+          "horizon_hours": 136.88,
           "current": true,
-          "usable": 30
+          "usable": 31
         }
       },
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 2,
-      "sources_scanned": 25,
+      "live_observations": 1,
+      "sources_scanned": 10,
       "sources_failed": [
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-ru",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-rescue",
-          "error": "RuntimeError"
-        },
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         }
       ],
-      "candidates_added": 2,
-      "added": [
-        {
-          "enabled": "1",
-          "playlist_name": "BCU Comedy HD",
-          "source": "epgpw-RU",
-          "source_id": "6215",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Батя (2020); candidate=х/ф Батя; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "BCU Comedy HD",
-          "source": "epgpw-RU",
-          "source_id": "556169",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Батя (2020); candidate=х/ф Батя (2021); requires two positive observations before selection"
-        }
-      ]
+      "candidates_added": 0,
+      "added": []
     }
   }
 }
