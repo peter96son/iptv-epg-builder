@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-21T01:19:37.573164+00:00",
+  "updated_at": "2026-10-21T06:59:07.993248+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-21T01:19:36.256536+00:00",
+      "checked_at_utc": "2026-10-21T06:59:06.015521+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,18 +10,18 @@
         "Кинозалы"
       ],
       "channels": 549,
-      "ok": 503,
-      "gaps": 46,
+      "ok": 502,
+      "gaps": 47,
       "issue_counts": {
-        "NO_MAPPING": 44,
-        "NO_CURRENT_PROGRAMME": 2,
-        "NO_NEXT_PROGRAMME": 2
+        "NO_MAPPING": 46,
+        "NO_CURRENT_PROGRAMME": 1,
+        "NO_NEXT_PROGRAMME": 1
       },
       "group_counts": {
         "USSR": {
           "channels": 19,
-          "ok": 17,
-          "gaps": 2
+          "ok": 16,
+          "gaps": 3
         },
         "Кино": {
           "channels": 179,
@@ -43,45 +43,29 @@
     "observer": {
       "return_code": 0,
       "channels_considered": 42,
-      "high_confidence_observations": 2,
+      "high_confidence_observations": 1,
       "recognized": [
         {
           "playlist_name": "KLI Новинки 4K Ultra HD",
           "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Война и музыка",
-          "score": 18.0,
-          "zone": "bottom_band",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "CPS Anime",
-          "provider_name": "CPS Anime",
-          "title": "Наруто 5",
-          "score": 16.5,
+          "title": "Грешники",
+          "score": 17.0,
           "zone": "left_bottom_tight",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 2,
-      "rejected": 40,
+      "added": 1,
+      "rejected": 41,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-21T01:08:44.037980+00:00",
+          "observed_at": "2026-10-21T06:44:32.505773+00:00",
           "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Война и музыка",
+          "observed_title": "Грешники",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.0"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-21T01:08:44.037980+00:00",
-          "playlist_name": "CPS Anime",
-          "observed_title": "Наруто 5",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=16.5"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=17.0"
         }
       ]
     },
@@ -101,7 +85,7 @@
           "source": "tvteam",
           "source_id": "ch4089",
           "output_tvg_id": "Xklinovinci4k",
-          "horizon_hours": 23.58,
+          "horizon_hours": 23.49,
           "current": true,
           "usable": 17
         }
@@ -109,7 +93,7 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 2,
+      "live_observations": 1,
       "sources_scanned": 10,
       "sources_failed": [
         {
@@ -117,8 +101,30 @@
           "error": "EOFError"
         }
       ],
-      "candidates_added": 0,
-      "added": []
+      "candidates_added": 3,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "source": "iptv-online-primary",
+          "source_id": "Xbear-tv-nochnoj-seans-ru-uhd",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Грешники; candidate=Грешники (2025); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "source": "iptvx-noarch",
+          "source_id": "bear-tv-nochnoj-seans-ru-uhd",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Грешники; candidate=Грешники (2025); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "source": "tvteam",
+          "source_id": "ch3442",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Грешники; candidate=Грешники; requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
