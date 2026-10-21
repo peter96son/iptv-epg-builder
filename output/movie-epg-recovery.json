@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-21T06:59:07.993248+00:00",
+  "updated_at": "2026-10-21T12:51:28.575991+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-21T06:59:06.015521+00:00",
+      "checked_at_utc": "2026-10-21T12:51:27.031352+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,23 +10,21 @@
         "Кинозалы"
       ],
       "channels": 549,
-      "ok": 502,
-      "gaps": 47,
+      "ok": 508,
+      "gaps": 41,
       "issue_counts": {
-        "NO_MAPPING": 46,
-        "NO_CURRENT_PROGRAMME": 1,
-        "NO_NEXT_PROGRAMME": 1
+        "NO_MAPPING": 41
       },
       "group_counts": {
         "USSR": {
           "channels": 19,
-          "ok": 16,
-          "gaps": 3
+          "ok": 17,
+          "gaps": 2
         },
         "Кино": {
           "channels": 179,
-          "ok": 153,
-          "gaps": 26
+          "ok": 154,
+          "gaps": 25
         },
         "Кино 4K": {
           "channels": 65,
@@ -35,37 +33,69 @@
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 268,
-          "gaps": 18
+          "ok": 272,
+          "gaps": 14
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 42,
-      "high_confidence_observations": 1,
+      "channels_considered": 38,
+      "high_confidence_observations": 3,
       "recognized": [
+        {
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "provider_name": "DITV ФИЛЬМЫ",
+          "title": "Горько",
+          "score": 21.5,
+          "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        },
         {
           "playlist_name": "KLI Новинки 4K Ultra HD",
           "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Грешники",
-          "score": 17.0,
+          "title": "Зловещие мертвецы Пекло",
+          "score": 25.0,
           "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "CPS Anime",
+          "provider_name": "CPS Anime",
+          "title": "В подземелье я пойду, там красавицу найву @рела Ориона (20",
+          "score": 18.0,
+          "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 41,
+      "added": 3,
+      "rejected": 35,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-21T06:44:32.505773+00:00",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Грешники",
+          "observed_at": "2026-10-21T12:34:19.430196+00:00",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "observed_title": "Горько",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=17.0"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=21.5"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-21T12:34:19.430196+00:00",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "observed_title": "Зловещие мертвецы Пекло",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=25.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-21T12:34:19.430196+00:00",
+          "playlist_name": "CPS Anime",
+          "observed_title": "В подземелье я пойду, там красавицу найву @рела Ориона (20",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.0"
         }
       ]
     },
@@ -85,7 +115,7 @@
           "source": "tvteam",
           "source_id": "ch4089",
           "output_tvg_id": "Xklinovinci4k",
-          "horizon_hours": 23.49,
+          "horizon_hours": 23.2,
           "current": true,
           "usable": 17
         }
@@ -93,38 +123,16 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 10,
+      "live_observations": 3,
+      "sources_scanned": 14,
       "sources_failed": [
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         }
       ],
-      "candidates_added": 3,
-      "added": [
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "iptv-online-primary",
-          "source_id": "Xbear-tv-nochnoj-seans-ru-uhd",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Грешники; candidate=Грешники (2025); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "iptvx-noarch",
-          "source_id": "bear-tv-nochnoj-seans-ru-uhd",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Грешники; candidate=Грешники (2025); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "tvteam",
-          "source_id": "ch3442",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Грешники; candidate=Грешники; requires two positive observations before selection"
-        }
-      ]
+      "candidates_added": 0,
+      "added": []
     }
   }
 }
