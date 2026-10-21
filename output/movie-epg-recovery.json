@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-20T23:01:16.165595+00:00",
+  "updated_at": "2026-10-21T01:19:37.573164+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-20T23:01:14.610767+00:00",
+      "checked_at_utc": "2026-10-21T01:19:36.256536+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,10 +10,12 @@
         "Кинозалы"
       ],
       "channels": 549,
-      "ok": 505,
-      "gaps": 44,
+      "ok": 503,
+      "gaps": 46,
       "issue_counts": {
-        "NO_MAPPING": 44
+        "NO_MAPPING": 44,
+        "NO_CURRENT_PROGRAMME": 2,
+        "NO_NEXT_PROGRAMME": 2
       },
       "group_counts": {
         "USSR": {
@@ -23,8 +25,8 @@
         },
         "Кино": {
           "channels": 179,
-          "ok": 154,
-          "gaps": 25
+          "ok": 153,
+          "gaps": 26
         },
         "Кино 4K": {
           "channels": 65,
@@ -33,29 +35,29 @@
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 269,
-          "gaps": 17
+          "ok": 268,
+          "gaps": 18
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 40,
+      "channels_considered": 42,
       "high_confidence_observations": 2,
       "recognized": [
         {
-          "playlist_name": "KLI Новинки HD",
-          "provider_name": "KLI Новинки HD",
-          "title": "Быстрее ветра",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "provider_name": "KLI Новинки 4K Ultra HD",
+          "title": "Война и музыка",
           "score": 18.0,
           "zone": "bottom_band",
           "engine": "tesseract"
         },
         {
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "В потерянных землях",
-          "score": 24.25,
+          "playlist_name": "CPS Anime",
+          "provider_name": "CPS Anime",
+          "title": "Наруто 5",
+          "score": 16.5,
           "zone": "left_bottom_tight",
           "engine": "tesseract"
         }
@@ -63,60 +65,52 @@
     },
     "evidence_recorder": {
       "added": 2,
-      "rejected": 38,
+      "rejected": 40,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-20T22:49:16.264462+00:00",
-          "playlist_name": "KLI Новинки HD",
-          "observed_title": "Быстрее ветра",
+          "observed_at": "2026-10-21T01:08:44.037980+00:00",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "observed_title": "Война и музыка",
           "origin": "movie-live-observer",
           "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.0"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-10-20T22:49:16.264462+00:00",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "В потерянных землях",
+          "observed_at": "2026-10-21T01:08:44.037980+00:00",
+          "playlist_name": "CPS Anime",
+          "observed_title": "Наруто 5",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=24.25"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=16.5"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 2,
-        "selected": 2,
+        "changed": 1,
+        "selected": 1,
         "quarantined": 0,
         "target_hours": 6.0
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 2,
+      "selected_count": 1,
       "quarantined_count": 0,
       "selected": {
         "KLI Новинки 4K Ultra HD": {
           "source": "tvteam",
           "source_id": "ch4089",
           "output_tvg_id": "Xklinovinci4k",
-          "horizon_hours": 22.85,
+          "horizon_hours": 23.58,
           "current": true,
-          "usable": 15
-        },
-        "KLI Новинки HD": {
-          "source": "gabbarit-current",
-          "source_id": "KLI НОВИНКИ",
-          "output_tvg_id": "Xklinovinci",
-          "horizon_hours": 162.84,
-          "current": true,
-          "usable": 30
+          "usable": 17
         }
       },
       "quarantined": {}
     },
     "candidate_discovery": {
       "live_observations": 2,
-      "sources_scanned": 11,
+      "sources_scanned": 10,
       "sources_failed": [
         {
           "source": "gabbarit-mirror",
