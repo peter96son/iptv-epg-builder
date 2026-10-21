@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-21T12:51:28.575991+00:00",
+  "updated_at": "2026-10-21T17:57:38.400668+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-21T12:51:27.031352+00:00",
+      "checked_at_utc": "2026-10-21T17:57:36.486730+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,10 +10,10 @@
         "Кинозалы"
       ],
       "channels": 549,
-      "ok": 508,
-      "gaps": 41,
+      "ok": 506,
+      "gaps": 43,
       "issue_counts": {
-        "NO_MAPPING": 41
+        "NO_MAPPING": 43
       },
       "group_counts": {
         "USSR": {
@@ -23,116 +23,90 @@
         },
         "Кино": {
           "channels": 179,
-          "ok": 154,
-          "gaps": 25
+          "ok": 155,
+          "gaps": 24
         },
         "Кино 4K": {
           "channels": 65,
-          "ok": 65,
-          "gaps": 0
+          "ok": 64,
+          "gaps": 1
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 272,
-          "gaps": 14
+          "ok": 270,
+          "gaps": 16
         }
       }
     },
     "observer": {
       "return_code": 0,
       "channels_considered": 38,
-      "high_confidence_observations": 3,
+      "high_confidence_observations": 1,
       "recognized": [
         {
-          "playlist_name": "DITV ФИЛЬМЫ",
-          "provider_name": "DITV ФИЛЬМЫ",
-          "title": "Горько",
-          "score": 21.5,
-          "zone": "left_bottom_tight",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Зловещие мертвецы Пекло",
-          "score": 25.0,
-          "zone": "left_bottom_tight",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "CPS Anime",
-          "provider_name": "CPS Anime",
-          "title": "В подземелье я пойду, там красавицу найву @рела Ориона (20",
-          "score": 18.0,
-          "zone": "bottom_band",
+          "playlist_name": "Thriller HD",
+          "provider_name": "Thriller HD",
+          "title": "ИГРА ДЖЕРАЛДА",
+          "score": 23.0,
+          "zone": "top_left",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 3,
-      "rejected": 35,
+      "added": 1,
+      "rejected": 37,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-21T12:34:19.430196+00:00",
-          "playlist_name": "DITV ФИЛЬМЫ",
-          "observed_title": "Горько",
+          "observed_at": "2026-10-21T17:47:33.869128+00:00",
+          "playlist_name": "Thriller HD",
+          "observed_title": "ИГРА ДЖЕРАЛДА",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=21.5"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-21T12:34:19.430196+00:00",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Зловещие мертвецы Пекло",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=25.0"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-21T12:34:19.430196+00:00",
-          "playlist_name": "CPS Anime",
-          "observed_title": "В подземелье я пойду, там красавицу найву @рела Ориона (20",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.0"
+          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=23.0"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 1,
-        "selected": 1,
+        "changed": 0,
+        "selected": 0,
         "quarantined": 0,
-        "target_hours": 6.0
+        "reason": "no-live-candidates"
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 1,
+      "selected_count": 0,
       "quarantined_count": 0,
-      "selected": {
-        "KLI Новинки 4K Ultra HD": {
-          "source": "tvteam",
-          "source_id": "ch4089",
-          "output_tvg_id": "Xklinovinci4k",
-          "horizon_hours": 23.2,
-          "current": true,
-          "usable": 17
-        }
-      },
+      "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 3,
-      "sources_scanned": 14,
+      "live_observations": 1,
+      "sources_scanned": 10,
       "sources_failed": [
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         }
       ],
-      "candidates_added": 0,
-      "added": []
+      "candidates_added": 2,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "Thriller HD",
+          "source": "gabbarit-current",
+          "source_id": "Thriller HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=ИГРА ДЖЕРАЛДА; candidate=Игра Джералда (2017).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Thriller HD",
+          "source": "gabbarit-primary",
+          "source_id": "Thriller HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=ИГРА ДЖЕРАЛДА; candidate=Игра Джералда (2017).; requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
