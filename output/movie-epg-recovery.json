@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-21T21:12:17.365209+00:00",
+  "updated_at": "2026-10-22T00:43:37.707356+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-21T21:12:15.897101+00:00",
+      "checked_at_utc": "2026-10-22T00:43:35.781620+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 549,
-      "ok": 503,
-      "gaps": 46,
+      "ok": 500,
+      "gaps": 49,
       "issue_counts": {
-        "NO_MAPPING": 43,
-        "NO_NEXT_PROGRAMME": 3,
-        "NO_CURRENT_PROGRAMME": 1
+        "NO_MAPPING": 45,
+        "NO_CURRENT_PROGRAMME": 4,
+        "NO_NEXT_PROGRAMME": 4
       },
       "group_counts": {
         "USSR": {
@@ -35,37 +35,53 @@
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 268,
-          "gaps": 18
+          "ok": 265,
+          "gaps": 21
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 41,
-      "high_confidence_observations": 1,
+      "channels_considered": 45,
+      "high_confidence_observations": 2,
       "recognized": [
+        {
+          "playlist_name": "Новый Русский HD",
+          "provider_name": "Новый Русский HD",
+          "title": "вонь.",
+          "score": 13.0,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        },
         {
           "playlist_name": "KLI Новинки 4K Ultra HD",
           "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Кирпич",
-          "score": 16.5,
-          "zone": "bottom_band",
+          "title": "Контратака",
+          "score": 17.5,
+          "zone": "left_bottom_tight",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 40,
+      "added": 2,
+      "rejected": 43,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-21T21:02:11.057867+00:00",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Кирпич",
+          "observed_at": "2026-10-22T00:22:48.839065+00:00",
+          "playlist_name": "Новый Русский HD",
+          "observed_title": "вонь.",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=16.5"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=13.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-22T00:22:48.839065+00:00",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "observed_title": "Контратака",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=17.5"
         }
       ]
     },
@@ -82,20 +98,36 @@
       "quarantined_count": 0,
       "selected": {
         "KLI Новинки 4K Ultra HD": {
-          "source": "tvteam",
-          "source_id": "ch4089",
+          "source": "gabbarit-current",
+          "source_id": "KLI Новинки 4k",
           "output_tvg_id": "Xklinovinci4k",
-          "horizon_hours": 22.74,
+          "horizon_hours": 139.84,
           "current": true,
-          "usable": 17
+          "usable": 32
         }
       },
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 10,
+      "live_observations": 2,
+      "sources_scanned": 25,
       "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-ru",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-rescue",
+          "error": "RuntimeError"
+        },
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
