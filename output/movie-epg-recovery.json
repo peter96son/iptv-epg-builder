@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-22T00:43:37.707356+00:00",
+  "updated_at": "2026-10-22T05:42:18.516087+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-22T00:43:35.781620+00:00",
+      "checked_at_utc": "2026-10-22T05:42:17.456269+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,11 @@
         "Кинозалы"
       ],
       "channels": 549,
-      "ok": 500,
-      "gaps": 49,
+      "ok": 495,
+      "gaps": 54,
       "issue_counts": {
-        "NO_MAPPING": 45,
-        "NO_CURRENT_PROGRAMME": 4,
-        "NO_NEXT_PROGRAMME": 4
+        "NO_MAPPING": 53,
+        "NO_NEXT_PROGRAMME": 1
       },
       "group_counts": {
         "USSR": {
@@ -25,63 +24,47 @@
         },
         "Кино": {
           "channels": 179,
-          "ok": 153,
-          "gaps": 26
+          "ok": 152,
+          "gaps": 27
         },
         "Кино 4K": {
           "channels": 65,
-          "ok": 65,
-          "gaps": 0
+          "ok": 64,
+          "gaps": 1
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 265,
-          "gaps": 21
+          "ok": 262,
+          "gaps": 24
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 45,
-      "high_confidence_observations": 2,
+      "channels_considered": 47,
+      "high_confidence_observations": 1,
       "recognized": [
         {
-          "playlist_name": "Новый Русский HD",
-          "provider_name": "Новый Русский HD",
-          "title": "вонь.",
-          "score": 13.0,
-          "zone": "bottom_band",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Контратака",
-          "score": 17.5,
+          "playlist_name": "KLI Новинки HD",
+          "provider_name": "KLI Новинки HD",
+          "title": "Лакомый кусок",
+          "score": 18.0,
           "zone": "left_bottom_tight",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 2,
-      "rejected": 43,
+      "added": 1,
+      "rejected": 46,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-22T00:22:48.839065+00:00",
-          "playlist_name": "Новый Русский HD",
-          "observed_title": "вонь.",
+          "observed_at": "2026-10-22T05:35:02.229722+00:00",
+          "playlist_name": "KLI Новинки HD",
+          "observed_title": "Лакомый кусок",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=13.0"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-22T00:22:48.839065+00:00",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Контратака",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=17.5"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=18.0"
         }
       ]
     },
@@ -97,37 +80,21 @@
       "selected_count": 1,
       "quarantined_count": 0,
       "selected": {
-        "KLI Новинки 4K Ultra HD": {
+        "KLI Новинки HD": {
           "source": "gabbarit-current",
-          "source_id": "KLI Новинки 4k",
-          "output_tvg_id": "Xklinovinci4k",
-          "horizon_hours": 139.84,
+          "source_id": "KLI НОВИНКИ",
+          "output_tvg_id": "Xklinovinci",
+          "horizon_hours": 132.15,
           "current": true,
-          "usable": 32
+          "usable": 30
         }
       },
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 2,
-      "sources_scanned": 25,
+      "live_observations": 1,
+      "sources_scanned": 9,
       "sources_failed": [
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-ru",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-rescue",
-          "error": "RuntimeError"
-        },
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
