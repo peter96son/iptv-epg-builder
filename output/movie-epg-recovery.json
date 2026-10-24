@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-24T07:51:41.237952+00:00",
+  "updated_at": "2026-10-24T12:27:56.564687+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-24T07:51:40.387789+00:00",
+      "checked_at_utc": "2026-10-24T12:27:55.733060+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,78 +10,92 @@
         "Кинозалы"
       ],
       "channels": 550,
-      "ok": 462,
-      "gaps": 88,
+      "ok": 510,
+      "gaps": 40,
       "issue_counts": {
-        "NO_MAPPING": 87,
-        "NO_CURRENT_PROGRAMME": 1,
-        "NO_NEXT_PROGRAMME": 1
+        "NO_MAPPING": 40
       },
       "group_counts": {
         "USSR": {
           "channels": 19,
-          "ok": 15,
-          "gaps": 4
+          "ok": 18,
+          "gaps": 1
         },
         "Кино": {
           "channels": 180,
-          "ok": 147,
-          "gaps": 33
+          "ok": 154,
+          "gaps": 26
         },
         "Кино 4K": {
           "channels": 65,
-          "ok": 64,
-          "gaps": 1
+          "ok": 65,
+          "gaps": 0
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 236,
-          "gaps": 50
+          "ok": 273,
+          "gaps": 13
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 56,
-      "high_confidence_observations": 2,
+      "channels_considered": 36,
+      "high_confidence_observations": 3,
       "recognized": [
         {
           "playlist_name": "KLI Новинки HD",
           "provider_name": "KLI Новинки HD",
-          "title": "Смерть Робин Гуда (2026)",
-          "score": 18.75,
+          "title": "Истребитель демонов: Бесконечный замок (2025",
+          "score": 25.0,
           "zone": "bottom_band",
           "engine": "tesseract"
         },
         {
           "playlist_name": "KLI Новинки 4K Ultra HD",
           "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Капитан Америка Новый мир",
-          "score": 25.0,
+          "title": "Компаньон",
+          "score": 17.25,
+          "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "DITV СССР 4К",
+          "provider_name": "DITV СССР 4К",
+          "title": "АРЧЕР",
+          "score": 16.25,
           "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 2,
-      "rejected": 54,
+      "added": 3,
+      "rejected": 33,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-24T07:44:13.961623+00:00",
+          "observed_at": "2026-10-24T12:19:38.324976+00:00",
           "playlist_name": "KLI Новинки HD",
-          "observed_title": "Смерть Робин Гуда (2026)",
+          "observed_title": "Истребитель демонов: Бесконечный замок (2025",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.75"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=25.0"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-10-24T07:44:13.961623+00:00",
+          "observed_at": "2026-10-24T12:19:38.324976+00:00",
           "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Капитан Америка Новый мир",
+          "observed_title": "Компаньон",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=25.0"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=17.25"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-24T12:19:38.324976+00:00",
+          "playlist_name": "DITV СССР 4К",
+          "observed_title": "АРЧЕР",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=16.25"
         }
       ]
     },
@@ -101,15 +115,15 @@
           "source": "tvteam",
           "source_id": "ch4089",
           "output_tvg_id": "Xklinovinci4k",
-          "horizon_hours": 23.81,
+          "horizon_hours": 162.43,
           "current": true,
-          "usable": 16
+          "usable": 32
         }
       },
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 2,
+      "live_observations": 3,
       "sources_scanned": 11,
       "sources_failed": [
         {
