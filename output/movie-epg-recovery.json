@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-23T20:53:19.522915+00:00",
+  "updated_at": "2026-10-24T00:01:18.986775+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-23T20:53:18.569134+00:00",
+      "checked_at_utc": "2026-10-24T00:01:17.339525+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 550,
-      "ok": 483,
-      "gaps": 67,
+      "ok": 479,
+      "gaps": 71,
       "issue_counts": {
-        "NO_MAPPING": 65,
-        "NO_CURRENT_PROGRAMME": 2,
-        "NO_NEXT_PROGRAMME": 2
+        "NO_MAPPING": 61,
+        "NO_CURRENT_PROGRAMME": 7,
+        "NO_NEXT_PROGRAMME": 10
       },
       "group_counts": {
         "USSR": {
@@ -25,8 +25,8 @@
         },
         "Кино": {
           "channels": 180,
-          "ok": 153,
-          "gaps": 27
+          "ok": 148,
+          "gaps": 32
         },
         "Кино 4K": {
           "channels": 65,
@@ -35,37 +35,69 @@
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 249,
-          "gaps": 37
+          "ok": 250,
+          "gaps": 36
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 42,
-      "high_confidence_observations": 1,
+      "channels_considered": 44,
+      "high_confidence_observations": 3,
       "recognized": [
+        {
+          "playlist_name": "Premiere HD 1",
+          "provider_name": "Premiere HD 1",
+          "title": "Операция «Возмездие»",
+          "score": 19.25,
+          "zone": "top_left",
+          "engine": "tesseract"
+        },
         {
           "playlist_name": "KLI Новинки 4K Ultra HD",
           "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Дамы вперед",
-          "score": 22.5,
+          "title": "Дом из динамита",
+          "score": 23.25,
           "zone": "bottom_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "KLI Новинки HD",
+          "provider_name": "KLI Новинки HD",
+          "title": "Колония (2026)",
+          "score": 16.75,
+          "zone": "left_bottom_tight",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
+      "added": 3,
       "rejected": 41,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-23T20:46:11.792498+00:00",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Дамы вперед",
+          "observed_at": "2026-10-23T23:40:00.988284+00:00",
+          "playlist_name": "Premiere HD 1",
+          "observed_title": "Операция «Возмездие»",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=22.5"
+          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=19.25"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-23T23:40:00.988284+00:00",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "observed_title": "Дом из динамита",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=23.25"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-23T23:40:00.988284+00:00",
+          "playlist_name": "KLI Новинки HD",
+          "observed_title": "Колония (2026)",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=16.75"
         }
       ]
     },
@@ -76,24 +108,68 @@
         "quarantined": 0,
         "reason": "no-live-candidates"
       },
-      "pending_count": 0,
-      "pending": {},
+      "pending_count": 1,
+      "pending": {
+        "Premiere HD 1": {
+          "observations": 1,
+          "distinct_titles": 1,
+          "status": "PENDING_DISTINCT_SECOND_TITLE"
+        }
+      },
       "selected_count": 0,
       "quarantined_count": 0,
       "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 10,
+      "live_observations": 3,
+      "sources_scanned": 25,
       "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-ru",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-rescue",
+          "error": "RuntimeError"
+        },
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         }
       ],
-      "candidates_added": 0,
-      "added": []
+      "candidates_added": 3,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "Premiere HD 1",
+          "source": "gabbarit-current",
+          "source_id": "Premiere HD 1",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Операция «Возмездие»; candidate=Операция Возмездие (2026).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Premiere HD 1",
+          "source": "gabbarit-primary",
+          "source_id": "Premiere HD 1",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Операция «Возмездие»; candidate=Операция Возмездие (2026).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Premiere HD 1",
+          "source": "epgone-full-movie-rescue",
+          "source_id": "1121",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Операция «Возмездие»; candidate=Операция «Возмездие»; requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
