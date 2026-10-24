@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-24T19:29:57.727682+00:00",
+  "updated_at": "2026-10-24T22:19:07.770498+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-24T19:29:56.207908+00:00",
+      "checked_at_utc": "2026-10-24T22:19:06.258927+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 550,
-      "ok": 509,
-      "gaps": 41,
+      "ok": 504,
+      "gaps": 46,
       "issue_counts": {
-        "NO_MAPPING": 39,
-        "NO_NEXT_PROGRAMME": 2,
-        "NO_CURRENT_PROGRAMME": 1
+        "NO_MAPPING": 45,
+        "NO_CURRENT_PROGRAMME": 1,
+        "NO_NEXT_PROGRAMME": 1
       },
       "group_counts": {
         "USSR": {
@@ -25,8 +25,8 @@
         },
         "Кино": {
           "channels": 180,
-          "ok": 155,
-          "gaps": 25
+          "ok": 153,
+          "gaps": 27
         },
         "Кино 4K": {
           "channels": 65,
@@ -35,142 +35,81 @@
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 273,
-          "gaps": 13
+          "ok": 270,
+          "gaps": 16
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 38,
-      "high_confidence_observations": 4,
+      "channels_considered": 41,
+      "high_confidence_observations": 2,
       "recognized": [
         {
-          "playlist_name": "Insomnia HD",
-          "provider_name": "Insomnia HD",
-          "title": "КЛАДБИЩЕ ДОМАШНИХ ЖИВОТНЫХ",
-          "score": 25.0,
-          "zone": "top_left_tight",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "DITV Concert",
-          "provider_name": "DITV Concert",
-          "title": "www.arbenina.com",
-          "score": 13.5,
-          "zone": "left_bottom_tight",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "KLI Новинки HD",
-          "provider_name": "KLI Новинки HD",
-          "title": "Мумия (2026)",
-          "score": 16.25,
-          "zone": "left_bottom_tight",
+          "playlist_name": "MM Катастрофа HD",
+          "provider_name": "MM Катастрофа HD",
+          "title": "Птица в клетке. Заражение (2020)",
+          "score": 20.0,
+          "zone": "bottom_band",
           "engine": "tesseract"
         },
         {
           "playlist_name": "KLI Новинки 4K Ultra HD",
           "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Мать Мария",
-          "score": 22.25,
+          "title": "анна",
+          "score": 18.0,
           "zone": "left_bottom_tight",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 4,
-      "rejected": 34,
+      "added": 2,
+      "rejected": 39,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-24T19:10:13.369064+00:00",
-          "playlist_name": "Insomnia HD",
-          "observed_title": "КЛАДБИЩЕ ДОМАШНИХ ЖИВОТНЫХ",
+          "observed_at": "2026-10-24T22:05:34.857194+00:00",
+          "playlist_name": "MM Катастрофа HD",
+          "observed_title": "Птица в клетке. Заражение (2020)",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=25.0"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=20.0"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-10-24T19:10:13.369064+00:00",
-          "playlist_name": "DITV Concert",
-          "observed_title": "www.arbenina.com",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=13.5"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-24T19:10:13.369064+00:00",
-          "playlist_name": "KLI Новинки HD",
-          "observed_title": "Мумия (2026)",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=16.25"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-24T19:10:13.369064+00:00",
+          "observed_at": "2026-10-24T22:05:34.857194+00:00",
           "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Мать Мария",
+          "observed_title": "анна",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=22.25"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=18.0"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 1,
-        "selected": 1,
+        "changed": 0,
+        "selected": 0,
         "quarantined": 0,
-        "target_hours": 6.0
+        "reason": "no-live-candidates"
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 1,
+      "selected_count": 0,
       "quarantined_count": 0,
-      "selected": {
-        "KLI Новинки 4K Ultra HD": {
-          "source": "tvteam",
-          "source_id": "ch4089",
-          "output_tvg_id": "Xklinovinci4k",
-          "horizon_hours": 24.93,
-          "current": true,
-          "usable": 17
-        }
-      },
+      "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 4,
-      "sources_scanned": 26,
+      "live_observations": 2,
+      "sources_scanned": 10,
       "sources_failed": [
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "skyhigh-fhd",
-          "error": "RuntimeError"
-        },
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         }
       ],
-      "candidates_added": 1,
-      "added": [
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки HD",
-          "source": "epgpw-RU",
-          "source_id": "462968",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Мумия (2026); candidate=х/ф Мумия (1999); requires two positive observations before selection"
-        }
-      ]
+      "candidates_added": 0,
+      "added": []
     }
   }
 }
