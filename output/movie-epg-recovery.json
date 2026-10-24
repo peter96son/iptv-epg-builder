@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-24T02:26:36.961474+00:00",
+  "updated_at": "2026-10-24T07:51:41.237952+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-24T02:26:35.233709+00:00",
+      "checked_at_utc": "2026-10-24T07:51:40.387789+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,195 +10,115 @@
         "Кинозалы"
       ],
       "channels": 550,
-      "ok": 469,
-      "gaps": 81,
+      "ok": 462,
+      "gaps": 88,
       "issue_counts": {
-        "NO_MAPPING": 61,
-        "NO_CURRENT_PROGRAMME": 12,
-        "NO_NEXT_PROGRAMME": 20
+        "NO_MAPPING": 87,
+        "NO_CURRENT_PROGRAMME": 1,
+        "NO_NEXT_PROGRAMME": 1
       },
       "group_counts": {
         "USSR": {
           "channels": 19,
-          "ok": 16,
-          "gaps": 3
+          "ok": 15,
+          "gaps": 4
         },
         "Кино": {
           "channels": 180,
-          "ok": 148,
-          "gaps": 32
+          "ok": 147,
+          "gaps": 33
         },
         "Кино 4K": {
           "channels": 65,
-          "ok": 65,
-          "gaps": 0
+          "ok": 64,
+          "gaps": 1
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 240,
-          "gaps": 46
+          "ok": 236,
+          "gaps": 50
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 50,
-      "high_confidence_observations": 4,
+      "channels_considered": 56,
+      "high_confidence_observations": 2,
       "recognized": [
         {
-          "playlist_name": "Thriller HD",
-          "provider_name": "Thriller HD",
-          "title": "СХВАТКА",
-          "score": 21.75,
-          "zone": "top_left",
+          "playlist_name": "KLI Новинки HD",
+          "provider_name": "KLI Новинки HD",
+          "title": "Смерть Робин Гуда (2026)",
+          "score": 18.75,
+          "zone": "bottom_band",
           "engine": "tesseract"
         },
         {
           "playlist_name": "KLI Новинки 4K Ultra HD",
           "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Зловещие мертвецы Пекло",
+          "title": "Капитан Америка Новый мир",
           "score": 25.0,
           "zone": "bottom_band",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "MM NewFilm 2 HD",
-          "provider_name": "MM NewFilm 2 HD",
-          "title": "Дело № 137 (2025)",
-          "score": 13.0,
-          "zone": "left_bottom_tight",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "KLI Новинки HD",
-          "provider_name": "KLI Новинки HD",
-          "title": "Е % eee eee, © ;",
-          "score": 13.75,
-          "zone": "top_left",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 4,
-      "rejected": 46,
+      "added": 2,
+      "rejected": 54,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-24T02:07:38.441741+00:00",
-          "playlist_name": "Thriller HD",
-          "observed_title": "СХВАТКА",
+          "observed_at": "2026-10-24T07:44:13.961623+00:00",
+          "playlist_name": "KLI Новинки HD",
+          "observed_title": "Смерть Робин Гуда (2026)",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=21.75"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.75"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-10-24T02:07:38.441741+00:00",
+          "observed_at": "2026-10-24T07:44:13.961623+00:00",
           "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Зловещие мертвецы Пекло",
+          "observed_title": "Капитан Америка Новый мир",
           "origin": "movie-live-observer",
           "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=25.0"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-24T02:07:38.441741+00:00",
-          "playlist_name": "MM NewFilm 2 HD",
-          "observed_title": "Дело № 137 (2025)",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=13.0"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-24T02:07:38.441741+00:00",
-          "playlist_name": "KLI Новинки HD",
-          "observed_title": "Е % eee eee, © ;",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=13.75"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 0,
-        "selected": 0,
+        "changed": 1,
+        "selected": 1,
         "quarantined": 0,
-        "reason": "no-live-candidates"
+        "target_hours": 6.0
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 0,
+      "selected_count": 1,
       "quarantined_count": 0,
-      "selected": {},
+      "selected": {
+        "KLI Новинки 4K Ultra HD": {
+          "source": "tvteam",
+          "source_id": "ch4089",
+          "output_tvg_id": "Xklinovinci4k",
+          "horizon_hours": 23.81,
+          "current": true,
+          "usable": 16
+        }
+      },
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 4,
-      "sources_scanned": 13,
+      "live_observations": 2,
+      "sources_scanned": 11,
       "sources_failed": [
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         }
       ],
-      "candidates_added": 8,
-      "added": [
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "iptvx-noarch",
-          "source_id": "oasis-oldhorrors",
-          "notes": "auto-discovered from live title; similarity=0.857; observed=Зловещие мертвецы Пекло; candidate=х/ф Зловещие мертвецы 2 (1987); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Thriller HD",
-          "source": "iptvx-noarch",
-          "source_id": "ostrosiuzhetnoe",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=СХВАТКА; candidate=х/ф Схватка; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Thriller HD",
-          "source": "openbox-tsd",
-          "source_id": "ostrosyuzhetnoe",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=СХВАТКА; candidate=Х/ф Схватка.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "tvteam",
-          "source_id": "ch2678",
-          "notes": "auto-discovered from live title; similarity=0.857; observed=Зловещие мертвецы Пекло; candidate=Зловещие мертвецы 2 (1987); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Thriller HD",
-          "source": "epgpw-RU",
-          "source_id": "6129",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=СХВАТКА; candidate=х/ф Схватка; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Thriller HD",
-          "source": "epgpw-RU",
-          "source_id": "6106",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=СХВАТКА; candidate=х/ф Схватка (1995); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Thriller HD",
-          "source": "gabbarit-current",
-          "source_id": "Остросюжетное",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=СХВАТКА; candidate=Схватка.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Thriller HD",
-          "source": "gabbarit-primary",
-          "source_id": "Остросюжетное",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=СХВАТКА; candidate=Схватка.; requires two positive observations before selection"
-        }
-      ]
+      "candidates_added": 0,
+      "added": []
     }
   }
 }
