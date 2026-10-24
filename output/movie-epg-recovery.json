@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-24T00:01:18.986775+00:00",
+  "updated_at": "2026-10-24T02:26:36.961474+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-24T00:01:17.339525+00:00",
+      "checked_at_utc": "2026-10-24T02:26:35.233709+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 550,
-      "ok": 479,
-      "gaps": 71,
+      "ok": 469,
+      "gaps": 81,
       "issue_counts": {
         "NO_MAPPING": 61,
-        "NO_CURRENT_PROGRAMME": 7,
-        "NO_NEXT_PROGRAMME": 10
+        "NO_CURRENT_PROGRAMME": 12,
+        "NO_NEXT_PROGRAMME": 20
       },
       "group_counts": {
         "USSR": {
@@ -35,69 +35,85 @@
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 250,
-          "gaps": 36
+          "ok": 240,
+          "gaps": 46
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 44,
-      "high_confidence_observations": 3,
+      "channels_considered": 50,
+      "high_confidence_observations": 4,
       "recognized": [
         {
-          "playlist_name": "Premiere HD 1",
-          "provider_name": "Premiere HD 1",
-          "title": "Операция «Возмездие»",
-          "score": 19.25,
+          "playlist_name": "Thriller HD",
+          "provider_name": "Thriller HD",
+          "title": "СХВАТКА",
+          "score": 21.75,
           "zone": "top_left",
           "engine": "tesseract"
         },
         {
           "playlist_name": "KLI Новинки 4K Ultra HD",
           "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Дом из динамита",
-          "score": 23.25,
+          "title": "Зловещие мертвецы Пекло",
+          "score": 25.0,
           "zone": "bottom_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "MM NewFilm 2 HD",
+          "provider_name": "MM NewFilm 2 HD",
+          "title": "Дело № 137 (2025)",
+          "score": 13.0,
+          "zone": "left_bottom_tight",
           "engine": "tesseract"
         },
         {
           "playlist_name": "KLI Новинки HD",
           "provider_name": "KLI Новинки HD",
-          "title": "Колония (2026)",
-          "score": 16.75,
-          "zone": "left_bottom_tight",
+          "title": "Е % eee eee, © ;",
+          "score": 13.75,
+          "zone": "top_left",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 3,
-      "rejected": 41,
+      "added": 4,
+      "rejected": 46,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-23T23:40:00.988284+00:00",
-          "playlist_name": "Premiere HD 1",
-          "observed_title": "Операция «Возмездие»",
+          "observed_at": "2026-10-24T02:07:38.441741+00:00",
+          "playlist_name": "Thriller HD",
+          "observed_title": "СХВАТКА",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=19.25"
+          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=21.75"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-10-23T23:40:00.988284+00:00",
+          "observed_at": "2026-10-24T02:07:38.441741+00:00",
           "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Дом из динамита",
+          "observed_title": "Зловещие мертвецы Пекло",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=23.25"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=25.0"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-10-23T23:40:00.988284+00:00",
-          "playlist_name": "KLI Новинки HD",
-          "observed_title": "Колония (2026)",
+          "observed_at": "2026-10-24T02:07:38.441741+00:00",
+          "playlist_name": "MM NewFilm 2 HD",
+          "observed_title": "Дело № 137 (2025)",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=16.75"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=13.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-24T02:07:38.441741+00:00",
+          "playlist_name": "KLI Новинки HD",
+          "observed_title": "Е % eee eee, © ;",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=13.75"
         }
       ]
     },
@@ -108,66 +124,79 @@
         "quarantined": 0,
         "reason": "no-live-candidates"
       },
-      "pending_count": 1,
-      "pending": {
-        "Premiere HD 1": {
-          "observations": 1,
-          "distinct_titles": 1,
-          "status": "PENDING_DISTINCT_SECOND_TITLE"
-        }
-      },
+      "pending_count": 0,
+      "pending": {},
       "selected_count": 0,
       "quarantined_count": 0,
       "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 3,
-      "sources_scanned": 25,
+      "live_observations": 4,
+      "sources_scanned": 13,
       "sources_failed": [
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-ru",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-rescue",
-          "error": "RuntimeError"
-        },
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         }
       ],
-      "candidates_added": 3,
+      "candidates_added": 8,
       "added": [
         {
           "enabled": "1",
-          "playlist_name": "Premiere HD 1",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "source": "iptvx-noarch",
+          "source_id": "oasis-oldhorrors",
+          "notes": "auto-discovered from live title; similarity=0.857; observed=Зловещие мертвецы Пекло; candidate=х/ф Зловещие мертвецы 2 (1987); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Thriller HD",
+          "source": "iptvx-noarch",
+          "source_id": "ostrosiuzhetnoe",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=СХВАТКА; candidate=х/ф Схватка; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Thriller HD",
+          "source": "openbox-tsd",
+          "source_id": "ostrosyuzhetnoe",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=СХВАТКА; candidate=Х/ф Схватка.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "source": "tvteam",
+          "source_id": "ch2678",
+          "notes": "auto-discovered from live title; similarity=0.857; observed=Зловещие мертвецы Пекло; candidate=Зловещие мертвецы 2 (1987); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Thriller HD",
+          "source": "epgpw-RU",
+          "source_id": "6129",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=СХВАТКА; candidate=х/ф Схватка; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Thriller HD",
+          "source": "epgpw-RU",
+          "source_id": "6106",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=СХВАТКА; candidate=х/ф Схватка (1995); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Thriller HD",
           "source": "gabbarit-current",
-          "source_id": "Premiere HD 1",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Операция «Возмездие»; candidate=Операция Возмездие (2026).; requires two positive observations before selection"
+          "source_id": "Остросюжетное",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=СХВАТКА; candidate=Схватка.; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "Premiere HD 1",
+          "playlist_name": "Thriller HD",
           "source": "gabbarit-primary",
-          "source_id": "Premiere HD 1",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Операция «Возмездие»; candidate=Операция Возмездие (2026).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Premiere HD 1",
-          "source": "epgone-full-movie-rescue",
-          "source_id": "1121",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Операция «Возмездие»; candidate=Операция «Возмездие»; requires two positive observations before selection"
+          "source_id": "Остросюжетное",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=СХВАТКА; candidate=Схватка.; requires two positive observations before selection"
         }
       ]
     }
