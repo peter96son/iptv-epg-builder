@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-24T12:27:56.564687+00:00",
+  "updated_at": "2026-10-24T16:39:42.307841+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-24T12:27:55.733060+00:00",
+      "checked_at_utc": "2026-10-24T16:39:40.782054+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,16 +10,16 @@
         "Кинозалы"
       ],
       "channels": 550,
-      "ok": 510,
-      "gaps": 40,
+      "ok": 509,
+      "gaps": 41,
       "issue_counts": {
-        "NO_MAPPING": 40
+        "NO_MAPPING": 41
       },
       "group_counts": {
         "USSR": {
           "channels": 19,
-          "ok": 18,
-          "gaps": 1
+          "ok": 17,
+          "gaps": 2
         },
         "Кино": {
           "channels": 180,
@@ -41,61 +41,45 @@
     "observer": {
       "return_code": 0,
       "channels_considered": 36,
-      "high_confidence_observations": 3,
+      "high_confidence_observations": 2,
       "recognized": [
         {
-          "playlist_name": "KLI Новинки HD",
-          "provider_name": "KLI Новинки HD",
-          "title": "Истребитель демонов: Бесконечный замок (2025",
-          "score": 25.0,
+          "playlist_name": "DITV Walt Disney",
+          "provider_name": "DITV Walt Disney",
+          "title": "БОП xnon nyt sine",
+          "score": 15.5,
           "zone": "bottom_band",
           "engine": "tesseract"
         },
         {
           "playlist_name": "KLI Новинки 4K Ultra HD",
           "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Компаньон",
-          "score": 17.25,
+          "title": "Майк и Ник и Ник и Элис",
+          "score": 24.25,
           "zone": "left_bottom_tight",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "DITV СССР 4К",
-          "provider_name": "DITV СССР 4К",
-          "title": "АРЧЕР",
-          "score": 16.25,
-          "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 3,
-      "rejected": 33,
+      "added": 2,
+      "rejected": 34,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-24T12:19:38.324976+00:00",
-          "playlist_name": "KLI Новинки HD",
-          "observed_title": "Истребитель демонов: Бесконечный замок (2025",
+          "observed_at": "2026-10-24T16:22:30.006935+00:00",
+          "playlist_name": "DITV Walt Disney",
+          "observed_title": "БОП xnon nyt sine",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=25.0"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=15.5"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-10-24T12:19:38.324976+00:00",
+          "observed_at": "2026-10-24T16:22:30.006935+00:00",
           "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Компаньон",
+          "observed_title": "Майк и Ник и Ник и Элис",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=17.25"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-24T12:19:38.324976+00:00",
-          "playlist_name": "DITV СССР 4К",
-          "observed_title": "АРЧЕР",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=16.25"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=24.25"
         }
       ]
     },
@@ -115,17 +99,37 @@
           "source": "tvteam",
           "source_id": "ch4089",
           "output_tvg_id": "Xklinovinci4k",
-          "horizon_hours": 162.43,
+          "horizon_hours": 23.99,
           "current": true,
-          "usable": 32
+          "usable": 18
         }
       },
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 3,
-      "sources_scanned": 11,
+      "live_observations": 2,
+      "sources_scanned": 24,
       "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "skyhigh-hdr",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-ru",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-rescue",
+          "error": "RuntimeError"
+        },
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
