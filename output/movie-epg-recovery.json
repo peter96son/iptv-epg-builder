@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-25T18:13:15.905515+00:00",
+  "updated_at": "2026-10-25T20:29:54.279450+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-25T18:13:14.545140+00:00",
+      "checked_at_utc": "2026-10-25T20:29:52.906873+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,23 +10,23 @@
         "Кинозалы"
       ],
       "channels": 550,
-      "ok": 481,
-      "gaps": 69,
+      "ok": 427,
+      "gaps": 123,
       "issue_counts": {
-        "NO_MAPPING": 42,
-        "NO_CURRENT_PROGRAMME": 12,
-        "NO_NEXT_PROGRAMME": 27
+        "NO_MAPPING": 41,
+        "NO_NEXT_PROGRAMME": 82,
+        "NO_CURRENT_PROGRAMME": 48
       },
       "group_counts": {
         "USSR": {
           "channels": 19,
-          "ok": 16,
-          "gaps": 3
+          "ok": 13,
+          "gaps": 6
         },
         "Кино": {
           "channels": 180,
-          "ok": 153,
-          "gaps": 27
+          "ok": 124,
+          "gaps": 56
         },
         "Кино 4K": {
           "channels": 65,
@@ -35,37 +35,53 @@
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 248,
-          "gaps": 38
+          "ok": 226,
+          "gaps": 60
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 53,
-      "high_confidence_observations": 1,
+      "channels_considered": 78,
+      "high_confidence_observations": 2,
       "recognized": [
         {
-          "playlist_name": "DITV Про вампиров",
-          "provider_name": "DITV Про вампиров",
-          "title": "Почти стемнело",
-          "score": 23.25,
-          "zone": "left_bottom",
+          "playlist_name": "KLI Новинки HD",
+          "provider_name": "KLI Новинки HD",
+          "title": "Assistant Location Mana",
+          "score": 15.0,
+          "zone": "top_left_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "provider_name": "KLI Новинки 4K Ultra HD",
+          "title": "Долгая прогулка",
+          "score": 23.5,
+          "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 52,
+      "added": 2,
+      "rejected": 76,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-25T18:01:04.181052+00:00",
-          "playlist_name": "DITV Про вампиров",
-          "observed_title": "Почти стемнело",
+          "observed_at": "2026-10-25T20:13:58.147222+00:00",
+          "playlist_name": "KLI Новинки HD",
+          "observed_title": "Assistant Location Mana",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom; engine=tesseract; score=23.25"
+          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=15.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-25T20:13:58.147222+00:00",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "observed_title": "Долгая прогулка",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=23.5"
         }
       ]
     },
@@ -73,59 +89,70 @@
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "no-policy"
+        "quarantined": 0,
+        "reason": "no-live-candidates"
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 2,
+      "selected_count": 0,
       "quarantined_count": 0,
-      "selected": {
-        "KLI СССР HD": {
-          "source": "tvteam",
-          "source_id": "ch4083",
-          "output_tvg_id": "Xliveocr-25e879b896d08aa6",
-          "horizon_hours": 23.16,
-          "current": true,
-          "usable": 19
-        },
-        "KLI Новинки HD": {
-          "source": "gabbarit-current",
-          "source_id": "KLI НОВИНКИ",
-          "output_tvg_id": "Xliveocr-44d592172b1eca25",
-          "horizon_hours": 165.87,
-          "current": true,
-          "usable": 30
-        }
-      },
+      "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 25,
+      "live_observations": 2,
+      "sources_scanned": 11,
       "sources_failed": [
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-ru",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-rescue",
-          "error": "RuntimeError"
-        },
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         }
       ],
-      "candidates_added": 0,
-      "added": []
+      "candidates_added": 6,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "source": "iptvx-noarch",
+          "source_id": "veles-kinoplonk",
+          "notes": "auto-discovered from live title; similarity=0.839; observed=Долгая прогулка; candidate=х/ф Большая прогулка (1966); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "source": "tvteam",
+          "source_id": "ch2592",
+          "notes": "auto-discovered from live title; similarity=0.839; observed=Долгая прогулка; candidate=Большая прогулка (1966).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "source": "epgpw-RU",
+          "source_id": "572288",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Долгая прогулка; candidate=Долгая прогулка (2025); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "source": "gabbarit-current",
+          "source_id": "VeleS Киноплёнка",
+          "notes": "auto-discovered from live title; similarity=0.839; observed=Долгая прогулка; candidate=Большая прогулка (1966).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "source": "gabbarit-primary",
+          "source_id": "VeleS Киноплёнка",
+          "notes": "auto-discovered from live title; similarity=0.839; observed=Долгая прогулка; candidate=Большая прогулка (1966).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "source": "epgone-full-movie-rescue",
+          "source_id": "8761",
+          "notes": "auto-discovered from live title; similarity=0.839; observed=Долгая прогулка; candidate=Большая прогулка (1966).; requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
