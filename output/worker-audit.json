@@ -1,15 +1,15 @@
 {
   "summary": {
     "worker_channels": 2387,
-    "mapping_channels": 1738,
+    "mapping_channels": 1533,
     "validated_epg_ids": 1597,
-    "audited_rows": 2396,
-    "ok_rows": 2106,
-    "gap_rows": 290,
+    "audited_rows": 2395,
+    "ok_rows": 2125,
+    "gap_rows": 270,
     "issue_counts": {
-      "no_validated_programme": 280,
-      "wrong_tvg_id": 1,
-      "mapped_channel_missing_from_worker": 9
+      "no_validated_programme": 261,
+      "protected_unmatched_has_epg_hint": 1,
+      "mapped_channel_missing_from_worker": 8
     },
     "worker_url": "https://private-uhf-playlist.peter96son.workers.dev/tv",
     "worker_version": "3.0.10-v14.12.3",
@@ -82,40 +82,40 @@
     {
       "playlist_name": "Первый канал +6",
       "group": "Россия",
-      "expected_tvg_id": "Xpervy-pl6",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xpervy-pl6",
       "actual_tvg_name": "Первый канал +6",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Первый Канал +8",
       "group": "Россия",
-      "expected_tvg_id": "Xpervy-pl8",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xpervy-pl8",
       "actual_tvg_name": "Первый Канал +8",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Россия 1 HD",
       "group": "Россия",
-      "expected_tvg_id": "Xrossia1",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xrossia1",
       "actual_tvg_name": "Россия 1 HD",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Россия 1",
       "group": "Россия",
-      "expected_tvg_id": "Xrossia1",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xrossia1",
       "actual_tvg_name": "Россия 1",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -162,20 +162,20 @@
     {
       "playlist_name": "Россия 1 +6 HD",
       "group": "Россия",
-      "expected_tvg_id": "Xrossia1-pl6",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xrossia1-pl6",
       "actual_tvg_name": "Россия 1 +6 HD",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Россия 1 +6",
       "group": "Россия",
-      "expected_tvg_id": "Xrossia1-pl6",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xrossia1-pl6",
       "actual_tvg_name": "Россия 1 +6",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -192,20 +192,20 @@
     {
       "playlist_name": "Россия 24",
       "group": "Россия",
-      "expected_tvg_id": "Xrossia-24",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xrossia-24",
       "actual_tvg_name": "Россия 24",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Россия 24 HD",
       "group": "Россия",
-      "expected_tvg_id": "Xrossia-24",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xrossia-24",
       "actual_tvg_name": "Россия 24 HD",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -392,10 +392,10 @@
     {
       "playlist_name": "НТВ +7",
       "group": "Россия",
-      "expected_tvg_id": "Xntv-pl7",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xntv-pl7",
       "actual_tvg_name": "НТВ +7",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -422,10 +422,10 @@
     {
       "playlist_name": "ТВ3 +2",
       "group": "Россия",
-      "expected_tvg_id": "Xtv3-ru-pl2",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xtv3-ru-pl2",
       "actual_tvg_name": "ТВ3 +2",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -472,12 +472,12 @@
     {
       "playlist_name": "Лен ТВ 24",
       "group": "Россия",
-      "expected_tvg_id": "Чlot-47",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Чlot-47",
       "actual_tvg_name": "Лен ТВ 24",
       "epg_validated": false,
       "duplicate_name_count": 1,
-      "status": "no_validated_programme"
+      "status": "ok"
     },
     {
       "playlist_name": "Рен ТВ",
@@ -522,10 +522,10 @@
     {
       "playlist_name": "СТС International",
       "group": "Россия",
-      "expected_tvg_id": "sts-int",
+      "expected_tvg_id": "",
       "actual_tvg_id": "sts-int",
       "actual_tvg_name": "СТС International",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -662,10 +662,10 @@
     {
       "playlist_name": "ТВЦ",
       "group": "Россия",
-      "expected_tvg_id": "Xtvcentr",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xtvcentr",
       "actual_tvg_name": "ТВЦ",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -692,10 +692,10 @@
     {
       "playlist_name": "ТВ Центр HD",
       "group": "Россия",
-      "expected_tvg_id": "Xtvcentr",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xtvcentr",
       "actual_tvg_name": "ТВ Центр HD",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -712,10 +712,10 @@
     {
       "playlist_name": "ТВЦ +7",
       "group": "Россия",
-      "expected_tvg_id": "Xtvcentr-pl7",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xtvcentr-pl7",
       "actual_tvg_name": "ТВЦ +7",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -842,30 +842,30 @@
     {
       "playlist_name": "Ю+ 4",
       "group": "Россия",
-      "expected_tvg_id": "yu-pl4",
+      "expected_tvg_id": "",
       "actual_tvg_id": "yu-pl4",
       "actual_tvg_name": "Ю+ 4",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Ю+ 7",
       "group": "Россия",
-      "expected_tvg_id": "yu-pl7",
+      "expected_tvg_id": "",
       "actual_tvg_id": "yu-pl7",
       "actual_tvg_name": "Ю+ 7",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Мир",
       "group": "Россия",
-      "expected_tvg_id": "Xmir",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xmir",
       "actual_tvg_name": "Мир",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -882,10 +882,10 @@
     {
       "playlist_name": "Мир +7",
       "group": "Россия",
-      "expected_tvg_id": "Xmir-pl7",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xmir-pl7",
       "actual_tvg_name": "Мир +7",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -1032,10 +1032,10 @@
     {
       "playlist_name": "Миллет",
       "group": "Россия",
-      "expected_tvg_id": "Xmillet",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xmillet",
       "actual_tvg_name": "Миллет",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -1052,10 +1052,10 @@
     {
       "playlist_name": "Первый Севастопольский",
       "group": "Россия",
-      "expected_tvg_id": "Xpervy-sevastopolsky",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xpervy-sevastopolsky",
       "actual_tvg_name": "Первый Севастопольский",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -1162,10 +1162,10 @@
     {
       "playlist_name": "Своё ТВ Ставрополь",
       "group": "Россия",
-      "expected_tvg_id": "Xsvoyo-tv-stavropol",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xsvoyo-tv-stavropol",
       "actual_tvg_name": "Своё ТВ Ставрополь",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -1182,10 +1182,10 @@
     {
       "playlist_name": "ОТВ Екатеринбург",
       "group": "Россия",
-      "expected_tvg_id": "Xotv-eburg",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xotv-eburg",
       "actual_tvg_name": "ОТВ Екатеринбург",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -1242,20 +1242,20 @@
     {
       "playlist_name": "Тамыр",
       "group": "Россия",
-      "expected_tvg_id": "Xtamyr",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xtamyr",
       "actual_tvg_name": "Тамыр",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Курай",
       "group": "Россия",
-      "expected_tvg_id": "Xkuraj",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xkuraj",
       "actual_tvg_name": "Курай",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -1282,10 +1282,10 @@
     {
       "playlist_name": "Sochi Live",
       "group": "Россия",
-      "expected_tvg_id": "Xsochi-live",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xsochi-live",
       "actual_tvg_name": "Sochi Live",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -1312,20 +1312,20 @@
     {
       "playlist_name": "Осетия-Ирыстон",
       "group": "Россия",
-      "expected_tvg_id": "Xosetia-iryston",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xosetia-iryston",
       "actual_tvg_name": "Осетия-Ирыстон",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "НТМ",
       "group": "Россия",
-      "expected_tvg_id": "Xntm",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xntm",
       "actual_tvg_name": "НТМ",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -1362,10 +1362,10 @@
     {
       "playlist_name": "Первый Ярославский",
       "group": "Россия",
-      "expected_tvg_id": "Xpervy-yaroslavsky",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xpervy-yaroslavsky",
       "actual_tvg_name": "Первый Ярославский",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -1512,10 +1512,10 @@
     {
       "playlist_name": "Щёлково",
       "group": "Россия",
-      "expected_tvg_id": "Xschelkovo",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xschelkovo",
       "actual_tvg_name": "Щёлково",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -1552,10 +1552,10 @@
     {
       "playlist_name": "Мордовия 24",
       "group": "Россия",
-      "expected_tvg_id": "Xmordovia-24",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xmordovia-24",
       "actual_tvg_name": "Мордовия 24",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -1582,10 +1582,10 @@
     {
       "playlist_name": "ТВК Красноярск",
       "group": "Россия",
-      "expected_tvg_id": "Xtvk-krasnoyarsk",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xtvk-krasnoyarsk",
       "actual_tvg_name": "ТВК Красноярск",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -1602,10 +1602,10 @@
     {
       "playlist_name": "РГВК Дагестан",
       "group": "Россия",
-      "expected_tvg_id": "Xrgvk-dagestan",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xrgvk-dagestan",
       "actual_tvg_name": "РГВК Дагестан",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -1622,10 +1622,10 @@
     {
       "playlist_name": "Тео-ТВ",
       "group": "Россия",
-      "expected_tvg_id": "Xteotv",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xteotv",
       "actual_tvg_name": "Тео-ТВ",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -1752,10 +1752,10 @@
     {
       "playlist_name": "Майдан",
       "group": "Россия",
-      "expected_tvg_id": "Xmaydan",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xmaydan",
       "actual_tvg_name": "Майдан",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -1802,10 +1802,10 @@
     {
       "playlist_name": "Самотлор (Нижневартовск)",
       "group": "Россия",
-      "expected_tvg_id": "Xsamotlor-nv",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xsamotlor-nv",
       "actual_tvg_name": "Самотлор (Нижневартовск)",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -2062,10 +2062,10 @@
     {
       "playlist_name": "Наше крутое HD",
       "group": "Кино",
-      "expected_tvg_id": "Xnash-detektiv",
-      "actual_tvg_id": "Xnash-detektiv",
-      "actual_tvg_name": "Наше крутое HD",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -2082,20 +2082,20 @@
     {
       "playlist_name": "Наш Кинопоказ HD",
       "group": "Кино",
-      "expected_tvg_id": "Xnash-kinopokaz",
-      "actual_tvg_id": "Xnash-kinopokaz",
-      "actual_tvg_name": "Наш Кинопоказ HD",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Наше Мужское HD",
       "group": "Сериалы",
-      "expected_tvg_id": "Xnashe-muzhskoe",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xnashe-muzhskoe",
       "actual_tvg_name": "Наше Мужское HD",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -2162,10 +2162,10 @@
     {
       "playlist_name": "Про Любовь HD",
       "group": "Кино",
-      "expected_tvg_id": "Xpro-lyubov",
-      "actual_tvg_id": "Xpro-lyubov",
-      "actual_tvg_name": "Про Любовь HD",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -2562,10 +2562,10 @@
     {
       "playlist_name": "Premiere HD 3",
       "group": "Кино",
-      "expected_tvg_id": "Xpremierehd3",
-      "actual_tvg_id": "Xpremierehd3",
-      "actual_tvg_name": "Premiere HD 3",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -2612,10 +2612,10 @@
     {
       "playlist_name": "Epic",
       "group": "Кино",
-      "expected_tvg_id": "Xepic",
-      "actual_tvg_id": "Xepic",
-      "actual_tvg_name": "Epic",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -2912,10 +2912,10 @@
     {
       "playlist_name": "Тех Лет ТВ",
       "group": "Кино",
-      "expected_tvg_id": "Тех Лет ТВ",
-      "actual_tvg_id": "Тех Лет ТВ",
-      "actual_tvg_name": "Тех Лет ТВ",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -2952,10 +2952,10 @@
     {
       "playlist_name": "Тайна",
       "group": "Кино",
-      "expected_tvg_id": "tayna",
-      "actual_tvg_id": "tayna",
-      "actual_tvg_name": "Тайна",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -3062,12 +3062,12 @@
     {
       "playlist_name": "VHS-ка Сериал",
       "group": "Сериалы",
-      "expected_tvg_id": "Xvhska-serial",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xvhska-serial",
       "actual_tvg_name": "VHS-ка Сериал",
       "epg_validated": false,
       "duplicate_name_count": 1,
-      "status": "no_validated_programme"
+      "status": "ok"
     },
     {
       "playlist_name": "VHS-ка русское кино",
@@ -3082,10 +3082,10 @@
     {
       "playlist_name": "VHS-ка HD",
       "group": "Кино",
-      "expected_tvg_id": "Xvhs-ka",
-      "actual_tvg_id": "Xvhs-ka",
-      "actual_tvg_name": "VHS-ка HD",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -3122,10 +3122,10 @@
     {
       "playlist_name": "Легенда",
       "group": "Кино",
-      "expected_tvg_id": "Xkonny-mir",
-      "actual_tvg_id": "Xkonny-mir",
-      "actual_tvg_name": "Легенда",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -3172,10 +3172,10 @@
     {
       "playlist_name": "Go3 Films",
       "group": "Кино",
-      "expected_tvg_id": "Xtv1000-premium",
-      "actual_tvg_id": "Xtv1000-premium",
-      "actual_tvg_name": "Go3 Films",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -3412,10 +3412,10 @@
     {
       "playlist_name": "Родное кино",
       "group": "Кино",
-      "expected_tvg_id": "Xrodnoe-kino",
-      "actual_tvg_id": "Xrodnoe-kino",
-      "actual_tvg_name": "Родное кино",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -3442,20 +3442,20 @@
     {
       "playlist_name": "Еврокино",
       "group": "Кино",
-      "expected_tvg_id": "Xevrokino",
-      "actual_tvg_id": "Xevrokino",
-      "actual_tvg_name": "Еврокино",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Русский роман",
       "group": "Кино",
-      "expected_tvg_id": "Xrussky-roman",
-      "actual_tvg_id": "Xrussky-roman",
-      "actual_tvg_name": "Русский роман",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -3472,20 +3472,20 @@
     {
       "playlist_name": "Мосфильм. Золотая коллекция",
       "group": "USSR",
-      "expected_tvg_id": "Xmosfilm",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xmosfilm",
       "actual_tvg_name": "Мосфильм. Золотая коллекция",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Мосфильм HD",
       "group": "USSR",
-      "expected_tvg_id": "Xmosfilm",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xmosfilm",
       "actual_tvg_name": "Мосфильм HD",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -3502,20 +3502,20 @@
     {
       "playlist_name": "Мужское кино",
       "group": "Кино",
-      "expected_tvg_id": "Xmuzhskoe-kino",
-      "actual_tvg_id": "Xmuzhskoe-kino",
-      "actual_tvg_name": "Мужское кино",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Наше новое кино",
       "group": "Кино",
-      "expected_tvg_id": "Xnashe-novoe-kino",
-      "actual_tvg_id": "Xnashe-novoe-kino",
-      "actual_tvg_name": "Наше новое кино",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -3532,12 +3532,12 @@
     {
       "playlist_name": "Советская Киноклассика HD",
       "group": "Кино",
-      "expected_tvg_id": "Xsov-kinklass-hd",
-      "actual_tvg_id": "Xsov-kinklass-hd",
-      "actual_tvg_name": "Советская Киноклассика HD",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
       "epg_validated": false,
       "duplicate_name_count": 1,
-      "status": "no_validated_programme"
+      "status": "ok"
     },
     {
       "playlist_name": "Советское кино",
@@ -3552,10 +3552,10 @@
     {
       "playlist_name": "Победа",
       "group": "Кино",
-      "expected_tvg_id": "Xpobeda",
-      "actual_tvg_id": "Xpobeda",
-      "actual_tvg_name": "Победа",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -3592,10 +3592,10 @@
     {
       "playlist_name": "Русский детектив",
       "group": "Сериалы",
-      "expected_tvg_id": "Xrussky-detektiv",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xrussky-detektiv",
       "actual_tvg_name": "Русский детектив",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -3622,20 +3622,20 @@
     {
       "playlist_name": "Любимое кино HD",
       "group": "Кино",
-      "expected_tvg_id": "Xlubimoe-kino",
-      "actual_tvg_id": "Xlubimoe-kino",
-      "actual_tvg_name": "Любимое кино HD",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Любимое кино",
       "group": "Кино",
-      "expected_tvg_id": "Xlubimoe-kino",
-      "actual_tvg_id": "Xlubimoe-kino",
-      "actual_tvg_name": "Любимое кино",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -3682,10 +3682,10 @@
     {
       "playlist_name": "Феникс+ Кино",
       "group": "Сериалы",
-      "expected_tvg_id": "Xfeniks-plus-kino",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xfeniks-plus-kino",
       "actual_tvg_name": "Феникс+ Кино",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -3702,10 +3702,10 @@
     {
       "playlist_name": "НСТ",
       "group": "Кино",
-      "expected_tvg_id": "Xnst",
-      "actual_tvg_id": "Xnst",
-      "actual_tvg_name": "НСТ",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -3752,10 +3752,10 @@
     {
       "playlist_name": "Патриот",
       "group": "Кино",
-      "expected_tvg_id": "patriot",
-      "actual_tvg_id": "patriot",
-      "actual_tvg_name": "Патриот",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -3852,10 +3852,10 @@
     {
       "playlist_name": "Ретро",
       "group": "Кино",
-      "expected_tvg_id": "Xretro-tv",
-      "actual_tvg_id": "Xretro-tv",
-      "actual_tvg_name": "Ретро",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -3922,30 +3922,30 @@
     {
       "playlist_name": "Apple TV+ Woman's Story",
       "group": "Кино",
-      "expected_tvg_id": "Xmovify-kino",
-      "actual_tvg_id": "Xmovify-kino",
-      "actual_tvg_name": "Apple TV+ Woman's Story",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Apple TV+ Action Time",
       "group": "Кино",
-      "expected_tvg_id": "Xmovify-series",
-      "actual_tvg_id": "Xmovify-series",
-      "actual_tvg_name": "Apple TV+ Action Time",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Amazon Prime Video Men's Club",
       "group": "Кино",
-      "expected_tvg_id": "Xmovify-history",
-      "actual_tvg_id": "Xmovify-history",
-      "actual_tvg_name": "Amazon Prime Video Men's Club",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -4002,10 +4002,10 @@
     {
       "playlist_name": "BCU Action HD",
       "group": "Кинозалы",
-      "expected_tvg_id": "Xbcu-action",
-      "actual_tvg_id": "Xbcu-action",
-      "actual_tvg_name": "BCU Action HD",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -4022,10 +4022,10 @@
     {
       "playlist_name": "BCU Catastrophe HD",
       "group": "Кинозалы",
-      "expected_tvg_id": "Xbcu-catastrophe",
-      "actual_tvg_id": "Xbcu-catastrophe",
-      "actual_tvg_name": "BCU Catastrophe HD",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -4042,10 +4042,10 @@
     {
       "playlist_name": "BCU CINEMA+ HD",
       "group": "Кинозалы",
-      "expected_tvg_id": "Xbcu-cinemaplus",
-      "actual_tvg_id": "Xbcu-cinemaplus",
-      "actual_tvg_name": "BCU CINEMA+ HD",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -4062,10 +4062,10 @@
     {
       "playlist_name": "BCU Fantastic HD",
       "group": "Кинозалы",
-      "expected_tvg_id": "Xbcu-fantastic",
-      "actual_tvg_id": "Xbcu-fantastic",
-      "actual_tvg_name": "BCU Fantastic HD",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -4102,10 +4102,10 @@
     {
       "playlist_name": "BCU Kinorating HD",
       "group": "Кинозалы",
-      "expected_tvg_id": "Xbcu-kinorating",
-      "actual_tvg_id": "Xbcu-kinorating",
-      "actual_tvg_name": "BCU Kinorating HD",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -4142,10 +4142,10 @@
     {
       "playlist_name": "BCU Romantic HD",
       "group": "Кинозалы",
-      "expected_tvg_id": "Xbcu-romantic",
-      "actual_tvg_id": "Xbcu-romantic",
-      "actual_tvg_name": "BCU Romantic HD",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -4172,10 +4172,10 @@
     {
       "playlist_name": "BCU TruMotion HD",
       "group": "Кинозалы",
-      "expected_tvg_id": "Xbcu-trumotion",
-      "actual_tvg_id": "Xbcu-trumotion",
-      "actual_tvg_name": "BCU TruMotion HD",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -4262,10 +4262,10 @@
     {
       "playlist_name": "BCU Family HDR",
       "group": "Кинозалы",
-      "expected_tvg_id": "Xbcu-cosmo",
-      "actual_tvg_id": "Xbcu-cosmo",
-      "actual_tvg_name": "BCU Family HDR",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -4312,10 +4312,10 @@
     {
       "playlist_name": "BCU NEW MEDIA 2",
       "group": "Кинозалы",
-      "expected_tvg_id": "bcu-action",
-      "actual_tvg_id": "bcu-action",
-      "actual_tvg_name": "BCU NEW MEDIA 2",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -4332,12 +4332,12 @@
     {
       "playlist_name": "BCU Fantastic HDR",
       "group": "Кинозалы",
-      "expected_tvg_id": "Xbcu-fantastic",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xbcu-media-3-hdr",
       "actual_tvg_name": "BCU Fantastic HDR",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 2,
-      "status": "wrong_tvg_id"
+      "status": "protected_unmatched_has_epg_hint"
     },
     {
       "playlist_name": "BCU Reality OLD",
@@ -4372,10 +4372,10 @@
     {
       "playlist_name": "BCU Romantic OLD",
       "group": "Кинозалы",
-      "expected_tvg_id": "bcu-romantic",
-      "actual_tvg_id": "bcu-romantic",
-      "actual_tvg_name": "BCU Romantic OLD",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -4392,30 +4392,30 @@
     {
       "playlist_name": "BCU Fantastic HDR",
       "group": "Кинозалы",
-      "expected_tvg_id": "Xbcu-fantastic",
-      "actual_tvg_id": "Xbcu-fantastic",
-      "actual_tvg_name": "BCU Fantastic HDR",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 2,
       "status": "ok"
     },
     {
       "playlist_name": "BCU Cosmo HDR",
       "group": "Кинозалы",
-      "expected_tvg_id": "bcu-cosmo-hdr",
-      "actual_tvg_id": "bcu-cosmo-hdr",
-      "actual_tvg_name": "BCU Cosmo HDR",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
       "epg_validated": false,
       "duplicate_name_count": 1,
-      "status": "no_validated_programme"
+      "status": "ok"
     },
     {
       "playlist_name": "BCU Action HDR",
       "group": "Кинозалы",
-      "expected_tvg_id": "Xbcu-action",
-      "actual_tvg_id": "Xbcu-action",
-      "actual_tvg_name": "BCU Action HDR",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -4442,10 +4442,10 @@
     {
       "playlist_name": "BCU Biography HDR",
       "group": "Кинозалы",
-      "expected_tvg_id": "Xbcu-biography-hdr",
-      "actual_tvg_id": "Xbcu-biography-hdr",
-      "actual_tvg_name": "BCU Biography HDR",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 2,
       "status": "ok"
     },
@@ -4462,10 +4462,10 @@
     {
       "playlist_name": "BCU Unity 2 HDR",
       "group": "Кинозалы",
-      "expected_tvg_id": "Xbcu-unity-2",
-      "actual_tvg_id": "Xbcu-unity-2",
-      "actual_tvg_name": "BCU Unity 2 HDR",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -4522,10 +4522,10 @@
     {
       "playlist_name": "VeleS С Новым годом!",
       "group": "Кинозалы",
-      "expected_tvg_id": "",
-      "actual_tvg_id": "",
-      "actual_tvg_name": "",
-      "epg_validated": false,
+      "expected_tvg_id": "velesyear-new",
+      "actual_tvg_id": "velesyear-new",
+      "actual_tvg_name": "VeleS С Новым годом!",
+      "epg_validated": true,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -4542,10 +4542,10 @@
     {
       "playlist_name": "VeleS Аниме",
       "group": "Кинозалы",
-      "expected_tvg_id": "veles-anime",
-      "actual_tvg_id": "veles-anime",
-      "actual_tvg_name": "VeleS Аниме",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -4602,20 +4602,20 @@
     {
       "playlist_name": "VeleS Киносерия",
       "group": "Сериалы",
-      "expected_tvg_id": "veles-kinoseries",
+      "expected_tvg_id": "",
       "actual_tvg_id": "veles-kinoseries",
       "actual_tvg_name": "VeleS Киносерия",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "VeleS Premiere",
       "group": "Кинозалы",
-      "expected_tvg_id": "veles-premiere",
-      "actual_tvg_id": "veles-premiere",
-      "actual_tvg_name": "VeleS Premiere",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -4642,10 +4642,10 @@
     {
       "playlist_name": "VeleS Movie Hits",
       "group": "Кинозалы",
-      "expected_tvg_id": "",
-      "actual_tvg_id": "",
-      "actual_tvg_name": "",
-      "epg_validated": false,
+      "expected_tvg_id": "veles-movie-hits",
+      "actual_tvg_id": "veles-movie-hits",
+      "actual_tvg_name": "VeleS Movie Hits",
+      "epg_validated": true,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -4792,150 +4792,150 @@
     {
       "playlist_name": "Fresh Soviet",
       "group": "USSR",
-      "expected_tvg_id": "Xfresh-soviet",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xfresh-soviet",
       "actual_tvg_name": "Fresh Soviet",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Fresh Series",
       "group": "Сериалы",
-      "expected_tvg_id": "Xfresh-series",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xfresh-series",
       "actual_tvg_name": "Fresh Series",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Fresh Fantastic",
       "group": "Кинозалы",
-      "expected_tvg_id": "Xfresh-fantastic",
-      "actual_tvg_id": "Xfresh-fantastic",
-      "actual_tvg_name": "Fresh Fantastic",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Fresh VHS",
       "group": "Кинозалы",
-      "expected_tvg_id": "Xfresh-vhs",
-      "actual_tvg_id": "Xfresh-vhs",
-      "actual_tvg_name": "Fresh VHS",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Fresh Rating",
       "group": "Кинозалы",
-      "expected_tvg_id": "Xfresh-rating",
-      "actual_tvg_id": "Xfresh-rating",
-      "actual_tvg_name": "Fresh Rating",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Fresh Family",
       "group": "Кинозалы",
-      "expected_tvg_id": "Xfresh-family",
-      "actual_tvg_id": "Xfresh-family",
-      "actual_tvg_name": "Fresh Family",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Fresh Premiere",
       "group": "Кинозалы",
-      "expected_tvg_id": "Xfresh-premiere",
-      "actual_tvg_id": "Xfresh-premiere",
-      "actual_tvg_name": "Fresh Premiere",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Fresh Comedy",
       "group": "Кинозалы",
-      "expected_tvg_id": "Xfresh-comedy",
-      "actual_tvg_id": "Xfresh-comedy",
-      "actual_tvg_name": "Fresh Comedy",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Fresh Kids",
       "group": "Кинозалы",
-      "expected_tvg_id": "Xfresh-kids",
-      "actual_tvg_id": "Xfresh-kids",
-      "actual_tvg_name": "Fresh Kids",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Fresh Cinema",
       "group": "Кинозалы",
-      "expected_tvg_id": "Xfresh-cinema",
-      "actual_tvg_id": "Xfresh-cinema",
-      "actual_tvg_name": "Fresh Cinema",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Fresh Horror",
       "group": "Кинозалы",
-      "expected_tvg_id": "Xfresh-horror",
-      "actual_tvg_id": "Xfresh-horror",
-      "actual_tvg_name": "Fresh Horror",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Fresh Adventure",
       "group": "Кинозалы",
-      "expected_tvg_id": "Xfresh-adventure",
-      "actual_tvg_id": "Xfresh-adventure",
-      "actual_tvg_name": "Fresh Adventure",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Fresh Romantic",
       "group": "Кинозалы",
-      "expected_tvg_id": "Xfresh-romatic",
-      "actual_tvg_id": "Xfresh-romatic",
-      "actual_tvg_name": "Fresh Romantic",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Fresh Russian",
       "group": "Кинозалы",
-      "expected_tvg_id": "Xfresh-russian",
-      "actual_tvg_id": "Xfresh-russian",
-      "actual_tvg_name": "Fresh Russian",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Fresh Thriller",
       "group": "Кинозалы",
-      "expected_tvg_id": "Xfresh-thriller",
-      "actual_tvg_id": "Xfresh-thriller",
-      "actual_tvg_name": "Fresh Thriller",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -5312,120 +5312,120 @@
     {
       "playlist_name": "Magic Premiere",
       "group": "Кинозалы",
-      "expected_tvg_id": "Xmagic-premiere",
-      "actual_tvg_id": "Xmagic-premiere",
-      "actual_tvg_name": "Magic Premiere",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Magic Adventure",
       "group": "Кинозалы",
-      "expected_tvg_id": "Xmagic-adventure",
-      "actual_tvg_id": "Xmagic-adventure",
-      "actual_tvg_name": "Magic Adventure",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Magic Russian",
       "group": "Кинозалы",
-      "expected_tvg_id": "Xmagic-russian",
-      "actual_tvg_id": "Xmagic-russian",
-      "actual_tvg_name": "Magic Russian",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Magic Action",
       "group": "Кинозалы",
-      "expected_tvg_id": "Xmagic-action",
-      "actual_tvg_id": "Xmagic-action",
-      "actual_tvg_name": "Magic Action",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Magic Comedy",
       "group": "Кинозалы",
-      "expected_tvg_id": "Xmagic-comedy",
-      "actual_tvg_id": "Xmagic-comedy",
-      "actual_tvg_name": "Magic Comedy",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Magic Family",
       "group": "Кинозалы",
-      "expected_tvg_id": "Xmagic-family",
-      "actual_tvg_id": "Xmagic-family",
-      "actual_tvg_name": "Magic Family",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Magic Galaxy",
       "group": "Кинозалы",
-      "expected_tvg_id": "Xmagic-galaxy",
-      "actual_tvg_id": "Xmagic-galaxy",
-      "actual_tvg_name": "Magic Galaxy",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Magic Horror",
       "group": "Кинозалы",
-      "expected_tvg_id": "Xmagic-horror",
-      "actual_tvg_id": "Xmagic-horror",
-      "actual_tvg_name": "Magic Horror",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Magic Karate",
       "group": "Кинозалы",
-      "expected_tvg_id": "Xmagic-karate",
-      "actual_tvg_id": "Xmagic-karate",
-      "actual_tvg_name": "Magic Karate",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Magic Love",
       "group": "Кинозалы",
-      "expected_tvg_id": "Xmagic-love",
-      "actual_tvg_id": "Xmagic-love",
-      "actual_tvg_name": "Magic Love",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Magic Thriller",
       "group": "Кинозалы",
-      "expected_tvg_id": "Xmagic-thriller",
-      "actual_tvg_id": "Xmagic-thriller",
-      "actual_tvg_name": "Magic Thriller",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Magic VHS",
       "group": "Кинозалы",
-      "expected_tvg_id": "Xmagic-vhs",
-      "actual_tvg_id": "Xmagic-vhs",
-      "actual_tvg_name": "Magic VHS",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -5562,10 +5562,10 @@
     {
       "playlist_name": "CineMan Дубляж СССР",
       "group": "USSR",
-      "expected_tvg_id": "cineman-dub-ssr",
-      "actual_tvg_id": "cineman-dub-ssr",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
       "actual_tvg_name": "CineMan Дубляж СССР",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -5662,10 +5662,10 @@
     {
       "playlist_name": "BCU Biography HDR",
       "group": "Кинозалы",
-      "expected_tvg_id": "Xbcu-biography-hdr",
-      "actual_tvg_id": "Xbcu-biography-hdr",
-      "actual_tvg_name": "BCU Biography HDR",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 2,
       "status": "ok"
     },
@@ -5802,10 +5802,10 @@
     {
       "playlist_name": "BOX Fantasy HD",
       "group": "Кинозалы",
-      "expected_tvg_id": "Xbox-fantasy",
-      "actual_tvg_id": "Xbox-fantasy",
-      "actual_tvg_name": "BOX Fantasy HD",
-      "epg_validated": true,
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
+      "actual_tvg_name": "",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -5832,10 +5832,10 @@
     {
       "playlist_name": "GL Survival",
       "group": "Сериалы",
-      "expected_tvg_id": "Xgoldline-survival",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xgoldline-survival",
       "actual_tvg_name": "GL Survival",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -7372,12 +7372,12 @@
     {
       "playlist_name": "KLI Новинки HD",
       "group": "Кинозалы",
-      "expected_tvg_id": "",
-      "actual_tvg_id": "",
-      "actual_tvg_name": "",
+      "expected_tvg_id": "Xliveocr-44d592172b1eca25",
+      "actual_tvg_id": "Xliveocr-44d592172b1eca25",
+      "actual_tvg_name": "KLI Новинки HD",
       "epg_validated": false,
       "duplicate_name_count": 1,
-      "status": "ok"
+      "status": "no_validated_programme"
     },
     {
       "playlist_name": "KLI Битва Экстрасенсов",
@@ -7822,12 +7822,12 @@
     {
       "playlist_name": "KLI Новинки 4K Ultra HD",
       "group": "Кино 4K",
-      "expected_tvg_id": "",
-      "actual_tvg_id": "",
-      "actual_tvg_name": "",
+      "expected_tvg_id": "Xliveocr-0ec3bdbd60ad2705",
+      "actual_tvg_id": "Xliveocr-0ec3bdbd60ad2705",
+      "actual_tvg_name": "KLI Новинки 4K Ultra HD",
       "epg_validated": false,
       "duplicate_name_count": 1,
-      "status": "ok"
+      "status": "no_validated_programme"
     },
     {
       "playlist_name": "YOSSO-4K",
@@ -8622,10 +8622,10 @@
     {
       "playlist_name": "Megogo Футбол 1 HD",
       "group": "Спорт",
-      "expected_tvg_id": "Xmegogo-football-1",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xmegogo-football-1",
       "actual_tvg_name": "Megogo Футбол 1 HD",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -8662,10 +8662,10 @@
     {
       "playlist_name": "Megogo Футбол 5 HD",
       "group": "Спорт",
-      "expected_tvg_id": "Xmegogo-football-5",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xmegogo-football-5",
       "actual_tvg_name": "Megogo Футбол 5 HD",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -8812,20 +8812,20 @@
     {
       "playlist_name": "Футбол",
       "group": "Спорт",
-      "expected_tvg_id": "Xfootball-ru",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xfootball-ru",
       "actual_tvg_name": "Футбол",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Футбол HD",
       "group": "Спорт",
-      "expected_tvg_id": "Xfootball-ru",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xfootball-ru",
       "actual_tvg_name": "Футбол HD",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -8872,10 +8872,10 @@
     {
       "playlist_name": "Окко.Прайм Спорт",
       "group": "Спорт",
-      "expected_tvg_id": "Xokko-sport-2",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xokko-sport-2",
       "actual_tvg_name": "Окко.Прайм Спорт",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -8902,10 +8902,10 @@
     {
       "playlist_name": "Старт HD",
       "group": "Спорт",
-      "expected_tvg_id": "Xstart",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xstart",
       "actual_tvg_name": "Старт HD",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -8972,10 +8972,10 @@
     {
       "playlist_name": "Sport 2 UA",
       "group": "Спорт",
-      "expected_tvg_id": "Xsport2-ua",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xsport2-ua",
       "actual_tvg_name": "Sport 2 UA",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -9002,12 +9002,12 @@
     {
       "playlist_name": "Сила HD",
       "group": "Спорт",
-      "expected_tvg_id": "Xsila",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xsila",
       "actual_tvg_name": "Сила HD",
       "epg_validated": false,
       "duplicate_name_count": 1,
-      "status": "no_validated_programme"
+      "status": "ok"
     },
     {
       "playlist_name": "NBA TV",
@@ -9072,10 +9072,10 @@
     {
       "playlist_name": "UDAR",
       "group": "Спорт",
-      "expected_tvg_id": "Xufc",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xufc",
       "actual_tvg_name": "UDAR",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -9132,10 +9132,10 @@
     {
       "playlist_name": "Точка отрыва",
       "group": "Спорт",
-      "expected_tvg_id": "Xtochka-otryva",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xtochka-otryva",
       "actual_tvg_name": "Точка отрыва",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -9262,30 +9262,30 @@
     {
       "playlist_name": "Q Arena",
       "group": "Спорт",
-      "expected_tvg_id": "Xqsport-kz",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xqsport-kz",
       "actual_tvg_name": "Q Arena",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 2,
       "status": "ok"
     },
     {
       "playlist_name": "Q Sport League",
       "group": "Спорт",
-      "expected_tvg_id": "Xq-sport-ext",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xq-sport-ext",
       "actual_tvg_name": "Q Sport League",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 2,
       "status": "ok"
     },
     {
       "playlist_name": "Sport+ Qazaqstan HD",
       "group": "Спорт",
-      "expected_tvg_id": "Xsport-plus-kz",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xsport-plus-kz",
       "actual_tvg_name": "Sport+ Qazaqstan HD",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 2,
       "status": "ok"
     },
@@ -9392,40 +9392,40 @@
     {
       "playlist_name": "BeIN Sports 1 HD FR",
       "group": "Спорт",
-      "expected_tvg_id": "Xbein-sport-1-fr",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xbein-sport-1-fr",
-      "actual_tvg_name": "BeIN Sports 1 HD FR",
+      "actual_tvg_name": "BeIN Sport 1 HD",
       "epg_validated": false,
       "duplicate_name_count": 1,
-      "status": "no_validated_programme"
+      "status": "ok"
     },
     {
       "playlist_name": "BeIN Sports 2 HD FR",
       "group": "Спорт",
-      "expected_tvg_id": "Xbein-sport-2",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xbein-sport-2",
-      "actual_tvg_name": "BeIN Sports 2 HD FR",
-      "epg_validated": true,
+      "actual_tvg_name": "BeIN Sport 2 HD",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "BeIN Sports 3 HD FR",
       "group": "Спорт",
-      "expected_tvg_id": "Xbein-sport-3",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xbein-sport-3",
-      "actual_tvg_name": "BeIN Sports 3 HD FR",
-      "epg_validated": true,
+      "actual_tvg_name": "BeIN Sport 3 HD",
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "BeIN Sport 4 HD",
       "group": "Спорт",
-      "expected_tvg_id": "Xbein-sport-4",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xbein-sport-4",
       "actual_tvg_name": "BeIN Sport 4 HD",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -10062,10 +10062,10 @@
     {
       "playlist_name": "BOX Be ON Edge HD",
       "group": "Спорт",
-      "expected_tvg_id": "Xbox-beonedge",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xbox-beonedge",
       "actual_tvg_name": "BOX Be ON Edge HD",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -10202,12 +10202,12 @@
     {
       "playlist_name": "BOX Sport 13 live HD",
       "group": "Спорт",
-      "expected_tvg_id": "box-sport-13-live",
-      "actual_tvg_id": "box-sport-13-live",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
       "actual_tvg_name": "BOX Sport 13 live HD",
       "epg_validated": false,
       "duplicate_name_count": 1,
-      "status": "no_validated_programme"
+      "status": "ok"
     },
     {
       "playlist_name": "BOX Sport 14 live HD",
@@ -10222,12 +10222,12 @@
     {
       "playlist_name": "BOX Sport 15 live HD",
       "group": "Спорт",
-      "expected_tvg_id": "box-sport-15-live",
-      "actual_tvg_id": "box-sport-15-live",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
       "actual_tvg_name": "BOX Sport 15 live HD",
       "epg_validated": false,
       "duplicate_name_count": 1,
-      "status": "no_validated_programme"
+      "status": "ok"
     },
     {
       "playlist_name": "MMA Junkie",
@@ -10242,10 +10242,10 @@
     {
       "playlist_name": "Diema Sport HD",
       "group": "Спорт",
-      "expected_tvg_id": "XDIEMA.SPORT.bg",
-      "actual_tvg_id": "XDIEMA.SPORT.bg",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "Xdiema-sport-1",
       "actual_tvg_name": "Diema Sport HD",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 2,
       "status": "ok"
     },
@@ -10262,10 +10262,10 @@
     {
       "playlist_name": "Diema Sport 3 HD",
       "group": "Спорт",
-      "expected_tvg_id": "XDIEMA.SPORT.3.bg",
-      "actual_tvg_id": "XDIEMA.SPORT.3.bg",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "Xdiema-sport-3",
       "actual_tvg_name": "Diema Sport 3 HD",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 2,
       "status": "ok"
     },
@@ -10972,10 +10972,10 @@
     {
       "playlist_name": "V Sport Ultra HD",
       "group": "Спорт",
-      "expected_tvg_id": "Xv-sport-ultrahd",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xv-sport-ultrahd",
       "actual_tvg_name": "V Sport Ultra HD",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -11002,10 +11002,10 @@
     {
       "playlist_name": "Go3 Sport 1 HD",
       "group": "Спорт",
-      "expected_tvg_id": "Xtvplay-sports",
-      "actual_tvg_id": "Xtvplay-sports",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
       "actual_tvg_name": "Go3 Sport 1 HD",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 2,
       "status": "ok"
     },
@@ -11022,10 +11022,10 @@
     {
       "playlist_name": "Go3 Sport Open HD",
       "group": "Спорт",
-      "expected_tvg_id": "Xtv3-sport-open",
-      "actual_tvg_id": "Xtv3-sport-open",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
       "actual_tvg_name": "Go3 Sport Open HD",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 2,
       "status": "ok"
     },
@@ -11602,10 +11602,10 @@
     {
       "playlist_name": "Арсенал HD",
       "group": "Познавательные",
-      "expected_tvg_id": "Xarsenaltv",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xarsenaltv",
       "actual_tvg_name": "Арсенал HD",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -11632,20 +11632,20 @@
     {
       "playlist_name": "Моя Планета",
       "group": "Познавательные",
-      "expected_tvg_id": "Xmoya-planeta",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xmoya-planeta",
       "actual_tvg_name": "Моя Планета",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Планета HD",
       "group": "Познавательные",
-      "expected_tvg_id": "Xmoya-planeta",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xmoya-planeta",
       "actual_tvg_name": "Планета HD",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -11692,10 +11692,10 @@
     {
       "playlist_name": "Психология 21",
       "group": "Познавательные",
-      "expected_tvg_id": "Xpsixologia-21",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xpsixologia-21",
       "actual_tvg_name": "Психология 21",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -11822,10 +11822,10 @@
     {
       "playlist_name": "Первый Космический HD",
       "group": "Познавательные",
-      "expected_tvg_id": "Xeureka-hd",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xeureka-hd",
       "actual_tvg_name": "Первый Космический HD",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -11872,10 +11872,10 @@
     {
       "playlist_name": "CGTN Русский",
       "group": "Познавательные",
-      "expected_tvg_id": "Xcctv-ru",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xcctv-ru",
       "actual_tvg_name": "CGTN Русский",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -11992,10 +11992,10 @@
     {
       "playlist_name": "Пёс и Ко",
       "group": "Познавательные",
-      "expected_tvg_id": "Xpes-i-ko",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xpes-i-ko",
       "actual_tvg_name": "Пёс и Ко",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -12532,20 +12532,20 @@
     {
       "playlist_name": "СТС kids",
       "group": "Детские",
-      "expected_tvg_id": "Xsts-kids-hd",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xsts-kids-hd",
       "actual_tvg_name": "СТС kids",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "СТС Kids HD",
       "group": "Детские",
-      "expected_tvg_id": "Xsts-kids-hd",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xsts-kids-hd",
       "actual_tvg_name": "СТС Kids HD",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -12662,10 +12662,10 @@
     {
       "playlist_name": "Magic Disney",
       "group": "Детские",
-      "expected_tvg_id": "Xmagic-disney",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xmagic-disney",
       "actual_tvg_name": "Magic Disney",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -12842,10 +12842,10 @@
     {
       "playlist_name": "Мульт",
       "group": "Детские",
-      "expected_tvg_id": "Xmult",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xmult",
       "actual_tvg_name": "Мульт",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -12982,10 +12982,10 @@
     {
       "playlist_name": "KinoKazka",
       "group": "Детские",
-      "expected_tvg_id": "Xkinokazka",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xkinokazka",
       "actual_tvg_name": "KinoKazka",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -13012,10 +13012,10 @@
     {
       "playlist_name": "Радость моя",
       "group": "Детские",
-      "expected_tvg_id": "Xradost-moya",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xradost-moya",
       "actual_tvg_name": "Радость моя",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -13032,10 +13032,10 @@
     {
       "playlist_name": "О!",
       "group": "Детские",
-      "expected_tvg_id": "Xo_",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xo_",
       "actual_tvg_name": "О!",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -13402,10 +13402,10 @@
     {
       "playlist_name": "Luxury HD",
       "group": "Разное",
-      "expected_tvg_id": "Xluxury-hd",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xluxury-hd",
       "actual_tvg_name": "Luxury HD",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -13502,10 +13502,10 @@
     {
       "playlist_name": "Театр",
       "group": "Разное",
-      "expected_tvg_id": "Xteatr",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xteatr",
       "actual_tvg_name": "Театр",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -13562,10 +13562,10 @@
     {
       "playlist_name": "ТБН",
       "group": "Разное",
-      "expected_tvg_id": "Xtbn-ru",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xtbn-ru",
       "actual_tvg_name": "ТБН",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -13632,10 +13632,10 @@
     {
       "playlist_name": "Angel TV",
       "group": "Разное",
-      "expected_tvg_id": "Xangel-tv",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xangel-tv",
       "actual_tvg_name": "Angel TV",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -13882,10 +13882,10 @@
     {
       "playlist_name": "Megogo Live HD",
       "group": "Музыкальные",
-      "expected_tvg_id": "Xmegogo-live",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xmegogo-live",
       "actual_tvg_name": "Megogo Live HD",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -14042,20 +14042,20 @@
     {
       "playlist_name": "Шансон ТВ",
       "group": "Музыкальные",
-      "expected_tvg_id": "Xshanson-tv",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xshanson-tv",
       "actual_tvg_name": "Шансон ТВ",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Мультимузыка",
       "group": "Музыкальные",
-      "expected_tvg_id": "Xmultimuzyka",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xmultimuzyka",
       "actual_tvg_name": "Мультимузыка",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -14072,30 +14072,30 @@
     {
       "playlist_name": "Музыка",
       "group": "Музыкальные",
-      "expected_tvg_id": "Xmuzyka-pervogo",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xmuzyka-pervogo",
       "actual_tvg_name": "Музыка",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "О2ТВ",
       "group": "Музыкальные",
-      "expected_tvg_id": "Xo2tv",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xo2tv",
       "actual_tvg_name": "О2ТВ",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Музыка Live",
       "group": "Музыкальные",
-      "expected_tvg_id": "Xla-minor",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xla-minor",
       "actual_tvg_name": "Музыка Live",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -14182,10 +14182,10 @@
     {
       "playlist_name": "Страна FM",
       "group": "Музыкальные",
-      "expected_tvg_id": "Xradio-strana-fm-tv",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xradio-strana-fm-tv",
       "actual_tvg_name": "Страна FM",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -14302,12 +14302,12 @@
     {
       "playlist_name": "MusicBox Russia HD",
       "group": "Музыкальные",
-      "expected_tvg_id": "russian-musicbox",
-      "actual_tvg_id": "russian-musicbox",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
       "actual_tvg_name": "MusicBox Russia HD",
       "epg_validated": false,
       "duplicate_name_count": 1,
-      "status": "no_validated_programme"
+      "status": "ok"
     },
     {
       "playlist_name": "СуперДискотека 90-х",
@@ -14322,10 +14322,10 @@
     {
       "playlist_name": "Матур ТВ",
       "group": "Музыкальные",
-      "expected_tvg_id": "Xmatur-tv",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xmatur-tv",
       "actual_tvg_name": "Матур ТВ",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -15492,10 +15492,10 @@
     {
       "playlist_name": "Спорт ТВ [BY]",
       "group": "Беларусь",
-      "expected_tvg_id": "Xsport-tv-by",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xsport-tv-by",
       "actual_tvg_name": "Спорт ТВ [BY]",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -15522,10 +15522,10 @@
     {
       "playlist_name": "Мир Беларусь HD",
       "group": "Беларусь",
-      "expected_tvg_id": "Xmir",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xmir",
       "actual_tvg_name": "Мир Беларусь HD",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -15552,10 +15552,10 @@
     {
       "playlist_name": "СкиФ Витебск",
       "group": "Беларусь",
-      "expected_tvg_id": "Xskif-vitebsk",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xskif-vitebsk",
       "actual_tvg_name": "СкиФ Витебск",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -15702,10 +15702,10 @@
     {
       "playlist_name": "LTV7",
       "group": "Литва",
-      "expected_tvg_id": "Xltv7",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xltv7",
       "actual_tvg_name": "LTV7",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -15742,20 +15742,20 @@
     {
       "playlist_name": "Lietuvos ryto TV HD",
       "group": "Литва",
-      "expected_tvg_id": "Xlietuvos-ryto-televizija",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xlietuvos-ryto-televizija",
       "actual_tvg_name": "Lietuvos ryto TV HD",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "TV3 Plus",
       "group": "Литва",
-      "expected_tvg_id": "Xtv3-plus-lt",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xtv3-plus-lt",
       "actual_tvg_name": "TV3 Plus",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -15772,30 +15772,30 @@
     {
       "playlist_name": "Balticum TV HD",
       "group": "Литва",
-      "expected_tvg_id": "Xbalticum-tv",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xbalticum-tv",
       "actual_tvg_name": "Balticum TV HD",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Balticum Platinum HD",
       "group": "Литва",
-      "expected_tvg_id": "Xbalticum-platinum",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xbalticum-platinum",
       "actual_tvg_name": "Balticum Platinum HD",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Balticum Auksinis HD",
       "group": "Литва",
-      "expected_tvg_id": "Xbalticum-auksinis",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xbalticum-auksinis",
       "actual_tvg_name": "Balticum Auksinis HD",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -15812,40 +15812,40 @@
     {
       "playlist_name": "Delfi TV HD",
       "group": "Литва",
-      "expected_tvg_id": "Xdelfi-tv",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xdelfi-tv",
       "actual_tvg_name": "Delfi TV HD",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Viasat Kino World HD",
       "group": "Литва",
-      "expected_tvg_id": "Xtv1000-premium",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xtv1000-premium",
       "actual_tvg_name": "Viasat Kino World HD",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Filmzone Plus HD",
       "group": "Литва",
-      "expected_tvg_id": "Xfilmzone-lt",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xfilmzone-lt",
       "actual_tvg_name": "Filmzone Plus HD",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Filmzone HD",
       "group": "Литва",
-      "expected_tvg_id": "Xfilmzone-lt",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xfilmzone-lt",
       "actual_tvg_name": "Filmzone HD",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -15862,10 +15862,10 @@
     {
       "playlist_name": "Go3 Films HD",
       "group": "Литва",
-      "expected_tvg_id": "Xtv1000-premium",
-      "actual_tvg_id": "Xtv1000-premium",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "Xtv1000-cee",
       "actual_tvg_name": "Go3 Films HD",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 3,
       "status": "ok"
     },
@@ -15932,10 +15932,10 @@
     {
       "playlist_name": "Go3 Sport 1 HD",
       "group": "Литва",
-      "expected_tvg_id": "Xtvplay-sports",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xtvplay-sports",
       "actual_tvg_name": "Go3 Sport 1 HD",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 2,
       "status": "ok"
     },
@@ -15952,50 +15952,50 @@
     {
       "playlist_name": "Go3 Sport 3 HD",
       "group": "Литва",
-      "expected_tvg_id": "Xtv3-sport-3",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xtv3-sport-3",
       "actual_tvg_name": "Go3 Sport 3 HD",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Go3 Sport Open HD",
       "group": "Литва",
-      "expected_tvg_id": "Xtv3-sport-open",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xtv3-sport-open",
       "actual_tvg_name": "Go3 Sport Open HD",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 2,
       "status": "ok"
     },
     {
       "playlist_name": "Movify Kino",
       "group": "Литва",
-      "expected_tvg_id": "Xmovify-kino",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xmovify-kino",
       "actual_tvg_name": "Movify Kino",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Movify Series",
       "group": "Литва",
-      "expected_tvg_id": "Xmovify-series",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xmovify-series",
       "actual_tvg_name": "Movify Series",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "Movify History",
       "group": "Литва",
-      "expected_tvg_id": "Xmovify-history",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xmovify-history",
       "actual_tvg_name": "Movify History",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -16092,10 +16092,10 @@
     {
       "playlist_name": "LTV7 HD",
       "group": "Латвия",
-      "expected_tvg_id": "Xltv7",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xltv7",
       "actual_tvg_name": "LTV7 HD",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -16122,10 +16122,10 @@
     {
       "playlist_name": "Go3 Films HD",
       "group": "Латвия",
-      "expected_tvg_id": "Xtv1000-premium",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xtv1000-premium",
       "actual_tvg_name": "Go3 Films HD",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 3,
       "status": "ok"
     },
@@ -16282,20 +16282,20 @@
     {
       "playlist_name": "ETV 2",
       "group": "Эстония",
-      "expected_tvg_id": "Xetv2-ee",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xetv2-ee",
       "actual_tvg_name": "ETV 2",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
     {
       "playlist_name": "ETV+ HD",
       "group": "Эстония",
-      "expected_tvg_id": "Xetv-plus-ee",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xetv-plus-ee",
       "actual_tvg_name": "ETV+ HD",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -16312,10 +16312,10 @@
     {
       "playlist_name": "TV3",
       "group": "Эстония",
-      "expected_tvg_id": "Xtv3-ee",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xtv3-ee",
       "actual_tvg_name": "TV3",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -16332,20 +16332,20 @@
     {
       "playlist_name": "Go3 Films HD",
       "group": "Эстония",
-      "expected_tvg_id": "Xtv1000-premium",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xtv1000-premium",
       "actual_tvg_name": "Go3 Films HD",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 3,
       "status": "ok"
     },
     {
       "playlist_name": "Duo 3",
       "group": "Эстония",
-      "expected_tvg_id": "Xsony-channel-ee",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xsony-channel-ee",
       "actual_tvg_name": "Duo 3",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -16372,10 +16372,10 @@
     {
       "playlist_name": "Eesti Kanal",
       "group": "Эстония",
-      "expected_tvg_id": "Xeesti-kanal",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xeesti-kanal",
       "actual_tvg_name": "Eesti Kanal",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -16472,12 +16472,12 @@
     {
       "playlist_name": "Sky Sport 2 HD DE",
       "group": "Германия",
-      "expected_tvg_id": "Xsky-sport-hd2",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xsky-sport-hd2",
       "actual_tvg_name": "Sky Sport 2 HD DE",
       "epg_validated": false,
       "duplicate_name_count": 1,
-      "status": "no_validated_programme"
+      "status": "ok"
     },
     {
       "playlist_name": "Sky Sport Bundesliga HD",
@@ -17802,12 +17802,12 @@
     {
       "playlist_name": "Yes Movies Kids HD",
       "group": "Израиль",
-      "expected_tvg_id": "Xyes.Movies.Kids.il",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xyes.Movies.Kids.il",
       "actual_tvg_name": "Yes Movies Kids HD",
       "epg_validated": false,
       "duplicate_name_count": 1,
-      "status": "no_validated_programme"
+      "status": "ok"
     },
     {
       "playlist_name": "Logi",
@@ -20312,12 +20312,12 @@
     {
       "playlist_name": "Obiektivi TV",
       "group": "Грузия",
-      "expected_tvg_id": "XObiektivi",
+      "expected_tvg_id": "",
       "actual_tvg_id": "XObiektivi",
       "actual_tvg_name": "Obiektivi TV",
       "epg_validated": false,
       "duplicate_name_count": 1,
-      "status": "no_validated_programme"
+      "status": "ok"
     },
     {
       "playlist_name": "Konservatorebi",
@@ -20372,10 +20372,10 @@
     {
       "playlist_name": "Marao",
       "group": "Грузия",
-      "expected_tvg_id": "XMarao",
+      "expected_tvg_id": "",
       "actual_tvg_id": "XMarao",
       "actual_tvg_name": "Marao",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -20392,10 +20392,10 @@
     {
       "playlist_name": "BMG",
       "group": "Грузия",
-      "expected_tvg_id": "XBMG",
+      "expected_tvg_id": "",
       "actual_tvg_id": "XBMG",
       "actual_tvg_name": "BMG",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -21072,10 +21072,10 @@
     {
       "playlist_name": "Diema Sport HD",
       "group": "Болгария",
-      "expected_tvg_id": "XDIEMA.SPORT.bg",
+      "expected_tvg_id": "",
       "actual_tvg_id": "XDIEMA.SPORT.bg",
       "actual_tvg_name": "Diema Sport HD",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 2,
       "status": "ok"
     },
@@ -21092,10 +21092,10 @@
     {
       "playlist_name": "Diema Sport 3 HD",
       "group": "Болгария",
-      "expected_tvg_id": "XDIEMA.SPORT.3.bg",
+      "expected_tvg_id": "",
       "actual_tvg_id": "XDIEMA.SPORT.3.bg",
       "actual_tvg_name": "Diema Sport 3 HD",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 2,
       "status": "ok"
     },
@@ -21622,10 +21622,10 @@
     {
       "playlist_name": "AMC",
       "group": "SkyLink",
-      "expected_tvg_id": "amc",
-      "actual_tvg_id": "amc",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
       "actual_tvg_name": "AMC",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -22972,12 +22972,12 @@
     {
       "playlist_name": "НТК int",
       "group": "Казахстан",
-      "expected_tvg_id": "Xntk-kz",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xntk-kz",
       "actual_tvg_name": "НТК int",
       "epg_validated": false,
       "duplicate_name_count": 1,
-      "status": "no_validated_programme"
+      "status": "ok"
     },
     {
       "playlist_name": "Алматы",
@@ -23002,12 +23002,12 @@
     {
       "playlist_name": "Новое Телевидение HD",
       "group": "Казахстан",
-      "expected_tvg_id": "Xnovoe-televidenie",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xnovoe-televidenie",
       "actual_tvg_name": "Новое Телевидение HD",
       "epg_validated": false,
       "duplicate_name_count": 1,
-      "status": "no_validated_programme"
+      "status": "ok"
     },
     {
       "playlist_name": "КТК",
@@ -23082,30 +23082,30 @@
     {
       "playlist_name": "Sport+ Qazaqstan HD",
       "group": "Казахстан",
-      "expected_tvg_id": "Xsport-plus-kz",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xsport-plus-kz",
       "actual_tvg_name": "Sport+ Qazaqstan HD",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 2,
       "status": "ok"
     },
     {
       "playlist_name": "Q Sport League",
       "group": "Казахстан",
-      "expected_tvg_id": "Xq-sport-ext",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xq-sport-ext",
       "actual_tvg_name": "Q Sport League",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 2,
       "status": "ok"
     },
     {
       "playlist_name": "Q Arena",
       "group": "Казахстан",
-      "expected_tvg_id": "Xqsport-kz",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xqsport-kz",
       "actual_tvg_name": "Q Arena",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 2,
       "status": "ok"
     },
@@ -23172,12 +23172,12 @@
     {
       "playlist_name": "BeeTV Series [KZ]",
       "group": "Казахстан",
-      "expected_tvg_id": "Xbeetv-series-kz",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xbeetv-series-kz",
       "actual_tvg_name": "BeeTV Series [KZ]",
       "epg_validated": false,
       "duplicate_name_count": 1,
-      "status": "no_validated_programme"
+      "status": "ok"
     },
     {
       "playlist_name": "BeeTV Sport [KZ]",
@@ -23252,12 +23252,12 @@
     {
       "playlist_name": "Домашний Очаг",
       "group": "Казахстан",
-      "expected_tvg_id": "domochag-kz",
-      "actual_tvg_id": "domochag-kz",
+      "expected_tvg_id": "",
+      "actual_tvg_id": "",
       "actual_tvg_name": "Домашний Очаг",
       "epg_validated": false,
       "duplicate_name_count": 1,
-      "status": "no_validated_programme"
+      "status": "ok"
     },
     {
       "playlist_name": "Той Думан",
@@ -23302,12 +23302,12 @@
     {
       "playlist_name": "ТДК-42",
       "group": "Казахстан",
-      "expected_tvg_id": "Xtdk-42",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xtdk-42",
       "actual_tvg_name": "ТДК-42",
       "epg_validated": false,
       "duplicate_name_count": 1,
-      "status": "no_validated_programme"
+      "status": "ok"
     },
     {
       "playlist_name": "MTRK [KZ]",
@@ -23322,12 +23322,12 @@
     {
       "playlist_name": "Show KZ",
       "group": "Казахстан",
-      "expected_tvg_id": "Xshow-kz",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xshow-kz",
       "actual_tvg_name": "Show KZ",
       "epg_validated": false,
       "duplicate_name_count": 1,
-      "status": "no_validated_programme"
+      "status": "ok"
     },
     {
       "playlist_name": "Gold TV UZ HD",
@@ -23372,32 +23372,32 @@
     {
       "playlist_name": "Ozbekiston 24 HD",
       "group": "Узбекистан",
-      "expected_tvg_id": "Xozbekiston24-uz",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xozbekiston24-uz",
       "actual_tvg_name": "Ozbekiston 24 HD",
       "epg_validated": false,
       "duplicate_name_count": 1,
-      "status": "no_validated_programme"
+      "status": "ok"
     },
     {
       "playlist_name": "Futbol HD UZ",
       "group": "Узбекистан",
-      "expected_tvg_id": "Xfutbol-tv-uz",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xfutbol-tv-uz",
       "actual_tvg_name": "Futbol HD UZ",
       "epg_validated": false,
       "duplicate_name_count": 1,
-      "status": "no_validated_programme"
+      "status": "ok"
     },
     {
       "playlist_name": "Sport UZ",
       "group": "Узбекистан",
-      "expected_tvg_id": "Xuzsport",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xuzsport",
       "actual_tvg_name": "Sport UZ",
       "epg_validated": false,
       "duplicate_name_count": 1,
-      "status": "no_validated_programme"
+      "status": "ok"
     },
     {
       "playlist_name": "Соблазн",
@@ -23472,10 +23472,10 @@
     {
       "playlist_name": "Искушение",
       "group": "Для взрослых",
-      "expected_tvg_id": "Xbarely-legal",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xbarely-legal",
       "actual_tvg_name": "Искушение",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -23542,10 +23542,10 @@
     {
       "playlist_name": "Русская Ночь",
       "group": "Для взрослых",
-      "expected_tvg_id": "Xrusskaya-noch",
+      "expected_tvg_id": "",
       "actual_tvg_id": "Xrusskaya-noch",
       "actual_tvg_name": "Русская Ночь",
-      "epg_validated": true,
+      "epg_validated": false,
       "duplicate_name_count": 1,
       "status": "ok"
     },
@@ -23943,16 +23943,6 @@
       "playlist_name": "M1 HD",
       "group": "",
       "expected_tvg_id": "Xm1-ua",
-      "actual_tvg_id": "",
-      "actual_tvg_name": "",
-      "epg_validated": true,
-      "duplicate_name_count": 0,
-      "status": "mapped_channel_missing_from_worker"
-    },
-    {
-      "playlist_name": "M2 HD",
-      "group": "",
-      "expected_tvg_id": "Xm2-ua",
       "actual_tvg_id": "",
       "actual_tvg_name": "",
       "epg_validated": true,
