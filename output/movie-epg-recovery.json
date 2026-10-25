@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-25T10:23:20.727486+00:00",
+  "updated_at": "2026-10-25T14:51:23.368440+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-25T10:23:19.948502+00:00",
+      "checked_at_utc": "2026-10-25T14:51:22.284522+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,111 +10,161 @@
         "Кинозалы"
       ],
       "channels": 550,
-      "ok": 494,
-      "gaps": 56,
+      "ok": 509,
+      "gaps": 41,
       "issue_counts": {
-        "NO_MAPPING": 52,
-        "NO_CURRENT_PROGRAMME": 4,
-        "NO_NEXT_PROGRAMME": 4
+        "NO_MAPPING": 41
       },
       "group_counts": {
         "USSR": {
           "channels": 19,
-          "ok": 16,
-          "gaps": 3
+          "ok": 17,
+          "gaps": 2
         },
         "Кино": {
           "channels": 180,
-          "ok": 152,
-          "gaps": 28
+          "ok": 154,
+          "gaps": 26
         },
         "Кино 4K": {
           "channels": 65,
-          "ok": 64,
-          "gaps": 1
+          "ok": 65,
+          "gaps": 0
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 262,
-          "gaps": 24
+          "ok": 273,
+          "gaps": 13
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 51,
+      "channels_considered": 37,
       "high_confidence_observations": 2,
       "recognized": [
         {
-          "playlist_name": "MM Катастрофа HD",
-          "provider_name": "MM Катастрофа HD",
-          "title": "Ha последнем берегу (2000)",
-          "score": 19.25,
-          "zone": "left_bottom_tight",
+          "playlist_name": "KLI Новинки HD",
+          "provider_name": "KLI Новинки HD",
+          "title": "Грешники (2025)",
+          "score": 17.0,
+          "zone": "bottom_band",
           "engine": "tesseract"
         },
         {
-          "playlist_name": "MM USSR Сказки HD",
-          "provider_name": "MM USSR Сказки HD",
-          "title": "бабы они 6",
-          "score": 16.75,
-          "zone": "top_band",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "provider_name": "KLI Новинки 4K Ultra HD",
+          "title": "Вульфмен",
+          "score": 22.0,
+          "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
       "added": 2,
-      "rejected": 49,
+      "rejected": 35,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-25T10:18:48.356225+00:00",
-          "playlist_name": "MM Катастрофа HD",
-          "observed_title": "Ha последнем берегу (2000)",
+          "observed_at": "2026-10-25T14:40:55.491631+00:00",
+          "playlist_name": "KLI Новинки HD",
+          "observed_title": "Грешники (2025)",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=19.25"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=17.0"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-10-25T10:18:48.356225+00:00",
-          "playlist_name": "MM USSR Сказки HD",
-          "observed_title": "бабы они 6",
+          "observed_at": "2026-10-25T14:40:55.491631+00:00",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "observed_title": "Вульфмен",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=16.75"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=22.0"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 1,
+        "changed": 0,
         "selected": 0,
-        "quarantined": 1,
-        "target_hours": 6.0
+        "quarantined": 0,
+        "reason": "no-live-candidates"
       },
       "pending_count": 0,
       "pending": {},
       "selected_count": 0,
-      "quarantined_count": 1,
+      "quarantined_count": 0,
       "selected": {},
-      "quarantined": {
-        "MM USSR Сказки HD": {
-          "reason": "EVIDENCE_REQUIRED_NO_PROVEN_DONOR",
-          "previous_output_tvg_id": "Xminimax-ussr-skazki"
-        }
-      }
+      "quarantined": {}
     },
     "candidate_discovery": {
       "live_observations": 2,
-      "sources_scanned": 8,
+      "sources_scanned": 11,
       "sources_failed": [
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         }
       ],
-      "candidates_added": 0,
-      "added": []
+      "candidates_added": 8,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки HD",
+          "source": "iptv-online-primary",
+          "source_id": "Xminimax-zatmenie",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Грешники (2025); candidate=х/ф Грешники; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки HD",
+          "source": "iptvx-noarch",
+          "source_id": "minimax-zatmenie",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Грешники (2025); candidate=х/ф Грешники; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки HD",
+          "source": "openbox-tsd",
+          "source_id": "mm-zatmenie",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Грешники (2025); candidate=Х/ф Грешники.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки HD",
+          "source": "minimax-mm-dedicated",
+          "source_id": "zatmenie-mm",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Грешники (2025); candidate=Грешники; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки HD",
+          "source": "tvteam",
+          "source_id": "ch1237",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Грешники (2025); candidate=Грешники; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки HD",
+          "source": "gabbarit-current",
+          "source_id": "минимакс-затмение HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Грешники (2025); candidate=Грешники (2025).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки HD",
+          "source": "gabbarit-primary",
+          "source_id": "минимакс-затмение HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Грешники (2025); candidate=Грешники (2025).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки HD",
+          "source": "epgone-full-movie-rescue",
+          "source_id": "5145",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Грешники (2025); candidate=Грешники; requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
