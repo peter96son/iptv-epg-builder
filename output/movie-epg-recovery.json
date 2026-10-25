@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-25T20:29:54.279450+00:00",
+  "updated_at": "2026-10-25T23:24:02.643840+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-25T20:29:52.906873+00:00",
+      "checked_at_utc": "2026-10-25T23:24:01.406915+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 550,
-      "ok": 427,
-      "gaps": 123,
+      "ok": 326,
+      "gaps": 224,
       "issue_counts": {
-        "NO_MAPPING": 41,
-        "NO_NEXT_PROGRAMME": 82,
-        "NO_CURRENT_PROGRAMME": 48
+        "NO_MAPPING": 112,
+        "NO_NEXT_PROGRAMME": 112,
+        "NO_CURRENT_PROGRAMME": 60
       },
       "group_counts": {
         "USSR": {
@@ -25,134 +25,159 @@
         },
         "Кино": {
           "channels": 180,
-          "ok": 124,
-          "gaps": 56
+          "ok": 102,
+          "gaps": 78
         },
         "Кино 4K": {
           "channels": 65,
-          "ok": 64,
-          "gaps": 1
+          "ok": 20,
+          "gaps": 45
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 226,
-          "gaps": 60
+          "ok": 191,
+          "gaps": 95
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 78,
-      "high_confidence_observations": 2,
+      "channels_considered": 107,
+      "high_confidence_observations": 4,
       "recognized": [
         {
-          "playlist_name": "KLI Новинки HD",
-          "provider_name": "KLI Новинки HD",
-          "title": "Assistant Location Mana",
-          "score": 15.0,
-          "zone": "top_left_tight",
+          "playlist_name": "Тайна",
+          "provider_name": "Тайна",
+          "title": "ТАИЧА",
+          "score": 16.25,
+          "zone": "top_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "Russian Extreme Ultra HD",
+          "provider_name": "Russian Extreme Ultra HD",
+          "title": "SPORT + CINEMA",
+          "score": 17.75,
+          "zone": "top_band",
           "engine": "tesseract"
         },
         {
           "playlist_name": "KLI Новинки 4K Ultra HD",
           "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Долгая прогулка",
-          "score": 23.5,
-          "zone": "bottom_band",
+          "title": "Зловещие мертвецы Пекло",
+          "score": 20.0,
+          "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "DITV СССР 4К",
+          "provider_name": "DITV СССР 4К",
+          "title": "ten ЛАТ; ‚ 44 Bas SVS facade Wate",
+          "score": 17.0,
+          "zone": "top_left_tight",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 2,
-      "rejected": 76,
+      "added": 4,
+      "rejected": 102,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-25T20:13:58.147222+00:00",
-          "playlist_name": "KLI Новинки HD",
-          "observed_title": "Assistant Location Mana",
+          "observed_at": "2026-10-25T23:04:23.208912+00:00",
+          "playlist_name": "Тайна",
+          "observed_title": "ТАИЧА",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=15.0"
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=16.25"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-10-25T20:13:58.147222+00:00",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Долгая прогулка",
+          "observed_at": "2026-10-25T23:04:23.208912+00:00",
+          "playlist_name": "Russian Extreme Ultra HD",
+          "observed_title": "SPORT + CINEMA",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=23.5"
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=17.75"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-25T23:04:23.208912+00:00",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "observed_title": "Зловещие мертвецы Пекло",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=20.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-25T23:04:23.208912+00:00",
+          "playlist_name": "DITV СССР 4К",
+          "observed_title": "ten ЛАТ; ‚ 44 Bas SVS facade Wate",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=17.0"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 0,
-        "selected": 0,
+        "changed": 1,
+        "selected": 1,
         "quarantined": 0,
-        "reason": "no-live-candidates"
+        "target_hours": 6.0
       },
-      "pending_count": 0,
-      "pending": {},
-      "selected_count": 0,
+      "pending_count": 2,
+      "pending": {
+        "Russian Extreme Ultra HD": {
+          "observations": 3,
+          "distinct_titles": 1,
+          "status": "PENDING_DISTINCT_SECOND_TITLE"
+        },
+        "Тайна": {
+          "observations": 1,
+          "distinct_titles": 1,
+          "status": "PENDING_DISTINCT_SECOND_TITLE"
+        }
+      },
+      "selected_count": 1,
       "quarantined_count": 0,
-      "selected": {},
+      "selected": {
+        "KLI Новинки 4K Ultra HD": {
+          "source": "tvteam",
+          "source_id": "ch4089",
+          "output_tvg_id": "Xliveocr-0ec3bdbd60ad2705",
+          "horizon_hours": 24.48,
+          "current": true,
+          "usable": 17
+        }
+      },
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 2,
-      "sources_scanned": 11,
+      "live_observations": 4,
+      "sources_scanned": 25,
       "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-ru",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-rescue",
+          "error": "RuntimeError"
+        },
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         }
       ],
-      "candidates_added": 6,
-      "added": [
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "iptvx-noarch",
-          "source_id": "veles-kinoplonk",
-          "notes": "auto-discovered from live title; similarity=0.839; observed=Долгая прогулка; candidate=х/ф Большая прогулка (1966); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "tvteam",
-          "source_id": "ch2592",
-          "notes": "auto-discovered from live title; similarity=0.839; observed=Долгая прогулка; candidate=Большая прогулка (1966).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "epgpw-RU",
-          "source_id": "572288",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Долгая прогулка; candidate=Долгая прогулка (2025); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "gabbarit-current",
-          "source_id": "VeleS Киноплёнка",
-          "notes": "auto-discovered from live title; similarity=0.839; observed=Долгая прогулка; candidate=Большая прогулка (1966).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "gabbarit-primary",
-          "source_id": "VeleS Киноплёнка",
-          "notes": "auto-discovered from live title; similarity=0.839; observed=Долгая прогулка; candidate=Большая прогулка (1966).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "epgone-full-movie-rescue",
-          "source_id": "8761",
-          "notes": "auto-discovered from live title; similarity=0.839; observed=Долгая прогулка; candidate=Большая прогулка (1966).; requires two positive observations before selection"
-        }
-      ]
+      "candidates_added": 0,
+      "added": []
     }
   }
 }
