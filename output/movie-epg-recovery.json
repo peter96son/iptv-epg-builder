@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-26T06:09:57.724175+00:00",
+  "updated_at": "2026-10-26T12:05:46.559692+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-26T06:09:56.848544+00:00",
+      "checked_at_utc": "2026-10-26T12:05:45.667261+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,11 +10,12 @@
         "Кинозалы"
       ],
       "channels": 550,
-      "ok": 305,
-      "gaps": 245,
+      "ok": 258,
+      "gaps": 292,
       "issue_counts": {
-        "NO_MAPPING": 244,
-        "NO_NEXT_PROGRAMME": 1
+        "NO_MAPPING": 247,
+        "NO_NEXT_PROGRAMME": 45,
+        "NO_CURRENT_PROGRAMME": 41
       },
       "group_counts": {
         "USSR": {
@@ -24,129 +25,82 @@
         },
         "Кино": {
           "channels": 180,
-          "ok": 101,
-          "gaps": 79
+          "ok": 98,
+          "gaps": 82
         },
         "Кино 4K": {
           "channels": 65,
-          "ok": 9,
-          "gaps": 56
+          "ok": 7,
+          "gaps": 58
         },
         "Кинозалы": {
           "channels": 286,
-          "ok": 181,
-          "gaps": 105
+          "ok": 139,
+          "gaps": 147
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 132,
-      "high_confidence_observations": 4,
+      "channels_considered": 136,
+      "high_confidence_observations": 1,
       "recognized": [
-        {
-          "playlist_name": "BCU Romantic OLD",
-          "provider_name": "BCU Romantic OLD",
-          "title": "Сердцеед (2010)",
-          "score": 22.0,
-          "zone": "top_left_tight",
-          "engine": "tesseract"
-        },
         {
           "playlist_name": "DITV Про вампиров",
           "provider_name": "DITV Про вампиров",
-          "title": "Кроваво-красное небо",
-          "score": 24.5,
-          "zone": "left_bottom",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Капитан Америка Новый мир",
-          "score": 20.0,
-          "zone": "left_bottom_tight",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "Bear TV КиноПортал RU UHD",
-          "provider_name": "Bear TV КиноПортал RU UHD",
-          "title": "OLUTIONS",
-          "score": 12.0,
-          "zone": "top_left",
+          "title": "Почти стемнело",
+          "score": 18.25,
+          "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 4,
-      "rejected": 127,
+      "added": 1,
+      "rejected": 134,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-26T05:43:52.844335+00:00",
-          "playlist_name": "BCU Romantic OLD",
-          "observed_title": "Сердцеед (2010)",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=22.0"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-26T05:43:52.844335+00:00",
+          "observed_at": "2026-10-26T11:52:46.452381+00:00",
           "playlist_name": "DITV Про вампиров",
-          "observed_title": "Кроваво-красное небо",
+          "observed_title": "Почти стемнело",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom; engine=tesseract; score=24.5"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-26T05:43:52.844335+00:00",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Капитан Америка Новый мир",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=20.0"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-26T05:43:52.844335+00:00",
-          "playlist_name": "Bear TV КиноПортал RU UHD",
-          "observed_title": "OLUTIONS",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=12.0"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.25"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 1,
-        "selected": 1,
-        "quarantined": 0,
-        "target_hours": 6.0
+        "changed": 0,
+        "selected": 0,
+        "reason": "no-policy"
       },
-      "pending_count": 1,
-      "pending": {
-        "BCU Romantic OLD": {
-          "observations": 1,
-          "distinct_titles": 1,
-          "status": "PENDING_DISTINCT_SECOND_TITLE"
-        }
-      },
-      "selected_count": 1,
+      "pending_count": 0,
+      "pending": {},
+      "selected_count": 2,
       "quarantined_count": 0,
       "selected": {
-        "KLI Новинки 4K Ultra HD": {
+        "KLI СССР HD": {
           "source": "tvteam",
-          "source_id": "ch4089",
-          "output_tvg_id": "Xklinovinci4k",
-          "horizon_hours": 22.7,
+          "source_id": "ch4083",
+          "output_tvg_id": "Xliveocr-25e879b896d08aa6",
+          "horizon_hours": 23.16,
           "current": true,
-          "usable": 17
+          "usable": 19
+        },
+        "KLI Новинки HD": {
+          "source": "gabbarit-current",
+          "source_id": "KLI НОВИНКИ",
+          "output_tvg_id": "Xliveocr-44d592172b1eca25",
+          "horizon_hours": 165.87,
+          "current": true,
+          "usable": 30
         }
       },
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 4,
+      "live_observations": 1,
       "sources_scanned": 25,
       "sources_failed": [
         {
@@ -170,149 +124,8 @@
           "error": "EOFError"
         }
       ],
-      "candidates_added": 20,
-      "added": [
-        {
-          "enabled": "1",
-          "playlist_name": "BCU Romantic OLD",
-          "source": "iptv-online-primary",
-          "source_id": "Xcinema-ru",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Сердцеед (2010); candidate=х/ф Сердцеедки; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "iptvx-noarch",
-          "source_id": "bear-tv-filmpotok-ru-uhd",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Капитан Америка Новый мир; candidate=Капитан Америка – Новый мир (2025); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "BCU Romantic OLD",
-          "source": "openbox-tsd",
-          "source_id": "cinema",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Сердцеед (2010); candidate=Х/ф Сердцеедки.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "BCU Romantic OLD",
-          "source": "bcumedia-dedicated",
-          "source_id": "BCU Romantic HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Сердцеед (2010); candidate=Сердцеед (2010); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "BCU Romantic OLD",
-          "source": "bcumedia-dedicated",
-          "source_id": "BCU Romantic OLD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Сердцеед (2010); candidate=Сердцеед (2010); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "BCU Romantic OLD",
-          "source": "bcumedia-dedicated",
-          "source_id": "Cinema",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Сердцеед (2010); candidate=х/ф Сердцеедки.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "BCU Romantic OLD",
-          "source": "bcumedia-dedicated",
-          "source_id": "Cinema HD",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Сердцеед (2010); candidate=х/ф Сердцеедки.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "BCU Romantic OLD",
-          "source": "tvteam",
-          "source_id": "ch467",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Сердцеед (2010); candidate=Сердцеедки; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "BCU Romantic OLD",
-          "source": "epgone-ru2",
-          "source_id": "2754",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Сердцеед (2010); candidate=Сердцеедки; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "BCU Romantic OLD",
-          "source": "anzo-top",
-          "source_id": "10409",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Сердцеед (2010); candidate=Х/ф Сердцеедки.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "BCU Romantic OLD",
-          "source": "gabbarit-current",
-          "source_id": "BCU Romantic HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Сердцеед (2010); candidate=Сердцеед (2010).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "BCU Romantic OLD",
-          "source": "gabbarit-current",
-          "source_id": "CINEMA",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Сердцеед (2010); candidate=Сердцеедки.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Bear TV КиноПортал RU UHD",
-          "source": "m3u-edit-all-rescue",
-          "source_id": "BBC.Earth.hk",
-          "notes": "auto-discovered from live title; similarity=0.824; observed=OLUTIONS; candidate=Evolution; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Bear TV КиноПортал RU UHD",
-          "source": "m3u-edit-all-rescue",
-          "source_id": "BBC.Earth.id",
-          "notes": "auto-discovered from live title; similarity=0.824; observed=OLUTIONS; candidate=Evolution; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Bear TV КиноПортал RU UHD",
-          "source": "m3u-edit-all-rescue",
-          "source_id": "BBC.Earth.HD.id",
-          "notes": "auto-discovered from live title; similarity=0.824; observed=OLUTIONS; candidate=Evolution; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Bear TV КиноПортал RU UHD",
-          "source": "m3u-edit-all-rescue",
-          "source_id": "BBC.Earth.my",
-          "notes": "auto-discovered from live title; similarity=0.824; observed=OLUTIONS; candidate=Evolution; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "BCU Romantic OLD",
-          "source": "gabbarit-primary",
-          "source_id": "BCU Romantic HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Сердцеед (2010); candidate=Сердцеед (2010).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "BCU Romantic OLD",
-          "source": "gabbarit-primary",
-          "source_id": "CINEMA",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Сердцеед (2010); candidate=Сердцеедки.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "BCU Romantic OLD",
-          "source": "epgone-full-movie-rescue",
-          "source_id": "4761",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Сердцеед (2010); candidate=Сердцеед (2010).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "BCU Romantic OLD",
-          "source": "epgone-full-movie-rescue",
-          "source_id": "2754",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Сердцеед (2010); candidate=Сердцеедки; requires two positive observations before selection"
-        }
-      ]
+      "candidates_added": 0,
+      "added": []
     }
   }
 }
