@@ -1,131 +1,146 @@
 {
-  "updated_at": "2026-10-26T12:05:46.559692+00:00",
+  "updated_at": "2026-10-26T18:33:20.432029+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-26T12:05:45.667261+00:00",
+      "checked_at_utc": "2026-10-26T18:33:18.650856+00:00",
       "groups": [
         "USSR",
         "Кино",
         "Кино 4K",
         "Кинозалы"
       ],
-      "channels": 550,
-      "ok": 258,
-      "gaps": 292,
+      "channels": 554,
+      "ok": 499,
+      "gaps": 55,
       "issue_counts": {
-        "NO_MAPPING": 247,
-        "NO_NEXT_PROGRAMME": 45,
-        "NO_CURRENT_PROGRAMME": 41
+        "NO_MAPPING": 52,
+        "NO_CURRENT_PROGRAMME": 2,
+        "NO_NEXT_PROGRAMME": 3
       },
       "group_counts": {
         "USSR": {
           "channels": 19,
-          "ok": 14,
-          "gaps": 5
+          "ok": 17,
+          "gaps": 2
         },
         "Кино": {
-          "channels": 180,
-          "ok": 98,
-          "gaps": 82
+          "channels": 182,
+          "ok": 147,
+          "gaps": 35
         },
         "Кино 4K": {
-          "channels": 65,
-          "ok": 7,
-          "gaps": 58
+          "channels": 66,
+          "ok": 66,
+          "gaps": 0
         },
         "Кинозалы": {
-          "channels": 286,
-          "ok": 139,
-          "gaps": 147
+          "channels": 287,
+          "ok": 269,
+          "gaps": 18
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 136,
-      "high_confidence_observations": 1,
+      "channels_considered": 49,
+      "high_confidence_observations": 2,
       "recognized": [
         {
-          "playlist_name": "DITV Про вампиров",
-          "provider_name": "DITV Про вампиров",
-          "title": "Почти стемнело",
-          "score": 18.25,
+          "playlist_name": "KLI Новинки HD",
+          "provider_name": "KLI Новинки HD",
+          "title": "1ABET",
+          "score": 16.0,
+          "zone": "top_left_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "provider_name": "KLI Новинки 4K Ultra HD",
+          "title": "Мир Юрского периода Возрождение",
+          "score": 20.0,
           "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 134,
+      "added": 2,
+      "rejected": 47,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-26T11:52:46.452381+00:00",
-          "playlist_name": "DITV Про вампиров",
-          "observed_title": "Почти стемнело",
+          "observed_at": "2026-10-26T18:16:24.105671+00:00",
+          "playlist_name": "KLI Новинки HD",
+          "observed_title": "1ABET",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.25"
+          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=16.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-26T18:16:24.105671+00:00",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "observed_title": "Мир Юрского периода Возрождение",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=20.0"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 0,
-        "selected": 0,
-        "reason": "no-policy"
+        "changed": 1,
+        "selected": 1,
+        "quarantined": 0,
+        "target_hours": 6.0
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 2,
+      "selected_count": 1,
       "quarantined_count": 0,
       "selected": {
-        "KLI СССР HD": {
+        "KLI Новинки 4K Ultra HD": {
           "source": "tvteam",
-          "source_id": "ch4083",
-          "output_tvg_id": "Xliveocr-25e879b896d08aa6",
-          "horizon_hours": 23.16,
+          "source_id": "ch4089",
+          "output_tvg_id": "Xklinovinci4k",
+          "horizon_hours": 22.94,
           "current": true,
-          "usable": 19
-        },
-        "KLI Новинки HD": {
-          "source": "gabbarit-current",
-          "source_id": "KLI НОВИНКИ",
-          "output_tvg_id": "Xliveocr-44d592172b1eca25",
-          "horizon_hours": 165.87,
-          "current": true,
-          "usable": 30
+          "usable": 17
         }
       },
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 25,
+      "live_observations": 2,
+      "sources_scanned": 11,
       "sources_failed": [
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-ru",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-rescue",
-          "error": "RuntimeError"
-        },
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         }
       ],
-      "candidates_added": 0,
-      "added": []
+      "candidates_added": 3,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "source": "iptv-online-primary",
+          "source_id": "Xbear-tv-ekran-buduschego-ru-uhd",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Мир Юрского периода Возрождение; candidate=Мир Юрского периода – Возрождение (2025); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "source": "iptvx-noarch",
+          "source_id": "bear-tv-ekran-buduschego-ru-uhd",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Мир Юрского периода Возрождение; candidate=Мир Юрского периода – Возрождение (2025); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "source": "epgpw-RU",
+          "source_id": "536613",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Мир Юрского периода Возрождение; candidate=Мир Юрского периода: Возрождение (2025); requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
