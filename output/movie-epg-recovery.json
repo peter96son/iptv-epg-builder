@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-27T13:33:27.259828+00:00",
+  "updated_at": "2026-10-27T18:45:36.851135+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-27T13:33:25.681532+00:00",
+      "checked_at_utc": "2026-10-27T18:45:35.043449+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,10 +10,12 @@
         "Кинозалы"
       ],
       "channels": 558,
-      "ok": 510,
-      "gaps": 48,
+      "ok": 511,
+      "gaps": 47,
       "issue_counts": {
-        "NO_MAPPING": 48
+        "NO_MAPPING": 43,
+        "NO_CURRENT_PROGRAMME": 4,
+        "NO_NEXT_PROGRAMME": 4
       },
       "group_counts": {
         "USSR": {
@@ -28,8 +30,8 @@
         },
         "Кино 4K": {
           "channels": 67,
-          "ok": 64,
-          "gaps": 3
+          "ok": 65,
+          "gaps": 2
         },
         "Кинозалы": {
           "channels": 290,
@@ -40,20 +42,55 @@
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 41,
-      "high_confidence_observations": 0,
-      "recognized": []
+      "channels_considered": 40,
+      "high_confidence_observations": 2,
+      "recognized": [
+        {
+          "playlist_name": "KLI Новинки HD",
+          "provider_name": "KLI Новинки HD",
+          "title": "HOBAHKH",
+          "score": 16.75,
+          "zone": "top_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "Velilla TV Friends/Друзья HD",
+          "provider_name": "Velilla TV Friends/Друзья HD",
+          "title": "Мешает \\",
+          "score": 16.5,
+          "zone": "top_band",
+          "engine": "tesseract"
+        }
+      ]
     },
     "evidence_recorder": {
-      "added": 0,
-      "rejected": 41,
-      "observations": []
+      "added": 2,
+      "rejected": 38,
+      "observations": [
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-27T18:28:27.498229+00:00",
+          "playlist_name": "KLI Новинки HD",
+          "observed_title": "HOBAHKH",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=16.75"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-27T18:28:27.498229+00:00",
+          "playlist_name": "Velilla TV Friends/Друзья HD",
+          "observed_title": "Мешает \\",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=16.5"
+        }
+      ]
     },
     "judge": {
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "waiting-for-distinct-second-title"
+        "quarantined": 0,
+        "reason": "no-live-candidates"
       },
       "pending_count": 0,
       "pending": {},
@@ -63,9 +100,22 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 0,
-      "sources_scanned": 0,
-      "sources_failed": [],
+      "live_observations": 2,
+      "sources_scanned": 27,
+      "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "gabbarit-mirror",
+          "error": "EOFError"
+        }
+      ],
       "candidates_added": 0,
       "added": []
     }
