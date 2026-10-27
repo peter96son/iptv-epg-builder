@@ -1,96 +1,59 @@
 {
-  "updated_at": "2026-10-27T07:10:29.129215+00:00",
+  "updated_at": "2026-10-27T13:33:27.259828+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-27T07:10:28.042711+00:00",
+      "checked_at_utc": "2026-10-27T13:33:25.681532+00:00",
       "groups": [
         "USSR",
         "Кино",
         "Кино 4K",
         "Кинозалы"
       ],
-      "channels": 554,
-      "ok": 498,
-      "gaps": 56,
+      "channels": 558,
+      "ok": 510,
+      "gaps": 48,
       "issue_counts": {
-        "NO_MAPPING": 53,
-        "NO_CURRENT_PROGRAMME": 3,
-        "NO_NEXT_PROGRAMME": 3
+        "NO_MAPPING": 48
       },
       "group_counts": {
         "USSR": {
           "channels": 19,
-          "ok": 16,
-          "gaps": 3
+          "ok": 17,
+          "gaps": 2
         },
         "Кино": {
           "channels": 182,
-          "ok": 149,
-          "gaps": 33
+          "ok": 155,
+          "gaps": 27
         },
         "Кино 4K": {
-          "channels": 66,
-          "ok": 65,
-          "gaps": 1
+          "channels": 67,
+          "ok": 64,
+          "gaps": 3
         },
         "Кинозалы": {
-          "channels": 287,
-          "ok": 268,
-          "gaps": 19
+          "channels": 290,
+          "ok": 274,
+          "gaps": 16
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 48,
-      "high_confidence_observations": 2,
-      "recognized": [
-        {
-          "playlist_name": "KLI Новинки HD",
-          "provider_name": "KLI Новинки HD",
-          "title": "HOBAHKH",
-          "score": 16.75,
-          "zone": "top_band",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "Velilla TV Friends/Друзья HD",
-          "provider_name": "Velilla TV Friends/Друзья HD",
-          "title": "ie: epg sey,",
-          "score": 17.0,
-          "zone": "left_bottom_tight",
-          "engine": "tesseract"
-        }
-      ]
+      "channels_considered": 41,
+      "high_confidence_observations": 0,
+      "recognized": []
     },
     "evidence_recorder": {
-      "added": 2,
-      "rejected": 46,
-      "observations": [
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-27T06:58:30.214429+00:00",
-          "playlist_name": "KLI Новинки HD",
-          "observed_title": "HOBAHKH",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=16.75"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-27T06:58:30.214429+00:00",
-          "playlist_name": "Velilla TV Friends/Друзья HD",
-          "observed_title": "ie: epg sey,",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=17.0"
-        }
-      ]
+      "added": 0,
+      "rejected": 41,
+      "observations": []
     },
     "judge": {
       "selector": {
         "changed": 0,
         "selected": 0,
-        "quarantined": 0,
-        "reason": "no-live-candidates"
+        "reason": "waiting-for-distinct-second-title"
       },
       "pending_count": 0,
       "pending": {},
@@ -100,34 +63,9 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 2,
-      "sources_scanned": 24,
-      "sources_failed": [
-        {
-          "source": "premiere-group-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-ru",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-rescue",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "gabbarit-mirror",
-          "error": "EOFError"
-        }
-      ],
+      "live_observations": 0,
+      "sources_scanned": 0,
+      "sources_failed": [],
       "candidates_added": 0,
       "added": []
     }
