@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-27T02:05:34.772578+00:00",
+  "updated_at": "2026-10-27T07:10:29.129215+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-27T02:05:33.046260+00:00",
+      "checked_at_utc": "2026-10-27T07:10:28.042711+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,18 +10,18 @@
         "Кинозалы"
       ],
       "channels": 554,
-      "ok": 499,
-      "gaps": 55,
+      "ok": 498,
+      "gaps": 56,
       "issue_counts": {
         "NO_MAPPING": 53,
-        "NO_CURRENT_PROGRAMME": 2,
-        "NO_NEXT_PROGRAMME": 2
+        "NO_CURRENT_PROGRAMME": 3,
+        "NO_NEXT_PROGRAMME": 3
       },
       "group_counts": {
         "USSR": {
           "channels": 19,
-          "ok": 17,
-          "gaps": 2
+          "ok": 16,
+          "gaps": 3
         },
         "Кино": {
           "channels": 182,
@@ -30,34 +30,34 @@
         },
         "Кино 4K": {
           "channels": 66,
-          "ok": 66,
-          "gaps": 0
+          "ok": 65,
+          "gaps": 1
         },
         "Кинозалы": {
           "channels": 287,
-          "ok": 267,
-          "gaps": 20
+          "ok": 268,
+          "gaps": 19
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 47,
+      "channels_considered": 48,
       "high_confidence_observations": 2,
       "recognized": [
         {
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Одна миля Глава первая",
-          "score": 24.75,
-          "zone": "bottom_band",
+          "playlist_name": "KLI Новинки HD",
+          "provider_name": "KLI Новинки HD",
+          "title": "HOBAHKH",
+          "score": 16.75,
+          "zone": "top_band",
           "engine": "tesseract"
         },
         {
           "playlist_name": "Velilla TV Friends/Друзья HD",
           "provider_name": "Velilla TV Friends/Друзья HD",
-          "title": "ate . : amity es",
-          "score": 12.5,
+          "title": "ie: epg sey,",
+          "score": 17.0,
           "zone": "left_bottom_tight",
           "engine": "tesseract"
         }
@@ -65,59 +65,48 @@
     },
     "evidence_recorder": {
       "added": 2,
-      "rejected": 45,
+      "rejected": 46,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-27T01:44:37.649973+00:00",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Одна миля Глава первая",
+          "observed_at": "2026-10-27T06:58:30.214429+00:00",
+          "playlist_name": "KLI Новинки HD",
+          "observed_title": "HOBAHKH",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=24.75"
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=16.75"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-10-27T01:44:37.649973+00:00",
+          "observed_at": "2026-10-27T06:58:30.214429+00:00",
           "playlist_name": "Velilla TV Friends/Друзья HD",
-          "observed_title": "ate . : amity es",
+          "observed_title": "ie: epg sey,",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=12.5"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=17.0"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 1,
-        "selected": 1,
+        "changed": 0,
+        "selected": 0,
         "quarantined": 0,
-        "target_hours": 6.0
+        "reason": "no-live-candidates"
       },
-      "pending_count": 1,
-      "pending": {
-        "Velilla TV Friends/Друзья HD": {
-          "observations": 1,
-          "distinct_titles": 1,
-          "status": "PENDING_DISTINCT_SECOND_TITLE"
-        }
-      },
-      "selected_count": 1,
+      "pending_count": 0,
+      "pending": {},
+      "selected_count": 0,
       "quarantined_count": 0,
-      "selected": {
-        "KLI Новинки 4K Ultra HD": {
-          "source": "gabbarit-current",
-          "source_id": "KLI Новинки 4k",
-          "output_tvg_id": "Xklinovinci4k",
-          "horizon_hours": 141.06,
-          "current": true,
-          "usable": 32
-        }
-      },
+      "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
       "live_observations": 2,
-      "sources_scanned": 25,
+      "sources_scanned": 24,
       "sources_failed": [
+        {
+          "source": "premiere-group-dedicated",
+          "error": "RuntimeError"
+        },
         {
           "source": "klimedia-dedicated",
           "error": "RuntimeError"
