@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-28T19:55:40.985739+00:00",
+  "updated_at": "2026-10-28T23:57:47.739946+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-28T19:55:39.543030+00:00",
+      "checked_at_utc": "2026-10-28T23:57:46.316014+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 563,
-      "ok": 513,
-      "gaps": 50,
+      "ok": 514,
+      "gaps": 49,
       "issue_counts": {
         "NO_MAPPING": 46,
-        "NO_CURRENT_PROGRAMME": 4,
-        "NO_NEXT_PROGRAMME": 4
+        "NO_CURRENT_PROGRAMME": 2,
+        "NO_NEXT_PROGRAMME": 3
       },
       "group_counts": {
         "USSR": {
@@ -25,8 +25,8 @@
         },
         "Кино": {
           "channels": 181,
-          "ok": 153,
-          "gaps": 28
+          "ok": 152,
+          "gaps": 29
         },
         "Кино 4K": {
           "channels": 67,
@@ -35,27 +35,78 @@
         },
         "Кинозалы": {
           "channels": 297,
-          "ok": 279,
-          "gaps": 18
+          "ok": 281,
+          "gaps": 16
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 41,
-      "high_confidence_observations": 0,
-      "recognized": []
+      "channels_considered": 42,
+      "high_confidence_observations": 3,
+      "recognized": [
+        {
+          "playlist_name": "Thriller HD",
+          "provider_name": "Thriller HD",
+          "title": "КЛЮЧИ ОТ ВСЕХ ДВЕРЕЙ",
+          "score": 24.25,
+          "zone": "top_left",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "Insomnia HD",
+          "provider_name": "Insomnia HD",
+          "title": "PREMIERE. GROUP",
+          "score": 13.25,
+          "zone": "top_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "CPS Anime",
+          "provider_name": "CPS Anime",
+          "title": "Bil) Rxt-yar)",
+          "score": 12.25,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        }
+      ]
     },
     "evidence_recorder": {
-      "added": 0,
-      "rejected": 41,
-      "observations": []
+      "added": 3,
+      "rejected": 39,
+      "observations": [
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-28T23:49:07.925123+00:00",
+          "playlist_name": "Thriller HD",
+          "observed_title": "КЛЮЧИ ОТ ВСЕХ ДВЕРЕЙ",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=24.25"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-28T23:49:07.925123+00:00",
+          "playlist_name": "Insomnia HD",
+          "observed_title": "PREMIERE. GROUP",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=13.25"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-28T23:49:07.925123+00:00",
+          "playlist_name": "CPS Anime",
+          "observed_title": "Bil) Rxt-yar)",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=12.25"
+        }
+      ]
     },
     "judge": {
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "waiting-for-distinct-second-title"
+        "quarantined": 0,
+        "reason": "no-live-candidates"
       },
       "pending_count": 0,
       "pending": {},
@@ -65,9 +116,14 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 0,
-      "sources_scanned": 0,
-      "sources_failed": [],
+      "live_observations": 3,
+      "sources_scanned": 11,
+      "sources_failed": [
+        {
+          "source": "gabbarit-mirror",
+          "error": "EOFError"
+        }
+      ],
       "candidates_added": 0,
       "added": []
     }
