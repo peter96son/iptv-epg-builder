@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-27T23:01:32.250860+00:00",
+  "updated_at": "2026-10-28T02:07:22.486953+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-27T23:01:30.228095+00:00",
+      "checked_at_utc": "2026-10-28T02:07:21.376508+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,11 +10,12 @@
         "Кинозалы"
       ],
       "channels": 558,
-      "ok": 505,
-      "gaps": 53,
+      "ok": 506,
+      "gaps": 52,
       "issue_counts": {
-        "NO_MAPPING": 51,
-        "NO_NEXT_PROGRAMME": 2
+        "NO_MAPPING": 48,
+        "NO_CURRENT_PROGRAMME": 4,
+        "NO_NEXT_PROGRAMME": 4
       },
       "group_counts": {
         "USSR": {
@@ -34,37 +35,85 @@
         },
         "Кинозалы": {
           "channels": 290,
-          "ok": 269,
-          "gaps": 21
+          "ok": 270,
+          "gaps": 20
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 42,
-      "high_confidence_observations": 1,
+      "channels_considered": 46,
+      "high_confidence_observations": 4,
       "recognized": [
+        {
+          "playlist_name": "Thriller HD",
+          "provider_name": "Thriller HD",
+          "title": "РЕИД",
+          "score": 18.0,
+          "zone": "top_left",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "Velilla TV Friends/Друзья HD",
+          "provider_name": "Velilla TV Friends/Друзья HD",
+          "title": "Friends/Qpy3ba HD",
+          "score": 18.5,
+          "zone": "top_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "KLI Новинки HD",
+          "provider_name": "KLI Новинки HD",
+          "title": "Мир юрского периода: Возрождение (2025)",
+          "score": 20.0,
+          "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        },
         {
           "playlist_name": "KLI Новинки 4K Ultra HD",
           "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Грешники",
-          "score": 22.0,
+          "title": "Дамы вперед",
+          "score": 22.5,
           "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 41,
+      "added": 4,
+      "rejected": 42,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-27T22:45:53.746577+00:00",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Грешники",
+          "observed_at": "2026-10-28T01:54:50.027382+00:00",
+          "playlist_name": "Thriller HD",
+          "observed_title": "РЕИД",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=22.0"
+          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=18.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-28T01:54:50.027382+00:00",
+          "playlist_name": "Velilla TV Friends/Друзья HD",
+          "observed_title": "Friends/Qpy3ba HD",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=18.5"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-28T01:54:50.027382+00:00",
+          "playlist_name": "KLI Новинки HD",
+          "observed_title": "Мир юрского периода: Возрождение (2025)",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=20.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-28T01:54:50.027382+00:00",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "observed_title": "Дамы вперед",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=22.5"
         }
       ]
     },
@@ -84,7 +133,7 @@
           "source": "tvteam",
           "source_id": "ch4089",
           "output_tvg_id": "Xklinovinci4k",
-          "horizon_hours": 23.4,
+          "horizon_hours": 24.36,
           "current": true,
           "usable": 16
         }
@@ -92,9 +141,21 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 10,
+      "live_observations": 4,
+      "sources_scanned": 26,
       "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "m3u-edit-all-rescue",
+          "error": "RuntimeError"
+        },
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
