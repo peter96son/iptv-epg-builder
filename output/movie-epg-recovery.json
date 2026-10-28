@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-28T14:50:58.514194+00:00",
+  "updated_at": "2026-10-28T19:55:40.985739+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-28T14:50:57.086867+00:00",
+      "checked_at_utc": "2026-10-28T19:55:39.543030+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 563,
-      "ok": 516,
-      "gaps": 47,
+      "ok": 513,
+      "gaps": 50,
       "issue_counts": {
-        "NO_MAPPING": 45,
-        "NO_CURRENT_PROGRAMME": 1,
-        "NO_NEXT_PROGRAMME": 2
+        "NO_MAPPING": 46,
+        "NO_CURRENT_PROGRAMME": 4,
+        "NO_NEXT_PROGRAMME": 4
       },
       "group_counts": {
         "USSR": {
@@ -30,93 +30,44 @@
         },
         "Кино 4K": {
           "channels": 67,
-          "ok": 66,
-          "gaps": 1
+          "ok": 65,
+          "gaps": 2
         },
         "Кинозалы": {
           "channels": 297,
-          "ok": 281,
-          "gaps": 16
+          "ok": 279,
+          "gaps": 18
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 39,
-      "high_confidence_observations": 2,
-      "recognized": [
-        {
-          "playlist_name": "CPS Anime",
-          "provider_name": "CPS Anime",
-          "title": "Наруто 9 Путь ниндзя",
-          "score": 19.0,
-          "zone": "left_bottom_tight",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Кирпич",
-          "score": 21.5,
-          "zone": "left_bottom_tight",
-          "engine": "tesseract"
-        }
-      ]
+      "channels_considered": 41,
+      "high_confidence_observations": 0,
+      "recognized": []
     },
     "evidence_recorder": {
-      "added": 2,
-      "rejected": 37,
-      "observations": [
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-28T14:39:06.717547+00:00",
-          "playlist_name": "CPS Anime",
-          "observed_title": "Наруто 9 Путь ниндзя",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=19.0"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-28T14:39:06.717547+00:00",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Кирпич",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=21.5"
-        }
-      ]
+      "added": 0,
+      "rejected": 41,
+      "observations": []
     },
     "judge": {
       "selector": {
-        "changed": 1,
-        "selected": 1,
-        "quarantined": 0,
-        "target_hours": 6.0
+        "changed": 0,
+        "selected": 0,
+        "reason": "waiting-for-distinct-second-title"
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 1,
+      "selected_count": 0,
       "quarantined_count": 0,
-      "selected": {
-        "KLI Новинки 4K Ultra HD": {
-          "source": "gabbarit-current",
-          "source_id": "KLI Новинки 4k",
-          "output_tvg_id": "Xklinovinci4k",
-          "horizon_hours": 145.46,
-          "current": true,
-          "usable": 32
-        }
-      },
+      "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 2,
-      "sources_scanned": 10,
-      "sources_failed": [
-        {
-          "source": "gabbarit-mirror",
-          "error": "EOFError"
-        }
-      ],
+      "live_observations": 0,
+      "sources_scanned": 0,
+      "sources_failed": [],
       "candidates_added": 0,
       "added": []
     }
