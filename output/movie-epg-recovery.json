@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-29T03:20:54.018295+00:00",
+  "updated_at": "2026-10-29T10:45:00.465087+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-29T03:20:52.512009+00:00",
+      "checked_at_utc": "2026-10-29T10:44:59.098024+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,23 +10,21 @@
         "Кинозалы"
       ],
       "channels": 563,
-      "ok": 511,
-      "gaps": 52,
+      "ok": 516,
+      "gaps": 47,
       "issue_counts": {
-        "NO_MAPPING": 49,
-        "NO_NEXT_PROGRAMME": 3,
-        "NO_CURRENT_PROGRAMME": 2
+        "NO_MAPPING": 47
       },
       "group_counts": {
         "USSR": {
           "channels": 18,
-          "ok": 16,
-          "gaps": 2
+          "ok": 17,
+          "gaps": 1
         },
         "Кино": {
           "channels": 181,
-          "ok": 150,
-          "gaps": 31
+          "ok": 154,
+          "gaps": 27
         },
         "Кино 4K": {
           "channels": 67,
@@ -42,62 +40,46 @@
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 43,
-      "high_confidence_observations": 3,
+      "channels_considered": 40,
+      "high_confidence_observations": 2,
       "recognized": [
         {
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Мортал Комбат 2",
-          "score": 23.0,
-          "zone": "left_bottom_tight",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "KLI Новинки HD",
-          "provider_name": "KLI Новинки HD",
-          "title": "Веном: Последний танец (2024)",
-          "score": 19.75,
+          "playlist_name": "DITV СССР 4К",
+          "provider_name": "DITV СССР 4К",
+          "title": "12 стульев",
+          "score": 16.75,
           "zone": "bottom_band",
           "engine": "tesseract"
         },
         {
-          "playlist_name": "Velilla TV Friends/Друзья HD",
-          "provider_name": "Velilla TV Friends/Друзья HD",
-          "title": "Friends/Hpy3ba HD",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "provider_name": "KLI Новинки 4K Ultra HD",
+          "title": "Последняя капля",
           "score": 18.5,
-          "zone": "top_band",
+          "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 3,
-      "rejected": 40,
+      "added": 2,
+      "rejected": 38,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-29T03:01:54.575352+00:00",
+          "observed_at": "2026-10-29T10:33:17.279021+00:00",
+          "playlist_name": "DITV СССР 4К",
+          "observed_title": "12 стульев",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=16.75"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-29T10:33:17.279021+00:00",
           "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Мортал Комбат 2",
+          "observed_title": "Последняя капля",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=23.0"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-29T03:01:54.575352+00:00",
-          "playlist_name": "KLI Новинки HD",
-          "observed_title": "Веном: Последний танец (2024)",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=19.75"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-29T03:01:54.575352+00:00",
-          "playlist_name": "Velilla TV Friends/Друзья HD",
-          "observed_title": "Friends/Hpy3ba HD",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=18.5"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.5"
         }
       ]
     },
@@ -117,104 +99,24 @@
           "source": "gabbarit-current",
           "source_id": "KLI Новинки 4k",
           "output_tvg_id": "Xklinovinci4k",
-          "horizon_hours": 132.99,
+          "horizon_hours": 125.56,
           "current": true,
-          "usable": 32
+          "usable": 31
         }
       },
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 3,
-      "sources_scanned": 25,
+      "live_observations": 2,
+      "sources_scanned": 10,
       "sources_failed": [
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-ru",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-rescue",
-          "error": "RuntimeError"
-        },
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         }
       ],
-      "candidates_added": 9,
-      "added": [
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки HD",
-          "source": "iptv-online-primary",
-          "source_id": "Xbear-tv-kinogorizont-ru-uhd",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Веном: Последний танец (2024); candidate=Веном – Последний танец (2024); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "iptv-online-primary",
-          "source_id": "Xbear-tv-superseans-ru-uhd",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Мортал Комбат 2; candidate=Мортал Комбат (2021); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки HD",
-          "source": "iptvx-noarch",
-          "source_id": "bear-tv-kinogorizont-ru-uhd",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Веном: Последний танец (2024); candidate=Веном – Последний танец (2024); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "iptvx-noarch",
-          "source_id": "bear-tv-superseans-ru-uhd",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Мортал Комбат 2; candidate=Мортал Комбат (2021); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки HD",
-          "source": "iptvx-noarch",
-          "source_id": "tvplay-marvel",
-          "notes": "auto-discovered from live title; similarity=0.955; observed=Веном: Последний танец (2024); candidate=Веном 3-Последний танец 2024; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки HD",
-          "source": "tvteam",
-          "source_id": "ch3758",
-          "notes": "auto-discovered from live title; similarity=0.955; observed=Веном: Последний танец (2024); candidate=Веном 3-Последний танец 2024; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "epgpw-RU",
-          "source_id": "572292",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Мортал Комбат 2; candidate=Мортал Комбат 2 (2026); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки HD",
-          "source": "gabbarit-current",
-          "source_id": "TVPlay Marvel HD",
-          "notes": "auto-discovered from live title; similarity=0.955; observed=Веном: Последний танец (2024); candidate=Веном 3-Последний танец 2024.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки HD",
-          "source": "gabbarit-primary",
-          "source_id": "TVPlay Marvel HD",
-          "notes": "auto-discovered from live title; similarity=0.955; observed=Веном: Последний танец (2024); candidate=Веном 3-Последний танец 2024.; requires two positive observations before selection"
-        }
-      ]
+      "candidates_added": 0,
+      "added": []
     }
   }
 }
