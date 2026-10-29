@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-29T17:28:36.100396+00:00",
+  "updated_at": "2026-10-29T22:30:29.661923+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-29T17:28:34.331292+00:00",
+      "checked_at_utc": "2026-10-29T22:30:27.863332+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,62 +10,78 @@
         "Кинозалы"
       ],
       "channels": 564,
-      "ok": 513,
-      "gaps": 51,
+      "ok": 496,
+      "gaps": 68,
       "issue_counts": {
-        "NO_MAPPING": 49,
-        "NO_CURRENT_PROGRAMME": 2,
-        "NO_NEXT_PROGRAMME": 2
+        "NO_MAPPING": 47,
+        "NO_CURRENT_PROGRAMME": 20,
+        "NO_NEXT_PROGRAMME": 21
       },
       "group_counts": {
         "USSR": {
           "channels": 18,
-          "ok": 16,
-          "gaps": 2
+          "ok": 15,
+          "gaps": 3
         },
         "Кино": {
           "channels": 182,
-          "ok": 154,
-          "gaps": 28
+          "ok": 153,
+          "gaps": 29
         },
         "Кино 4K": {
           "channels": 67,
-          "ok": 66,
-          "gaps": 1
+          "ok": 65,
+          "gaps": 2
         },
         "Кинозалы": {
           "channels": 297,
-          "ok": 277,
-          "gaps": 20
+          "ok": 263,
+          "gaps": 34
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 45,
-      "high_confidence_observations": 1,
+      "channels_considered": 49,
+      "high_confidence_observations": 2,
       "recognized": [
+        {
+          "playlist_name": "Premiere HD 3",
+          "provider_name": "Premiere HD 3",
+          "title": "Беги, прячься, бей: Неверные",
+          "score": 25.0,
+          "zone": "top_left",
+          "engine": "tesseract"
+        },
         {
           "playlist_name": "KLI Новинки 4K Ultra HD",
           "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Супермен",
-          "score": 22.0,
+          "title": "Убежище",
+          "score": 21.75,
           "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 44,
+      "added": 2,
+      "rejected": 47,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-29T17:12:16.952877+00:00",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Супермен",
+          "observed_at": "2026-10-29T22:10:08.262758+00:00",
+          "playlist_name": "Premiere HD 3",
+          "observed_title": "Беги, прячься, бей: Неверные",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=22.0"
+          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=25.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-29T22:10:08.262758+00:00",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "observed_title": "Убежище",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=21.75"
         }
       ]
     },
@@ -85,7 +101,7 @@
           "source": "gabbarit-current",
           "source_id": "KLI Новинки 4k",
           "output_tvg_id": "Xklinovinci4k",
-          "horizon_hours": 118.86,
+          "horizon_hours": 156.79,
           "current": true,
           "usable": 31
         }
@@ -93,43 +109,22 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 10,
+      "live_observations": 2,
+      "sources_scanned": 15,
       "sources_failed": [
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         }
       ],
-      "candidates_added": 4,
+      "candidates_added": 1,
       "added": [
         {
           "enabled": "1",
           "playlist_name": "KLI Новинки 4K Ultra HD",
           "source": "epgpw-RU",
-          "source_id": "572313",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Супермен; candidate=Супермен (2025); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "epgpw-RU",
-          "source_id": "572309",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Супермен; candidate=Супермен (2025); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "gabbarit-current",
-          "source_id": "CPU Кіно Премєра 1 HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Супермен; candidate=Супермен.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "gabbarit-primary",
-          "source_id": "CPU Кіно Премєра 1 HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Супермен; candidate=Супермен.; requires two positive observations before selection"
+          "source_id": "561172",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Убежище; candidate=х/ф Убежище (2026); requires two positive observations before selection"
         }
       ]
     }
