@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-30T02:26:14.180186+00:00",
+  "updated_at": "2026-10-30T09:26:34.753602+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-30T02:26:13.260607+00:00",
+      "checked_at_utc": "2026-10-30T09:26:33.092963+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,17 +10,18 @@
         "Кинозалы"
       ],
       "channels": 564,
-      "ok": 493,
-      "gaps": 71,
+      "ok": 483,
+      "gaps": 81,
       "issue_counts": {
-        "NO_MAPPING": 69,
-        "NO_NEXT_PROGRAMME": 2
+        "NO_MAPPING": 70,
+        "NO_CURRENT_PROGRAMME": 8,
+        "NO_NEXT_PROGRAMME": 11
       },
       "group_counts": {
         "USSR": {
           "channels": 18,
-          "ok": 15,
-          "gaps": 3
+          "ok": 14,
+          "gaps": 4
         },
         "Кино": {
           "channels": 182,
@@ -29,88 +30,91 @@
         },
         "Кино 4K": {
           "channels": 67,
-          "ok": 65,
-          "gaps": 2
+          "ok": 64,
+          "gaps": 3
         },
         "Кинозалы": {
           "channels": 297,
-          "ok": 262,
-          "gaps": 35
+          "ok": 254,
+          "gaps": 43
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 51,
-      "high_confidence_observations": 2,
+      "channels_considered": 59,
+      "high_confidence_observations": 1,
       "recognized": [
         {
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Фантастическая четвёрка Первые шаги",
-          "score": 25.0,
-          "zone": "bottom_band",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "CPS Anime",
-          "provider_name": "CPS Anime",
-          "title": "ась девочка-зайка (2019)",
-          "score": 18.75,
+          "playlist_name": "Velilla TV Friends/Друзья HD",
+          "provider_name": "Velilla TV Friends/Друзья HD",
+          "title": "ogee к goes",
+          "score": 14.25,
           "zone": "left_bottom_tight",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 2,
-      "rejected": 49,
+      "added": 1,
+      "rejected": 58,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-30T02:17:33.200330+00:00",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Фантастическая четвёрка Первые шаги",
+          "observed_at": "2026-10-30T09:13:17.464860+00:00",
+          "playlist_name": "Velilla TV Friends/Друзья HD",
+          "observed_title": "ogee к goes",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=25.0"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-30T02:17:33.200330+00:00",
-          "playlist_name": "CPS Anime",
-          "observed_title": "ась девочка-зайка (2019)",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=18.75"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=14.25"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 1,
-        "selected": 1,
-        "quarantined": 0,
-        "target_hours": 6.0
+        "changed": 0,
+        "selected": 0,
+        "reason": "no-policy"
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 1,
+      "selected_count": 2,
       "quarantined_count": 0,
       "selected": {
-        "KLI Новинки 4K Ultra HD": {
-          "source": "gabbarit-current",
-          "source_id": "KLI Новинки 4k",
-          "output_tvg_id": "Xklinovinci4k",
-          "horizon_hours": 152.8,
+        "KLI СССР HD": {
+          "source": "tvteam",
+          "source_id": "ch4083",
+          "output_tvg_id": "Xliveocr-25e879b896d08aa6",
+          "horizon_hours": 23.16,
           "current": true,
-          "usable": 31
+          "usable": 19
+        },
+        "KLI Новинки HD": {
+          "source": "gabbarit-current",
+          "source_id": "KLI НОВИНКИ",
+          "output_tvg_id": "Xliveocr-44d592172b1eca25",
+          "horizon_hours": 165.87,
+          "current": true,
+          "usable": 30
         }
       },
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 2,
-      "sources_scanned": 10,
+      "live_observations": 1,
+      "sources_scanned": 26,
       "sources_failed": [
+        {
+          "source": "premiere-group-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
