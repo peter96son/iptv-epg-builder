@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-30T09:26:34.753602+00:00",
+  "updated_at": "2026-10-30T16:39:54.561116+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-30T09:26:33.092963+00:00",
+      "checked_at_utc": "2026-10-30T16:39:52.941873+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,46 +10,46 @@
         "Кинозалы"
       ],
       "channels": 564,
-      "ok": 483,
-      "gaps": 81,
+      "ok": 506,
+      "gaps": 58,
       "issue_counts": {
-        "NO_MAPPING": 70,
+        "NO_MAPPING": 49,
         "NO_CURRENT_PROGRAMME": 8,
-        "NO_NEXT_PROGRAMME": 11
+        "NO_NEXT_PROGRAMME": 9
       },
       "group_counts": {
         "USSR": {
           "channels": 18,
-          "ok": 14,
-          "gaps": 4
+          "ok": 16,
+          "gaps": 2
         },
         "Кино": {
           "channels": 182,
-          "ok": 151,
-          "gaps": 31
+          "ok": 154,
+          "gaps": 28
         },
         "Кино 4K": {
           "channels": 67,
-          "ok": 64,
-          "gaps": 3
+          "ok": 67,
+          "gaps": 0
         },
         "Кинозалы": {
           "channels": 297,
-          "ok": 254,
-          "gaps": 43
+          "ok": 269,
+          "gaps": 28
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 59,
+      "channels_considered": 47,
       "high_confidence_observations": 1,
       "recognized": [
         {
-          "playlist_name": "Velilla TV Friends/Друзья HD",
-          "provider_name": "Velilla TV Friends/Друзья HD",
-          "title": "ogee к goes",
-          "score": 14.25,
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "provider_name": "KLI Новинки 4K Ultra HD",
+          "title": "Битва за битво",
+          "score": 18.0,
           "zone": "left_bottom_tight",
           "engine": "tesseract"
         }
@@ -57,71 +57,67 @@
     },
     "evidence_recorder": {
       "added": 1,
-      "rejected": 58,
+      "rejected": 46,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-30T09:13:17.464860+00:00",
-          "playlist_name": "Velilla TV Friends/Друзья HD",
-          "observed_title": "ogee к goes",
+          "observed_at": "2026-10-30T16:24:44.002691+00:00",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "observed_title": "Битва за битво",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=14.25"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=18.0"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 0,
-        "selected": 0,
-        "reason": "no-policy"
+        "changed": 1,
+        "selected": 1,
+        "quarantined": 0,
+        "target_hours": 6.0
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 2,
+      "selected_count": 1,
       "quarantined_count": 0,
       "selected": {
-        "KLI СССР HD": {
-          "source": "tvteam",
-          "source_id": "ch4083",
-          "output_tvg_id": "Xliveocr-25e879b896d08aa6",
-          "horizon_hours": 23.16,
-          "current": true,
-          "usable": 19
-        },
-        "KLI Новинки HD": {
+        "KLI Новинки 4K Ultra HD": {
           "source": "gabbarit-current",
-          "source_id": "KLI НОВИНКИ",
-          "output_tvg_id": "Xliveocr-44d592172b1eca25",
-          "horizon_hours": 165.87,
+          "source_id": "KLI Новинки 4k",
+          "output_tvg_id": "Xklinovinci4k",
+          "horizon_hours": 138.62,
           "current": true,
-          "usable": 30
+          "usable": 31
         }
       },
       "quarantined": {}
     },
     "candidate_discovery": {
       "live_observations": 1,
-      "sources_scanned": 26,
+      "sources_scanned": 10,
       "sources_failed": [
-        {
-          "source": "premiere-group-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        },
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         }
       ],
-      "candidates_added": 0,
-      "added": []
+      "candidates_added": 2,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "source": "epgpw-RU",
+          "source_id": "483219",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Битва за битво; candidate=х/ф Битва за битвой; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "source": "epgpw-RU",
+          "source_id": "576915",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Битва за битво; candidate=Битва за битвой (2025); requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
