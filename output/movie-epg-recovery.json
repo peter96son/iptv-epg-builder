@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-30T21:25:42.518408+00:00",
+  "updated_at": "2026-10-31T01:35:56.037540+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-30T21:25:41.637049+00:00",
+      "checked_at_utc": "2026-10-31T01:35:54.406708+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 564,
-      "ok": 509,
-      "gaps": 55,
+      "ok": 505,
+      "gaps": 59,
       "issue_counts": {
-        "NO_MAPPING": 51,
-        "NO_NEXT_PROGRAMME": 4,
-        "NO_CURRENT_PROGRAMME": 2
+        "NO_MAPPING": 54,
+        "NO_CURRENT_PROGRAMME": 5,
+        "NO_NEXT_PROGRAMME": 5
       },
       "group_counts": {
         "USSR": {
@@ -25,8 +25,8 @@
         },
         "Кино": {
           "channels": 182,
-          "ok": 151,
-          "gaps": 31
+          "ok": 148,
+          "gaps": 34
         },
         "Кино 4K": {
           "channels": 67,
@@ -35,53 +35,69 @@
         },
         "Кинозалы": {
           "channels": 297,
-          "ok": 275,
-          "gaps": 22
+          "ok": 274,
+          "gaps": 23
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 45,
-      "high_confidence_observations": 2,
+      "channels_considered": 50,
+      "high_confidence_observations": 3,
       "recognized": [
         {
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "В потерянных землях",
-          "score": 24.25,
-          "zone": "left_bottom_tight",
+          "playlist_name": "DITV Про вампиров",
+          "provider_name": "DITV Про вампиров",
+          "title": "Мрачные тени",
+          "score": 17.75,
+          "zone": "left_bottom",
           "engine": "tesseract"
         },
         {
-          "playlist_name": "Velilla TV Friends/Друзья HD",
-          "provider_name": "Velilla TV Friends/Друзья HD",
-          "title": "\"мании",
-          "score": 16.25,
-          "zone": "top_band",
+          "playlist_name": "DITV ФИЛЬМЫ УЖАСОВ 80-х",
+          "provider_name": "DITV ФИЛЬМЫ УЖАСОВ 80-х",
+          "title": "алейдоскоп ужасов (1 982)",
+          "score": 19.0,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "provider_name": "KLI Новинки 4K Ultra HD",
+          "title": "Война и музыка",
+          "score": 18.0,
+          "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 2,
-      "rejected": 43,
+      "added": 3,
+      "rejected": 47,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-30T21:14:14.977572+00:00",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "В потерянных землях",
+          "observed_at": "2026-10-31T01:13:01.630025+00:00",
+          "playlist_name": "DITV Про вампиров",
+          "observed_title": "Мрачные тени",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=24.25"
+          "notes": "high-confidence OCR; zone=left_bottom; engine=tesseract; score=17.75"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-10-30T21:14:14.977572+00:00",
-          "playlist_name": "Velilla TV Friends/Друзья HD",
-          "observed_title": "\"мании",
+          "observed_at": "2026-10-31T01:13:01.630025+00:00",
+          "playlist_name": "DITV ФИЛЬМЫ УЖАСОВ 80-х",
+          "observed_title": "алейдоскоп ужасов (1 982)",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=16.25"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=19.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-10-31T01:13:01.630025+00:00",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "observed_title": "Война и музыка",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.0"
         }
       ]
     },
@@ -101,7 +117,7 @@
           "source": "gabbarit-current",
           "source_id": "KLI Новинки 4k",
           "output_tvg_id": "Xklinovinci4k",
-          "horizon_hours": 133.81,
+          "horizon_hours": 129.69,
           "current": true,
           "usable": 31
         }
@@ -109,8 +125,8 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 2,
-      "sources_scanned": 25,
+      "live_observations": 3,
+      "sources_scanned": 26,
       "sources_failed": [
         {
           "source": "klimedia-dedicated",
@@ -121,11 +137,7 @@
           "error": "RuntimeError"
         },
         {
-          "source": "teleguide-ru",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-rescue",
+          "source": "epgpw-sreda",
           "error": "RuntimeError"
         },
         {
@@ -133,21 +145,14 @@
           "error": "EOFError"
         }
       ],
-      "candidates_added": 2,
+      "candidates_added": 1,
       "added": [
         {
           "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "iptvx-noarch",
-          "source_id": "tvplay-fantastikahd",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=В потерянных землях; candidate=х/ф В потерянных землях 2025; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "tvteam",
-          "source_id": "ch3752",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=В потерянных землях; candidate=В потерянных землях 2025; requires two positive observations before selection"
+          "playlist_name": "DITV ФИЛЬМЫ УЖАСОВ 80-х",
+          "source": "epgpw-RU",
+          "source_id": "5807",
+          "notes": "auto-discovered from live title; similarity=0.829; observed=алейдоскоп ужасов (1 982); candidate=х/ф Калейдоскоп ужасов; requires two positive observations before selection"
         }
       ]
     }
