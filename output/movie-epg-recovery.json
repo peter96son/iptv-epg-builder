@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-31T14:16:24.925646+00:00",
+  "updated_at": "2026-10-31T18:18:59.204738+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-10-31T14:16:23.798922+00:00",
+      "checked_at_utc": "2026-10-31T18:18:58.332049+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 564,
-      "ok": 512,
-      "gaps": 52,
+      "ok": 508,
+      "gaps": 56,
       "issue_counts": {
-        "NO_MAPPING": 50,
-        "NO_CURRENT_PROGRAMME": 1,
-        "NO_NEXT_PROGRAMME": 2
+        "NO_MAPPING": 52,
+        "NO_CURRENT_PROGRAMME": 4,
+        "NO_NEXT_PROGRAMME": 4
       },
       "group_counts": {
         "USSR": {
@@ -35,69 +35,37 @@
         },
         "Кинозалы": {
           "channels": 297,
-          "ok": 274,
-          "gaps": 23
+          "ok": 270,
+          "gaps": 27
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 42,
-      "high_confidence_observations": 3,
+      "channels_considered": 44,
+      "high_confidence_observations": 1,
       "recognized": [
-        {
-          "playlist_name": "VeleS Premiere",
-          "provider_name": "VeleS Premiere",
-          "title": "Багажник Запертая (2023)",
-          "score": 24.0,
-          "zone": "left_bottom_tight",
-          "engine": "tesseract"
-        },
         {
           "playlist_name": "KLI Новинки 4K Ultra HD",
           "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Иллюзия обмана 3",
-          "score": 23.25,
+          "title": "Капитан Америка Новый мир",
+          "score": 25.0,
           "zone": "left_bottom_tight",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "Velilla TV Friends/Друзья HD",
-          "provider_name": "Velilla TV Friends/Друзья HD",
-          "title": "ARIAL SSS ae” big",
-          "score": 13.25,
-          "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 3,
-      "rejected": 39,
+      "added": 1,
+      "rejected": 43,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-10-31T14:00:47.858185+00:00",
-          "playlist_name": "VeleS Premiere",
-          "observed_title": "Багажник Запертая (2023)",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=24.0"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-31T14:00:47.858185+00:00",
+          "observed_at": "2026-10-31T18:09:35.384759+00:00",
           "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Иллюзия обмана 3",
+          "observed_title": "Капитан Америка Новый мир",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=23.25"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-10-31T14:00:47.858185+00:00",
-          "playlist_name": "Velilla TV Friends/Друзья HD",
-          "observed_title": "ARIAL SSS ae” big",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=13.25"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=25.0"
         }
       ]
     },
@@ -117,33 +85,17 @@
           "source": "gabbarit-current",
           "source_id": "KLI Новинки 4k",
           "output_tvg_id": "Xklinovinci4k",
-          "horizon_hours": 116.98,
+          "horizon_hours": 112.92,
           "current": true,
-          "usable": 32
+          "usable": 33
         }
       },
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 3,
-      "sources_scanned": 25,
+      "live_observations": 1,
+      "sources_scanned": 10,
       "sources_failed": [
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-ru",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-rescue",
-          "error": "RuntimeError"
-        },
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
