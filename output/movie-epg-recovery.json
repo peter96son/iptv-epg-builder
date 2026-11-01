@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-01T01:55:27.729538+00:00",
+  "updated_at": "2026-11-01T08:44:24.502704+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-11-01T01:55:26.534169+00:00",
+      "checked_at_utc": "2026-11-01T08:44:23.421410+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,98 +10,139 @@
         "Кинозалы"
       ],
       "channels": 564,
-      "ok": 371,
-      "gaps": 193,
+      "ok": 366,
+      "gaps": 198,
       "issue_counts": {
-        "NO_MAPPING": 149,
-        "NO_CURRENT_PROGRAMME": 41,
-        "NO_NEXT_PROGRAMME": 44
+        "NO_MAPPING": 193,
+        "NO_NEXT_PROGRAMME": 5,
+        "NO_CURRENT_PROGRAMME": 1
       },
       "group_counts": {
         "USSR": {
           "channels": 18,
-          "ok": 15,
-          "gaps": 3
+          "ok": 14,
+          "gaps": 4
         },
         "Кино": {
           "channels": 182,
-          "ok": 145,
-          "gaps": 37
+          "ok": 146,
+          "gaps": 36
         },
         "Кино 4K": {
           "channels": 67,
-          "ok": 8,
-          "gaps": 59
+          "ok": 9,
+          "gaps": 58
         },
         "Кинозалы": {
           "channels": 297,
-          "ok": 203,
-          "gaps": 94
+          "ok": 197,
+          "gaps": 100
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 94,
-      "high_confidence_observations": 1,
+      "channels_considered": 98,
+      "high_confidence_observations": 4,
       "recognized": [
         {
-          "playlist_name": "Bear TV КиноМаяк RU UHD",
-          "provider_name": "Bear TV КиноМаяк RU UHD",
-          "title": "Key Яга Safety (HU)",
-          "score": 20.5,
-          "zone": "top_band",
+          "playlist_name": "Thriller HD",
+          "provider_name": "Thriller HD",
+          "title": "НАТА СТРАХА",
+          "score": 22.5,
+          "zone": "top_left",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "MM USSR Сказки HD",
+          "provider_name": "MM USSR Сказки HD",
+          "title": "Мальчик с пальчик (1985)",
+          "score": 18.75,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "provider_name": "KLI Новинки 4K Ultra HD",
+          "title": "Мортал Комбат 2",
+          "score": 18.0,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "Bear TV КиноНочь RU UHD",
+          "provider_name": "Bear TV КиноНочь RU UHD",
+          "title": "Иных",
+          "score": 13.0,
+          "zone": "top_left",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 92,
+      "added": 4,
+      "rejected": 93,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-11-01T01:43:28.326003+00:00",
-          "playlist_name": "Bear TV КиноМаяк RU UHD",
-          "observed_title": "Key Яга Safety (HU)",
+          "observed_at": "2026-11-01T08:25:31.552075+00:00",
+          "playlist_name": "Thriller HD",
+          "observed_title": "НАТА СТРАХА",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=20.5"
+          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=22.5"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-11-01T08:25:31.552075+00:00",
+          "playlist_name": "MM USSR Сказки HD",
+          "observed_title": "Мальчик с пальчик (1985)",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.75"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-11-01T08:25:31.552075+00:00",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "observed_title": "Мортал Комбат 2",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-11-01T08:25:31.552075+00:00",
+          "playlist_name": "Bear TV КиноНочь RU UHD",
+          "observed_title": "Иных",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=13.0"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 0,
-        "selected": 0,
-        "reason": "no-policy"
+        "changed": 1,
+        "selected": 1,
+        "quarantined": 0,
+        "target_hours": 6.0
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 2,
+      "selected_count": 1,
       "quarantined_count": 0,
       "selected": {
-        "KLI СССР HD": {
-          "source": "tvteam",
-          "source_id": "ch4083",
-          "output_tvg_id": "Xliveocr-25e879b896d08aa6",
-          "horizon_hours": 23.16,
-          "current": true,
-          "usable": 19
-        },
-        "KLI Новинки HD": {
+        "KLI Новинки 4K Ultra HD": {
           "source": "gabbarit-current",
-          "source_id": "KLI НОВИНКИ",
-          "output_tvg_id": "Xliveocr-44d592172b1eca25",
-          "horizon_hours": 165.87,
+          "source_id": "KLI Новинки 4k",
+          "output_tvg_id": "Xklinovinci4k",
+          "horizon_hours": 98.5,
           "current": true,
-          "usable": 30
+          "usable": 32
         }
       },
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 26,
+      "live_observations": 4,
+      "sources_scanned": 27,
       "sources_failed": [
         {
           "source": "klimedia-dedicated",
@@ -112,16 +153,27 @@
           "error": "RuntimeError"
         },
         {
-          "source": "teleguide-rescue",
-          "error": "RuntimeError"
-        },
-        {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         }
       ],
-      "candidates_added": 0,
-      "added": []
+      "candidates_added": 2,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "source": "runigma-iptv",
+          "source_id": "cps-fresh",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Мортал Комбат 2; candidate=Мортал Комбат (2021).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "source": "openbox-tsd",
+          "source_id": "cps-fresh",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Мортал Комбат 2; candidate=Х/ф Мортал Комбат 2021.; requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
