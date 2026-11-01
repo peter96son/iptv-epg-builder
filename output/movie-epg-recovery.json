@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-01T08:44:24.502704+00:00",
+  "updated_at": "2026-11-01T15:56:39.032209+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-11-01T08:44:23.421410+00:00",
+      "checked_at_utc": "2026-11-01T15:56:37.684560+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 564,
-      "ok": 366,
-      "gaps": 198,
+      "ok": 506,
+      "gaps": 58,
       "issue_counts": {
-        "NO_MAPPING": 193,
-        "NO_NEXT_PROGRAMME": 5,
-        "NO_CURRENT_PROGRAMME": 1
+        "NO_MAPPING": 55,
+        "NO_CURRENT_PROGRAMME": 3,
+        "NO_NEXT_PROGRAMME": 1
       },
       "group_counts": {
         "USSR": {
@@ -25,95 +25,63 @@
         },
         "Кино": {
           "channels": 182,
-          "ok": 146,
-          "gaps": 36
+          "ok": 154,
+          "gaps": 28
         },
         "Кино 4K": {
           "channels": 67,
-          "ok": 9,
-          "gaps": 58
+          "ok": 67,
+          "gaps": 0
         },
         "Кинозалы": {
           "channels": 297,
-          "ok": 197,
-          "gaps": 100
+          "ok": 271,
+          "gaps": 26
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 98,
-      "high_confidence_observations": 4,
+      "channels_considered": 46,
+      "high_confidence_observations": 2,
       "recognized": [
         {
-          "playlist_name": "Thriller HD",
-          "provider_name": "Thriller HD",
-          "title": "НАТА СТРАХА",
-          "score": 22.5,
-          "zone": "top_left",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "MM USSR Сказки HD",
-          "provider_name": "MM USSR Сказки HD",
-          "title": "Мальчик с пальчик (1985)",
-          "score": 18.75,
-          "zone": "bottom_band",
+          "playlist_name": "Velilla TV Friends/Друзья HD",
+          "provider_name": "Velilla TV Friends/Друзья HD",
+          "title": "elillaay.",
+          "score": 12.0,
+          "zone": "top_band",
           "engine": "tesseract"
         },
         {
           "playlist_name": "KLI Новинки 4K Ultra HD",
           "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Мортал Комбат 2",
-          "score": 18.0,
-          "zone": "bottom_band",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "Bear TV КиноНочь RU UHD",
-          "provider_name": "Bear TV КиноНочь RU UHD",
-          "title": "Иных",
-          "score": 13.0,
-          "zone": "top_left",
+          "title": "Последняя капля",
+          "score": 18.5,
+          "zone": "left_bottom_tight",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 4,
-      "rejected": 93,
+      "added": 2,
+      "rejected": 44,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-11-01T08:25:31.552075+00:00",
-          "playlist_name": "Thriller HD",
-          "observed_title": "НАТА СТРАХА",
+          "observed_at": "2026-11-01T15:35:51.455366+00:00",
+          "playlist_name": "Velilla TV Friends/Друзья HD",
+          "observed_title": "elillaay.",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=22.5"
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=12.0"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-11-01T08:25:31.552075+00:00",
-          "playlist_name": "MM USSR Сказки HD",
-          "observed_title": "Мальчик с пальчик (1985)",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.75"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-11-01T08:25:31.552075+00:00",
+          "observed_at": "2026-11-01T15:35:51.455366+00:00",
           "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Мортал Комбат 2",
+          "observed_title": "Последняя капля",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.0"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-11-01T08:25:31.552075+00:00",
-          "playlist_name": "Bear TV КиноНочь RU UHD",
-          "observed_title": "Иных",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=13.0"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=18.5"
         }
       ]
     },
@@ -133,7 +101,7 @@
           "source": "gabbarit-current",
           "source_id": "KLI Новинки 4k",
           "output_tvg_id": "Xklinovinci4k",
-          "horizon_hours": 98.5,
+          "horizon_hours": 91.33,
           "current": true,
           "usable": 32
         }
@@ -141,8 +109,8 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 4,
-      "sources_scanned": 27,
+      "live_observations": 2,
+      "sources_scanned": 26,
       "sources_failed": [
         {
           "source": "klimedia-dedicated",
@@ -153,27 +121,16 @@
           "error": "RuntimeError"
         },
         {
+          "source": "epgpw-chestny-detektiv",
+          "error": "RuntimeError"
+        },
+        {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         }
       ],
-      "candidates_added": 2,
-      "added": [
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "runigma-iptv",
-          "source_id": "cps-fresh",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Мортал Комбат 2; candidate=Мортал Комбат (2021).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "openbox-tsd",
-          "source_id": "cps-fresh",
-          "notes": "auto-discovered from live title; similarity=0.950; observed=Мортал Комбат 2; candidate=Х/ф Мортал Комбат 2021.; requires two positive observations before selection"
-        }
-      ]
+      "candidates_added": 0,
+      "added": []
     }
   }
 }
