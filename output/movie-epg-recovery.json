@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-01T20:13:56.381154+00:00",
+  "updated_at": "2026-11-01T23:36:55.697822+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-11-01T20:13:55.626179+00:00",
+      "checked_at_utc": "2026-11-01T23:36:54.956435+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,23 +10,23 @@
         "Кинозалы"
       ],
       "channels": 564,
-      "ok": 429,
-      "gaps": 135,
+      "ok": 392,
+      "gaps": 172,
       "issue_counts": {
-        "NO_MAPPING": 87,
-        "NO_NEXT_PROGRAMME": 46,
-        "NO_CURRENT_PROGRAMME": 5
+        "NO_MAPPING": 86,
+        "NO_NEXT_PROGRAMME": 86,
+        "NO_CURRENT_PROGRAMME": 82
       },
       "group_counts": {
         "USSR": {
           "channels": 18,
-          "ok": 12,
-          "gaps": 6
+          "ok": 11,
+          "gaps": 7
         },
         "Кино": {
           "channels": 182,
-          "ok": 125,
-          "gaps": 57
+          "ok": 99,
+          "gaps": 83
         },
         "Кино 4K": {
           "channels": 67,
@@ -35,37 +35,69 @@
         },
         "Кинозалы": {
           "channels": 297,
-          "ok": 225,
-          "gaps": 72
+          "ok": 215,
+          "gaps": 82
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 85,
-      "high_confidence_observations": 1,
+      "channels_considered": 111,
+      "high_confidence_observations": 3,
       "recognized": [
+        {
+          "playlist_name": "DITV КОМЕДИИ",
+          "provider_name": "DITV КОМЕДИИ",
+          "title": "Кролик Джоджо",
+          "score": 18.0,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        },
         {
           "playlist_name": "KLI Новинки 4K Ultra HD",
           "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Супермен",
-          "score": 17.0,
-          "zone": "bottom_band",
+          "title": "Счастливчик Гилмор 2",
+          "score": 19.25,
+          "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "BOX Serial 4K",
+          "provider_name": "BOX Serial 4K",
+          "title": "\"ЗЕНА",
+          "score": 13.0,
+          "zone": "top_left",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 84,
+      "added": 3,
+      "rejected": 108,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-11-01T20:05:33.934230+00:00",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Супермен",
+          "observed_at": "2026-11-01T23:27:29.591405+00:00",
+          "playlist_name": "DITV КОМЕДИИ",
+          "observed_title": "Кролик Джоджо",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=17.0"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-11-01T23:27:29.591405+00:00",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "observed_title": "Счастливчик Гилмор 2",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=19.25"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-11-01T23:27:29.591405+00:00",
+          "playlist_name": "BOX Serial 4K",
+          "observed_title": "\"ЗЕНА",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=13.0"
         }
       ]
     },
@@ -85,7 +117,7 @@
           "source": "gabbarit-current",
           "source_id": "KLI Новинки 4k",
           "output_tvg_id": "Xklinovinci4k",
-          "horizon_hours": 87.0,
+          "horizon_hours": 83.62,
           "current": true,
           "usable": 31
         }
@@ -93,80 +125,16 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 11,
+      "live_observations": 3,
+      "sources_scanned": 12,
       "sources_failed": [
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         }
       ],
-      "candidates_added": 9,
-      "added": [
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "iptv-online-primary",
-          "source_id": "Xminimax-supergeroi",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Супермен; candidate=х/ф Супермен; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "iptvx-noarch",
-          "source_id": "minimax-supergeroi",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Супермен; candidate=х/ф Супермен; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "openbox-tsd",
-          "source_id": "mm-supergeroi",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Супермен; candidate=Х/ф Супермен.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "minimax-mm-dedicated",
-          "source_id": "supergeroi-mm",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Супермен; candidate=Супермен; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "tvteam",
-          "source_id": "ch1261",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Супермен; candidate=Супермен; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "epgpw-RU",
-          "source_id": "567933",
-          "notes": "auto-discovered from live title; similarity=0.824; observed=Супермен; candidate=СуперЖена; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "gabbarit-current",
-          "source_id": "минимакс-супергерои HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Супермен; candidate=Супермен (1978).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "gabbarit-primary",
-          "source_id": "минимакс-супергерои HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Супермен; candidate=Супермен (1978).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "source": "epgone-full-movie-rescue",
-          "source_id": "5169",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Супермен; candidate=Супермен; requires two positive observations before selection"
-        }
-      ]
+      "candidates_added": 0,
+      "added": []
     }
   }
 }
