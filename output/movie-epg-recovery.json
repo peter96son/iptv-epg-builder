@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-02T10:37:02.146037+00:00",
+  "updated_at": "2026-11-02T20:41:20.460814+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-11-02T10:37:01.104985+00:00",
+      "checked_at_utc": "2026-11-02T20:41:18.611229+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 564,
-      "ok": 358,
-      "gaps": 206,
+      "ok": 460,
+      "gaps": 104,
       "issue_counts": {
-        "NO_MAPPING": 143,
-        "NO_CURRENT_PROGRAMME": 57,
-        "NO_NEXT_PROGRAMME": 63
+        "NO_MAPPING": 55,
+        "NO_NEXT_PROGRAMME": 49,
+        "NO_CURRENT_PROGRAMME": 15
       },
       "group_counts": {
         "USSR": {
@@ -25,72 +25,37 @@
         },
         "Кино": {
           "channels": 182,
-          "ok": 80,
-          "gaps": 102
+          "ok": 150,
+          "gaps": 32
         },
         "Кино 4K": {
           "channels": 67,
-          "ok": 67,
-          "gaps": 0
+          "ok": 65,
+          "gaps": 2
         },
         "Кинозалы": {
           "channels": 297,
-          "ok": 200,
-          "gaps": 97
+          "ok": 234,
+          "gaps": 63
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 103,
-      "high_confidence_observations": 2,
-      "recognized": [
-        {
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Царевна-лягушка",
-          "score": 23.5,
-          "zone": "left_bottom_tight",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "BOX Serial 4K",
-          "provider_name": "BOX Serial 4K",
-          "title": "Парни с юга - 1 сезон, 10 серия",
-          "score": 19.75,
-          "zone": "top_band",
-          "engine": "tesseract"
-        }
-      ]
+      "channels_considered": 70,
+      "high_confidence_observations": 0,
+      "recognized": []
     },
     "evidence_recorder": {
-      "added": 2,
-      "rejected": 101,
-      "observations": [
-        {
-          "enabled": "1",
-          "observed_at": "2026-11-02T10:19:16.407268+00:00",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Царевна-лягушка",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=23.5"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-11-02T10:19:16.407268+00:00",
-          "playlist_name": "BOX Serial 4K",
-          "observed_title": "Парни с юга - 1 сезон, 10 серия",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=19.75"
-        }
-      ]
+      "added": 0,
+      "rejected": 70,
+      "observations": []
     },
     "judge": {
       "selector": {
         "changed": 0,
         "selected": 0,
-        "quarantined": 0,
-        "reason": "no-live-candidates"
+        "reason": "waiting-for-distinct-second-title"
       },
       "pending_count": 0,
       "pending": {},
@@ -100,14 +65,9 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 2,
-      "sources_scanned": 12,
-      "sources_failed": [
-        {
-          "source": "gabbarit-mirror",
-          "error": "EOFError"
-        }
-      ],
+      "live_observations": 0,
+      "sources_scanned": 0,
+      "sources_failed": [],
       "candidates_added": 0,
       "added": []
     }
