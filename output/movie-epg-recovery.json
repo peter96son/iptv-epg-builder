@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-01T23:36:55.697822+00:00",
+  "updated_at": "2026-11-02T03:22:31.115754+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-11-01T23:36:54.956435+00:00",
+      "checked_at_utc": "2026-11-02T03:22:30.061253+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 564,
-      "ok": 392,
-      "gaps": 172,
+      "ok": 398,
+      "gaps": 166,
       "issue_counts": {
-        "NO_MAPPING": 86,
-        "NO_NEXT_PROGRAMME": 86,
-        "NO_CURRENT_PROGRAMME": 82
+        "NO_MAPPING": 142,
+        "NO_CURRENT_PROGRAMME": 18,
+        "NO_NEXT_PROGRAMME": 17
       },
       "group_counts": {
         "USSR": {
@@ -25,79 +25,79 @@
         },
         "Кино": {
           "channels": 182,
-          "ok": 99,
-          "gaps": 83
+          "ok": 85,
+          "gaps": 97
         },
         "Кино 4K": {
           "channels": 67,
-          "ok": 67,
-          "gaps": 0
+          "ok": 66,
+          "gaps": 1
         },
         "Кинозалы": {
           "channels": 297,
-          "ok": 215,
-          "gaps": 82
+          "ok": 236,
+          "gaps": 61
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 111,
+      "channels_considered": 107,
       "high_confidence_observations": 3,
       "recognized": [
         {
-          "playlist_name": "DITV КОМЕДИИ",
-          "provider_name": "DITV КОМЕДИИ",
-          "title": "Кролик Джоджо",
-          "score": 18.0,
-          "zone": "bottom_band",
+          "playlist_name": "BCU Action HDR",
+          "provider_name": "BCU Action HDR",
+          "title": "Ларго Винч - Гнев прошлого (2024)",
+          "score": 20.0,
+          "zone": "top_left",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "CPS Anime",
+          "provider_name": "CPS Anime",
+          "title": "Жил-был",
+          "score": 16.5,
+          "zone": "left_bottom_tight",
           "engine": "tesseract"
         },
         {
           "playlist_name": "KLI Новинки 4K Ultra HD",
           "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Счастливчик Гилмор 2",
-          "score": 19.25,
+          "title": "Убежище",
+          "score": 21.75,
           "zone": "left_bottom_tight",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "BOX Serial 4K",
-          "provider_name": "BOX Serial 4K",
-          "title": "\"ЗЕНА",
-          "score": 13.0,
-          "zone": "top_left",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
       "added": 3,
-      "rejected": 108,
+      "rejected": 104,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-11-01T23:27:29.591405+00:00",
-          "playlist_name": "DITV КОМЕДИИ",
-          "observed_title": "Кролик Джоджо",
+          "observed_at": "2026-11-02T03:01:47.625194+00:00",
+          "playlist_name": "BCU Action HDR",
+          "observed_title": "Ларго Винч - Гнев прошлого (2024)",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.0"
+          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=20.0"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-11-01T23:27:29.591405+00:00",
+          "observed_at": "2026-11-02T03:01:47.625194+00:00",
+          "playlist_name": "CPS Anime",
+          "observed_title": "Жил-был",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=16.5"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-11-02T03:01:47.625194+00:00",
           "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Счастливчик Гилмор 2",
+          "observed_title": "Убежище",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=19.25"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-11-01T23:27:29.591405+00:00",
-          "playlist_name": "BOX Serial 4K",
-          "observed_title": "\"ЗЕНА",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=13.0"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=21.75"
         }
       ]
     },
@@ -108,8 +108,14 @@
         "quarantined": 0,
         "target_hours": 6.0
       },
-      "pending_count": 0,
-      "pending": {},
+      "pending_count": 1,
+      "pending": {
+        "BCU Action HDR": {
+          "observations": 1,
+          "distinct_titles": 1,
+          "status": "PENDING_DISTINCT_SECOND_TITLE"
+        }
+      },
       "selected_count": 1,
       "quarantined_count": 0,
       "selected": {
@@ -117,7 +123,7 @@
           "source": "gabbarit-current",
           "source_id": "KLI Новинки 4k",
           "output_tvg_id": "Xklinovinci4k",
-          "horizon_hours": 83.62,
+          "horizon_hours": 79.9,
           "current": true,
           "usable": 31
         }
@@ -126,15 +132,50 @@
     },
     "candidate_discovery": {
       "live_observations": 3,
-      "sources_scanned": 12,
+      "sources_scanned": 24,
       "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "anzo-top",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-ru",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-rescue",
+          "error": "RuntimeError"
+        },
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         }
       ],
-      "candidates_added": 0,
-      "added": []
+      "candidates_added": 2,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "BCU Action HDR",
+          "source": "bcumedia-dedicated",
+          "source_id": "BCU Action HD",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Ларго Винч - Гнев прошлого (2024); candidate=Ларго Винч - Гнев прошлого (2024); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "BCU Action HDR",
+          "source": "bcumedia-dedicated",
+          "source_id": "BCU Action HDR",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Ларго Винч - Гнев прошлого (2024); candidate=Ларго Винч - Гнев прошлого (2024); requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
