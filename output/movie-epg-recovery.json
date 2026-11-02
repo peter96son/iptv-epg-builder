@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-02T03:22:31.115754+00:00",
+  "updated_at": "2026-11-02T10:37:02.146037+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-11-02T03:22:30.061253+00:00",
+      "checked_at_utc": "2026-11-02T10:37:01.104985+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 564,
-      "ok": 398,
-      "gaps": 166,
+      "ok": 358,
+      "gaps": 206,
       "issue_counts": {
-        "NO_MAPPING": 142,
-        "NO_CURRENT_PROGRAMME": 18,
-        "NO_NEXT_PROGRAMME": 17
+        "NO_MAPPING": 143,
+        "NO_CURRENT_PROGRAMME": 57,
+        "NO_NEXT_PROGRAMME": 63
       },
       "group_counts": {
         "USSR": {
@@ -25,157 +25,91 @@
         },
         "Кино": {
           "channels": 182,
-          "ok": 85,
-          "gaps": 97
+          "ok": 80,
+          "gaps": 102
         },
         "Кино 4K": {
           "channels": 67,
-          "ok": 66,
-          "gaps": 1
+          "ok": 67,
+          "gaps": 0
         },
         "Кинозалы": {
           "channels": 297,
-          "ok": 236,
-          "gaps": 61
+          "ok": 200,
+          "gaps": 97
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 107,
-      "high_confidence_observations": 3,
+      "channels_considered": 103,
+      "high_confidence_observations": 2,
       "recognized": [
-        {
-          "playlist_name": "BCU Action HDR",
-          "provider_name": "BCU Action HDR",
-          "title": "Ларго Винч - Гнев прошлого (2024)",
-          "score": 20.0,
-          "zone": "top_left",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "CPS Anime",
-          "provider_name": "CPS Anime",
-          "title": "Жил-был",
-          "score": 16.5,
-          "zone": "left_bottom_tight",
-          "engine": "tesseract"
-        },
         {
           "playlist_name": "KLI Новинки 4K Ultra HD",
           "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Убежище",
-          "score": 21.75,
+          "title": "Царевна-лягушка",
+          "score": 23.5,
           "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "BOX Serial 4K",
+          "provider_name": "BOX Serial 4K",
+          "title": "Парни с юга - 1 сезон, 10 серия",
+          "score": 19.75,
+          "zone": "top_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 3,
-      "rejected": 104,
+      "added": 2,
+      "rejected": 101,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-11-02T03:01:47.625194+00:00",
-          "playlist_name": "BCU Action HDR",
-          "observed_title": "Ларго Винч - Гнев прошлого (2024)",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=20.0"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-11-02T03:01:47.625194+00:00",
-          "playlist_name": "CPS Anime",
-          "observed_title": "Жил-был",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=16.5"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-11-02T03:01:47.625194+00:00",
+          "observed_at": "2026-11-02T10:19:16.407268+00:00",
           "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Убежище",
+          "observed_title": "Царевна-лягушка",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=21.75"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=23.5"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-11-02T10:19:16.407268+00:00",
+          "playlist_name": "BOX Serial 4K",
+          "observed_title": "Парни с юга - 1 сезон, 10 серия",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=19.75"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 1,
-        "selected": 1,
+        "changed": 0,
+        "selected": 0,
         "quarantined": 0,
-        "target_hours": 6.0
+        "reason": "no-live-candidates"
       },
-      "pending_count": 1,
-      "pending": {
-        "BCU Action HDR": {
-          "observations": 1,
-          "distinct_titles": 1,
-          "status": "PENDING_DISTINCT_SECOND_TITLE"
-        }
-      },
-      "selected_count": 1,
+      "pending_count": 0,
+      "pending": {},
+      "selected_count": 0,
       "quarantined_count": 0,
-      "selected": {
-        "KLI Новинки 4K Ultra HD": {
-          "source": "gabbarit-current",
-          "source_id": "KLI Новинки 4k",
-          "output_tvg_id": "Xklinovinci4k",
-          "horizon_hours": 79.9,
-          "current": true,
-          "usable": 31
-        }
-      },
+      "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 3,
-      "sources_scanned": 24,
+      "live_observations": 2,
+      "sources_scanned": 12,
       "sources_failed": [
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "anzo-top",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-ru",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-rescue",
-          "error": "RuntimeError"
-        },
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         }
       ],
-      "candidates_added": 2,
-      "added": [
-        {
-          "enabled": "1",
-          "playlist_name": "BCU Action HDR",
-          "source": "bcumedia-dedicated",
-          "source_id": "BCU Action HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Ларго Винч - Гнев прошлого (2024); candidate=Ларго Винч - Гнев прошлого (2024); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "BCU Action HDR",
-          "source": "bcumedia-dedicated",
-          "source_id": "BCU Action HDR",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Ларго Винч - Гнев прошлого (2024); candidate=Ларго Винч - Гнев прошлого (2024); requires two positive observations before selection"
-        }
-      ]
+      "candidates_added": 0,
+      "added": []
     }
   }
 }
