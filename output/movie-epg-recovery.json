@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-02T20:41:20.460814+00:00",
+  "updated_at": "2026-11-03T02:59:06.724227+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-11-02T20:41:18.611229+00:00",
+      "checked_at_utc": "2026-11-03T02:59:05.721981+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,18 +10,18 @@
         "Кинозалы"
       ],
       "channels": 564,
-      "ok": 460,
-      "gaps": 104,
+      "ok": 448,
+      "gaps": 116,
       "issue_counts": {
-        "NO_MAPPING": 55,
-        "NO_NEXT_PROGRAMME": 49,
-        "NO_CURRENT_PROGRAMME": 15
+        "NO_MAPPING": 113,
+        "NO_CURRENT_PROGRAMME": 3,
+        "NO_NEXT_PROGRAMME": 3
       },
       "group_counts": {
         "USSR": {
           "channels": 18,
-          "ok": 11,
-          "gaps": 7
+          "ok": 10,
+          "gaps": 8
         },
         "Кино": {
           "channels": 182,
@@ -35,27 +35,62 @@
         },
         "Кинозалы": {
           "channels": 297,
-          "ok": 234,
-          "gaps": 63
+          "ok": 223,
+          "gaps": 74
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 70,
-      "high_confidence_observations": 0,
-      "recognized": []
+      "channels_considered": 83,
+      "high_confidence_observations": 2,
+      "recognized": [
+        {
+          "playlist_name": "CPS Anime",
+          "provider_name": "CPS Anime",
+          "title": "Кровь Последний вампир",
+          "score": 25.0,
+          "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "Velilla TV Friends/Друзья HD",
+          "provider_name": "Velilla TV Friends/Друзья HD",
+          "title": "Eriends/Hpy3ba) HD,",
+          "score": 18.5,
+          "zone": "top_band",
+          "engine": "tesseract"
+        }
+      ]
     },
     "evidence_recorder": {
-      "added": 0,
-      "rejected": 70,
-      "observations": []
+      "added": 2,
+      "rejected": 81,
+      "observations": [
+        {
+          "enabled": "1",
+          "observed_at": "2026-11-03T02:51:28.695526+00:00",
+          "playlist_name": "CPS Anime",
+          "observed_title": "Кровь Последний вампир",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=25.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-11-03T02:51:28.695526+00:00",
+          "playlist_name": "Velilla TV Friends/Друзья HD",
+          "observed_title": "Eriends/Hpy3ba) HD,",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=18.5"
+        }
+      ]
     },
     "judge": {
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "waiting-for-distinct-second-title"
+        "quarantined": 0,
+        "reason": "no-live-candidates"
       },
       "pending_count": 0,
       "pending": {},
@@ -65,9 +100,34 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 0,
-      "sources_scanned": 0,
-      "sources_failed": [],
+      "live_observations": 2,
+      "sources_scanned": 24,
+      "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "epgone-ru2",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "anzo-top",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "gabbarit-mirror",
+          "error": "EOFError"
+        },
+        {
+          "source": "epgone-full-movie-rescue",
+          "error": "RuntimeError"
+        }
+      ],
       "candidates_added": 0,
       "added": []
     }
