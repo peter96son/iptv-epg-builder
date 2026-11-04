@@ -1,103 +1,86 @@
 {
-  "updated_at": "2026-11-04T11:58:21.922126+00:00",
+  "updated_at": "2026-11-04T19:20:52.858811+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-11-04T11:58:20.425999+00:00",
+      "checked_at_utc": "2026-11-04T19:20:50.950301+00:00",
       "groups": [
         "USSR",
         "Кино",
         "Кино 4K",
         "Кинозалы"
       ],
-      "channels": 565,
-      "ok": 376,
-      "gaps": 189,
+      "channels": 571,
+      "ok": 503,
+      "gaps": 68,
       "issue_counts": {
-        "NO_MAPPING": 181,
-        "NO_CURRENT_PROGRAMME": 2,
-        "NO_NEXT_PROGRAMME": 8
+        "NO_MAPPING": 66,
+        "NO_NEXT_PROGRAMME": 2
       },
       "group_counts": {
         "USSR": {
           "channels": 18,
-          "ok": 13,
-          "gaps": 5
+          "ok": 16,
+          "gaps": 2
         },
         "Кино": {
-          "channels": 183,
-          "ok": 145,
+          "channels": 189,
+          "ok": 151,
           "gaps": 38
         },
         "Кино 4K": {
           "channels": 67,
-          "ok": 7,
-          "gaps": 60
+          "ok": 67,
+          "gaps": 0
         },
         "Кинозалы": {
           "channels": 297,
-          "ok": 211,
-          "gaps": 86
+          "ok": 269,
+          "gaps": 28
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 86,
-      "high_confidence_observations": 3,
+      "channels_considered": 52,
+      "high_confidence_observations": 2,
       "recognized": [
         {
-          "playlist_name": "Premiere HD 4",
-          "provider_name": "Premiere HD 4",
-          "title": "РЕЕМТЕВЕ [@",
-          "score": 17.0,
-          "zone": "top_band",
+          "playlist_name": "DITV КОМЕДИИ СССР",
+          "provider_name": "DITV КОМЕДИИ СССР",
+          "title": "Любовь",
+          "score": 21.5,
+          "zone": "left_bottom_tight",
           "engine": "tesseract"
         },
         {
-          "playlist_name": "Insomnia HD",
-          "provider_name": "Insomnia HD",
-          "title": "REMIERE GROUP",
-          "score": 18.0,
-          "zone": "top_band",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "MM USSR Сказки HD",
-          "provider_name": "MM USSR Сказки HD",
-          "title": "Гостья из будущего (198",
-          "score": 19.0,
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "provider_name": "KLI Новинки 4K Ultra HD",
+          "title": "Одна миля Глава первая",
+          "score": 19.75,
           "zone": "left_bottom_tight",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 3,
-      "rejected": 83,
+      "added": 2,
+      "rejected": 50,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-11-04T11:48:33.978093+00:00",
-          "playlist_name": "Premiere HD 4",
-          "observed_title": "РЕЕМТЕВЕ [@",
+          "observed_at": "2026-11-04T19:01:04.109625+00:00",
+          "playlist_name": "DITV КОМЕДИИ СССР",
+          "observed_title": "Любовь",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=17.0"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=21.5"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-11-04T11:48:33.978093+00:00",
-          "playlist_name": "Insomnia HD",
-          "observed_title": "REMIERE GROUP",
+          "observed_at": "2026-11-04T19:01:04.109625+00:00",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "observed_title": "Одна миля Глава первая",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=18.0"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-11-04T11:48:33.978093+00:00",
-          "playlist_name": "MM USSR Сказки HD",
-          "observed_title": "Гостья из будущего (198",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=19.0"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=19.75"
         }
       ]
     },
@@ -113,20 +96,20 @@
       "selected_count": 1,
       "quarantined_count": 0,
       "selected": {
-        "MM USSR Сказки HD": {
-          "source": "minimax-mm-dedicated",
-          "source_id": "ussr-skazki-mm",
-          "output_tvg_id": "Xminimax-ussr-skazki",
-          "horizon_hours": 82.4,
+        "KLI Новинки 4K Ultra HD": {
+          "source": "gabbarit-current",
+          "source_id": "KLI Новинки 4k",
+          "output_tvg_id": "Xklinovinci4k",
+          "horizon_hours": 112.94,
           "current": true,
-          "usable": 35
+          "usable": 32
         }
       },
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 3,
-      "sources_scanned": 9,
+      "live_observations": 2,
+      "sources_scanned": 10,
       "sources_failed": [
         {
           "source": "gabbarit-mirror",
@@ -137,21 +120,49 @@
           "error": "RuntimeError"
         }
       ],
-      "candidates_added": 2,
+      "candidates_added": 6,
       "added": [
         {
           "enabled": "1",
-          "playlist_name": "MM USSR Сказки HD",
+          "playlist_name": "DITV КОМЕДИИ СССР",
           "source": "iptvx-noarch",
-          "source_id": "olsib-ussr-ser",
-          "notes": "auto-discovered from live title; similarity=0.864; observed=Гостья из будущего (198; candidate=т/с Гостья из будущего 5 с.; requires two positive observations before selection"
+          "source_id": "minimax-kinofestival",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Любовь; candidate=х/ф Любовь; requires two positive observations before selection"
         },
         {
           "enabled": "1",
-          "playlist_name": "MM USSR Сказки HD",
-          "source": "iptvx-noarch",
-          "source_id": "zal-23-tricolor",
-          "notes": "auto-discovered from live title; similarity=0.905; observed=Гостья из будущего (198; candidate=Гостья из будущего ┊ 4; requires two positive observations before selection"
+          "playlist_name": "DITV КОМЕДИИ СССР",
+          "source": "openbox-tsd",
+          "source_id": "mm-kinofestival",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Любовь; candidate=Х/ф Любовь.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV КОМЕДИИ СССР",
+          "source": "minimax-mm-dedicated",
+          "source_id": "kinofestival-mm",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Любовь; candidate=Любовь; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV КОМЕДИИ СССР",
+          "source": "tvteam",
+          "source_id": "ch2501",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Любовь; candidate=Любовь; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV КОМЕДИИ СССР",
+          "source": "gabbarit-current",
+          "source_id": "MM Кинофестиваль",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Любовь; candidate=Любовь (2012).; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV КОМЕДИИ СССР",
+          "source": "gabbarit-primary",
+          "source_id": "MM Кинофестиваль",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Любовь; candidate=Любовь (2012).; requires two positive observations before selection"
         }
       ]
     }
