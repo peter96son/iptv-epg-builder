@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-04T00:06:57.863731+00:00",
+  "updated_at": "2026-11-04T03:39:11.697280+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-11-04T00:06:56.854521+00:00",
+      "checked_at_utc": "2026-11-04T03:39:10.052196+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 564,
-      "ok": 384,
-      "gaps": 180,
+      "ok": 380,
+      "gaps": 184,
       "issue_counts": {
-        "NO_MAPPING": 56,
-        "NO_CURRENT_PROGRAMME": 94,
-        "NO_NEXT_PROGRAMME": 124
+        "NO_MAPPING": 144,
+        "NO_CURRENT_PROGRAMME": 40,
+        "NO_NEXT_PROGRAMME": 40
       },
       "group_counts": {
         "USSR": {
@@ -30,113 +30,74 @@
         },
         "Кино 4K": {
           "channels": 67,
-          "ok": 8,
-          "gaps": 59
+          "ok": 7,
+          "gaps": 60
         },
         "Кинозалы": {
           "channels": 297,
-          "ok": 220,
-          "gaps": 77
+          "ok": 217,
+          "gaps": 80
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 79,
-      "high_confidence_observations": 3,
+      "channels_considered": 81,
+      "high_confidence_observations": 1,
       "recognized": [
-        {
-          "playlist_name": "DITV Про вампиров",
-          "provider_name": "DITV Про вампиров",
-          "title": "Почти стемнело",
-          "score": 23.25,
-          "zone": "left_bottom",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Кирпич",
-          "score": 16.5,
-          "zone": "bottom_band",
-          "engine": "tesseract"
-        },
         {
           "playlist_name": "MM USSR Сказки HD",
           "provider_name": "MM USSR Сказки HD",
-          "title": "Вечера на хуторе близ Д",
-          "score": 19.75,
-          "zone": "left_bottom_tight",
+          "title": "Туфли с золотыми пряжками (1! \\",
+          "score": 20.0,
+          "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 3,
-      "rejected": 76,
+      "added": 1,
+      "rejected": 80,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-11-03T23:53:58.065872+00:00",
-          "playlist_name": "DITV Про вампиров",
-          "observed_title": "Почти стемнело",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom; engine=tesseract; score=23.25"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-11-03T23:53:58.065872+00:00",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Кирпич",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=16.5"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-11-03T23:53:58.065872+00:00",
+          "observed_at": "2026-11-04T03:33:55.332467+00:00",
           "playlist_name": "MM USSR Сказки HD",
-          "observed_title": "Вечера на хуторе близ Д",
+          "observed_title": "Туфли с золотыми пряжками (1! \\",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=19.75"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=20.0"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 0,
-        "selected": 0,
+        "changed": 1,
+        "selected": 1,
         "quarantined": 0,
-        "reason": "no-live-candidates"
+        "target_hours": 6.0
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 0,
+      "selected_count": 1,
       "quarantined_count": 0,
-      "selected": {},
+      "selected": {
+        "MM USSR Сказки HD": {
+          "source": "minimax-mm-dedicated",
+          "source_id": "ussr-skazki-mm",
+          "output_tvg_id": "Xminimax-ussr-skazki",
+          "horizon_hours": 90.71,
+          "current": true,
+          "usable": 36
+        }
+      },
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 3,
-      "sources_scanned": 24,
+      "live_observations": 1,
+      "sources_scanned": 6,
       "sources_failed": [
         {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "epgone-ru2",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "anzo-top",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "gabbarit-mirror",
+          "source": "openbox-tsd",
           "error": "EOFError"
         },
         {
