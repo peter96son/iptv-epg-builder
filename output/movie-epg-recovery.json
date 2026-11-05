@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-04T19:20:52.858811+00:00",
+  "updated_at": "2026-11-05T00:29:36.346796+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-11-04T19:20:50.950301+00:00",
+      "checked_at_utc": "2026-11-05T00:29:34.500903+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,22 +10,23 @@
         "Кинозалы"
       ],
       "channels": 571,
-      "ok": 503,
-      "gaps": 68,
+      "ok": 497,
+      "gaps": 74,
       "issue_counts": {
         "NO_MAPPING": 66,
-        "NO_NEXT_PROGRAMME": 2
+        "NO_CURRENT_PROGRAMME": 7,
+        "NO_NEXT_PROGRAMME": 8
       },
       "group_counts": {
         "USSR": {
           "channels": 18,
-          "ok": 16,
-          "gaps": 2
+          "ok": 15,
+          "gaps": 3
         },
         "Кино": {
           "channels": 189,
-          "ok": 151,
-          "gaps": 38
+          "ok": 147,
+          "gaps": 42
         },
         "Кино 4K": {
           "channels": 67,
@@ -34,83 +35,104 @@
         },
         "Кинозалы": {
           "channels": 297,
-          "ok": 269,
-          "gaps": 28
+          "ok": 268,
+          "gaps": 29
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 52,
+      "channels_considered": 50,
       "high_confidence_observations": 2,
       "recognized": [
         {
-          "playlist_name": "DITV КОМЕДИИ СССР",
-          "provider_name": "DITV КОМЕДИИ СССР",
-          "title": "Любовь",
-          "score": 21.5,
-          "zone": "left_bottom_tight",
+          "playlist_name": "Наше крутое HD",
+          "provider_name": "Наше крутое HD",
+          "title": "чаты",
+          "score": 13.0,
+          "zone": "top_left",
           "engine": "tesseract"
         },
         {
           "playlist_name": "KLI Новинки 4K Ultra HD",
           "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Одна миля Глава первая",
-          "score": 19.75,
-          "zone": "left_bottom_tight",
+          "title": "Abe hig rif ‚",
+          "score": 12.25,
+          "zone": "top_left",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
       "added": 2,
-      "rejected": 50,
+      "rejected": 48,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-11-04T19:01:04.109625+00:00",
-          "playlist_name": "DITV КОМЕДИИ СССР",
-          "observed_title": "Любовь",
+          "observed_at": "2026-11-05T00:06:35.283728+00:00",
+          "playlist_name": "Наше крутое HD",
+          "observed_title": "чаты",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=21.5"
+          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=13.0"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-11-04T19:01:04.109625+00:00",
+          "observed_at": "2026-11-05T00:06:35.283728+00:00",
           "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Одна миля Глава первая",
+          "observed_title": "Abe hig rif ‚",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=19.75"
+          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=12.25"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 1,
-        "selected": 1,
+        "changed": 0,
+        "selected": 0,
         "quarantined": 0,
-        "target_hours": 6.0
+        "reason": "no-live-candidates"
       },
-      "pending_count": 0,
-      "pending": {},
-      "selected_count": 1,
-      "quarantined_count": 0,
-      "selected": {
-        "KLI Новинки 4K Ultra HD": {
-          "source": "gabbarit-current",
-          "source_id": "KLI Новинки 4k",
-          "output_tvg_id": "Xklinovinci4k",
-          "horizon_hours": 112.94,
-          "current": true,
-          "usable": 32
+      "pending_count": 1,
+      "pending": {
+        "Наше крутое HD": {
+          "observations": 1,
+          "distinct_titles": 1,
+          "status": "PENDING_DISTINCT_SECOND_TITLE"
         }
       },
+      "selected_count": 0,
+      "quarantined_count": 0,
+      "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
       "live_observations": 2,
-      "sources_scanned": 10,
+      "sources_scanned": 22,
       "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "epgone-ru2",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "anzo-top",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-ru",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-rescue",
+          "error": "RuntimeError"
+        },
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
@@ -120,51 +142,8 @@
           "error": "RuntimeError"
         }
       ],
-      "candidates_added": 6,
-      "added": [
-        {
-          "enabled": "1",
-          "playlist_name": "DITV КОМЕДИИ СССР",
-          "source": "iptvx-noarch",
-          "source_id": "minimax-kinofestival",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Любовь; candidate=х/ф Любовь; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "DITV КОМЕДИИ СССР",
-          "source": "openbox-tsd",
-          "source_id": "mm-kinofestival",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Любовь; candidate=Х/ф Любовь.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "DITV КОМЕДИИ СССР",
-          "source": "minimax-mm-dedicated",
-          "source_id": "kinofestival-mm",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Любовь; candidate=Любовь; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "DITV КОМЕДИИ СССР",
-          "source": "tvteam",
-          "source_id": "ch2501",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Любовь; candidate=Любовь; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "DITV КОМЕДИИ СССР",
-          "source": "gabbarit-current",
-          "source_id": "MM Кинофестиваль",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Любовь; candidate=Любовь (2012).; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "DITV КОМЕДИИ СССР",
-          "source": "gabbarit-primary",
-          "source_id": "MM Кинофестиваль",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Любовь; candidate=Любовь (2012).; requires two positive observations before selection"
-        }
-      ]
+      "candidates_added": 0,
+      "added": []
     }
   }
 }
