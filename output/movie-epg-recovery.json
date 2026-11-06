@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-06T02:44:01.790230+00:00",
+  "updated_at": "2026-11-06T16:40:59.365283+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-11-06T02:44:00.499956+00:00",
+      "checked_at_utc": "2026-11-06T16:40:58.438224+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,94 +10,78 @@
         "Кинозалы"
       ],
       "channels": 571,
-      "ok": 488,
-      "gaps": 83,
+      "ok": 473,
+      "gaps": 98,
       "issue_counts": {
-        "NO_MAPPING": 80,
-        "NO_CURRENT_PROGRAMME": 2,
-        "NO_NEXT_PROGRAMME": 3
+        "NO_MAPPING": 88,
+        "NO_CURRENT_PROGRAMME": 10,
+        "NO_NEXT_PROGRAMME": 10
       },
       "group_counts": {
         "USSR": {
           "channels": 18,
-          "ok": 15,
-          "gaps": 3
+          "ok": 14,
+          "gaps": 4
         },
         "Кино": {
           "channels": 189,
-          "ok": 142,
-          "gaps": 47
+          "ok": 141,
+          "gaps": 48
         },
         "Кино 4K": {
           "channels": 67,
-          "ok": 67,
-          "gaps": 0
+          "ok": 66,
+          "gaps": 1
         },
         "Кинозалы": {
           "channels": 297,
-          "ok": 264,
-          "gaps": 33
+          "ok": 252,
+          "gaps": 45
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 58,
-      "high_confidence_observations": 3,
+      "channels_considered": 66,
+      "high_confidence_observations": 2,
       "recognized": [
-        {
-          "playlist_name": "Premiere HD 2",
-          "provider_name": "Premiere HD 2",
-          "title": "Монстр Амазонки",
-          "score": 23.5,
-          "zone": "top_left",
-          "engine": "tesseract"
-        },
         {
           "playlist_name": "Velilla TV Friends/Друзья HD",
           "provider_name": "Velilla TV Friends/Друзья HD",
-          "title": "Friends/Hpy3ba HD",
-          "score": 13.5,
+          "title": "Eriends/MpysealHD\\. 2%",
+          "score": 19.0,
           "zone": "top_band",
           "engine": "tesseract"
         },
         {
           "playlist_name": "KLI Новинки 4K Ultra HD",
           "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Битва за битвой",
-          "score": 18.25,
+          "title": "Долгая прогулка",
+          "score": 23.5,
           "zone": "left_bottom_tight",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 3,
-      "rejected": 55,
+      "added": 2,
+      "rejected": 64,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-11-06T02:23:01.629668+00:00",
-          "playlist_name": "Premiere HD 2",
-          "observed_title": "Монстр Амазонки",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=23.5"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-11-06T02:23:01.629668+00:00",
+          "observed_at": "2026-11-06T16:28:26.992553+00:00",
           "playlist_name": "Velilla TV Friends/Друзья HD",
-          "observed_title": "Friends/Hpy3ba HD",
+          "observed_title": "Eriends/MpysealHD\\. 2%",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=13.5"
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=19.0"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-11-06T02:23:01.629668+00:00",
+          "observed_at": "2026-11-06T16:28:26.992553+00:00",
           "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Битва за битвой",
+          "observed_title": "Долгая прогулка",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=18.25"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=23.5"
         }
       ]
     },
@@ -116,8 +100,8 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 3,
-      "sources_scanned": 24,
+      "live_observations": 2,
+      "sources_scanned": 22,
       "sources_failed": [
         {
           "source": "klimedia-dedicated",
@@ -136,6 +120,14 @@
           "error": "RuntimeError"
         },
         {
+          "source": "teleguide-ru",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-rescue",
+          "error": "RuntimeError"
+        },
+        {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         },
@@ -144,14 +136,21 @@
           "error": "RuntimeError"
         }
       ],
-      "candidates_added": 1,
+      "candidates_added": 2,
       "added": [
         {
           "enabled": "1",
           "playlist_name": "KLI Новинки 4K Ultra HD",
+          "source": "next-dedicated",
+          "source_id": "NEXTShadow",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Долгая прогулка; candidate=Долгая прогулка (2025); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
           "source": "epgpw-RU",
-          "source_id": "556139",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Битва за битвой; candidate=х/ф Битва за битвой (2025); requires two positive observations before selection"
+          "source_id": "94066",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Долгая прогулка; candidate=х/ф Долгая прогулка; requires two positive observations before selection"
         }
       ]
     }
