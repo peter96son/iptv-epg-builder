@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-07T08:09:15.454715+00:00",
+  "updated_at": "2026-11-07T14:45:49.037120+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-11-07T08:09:14.289726+00:00",
+      "checked_at_utc": "2026-11-07T14:45:47.508662+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,21 +10,21 @@
         "Кинозалы"
       ],
       "channels": 566,
-      "ok": 494,
-      "gaps": 72,
+      "ok": 499,
+      "gaps": 67,
       "issue_counts": {
-        "NO_MAPPING": 72
+        "NO_MAPPING": 67
       },
       "group_counts": {
         "USSR": {
           "channels": 18,
-          "ok": 15,
-          "gaps": 3
+          "ok": 14,
+          "gaps": 4
         },
         "Кино": {
           "channels": 190,
-          "ok": 151,
-          "gaps": 39
+          "ok": 152,
+          "gaps": 38
         },
         "Кино 4K": {
           "channels": 67,
@@ -33,53 +33,37 @@
         },
         "Кинозалы": {
           "channels": 291,
-          "ok": 261,
-          "gaps": 30
+          "ok": 266,
+          "gaps": 25
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 51,
-      "high_confidence_observations": 2,
+      "channels_considered": 46,
+      "high_confidence_observations": 1,
       "recognized": [
-        {
-          "playlist_name": "Premiere HD 3",
-          "provider_name": "Premiere HD 3",
-          "title": "Прайм-тайм",
-          "score": 22.25,
-          "zone": "top_left",
-          "engine": "tesseract"
-        },
         {
           "playlist_name": "KLI Новинки 4K Ultra HD",
           "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Контратака",
-          "score": 22.5,
-          "zone": "bottom_band",
+          "title": "Мир Юрского периода Возрождение",
+          "score": 20.0,
+          "zone": "left_bottom_tight",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 2,
-      "rejected": 49,
+      "added": 1,
+      "rejected": 45,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-11-07T07:57:15.954545+00:00",
-          "playlist_name": "Premiere HD 3",
-          "observed_title": "Прайм-тайм",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=22.25"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-11-07T07:57:15.954545+00:00",
+          "observed_at": "2026-11-07T14:30:44.332869+00:00",
           "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Контратака",
+          "observed_title": "Мир Юрского периода Возрождение",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=22.5"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=20.0"
         }
       ]
     },
@@ -99,33 +83,17 @@
           "source": "tvteam",
           "source_id": "ch4089",
           "output_tvg_id": "Xklinovinci4k",
-          "horizon_hours": 24.98,
+          "horizon_hours": 20.06,
           "current": true,
-          "usable": 18
+          "usable": 15
         }
       },
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 2,
+      "live_observations": 1,
       "sources_scanned": 11,
       "sources_failed": [
-        {
-          "source": "epgone-ru2",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "anzo-top",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-ru",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-rescue",
-          "error": "RuntimeError"
-        },
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
@@ -135,37 +103,8 @@
           "error": "RuntimeError"
         }
       ],
-      "candidates_added": 4,
-      "added": [
-        {
-          "enabled": "1",
-          "playlist_name": "Premiere HD 3",
-          "source": "iptv-online-primary",
-          "source_id": "Xkonkurent-ua",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Прайм-тайм; candidate=Прайм-тайм; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Premiere HD 3",
-          "source": "iptvx-noarch",
-          "source_id": "konkurent-ua",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Прайм-тайм; candidate=Прайм-тайм; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Premiere HD 3",
-          "source": "openbox-tsd",
-          "source_id": "konkurent-ukraina",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Прайм-тайм; candidate=Прайм-тайм.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "Premiere HD 3",
-          "source": "tvteam",
-          "source_id": "ch3461",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Прайм-тайм; candidate=Прайм-тайм; requires two positive observations before selection"
-        }
-      ]
+      "candidates_added": 0,
+      "added": []
     }
   }
 }
