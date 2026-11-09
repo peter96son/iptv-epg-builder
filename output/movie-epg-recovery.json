@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-08T21:03:50.520038+00:00",
+  "updated_at": "2026-11-09T07:36:52.687521+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-11-08T21:03:49.440113+00:00",
+      "checked_at_utc": "2026-11-09T07:36:52.069113+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,11 @@
         "Кинозалы"
       ],
       "channels": 569,
-      "ok": 408,
-      "gaps": 161,
+      "ok": 344,
+      "gaps": 225,
       "issue_counts": {
-        "NO_MAPPING": 72,
-        "NO_CURRENT_PROGRAMME": 51,
-        "NO_NEXT_PROGRAMME": 89
+        "NO_MAPPING": 173,
+        "NO_NEXT_PROGRAMME": 52
       },
       "group_counts": {
         "USSR": {
@@ -25,8 +24,8 @@
         },
         "Кино": {
           "channels": 190,
-          "ok": 122,
-          "gaps": 68
+          "ok": 95,
+          "gaps": 95
         },
         "Кино 4K": {
           "channels": 67,
@@ -35,37 +34,69 @@
         },
         "Кинозалы": {
           "channels": 294,
-          "ok": 209,
-          "gaps": 85
+          "ok": 172,
+          "gaps": 122
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 99,
-      "high_confidence_observations": 1,
+      "channels_considered": 115,
+      "high_confidence_observations": 3,
       "recognized": [
         {
           "playlist_name": "BCU Праздники HDR",
           "provider_name": "BCU Праздники HDR",
-          "title": "Праздники - 2 сезон, 13 серия",
+          "title": "Праздники - 2 сезон, 9 серия",
           "score": 19.75,
-          "zone": "top_left_tight",
+          "zone": "top_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "CPS Western",
+          "provider_name": "CPS Western",
+          "title": "age SHO",
+          "score": 16.5,
+          "zone": "top_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "CPS Fresh",
+          "provider_name": "CPS Fresh",
+          "title": "Skywalker Sound Executive Staff",
+          "score": 20.0,
+          "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 97,
+      "added": 3,
+      "rejected": 111,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-11-08T21:00:21.601740+00:00",
+          "observed_at": "2026-11-09T07:30:17.551291+00:00",
           "playlist_name": "BCU Праздники HDR",
-          "observed_title": "Праздники - 2 сезон, 13 серия",
+          "observed_title": "Праздники - 2 сезон, 9 серия",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=19.75"
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=19.75"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-11-09T07:30:17.551291+00:00",
+          "playlist_name": "CPS Western",
+          "observed_title": "age SHO",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=16.5"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-11-09T07:30:17.551291+00:00",
+          "playlist_name": "CPS Fresh",
+          "observed_title": "Skywalker Sound Executive Staff",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=20.0"
         }
       ]
     },
@@ -76,20 +107,54 @@
         "quarantined": 0,
         "reason": "no-live-candidates"
       },
-      "pending_count": 0,
-      "pending": {},
+      "pending_count": 1,
+      "pending": {
+        "CPS Fresh": {
+          "observations": 1,
+          "distinct_titles": 1,
+          "status": "PENDING_DISTINCT_SECOND_TITLE"
+        }
+      },
       "selected_count": 0,
       "quarantined_count": 0,
       "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 4,
+      "live_observations": 3,
+      "sources_scanned": 22,
       "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "epgone-ru2",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "anzo-top",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-ru",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-rescue",
+          "error": "RuntimeError"
+        },
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
+        },
+        {
+          "source": "epgone-full-movie-rescue",
+          "error": "RuntimeError"
         }
       ],
       "candidates_added": 0,
