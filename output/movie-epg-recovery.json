@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-10T01:22:43.565702+00:00",
+  "updated_at": "2026-11-10T16:25:43.832632+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-11-10T01:22:42.148379+00:00",
+      "checked_at_utc": "2026-11-10T16:25:42.399590+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 569,
-      "ok": 442,
-      "gaps": 127,
+      "ok": 440,
+      "gaps": 129,
       "issue_counts": {
-        "NO_MAPPING": 67,
-        "NO_NEXT_PROGRAMME": 60,
-        "NO_CURRENT_PROGRAMME": 49
+        "NO_MAPPING": 118,
+        "NO_CURRENT_PROGRAMME": 11,
+        "NO_NEXT_PROGRAMME": 11
       },
       "group_counts": {
         "USSR": {
@@ -25,83 +25,92 @@
         },
         "Кино": {
           "channels": 190,
-          "ok": 140,
-          "gaps": 50
+          "ok": 142,
+          "gaps": 48
         },
         "Кино 4K": {
           "channels": 67,
-          "ok": 65,
-          "gaps": 2
+          "ok": 66,
+          "gaps": 1
         },
         "Кинозалы": {
           "channels": 294,
-          "ok": 226,
-          "gaps": 68
+          "ok": 221,
+          "gaps": 73
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 82,
+      "channels_considered": 86,
       "high_confidence_observations": 2,
       "recognized": [
         {
-          "playlist_name": "DITV ГАРИ ПОТЕР",
-          "provider_name": "DITV ГАРИ ПОТЕР",
-          "title": "Гарри Поттер и философский камень (2001)",
-          "score": 20.0,
-          "zone": "left_bottom",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "provider_name": "KLI Новинки 4K Ultra HD",
+          "title": "Майк и Ник и Ник и Элис",
+          "score": 19.25,
+          "zone": "bottom_band",
           "engine": "tesseract"
         },
         {
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "provider_name": "KLI Новинки 4K Ultra HD",
-          "title": "Зловещие мертвецы Пекло",
-          "score": 25.0,
-          "zone": "left_bottom_tight",
+          "playlist_name": "BOX Relax 4K",
+          "provider_name": "BOX Relax 4K",
+          "title": "вазаанавцьска &",
+          "score": 18.25,
+          "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
       "added": 2,
-      "rejected": 80,
+      "rejected": 84,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-11-10T01:03:05.377084+00:00",
-          "playlist_name": "DITV ГАРИ ПОТЕР",
-          "observed_title": "Гарри Поттер и философский камень (2001)",
+          "observed_at": "2026-11-10T16:02:08.026573+00:00",
+          "playlist_name": "KLI Новинки 4K Ultra HD",
+          "observed_title": "Майк и Ник и Ник и Элис",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom; engine=tesseract; score=20.0"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=19.25"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-11-10T01:03:05.377084+00:00",
-          "playlist_name": "KLI Новинки 4K Ultra HD",
-          "observed_title": "Зловещие мертвецы Пекло",
+          "observed_at": "2026-11-10T16:02:08.026573+00:00",
+          "playlist_name": "BOX Relax 4K",
+          "observed_title": "вазаанавцьска &",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=25.0"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.25"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 0,
-        "selected": 0,
+        "changed": 1,
+        "selected": 1,
         "quarantined": 0,
-        "reason": "no-live-candidates"
+        "target_hours": 6.0
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 0,
+      "selected_count": 1,
       "quarantined_count": 0,
-      "selected": {},
+      "selected": {
+        "KLI Новинки 4K Ultra HD": {
+          "source": "tvteam",
+          "source_id": "ch4089",
+          "output_tvg_id": "X100969",
+          "horizon_hours": 159.19,
+          "current": true,
+          "usable": 32
+        }
+      },
       "quarantined": {}
     },
     "candidate_discovery": {
       "live_observations": 2,
-      "sources_scanned": 22,
+      "sources_scanned": 21,
       "sources_failed": [
         {
           "source": "klimedia-dedicated",
@@ -114,6 +123,10 @@
         {
           "source": "epgone-ru2",
           "error": "RuntimeError"
+        },
+        {
+          "source": "skyhigh-hdr",
+          "error": "ParseError"
         },
         {
           "source": "anzo-top",
@@ -136,23 +149,8 @@
           "error": "RuntimeError"
         }
       ],
-      "candidates_added": 2,
-      "added": [
-        {
-          "enabled": "1",
-          "playlist_name": "DITV ГАРИ ПОТЕР",
-          "source": "iptvx-noarch",
-          "source_id": "team-kino4k",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Гарри Поттер и философский камень (2001); candidate=Гарри Поттер и философский камень (2001); requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "DITV ГАРИ ПОТЕР",
-          "source": "tvteam",
-          "source_id": "ch3904",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Гарри Поттер и философский камень (2001); candidate=Гарри Поттер и философский камень (2001); requires two positive observations before selection"
-        }
-      ]
+      "candidates_added": 0,
+      "added": []
     }
   }
 }
