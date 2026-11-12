@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-11T23:09:01.972508+00:00",
+  "updated_at": "2026-11-12T04:34:20.756225+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-11-11T23:09:00.449277+00:00",
+      "checked_at_utc": "2026-11-12T04:34:19.558651+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 569,
-      "ok": 499,
-      "gaps": 70,
+      "ok": 498,
+      "gaps": 71,
       "issue_counts": {
-        "NO_MAPPING": 64,
-        "NO_CURRENT_PROGRAMME": 5,
-        "NO_NEXT_PROGRAMME": 5
+        "NO_MAPPING": 68,
+        "NO_CURRENT_PROGRAMME": 3,
+        "NO_NEXT_PROGRAMME": 3
       },
       "group_counts": {
         "USSR": {
@@ -25,8 +25,8 @@
         },
         "Кино": {
           "channels": 190,
-          "ok": 157,
-          "gaps": 33
+          "ok": 156,
+          "gaps": 34
         },
         "Кино 4K": {
           "channels": 67,
@@ -43,19 +43,38 @@
     "observer": {
       "return_code": 0,
       "channels_considered": 50,
-      "high_confidence_observations": 0,
-      "recognized": []
+      "high_confidence_observations": 1,
+      "recognized": [
+        {
+          "playlist_name": "MM Скорость HD",
+          "provider_name": "MM Скорость HD",
+          "title": "} =enoroctb",
+          "score": 12.0,
+          "zone": "top_band",
+          "engine": "tesseract"
+        }
+      ]
     },
     "evidence_recorder": {
-      "added": 0,
-      "rejected": 50,
-      "observations": []
+      "added": 1,
+      "rejected": 49,
+      "observations": [
+        {
+          "enabled": "1",
+          "observed_at": "2026-11-12T04:29:26.824609+00:00",
+          "playlist_name": "MM Скорость HD",
+          "observed_title": "} =enoroctb",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=12.0"
+        }
+      ]
     },
     "judge": {
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "waiting-for-distinct-second-title"
+        "quarantined": 0,
+        "reason": "no-live-candidates"
       },
       "pending_count": 0,
       "pending": {},
@@ -65,9 +84,14 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 0,
-      "sources_scanned": 0,
-      "sources_failed": [],
+      "live_observations": 1,
+      "sources_scanned": 7,
+      "sources_failed": [
+        {
+          "source": "gabbarit-mirror",
+          "error": "EOFError"
+        }
+      ],
       "candidates_added": 0,
       "added": []
     }
