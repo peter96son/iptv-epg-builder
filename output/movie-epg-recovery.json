@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-12T21:22:04.256147+00:00",
+  "updated_at": "2026-11-13T02:16:50.626447+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-11-12T21:22:03.231453+00:00",
+      "checked_at_utc": "2026-11-13T02:16:48.760834+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,11 +10,12 @@
         "Кинозалы"
       ],
       "channels": 569,
-      "ok": 509,
-      "gaps": 60,
+      "ok": 502,
+      "gaps": 67,
       "issue_counts": {
-        "NO_MAPPING": 59,
-        "NO_NEXT_PROGRAMME": 1
+        "NO_MAPPING": 63,
+        "NO_CURRENT_PROGRAMME": 4,
+        "NO_NEXT_PROGRAMME": 4
       },
       "group_counts": {
         "USSR": {
@@ -24,8 +25,8 @@
         },
         "Кино": {
           "channels": 190,
-          "ok": 161,
-          "gaps": 29
+          "ok": 158,
+          "gaps": 32
         },
         "Кино 4K": {
           "channels": 67,
@@ -34,160 +35,41 @@
         },
         "Кинозалы": {
           "channels": 294,
-          "ok": 267,
-          "gaps": 27
+          "ok": 263,
+          "gaps": 31
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 45,
-      "high_confidence_observations": 4,
-      "recognized": [
-        {
-          "playlist_name": "DITV ГАРИ ПОТЕР",
-          "provider_name": "DITV ГАРИ ПОТЕР",
-          "title": "Гарри Поттер и узник Азкабана",
-          "score": 20.0,
-          "zone": "left_bottom_tight",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "CPS Action",
-          "provider_name": "CPS Action",
-          "title": "Промар",
-          "score": 16.5,
-          "zone": "left_bottom_tight",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "CPS Fresh",
-          "provider_name": "CPS Fresh",
-          "title": "BETWINNER",
-          "score": 12.25,
-          "zone": "top_left_tight",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "CPS Western",
-          "provider_name": "CPS Western",
-          "title": "sre зон cenittiaiate \"lh",
-          "score": 17.0,
-          "zone": "left_bottom_tight",
-          "engine": "tesseract"
-        }
-      ]
+      "channels_considered": 48,
+      "high_confidence_observations": 0,
+      "recognized": []
     },
     "evidence_recorder": {
-      "added": 4,
-      "rejected": 41,
-      "observations": [
-        {
-          "enabled": "1",
-          "observed_at": "2026-11-12T21:14:27.661988+00:00",
-          "playlist_name": "DITV ГАРИ ПОТЕР",
-          "observed_title": "Гарри Поттер и узник Азкабана",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=20.0"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-11-12T21:14:27.661988+00:00",
-          "playlist_name": "CPS Action",
-          "observed_title": "Промар",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=16.5"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-11-12T21:14:27.661988+00:00",
-          "playlist_name": "CPS Fresh",
-          "observed_title": "BETWINNER",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=12.25"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-11-12T21:14:27.661988+00:00",
-          "playlist_name": "CPS Western",
-          "observed_title": "sre зон cenittiaiate \"lh",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=17.0"
-        }
-      ]
+      "added": 0,
+      "rejected": 48,
+      "observations": []
     },
     "judge": {
       "selector": {
         "changed": 0,
         "selected": 0,
-        "quarantined": 0,
-        "reason": "no-live-candidates"
+        "reason": "waiting-for-distinct-second-title"
       },
-      "pending_count": 1,
-      "pending": {
-        "CPS Action": {
-          "observations": 1,
-          "distinct_titles": 1,
-          "status": "PENDING_DISTINCT_SECOND_TITLE"
-        }
-      },
+      "pending_count": 0,
+      "pending": {},
       "selected_count": 0,
       "quarantined_count": 0,
       "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 4,
-      "sources_scanned": 26,
-      "sources_failed": [
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-ru",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "gabbarit-mirror",
-          "error": "EOFError"
-        }
-      ],
-      "candidates_added": 4,
-      "added": [
-        {
-          "enabled": "1",
-          "playlist_name": "CPS Action",
-          "source": "iptv-online-primary",
-          "source_id": "Xcps-action",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Промар; candidate=Промар; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "CPS Action",
-          "source": "openbox-tsd",
-          "source_id": "cps-action",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Промар; candidate=Х/ф Промар.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "CPS Action",
-          "source": "gabbarit-current",
-          "source_id": "CPS Action HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Промар; candidate=Промар.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "CPS Action",
-          "source": "gabbarit-primary",
-          "source_id": "CPS Action HD",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Промар; candidate=Промар.; requires two positive observations before selection"
-        }
-      ]
+      "live_observations": 0,
+      "sources_scanned": 0,
+      "sources_failed": [],
+      "candidates_added": 0,
+      "added": []
     }
   }
 }
