@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-13T10:30:52.219291+00:00",
+  "updated_at": "2026-11-13T18:32:08.471173+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-11-13T10:30:50.517679+00:00",
+      "checked_at_utc": "2026-11-13T18:32:06.677896+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 569,
-      "ok": 483,
-      "gaps": 86,
+      "ok": 473,
+      "gaps": 96,
       "issue_counts": {
         "NO_MAPPING": 64,
-        "NO_CURRENT_PROGRAMME": 22,
-        "NO_NEXT_PROGRAMME": 22
+        "NO_CURRENT_PROGRAMME": 30,
+        "NO_NEXT_PROGRAMME": 32
       },
       "group_counts": {
         "USSR": {
@@ -25,8 +25,8 @@
         },
         "Кино": {
           "channels": 190,
-          "ok": 159,
-          "gaps": 31
+          "ok": 158,
+          "gaps": 32
         },
         "Кино 4K": {
           "channels": 67,
@@ -35,69 +35,69 @@
         },
         "Кинозалы": {
           "channels": 294,
-          "ok": 246,
-          "gaps": 48
+          "ok": 237,
+          "gaps": 57
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 57,
+      "channels_considered": 60,
       "high_confidence_observations": 3,
       "recognized": [
         {
-          "playlist_name": "Thriller HD",
-          "provider_name": "Thriller HD",
-          "title": "ГОЛОСА",
-          "score": 21.5,
-          "zone": "top_left",
+          "playlist_name": "DITV Про вампиров",
+          "provider_name": "DITV Про вампиров",
+          "title": "Почти стемнело",
+          "score": 18.25,
+          "zone": "left_bottom_tight",
           "engine": "tesseract"
         },
         {
           "playlist_name": "CPS Anime",
           "provider_name": "CPS Anime",
-          "title": "те феи Жрица Жар-птицы",
-          "score": 24.5,
-          "zone": "left_bottom_tight",
+          "title": ", мень \\",
+          "score": 13.0,
+          "zone": "top_left_tight",
           "engine": "tesseract"
         },
         {
           "playlist_name": "CPS Fresh",
           "provider_name": "CPS Fresh",
-          "title": "мата”",
-          "score": 13.0,
-          "zone": "top_band",
+          "title": "hoo ae “ del $ \\",
+          "score": 12.0,
+          "zone": "top_left_tight",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
       "added": 3,
-      "rejected": 54,
+      "rejected": 57,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-11-13T10:14:11.759521+00:00",
-          "playlist_name": "Thriller HD",
-          "observed_title": "ГОЛОСА",
+          "observed_at": "2026-11-13T18:17:36.558293+00:00",
+          "playlist_name": "DITV Про вампиров",
+          "observed_title": "Почти стемнело",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=21.5"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=18.25"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-11-13T10:14:11.759521+00:00",
+          "observed_at": "2026-11-13T18:17:36.558293+00:00",
           "playlist_name": "CPS Anime",
-          "observed_title": "те феи Жрица Жар-птицы",
+          "observed_title": ", мень \\",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=24.5"
+          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=13.0"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-11-13T10:14:11.759521+00:00",
+          "observed_at": "2026-11-13T18:17:36.558293+00:00",
           "playlist_name": "CPS Fresh",
-          "observed_title": "мата”",
+          "observed_title": "hoo ae “ del $ \\",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=13.0"
+          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=12.0"
         }
       ]
     },
@@ -117,18 +117,22 @@
     },
     "candidate_discovery": {
       "live_observations": 3,
-      "sources_scanned": 26,
+      "sources_scanned": 25,
       "sources_failed": [
-        {
-          "source": "iptv-online-primary",
-          "error": "ParseError"
-        },
         {
           "source": "klimedia-dedicated",
           "error": "RuntimeError"
         },
         {
           "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-ru",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-rescue",
           "error": "RuntimeError"
         },
         {
