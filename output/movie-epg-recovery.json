@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-13T02:16:50.626447+00:00",
+  "updated_at": "2026-11-13T10:30:52.219291+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-11-13T02:16:48.760834+00:00",
+      "checked_at_utc": "2026-11-13T10:30:50.517679+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,52 +10,103 @@
         "Кинозалы"
       ],
       "channels": 569,
-      "ok": 502,
-      "gaps": 67,
+      "ok": 483,
+      "gaps": 86,
       "issue_counts": {
-        "NO_MAPPING": 63,
-        "NO_CURRENT_PROGRAMME": 4,
-        "NO_NEXT_PROGRAMME": 4
+        "NO_MAPPING": 64,
+        "NO_CURRENT_PROGRAMME": 22,
+        "NO_NEXT_PROGRAMME": 22
       },
       "group_counts": {
         "USSR": {
           "channels": 18,
-          "ok": 15,
-          "gaps": 3
+          "ok": 14,
+          "gaps": 4
         },
         "Кино": {
           "channels": 190,
-          "ok": 158,
-          "gaps": 32
+          "ok": 159,
+          "gaps": 31
         },
         "Кино 4K": {
           "channels": 67,
-          "ok": 66,
-          "gaps": 1
+          "ok": 64,
+          "gaps": 3
         },
         "Кинозалы": {
           "channels": 294,
-          "ok": 263,
-          "gaps": 31
+          "ok": 246,
+          "gaps": 48
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 48,
-      "high_confidence_observations": 0,
-      "recognized": []
+      "channels_considered": 57,
+      "high_confidence_observations": 3,
+      "recognized": [
+        {
+          "playlist_name": "Thriller HD",
+          "provider_name": "Thriller HD",
+          "title": "ГОЛОСА",
+          "score": 21.5,
+          "zone": "top_left",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "CPS Anime",
+          "provider_name": "CPS Anime",
+          "title": "те феи Жрица Жар-птицы",
+          "score": 24.5,
+          "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "CPS Fresh",
+          "provider_name": "CPS Fresh",
+          "title": "мата”",
+          "score": 13.0,
+          "zone": "top_band",
+          "engine": "tesseract"
+        }
+      ]
     },
     "evidence_recorder": {
-      "added": 0,
-      "rejected": 48,
-      "observations": []
+      "added": 3,
+      "rejected": 54,
+      "observations": [
+        {
+          "enabled": "1",
+          "observed_at": "2026-11-13T10:14:11.759521+00:00",
+          "playlist_name": "Thriller HD",
+          "observed_title": "ГОЛОСА",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=21.5"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-11-13T10:14:11.759521+00:00",
+          "playlist_name": "CPS Anime",
+          "observed_title": "те феи Жрица Жар-птицы",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=24.5"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-11-13T10:14:11.759521+00:00",
+          "playlist_name": "CPS Fresh",
+          "observed_title": "мата”",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=13.0"
+        }
+      ]
     },
     "judge": {
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "waiting-for-distinct-second-title"
+        "quarantined": 0,
+        "reason": "no-live-candidates"
       },
       "pending_count": 0,
       "pending": {},
@@ -65,9 +116,26 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 0,
-      "sources_scanned": 0,
-      "sources_failed": [],
+      "live_observations": 3,
+      "sources_scanned": 26,
+      "sources_failed": [
+        {
+          "source": "iptv-online-primary",
+          "error": "ParseError"
+        },
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "gabbarit-mirror",
+          "error": "EOFError"
+        }
+      ],
       "candidates_added": 0,
       "added": []
     }
