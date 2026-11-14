@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-14T00:11:12.042540+00:00",
+  "updated_at": "2026-11-14T07:25:04.146940+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-11-14T00:11:11.108735+00:00",
+      "checked_at_utc": "2026-11-14T07:25:02.876327+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 569,
-      "ok": 503,
-      "gaps": 66,
+      "ok": 500,
+      "gaps": 69,
       "issue_counts": {
-        "NO_MAPPING": 57,
-        "NO_CURRENT_PROGRAMME": 8,
-        "NO_NEXT_PROGRAMME": 9
+        "NO_MAPPING": 65,
+        "NO_CURRENT_PROGRAMME": 4,
+        "NO_NEXT_PROGRAMME": 4
       },
       "group_counts": {
         "USSR": {
@@ -25,8 +25,8 @@
         },
         "Кино": {
           "channels": 190,
-          "ok": 158,
-          "gaps": 32
+          "ok": 156,
+          "gaps": 34
         },
         "Кино 4K": {
           "channels": 67,
@@ -35,53 +35,69 @@
         },
         "Кинозалы": {
           "channels": 294,
-          "ok": 265,
-          "gaps": 29
+          "ok": 264,
+          "gaps": 30
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 48,
-      "high_confidence_observations": 2,
+      "channels_considered": 51,
+      "high_confidence_observations": 3,
       "recognized": [
         {
           "playlist_name": "DITV ФИЛЬМЫ",
           "provider_name": "DITV ФИЛЬМЫ",
-          "title": "БРАТ (1997)",
-          "score": 13.0,
+          "title": "Огни большой деревни (2016)",
+          "score": 24.5,
           "zone": "left_bottom",
           "engine": "tesseract"
         },
         {
-          "playlist_name": "CPS Fresh",
-          "provider_name": "CPS Fresh",
-          "title": "Post Production Coordinator",
-          "score": 15.0,
-          "zone": "top_left",
+          "playlist_name": "DITV КОМЕДИИ",
+          "provider_name": "DITV КОМЕДИИ",
+          "title": "Амели (2001)",
+          "score": 16.25,
+          "zone": "left_bottom",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "CPS Western",
+          "provider_name": "CPS Western",
+          "title": "ТТУ РУРтУУЕ",
+          "score": 22.5,
+          "zone": "left_bottom_tight",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 2,
-      "rejected": 46,
+      "added": 3,
+      "rejected": 48,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-11-14T00:02:01.809929+00:00",
+          "observed_at": "2026-11-14T07:10:49.619586+00:00",
           "playlist_name": "DITV ФИЛЬМЫ",
-          "observed_title": "БРАТ (1997)",
+          "observed_title": "Огни большой деревни (2016)",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom; engine=tesseract; score=13.0"
+          "notes": "high-confidence OCR; zone=left_bottom; engine=tesseract; score=24.5"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-11-14T00:02:01.809929+00:00",
-          "playlist_name": "CPS Fresh",
-          "observed_title": "Post Production Coordinator",
+          "observed_at": "2026-11-14T07:10:49.619586+00:00",
+          "playlist_name": "DITV КОМЕДИИ",
+          "observed_title": "Амели (2001)",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=15.0"
+          "notes": "high-confidence OCR; zone=left_bottom; engine=tesseract; score=16.25"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-11-14T07:10:49.619586+00:00",
+          "playlist_name": "CPS Western",
+          "observed_title": "ТТУ РУРтУУЕ",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=22.5"
         }
       ]
     },
@@ -100,8 +116,8 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 2,
-      "sources_scanned": 25,
+      "live_observations": 3,
+      "sources_scanned": 27,
       "sources_failed": [
         {
           "source": "klimedia-dedicated",
@@ -112,20 +128,69 @@
           "error": "RuntimeError"
         },
         {
-          "source": "teleguide-ru",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-rescue",
-          "error": "RuntimeError"
-        },
-        {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         }
       ],
-      "candidates_added": 0,
-      "added": []
+      "candidates_added": 8,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "source": "iptv-online-primary",
+          "source_id": "Xnash-kinopokaz",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Огни большой деревни (2016); candidate=х/ф Огни большой деревни; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "source": "iptvx-noarch",
+          "source_id": "nash-kinopokaz",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Огни большой деревни (2016); candidate=х/ф Огни большой деревни; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "source": "openbox-tsd",
+          "source_id": "nash-kinopokaz",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Огни большой деревни (2016); candidate=Х/ф Огни большой деревни.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV КОМЕДИИ",
+          "source": "epgpw-RU",
+          "source_id": "462974",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Амели (2001); candidate=х/ф Амели; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "source": "teleguide-ru",
+          "source_id": "3155",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Огни большой деревни (2016); candidate=Огни большой деревни (12+); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "source": "gabbarit-current",
+          "source_id": "Наш Кинопоказ",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Огни большой деревни (2016); candidate=Огни большой деревни.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "source": "teleguide-rescue",
+          "source_id": "3155",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=Огни большой деревни (2016); candidate=Огни большой деревни (12+); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "source": "gabbarit-primary",
+          "source_id": "Наш Кинопоказ",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Огни большой деревни (2016); candidate=Огни большой деревни.; requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
