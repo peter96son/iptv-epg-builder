@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-14T19:49:34.209146+00:00",
+  "updated_at": "2026-11-14T23:38:22.243702+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-11-14T19:49:32.874154+00:00",
+      "checked_at_utc": "2026-11-14T23:38:21.019030+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,11 +10,11 @@
         "Кинозалы"
       ],
       "channels": 569,
-      "ok": 503,
-      "gaps": 66,
+      "ok": 490,
+      "gaps": 79,
       "issue_counts": {
-        "NO_MAPPING": 65,
-        "NO_NEXT_PROGRAMME": 1
+        "NO_MAPPING": 71,
+        "NO_NEXT_PROGRAMME": 8
       },
       "group_counts": {
         "USSR": {
@@ -24,31 +24,31 @@
         },
         "Кино": {
           "channels": 190,
-          "ok": 164,
-          "gaps": 26
+          "ok": 161,
+          "gaps": 29
         },
         "Кино 4K": {
           "channels": 67,
-          "ok": 66,
-          "gaps": 1
+          "ok": 63,
+          "gaps": 4
         },
         "Кинозалы": {
           "channels": 294,
-          "ok": 260,
-          "gaps": 34
+          "ok": 253,
+          "gaps": 41
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 47,
+      "channels_considered": 52,
       "high_confidence_observations": 1,
       "recognized": [
         {
-          "playlist_name": "BOX Relax 4K",
-          "provider_name": "BOX Relax 4K",
-          "title": "штык",
-          "score": 13.0,
+          "playlist_name": "MM USSR Сказки HD",
+          "provider_name": "MM USSR Сказки HD",
+          "title": "Необыкновенные прикл",
+          "score": 19.75,
           "zone": "left_bottom_tight",
           "engine": "tesseract"
         }
@@ -56,15 +56,15 @@
     },
     "evidence_recorder": {
       "added": 1,
-      "rejected": 46,
+      "rejected": 51,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-11-14T19:37:47.142958+00:00",
-          "playlist_name": "BOX Relax 4K",
-          "observed_title": "штык",
+          "observed_at": "2026-11-14T23:32:10.936958+00:00",
+          "playlist_name": "MM USSR Сказки HD",
+          "observed_title": "Необыкновенные прикл",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=13.0"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=19.75"
         }
       ]
     },
@@ -72,51 +72,65 @@
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "no-policy"
+        "quarantined": 0,
+        "reason": "no-live-candidates"
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 2,
+      "selected_count": 0,
       "quarantined_count": 0,
-      "selected": {
-        "KLI СССР HD": {
-          "source": "tvteam",
-          "source_id": "ch4083",
-          "output_tvg_id": "Xliveocr-25e879b896d08aa6",
-          "horizon_hours": 23.16,
-          "current": true,
-          "usable": 19
-        },
-        "KLI Новинки HD": {
-          "source": "gabbarit-current",
-          "source_id": "KLI НОВИНКИ",
-          "output_tvg_id": "Xliveocr-44d592172b1eca25",
-          "horizon_hours": 165.87,
-          "current": true,
-          "usable": 30
-        }
-      },
+      "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
       "live_observations": 1,
-      "sources_scanned": 27,
-      "sources_failed": [
+      "sources_scanned": 8,
+      "sources_failed": [],
+      "candidates_added": 6,
+      "added": [
         {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
+          "enabled": "1",
+          "playlist_name": "MM USSR Сказки HD",
+          "source": "iptv-online-primary",
+          "source_id": "X12-omsk",
+          "notes": "auto-discovered from live title; similarity=0.821; observed=Необыкновенные прикл; candidate=д/с Необыкновенные люди; requires two positive observations before selection"
         },
         {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
+          "enabled": "1",
+          "playlist_name": "MM USSR Сказки HD",
+          "source": "iptvx-noarch",
+          "source_id": "12-omsk",
+          "notes": "auto-discovered from live title; similarity=0.821; observed=Необыкновенные прикл; candidate=д/с Необыкновенные люди; requires two positive observations before selection"
         },
         {
-          "source": "gabbarit-mirror",
-          "error": "EOFError"
+          "enabled": "1",
+          "playlist_name": "MM USSR Сказки HD",
+          "source": "openbox-tsd",
+          "source_id": "12-kanal-omsk",
+          "notes": "auto-discovered from live title; similarity=0.821; observed=Необыкновенные прикл; candidate=Д/с Необыкновенные люди.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM USSR Сказки HD",
+          "source": "gabbarit-current",
+          "source_id": "12 канал (Омск)",
+          "notes": "auto-discovered from live title; similarity=0.821; observed=Необыкновенные прикл; candidate=Необыкновенные люди.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM USSR Сказки HD",
+          "source": "gabbarit-primary",
+          "source_id": "12 канал (Омск)",
+          "notes": "auto-discovered from live title; similarity=0.821; observed=Необыкновенные прикл; candidate=Необыкновенные люди.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "MM USSR Сказки HD",
+          "source": "epgone-full-movie-rescue",
+          "source_id": "5841",
+          "notes": "auto-discovered from live title; similarity=0.821; observed=Необыкновенные прикл; candidate=Необыкновенные люди; requires two positive observations before selection"
         }
-      ],
-      "candidates_added": 0,
-      "added": []
+      ]
     }
   }
 }
