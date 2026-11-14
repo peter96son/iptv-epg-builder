@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-14T14:39:35.067791+00:00",
+  "updated_at": "2026-11-14T19:49:34.209146+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-11-14T14:39:34.097625+00:00",
+      "checked_at_utc": "2026-11-14T19:49:32.874154+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,18 +10,17 @@
         "Кинозалы"
       ],
       "channels": 569,
-      "ok": 505,
-      "gaps": 64,
+      "ok": 503,
+      "gaps": 66,
       "issue_counts": {
-        "NO_MAPPING": 62,
-        "NO_CURRENT_PROGRAMME": 2,
-        "NO_NEXT_PROGRAMME": 2
+        "NO_MAPPING": 65,
+        "NO_NEXT_PROGRAMME": 1
       },
       "group_counts": {
         "USSR": {
           "channels": 18,
-          "ok": 14,
-          "gaps": 4
+          "ok": 13,
+          "gaps": 5
         },
         "Кино": {
           "channels": 190,
@@ -30,44 +29,92 @@
         },
         "Кино 4K": {
           "channels": 67,
-          "ok": 65,
-          "gaps": 2
+          "ok": 66,
+          "gaps": 1
         },
         "Кинозалы": {
           "channels": 294,
-          "ok": 262,
-          "gaps": 32
+          "ok": 260,
+          "gaps": 34
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 44,
-      "high_confidence_observations": 0,
-      "recognized": []
+      "channels_considered": 47,
+      "high_confidence_observations": 1,
+      "recognized": [
+        {
+          "playlist_name": "BOX Relax 4K",
+          "provider_name": "BOX Relax 4K",
+          "title": "штык",
+          "score": 13.0,
+          "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        }
+      ]
     },
     "evidence_recorder": {
-      "added": 0,
-      "rejected": 44,
-      "observations": []
+      "added": 1,
+      "rejected": 46,
+      "observations": [
+        {
+          "enabled": "1",
+          "observed_at": "2026-11-14T19:37:47.142958+00:00",
+          "playlist_name": "BOX Relax 4K",
+          "observed_title": "штык",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=13.0"
+        }
+      ]
     },
     "judge": {
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "waiting-for-distinct-second-title"
+        "reason": "no-policy"
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 0,
+      "selected_count": 2,
       "quarantined_count": 0,
-      "selected": {},
+      "selected": {
+        "KLI СССР HD": {
+          "source": "tvteam",
+          "source_id": "ch4083",
+          "output_tvg_id": "Xliveocr-25e879b896d08aa6",
+          "horizon_hours": 23.16,
+          "current": true,
+          "usable": 19
+        },
+        "KLI Новинки HD": {
+          "source": "gabbarit-current",
+          "source_id": "KLI НОВИНКИ",
+          "output_tvg_id": "Xliveocr-44d592172b1eca25",
+          "horizon_hours": 165.87,
+          "current": true,
+          "usable": 30
+        }
+      },
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 0,
-      "sources_scanned": 0,
-      "sources_failed": [],
+      "live_observations": 1,
+      "sources_scanned": 27,
+      "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "gabbarit-mirror",
+          "error": "EOFError"
+        }
+      ],
       "candidates_added": 0,
       "added": []
     }
