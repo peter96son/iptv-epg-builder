@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-14T23:38:22.243702+00:00",
+  "updated_at": "2026-11-15T03:28:46.559838+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-11-14T23:38:21.019030+00:00",
+      "checked_at_utc": "2026-11-15T03:28:45.653404+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,11 +10,12 @@
         "Кинозалы"
       ],
       "channels": 569,
-      "ok": 490,
-      "gaps": 79,
+      "ok": 491,
+      "gaps": 78,
       "issue_counts": {
-        "NO_MAPPING": 71,
-        "NO_NEXT_PROGRAMME": 8
+        "NO_MAPPING": 68,
+        "NO_CURRENT_PROGRAMME": 8,
+        "NO_NEXT_PROGRAMME": 10
       },
       "group_counts": {
         "USSR": {
@@ -24,47 +25,95 @@
         },
         "Кино": {
           "channels": 190,
-          "ok": 161,
-          "gaps": 29
+          "ok": 162,
+          "gaps": 28
         },
         "Кино 4K": {
           "channels": 67,
-          "ok": 63,
-          "gaps": 4
+          "ok": 64,
+          "gaps": 3
         },
         "Кинозалы": {
           "channels": 294,
-          "ok": 253,
-          "gaps": 41
+          "ok": 252,
+          "gaps": 42
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 52,
-      "high_confidence_observations": 1,
+      "channels_considered": 53,
+      "high_confidence_observations": 4,
       "recognized": [
+        {
+          "playlist_name": "РуКино HD",
+          "provider_name": "РуКино HD",
+          "title": "СИНДРОМ",
+          "score": 16.75,
+          "zone": "top_left",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "Premiere HD 3",
+          "provider_name": "Premiere HD 3",
+          "title": "РВЕМТЕВЕ [3]",
+          "score": 17.0,
+          "zone": "top_band",
+          "engine": "tesseract"
+        },
         {
           "playlist_name": "MM USSR Сказки HD",
           "provider_name": "MM USSR Сказки HD",
-          "title": "Необыкновенные прикл",
-          "score": 19.75,
-          "zone": "left_bottom_tight",
+          "title": "Соловей (1979)",
+          "score": 16.75,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "BOX Relax 4K",
+          "provider_name": "BOX Relax 4K",
+          "title": "RELAXATION FILM",
+          "score": 13.5,
+          "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 51,
+      "added": 4,
+      "rejected": 49,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-11-14T23:32:10.936958+00:00",
-          "playlist_name": "MM USSR Сказки HD",
-          "observed_title": "Необыкновенные прикл",
+          "observed_at": "2026-11-15T03:18:03.253692+00:00",
+          "playlist_name": "РуКино HD",
+          "observed_title": "СИНДРОМ",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=19.75"
+          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=16.75"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-11-15T03:18:03.253692+00:00",
+          "playlist_name": "Premiere HD 3",
+          "observed_title": "РВЕМТЕВЕ [3]",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=17.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-11-15T03:18:03.253692+00:00",
+          "playlist_name": "MM USSR Сказки HD",
+          "observed_title": "Соловей (1979)",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=16.75"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-11-15T03:18:03.253692+00:00",
+          "playlist_name": "BOX Relax 4K",
+          "observed_title": "RELAXATION FILM",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=13.5"
         }
       ]
     },
@@ -83,52 +132,30 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 8,
-      "sources_failed": [],
-      "candidates_added": 6,
+      "live_observations": 4,
+      "sources_scanned": 27,
+      "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "gabbarit-mirror",
+          "error": "EOFError"
+        }
+      ],
+      "candidates_added": 1,
       "added": [
         {
           "enabled": "1",
-          "playlist_name": "MM USSR Сказки HD",
-          "source": "iptv-online-primary",
-          "source_id": "X12-omsk",
-          "notes": "auto-discovered from live title; similarity=0.821; observed=Необыкновенные прикл; candidate=д/с Необыкновенные люди; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM USSR Сказки HD",
-          "source": "iptvx-noarch",
-          "source_id": "12-omsk",
-          "notes": "auto-discovered from live title; similarity=0.821; observed=Необыкновенные прикл; candidate=д/с Необыкновенные люди; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM USSR Сказки HD",
-          "source": "openbox-tsd",
-          "source_id": "12-kanal-omsk",
-          "notes": "auto-discovered from live title; similarity=0.821; observed=Необыкновенные прикл; candidate=Д/с Необыкновенные люди.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM USSR Сказки HD",
-          "source": "gabbarit-current",
-          "source_id": "12 канал (Омск)",
-          "notes": "auto-discovered from live title; similarity=0.821; observed=Необыкновенные прикл; candidate=Необыкновенные люди.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM USSR Сказки HD",
-          "source": "gabbarit-primary",
-          "source_id": "12 канал (Омск)",
-          "notes": "auto-discovered from live title; similarity=0.821; observed=Необыкновенные прикл; candidate=Необыкновенные люди.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "MM USSR Сказки HD",
-          "source": "epgone-full-movie-rescue",
-          "source_id": "5841",
-          "notes": "auto-discovered from live title; similarity=0.821; observed=Необыкновенные прикл; candidate=Необыкновенные люди; requires two positive observations before selection"
+          "playlist_name": "РуКино HD",
+          "source": "epgpw-RU",
+          "source_id": "563348",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=СИНДРОМ; candidate=х/ф Синдром (2023); requires two positive observations before selection"
         }
       ]
     }
