@@ -1,12 +1,12 @@
 {
   "builder_version": "13.11",
-  "generated_at": "2026-11-15T08:36:49.624179-08:00",
+  "generated_at": "2026-11-15T15:12:30.329186-08:00",
   "timezone": "America/Los_Angeles",
-  "playlist_channels": 2471,
+  "playlist_channels": 2473,
   "baseline_matched_channels": 1545,
   "final_matched_channels": 1892,
   "added_by_fallback_channels": 347,
-  "unmatched_channels": 579,
+  "unmatched_channels": 581,
   "postbuild_validated_channels": 1892,
   "postbuild_gap_channels": 0,
   "region_aware_matching": true,
@@ -39,9 +39,9 @@
     "alias_entries": 1,
     "sqlite_cache": true,
     "sqlite_db": "/home/runner/work/iptv-epg-builder/iptv-epg-builder/.cache/metadata/metadata.sqlite3",
-    "sqlite_title_entries": 107728,
-    "sqlite_imdb_entities": 23464,
-    "sqlite_learned_aliases": 42760,
+    "sqlite_title_entries": 107976,
+    "sqlite_imdb_entities": 23498,
+    "sqlite_learned_aliases": 42813,
     "legacy_json_cache_read_only_migration": true,
     "imdb_refresh_days": 30,
     "max_unique_metadata_titles_per_run": 0,
@@ -54,45 +54,45 @@
     "metadata_deadline_seconds": 2100,
     "metadata_stopped_reason": "http_budget",
     "tmdb_new_title_resolutions": 0,
-    "programmes_considered": 267343,
-    "knowledge_hits": 12084,
-    "sqlite_title_hits": 15983,
-    "knowledge_alias_hits": 10814,
-    "programmes_enriched": 38585,
-    "programmes_with_genres": 38506,
-    "programmes_with_tmdb_overview": 38265,
-    "programmes_with_runtime": 22849,
-    "programmes_with_year": 38582,
-    "programmes_with_poster": 20845,
-    "programmes_with_backdrop": 19777,
-    "metadata_matches": 38585,
-    "lookup_not_attempted": 41062,
+    "programmes_considered": 267783,
+    "knowledge_hits": 12128,
+    "sqlite_title_hits": 17276,
+    "knowledge_alias_hits": 10854,
+    "programmes_enriched": 39137,
+    "programmes_with_genres": 39058,
+    "programmes_with_tmdb_overview": 38817,
+    "programmes_with_runtime": 23291,
+    "programmes_with_year": 39134,
+    "programmes_with_poster": 21342,
+    "programmes_with_backdrop": 20264,
+    "metadata_matches": 39137,
+    "lookup_not_attempted": 38718,
     "http_budget_exhausted": 1,
-    "imdb_entity_cache_hits": 951,
-    "in_run_memo_hits": 27141,
-    "sqlite_stale_retried": 23635,
-    "result_not_found": 4205,
+    "in_run_memo_hits": 28259,
+    "imdb_entity_cache_hits": 961,
+    "sqlite_stale_retried": 22979,
+    "result_not_found": 6005,
     "non_ru_en_titles_skipped": 606,
     "uk_titles_skipped": 528,
-    "knowledge_title_hits": 1270,
-    "imdb_dataset_lookups": 142,
-    "imdb_dataset_not_found": 142,
-    "imdb_entity_cache_updates": 142,
-    "result_no_imdb_id": 336,
-    "episode_titles_collapsed": 3743,
-    "non_fiction_skipped": 181083,
+    "knowledge_title_hits": 1274,
+    "imdb_dataset_lookups": 132,
+    "imdb_dataset_not_found": 132,
+    "imdb_entity_cache_updates": 132,
+    "result_no_imdb_id": 394,
+    "episode_titles_collapsed": 3728,
+    "non_fiction_skipped": 181457,
     "display_refresh_deferred": 47,
     "title_too_short": 1,
     "multipart_movies_reclassified": 362,
     "programmes_with_existing_imdb": 1413,
     "existing_metadata_normalized": 1413,
     "knowledge_smart_alias_hits": 11,
-    "sqlite_alias_hits": 2,
+    "sqlite_alias_hits": 1,
     "rating_refresh_errors": 1,
     "be_titles_skipped": 2,
     "unknown_titles_skipped": 76,
     "generic_schedule_blocks_skipped": 52,
-    "unique_report_rows": 22463
+    "unique_report_rows": 24586
   },
   "confidence_counts": {
     "100": 76,
@@ -100,7 +100,7 @@
     "96": 5,
     "90": 328
   },
-  "unmatched_family_count": 344,
+  "unmatched_family_count": 346,
   "russian_cis_unmatched_candidates": 82,
   "russian_cis_unsafe_candidates": 48,
   "top_unmatched_families": [
@@ -205,7 +205,7 @@
       "dummy_no_epg_ids": 0
     }
   ],
-  "programmes": 269406,
+  "programmes": 269846,
   "sources": [
     {
       "source": "iptv-online-primary",
@@ -278,13 +278,15 @@
     },
     {
       "source": "epgpw-sreda",
-      "status": "ok",
-      "matched": 0
+      "status": "failed",
+      "matched": 0,
+      "error": "Failed to fetch https://epg.pw/api/epg.xml?channel_id=536302 after 2 attempts: The read operation timed out"
     },
     {
       "source": "epgpw-chestny-detektiv",
-      "status": "ok",
-      "matched": 0
+      "status": "failed",
+      "matched": 0,
+      "error": "Failed to fetch https://epg.pw/api/epg.xml?channel_id=537962 after 2 attempts: The read operation timed out"
     },
     {
       "source": "epgpw-RU",
@@ -375,9 +377,8 @@
     },
     {
       "source": "teleguide-ru",
-      "status": "failed",
-      "matched": 0,
-      "error": "Failed to fetch https://www.teleguide.info/download/new3/xmltv.xml.gz after 2 attempts: IncompleteRead(32768 bytes read, 4553462 more expected)"
+      "status": "ok",
+      "matched": 0
     },
     {
       "source": "gabbarit-current",
@@ -471,37 +472,37 @@
     "Кинозалы UA": 0
   },
   "added_by_group": {
-    "Для взрослых": 4,
-    "Литва": 3,
-    "Италия": -1,
-    "Чехия": 0,
     "Кино 4K": 4,
-    "UK": 17,
-    "Латвия": -1,
-    "Детские": 19,
-    "Испания": 2,
-    "Канада": 1,
-    "Кино": 44,
-    "Израиль": 9,
-    "საქართველო": 0,
-    "BE & NL": 1,
-    "Узбекистан": 0,
-    "Казахстан": 4,
-    "Беларусь": 2,
     "Эстония": 0,
-    "Познавательные": 4,
-    "Болгария": 5,
     "Спорт": 61,
     "SkyLink": 0,
+    "Познавательные": 4,
+    "Чехия": 0,
+    "Беларусь": 2,
+    "Новости": 2,
+    "Германия": 5,
+    "Музыкальные": 52,
+    "UK": 17,
+    "Литва": 3,
+    "Италия": -1,
+    "Испания": 2,
+    "Для взрослых": 4,
+    "საქართველო": 0,
+    "BE & NL": 1,
+    "Россия": 6,
+    "Латвия": -1,
+    "Польша": -2,
+    "Кино": 44,
+    "Узбекистан": 0,
     "Познавательные UA": 5,
+    "Кинозалы": 99,
+    "Канада": 1,
     "Разное": 2,
     "Молдова": 0,
-    "Музыкальные": 52,
-    "Германия": 5,
-    "Польша": -2,
-    "Кинозалы": 99,
-    "Россия": 6,
-    "Новости": 2
+    "Детские": 19,
+    "Израиль": 9,
+    "Болгария": 5,
+    "Казахстан": 4
   },
   "group_totals": {
     "Россия": 179,
@@ -524,7 +525,7 @@
     "Италия": 41,
     "Испания": 63,
     "Польша": 89,
-    "საქართველო": 66,
+    "საქართველო": 68,
     "Молдова": 37,
     "Болгария": 49,
     "Канада": 9,
@@ -748,11 +749,11 @@
       "final_pct": 13.3
     },
     "საქართველო": {
-      "total": 66,
+      "total": 68,
       "baseline": 41,
       "final": 41,
       "added": 0,
-      "final_pct": 62.1
+      "final_pct": 60.3
     }
   },
   "movie_priority": {
@@ -773,7 +774,7 @@
     "public_playlist_published": false
   },
   "playlist_changes": {
-    "added_count": 632,
+    "added_count": 634,
     "removed_count": 602,
     "renamed_count": 55,
     "stream_url_changed_count": 1490,
@@ -922,7 +923,7 @@
       "source": "teleguide-ru",
       "runs": 95,
       "total_added": 250,
-      "successful_runs": 94
+      "successful_runs": 95
     },
     {
       "source": "epgshare-LV",
@@ -1042,13 +1043,13 @@
       "source": "epgpw-sreda",
       "runs": 95,
       "total_added": 0,
-      "successful_runs": 86
+      "successful_runs": 85
     },
     {
       "source": "epgpw-chestny-detektiv",
       "runs": 95,
       "total_added": 0,
-      "successful_runs": 90
+      "successful_runs": 89
     },
     {
       "source": "skyhigh-fhd",
@@ -1132,24 +1133,5 @@
   "channel_diagnostics": {
     "watchlist_channels": 12,
     "problem_channels": 1
-  },
-  "worker_audit": {
-    "worker_channels": 2461,
-    "mapping_channels": 1845,
-    "validated_epg_ids": 1597,
-    "audited_rows": 2469,
-    "ok_rows": 1881,
-    "gap_rows": 588,
-    "issue_counts": {
-      "no_validated_programme": 579,
-      "wrong_tvg_id": 1,
-      "mapped_channel_missing_from_worker": 8
-    },
-    "worker_url": "https://private-uhf-playlist.peter96son.workers.dev/tv",
-    "worker_version": "3.0.10-v14.12.3",
-    "worker_cache": "bypass",
-    "worker_mapping_loaded": "true",
-    "attempt": 6,
-    "status": "gaps_found"
   }
 }
