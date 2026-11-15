@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-15T11:49:36.742699+00:00",
+  "updated_at": "2026-11-15T18:08:09.108806+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-11-15T11:49:35.898444+00:00",
+      "checked_at_utc": "2026-11-15T18:08:08.010567+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,169 +10,64 @@
         "Кинозалы"
       ],
       "channels": 569,
-      "ok": 486,
-      "gaps": 83,
+      "ok": 481,
+      "gaps": 88,
       "issue_counts": {
-        "NO_MAPPING": 76,
-        "NO_NEXT_PROGRAMME": 7,
-        "NO_CURRENT_PROGRAMME": 1
+        "NO_MAPPING": 61,
+        "NO_NEXT_PROGRAMME": 27,
+        "NO_CURRENT_PROGRAMME": 2
       },
       "group_counts": {
         "USSR": {
           "channels": 18,
-          "ok": 12,
-          "gaps": 6
+          "ok": 13,
+          "gaps": 5
         },
         "Кино": {
           "channels": 190,
-          "ok": 160,
-          "gaps": 30
+          "ok": 162,
+          "gaps": 28
         },
         "Кино 4K": {
           "channels": 67,
-          "ok": 64,
-          "gaps": 3
+          "ok": 65,
+          "gaps": 2
         },
         "Кинозалы": {
           "channels": 294,
-          "ok": 250,
-          "gaps": 44
+          "ok": 241,
+          "gaps": 53
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 52,
-      "high_confidence_observations": 4,
-      "recognized": [
-        {
-          "playlist_name": "DITV Про вампиров",
-          "provider_name": "DITV Про вампиров",
-          "title": "Византия",
-          "score": 17.0,
-          "zone": "left_bottom",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "DITV КОМЕДИИ",
-          "provider_name": "DITV КОМЕДИИ",
-          "title": "Карты, деньги, два ствола",
-          "score": 20.0,
-          "zone": "left_bottom_tight",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "MM USSR Сказки HD",
-          "provider_name": "MM USSR Сказки HD",
-          "title": "Волшебная лампа Аладдина (1967)",
-          "score": 25.0,
-          "zone": "bottom_band",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "BOX Relax 4K",
-          "provider_name": "BOX Relax 4K",
-          "title": "у Kee Wee hyo",
-          "score": 14.5,
-          "zone": "top_left_tight",
-          "engine": "tesseract"
-        }
-      ]
+      "channels_considered": 60,
+      "high_confidence_observations": 0,
+      "recognized": []
     },
     "evidence_recorder": {
-      "added": 4,
-      "rejected": 48,
-      "observations": [
-        {
-          "enabled": "1",
-          "observed_at": "2026-11-15T11:40:01.383163+00:00",
-          "playlist_name": "DITV Про вампиров",
-          "observed_title": "Византия",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom; engine=tesseract; score=17.0"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-11-15T11:40:01.383163+00:00",
-          "playlist_name": "DITV КОМЕДИИ",
-          "observed_title": "Карты, деньги, два ствола",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=20.0"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-11-15T11:40:01.383163+00:00",
-          "playlist_name": "MM USSR Сказки HD",
-          "observed_title": "Волшебная лампа Аладдина (1967)",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=25.0"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-11-15T11:40:01.383163+00:00",
-          "playlist_name": "BOX Relax 4K",
-          "observed_title": "у Kee Wee hyo",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=14.5"
-        }
-      ]
+      "added": 0,
+      "rejected": 60,
+      "observations": []
     },
     "judge": {
       "selector": {
-        "changed": 1,
-        "selected": 1,
-        "quarantined": 0,
-        "target_hours": 6.0
+        "changed": 0,
+        "selected": 0,
+        "reason": "waiting-for-distinct-second-title"
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 1,
+      "selected_count": 0,
       "quarantined_count": 0,
-      "selected": {
-        "MM USSR Сказки HD": {
-          "source": "iptv-online-primary",
-          "source_id": "Xminimax-ussr-skazki",
-          "output_tvg_id": "Xminimax-ussr-skazki",
-          "horizon_hours": 27.64,
-          "current": true,
-          "usable": 22
-        }
-      },
+      "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 4,
-      "sources_scanned": 23,
-      "sources_failed": [
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "epgpw-sreda",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "epgpw-chestny-detektiv",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-ru",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-rescue",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "gabbarit-mirror",
-          "error": "EOFError"
-        }
-      ],
+      "live_observations": 0,
+      "sources_scanned": 0,
+      "sources_failed": [],
       "candidates_added": 0,
       "added": []
     }
