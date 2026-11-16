@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-16T12:47:54.096691+00:00",
+  "updated_at": "2026-11-16T23:15:28.459072+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-11-16T12:47:52.987325+00:00",
+      "checked_at_utc": "2026-11-16T23:15:27.339629+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,94 +10,94 @@
         "Кинозалы"
       ],
       "channels": 569,
-      "ok": 137,
-      "gaps": 432,
+      "ok": 56,
+      "gaps": 513,
       "issue_counts": {
-        "NO_MAPPING": 144,
-        "NO_CURRENT_PROGRAMME": 280,
-        "NO_NEXT_PROGRAMME": 288
+        "NO_MAPPING": 146,
+        "NO_CURRENT_PROGRAMME": 367,
+        "NO_NEXT_PROGRAMME": 367
       },
       "group_counts": {
         "USSR": {
           "channels": 18,
-          "ok": 9,
-          "gaps": 9
+          "ok": 2,
+          "gaps": 16
         },
         "Кино": {
           "channels": 190,
-          "ok": 22,
-          "gaps": 168
+          "ok": 19,
+          "gaps": 171
         },
         "Кино 4K": {
           "channels": 67,
-          "ok": 8,
-          "gaps": 59
+          "ok": 3,
+          "gaps": 64
         },
         "Кинозалы": {
           "channels": 294,
-          "ok": 98,
-          "gaps": 196
+          "ok": 32,
+          "gaps": 262
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 176,
+      "channels_considered": 225,
       "high_confidence_observations": 3,
       "recognized": [
         {
-          "playlist_name": "TV XXI",
-          "provider_name": "TV XXI",
-          "title": "Брат",
-          "score": 18.0,
-          "zone": "top_left",
+          "playlist_name": "Viju+ Premiere HD",
+          "provider_name": "Viju+ Premiere HD",
+          "title": "Подарок",
+          "score": 21.75,
+          "zone": "top_left_tight",
           "engine": "tesseract"
         },
         {
-          "playlist_name": "Premiere HD 4",
-          "provider_name": "Premiere HD 4",
-          "title": "Арахнид",
-          "score": 16.75,
-          "zone": "top_left",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "BCU Праздники HDR",
-          "provider_name": "BCU Праздники HDR",
-          "title": "Праздники - 1 сезон, 12 серия",
-          "score": 24.75,
+          "playlist_name": "Кино ТВ HD",
+          "provider_name": "Кино ТВ HD",
+          "title": "КИНОТВ",
+          "score": 21.5,
           "zone": "top_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "Start World",
+          "provider_name": "Start World",
+          "title": "МЕДИАТОР",
+          "score": 22.0,
+          "zone": "top_left",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
       "added": 3,
-      "rejected": 172,
+      "rejected": 221,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-11-16T12:28:24.971430+00:00",
-          "playlist_name": "TV XXI",
-          "observed_title": "Брат",
+          "observed_at": "2026-11-16T23:02:31.207756+00:00",
+          "playlist_name": "Viju+ Premiere HD",
+          "observed_title": "Подарок",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=18.0"
+          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=21.75"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-11-16T12:28:24.971430+00:00",
-          "playlist_name": "Premiere HD 4",
-          "observed_title": "Арахнид",
+          "observed_at": "2026-11-16T23:02:31.207756+00:00",
+          "playlist_name": "Кино ТВ HD",
+          "observed_title": "КИНОТВ",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=16.75"
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=21.5"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-11-16T12:28:24.971430+00:00",
-          "playlist_name": "BCU Праздники HDR",
-          "observed_title": "Праздники - 1 сезон, 12 серия",
+          "observed_at": "2026-11-16T23:02:31.207756+00:00",
+          "playlist_name": "Start World",
+          "observed_title": "МЕДИАТОР",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=24.75"
+          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=22.0"
         }
       ]
     },
@@ -105,20 +105,59 @@
       "selector": {
         "changed": 0,
         "selected": 0,
-        "quarantined": 0,
-        "reason": "no-live-candidates"
+        "reason": "no-policy"
       },
-      "pending_count": 0,
-      "pending": {},
-      "selected_count": 0,
+      "pending_count": 2,
+      "pending": {
+        "Viju+ Premiere HD": {
+          "observations": 1,
+          "distinct_titles": 1,
+          "status": "PENDING_DISTINCT_SECOND_TITLE"
+        },
+        "Кино ТВ HD": {
+          "observations": 2,
+          "distinct_titles": 1,
+          "status": "PENDING_DISTINCT_SECOND_TITLE"
+        }
+      },
+      "selected_count": 2,
       "quarantined_count": 0,
-      "selected": {},
+      "selected": {
+        "KLI СССР HD": {
+          "source": "tvteam",
+          "source_id": "ch4083",
+          "output_tvg_id": "Xliveocr-25e879b896d08aa6",
+          "horizon_hours": 23.16,
+          "current": true,
+          "usable": 19
+        },
+        "KLI Новинки HD": {
+          "source": "gabbarit-current",
+          "source_id": "KLI НОВИНКИ",
+          "output_tvg_id": "Xliveocr-44d592172b1eca25",
+          "horizon_hours": 165.87,
+          "current": true,
+          "usable": 30
+        }
+      },
       "quarantined": {}
     },
     "candidate_discovery": {
       "live_observations": 3,
-      "sources_scanned": 13,
+      "sources_scanned": 26,
       "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-rescue",
+          "error": "RuntimeError"
+        },
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
