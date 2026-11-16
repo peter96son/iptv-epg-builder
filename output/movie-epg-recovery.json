@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-16T03:34:29.690063+00:00",
+  "updated_at": "2026-11-16T12:47:54.096691+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-11-16T03:34:28.945636+00:00",
+      "checked_at_utc": "2026-11-16T12:47:52.987325+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,62 +10,94 @@
         "Кинозалы"
       ],
       "channels": 569,
-      "ok": 425,
-      "gaps": 144,
+      "ok": 137,
+      "gaps": 432,
       "issue_counts": {
-        "NO_MAPPING": 129,
-        "NO_NEXT_PROGRAMME": 15,
-        "NO_CURRENT_PROGRAMME": 9
+        "NO_MAPPING": 144,
+        "NO_CURRENT_PROGRAMME": 280,
+        "NO_NEXT_PROGRAMME": 288
       },
       "group_counts": {
         "USSR": {
           "channels": 18,
-          "ok": 13,
-          "gaps": 5
+          "ok": 9,
+          "gaps": 9
         },
         "Кино": {
           "channels": 190,
-          "ok": 138,
-          "gaps": 52
+          "ok": 22,
+          "gaps": 168
         },
         "Кино 4K": {
           "channels": 67,
-          "ok": 65,
-          "gaps": 2
+          "ok": 8,
+          "gaps": 59
         },
         "Кинозалы": {
           "channels": 294,
-          "ok": 209,
-          "gaps": 85
+          "ok": 98,
+          "gaps": 196
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 99,
-      "high_confidence_observations": 1,
+      "channels_considered": 176,
+      "high_confidence_observations": 3,
       "recognized": [
         {
-          "playlist_name": "CPS Fresh",
-          "provider_name": "CPS Fresh",
-          "title": "(Говорят на испанском)",
-          "score": 19.5,
-          "zone": "bottom_band",
+          "playlist_name": "TV XXI",
+          "provider_name": "TV XXI",
+          "title": "Брат",
+          "score": 18.0,
+          "zone": "top_left",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "Premiere HD 4",
+          "provider_name": "Premiere HD 4",
+          "title": "Арахнид",
+          "score": 16.75,
+          "zone": "top_left",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "BCU Праздники HDR",
+          "provider_name": "BCU Праздники HDR",
+          "title": "Праздники - 1 сезон, 12 серия",
+          "score": 24.75,
+          "zone": "top_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 98,
+      "added": 3,
+      "rejected": 172,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-11-16T03:27:18.677360+00:00",
-          "playlist_name": "CPS Fresh",
-          "observed_title": "(Говорят на испанском)",
+          "observed_at": "2026-11-16T12:28:24.971430+00:00",
+          "playlist_name": "TV XXI",
+          "observed_title": "Брат",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=19.5"
+          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=18.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-11-16T12:28:24.971430+00:00",
+          "playlist_name": "Premiere HD 4",
+          "observed_title": "Арахнид",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=16.75"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-11-16T12:28:24.971430+00:00",
+          "playlist_name": "BCU Праздники HDR",
+          "observed_title": "Праздники - 1 сезон, 12 серия",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=24.75"
         }
       ]
     },
@@ -73,56 +105,20 @@
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "no-policy"
+        "quarantined": 0,
+        "reason": "no-live-candidates"
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 2,
+      "selected_count": 0,
       "quarantined_count": 0,
-      "selected": {
-        "KLI СССР HD": {
-          "source": "tvteam",
-          "source_id": "ch4083",
-          "output_tvg_id": "Xliveocr-25e879b896d08aa6",
-          "horizon_hours": 23.16,
-          "current": true,
-          "usable": 19
-        },
-        "KLI Новинки HD": {
-          "source": "gabbarit-current",
-          "source_id": "KLI НОВИНКИ",
-          "output_tvg_id": "Xliveocr-44d592172b1eca25",
-          "horizon_hours": 165.87,
-          "current": true,
-          "usable": 30
-        }
-      },
+      "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 24,
+      "live_observations": 3,
+      "sources_scanned": 13,
       "sources_failed": [
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "minimax-mm-dedicated",
-          "error": "ParseError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-ru",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-rescue",
-          "error": "RuntimeError"
-        },
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
