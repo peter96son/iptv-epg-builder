@@ -1,21 +1,21 @@
 {
-  "updated_at": "2026-11-17T05:02:13.000179+00:00",
+  "updated_at": "2026-11-17T14:11:50.425177+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-11-17T05:02:12.004458+00:00",
+      "checked_at_utc": "2026-11-17T14:11:48.639861+00:00",
       "groups": [
         "USSR",
         "Кино",
         "Кино 4K",
         "Кинозалы"
       ],
-      "channels": 569,
-      "ok": 501,
-      "gaps": 68,
+      "channels": 570,
+      "ok": 481,
+      "gaps": 89,
       "issue_counts": {
-        "NO_MAPPING": 67,
-        "NO_CURRENT_PROGRAMME": 1,
-        "NO_NEXT_PROGRAMME": 1
+        "NO_MAPPING": 72,
+        "NO_CURRENT_PROGRAMME": 13,
+        "NO_NEXT_PROGRAMME": 17
       },
       "group_counts": {
         "USSR": {
@@ -24,64 +24,48 @@
           "gaps": 5
         },
         "Кино": {
-          "channels": 190,
-          "ok": 160,
-          "gaps": 30
+          "channels": 191,
+          "ok": 157,
+          "gaps": 34
         },
         "Кино 4K": {
           "channels": 67,
-          "ok": 66,
-          "gaps": 1
+          "ok": 58,
+          "gaps": 9
         },
         "Кинозалы": {
           "channels": 294,
-          "ok": 262,
-          "gaps": 32
+          "ok": 253,
+          "gaps": 41
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 50,
-      "high_confidence_observations": 2,
+      "channels_considered": 53,
+      "high_confidence_observations": 1,
       "recognized": [
         {
-          "playlist_name": "CPS Fresh",
-          "provider_name": "CPS Fresh",
-          "title": "AFFILIATED WITH",
-          "score": 13.5,
-          "zone": "top_left_tight",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "BOX Relax 4K",
-          "provider_name": "BOX Relax 4K",
-          "title": "RELAXATION FILM",
-          "score": 13.5,
-          "zone": "left_bottom_tight",
+          "playlist_name": "DITV КОМЕДИИ",
+          "provider_name": "DITV КОМЕДИИ",
+          "title": "Кролик Джоджо",
+          "score": 18.0,
+          "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 2,
-      "rejected": 48,
+      "added": 1,
+      "rejected": 52,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-11-17T04:55:01.608582+00:00",
-          "playlist_name": "CPS Fresh",
-          "observed_title": "AFFILIATED WITH",
+          "observed_at": "2026-11-17T14:02:45.263894+00:00",
+          "playlist_name": "DITV КОМЕДИИ",
+          "observed_title": "Кролик Джоджо",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=13.5"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-11-17T04:55:01.608582+00:00",
-          "playlist_name": "BOX Relax 4K",
-          "observed_title": "RELAXATION FILM",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=13.5"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.0"
         }
       ]
     },
@@ -89,57 +73,20 @@
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "no-policy"
+        "quarantined": 0,
+        "reason": "no-live-candidates"
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 2,
+      "selected_count": 0,
       "quarantined_count": 0,
-      "selected": {
-        "KLI СССР HD": {
-          "source": "tvteam",
-          "source_id": "ch4083",
-          "output_tvg_id": "Xliveocr-25e879b896d08aa6",
-          "horizon_hours": 23.16,
-          "current": true,
-          "usable": 19
-        },
-        "KLI Новинки HD": {
-          "source": "gabbarit-current",
-          "source_id": "KLI НОВИНКИ",
-          "output_tvg_id": "Xliveocr-44d592172b1eca25",
-          "horizon_hours": 165.87,
-          "current": true,
-          "usable": 30
-        }
-      },
+      "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 2,
-      "sources_scanned": 25,
-      "sources_failed": [
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-ru",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-rescue",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "gabbarit-mirror",
-          "error": "EOFError"
-        }
-      ],
+      "live_observations": 1,
+      "sources_scanned": 7,
+      "sources_failed": [],
       "candidates_added": 0,
       "added": []
     }
