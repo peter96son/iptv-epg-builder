@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-16T23:15:28.459072+00:00",
+  "updated_at": "2026-11-17T05:02:13.000179+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-11-16T23:15:27.339629+00:00",
+      "checked_at_utc": "2026-11-17T05:02:12.004458+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,94 +10,78 @@
         "Кинозалы"
       ],
       "channels": 569,
-      "ok": 56,
-      "gaps": 513,
+      "ok": 501,
+      "gaps": 68,
       "issue_counts": {
-        "NO_MAPPING": 146,
-        "NO_CURRENT_PROGRAMME": 367,
-        "NO_NEXT_PROGRAMME": 367
+        "NO_MAPPING": 67,
+        "NO_CURRENT_PROGRAMME": 1,
+        "NO_NEXT_PROGRAMME": 1
       },
       "group_counts": {
         "USSR": {
           "channels": 18,
-          "ok": 2,
-          "gaps": 16
+          "ok": 13,
+          "gaps": 5
         },
         "Кино": {
           "channels": 190,
-          "ok": 19,
-          "gaps": 171
+          "ok": 160,
+          "gaps": 30
         },
         "Кино 4K": {
           "channels": 67,
-          "ok": 3,
-          "gaps": 64
+          "ok": 66,
+          "gaps": 1
         },
         "Кинозалы": {
           "channels": 294,
-          "ok": 32,
-          "gaps": 262
+          "ok": 262,
+          "gaps": 32
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 225,
-      "high_confidence_observations": 3,
+      "channels_considered": 50,
+      "high_confidence_observations": 2,
       "recognized": [
         {
-          "playlist_name": "Viju+ Premiere HD",
-          "provider_name": "Viju+ Premiere HD",
-          "title": "Подарок",
-          "score": 21.75,
+          "playlist_name": "CPS Fresh",
+          "provider_name": "CPS Fresh",
+          "title": "AFFILIATED WITH",
+          "score": 13.5,
           "zone": "top_left_tight",
           "engine": "tesseract"
         },
         {
-          "playlist_name": "Кино ТВ HD",
-          "provider_name": "Кино ТВ HD",
-          "title": "КИНОТВ",
-          "score": 21.5,
-          "zone": "top_band",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "Start World",
-          "provider_name": "Start World",
-          "title": "МЕДИАТОР",
-          "score": 22.0,
-          "zone": "top_left",
+          "playlist_name": "BOX Relax 4K",
+          "provider_name": "BOX Relax 4K",
+          "title": "RELAXATION FILM",
+          "score": 13.5,
+          "zone": "left_bottom_tight",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 3,
-      "rejected": 221,
+      "added": 2,
+      "rejected": 48,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-11-16T23:02:31.207756+00:00",
-          "playlist_name": "Viju+ Premiere HD",
-          "observed_title": "Подарок",
+          "observed_at": "2026-11-17T04:55:01.608582+00:00",
+          "playlist_name": "CPS Fresh",
+          "observed_title": "AFFILIATED WITH",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=21.75"
+          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=13.5"
         },
         {
           "enabled": "1",
-          "observed_at": "2026-11-16T23:02:31.207756+00:00",
-          "playlist_name": "Кино ТВ HD",
-          "observed_title": "КИНОТВ",
+          "observed_at": "2026-11-17T04:55:01.608582+00:00",
+          "playlist_name": "BOX Relax 4K",
+          "observed_title": "RELAXATION FILM",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=21.5"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-11-16T23:02:31.207756+00:00",
-          "playlist_name": "Start World",
-          "observed_title": "МЕДИАТОР",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=22.0"
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=13.5"
         }
       ]
     },
@@ -107,19 +91,8 @@
         "selected": 0,
         "reason": "no-policy"
       },
-      "pending_count": 2,
-      "pending": {
-        "Viju+ Premiere HD": {
-          "observations": 1,
-          "distinct_titles": 1,
-          "status": "PENDING_DISTINCT_SECOND_TITLE"
-        },
-        "Кино ТВ HD": {
-          "observations": 2,
-          "distinct_titles": 1,
-          "status": "PENDING_DISTINCT_SECOND_TITLE"
-        }
-      },
+      "pending_count": 0,
+      "pending": {},
       "selected_count": 2,
       "quarantined_count": 0,
       "selected": {
@@ -143,8 +116,8 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 3,
-      "sources_scanned": 26,
+      "live_observations": 2,
+      "sources_scanned": 25,
       "sources_failed": [
         {
           "source": "klimedia-dedicated",
@@ -152,6 +125,10 @@
         },
         {
           "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-ru",
           "error": "RuntimeError"
         },
         {
