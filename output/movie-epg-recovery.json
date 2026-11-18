@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-17T22:10:38.265953+00:00",
+  "updated_at": "2026-11-18T04:13:45.164563+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-11-17T22:10:36.602339+00:00",
+      "checked_at_utc": "2026-11-18T04:13:43.329410+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,62 +10,78 @@
         "Кинозалы"
       ],
       "channels": 570,
-      "ok": 475,
-      "gaps": 95,
+      "ok": 468,
+      "gaps": 102,
       "issue_counts": {
-        "NO_MAPPING": 66,
-        "NO_CURRENT_PROGRAMME": 16,
-        "NO_NEXT_PROGRAMME": 29
+        "NO_MAPPING": 87,
+        "NO_CURRENT_PROGRAMME": 9,
+        "NO_NEXT_PROGRAMME": 15
       },
       "group_counts": {
         "USSR": {
           "channels": 18,
-          "ok": 14,
-          "gaps": 4
+          "ok": 15,
+          "gaps": 3
         },
         "Кино": {
           "channels": 191,
-          "ok": 167,
-          "gaps": 24
+          "ok": 164,
+          "gaps": 27
         },
         "Кино 4K": {
           "channels": 67,
-          "ok": 33,
-          "gaps": 34
+          "ok": 17,
+          "gaps": 50
         },
         "Кинозалы": {
           "channels": 294,
-          "ok": 261,
-          "gaps": 33
+          "ok": 272,
+          "gaps": 22
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 45,
-      "high_confidence_observations": 1,
+      "channels_considered": 46,
+      "high_confidence_observations": 2,
       "recognized": [
         {
-          "playlist_name": "Premiere HD 2",
-          "provider_name": "Premiere HD 2",
-          "title": "Чужая мама",
-          "score": 17.25,
-          "zone": "top_band",
+          "playlist_name": "KLI Action HD",
+          "provider_name": "KLI Action HD",
+          "title": "Всё везде и сразу (2022)",
+          "score": 18.5,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "DITV Concert",
+          "provider_name": "DITV Concert",
+          "title": "LLG EAN М",
+          "score": 13.75,
+          "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
+      "added": 2,
       "rejected": 44,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-11-17T22:03:40.214933+00:00",
-          "playlist_name": "Premiere HD 2",
-          "observed_title": "Чужая мама",
+          "observed_at": "2026-11-18T04:00:29.031152+00:00",
+          "playlist_name": "KLI Action HD",
+          "observed_title": "Всё везде и сразу (2022)",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=17.25"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.5"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-11-18T04:00:29.031152+00:00",
+          "playlist_name": "DITV Concert",
+          "observed_title": "LLG EAN М",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=13.75"
         }
       ]
     },
@@ -84,16 +100,44 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 7,
+      "live_observations": 2,
+      "sources_scanned": 24,
       "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "epgpw-US",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-ru",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-rescue",
+          "error": "RuntimeError"
+        },
         {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         }
       ],
-      "candidates_added": 0,
-      "added": []
+      "candidates_added": 1,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "KLI Action HD",
+          "source": "iptv-online-primary",
+          "source_id": "X101673",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=Всё везде и сразу (2022); candidate=Всё везде и сразу; requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
