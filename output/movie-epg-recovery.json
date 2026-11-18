@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-18T04:13:45.164563+00:00",
+  "updated_at": "2026-11-18T12:34:18.907033+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-11-18T04:13:43.329410+00:00",
+      "checked_at_utc": "2026-11-18T12:34:17.095728+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,11 @@
         "Кинозалы"
       ],
       "channels": 570,
-      "ok": 468,
-      "gaps": 102,
+      "ok": 469,
+      "gaps": 101,
       "issue_counts": {
-        "NO_MAPPING": 87,
-        "NO_CURRENT_PROGRAMME": 9,
-        "NO_NEXT_PROGRAMME": 15
+        "NO_MAPPING": 100,
+        "NO_NEXT_PROGRAMME": 1
       },
       "group_counts": {
         "USSR": {
@@ -25,119 +24,79 @@
         },
         "Кино": {
           "channels": 191,
-          "ok": 164,
-          "gaps": 27
+          "ok": 165,
+          "gaps": 26
         },
         "Кино 4K": {
           "channels": 67,
-          "ok": 17,
-          "gaps": 50
+          "ok": 16,
+          "gaps": 51
         },
         "Кинозалы": {
           "channels": 294,
-          "ok": 272,
-          "gaps": 22
+          "ok": 273,
+          "gaps": 21
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 46,
-      "high_confidence_observations": 2,
+      "channels_considered": 43,
+      "high_confidence_observations": 1,
       "recognized": [
         {
           "playlist_name": "KLI Action HD",
           "provider_name": "KLI Action HD",
-          "title": "Всё везде и сразу (2022)",
-          "score": 18.5,
-          "zone": "bottom_band",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "DITV Concert",
-          "provider_name": "DITV Concert",
-          "title": "LLG EAN М",
-          "score": 13.75,
+          "title": "Один последний выстрел (2026)",
+          "score": 25.0,
           "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 2,
-      "rejected": 44,
+      "added": 1,
+      "rejected": 42,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-11-18T04:00:29.031152+00:00",
+          "observed_at": "2026-11-18T12:32:14.786814+00:00",
           "playlist_name": "KLI Action HD",
-          "observed_title": "Всё везде и сразу (2022)",
+          "observed_title": "Один последний выстрел (2026)",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=18.5"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-11-18T04:00:29.031152+00:00",
-          "playlist_name": "DITV Concert",
-          "observed_title": "LLG EAN М",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=13.75"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=25.0"
         }
       ]
     },
     "judge": {
       "selector": {
-        "changed": 0,
-        "selected": 0,
+        "changed": 1,
+        "selected": 1,
         "quarantined": 0,
-        "reason": "no-live-candidates"
+        "target_hours": 6.0
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 0,
+      "selected_count": 1,
       "quarantined_count": 0,
-      "selected": {},
+      "selected": {
+        "KLI Action HD": {
+          "source": "iptv-online-primary",
+          "source_id": "X101673",
+          "output_tvg_id": "X101673",
+          "horizon_hours": 167.9,
+          "current": true,
+          "usable": 45
+        }
+      },
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 2,
-      "sources_scanned": 24,
-      "sources_failed": [
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "epgpw-US",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-ru",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-rescue",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "gabbarit-mirror",
-          "error": "EOFError"
-        }
-      ],
-      "candidates_added": 1,
-      "added": [
-        {
-          "enabled": "1",
-          "playlist_name": "KLI Action HD",
-          "source": "iptv-online-primary",
-          "source_id": "X101673",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=Всё везде и сразу (2022); candidate=Всё везде и сразу; requires two positive observations before selection"
-        }
-      ]
+      "live_observations": 1,
+      "sources_scanned": 2,
+      "sources_failed": [],
+      "candidates_added": 0,
+      "added": []
     }
   }
 }
