@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-18T21:03:22.638715+00:00",
+  "updated_at": "2026-11-19T03:10:25.163719+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-11-18T21:03:20.780408+00:00",
+      "checked_at_utc": "2026-11-19T03:10:23.308235+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,10 +10,12 @@
         "Кинозалы"
       ],
       "channels": 584,
-      "ok": 483,
-      "gaps": 101,
+      "ok": 479,
+      "gaps": 105,
       "issue_counts": {
-        "NO_MAPPING": 101
+        "NO_MAPPING": 100,
+        "NO_CURRENT_PROGRAMME": 4,
+        "NO_NEXT_PROGRAMME": 5
       },
       "group_counts": {
         "USSR": {
@@ -23,47 +25,63 @@
         },
         "Кино": {
           "channels": 203,
-          "ok": 176,
-          "gaps": 27
+          "ok": 173,
+          "gaps": 30
         },
         "Кино 4K": {
           "channels": 67,
-          "ok": 16,
-          "gaps": 51
+          "ok": 17,
+          "gaps": 50
         },
         "Кинозалы": {
           "channels": 296,
-          "ok": 276,
-          "gaps": 20
+          "ok": 274,
+          "gaps": 22
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 43,
-      "high_confidence_observations": 1,
+      "channels_considered": 46,
+      "high_confidence_observations": 2,
       "recognized": [
         {
           "playlist_name": "KLI Action HD",
           "provider_name": "KLI Action HD",
-          "title": "KLIMEDIA",
-          "score": 12.0,
+          "title": "Ярость (2014)",
+          "score": 16.5,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "Bear TV Время Кино RU UHD",
+          "provider_name": "Bear TV Время Кино RU UHD",
+          "title": "Dig BEAR | uw",
+          "score": 17.25,
           "zone": "top_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 42,
+      "added": 2,
+      "rejected": 44,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-11-18T21:01:27.595944+00:00",
+          "observed_at": "2026-11-19T02:56:47.368043+00:00",
           "playlist_name": "KLI Action HD",
-          "observed_title": "KLIMEDIA",
+          "observed_title": "Ярость (2014)",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=12.0"
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=16.5"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-11-19T02:56:47.368043+00:00",
+          "playlist_name": "Bear TV Время Кино RU UHD",
+          "observed_title": "Dig BEAR | uw",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=17.25"
         }
       ]
     },
@@ -82,9 +100,34 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 2,
-      "sources_failed": [],
+      "live_observations": 2,
+      "sources_scanned": 24,
+      "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "skyhigh-hdr",
+          "error": "ParseError"
+        },
+        {
+          "source": "teleguide-ru",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-rescue",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "gabbarit-mirror",
+          "error": "EOFError"
+        }
+      ],
       "candidates_added": 0,
       "added": []
     }
