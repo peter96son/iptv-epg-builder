@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-19T11:08:26.662309+00:00",
+  "updated_at": "2026-11-19T19:37:01.771218+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-11-19T11:08:24.855329+00:00",
+      "checked_at_utc": "2026-11-19T19:36:59.969330+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 584,
-      "ok": 474,
-      "gaps": 110,
+      "ok": 479,
+      "gaps": 105,
       "issue_counts": {
-        "NO_MAPPING": 104,
-        "NO_CURRENT_PROGRAMME": 6,
-        "NO_NEXT_PROGRAMME": 6
+        "NO_MAPPING": 101,
+        "NO_CURRENT_PROGRAMME": 4,
+        "NO_NEXT_PROGRAMME": 4
       },
       "group_counts": {
         "USSR": {
@@ -25,47 +25,79 @@
         },
         "Кино": {
           "channels": 203,
-          "ok": 173,
-          "gaps": 30
+          "ok": 176,
+          "gaps": 27
         },
         "Кино 4K": {
           "channels": 67,
-          "ok": 17,
-          "gaps": 50
+          "ok": 18,
+          "gaps": 49
         },
         "Кинозалы": {
           "channels": 296,
-          "ok": 269,
-          "gaps": 27
+          "ok": 270,
+          "gaps": 26
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 51,
-      "high_confidence_observations": 1,
+      "channels_considered": 48,
+      "high_confidence_observations": 3,
       "recognized": [
         {
-          "playlist_name": "Bear TV КиноМаяк RU UHD",
-          "provider_name": "Bear TV КиноМаяк RU UHD",
-          "title": "БАНК",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "provider_name": "DITV ФИЛЬМЫ",
+          "title": "БРАТ (1997)",
           "score": 13.0,
           "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "Bear TV Время Кино RU UHD",
+          "provider_name": "Bear TV Время Кино RU UHD",
+          "title": "Syn BEAR",
+          "score": 16.75,
+          "zone": "top_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "Bear TV Парк Кино RU UHD",
+          "provider_name": "Bear TV Парк Кино RU UHD",
+          "title": "BEAR 1 Wino",
+          "score": 17.0,
+          "zone": "top_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 50,
+      "added": 3,
+      "rejected": 45,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-11-19T10:55:20.600578+00:00",
-          "playlist_name": "Bear TV КиноМаяк RU UHD",
-          "observed_title": "БАНК",
+          "observed_at": "2026-11-19T19:17:44.941519+00:00",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "observed_title": "БРАТ (1997)",
           "origin": "movie-live-observer",
           "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=13.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-11-19T19:17:44.941519+00:00",
+          "playlist_name": "Bear TV Время Кино RU UHD",
+          "observed_title": "Syn BEAR",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=16.75"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-11-19T19:17:44.941519+00:00",
+          "playlist_name": "Bear TV Парк Кино RU UHD",
+          "observed_title": "BEAR 1 Wino",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=17.0"
         }
       ]
     },
@@ -73,39 +105,27 @@
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "no-policy"
+        "quarantined": 0,
+        "reason": "no-live-candidates"
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 2,
+      "selected_count": 0,
       "quarantined_count": 0,
-      "selected": {
-        "KLI СССР HD": {
-          "source": "tvteam",
-          "source_id": "ch4083",
-          "output_tvg_id": "Xliveocr-25e879b896d08aa6",
-          "horizon_hours": 23.16,
-          "current": true,
-          "usable": 19
-        },
-        "KLI Новинки HD": {
-          "source": "gabbarit-current",
-          "source_id": "KLI НОВИНКИ",
-          "output_tvg_id": "Xliveocr-44d592172b1eca25",
-          "horizon_hours": 165.87,
-          "current": true,
-          "usable": 30
-        }
-      },
+      "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 25,
+      "live_observations": 3,
+      "sources_scanned": 24,
       "sources_failed": [
         {
           "source": "klimedia-dedicated",
           "error": "RuntimeError"
+        },
+        {
+          "source": "cineman-dedicated",
+          "error": "ParseError"
         },
         {
           "source": "sharavoz-guide",
