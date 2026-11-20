@@ -1,21 +1,21 @@
 {
-  "updated_at": "2026-11-20T01:46:52.946644+00:00",
+  "updated_at": "2026-11-20T09:20:07.282018+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-11-20T01:46:51.185084+00:00",
+      "checked_at_utc": "2026-11-20T09:20:06.303664+00:00",
       "groups": [
         "USSR",
         "Кино",
         "Кино 4K",
         "Кинозалы"
       ],
-      "channels": 584,
-      "ok": 468,
-      "gaps": 116,
+      "channels": 586,
+      "ok": 461,
+      "gaps": 125,
       "issue_counts": {
-        "NO_MAPPING": 102,
-        "NO_CURRENT_PROGRAMME": 14,
-        "NO_NEXT_PROGRAMME": 14
+        "NO_MAPPING": 118,
+        "NO_CURRENT_PROGRAMME": 6,
+        "NO_NEXT_PROGRAMME": 7
       },
       "group_counts": {
         "USSR": {
@@ -25,101 +25,49 @@
         },
         "Кино": {
           "channels": 203,
-          "ok": 175,
-          "gaps": 28
+          "ok": 173,
+          "gaps": 30
         },
         "Кино 4K": {
           "channels": 67,
-          "ok": 17,
-          "gaps": 50
+          "ok": 16,
+          "gaps": 51
         },
         "Кинозалы": {
-          "channels": 296,
-          "ok": 261,
-          "gaps": 35
+          "channels": 298,
+          "ok": 257,
+          "gaps": 41
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 46,
-      "high_confidence_observations": 1,
-      "recognized": [
-        {
-          "playlist_name": "Bear TV КиноМаяк RU UHD",
-          "provider_name": "Bear TV КиноМаяк RU UHD",
-          "title": "BEAR ¥ Vino",
-          "score": 12.0,
-          "zone": "top_band",
-          "engine": "tesseract"
-        }
-      ]
+      "channels_considered": 50,
+      "high_confidence_observations": 0,
+      "recognized": []
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 45,
-      "observations": [
-        {
-          "enabled": "1",
-          "observed_at": "2026-11-20T01:33:29.943119+00:00",
-          "playlist_name": "Bear TV КиноМаяк RU UHD",
-          "observed_title": "BEAR ¥ Vino",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=12.0"
-        }
-      ]
+      "added": 0,
+      "rejected": 50,
+      "observations": []
     },
     "judge": {
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "no-policy"
+        "reason": "waiting-for-distinct-second-title"
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 2,
+      "selected_count": 0,
       "quarantined_count": 0,
-      "selected": {
-        "KLI СССР HD": {
-          "source": "tvteam",
-          "source_id": "ch4083",
-          "output_tvg_id": "Xliveocr-25e879b896d08aa6",
-          "horizon_hours": 23.16,
-          "current": true,
-          "usable": 19
-        },
-        "KLI Новинки HD": {
-          "source": "gabbarit-current",
-          "source_id": "KLI НОВИНКИ",
-          "output_tvg_id": "Xliveocr-44d592172b1eca25",
-          "horizon_hours": 165.87,
-          "current": true,
-          "usable": 30
-        }
-      },
+      "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 26,
-      "sources_failed": [
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-rescue",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "gabbarit-mirror",
-          "error": "EOFError"
-        }
-      ],
+      "live_observations": 0,
+      "sources_scanned": 0,
+      "sources_failed": [],
       "candidates_added": 0,
       "added": []
     }
