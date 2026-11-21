@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-21T15:46:06.952909+00:00",
+  "updated_at": "2026-11-21T21:28:53.899565+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-11-21T15:46:05.756212+00:00",
+      "checked_at_utc": "2026-11-21T21:28:52.712347+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 586,
-      "ok": 480,
-      "gaps": 106,
+      "ok": 479,
+      "gaps": 107,
       "issue_counts": {
-        "NO_MAPPING": 102,
-        "NO_NEXT_PROGRAMME": 4,
-        "NO_CURRENT_PROGRAMME": 3
+        "NO_MAPPING": 104,
+        "NO_CURRENT_PROGRAMME": 2,
+        "NO_NEXT_PROGRAMME": 3
       },
       "group_counts": {
         "USSR": {
@@ -25,8 +25,8 @@
         },
         "Кино": {
           "channels": 203,
-          "ok": 179,
-          "gaps": 24
+          "ok": 178,
+          "gaps": 25
         },
         "Кино 4K": {
           "channels": 67,
@@ -42,20 +42,39 @@
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 43,
-      "high_confidence_observations": 0,
-      "recognized": []
+      "channels_considered": 44,
+      "high_confidence_observations": 1,
+      "recognized": [
+        {
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "provider_name": "DITV ФИЛЬМЫ",
+          "title": "Жених (2016)",
+          "score": 21.25,
+          "zone": "left_bottom_tight",
+          "engine": "tesseract"
+        }
+      ]
     },
     "evidence_recorder": {
-      "added": 0,
+      "added": 1,
       "rejected": 43,
-      "observations": []
+      "observations": [
+        {
+          "enabled": "1",
+          "observed_at": "2026-11-21T21:19:43.956872+00:00",
+          "playlist_name": "DITV ФИЛЬМЫ",
+          "observed_title": "Жених (2016)",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=21.25"
+        }
+      ]
     },
     "judge": {
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "waiting-for-distinct-second-title"
+        "quarantined": 0,
+        "reason": "no-live-candidates"
       },
       "pending_count": 0,
       "pending": {},
@@ -65,9 +84,22 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 0,
-      "sources_scanned": 0,
-      "sources_failed": [],
+      "live_observations": 1,
+      "sources_scanned": 13,
+      "sources_failed": [
+        {
+          "source": "teleguide-ru",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "teleguide-rescue",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "gabbarit-mirror",
+          "error": "EOFError"
+        }
+      ],
       "candidates_added": 0,
       "added": []
     }
