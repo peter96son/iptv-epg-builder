@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-21T21:28:53.899565+00:00",
+  "updated_at": "2026-11-22T02:02:27.350763+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-11-21T21:28:52.712347+00:00",
+      "checked_at_utc": "2026-11-22T02:02:26.503784+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 586,
-      "ok": 479,
-      "gaps": 107,
+      "ok": 471,
+      "gaps": 115,
       "issue_counts": {
-        "NO_MAPPING": 104,
-        "NO_CURRENT_PROGRAMME": 2,
-        "NO_NEXT_PROGRAMME": 3
+        "NO_MAPPING": 108,
+        "NO_NEXT_PROGRAMME": 7,
+        "NO_CURRENT_PROGRAMME": 2
       },
       "group_counts": {
         "USSR": {
@@ -30,42 +30,90 @@
         },
         "Кино 4K": {
           "channels": 67,
-          "ok": 15,
-          "gaps": 52
+          "ok": 17,
+          "gaps": 50
         },
         "Кинозалы": {
           "channels": 298,
-          "ok": 271,
-          "gaps": 27
+          "ok": 261,
+          "gaps": 37
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 44,
-      "high_confidence_observations": 1,
+      "channels_considered": 47,
+      "high_confidence_observations": 4,
       "recognized": [
         {
-          "playlist_name": "DITV ФИЛЬМЫ",
-          "provider_name": "DITV ФИЛЬМЫ",
-          "title": "Жених (2016)",
+          "playlist_name": "Insomnia HD",
+          "provider_name": "Insomnia HD",
+          "title": "ФОБИЯ",
           "score": 21.25,
-          "zone": "left_bottom_tight",
+          "zone": "top_left_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "Thriller HD",
+          "provider_name": "Thriller HD",
+          "title": "КОЛЛЕКЦИОНЕР",
+          "score": 18.0,
+          "zone": "top_left_tight",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "BOX Relax 4K",
+          "provider_name": "BOX Relax 4K",
+          "title": "RELAXATION FILM. ~",
+          "score": 13.5,
+          "zone": "bottom_band",
+          "engine": "tesseract"
+        },
+        {
+          "playlist_name": "Bear TV КиноМаяк RU UHD",
+          "provider_name": "Bear TV КиноМаяк RU UHD",
+          "title": "о = SRIRAM BHO",
+          "score": 14.5,
+          "zone": "bottom_band",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 1,
+      "added": 4,
       "rejected": 43,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-11-21T21:19:43.956872+00:00",
-          "playlist_name": "DITV ФИЛЬМЫ",
-          "observed_title": "Жених (2016)",
+          "observed_at": "2026-11-22T01:47:44.191382+00:00",
+          "playlist_name": "Insomnia HD",
+          "observed_title": "ФОБИЯ",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=21.25"
+          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=21.25"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-11-22T01:47:44.191382+00:00",
+          "playlist_name": "Thriller HD",
+          "observed_title": "КОЛЛЕКЦИОНЕР",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=top_left_tight; engine=tesseract; score=18.0"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-11-22T01:47:44.191382+00:00",
+          "playlist_name": "BOX Relax 4K",
+          "observed_title": "RELAXATION FILM. ~",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=13.5"
+        },
+        {
+          "enabled": "1",
+          "observed_at": "2026-11-22T01:47:44.191382+00:00",
+          "playlist_name": "Bear TV КиноМаяк RU UHD",
+          "observed_title": "о = SRIRAM BHO",
+          "origin": "movie-live-observer",
+          "notes": "high-confidence OCR; zone=bottom_band; engine=tesseract; score=14.5"
         }
       ]
     },
@@ -84,9 +132,17 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 13,
+      "live_observations": 4,
+      "sources_scanned": 25,
       "sources_failed": [
+        {
+          "source": "klimedia-dedicated",
+          "error": "RuntimeError"
+        },
+        {
+          "source": "sharavoz-guide",
+          "error": "RuntimeError"
+        },
         {
           "source": "teleguide-ru",
           "error": "RuntimeError"
@@ -100,8 +156,44 @@
           "error": "EOFError"
         }
       ],
-      "candidates_added": 0,
-      "added": []
+      "candidates_added": 5,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "Thriller HD",
+          "source": "iptvx-noarch",
+          "source_id": "next-quest",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=КОЛЛЕКЦИОНЕР; candidate=х/ф Коллекционер 2 (2012); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Thriller HD",
+          "source": "iptvx-noarch",
+          "source_id": "sts-int-m7",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=КОЛЛЕКЦИОНЕР; candidate=Коллекционер ┊ 2; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Thriller HD",
+          "source": "next-dedicated",
+          "source_id": "NEXTQuest",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=КОЛЛЕКЦИОНЕР; candidate=Коллекционер 2 (2012); requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Thriller HD",
+          "source": "epgpw-RU",
+          "source_id": "7549",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=КОЛЛЕКЦИОНЕР; candidate=Коллекционер ┊ 2; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "Thriller HD",
+          "source": "m3u-edit-all-rescue",
+          "source_id": "СТС.International.(-7).[RU].ua",
+          "notes": "auto-discovered from live title; similarity=0.950; observed=КОЛЛЕКЦИОНЕР; candidate=\"Коллекционер\", 2 эп; requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
