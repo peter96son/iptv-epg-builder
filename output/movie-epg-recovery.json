@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-22T09:16:03.723247+00:00",
+  "updated_at": "2026-11-22T16:51:51.779109+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-11-22T09:16:02.314080+00:00",
+      "checked_at_utc": "2026-11-22T16:51:50.956159+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,11 @@
         "Кинозалы"
       ],
       "channels": 586,
-      "ok": 464,
-      "gaps": 122,
+      "ok": 458,
+      "gaps": 128,
       "issue_counts": {
-        "NO_MAPPING": 110,
-        "NO_NEXT_PROGRAMME": 12,
-        "NO_CURRENT_PROGRAMME": 7
+        "NO_MAPPING": 123,
+        "NO_NEXT_PROGRAMME": 5
       },
       "group_counts": {
         "USSR": {
@@ -25,72 +24,37 @@
         },
         "Кино": {
           "channels": 203,
-          "ok": 176,
-          "gaps": 27
+          "ok": 179,
+          "gaps": 24
         },
         "Кино 4K": {
           "channels": 67,
-          "ok": 16,
-          "gaps": 51
+          "ok": 15,
+          "gaps": 52
         },
         "Кинозалы": {
           "channels": 298,
-          "ok": 258,
-          "gaps": 40
+          "ok": 250,
+          "gaps": 48
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 49,
-      "high_confidence_observations": 2,
-      "recognized": [
-        {
-          "playlist_name": "VeleS Movie Hits",
-          "provider_name": "VeleS Movie Hits",
-          "title": "Беглец (1993)",
-          "score": 16.5,
-          "zone": "left_bottom_tight",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "Bear TV КиноМаяк RU UHD",
-          "provider_name": "Bear TV КиноМаяк RU UHD",
-          "title": "BEAR Wins",
-          "score": 12.0,
-          "zone": "top_band",
-          "engine": "tesseract"
-        }
-      ]
+      "channels_considered": 48,
+      "high_confidence_observations": 0,
+      "recognized": []
     },
     "evidence_recorder": {
-      "added": 2,
-      "rejected": 47,
-      "observations": [
-        {
-          "enabled": "1",
-          "observed_at": "2026-11-22T09:01:00.047570+00:00",
-          "playlist_name": "VeleS Movie Hits",
-          "observed_title": "Беглец (1993)",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=left_bottom_tight; engine=tesseract; score=16.5"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-11-22T09:01:00.047570+00:00",
-          "playlist_name": "Bear TV КиноМаяк RU UHD",
-          "observed_title": "BEAR Wins",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=12.0"
-        }
-      ]
+      "added": 0,
+      "rejected": 48,
+      "observations": []
     },
     "judge": {
       "selector": {
         "changed": 0,
         "selected": 0,
-        "quarantined": 0,
-        "reason": "no-live-candidates"
+        "reason": "waiting-for-distinct-second-title"
       },
       "pending_count": 0,
       "pending": {},
@@ -100,30 +64,9 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 2,
-      "sources_scanned": 25,
-      "sources_failed": [
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-ru",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "teleguide-rescue",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "gabbarit-mirror",
-          "error": "EOFError"
-        }
-      ],
+      "live_observations": 0,
+      "sources_scanned": 0,
+      "sources_failed": [],
       "candidates_added": 0,
       "added": []
     }
