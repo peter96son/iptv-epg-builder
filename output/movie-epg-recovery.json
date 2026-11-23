@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-23T03:38:22.670671+00:00",
+  "updated_at": "2026-11-23T13:55:09.838377+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-11-23T03:38:22.028065+00:00",
+      "checked_at_utc": "2026-11-23T13:55:08.774916+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,71 +10,50 @@
         "Кинозалы"
       ],
       "channels": 586,
-      "ok": 319,
-      "gaps": 267,
+      "ok": 472,
+      "gaps": 114,
       "issue_counts": {
-        "NO_MAPPING": 254,
-        "NO_CURRENT_PROGRAMME": 5,
-        "NO_NEXT_PROGRAMME": 13
+        "NO_MAPPING": 114
       },
       "group_counts": {
         "USSR": {
           "channels": 18,
-          "ok": 9,
-          "gaps": 9
+          "ok": 15,
+          "gaps": 3
         },
         "Кино": {
           "channels": 203,
-          "ok": 132,
-          "gaps": 71
+          "ok": 174,
+          "gaps": 29
         },
         "Кино 4K": {
           "channels": 67,
-          "ok": 10,
-          "gaps": 57
+          "ok": 15,
+          "gaps": 52
         },
         "Кинозалы": {
           "channels": 298,
-          "ok": 168,
-          "gaps": 130
+          "ok": 268,
+          "gaps": 30
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 141,
-      "high_confidence_observations": 1,
-      "recognized": [
-        {
-          "playlist_name": "ТСВ",
-          "provider_name": "ТСВ",
-          "title": "КИНОСЕМЬЯ",
-          "score": 17.25,
-          "zone": "top_left",
-          "engine": "tesseract"
-        }
-      ]
+      "channels_considered": 52,
+      "high_confidence_observations": 0,
+      "recognized": []
     },
     "evidence_recorder": {
-      "added": 1,
-      "rejected": 139,
-      "observations": [
-        {
-          "enabled": "1",
-          "observed_at": "2026-11-23T03:30:48.648654+00:00",
-          "playlist_name": "ТСВ",
-          "observed_title": "КИНОСЕМЬЯ",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=17.25"
-        }
-      ]
+      "added": 0,
+      "rejected": 52,
+      "observations": []
     },
     "judge": {
       "selector": {
         "changed": 0,
         "selected": 0,
-        "quarantined": 0,
-        "reason": "no-live-candidates"
+        "reason": "waiting-for-distinct-second-title"
       },
       "pending_count": 0,
       "pending": {},
@@ -84,39 +63,11 @@
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 1,
-      "sources_scanned": 27,
-      "sources_failed": [
-        {
-          "source": "klimedia-dedicated",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "sharavoz-guide",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "gabbarit-mirror",
-          "error": "EOFError"
-        }
-      ],
-      "candidates_added": 2,
-      "added": [
-        {
-          "enabled": "1",
-          "playlist_name": "ТСВ",
-          "source": "gabbarit-current",
-          "source_id": "ТСВ",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=КИНОСЕМЬЯ; candidate=Киносемья.; requires two positive observations before selection"
-        },
-        {
-          "enabled": "1",
-          "playlist_name": "ТСВ",
-          "source": "gabbarit-primary",
-          "source_id": "ТСВ",
-          "notes": "auto-discovered from live title; similarity=1.000; observed=КИНОСЕМЬЯ; candidate=Киносемья.; requires two positive observations before selection"
-        }
-      ]
+      "live_observations": 0,
+      "sources_scanned": 0,
+      "sources_failed": [],
+      "candidates_added": 0,
+      "added": []
     }
   }
 }
