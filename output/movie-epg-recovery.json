@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-22T22:39:23.009629+00:00",
+  "updated_at": "2026-11-23T03:38:22.670671+00:00",
   "stages": {
     "auditor": {
-      "checked_at_utc": "2026-11-22T22:39:21.676934+00:00",
+      "checked_at_utc": "2026-11-23T03:38:22.028065+00:00",
       "groups": [
         "USSR",
         "Кино",
@@ -10,12 +10,12 @@
         "Кинозалы"
       ],
       "channels": 586,
-      "ok": 333,
-      "gaps": 253,
+      "ok": 319,
+      "gaps": 267,
       "issue_counts": {
-        "NO_MAPPING": 135,
-        "NO_CURRENT_PROGRAMME": 110,
-        "NO_NEXT_PROGRAMME": 117
+        "NO_MAPPING": 254,
+        "NO_CURRENT_PROGRAMME": 5,
+        "NO_NEXT_PROGRAMME": 13
       },
       "group_counts": {
         "USSR": {
@@ -25,63 +25,47 @@
         },
         "Кино": {
           "channels": 203,
-          "ok": 145,
-          "gaps": 58
+          "ok": 132,
+          "gaps": 71
         },
         "Кино 4K": {
           "channels": 67,
-          "ok": 12,
-          "gaps": 55
+          "ok": 10,
+          "gaps": 57
         },
         "Кинозалы": {
           "channels": 298,
-          "ok": 167,
-          "gaps": 131
+          "ok": 168,
+          "gaps": 130
         }
       }
     },
     "observer": {
       "return_code": 0,
-      "channels_considered": 135,
-      "high_confidence_observations": 2,
+      "channels_considered": 141,
+      "high_confidence_observations": 1,
       "recognized": [
         {
-          "playlist_name": "Bear TV Парк Кино RU UHD",
-          "provider_name": "Bear TV Парк Кино RU UHD",
-          "title": "BEAR ¥ Vino",
-          "score": 17.0,
-          "zone": "top_band",
-          "engine": "tesseract"
-        },
-        {
-          "playlist_name": "Bear TV КиноМаяк RU UHD",
-          "provider_name": "Bear TV КиноМаяк RU UHD",
-          "title": "BEAR i Wir",
-          "score": 17.0,
-          "zone": "top_band",
+          "playlist_name": "ТСВ",
+          "provider_name": "ТСВ",
+          "title": "КИНОСЕМЬЯ",
+          "score": 17.25,
+          "zone": "top_left",
           "engine": "tesseract"
         }
       ]
     },
     "evidence_recorder": {
-      "added": 2,
-      "rejected": 132,
+      "added": 1,
+      "rejected": 139,
       "observations": [
         {
           "enabled": "1",
-          "observed_at": "2026-11-22T22:27:04.060320+00:00",
-          "playlist_name": "Bear TV Парк Кино RU UHD",
-          "observed_title": "BEAR ¥ Vino",
+          "observed_at": "2026-11-23T03:30:48.648654+00:00",
+          "playlist_name": "ТСВ",
+          "observed_title": "КИНОСЕМЬЯ",
           "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=17.0"
-        },
-        {
-          "enabled": "1",
-          "observed_at": "2026-11-22T22:27:04.060320+00:00",
-          "playlist_name": "Bear TV КиноМаяк RU UHD",
-          "observed_title": "BEAR i Wir",
-          "origin": "movie-live-observer",
-          "notes": "high-confidence OCR; zone=top_band; engine=tesseract; score=17.0"
+          "notes": "high-confidence OCR; zone=top_left; engine=tesseract; score=17.25"
         }
       ]
     },
@@ -89,35 +73,19 @@
       "selector": {
         "changed": 0,
         "selected": 0,
-        "reason": "no-policy"
+        "quarantined": 0,
+        "reason": "no-live-candidates"
       },
       "pending_count": 0,
       "pending": {},
-      "selected_count": 2,
+      "selected_count": 0,
       "quarantined_count": 0,
-      "selected": {
-        "KLI СССР HD": {
-          "source": "tvteam",
-          "source_id": "ch4083",
-          "output_tvg_id": "Xliveocr-25e879b896d08aa6",
-          "horizon_hours": 23.16,
-          "current": true,
-          "usable": 19
-        },
-        "KLI Новинки HD": {
-          "source": "gabbarit-current",
-          "source_id": "KLI НОВИНКИ",
-          "output_tvg_id": "Xliveocr-44d592172b1eca25",
-          "horizon_hours": 165.87,
-          "current": true,
-          "usable": 30
-        }
-      },
+      "selected": {},
       "quarantined": {}
     },
     "candidate_discovery": {
-      "live_observations": 2,
-      "sources_scanned": 25,
+      "live_observations": 1,
+      "sources_scanned": 27,
       "sources_failed": [
         {
           "source": "klimedia-dedicated",
@@ -128,20 +96,27 @@
           "error": "RuntimeError"
         },
         {
-          "source": "epgpw-sreda",
-          "error": "RuntimeError"
-        },
-        {
-          "source": "epgpw-chestny-detektiv",
-          "error": "RuntimeError"
-        },
-        {
           "source": "gabbarit-mirror",
           "error": "EOFError"
         }
       ],
-      "candidates_added": 0,
-      "added": []
+      "candidates_added": 2,
+      "added": [
+        {
+          "enabled": "1",
+          "playlist_name": "ТСВ",
+          "source": "gabbarit-current",
+          "source_id": "ТСВ",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=КИНОСЕМЬЯ; candidate=Киносемья.; requires two positive observations before selection"
+        },
+        {
+          "enabled": "1",
+          "playlist_name": "ТСВ",
+          "source": "gabbarit-primary",
+          "source_id": "ТСВ",
+          "notes": "auto-discovered from live title; similarity=1.000; observed=КИНОСЕМЬЯ; candidate=Киносемья.; requires two positive observations before selection"
+        }
+      ]
     }
   }
 }
