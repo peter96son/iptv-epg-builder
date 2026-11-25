@@ -17,6 +17,7 @@ Personal XMLTV/EPG builder for a large IPTV playlist, optimized first for Russia
 - retains up to 7 past days of source programmes for catch-up when the source feed provides them;
 - reports how many mapped channels have at least 7 days of future schedule, without discarding shorter valid guides;
 - checks the cinema and USSR groups against the live provider playlist and publishes the exact gaps.
+- checks candidate EPG feeds for those missing channels and records whether each has any titled programme in the next 7 days; this is a report only and never changes channel bindings.
 
 ## Repository structure
 
@@ -62,6 +63,13 @@ After the run, inspect:
 - `output/mapping.csv`
 - `output/unmatched.csv`
 - `output/epg.xml.gz`
+
+To check alternate feeds for currently uncovered movie channels, run
+`Actions → Verify Missing Movie EPG`. The resulting
+`output/movie-online-source-discovery.json` lists each configured or candidate
+feed, exact channel-name matches, and the number of programmes found in the
+next seven days. Candidate URLs in `data/online_epg_candidates.json` are
+diagnostic only; a match does not automatically change the production guide.
 
 The useful number is `added_by_fallback_channels`, not the number of channels that merely have an ID.
 

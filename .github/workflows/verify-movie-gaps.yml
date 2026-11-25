@@ -30,14 +30,14 @@ jobs:
           PLAYLIST_URL: ${{ secrets.PLAYLIST_URL }}
         run: python -m src.movie_epg_recovery audit
 
-      - name: Search online EPG feeds by exact channel name
+      - name: Check missing movie channel coverage in online feeds
         env:
-          EPG_ONLINE_DISCOVERY_TIMEOUT: "20"
-          EPG_ONLINE_DISCOVERY_WORKERS: "6"
+          EPG_ONLINE_DISCOVERY_TIMEOUT: "12"
+          EPG_ONLINE_DISCOVERY_WORKERS: "10"
         run: python -m src.movie_online_source_discovery
 
-      - name: Publish exact-name candidates and source comparison
+      - name: Publish missing-channel coverage report
         shell: bash
         run: |
-          bash .github/scripts/safe-publish.sh "Compare online EPG sources for missing movie channels" \
+          bash .github/scripts/safe-publish.sh "Report EPG coverage for movie channels missing provider schedules" \
             output/movie-online-source-discovery.json
