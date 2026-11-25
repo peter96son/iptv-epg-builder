@@ -19,21 +19,21 @@ def _source_with_programmes(*starts):
     return "".join(rows).encode("utf-8")
 
 
-def test_default_archive_retention_is_five_days():
-    assert ARCHIVE_PAST_DAYS == 5
+def test_default_archive_retention_is_seven_days():
+    assert ARCHIVE_PAST_DAYS == 7
 
 
-def test_fresh_programmes_keeps_four_day_old_archive_row():
+def test_fresh_programmes_keeps_six_day_old_archive_row():
     now = datetime.now(timezone.utc)
-    data = _source_with_programmes(now - timedelta(days=4))
+    data = _source_with_programmes(now - timedelta(days=6))
     source = XMLTVSource("test-no-offset", data)
     rows = list(source.fresh_programmes({"c"}))
     assert len(rows) == 1
 
 
-def test_fresh_programmes_drops_six_day_old_archive_row():
+def test_fresh_programmes_drops_eight_day_old_archive_row():
     now = datetime.now(timezone.utc)
-    data = _source_with_programmes(now - timedelta(days=6))
+    data = _source_with_programmes(now - timedelta(days=8))
     source = XMLTVSource("test-no-offset", data)
     rows = list(source.fresh_programmes({"c"}))
     assert rows == []

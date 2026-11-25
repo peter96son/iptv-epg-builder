@@ -14,6 +14,7 @@ def audit(epg_path=None,mapping_path=None,*,now=None,min_hours=None):
     now=now or datetime.now(timezone.utc)
     if now.tzinfo is None: now=now.replace(tzinfo=timezone.utc)
     min_hours=float(min_hours if min_hours is not None else os.environ.get("EPG_PUBLISH_MIN_FUTURE_HOURS","6"))
+    preferred_hours=float(os.environ.get("EPG_PREFERRED_FUTURE_HOURS","168"))
     payload=json.loads(mapping_path.read_text(encoding="utf-8"))
     channel_map=payload.get("channels",{})
     wanted=set(channel_map.values())
@@ -38,8 +39,9 @@ def audit(epg_path=None,mapping_path=None,*,now=None,min_hours=None):
         elif horizon<0: status="STALE"; fatal_ids.add(cid)
         elif horizon<min_hours: status="EXPIRING_SOON"; warning_ids.add(cid)
         else: status="OK"
-        rows.append({"playlist_name":name,"tvg_id":cid,"status":status,"future_horizon_hours":"" if horizon is None else round(horizon,2),"last_programme_utc":"" if end is None else end.isoformat(),"programme_count":counts.get(cid,0)})
-    summary={"generated_at":now.isoformat(),"minimum_publish_future_hours":min_hours,"mapped_channels":len(channel_map),"unique_mapped_ids":len(wanted),"fatal_unique_ids":len(fatal_ids),"warning_unique_ids":len(warning_ids),"bad_unique_ids":len(fatal_ids),"bad_channel_rows":sum(r["status"] in {"NO_PROGRAMMES","STALE"} for r in rows),"warning_channel_rows":sum(r["status"]=="EXPIRING_SOON" for r in rows)}
+        rows.append({"playlist_name":name,"tvg_id":cid,"status":status,"future_horizon_hours":"" if horizon is None else round(horizon,2),"future_horizon_days":"" if horizon is None else round(horizon/24,2),"seven_day_coverage":bool(horizon is not None and horizon>=preferred_hours),"last_programme_utc":"" if end is None else end.isoformat(),"programme_count":counts.get(cid,0)})
+    covered=sum(bool(r["seven_day_coverage"]) for r in rows)
+    summary={"generated_at":now.isoformat(),"minimum_publish_future_hours":min_hours,"preferred_future_hours":preferred_hours,"mapped_channels":len(channel_map),"unique_mapped_ids":len(wanted),"seven_day_channels":covered,"under_seven_day_channels":len(rows)-covered,"seven_day_coverage_percent":round(100*covered/len(rows),2) if rows else 0.0,"fatal_unique_ids":len(fatal_ids),"warning_unique_ids":len(warning_ids),"bad_unique_ids":len(fatal_ids),"bad_channel_rows":sum(r["status"] in {"NO_PROGRAMMES","STALE"} for r in rows),"warning_channel_rows":sum(r["status"]=="EXPIRING_SOON" for r in rows)}
     return summary,rows
 
 def _prune_fatal_mappings(mapping_path:Path,rows:list[dict]):

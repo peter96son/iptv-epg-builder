@@ -1,7 +1,3 @@
-# IPTV EPG Builder v12.0
-
-Current release: **v12.0**. See `RELEASE_NOTES_V12.0.md`.
-
 # IPTV EPG Builder
 
 Personal XMLTV/EPG builder for a large IPTV playlist, optimized first for Russian, Ukrainian, Belarusian, English, German and Dutch channels.
@@ -18,6 +14,9 @@ Personal XMLTV/EPG builder for a large IPTV playlist, optimized first for Russia
 - writes a compact `output/epg.xml.gz` for UHF;
 - writes `status.json`, `mapping.csv` and `unmatched.csv`;
 - refuses to overwrite a healthy guide if the programme count collapses by more than the configured safety threshold.
+- retains up to 7 past days of source programmes for catch-up when the source feed provides them;
+- reports how many mapped channels have at least 7 days of future schedule, without discarding shorter valid guides;
+- checks the cinema and USSR groups against the live provider playlist and publishes the exact gaps.
 
 ## Repository structure
 
@@ -77,6 +76,8 @@ as the external EPG source in UHF.
 ## Safety rule
 
 A channel is never considered covered just because an XMLTV `<channel>` entry exists. It must have fresh programme entries in the configured date window.
+
+The builder can retain up to 7 past days for IPTV catch-up and reads source schedules up to 21 days ahead. A 7-day past archive is only available when the XMLTV source itself includes those past programmes. For future coverage, the selector prefers configured source candidates with longer schedules when their source policy and evidence permit it; shorter valid schedules remain eligible if no 7-day source is available. `output/epg-horizon-audit.json` and `output/movie-epg-audit.json` report the measured horizon after each build.
 
 
 ## IPTV Online category handling
