@@ -11,6 +11,7 @@ which provider wins.
 """
 from __future__ import annotations
 import os
+import time
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from . import xmltv as _xmltv
@@ -27,7 +28,7 @@ def _min_future_hours() -> float:
     except (TypeError, ValueError):
         return DEFAULT_MIN_FUTURE_HOURS
 
-def _programme_horizons(source):
+def _programme_horizons(source, deadline=None):
     now = datetime.now(timezone.utc)
     max_end = {}
     f = source._open() if hasattr(source, "_open") else open_xml_bytes(source.data)
@@ -38,6 +39,8 @@ def _programme_horizons(source):
         except StopIteration:
             return {}
         for event, elem in context:
+            if deadline is not None and time.monotonic() >= deadline:
+                raise TimeoutError(f"XMLTV horizon scan exceeded source phase deadline ({source.name})")
             if event != "end":
                 continue
             if elem.tag.split("}")[-1] == "programme":
@@ -58,9 +61,10 @@ def _programme_horizons(source):
         f.close()
     return {cid: (dt-now).total_seconds()/3600.0 for cid, dt in max_end.items()}
 
-def observed_index(self):
-    result = _ORIGINAL_INDEX(self)
-    horizons = _programme_horizons(result) if result.channels else {}
+def observed_index(self, *args, **kwargs):
+    result = _ORIGINAL_INDEX(self, *args, **kwargs)
+    deadline = kwargs.get("deadline")
+    horizons = _programme_horizons(result, deadline=deadline) if result.channels else {}
     result.horizon_hours_by_id = horizons
     min_hours = _min_future_hours()
     result.short_horizon_ids = {
