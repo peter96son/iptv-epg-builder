@@ -69,6 +69,10 @@ def _is_temporary_ocr_binding(row):
     )
 
 
+def _is_evidence_quarantined_binding(row):
+    return (row.get("method") or "").strip().lower() == "evidence-quarantined"
+
+
 def build():
     OUTPUT.mkdir(exist_ok=True)
     playlist_url = os.environ.get("PLAYLIST_URL", "").strip()
@@ -116,6 +120,7 @@ def build():
     # Previous published mapping is the persistent channel -> EPG binding.
     # Do not overwrite a binding merely because the feed is temporarily offline.
     pinned = {}
+    evidence_quarantined = set()
     pinned_path = ROOT / "data" / "epg-bindings.csv"
     if pinned_path.exists():
         with pinned_path.open(encoding="utf-8-sig", newline="") as f:
@@ -124,6 +129,9 @@ def build():
                 source_name = (row.get("source") or "").strip()
                 source_id = (row.get("source_id") or "").strip()
                 if channel_name and source_name and source_id:
+                    if _is_evidence_quarantined_binding(row):
+                        evidence_quarantined.add(channel_name)
+                        continue
                     if not _is_temporary_ocr_binding(row):
                         pinned[channel_name] = row
     print(f"[sticky-epg] existing bindings={len(pinned)}", flush=True)
@@ -178,6 +186,7 @@ def build():
                 )
                 or (
                     channels[i].name not in pinned
+                    and channels[i].name not in evidence_quarantined
                     and (source_index == 0 or _rescue_eligible(channels[i]))
                     and _group_allowed(channels[i].group, source_cfg)
                 )
@@ -303,6 +312,7 @@ def build():
     for source_index, source_cfg, name, source in loaded_sources:
         # Family matching is discovery-only; never reassign a pinned channel.
         candidates = [i for i in unresolved if channels[i].name not in pinned
+                      and channels[i].name not in evidence_quarantined
                       and _rescue_eligible(channels[i])
                       and _group_allowed(channels[i].group, source_cfg)]
         if not candidates:

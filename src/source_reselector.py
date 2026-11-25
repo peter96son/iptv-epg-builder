@@ -226,6 +226,65 @@ def _write_mapping_rows(path: Path, rows: list[dict]):
         w.writerows(rows)
 
 
+def _persist_source_bindings(
+    mapping_rows: list[dict],
+    selected: dict[str, dict],
+    quarantined: dict[str, str],
+    previous_by_name: dict[str, dict] | None = None,
+    path: Path | None = None,
+):
+    """Persist evidence-based donor changes for the next scheduled build.
+
+    The normal builder treats data/epg-bindings.csv as authoritative. Updating
+    only output/mapping.csv would therefore be undone by the next build.
+    """
+    path = path or (DATA / "epg-bindings.csv")
+    fields = [
+        "playlist_name", "playlist_tvg_id", "output_tvg_id", "group", "region",
+        "source", "source_id", "method", "confidence",
+    ]
+    bindings = {}
+    if path.exists():
+        with path.open(encoding="utf-8-sig", newline="") as f:
+            for row in csv.DictReader(f):
+                name = (row.get("playlist_name") or "").strip()
+                if name:
+                    bindings[name] = row
+
+    current_by_name = {
+        (row.get("playlist_name") or "").strip(): row
+        for row in mapping_rows
+        if (row.get("playlist_name") or "").strip()
+    }
+    previous_by_name = previous_by_name or {}
+
+    for name in selected:
+        row = current_by_name.get(name)
+        if row:
+            bindings[name] = {**bindings.get(name, {}), **row}
+
+    for name in quarantined:
+        row = dict(bindings.get(name) or previous_by_name.get(name) or {})
+        if row.get("source") and row.get("source_id"):
+            row["playlist_name"] = name
+            row["method"] = "evidence-quarantined"
+            row["confidence"] = "0"
+            bindings[name] = row
+
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fd, temp_name = tempfile.mkstemp(prefix="epg-bindings-", suffix=".csv", dir=path.parent)
+    os.close(fd)
+    temp_path = Path(temp_name)
+    try:
+        with temp_path.open("w", encoding="utf-8-sig", newline="") as f:
+            writer = csv.DictWriter(f, fieldnames=fields, extrasaction="ignore", lineterminator="\n")
+            writer.writeheader()
+            writer.writerows({key: row.get(key, "") for key in fields} for row in bindings.values())
+        temp_path.replace(path)
+    finally:
+        temp_path.unlink(missing_ok=True)
+
+
 def _load_playlist_names() -> dict[str, object]:
     url=os.environ.get("PLAYLIST_URL","").strip()
     if not url:
@@ -504,6 +563,12 @@ def reselect_policy_sources(target_hours: float | None = None) -> dict:
             tv.append(p)
 
     _write_mapping_rows(mapping_path,mapping_rows)
+    _persist_source_bindings(
+        mapping_rows,
+        selected,
+        quarantined,
+        previous_by_name=mapping_by_name,
+    )
 
     # Full metadata enrichment belongs to the regular Update EPG run.
     if not _enabled(os.environ.get("RESELECT_SKIP_METADATA_ENRICH", "1")):
