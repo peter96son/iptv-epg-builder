@@ -13,7 +13,7 @@ from .config import load_sources, load_aliases, load_id_fixes, load_json
 from .matcher import Matcher
 from .playlist import parse_m3u
 from .reports import write_csv, write_status
-from .utils import fetch_bytes, convert_xmltv_timestamp, is_real_tvg_id, xmltv_programme_is_usable
+from .utils import fetch_bytes, fetch_to_file, convert_xmltv_timestamp, is_real_tvg_id, xmltv_programme_is_usable
 from .xmltv import XMLTVSource
 from .state import load_json as load_state_json, save_json
 from .playlist_diff import snapshot_channels, compare_snapshots
@@ -196,30 +196,47 @@ def build():
             continue
 
         print(f"[{name}] downloading; candidates={len(candidates)}", flush=True)
+        source_path = None
+        owned_path = False
         try:
-            cache_path = None
+            shared_dir = os.environ.get('EPG_RECOVERY_SOURCE_CACHE', '').strip()
+            persistent_path = None
             if source_cfg.get("cache_fallback"):
-                cache_path = ROOT / ".cache" / "epg" / f"{name}.bin"
-            data = fetch_bytes(
+                persistent_path = ROOT / ".cache" / "epg" / f"{name}.bin"
+            if persistent_path is None and shared_dir:
+                persistent_path = Path(shared_dir) / f"{name}.bin"
+            owned_path = persistent_path is None
+            if owned_path:
+                fd, temp_name = tempfile.mkstemp(prefix="epg-source-", suffix=".bin")
+                os.close(fd)
+                source_path = Path(temp_name)
+            else:
+                source_path = persistent_path
+            remaining_source_time = max(1, source_deadline - time.monotonic())
+            fetch_to_file(
                 url,
+                source_path,
                 timeout=min(int(source_cfg.get("timeout", 180)), source_timeout_cap),
                 retries=min(int(source_cfg.get("retries", 4)), source_retries_cap),
                 cache_bust_on_retry=bool(source_cfg.get("cache_bust_on_retry", False)),
-                cache_path=cache_path,
                 stale_if_error_seconds=int(source_cfg.get("stale_if_error_seconds", 0)),
+                deadline_seconds=remaining_source_time,
             )
             # Share exactly these bytes with the second pass; never re-download.
-            shared_dir = os.environ.get('EPG_RECOVERY_SOURCE_CACHE', '').strip()
-            if shared_dir:
+            if shared_dir and persistent_path is not None and Path(shared_dir).resolve() != persistent_path.parent.resolve():
                 shared = Path(shared_dir)
                 shared.mkdir(parents=True, exist_ok=True)
-                with tempfile.NamedTemporaryFile(dir=shared, delete=False) as tmp:
-                    tmp.write(data)
-                    tmp_name = tmp.name
-                os.replace(tmp_name, shared / f'{name}.bin')
-            source = XMLTVSource(name, data).index()
+                temp_shared = shared / f".{name}.bin.tmp"
+                shutil.copyfile(source_path, temp_shared)
+                os.replace(temp_shared, shared / f'{name}.bin')
+            source = XMLTVSource(name, source_path, owned_path=owned_path).index(deadline=source_deadline)
             loaded_sources.append((source_index, source_cfg, name, source))
         except Exception as exc:
+            if owned_path and source_path is not None:
+                try:
+                    source_path.unlink()
+                except OSError:
+                    pass
             print(f"[{name}] FAILED: {exc}", flush=True)
             source_stats.append({"source": name, "status": "failed", "matched": 0, "error": str(exc)})
             continue
