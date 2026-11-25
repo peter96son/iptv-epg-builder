@@ -5,7 +5,7 @@ from datetime import datetime, timezone, timedelta
 from pathlib import Path
 import xml.etree.ElementTree as ET
 
-from .playlist import parse_m3u
+from .playlist import ATTR, parse_m3u
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "output"
@@ -51,11 +51,25 @@ def _rules():
     except Exception:
         return {}
 
+def _provider_catchup_info(playlist_text: str, channel) -> tuple[str, str]:
+    """Return non-sensitive catch-up mode/day settings from global or channel tags."""
+    header = next((line for line in playlist_text.splitlines() if line.strip().startswith("#EXTM3U")), "")
+    global_tags = dict(ATTR.findall(header))
+    channel_tags = dict(ATTR.findall(getattr(channel, "extinf", "")))
+    mode = channel_tags.get("catchup", global_tags.get("catchup", ""))
+    days = channel_tags.get("catchup-days", global_tags.get("catchup-days", ""))
+    mode = str(mode or "").strip()
+    days = str(days or "").strip()
+    if days and not days.isdigit():
+        days = ""
+    return mode, days
+
 def run(strict: bool=False):
     playlist_url=os.environ.get("PLAYLIST_URL","").strip()
     if not playlist_url:
         raise SystemExit("movie QA: PLAYLIST_URL is missing")
-    raw_channels=parse_m3u(_fetch_text(playlist_url))
+    playlist_text=_fetch_text(playlist_url)
+    raw_channels=parse_m3u(playlist_text)
     rules=_rules()
     excluded=set(rules.get("exclude_groups",[]) or [])
     group_overrides=rules.get("group_overrides",{}) or {}
@@ -81,15 +95,21 @@ def run(strict: bool=False):
         if final_group not in GROUPS:
             continue
         final_name=name_overrides.get(ch.name,ch.name)
+        catchup_mode,catchup_days=_provider_catchup_info(playlist_text,ch)
         cid=str(mapping.get(ch.name,"") or "")
         arr=programmes.get(cid,[]) if cid else []
-        current=[]; future=[]
+        current=[]; future=[]; max_stop=None; future_7day_count=0
         for p in arr:
             st=_parse_ts(p.get("start","")); en=_parse_ts(p.get("stop",""))
             if st and en and st <= now < en:
                 current.append(p)
             if st and st > now:
                 future.append(p)
+                if st <= now + timedelta(days=7):
+                    future_7day_count += 1
+            if en and (max_stop is None or en>max_stop):
+                max_stop=en
+        horizon_hours=(max_stop-now).total_seconds()/3600 if max_stop else None
         live_ocr_current=any(p.get("x-live-ocr")=="1" for p in current)
         issues=[]
         if not cid:
@@ -107,17 +127,23 @@ def run(strict: bool=False):
             "playlist_name":final_name,
             "provider_name":ch.name,
             "provider_tvg_id":ch.tvg_id,
+            "provider_catchup_mode":catchup_mode,
+            "provider_catchup_days":catchup_days,
             "output_tvg_id":cid,
             "programme_count":len(arr),
             "current_count":len(current),
             "future_count":len(future),
+            "future_7day_count":future_7day_count,
+            "future_horizon_hours":"" if horizon_hours is None else round(horizon_hours,2),
+            "seven_day_coverage":bool(horizon_hours is not None and horizon_hours>=168),
             "current_mode":"LIVE_OCR" if live_ocr_current else ("EPG" if current else ""),
             "status":"OK" if not issues else ";".join(issues),
         })
 
     gaps=[r for r in rows if r["status"]!="OK"]
-    fields=["group","playlist_name","provider_name","provider_tvg_id","output_tvg_id",
-            "programme_count","current_count","future_count","current_mode","status"]
+    fields=["group","playlist_name","provider_name","provider_tvg_id","provider_catchup_mode","provider_catchup_days","output_tvg_id",
+            "programme_count","current_count","future_count","future_7day_count",
+            "future_horizon_hours","seven_day_coverage","current_mode","status"]
     for fn,data in (("movie-epg-audit.csv",rows),("movie-epg-gaps.csv",gaps)):
         with (OUTPUT/fn).open("w",encoding="utf-8",newline="") as f:
             w=csv.DictWriter(f,fieldnames=fields); w.writeheader(); w.writerows(data)
@@ -136,8 +162,13 @@ def run(strict: bool=False):
                 "channels":sum(r["group"]==g for r in rows),
                 "ok":sum(r["group"]==g and r["status"]=="OK" for r in rows),
                 "gaps":sum(r["group"]==g and r["status"]!="OK" for r in rows),
+                "seven_day":sum(r["group"]==g and r["seven_day_coverage"] for r in rows),
             } for g in sorted(GROUPS)
         },
+        "seven_day_channels":sum(r["seven_day_coverage"] for r in rows),
+        "under_seven_day_channels":sum(not r["seven_day_coverage"] for r in rows),
+        "provider_archive_days_counts":dict(Counter(r["provider_catchup_days"] for r in rows if r["provider_catchup_days"])),
+        "channels_advertising_seven_day_archive":sum(int(r["provider_catchup_days"] or 0)>=7 for r in rows),
     }
     (OUTPUT/"movie-epg-audit.json").write_text(
         json.dumps(summary,ensure_ascii=False,indent=2)+"\n",encoding="utf-8"

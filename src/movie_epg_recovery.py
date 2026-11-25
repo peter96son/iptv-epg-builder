@@ -155,13 +155,16 @@ def _programme_window(programme):
 
 
 def _source_bindings_for_consensus(observations):
-    """Read the configured source IDs that are explicitly bound to each channel."""
+    """Read source IDs from active policy, pins, durable bindings, or output mapping.
+
+    Discovery suggestions require repeat evidence and must never vote as if they
+    were already bound to a target channel.
+    """
     paths = (
         DATA / "source_policy_v15.csv",
         DATA / "source_pins.csv",
         DATA / "epg-bindings.csv",
         OUTPUT / "mapping.csv",
-        CANDIDATES,
     )
     names = {obs["playlist_name"] for obs in observations}
     bindings = {}

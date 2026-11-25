@@ -27,3 +27,13 @@ def test_stale_or_unusable_source_never_wins():
 
 def test_no_live_candidate_returns_none():
     assert choose_candidate([c("stale",-1),c("empty",50,0)],6) is None
+
+
+def test_seven_day_target_prefers_first_configured_long_horizon_candidate():
+    rows=[c("short-priority",96),c("seven-days",192),c("longest",240)]
+    assert choose_candidate(rows,168)["source"]=="seven-days"
+
+
+def test_seven_day_target_falls_back_to_longest_usable_schedule():
+    rows=[c("short-priority",24),c("longer",96),c("empty",240,0)]
+    assert choose_candidate(rows,168)["source"]=="longer"

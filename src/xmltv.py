@@ -20,7 +20,7 @@ from .utils import (
 
 
 SPILL_THRESHOLD_BYTES = int(os.environ.get("XMLTV_SPILL_THRESHOLD_BYTES", str(4 * 1024 * 1024)))
-ARCHIVE_PAST_DAYS = max(1, int(os.environ.get("XMLTV_ARCHIVE_PAST_DAYS", "5") or 5))
+ARCHIVE_PAST_DAYS = max(1, int(os.environ.get("XMLTV_ARCHIVE_PAST_DAYS", "7") or 7))
 
 
 class _OwnedGzipFile(gzip.GzipFile):
@@ -53,8 +53,8 @@ class XMLTVSource:
       checks and before programmes are yielded to the builder.
 
     v13.13:
-    - output programme retention defaults to 5 past days so UHF can expose the
-      provider's 5-day catch-up/DVR window. Source eligibility remains based on
+    - output programme retention defaults to 7 past days so UHF can expose the
+      provider's 7-day catch-up/DVR window. Source eligibility remains based on
       current/upcoming programmes and is intentionally unchanged.
     """
 

@@ -1,5 +1,7 @@
 from datetime import datetime, timezone
+import csv
 
+from src import movie_epg_recovery
 from src.movie_epg_recovery import _summarize_source_votes
 
 
@@ -53,3 +55,30 @@ def test_mirrors_count_as_one_source_and_tie_does_not_create_consensus():
 
     assert channel["status"] == "NO_SOURCE_CONSENSUS"
     assert channel["independent_sources"] == 2
+
+
+def test_unconfirmed_discovery_candidates_do_not_vote(monkeypatch, tmp_path):
+    data = tmp_path / "data"
+    output = tmp_path / "output"
+    data.mkdir()
+    output.mkdir()
+    (data / "source_policy_v15.csv").write_text(
+        "enabled,playlist_name,source,source_id\n"
+        "1,Cinema One,bound-feed,cinema-one-id\n",
+        encoding="utf-8",
+    )
+    candidates = data / "live_source_candidates_v1518.csv"
+    candidates.write_text(
+        "enabled,playlist_name,source,source_id,notes\n"
+        "1,Cinema One,discovery-only,candidate-id,requires two positive observations\n",
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(movie_epg_recovery, "DATA", data)
+    monkeypatch.setattr(movie_epg_recovery, "OUTPUT", output)
+    monkeypatch.setattr(movie_epg_recovery, "CANDIDATES", candidates)
+
+    bindings = movie_epg_recovery._source_bindings_for_consensus([
+        {"playlist_name": "Cinema One"}
+    ])
+
+    assert bindings == {("Cinema One", "bound-feed"): ["cinema-one-id"]}
