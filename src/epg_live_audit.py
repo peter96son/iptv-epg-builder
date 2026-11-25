@@ -10,7 +10,8 @@ DATA=ROOT/"data"
 
 STRICT_VERIFIED={
     "BCU СССР HD":{"source":"iptvx-noarch","source_id":"bcu-sssr","forbidden":{"bcu-sssr-hdr"}},
-    "KLI СССР HD":{"source":"tvteam","source_id":"ch4083","forbidden":set()},
+    "KBC-Страна СССР":{"source":"runigma-iptv","source_id":"kbc-Strana-sssr","forbidden":set()},
+    "KLI СССР HD":{"source":"runigma-iptv","source_id":"kli-sssr-hd","forbidden":set()},
 }
 
 # Backward-compatible public name used by existing regression tests and older
