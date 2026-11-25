@@ -11,7 +11,7 @@ from zoneinfo import ZoneInfo
 
 from .config import load_sources, load_aliases, load_id_fixes, load_json
 from .matcher import Matcher
-from .playlist import parse_m3u
+from .playlist import PlaylistChannel, parse_m3u
 from .reports import write_csv, write_status
 from .utils import fetch_bytes, fetch_to_file, convert_xmltv_timestamp, is_real_tvg_id, xmltv_programme_is_usable
 from .xmltv import XMLTVSource
@@ -73,6 +73,32 @@ def _is_evidence_quarantined_binding(row):
     return (row.get("method") or "").strip().lower() == "evidence-quarantined"
 
 
+def _append_schedule_targets(channels):
+    """Add watched EPG-only channels absent from the source playlist.
+
+    These rows carry no stream URL. Their IDs match the actual Worker playlist,
+    so the guide can include custom channels even when the provider M3U omits
+    them from the playlist used by the builder.
+    """
+    path = ROOT / "data" / "schedule_targets.csv"
+    if not path.exists():
+        return channels
+    existing = {(ch.name or "").strip().casefold() for ch in channels}
+    added = []
+    with path.open(encoding="utf-8-sig", newline="") as f:
+        for row in csv.DictReader(f):
+            name = (row.get("playlist_name") or "").strip()
+            tvg_id = (row.get("playlist_tvg_id") or "").strip()
+            group = (row.get("group") or "").strip()
+            if not name or not tvg_id or name.casefold() in existing:
+                continue
+            added.append(PlaylistChannel(name, tvg_id, name, group))
+            existing.add(name.casefold())
+    if added:
+        print(f"[schedule-targets] added EPG-only channels={len(added)}", flush=True)
+    return channels + added
+
+
 def build():
     OUTPUT.mkdir(exist_ok=True)
     playlist_url = os.environ.get("PLAYLIST_URL", "").strip()
@@ -116,6 +142,10 @@ def build():
             raise SystemExit(
                 f"SAFETY STOP: playlist collapsed from {previous_count} to {current_count} channels."
             )
+
+    # Keep explicitly watched custom channels in the EPG even if they are
+    # absent from PLAYLIST_URL. Snapshot only the real playlist above.
+    channels = _append_schedule_targets(channels)
 
     # Previous published mapping is the persistent channel -> EPG binding.
     # Do not overwrite a binding merely because the feed is temporarily offline.

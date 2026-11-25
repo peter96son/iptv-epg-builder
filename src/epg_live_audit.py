@@ -10,8 +10,8 @@ DATA=ROOT/"data"
 
 STRICT_VERIFIED={
     "BCU СССР HD":{"source":"iptvx-noarch","source_id":"bcu-sssr","forbidden":{"bcu-sssr-hdr"}},
-    "KBC-Страна СССР":{"source":"runigma-iptv","source_id":"kbc-Strana-sssr","forbidden":set()},
-    "KLI СССР HD":{"source":"runigma-iptv","source_id":"kli-sssr-hd","forbidden":set()},
+    "KBC-Страна СССР":{"source":"gabbarit-current","source_id":"KBC-Страна СССР","forbidden":set()},
+    "KLI СССР HD":{"source":"tvteam","source_id":"ch4083","forbidden":set()},
 }
 
 # Backward-compatible public name used by existing regression tests and older
@@ -79,6 +79,10 @@ def build(now=None,strict=True):
             e.clear()
 
     errors=[]; result=[]
+    present_names={r.get("playlist_name","") for r in rows}
+    for required_name in STRICT_VERIFIED:
+        if required_name not in present_names:
+            errors.append(f"{required_name}: missing from mapping.csv")
     for r in rows:
         q=dict(r)
         q.update(live.get(r.get("output_tvg_id"),{"now":None,"next":None}))

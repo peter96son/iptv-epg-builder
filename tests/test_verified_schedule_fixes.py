@@ -7,7 +7,7 @@ def test_verified_schedule_fixes_are_present():
     fixes = {(r["playlist_name"], r["new_tvg_id"]) for r in rows if r["enabled"] == "1"}
 
     expected = {
-        ("KLI СССР HD", "kli-sssr-hd"),
+        ("KLI СССР HD", "X99913"),
         ("Premium HD", "premium-hd"),
         ("VHS HD", "vhs-hd"),
         ("Thriller HD", "thriller-hd"),
