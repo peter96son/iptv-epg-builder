@@ -74,4 +74,18 @@ jobs:
       - name: Publish evidence and proven donor results
         shell: bash
         run: |
-          bash .github/scripts/safe-publish.sh "Recover movie EPG from live evidence"             data/live_epg_observations_v1518.csv             data/live_source_candidates_v1518.csv             data/live_ocr_epg_state.json             output/movie-gap-live-probe.json             output/movie-gap-ocr-profiles.json             output/movie-epg-recovery.json
+          bash .github/scripts/safe-publish.sh "Recover movie EPG from live evidence" \
+            data/live_epg_observations_v1518.csv \
+            data/live_source_candidates_v1518.csv \
+            data/live_ocr_epg_state.json \
+            data/epg-bindings.csv \
+            output/epg.xml.gz \
+            output/mapping.csv \
+            output/uhf-mapping.json \
+            output/source-selection-v15.json \
+            output/movie-epg-audit.csv \
+            output/movie-epg-audit.json \
+            output/movie-epg-gaps.csv \
+            output/movie-gap-live-probe.json \
+            output/movie-gap-ocr-profiles.json \
+            output/movie-epg-recovery.json
