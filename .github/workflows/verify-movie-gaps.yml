@@ -3,7 +3,7 @@ name: Verify Missing Movie EPG
 on:
   workflow_dispatch:
   schedule:
-    - cron: "55 * * * *"
+    - cron: "55 4 * * *"
 
 permissions:
   contents: write
@@ -25,68 +25,19 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install OCR tools
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y ffmpeg tesseract-ocr tesseract-ocr-rus
-
-      - name: Dispatcher — identify movie EPG gaps
+      - name: Identify current movie EPG gaps
         env:
           PLAYLIST_URL: ${{ secrets.PLAYLIST_URL }}
         run: python -m src.movie_epg_recovery audit
 
-      - name: Observer — read current title from live stream
+      - name: Search online EPG feeds by exact channel name
         env:
-          PLAYLIST_URL: ${{ secrets.PLAYLIST_URL }}
-          STREAM_OCR_LANG: rus+eng
-          GAP_PROBE_WORKERS: "8"
-          GAP_PROBE_PADDLE: "0"
-          GAP_PROBE_FFPROBE: "0"
-        run: python -m src.movie_epg_recovery observe
+          EPG_ONLINE_DISCOVERY_TIMEOUT: "20"
+          EPG_ONLINE_DISCOVERY_WORKERS: "6"
+        run: python -m src.movie_online_source_discovery
 
-      - name: Evidence recorder — persist proven live titles
-        run: python -m src.movie_epg_recovery record
-
-      - name: Candidate finder — search all movie EPG sources
-        env:
-          EPG_DISCOVERY_TIMEOUT_CAP: "15"
-          EPG_DISCOVERY_WORKERS: "6"
-          EPG_RECOVERY_SOURCE_CACHE: ".cache/movie-recovery-sources"
-        run: python -m src.movie_epg_recovery discover
-
-      - name: Judge — select only evidence-matching EPG donors
-        env:
-          PLAYLIST_URL: ${{ secrets.PLAYLIST_URL }}
-          EPG_SOURCE_TIMEOUT_CAP: "15"
-          EPG_RECOVERY_SOURCE_CACHE: ".cache/movie-recovery-sources"
-          EPG_SOURCE_RETRIES_CAP: "1"
-          RESELECT_SKIP_METADATA_ENRICH: "1"
-        run: python -m src.movie_epg_recovery select
-
-      - name: 3A — write proven on-screen title only when EPG is absent
-        run: python -m src.live_ocr_current_epg
-
-      - name: Auditor — measure movie EPG after donor selection
-        env:
-          PLAYLIST_URL: ${{ secrets.PLAYLIST_URL }}
-        run: python -m src.movie_epg_recovery audit
-
-      - name: Publish evidence and proven donor results
+      - name: Publish exact-name candidates and source comparison
         shell: bash
         run: |
-          bash .github/scripts/safe-publish.sh "Recover movie EPG from live evidence" \
-            data/live_epg_observations_v1518.csv \
-            data/live_source_candidates_v1518.csv \
-            data/live_ocr_epg_state.json \
-            data/epg-bindings.csv \
-            output/epg.xml.gz \
-            output/mapping.csv \
-            output/uhf-mapping.json \
-            output/source-selection-v15.json \
-            output/movie-epg-audit.csv \
-            output/movie-epg-audit.json \
-            output/movie-epg-gaps.csv \
-            output/movie-gap-live-probe.json \
-            output/movie-gap-ocr-profiles.json \
-            output/movie-source-consensus.json \
-            output/movie-epg-recovery.json
+          bash .github/scripts/safe-publish.sh "Compare online EPG sources for missing movie channels" \
+            output/movie-online-source-discovery.json
