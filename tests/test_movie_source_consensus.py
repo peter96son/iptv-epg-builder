@@ -57,6 +57,60 @@ def test_mirrors_count_as_one_source_and_tie_does_not_create_consensus():
     assert channel["independent_sources"] == 2
 
 
+def test_schedule_majority_without_ocr_is_reported_as_unverified():
+    observations = [{
+        "playlist_name": "Cinema One",
+        "title": "",
+        "when": datetime(2026, 11, 25, 10, tzinfo=timezone.utc),
+        "reference_type": "BOUND_SCHEDULES",
+    }]
+    votes = [
+        _vote("feed-a", "a.example", "The Same Movie"),
+        _vote("feed-b", "b.example", "The Same Movie"),
+        _vote("feed-c", "c.example", "The Same Movie"),
+        _vote("feed-d", "d.example", "A Different Movie", 0.2),
+    ]
+
+    channel = _summarize_source_votes(observations, votes)["channels"]["Cinema One"]
+
+    assert channel["status"] == "SOURCE_CONSENSUS_UNVERIFIED"
+    assert channel["title"] == "The Same Movie"
+    assert channel["live_title"] == ""
+    assert channel["reference_type"] == "BOUND_SCHEDULES"
+    assert channel["live_similarity"] is None
+    assert [item["source"] for item in channel["outliers"]] == ["feed-d"]
+
+
+def test_schedule_only_report_targets_multi_bound_movie_channels(monkeypatch, tmp_path):
+    data = tmp_path / "data"
+    output = tmp_path / "output"
+    data.mkdir()
+    output.mkdir()
+    (output / "movie-epg-audit.csv").write_text(
+        "group,playlist_name\n"
+        "Кино,Cinema One\n"
+        "USSR,USSR One\n"
+        "Sports,Sports One\n",
+        encoding="utf-8",
+    )
+    (data / "source_policy_v15.csv").write_text(
+        "enabled,playlist_name,source,source_id\n"
+        "1,Cinema One,feed-a,id-a\n"
+        "1,Cinema One,feed-b,id-b\n"
+        "1,USSR One,feed-a,id-a\n",
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(movie_epg_recovery, "DATA", data)
+    monkeypatch.setattr(movie_epg_recovery, "OUTPUT", output)
+    now = datetime(2026, 11, 25, 10, tzinfo=timezone.utc)
+
+    rows = movie_epg_recovery._schedule_only_observations([], now)
+
+    assert [row["playlist_name"] for row in rows] == ["Cinema One"]
+    assert rows[0]["reference_type"] == "BOUND_SCHEDULES"
+    assert rows[0]["title"] == ""
+
+
 def test_unconfirmed_discovery_candidates_do_not_vote(monkeypatch, tmp_path):
     data = tmp_path / "data"
     output = tmp_path / "output"

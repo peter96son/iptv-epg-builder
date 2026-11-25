@@ -191,6 +191,45 @@ def _source_bindings_for_consensus(observations):
     return bindings
 
 
+def _schedule_only_observations(observations, observed_dt):
+    """Add source-only checks for movie channels with multiple explicit bindings.
+
+    These rows can report feed agreement and outliers, but they cannot claim
+    that the majority matches the live stream. Only OCR observations provide
+    that independent reference.
+    """
+    live_names = {obs["playlist_name"] for obs in observations if obs.get("title")}
+    audit_path = OUTPUT / "movie-epg-audit.csv"
+    if not audit_path.exists():
+        return []
+    try:
+        with audit_path.open(encoding="utf-8-sig", newline="") as f:
+            names = {
+                (row.get("playlist_name") or "").strip()
+                for row in csv.DictReader(f)
+                if row.get("group") in TARGET_GROUPS and row.get("playlist_name")
+            }
+    except (OSError, csv.Error):
+        return []
+    bindings = _source_bindings_for_consensus(
+        [{"playlist_name": name} for name in names]
+    )
+    by_channel = {}
+    for (name, source), source_ids in bindings.items():
+        if source_ids:
+            by_channel.setdefault(name, set()).add(source)
+    return [
+        {
+            "playlist_name": name,
+            "title": "",
+            "when": observed_dt,
+            "reference_type": "BOUND_SCHEDULES",
+        }
+        for name, sources in sorted(by_channel.items())
+        if name not in live_names and len(sources) >= 2
+    ]
+
+
 def _consensus_family(source_name, source_url, config):
     explicit = str(config.get("consensus_family") or "").strip().casefold()
     if explicit:
@@ -219,17 +258,30 @@ def _summarize_source_votes(observations, votes):
         ordered = sorted(grouped.items(), key=lambda item: (-len(item[1]), item[0]))
         _, top_votes = ordered[0] if ordered else ("", [])
         has_majority = bool(top_votes) and len(top_votes) >= 2 and len(top_votes) * 2 > len(per_family)
-        live_title = obs["title"]
-        live_match = max(
-            (evidence_similarity(live_title, vote["title"]) for vote in top_votes),
-            default=0.0,
+        live_title = str(obs.get("title") or "").strip()
+        live_match = (
+            max(
+                (evidence_similarity(live_title, vote["title"]) for vote in top_votes),
+                default=0.0,
+            )
+            if live_title
+            else None
         )
-        if has_majority and live_match >= 0.82:
-            status = "CONSENSUS"
+        if live_title:
+            if has_majority and live_match >= 0.82:
+                status = "CONSENSUS"
+            elif has_majority:
+                status = "LIVE_TITLE_CONFLICT"
+            elif len(per_family) >= 2:
+                status = "NO_SOURCE_CONSENSUS"
+            elif per_family:
+                status = "INSUFFICIENT_INDEPENDENT_SOURCES"
+            else:
+                status = "NO_SCHEDULE_DATA"
         elif has_majority:
-            status = "LIVE_TITLE_CONFLICT"
+            status = "SOURCE_CONSENSUS_UNVERIFIED"
         elif len(per_family) >= 2:
-            status = "NO_SOURCE_CONSENSUS"
+            status = "SOURCE_DISAGREEMENT_UNVERIFIED"
         elif per_family:
             status = "INSUFFICIENT_INDEPENDENT_SOURCES"
         else:
@@ -238,10 +290,11 @@ def _summarize_source_votes(observations, votes):
             "status": status,
             "observed_at": obs["when"].isoformat(),
             "live_title": live_title,
+            "reference_type": obs.get("reference_type", "LIVE_OCR"),
             "title": top_votes[0]["title"] if top_votes else "",
             "independent_sources": len(per_family),
             "consensus_votes": len(top_votes),
-            "live_similarity": round(live_match, 4),
+            "live_similarity": round(live_match, 4) if live_match is not None else None,
             "sources": [
                 {k: vote[k] for k in ("source", "source_id", "family", "title", "title_norm", "similarity")}
                 for vote in sorted(top_votes, key=lambda v: v["source"])
@@ -287,7 +340,15 @@ def discover_candidates():
         title = str(chosen.get("title") or "").strip()
         name = (row.get("playlist_name") or row.get("provider_name") or "").strip()
         if title and name:
-            observations.append({"playlist_name": name, "title": title, "when": observed_dt})
+            observations.append({
+                "playlist_name": name,
+                "title": title,
+                "when": observed_dt,
+                "reference_type": "LIVE_OCR",
+            })
+    live_observed_names = {obs["playlist_name"] for obs in observations}
+    schedule_only = _schedule_only_observations(observations, observed_dt)
+    observations.extend(schedule_only)
 
     existing = []
     if CANDIDATES.exists():
@@ -315,7 +376,8 @@ def discover_candidates():
             if name and source:
                 candidate_sources_by_channel.setdefault(name,set()).add(source)
 
-        observed_names={obs["playlist_name"] for obs in observations}
+        observed_names=live_observed_names
+        agreement_names={obs["playlist_name"] for obs in observations}
         focused_sources=set()
         needs_discovery=False
         for name in observed_names:
@@ -329,7 +391,7 @@ def discover_candidates():
         # channel. Matching a film somewhere else in a large XMLTV feed is not
         # evidence that the feed belongs to this channel.
         for (channel_name, source_name), source_ids in bindings.items():
-            if channel_name in observed_names and source_ids:
+            if channel_name in agreement_names and source_ids:
                 focused_sources.add(source_name)
 
         configs=[]
@@ -367,7 +429,11 @@ def discover_candidates():
                     for obs in observations:
                         when=obs["when"]
                         if not (start_dt <= when and (stop_dt is None or when < stop_dt)): continue
-                        score=evidence_similarity(ptitle,obs["title"])
+                        score=(
+                            evidence_similarity(ptitle, obs["title"])
+                            if obs.get("title")
+                            else None
+                        )
                         configured_ids = policy_ids.get(obs["playlist_name"], [])
                         title_norm = evidence_normalize(ptitle)
                         if sid in configured_ids and title_norm:
@@ -379,9 +445,9 @@ def discover_candidates():
                                 "priority": configured_ids.index(sid),
                                 "title": ptitle,
                                 "title_norm": title_norm,
-                                "similarity": round(score, 4),
+                                "similarity": round(score, 4) if score is not None else None,
                             })
-                        if score < 0.82: continue
+                        if not obs.get("title") or score < 0.82: continue
                         matches.append({"enabled":"1","playlist_name":obs["playlist_name"],"source":source_name,"source_id":sid,"notes":f"auto-discovered from live title; similarity={score:.3f}; observed={obs['title']}; candidate={ptitle}; requires two positive observations before selection"})
                 return i,source_name,matches,source_votes,None
             except Exception as exc:
@@ -420,7 +486,8 @@ def discover_candidates():
         w.writerows(existing)
 
     result = {
-        "live_observations": len(observations),
+        "live_observations": len(live_observed_names),
+        "schedule_only_channels": len(schedule_only),
         "sources_scanned": len(scanned),
         "sources_failed": failed,
         "candidates_added": len(added),
