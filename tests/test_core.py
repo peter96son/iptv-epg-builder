@@ -89,3 +89,26 @@ def test_fetch_bytes_retries_incomplete_read(monkeypatch):
     monkeypatch.setattr(utils.time, "sleep", lambda *_: None)
     assert utils.fetch_bytes("https://example.test/a.gz", retries=2) == b"good"
     assert calls["n"] == 2
+
+
+def test_fetch_to_file_streams_and_atomically_replaces_destination(tmp_path, monkeypatch):
+    from src import utils
+
+    class Headers(dict):
+        def get(self, key, default=None):
+            return super().get(key, default)
+
+    class Response:
+        headers = Headers({"Content-Length": "7"})
+        def __init__(self): self.parts = iter((b"stream", b"!", b""))
+        def __enter__(self): return self
+        def __exit__(self, *args): return False
+        def read(self, size=-1): return next(self.parts)
+
+    target = tmp_path / "feed.bin"
+    target.write_bytes(b"previous-complete-file")
+    monkeypatch.setattr(utils.urllib.request, "urlopen", lambda *args, **kwargs: Response())
+    result = utils.fetch_to_file("https://example.test/feed.gz", target, retries=1)
+    assert result == str(target)
+    assert target.read_bytes() == b"stream!"
+    assert not list(tmp_path.glob("*.part"))

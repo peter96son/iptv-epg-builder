@@ -1,5 +1,6 @@
 from __future__ import annotations
 import gzip, io, re, urllib.request, urllib.parse, time, http.client, os
+import tempfile
 from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
 
@@ -96,6 +97,92 @@ def fetch_bytes(
         except OSError:
             pass
     raise RuntimeError(f"Failed to fetch {url} after {attempts} attempts: {last}")
+
+
+def fetch_to_file(
+    url: str,
+    destination,
+    timeout: int = 120,
+    retries: int = 4,
+    *,
+    cache_bust_on_retry: bool = False,
+    stale_if_error_seconds: int = 0,
+    deadline_seconds: float | None = None,
+) -> str:
+    """Download an XMLTV payload to disk without retaining the full feed in RAM.
+
+    Each attempt writes to a sibling temporary file and only replaces the
+    destination after the response is complete. A failed or timed-out response
+    therefore cannot poison either the durable cache or the XMLTV parser.
+    """
+    from pathlib import Path
+
+    target = Path(destination)
+    target.parent.mkdir(parents=True, exist_ok=True)
+    started = time.monotonic()
+    last = None
+    attempts = max(1, int(retries))
+    for attempt in range(attempts):
+        tmp_name = None
+        try:
+            if deadline_seconds is not None and time.monotonic() - started >= deadline_seconds:
+                raise TimeoutError(f"source download exceeded {deadline_seconds:.0f}s deadline")
+            request_url = _retry_url(url, attempt, cache_bust_on_retry)
+            req = urllib.request.Request(
+                request_url,
+                headers={
+                    "User-Agent": UA,
+                    "Accept-Encoding": "identity",
+                    "Cache-Control": "no-cache" if attempt else "max-age=0",
+                    "Connection": "close",
+                },
+            )
+            with urllib.request.urlopen(req, timeout=max(1, min(int(timeout), 30))) as response:
+                expected_header = response.headers.get("Content-Length")
+                expected = int(expected_header) if expected_header and expected_header.isdigit() else None
+                fd, tmp_name = tempfile.mkstemp(prefix=f".{target.name}.", suffix=".part", dir=target.parent)
+                received = 0
+                last_progress = 0
+                with os.fdopen(fd, "wb") as output:
+                    while True:
+                        if deadline_seconds is not None and time.monotonic() - started >= deadline_seconds:
+                            raise TimeoutError(f"source download exceeded {deadline_seconds:.0f}s deadline")
+                        chunk = response.read(1024 * 1024)
+                        if not chunk:
+                            break
+                        output.write(chunk)
+                        received += len(chunk)
+                        if received - last_progress >= 64 * 1024 * 1024:
+                            print(f"[download] {target.name}: {received // (1024 * 1024)} MiB", flush=True)
+                            last_progress = received
+                    output.flush()
+                    os.fsync(output.fileno())
+                if expected is not None and received < expected:
+                    raise http.client.IncompleteRead(b"", expected - received)
+            os.replace(tmp_name, target)
+            print(f"[download] {target.name}: complete {received // (1024 * 1024)} MiB", flush=True)
+            return str(target)
+        except Exception as exc:
+            last = exc
+            if tmp_name:
+                try:
+                    os.unlink(tmp_name)
+                except OSError:
+                    pass
+            if attempt + 1 < attempts:
+                remaining = None if deadline_seconds is None else deadline_seconds - (time.monotonic() - started)
+                if remaining is not None and remaining <= 0:
+                    break
+                time.sleep(min(15, 2 ** attempt * 2, remaining if remaining is not None else 15))
+    if stale_if_error_seconds > 0:
+        try:
+            age = time.time() - target.stat().st_mtime
+            if target.is_file() and age <= stale_if_error_seconds and target.stat().st_size:
+                print(f"[cache] using stale-if-error file for {url}; age={int(age)}s", flush=True)
+                return str(target)
+        except OSError:
+            pass
+    raise RuntimeError(f"Failed to fetch {url} to disk after {attempts} attempts: {last}")
 
 def open_xml_bytes(data: bytes):
     if data[:2] == b"\x1f\x8b":

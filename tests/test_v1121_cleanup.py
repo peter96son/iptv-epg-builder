@@ -3,6 +3,7 @@ from __future__ import annotations
 import gzip
 import os
 from pathlib import Path
+from datetime import datetime, timedelta, timezone
 
 from src.xmltv import XMLTVSource
 
@@ -28,6 +29,23 @@ def test_release_drops_small_in_memory_payload():
     src.release()
     assert src._data is None
     assert src._spill_path is None
+
+
+def test_xmltv_source_indexes_file_path_and_removes_owned_temp(tmp_path):
+    start = datetime.now(timezone.utc).replace(microsecond=0)
+    end = start + timedelta(hours=1)
+    stamp = lambda value: value.strftime("%Y%m%d%H%M%S +0000")
+    path = tmp_path / "feed.xml"
+    path.write_text(
+        f'<tv><channel id="c"><display-name>Channel</display-name></channel>'
+        f'<programme channel="c" start="{stamp(start)}" stop="{stamp(end)}"/></tv>',
+        encoding="utf-8",
+    )
+    src = XMLTVSource("file", path, owned_path=True).index()
+    assert "c" in src.channels
+    assert src.size == path.stat().st_size
+    src.release()
+    assert not path.exists()
 
 
 def test_workflow_uses_safer_source_caps():

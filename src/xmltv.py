@@ -4,6 +4,7 @@ import gzip
 import io
 import os
 import tempfile
+import time
 import xml.etree.ElementTree as ET
 from collections import defaultdict
 from copy import deepcopy
@@ -58,11 +59,13 @@ class XMLTVSource:
       current/upcoming programmes and is intentionally unchanged.
     """
 
-    def __init__(self, name: str, data: bytes):
+    def __init__(self, name: str, data: bytes | str | Path, *, owned_path: bool = False):
         self.name = name
-        self._data = data
+        self._data = data if isinstance(data, bytes) else None
+        self._input_path = Path(data) if isinstance(data, (str, Path)) else None
+        self._owns_input_path = bool(owned_path and self._input_path is not None)
         self._spill_path: Path | None = None
-        self.size = len(data or b"")
+        self.size = len(data or b"") if isinstance(data, bytes) else (self._input_path.stat().st_size if self._input_path and self._input_path.exists() else 0)
         self.channels = {}
         self.names = defaultdict(set)
         self.live_ids = set()
@@ -76,6 +79,8 @@ class XMLTVSource:
         """
         if self._data is not None:
             return self._data
+        if self._input_path is not None:
+            return self._input_path.read_bytes()
         if self._spill_path is not None:
             return self._spill_path.read_bytes()
         return b""
@@ -96,10 +101,11 @@ class XMLTVSource:
         if self._data is not None:
             return open_xml_bytes(self._data)
 
-        if self._spill_path is None:
+        path = self._input_path or self._spill_path
+        if path is None:
             return io.BytesIO(b"")
 
-        raw = self._spill_path.open("rb")
+        raw = path.open("rb")
         try:
             magic = raw.read(2)
             raw.seek(0)
@@ -112,6 +118,13 @@ class XMLTVSource:
 
     def release(self) -> None:
         self._data = None
+        if self._owns_input_path and self._input_path is not None:
+            try:
+                self._input_path.unlink()
+            except OSError:
+                pass
+            self._input_path = None
+            self._owns_input_path = False
         if self._spill_path is not None:
             try:
                 self._spill_path.unlink()
@@ -141,7 +154,7 @@ class XMLTVSource:
                     clone.set(attr, shift_xmltv_timestamp(value, offset))
         return clone
 
-    def index(self):
+    def index(self, *, deadline: float | None = None):
         all_channels = {}
         all_names = defaultdict(set)
 
@@ -154,6 +167,8 @@ class XMLTVSource:
                 return self
 
             for event, elem in context:
+                if deadline is not None and time.monotonic() >= deadline:
+                    raise TimeoutError(f"XMLTV indexing exceeded source phase deadline ({self.name})")
                 if event != "end":
                     continue
                 tag = elem.tag.split("}")[-1]
