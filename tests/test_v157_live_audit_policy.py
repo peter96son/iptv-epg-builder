@@ -13,14 +13,13 @@ def test_disabled_candidate_not_allowed(tmp_path):
     assert ("bad","bad") not in allowed["Premium HD"]
 
 def test_strict_verified_preserved():
-    assert a.STRICT_VERIFIED["BCU СССР HD"]["source_id"]=="bcu-sssr"
     assert a.STRICT_VERIFIED["KLI СССР HD"]=={"source":"tvteam","source_id":"ch4083","forbidden":set()}
     assert a.STRICT_VERIFIED["KBC-Страна СССР"]=={"source":"gabbarit-current","source_id":"KBC-Страна СССР","forbidden":set()}
 
 def test_legacy_verified_export_is_preserved():
     from src.epg_live_audit import VERIFIED
     assert VERIFIED is a.STRICT_VERIFIED
-    assert VERIFIED["BCU СССР HD"]["source"]=="iptvx-noarch"
+    assert "BCU СССР HD" not in VERIFIED
 
 def test_strict_targets_missing_from_mapping_are_reported(tmp_path, monkeypatch):
     import gzip
