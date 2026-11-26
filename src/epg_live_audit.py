@@ -9,7 +9,6 @@ OUT=ROOT/"output"
 DATA=ROOT/"data"
 
 STRICT_VERIFIED={
-    "BCU СССР HD":{"source":"iptvx-noarch","source_id":"bcu-sssr","forbidden":{"bcu-sssr-hdr"}},
     "KBC-Страна СССР":{"source":"gabbarit-current","source_id":"KBC-Страна СССР","forbidden":set()},
     "KLI СССР HD":{"source":"tvteam","source_id":"ch4083","forbidden":set()},
 }
