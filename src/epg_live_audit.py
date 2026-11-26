@@ -10,7 +10,7 @@ DATA=ROOT/"data"
 
 STRICT_VERIFIED={
     "KBC-Страна СССР":{"source":"gabbarit-current","source_id":"KBC-Страна СССР","forbidden":set()},
-    "KLI СССР HD":{"source":"tvteam","source_id":"ch4083","forbidden":set()},
+    "KLI СССР HD":{"source":"iptv-online-primary","source_id":"X99913","forbidden":set()},
 }
 
 # Backward-compatible public name used by existing regression tests and older
