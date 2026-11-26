@@ -12,9 +12,10 @@ def test_non_cps_unchanged():
     assert channel_time_offset_minutes("openbox-tsd","mm-ussr-drama") == 0
     assert channel_time_offset_minutes("runigma","cps-ussr") == 0
 
-def test_kli_provider_schedule_shifted_one_hour_earlier():
+def test_kli_exact_feed_schedule_shifted_fifteen_minutes_earlier():
     load_channel_time_offsets.cache_clear()
-    assert channel_time_offset_minutes("tvteam", "ch4083") == -60
+    assert channel_time_offset_minutes("iptv-online-primary", "X99913") == -15
+    assert channel_time_offset_minutes("tvteam", "ch4083") == 0
 
 def test_plus_two_hours_rollover():
     assert shift_xmltv_timestamp("20260821233000 -0700",120) == "20260822013000 -0700"

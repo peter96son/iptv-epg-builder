@@ -5,8 +5,8 @@ def test_kli_exact_provider_pin_is_not_dropped():
     rows = [r for r in load_aliases() if r.get("playlist_name") == "KLI СССР HD"]
     assert rows
     assert any(
-        r.get("source") == "tvteam"
-        and r.get("source_id") == "ch4083"
+        r.get("source") == "iptv-online-primary"
+        and r.get("source_id") == "X99913"
         and r.get("hard_pin") == "1"
         for r in rows
     )
