@@ -1,8 +1,4 @@
-"""Check whether EPG feeds cover movie channels that currently lack schedules.
-
-The report is coverage evidence only. A channel-name match never changes a
-binding, and programme titles are deliberately not compared here.
-"""
+"""Compare current schedules from independent EPG feeds for movie channels."""
 from __future__ import annotations
 
 import csv
@@ -22,6 +18,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "output"
 GAPS = OUTPUT / "movie-epg-gaps.csv"
 CANDIDATES = ROOT / "data" / "online_epg_candidates.json"
+TARGETS = ROOT / "data" / "movie_source_targets.csv"
 REPORT = OUTPUT / "movie-online-source-discovery.json"
 TARGET_GROUPS = {"Кино", "USSR", "Кинозалы", "Кино 4K"}
 
@@ -47,6 +44,28 @@ def _missing_channels(path: Path | None = None) -> list[dict]:
             "provider_name": (row.get("provider_name") or "").strip(),
             "provider_tvg_id": (row.get("provider_tvg_id") or "").strip(),
         })
+    # Explicitly include channels with a known but user-reported wrong schedule.
+    if TARGETS.exists():
+        with TARGETS.open(encoding="utf-8-sig", newline="") as f:
+            for row in csv.DictReader(f):
+                name = (row.get("playlist_name") or "").strip()
+                if not name:
+                    continue
+                key = normalize_name(name)
+                target = {
+                    "group": (row.get("group") or "").strip(),
+                    "playlist_name": name,
+                    "provider_name": (row.get("provider_name") or "").strip(),
+                    "provider_tvg_id": (row.get("provider_tvg_id") or "").strip(),
+                    "aliases": [v.strip() for v in (row.get("aliases") or "").split("|") if v.strip()],
+                    "user_reported_wrong_epg": True,
+                }
+                if key in channels:
+                    channels[key].update({k: v for k, v in target.items() if v and k != "aliases"})
+                    channels[key]["aliases"] = target["aliases"]
+                    channels[key]["user_reported_wrong_epg"] = True
+                else:
+                    channels[key] = target
     return list(channels.values())
 
 
@@ -88,6 +107,51 @@ def _source_inventory() -> list[dict]:
     return rows
 
 
+def _summarize_current_schedules(channel: dict) -> dict:
+    """Compare current titles, counting a feed hostname as one source family."""
+    by_family = defaultdict(set)
+    family_details = defaultdict(list)
+    for feed in channel["sources_with_channel"]:
+        for programme in feed.get("current_programmes", []):
+            normalized = normalize_name(programme["title"])
+            if normalized:
+                by_family[feed["family"]].add(normalized)
+                family_details[(feed["family"], normalized)].append({
+                    "source": feed["source"], "source_id": feed["source_id"],
+                    "title": programme["title"], "start": programme["start"], "stop": programme["stop"],
+                })
+    votes = defaultdict(list)
+    family_conflicts = []
+    for family, titles in by_family.items():
+        if len(titles) != 1:
+            family_conflicts.append({"family": family, "titles": sorted(titles)})
+            continue
+        title = next(iter(titles))
+        votes[title].append({"family": family, "sources": family_details[(family, title)]})
+    ranked = sorted(votes.items(), key=lambda item: (-len(item[1]), item[0]))
+    _, top_votes = ranked[0] if ranked else ("", [])
+    independent = sum(len(titles) == 1 for titles in by_family.values())
+    has_majority = bool(top_votes) and len(top_votes) >= 2 and len(top_votes) * 2 > independent
+    if has_majority:
+        status = "SOURCE_CONSENSUS_UNVERIFIED"
+    elif independent >= 2:
+        status = "SOURCE_DISAGREEMENT_UNVERIFIED"
+    elif independent == 1:
+        status = "INSUFFICIENT_INDEPENDENT_SOURCES"
+    else:
+        status = "NO_CURRENT_DATA"
+    return {
+        "status": status,
+        "title": top_votes[0]["sources"][0]["title"] if top_votes else "",
+        "independent_sources": independent,
+        "consensus_votes": len(top_votes),
+        "sources": [vote for _, group in ranked[:1] for vote in group],
+        "outliers": [vote for _, group in ranked[1:] for vote in group],
+        "same_family_conflicts": family_conflicts,
+        "verified_against_live_stream": False,
+    }
+
+
 def _scan_source(spec: tuple, channels: list[dict], now: datetime, timeout: int) -> dict:
     index, source = spec
     name, url, kind = source["name"], source["url"], source["kind"]
@@ -95,7 +159,7 @@ def _scan_source(spec: tuple, channels: list[dict], now: datetime, timeout: int)
         payload = fetch_bytes(url, timeout=timeout, retries=0, stale_if_error_seconds=0)
         targets_by_norm = defaultdict(list)
         for target in channels:
-            for label in (target["playlist_name"], target["provider_name"]):
+            for label in (target["playlist_name"], target["provider_name"], *target.get("aliases", [])):
                 norm = normalize_name(label)
                 if norm:
                     targets_by_norm[norm].append(target)
@@ -127,6 +191,7 @@ def _scan_source(spec: tuple, channels: list[dict], now: datetime, timeout: int)
                             "source_id": source_id,
                             "display_names": display_names,
                             "programmes_7d": 0,
+                            "current_programmes": [],
                         }
                         matches[(target["playlist_name"], source_id)] = match
                         by_source_id[source_id].append(match)
@@ -135,19 +200,22 @@ def _scan_source(spec: tuple, channels: list[dict], now: datetime, timeout: int)
                 elif tag == "programme":
                     source_id = (elem.get("channel") or "").strip()
                     if source_id in by_source_id:
-                        has_title = any(
-                            child.tag.split("}")[-1] == "title" and child.text and child.text.strip()
-                            for child in elem
-                        )
+                        title = next((child.text.strip() for child in elem
+                                      if child.tag.split("}")[-1] == "title" and child.text and child.text.strip()), "")
                         start = parse_xmltv_datetime(elem.get("start", ""))
                         stop = parse_xmltv_datetime(elem.get("stop", ""))
                         if start is not None:
                             start = start.replace(tzinfo=timezone.utc) if start.tzinfo is None else start.astimezone(timezone.utc)
                         if stop is not None:
                             stop = stop.replace(tzinfo=timezone.utc) if stop.tzinfo is None else stop.astimezone(timezone.utc)
-                        if has_title and start is not None and now <= start <= horizon and (stop is None or stop > start):
+                        if title and start is not None:
                             for match in by_source_id[source_id]:
-                                match["programmes_7d"] += 1
+                                if stop is not None and stop > start and start <= now < stop:
+                                    match["current_programmes"].append({
+                                        "title": title, "start": start.isoformat(), "stop": stop.isoformat(),
+                                    })
+                                if now <= start <= horizon and (stop is None or stop > start):
+                                    match["programmes_7d"] += 1
                     elem.clear()
                     root.clear()
         finally:
@@ -186,6 +254,7 @@ def run() -> dict:
                 "source_id": match["source_id"],
                 "display_names": match["display_names"],
                 "programmes_7d": match["programmes_7d"],
+                "current_programmes": match["current_programmes"],
             }
             channel = channel_rows[match["playlist_name"]]
             channel["sources_with_channel"].append(row)
@@ -203,12 +272,16 @@ def run() -> dict:
             "channels": matches,
         })
 
+    for channel in channel_rows.values():
+        # A feed hostname is one vote; same-host disagreements are excluded.
+        channel["current_schedule_consensus"] = _summarize_current_schedules(channel)
+
     payload = {
         "generated_at": now.isoformat(),
-        "method": "normalized exact channel-name coverage; counts programmes scheduled within the next 7 days",
+        "method": "exact channel-name matching; current programme titles compared by independent feed hostname; mirrors count once",
         "scope": sorted(TARGET_GROUPS),
         "automatic_binding": False,
-        "programme_title_comparison": False,
+        "programme_title_comparison": True,
         "sources_scanned": len(results),
         "sources_failed": [{"source": r["source"], "url": r["url"], "error": r["error"]} for r in results if r.get("error")],
         "sources": source_rows,
